@@ -31,14 +31,18 @@
         "protocol": "query",
         "imports": [
             "Network.AWS.SES.DeleteIdentity",
+            "Network.AWS.SES.DeleteIdentityPolicy",
             "Network.AWS.SES.DeleteVerifiedEmailAddress",
             "Network.AWS.SES.GetIdentityDkimAttributes",
             "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "Network.AWS.SES.GetIdentityPolicies",
             "Network.AWS.SES.GetIdentityVerificationAttributes",
             "Network.AWS.SES.GetSendQuota",
             "Network.AWS.SES.GetSendStatistics",
             "Network.AWS.SES.ListIdentities",
+            "Network.AWS.SES.ListIdentityPolicies",
             "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "Network.AWS.SES.PutIdentityPolicy",
             "Network.AWS.SES.SendEmail",
             "Network.AWS.SES.SendRawEmail",
             "Network.AWS.SES.SetIdentityDkimEnabled",
@@ -63,6 +67,10 @@
         },
         "endpointPrefix": "email",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
             "throttling": {
                 "error": "Throttling",
                 "code": 400
@@ -89,14 +97,18 @@
         "exposed": [
             "Network.AWS.SES",
             "Network.AWS.SES.DeleteIdentity",
+            "Network.AWS.SES.DeleteIdentityPolicy",
             "Network.AWS.SES.DeleteVerifiedEmailAddress",
             "Network.AWS.SES.GetIdentityDkimAttributes",
             "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "Network.AWS.SES.GetIdentityPolicies",
             "Network.AWS.SES.GetIdentityVerificationAttributes",
             "Network.AWS.SES.GetSendQuota",
             "Network.AWS.SES.GetSendStatistics",
             "Network.AWS.SES.ListIdentities",
+            "Network.AWS.SES.ListIdentityPolicies",
             "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "Network.AWS.SES.PutIdentityPolicy",
             "Network.AWS.SES.SendEmail",
             "Network.AWS.SES.SendRawEmail",
             "Network.AWS.SES.SetIdentityDkimEnabled",
@@ -314,7 +326,7 @@
                         "name": "_idaDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -352,7 +364,7 @@
                         "name": "_idaDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -1062,7 +1074,7 @@
                     "name": "_rmData",
                     "shape": "RawMessageData",
                     "locationName": "Data",
-                    "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.",
+                    "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- If you are using 'SendRawEmail' with sending authorization, you can include\n-- X-headers in the raw message to specify the \"Source,\" \"From,\" and\n-- \"Return-Path\" addresses. For more information, see the documentation for 'SendRawEmail'.\n--\n-- Do not include these X-headers in the DKIM signature, because they are\n-- removed by Amazon SES before sending the email. For more information, go to\n-- the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.",
                     "typeExposed": "Base64",
                     "type": "Base64"
                 },
@@ -1083,7 +1095,7 @@
                         "name": "_rmData",
                         "shape": "RawMessageData",
                         "locationName": "Data",
-                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.",
+                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- If you are using 'SendRawEmail' with sending authorization, you can include\n-- X-headers in the raw message to specify the \"Source,\" \"From,\" and\n-- \"Return-Path\" addresses. For more information, see the documentation for 'SendRawEmail'.\n--\n-- Do not include these X-headers in the DKIM signature, because they are\n-- removed by Amazon SES before sending the email. For more information, go to\n-- the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     }
@@ -1108,7 +1120,7 @@
                         "name": "_rmData",
                         "shape": "RawMessageData",
                         "locationName": "Data",
-                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.",
+                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- If you are using 'SendRawEmail' with sending authorization, you can include\n-- X-headers in the raw message to specify the \"Source,\" \"From,\" and\n-- \"Return-Path\" addresses. For more information, see the documentation for 'SendRawEmail'.\n--\n-- Do not include these X-headers in the DKIM signature, because they are\n-- removed by Amazon SES before sending the email. For more information, go to\n-- the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     }
@@ -1404,6 +1416,166 @@
                 "streaming": false,
                 "style": "nullary",
                 "fieldPad": 0,
+                "ctor": "deleteIdentityPolicyResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "DeleteIdentityPolicyResponse",
+                "resultWrapper": "DeleteIdentityPolicyResult",
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentityPolicy.html",
+            "namespace": "Network.AWS.SES.DeleteIdentityPolicy",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "pager": null,
+            "name": "DeleteIdentityPolicy",
+            "method": "post",
+            "documentation": "-- | Deletes the specified sending authorization policy for the given identity\n-- (email address or domain). This API returns successfully even if a policy\n-- with the specified name does not exist.\n--\n-- This API is for the identity owner only. If you have not verified the\n-- identity, this API will return an error. Sending authorization is a feature\n-- that enables an identity owner to authorize other senders to use its\n-- identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html AmazonSES Developer Guide>.\n--\n-- This action is throttled at one request per second.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 14,
+                "ctor": "deleteIdentityPolicy",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dipIdentity",
+                        "name": "_dipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity that is associated with the policy that you want to delete. You\n-- can specify the identity by using its name or by using its Amazon Resource\n-- Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dipPolicyName",
+                        "name": "_dipPolicyName",
+                        "shape": "PolicyName",
+                        "locationName": "PolicyName",
+                        "documentation": "-- | The name of the policy to be deleted.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "DeleteIdentityPolicy",
+                "query": [
+                    {
+                        "field": "_dipIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_dipPolicyName",
+                        "locationName": "PolicyName",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dipIdentity",
+                        "name": "_dipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity that is associated with the policy that you want to delete. You\n-- can specify the identity by using its name or by using its Amazon Resource\n-- Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dipPolicyName",
+                        "name": "_dipPolicyName",
+                        "shape": "PolicyName",
+                        "locationName": "PolicyName",
+                        "documentation": "-- | The name of the policy to be deleted.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
                 "ctor": "deleteVerifiedEmailAddressResponse",
                 "headerPad": 0,
                 "wrapper": false,
@@ -1629,7 +1801,7 @@
             "pager": null,
             "name": "GetIdentityDkimAttributes",
             "method": "post",
-            "documentation": "-- | Returns the current status of Easy DKIM signing for an entity. For domain\n-- name identities, this action also returns the DKIM tokens that are required\n-- for Easy DKIM signing, and whether Amazon SES has successfully verified that\n-- these tokens have been published.\n--\n-- This action takes a list of identities as input and returns the following\n-- information for each:\n--\n-- Whether Easy DKIM signing is enabled or disabled. A set of DKIM tokens that\n-- represent the identity. If the identity is an email address, the tokens\n-- represent the domain of that address. Whether Amazon SES has successfully\n-- verified the DKIM tokens published in the domain's DNS. This information is\n-- only returned for domain name identities, not for email addresses.  This\n-- action is throttled at one request per second and can only get DKIM\n-- attributes for up to 100 identities at a time.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
+            "documentation": "-- | Returns the current status of Easy DKIM signing for an entity. For domain\n-- name identities, this action also returns the DKIM tokens that are required\n-- for Easy DKIM signing, and whether Amazon SES has successfully verified that\n-- these tokens have been published.\n--\n-- This action takes a list of identities as input and returns the following\n-- information for each:\n--\n-- Whether Easy DKIM signing is enabled or disabled. A set of DKIM tokens that\n-- represent the identity. If the identity is an email address, the tokens\n-- represent the domain of that address. Whether Amazon SES has successfully\n-- verified the DKIM tokens published in the domain's DNS. This information is\n-- only returned for domain name identities, not for email addresses.  This\n-- action is throttled at one request per second and can only get DKIM\n-- attributes for up to 100 identities at a time.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1830,7 +2002,7 @@
             "pager": null,
             "name": "GetIdentityNotificationAttributes",
             "method": "post",
-            "documentation": "-- | Given a list of verified identities (email addresses and/or domains), returns\n-- a structure describing identity notification attributes.\n--\n-- This action is throttled at one request per second and can only get\n-- notification attributes for up to 100 identities at a time.\n--\n-- For more information about using notifications with Amazon SES, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide\u003e.",
+            "documentation": "-- | Given a list of verified identities (email addresses and/or domains), returns\n-- a structure describing identity notification attributes.\n--\n-- This action is throttled at one request per second and can only get\n-- notification attributes for up to 100 identities at a time.\n--\n-- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1861,7 +2033,7 @@
                     "name": "_ginaIdentities",
                     "shape": "IdentityList",
                     "locationName": "Identities",
-                    "documentation": "-- | A list of one or more identities.",
+                    "documentation": "-- | A list of one or more identities. You can specify an identity by using its\n-- name or by using its Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.",
                     "typeExposed": "[Text]",
                     "type": "List \"member\" Text"
                 },
@@ -1906,7 +2078,7 @@
                         "name": "_ginaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of one or more identities.",
+                        "documentation": "-- | A list of one or more identities. You can specify an identity by using its\n-- name or by using its Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -1926,7 +2098,229 @@
                         "name": "_ginaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of one or more identities.",
+                        "documentation": "-- | A list of one or more identities. You can specify an identity by using its\n-- name or by using its Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "xml",
+                "fieldPad": 0,
+                "ctor": "getIdentityPoliciesResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": "_EMap",
+                    "lensMapping": "_EMap",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "query",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "giprPolicies",
+                    "name": "_giprPolicies",
+                    "shape": "PolicyMap",
+                    "locationName": "Policies",
+                    "documentation": "-- | A map of policy names to policies.",
+                    "typeExposed": "HashMap Text Text",
+                    "type": "EMap \"entry\" \"key\" \"value\" Text Text"
+                },
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GetIdentityPoliciesResponse",
+                "resultWrapper": "GetIdentityPoliciesResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "giprPolicies",
+                        "name": "_giprPolicies",
+                        "shape": "PolicyMap",
+                        "locationName": "Policies",
+                        "documentation": "-- | A map of policy names to policies.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "EMap \"entry\" \"key\" \"value\" Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_EMap",
+                        "lensMapping": "_EMap",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "giprPolicies",
+                        "name": "_giprPolicies",
+                        "shape": "PolicyMap",
+                        "locationName": "Policies",
+                        "documentation": "-- | A map of policy names to policies.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "EMap \"entry\" \"key\" \"value\" Text Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityPolicies.html",
+            "namespace": "Network.AWS.SES.GetIdentityPolicies",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "pager": null,
+            "name": "GetIdentityPolicies",
+            "method": "post",
+            "documentation": "-- | Returns the requested sending authorization policies for the given identity\n-- (email address or domain). The policies are returned as a map of policy names\n-- to policy contents. You can retrieve a maximum of 20 policies at a time.\n--\n-- This API is for the identity owner only. If you have not verified the\n-- identity, this API will return an error. Sending authorization is a feature\n-- that enables an identity owner to authorize other senders to use its\n-- identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html AmazonSES Developer Guide>.\n--\n-- This action is throttled at one request per second.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 15,
+                "ctor": "getIdentityPolicies",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gipIdentity",
+                        "name": "_gipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity for which the policies will be retrieved. You can specify an\n-- identity by using its name or by using its Amazon Resource Name (ARN).\n-- Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 12,
+                "name": "GetIdentityPolicies",
+                "query": [
+                    {
+                        "field": "_gipIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gipPolicyNames",
+                        "locationName": "PolicyNames",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 12,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gipPolicyNames",
+                        "name": "_gipPolicyNames",
+                        "shape": "PolicyNameList",
+                        "locationName": "PolicyNames",
+                        "documentation": "-- | A list of the names of policies to be retrieved. You can retrieve a maximum\n-- of 20 policies at a time. If you do not know the names of the policies that\n-- are attached to the identity, you can use 'ListIdentityPolicies'.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gipIdentity",
+                        "name": "_gipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity for which the policies will be retrieved. You can specify an\n-- identity by using its name or by using its Amazon Resource Name (ARN).\n-- Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gipPolicyNames",
+                        "name": "_gipPolicyNames",
+                        "shape": "PolicyNameList",
+                        "locationName": "PolicyNames",
+                        "documentation": "-- | A list of the names of policies to be retrieved. You can retrieve a maximum\n-- of 20 policies at a time. If you do not know the names of the policies that\n-- are attached to the identity, you can use 'ListIdentityPolicies'.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -2753,6 +3147,208 @@
                 "listElement": "Text",
                 "style": "xml",
                 "fieldPad": 0,
+                "ctor": "listIdentityPoliciesResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "query",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "liprPolicyNames",
+                    "name": "_liprPolicyNames",
+                    "shape": "PolicyNameList",
+                    "locationName": "PolicyNames",
+                    "documentation": "-- | A list of names of policies that apply to the specified identity.",
+                    "typeExposed": "[Text]",
+                    "type": "List \"member\" Text"
+                },
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "ListIdentityPoliciesResponse",
+                "resultWrapper": "ListIdentityPoliciesResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "liprPolicyNames",
+                        "name": "_liprPolicyNames",
+                        "shape": "PolicyNameList",
+                        "locationName": "PolicyNames",
+                        "documentation": "-- | A list of names of policies that apply to the specified identity.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "liprPolicyNames",
+                        "name": "_liprPolicyNames",
+                        "shape": "PolicyNameList",
+                        "locationName": "PolicyNames",
+                        "documentation": "-- | A list of names of policies that apply to the specified identity.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentityPolicies.html",
+            "namespace": "Network.AWS.SES.ListIdentityPolicies",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "pager": null,
+            "name": "ListIdentityPolicies",
+            "method": "post",
+            "documentation": "-- | Returns a list of sending authorization policies that are attached to the\n-- given identity (email address or domain). This API returns only a list. If\n-- you want the actual policy content, you can use 'GetIdentityPolicies'.\n--\n-- This API is for the identity owner only. If you have not verified the\n-- identity, this API will return an error. Sending authorization is a feature\n-- that enables an identity owner to authorize other senders to use its\n-- identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html AmazonSES Developer Guide>.\n--\n-- This action is throttled at one request per second.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "query",
+                "fieldPad": 0,
+                "ctor": "listIdentityPolicies",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "query",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "lipIdentity",
+                    "name": "_lipIdentity",
+                    "shape": "Identity",
+                    "locationName": "Identity",
+                    "documentation": "-- | The identity that is associated with the policy for which the policies will\n-- be listed. You can specify an identity by using its name or by using its\n-- Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lipIdentity",
+                        "name": "_lipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity that is associated with the policy for which the policies will\n-- be listed. You can specify an identity by using its name or by using its\n-- Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 9,
+                "name": "ListIdentityPolicies",
+                "query": [
+                    {
+                        "field": "_lipIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lipIdentity",
+                        "name": "_lipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity that is associated with the policy for which the policies will\n-- be listed. You can specify an identity by using its name or by using its\n-- Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "style": "xml",
+                "fieldPad": 0,
                 "ctor": "listVerifiedEmailAddressesResponse",
                 "headerPad": 0,
                 "field": {
@@ -2880,6 +3476,207 @@
                     "Ord",
                     "Read",
                     "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "putIdentityPolicyResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "PutIdentityPolicyResponse",
+                "resultWrapper": "PutIdentityPolicyResult",
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/ses/latest/APIReference/API_PutIdentityPolicy.html",
+            "namespace": "Network.AWS.SES.PutIdentityPolicy",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "pager": null,
+            "name": "PutIdentityPolicy",
+            "method": "post",
+            "documentation": "-- | Adds or updates a sending authorization policy for the specified identity\n-- (email address or domain).\n--\n-- This API is for the identity owner only. If you have not verified the\n-- identity, this API will return an error. Sending authorization is a feature\n-- that enables an identity owner to authorize other senders to use its\n-- identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html AmazonSES Developer Guide>.\n--\n-- This action is throttled at one request per second.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 14,
+                "ctor": "putIdentityPolicy",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pipIdentity",
+                        "name": "_pipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity to which the policy will apply. You can specify an identity by\n-- using its name or by using its Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pipPolicyName",
+                        "name": "_pipPolicyName",
+                        "shape": "PolicyName",
+                        "locationName": "PolicyName",
+                        "documentation": "-- | The name of the policy.\n--\n-- The policy name cannot exceed 64 characters and can only include\n-- alphanumeric characters, dashes, and underscores.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pipPolicy",
+                        "name": "_pipPolicy",
+                        "shape": "Policy",
+                        "locationName": "Policy",
+                        "documentation": "-- | The text of the policy in JSON format. The policy cannot exceed 4 KB.\n--\n-- For information about the syntax of sending authorization policies, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "PutIdentityPolicy",
+                "query": [
+                    {
+                        "field": "_pipIdentity",
+                        "locationName": "Identity",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_pipPolicyName",
+                        "locationName": "PolicyName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_pipPolicy",
+                        "locationName": "Policy",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pipIdentity",
+                        "name": "_pipIdentity",
+                        "shape": "Identity",
+                        "locationName": "Identity",
+                        "documentation": "-- | The identity to which the policy will apply. You can specify an identity by\n-- using its name or by using its Amazon Resource Name (ARN). Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.\n--\n-- To successfully call this API, you must own the identity.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pipPolicy",
+                        "name": "_pipPolicy",
+                        "shape": "Policy",
+                        "locationName": "Policy",
+                        "documentation": "-- | The text of the policy in JSON format. The policy cannot exceed 4 KB.\n--\n-- For information about the syntax of sending authorization policies, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pipPolicyName",
+                        "name": "_pipPolicyName",
+                        "shape": "PolicyName",
+                        "locationName": "PolicyName",
+                        "documentation": "-- | The name of the policy.\n--\n-- The policy name cannot exceed 64 characters and can only include\n-- alphanumeric characters, dashes, and underscores.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SES",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
                     "Monoid",
                     "IsString"
                 ],
@@ -2971,7 +3768,7 @@
             "pager": null,
             "name": "SendEmail",
             "method": "post",
-            "documentation": "-- | Composes an email message based on input data, and then immediately queues\n-- the message for sending.\n--\n-- You can only send email from verified email addresses and domains. If your\n-- account is still in the Amazon SES sandbox, you must also verify every\n-- recipient email address except for the recipients provided by the Amazon SES\n-- mailbox simulator. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide\u003e.\n-- The total size of the message cannot exceed 10 MB.\n--\n-- Amazon SES has a limit on the total number of recipients per message: The\n-- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you\n-- need to send an email message to a larger audience, you can divide your\n-- recipient list into groups of 50 or fewer, and then call Amazon SES\n-- repeatedly to send the message to each group.\n--\n-- For every message that you send, the total number of recipients (To:, CC:\n-- and BCC:) is counted against your /sending quota/ - the maximum number of\n-- emails you can send in a 24-hour period. For information about your sending\n-- quota, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide\u003e.",
+            "documentation": "-- | Composes an email message based on input data, and then immediately queues\n-- the message for sending.\n--\n-- There are several important points to know about 'SendEmail':\n--\n-- You can only send email from verified email addresses and domains;\n-- otherwise, you will get an \"Email address not verified\" error. If your\n-- account is still in the Amazon SES sandbox, you must also verify every\n-- recipient email address except for the recipients provided by the Amazon SES\n-- mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.\n-- The total size of the message cannot exceed 10 MB. This includes any\n-- attachments that are part of the message. Amazon SES has a limit on the total\n-- number of recipients per message. The combined number of To:, CC: and BCC:\n-- email addresses cannot exceed 50. If you need to send an email message to a\n-- larger audience, you can divide your recipient list into groups of 50 or\n-- fewer, and then call Amazon SES repeatedly to send the message to each group.\n-- For every message that you send, the total number of recipients (To:, CC: and\n-- BCC:) is counted against your sending quota - the maximum number of emails\n-- you can send in a 24-hour period. For information about your sending quota,\n-- go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3008,7 +3805,7 @@
                         "name": "_seSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.",
+                        "documentation": "-- | The email address that is sending the email. This email address must be\n-- either individually verified with Amazon SES, or from a domain that has been\n-- verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.\n--\n-- If you are sending on behalf of another user and have been permitted to do\n-- so by a sending authorization policy, then you must also specify the 'SourceArn'\n-- parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html AmazonSES Developer Guide>.\n--\n-- In all cases, the email address must be 7-bit ASCII. If the text must\n-- contain any other characters, then you must use MIME encoded-word syntax (RFC\n-- 2047) instead of a literal string. MIME encoded-word syntax uses the\n-- following form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3079,6 +3876,16 @@
                         "field": "_seReturnPath",
                         "locationName": "ReturnPath",
                         "type": "field"
+                    },
+                    {
+                        "field": "_seSourceArn",
+                        "locationName": "SourceArn",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_seReturnPathArn",
+                        "locationName": "ReturnPathArn",
+                        "type": "field"
                     }
                 ],
                 "locationPad": 17,
@@ -3119,6 +3926,42 @@
                         "shape": "Address",
                         "locationName": "ReturnPath",
                         "documentation": "-- | The email address to which bounces and complaints are to be forwarded when\n-- feedback forwarding is enabled. If the message cannot be delivered to the\n-- recipient, then an error message will be returned from the recipient's ISP;\n-- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter. The 'ReturnPath' parameter is never overwritten. This email address\n-- must be either individually verified with Amazon SES, or from a domain that\n-- has been verified with Amazon SES.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "seSourceArn",
+                        "name": "_seSourceArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "SourceArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to send for the email address specified in the 'Source' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to send from 'user@example.com',\n-- then you would specify the 'SourceArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'Source' to be 'user@example.com'.\n--\n-- For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SESDeveloper Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "seReturnPathArn",
+                        "name": "_seReturnPathArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "ReturnPathArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to use the email address specified in the 'ReturnPath' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to use 'feedback@example.com',\n-- then you would specify the 'ReturnPathArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'ReturnPath' to be 'feedback@example.com'.\n--\n-- For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SESDeveloper Guide>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3200,6 +4043,24 @@
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "seReturnPathArn",
+                        "name": "_seReturnPathArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "ReturnPathArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to use the email address specified in the 'ReturnPath' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to use 'feedback@example.com',\n-- then you would specify the 'ReturnPathArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'ReturnPath' to be 'feedback@example.com'.\n--\n-- For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SESDeveloper Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "error",
                         "monoid": false,
                         "protocol": "query",
@@ -3210,9 +4071,27 @@
                         "name": "_seSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.",
+                        "documentation": "-- | The email address that is sending the email. This email address must be\n-- either individually verified with Amazon SES, or from a domain that has been\n-- verified with Amazon SES. For information about verifying identities, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.\n--\n-- If you are sending on behalf of another user and have been permitted to do\n-- so by a sending authorization policy, then you must also specify the 'SourceArn'\n-- parameter. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html AmazonSES Developer Guide>.\n--\n-- In all cases, the email address must be 7-bit ASCII. If the text must\n-- contain any other characters, then you must use MIME encoded-word syntax (RFC\n-- 2047) instead of a literal string. MIME encoded-word syntax uses the\n-- following form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "seSourceArn",
+                        "name": "_seSourceArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "SourceArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to send for the email address specified in the 'Source' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to send from 'user@example.com',\n-- then you would specify the 'SourceArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'Source' to be 'user@example.com'.\n--\n-- For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SESDeveloper Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ]
             }
@@ -3316,7 +4195,7 @@
             "pager": null,
             "name": "SendRawEmail",
             "method": "post",
-            "documentation": "-- | Sends an email message, with header and content specified by the client. The 'SendRawEmail' action is useful for sending multipart MIME emails. The raw text of the\n-- message must comply with Internet email standards; otherwise, the message\n-- cannot be sent.\n--\n-- You can only send email from verified email addresses and domains. If your\n-- account is still in the Amazon SES sandbox, you must also verify every\n-- recipient email address except for the recipients provided by the Amazon SES\n-- mailbox simulator. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide\u003e.\n-- The total size of the message cannot exceed 10 MB. This includes any\n-- attachments that are part of the message.\n--\n-- Amazon SES has a limit on the total number of recipients per message: The\n-- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you\n-- need to send an email message to a larger audience, you can divide your\n-- recipient list into groups of 50 or fewer, and then call Amazon SES\n-- repeatedly to send the message to each group.\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n-- Note that each recipient in a group list counts towards the 50-recipient\n-- limit.\n--\n-- For every message that you send, the total number of recipients (To:, CC:\n-- and BCC:) is counted against your /sending quota/ - the maximum number of\n-- emails you can send in a 24-hour period. For information about your sending\n-- quota, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide\u003e.",
+            "documentation": "-- | Sends an email message, with header and content specified by the client. The 'SendRawEmail' action is useful for sending multipart MIME emails. The raw text of the\n-- message must comply with Internet email standards; otherwise, the message\n-- cannot be sent.\n--\n-- There are several important points to know about 'SendRawEmail':\n--\n-- You can only send email from verified email addresses and domains;\n-- otherwise, you will get an \"Email address not verified\" error. If your\n-- account is still in the Amazon SES sandbox, you must also verify every\n-- recipient email address except for the recipients provided by the Amazon SES\n-- mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.\n-- The total size of the message cannot exceed 10 MB. This includes any\n-- attachments that are part of the message. Amazon SES has a limit on the total\n-- number of recipients per message. The combined number of To:, CC: and BCC:\n-- email addresses cannot exceed 50. If you need to send an email message to a\n-- larger audience, you can divide your recipient list into groups of 50 or\n-- fewer, and then call Amazon SES repeatedly to send the message to each group.\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n-- Note that each recipient in a group list counts towards the 50-recipient\n-- limit. For every message that you send, the total number of recipients (To:,\n-- CC: and BCC:) is counted against your sending quota - the maximum number of\n-- emails you can send in a 24-hour period. For information about your sending\n-- quota, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>. If you are using sending\n-- authorization to send on behalf of another user, 'SendRawEmail' enables you to\n-- specify the cross-account identity for the email's \"Source,\" \"From,\" and\n-- \"Return-Path\" parameters in one of two ways: you can pass optional parameters 'SourceArn', 'FromArn', and/or 'ReturnPathArn' to the API, or you can include the\n-- following X-headers in the header of your raw email:  'X-SES-SOURCE-ARN' 'X-SES-FROM-ARN' 'X-SES-RETURN-PATH-ARN'  Do not include these X-headers in the DKIM signature,\n-- because they are removed by Amazon SES before sending the email. For the most\n-- common sending authorization use case, we recommend that you specify the 'SourceIdentityArn' and do not specify either the 'FromIdentityArn' or 'ReturnPathIdentityArn'. (The\n-- same note applies to the corresponding X-headers.) If you only specify the 'SourceIdentityArn', Amazon SES will simply set the \"From\" address and the \"Return Path\" address\n-- to the identity specified in 'SourceIdentityArn'. For more information about\n-- sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3326,7 +4205,7 @@
                 ],
                 "streaming": false,
                 "style": "query",
-                "fieldPad": 16,
+                "fieldPad": 17,
                 "ctor": "sendRawEmail",
                 "headerPad": 0,
                 "contents": [],
@@ -3353,7 +4232,7 @@
                         "name": "_sreRawMessage",
                         "shape": "RawMessage",
                         "locationName": "RawMessage",
-                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide\u003e.  Content must be base64-encoded, if MIME requires it.\n--",
+                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide>.  Content must be base64-encoded, if MIME requires it.\n--",
                         "typeExposed": "RawMessage",
                         "type": "RawMessage"
                     }
@@ -3361,7 +4240,7 @@
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
-                "queryPad": 13,
+                "queryPad": 14,
                 "name": "SendRawEmail",
                 "query": [
                     {
@@ -3378,9 +4257,24 @@
                         "field": "_sreRawMessage",
                         "locationName": "RawMessage",
                         "type": "field"
+                    },
+                    {
+                        "field": "_sreFromArn",
+                        "locationName": "FromArn",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sreSourceArn",
+                        "locationName": "SourceArn",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sreReturnPathArn",
+                        "locationName": "ReturnPathArn",
+                        "type": "field"
                     }
                 ],
-                "locationPad": 13,
+                "locationPad": 14,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -3399,7 +4293,7 @@
                         "name": "_sreSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address. If you do not provide a value for this\n-- parameter, you must specify a \"From\" address in the raw text of the message.\n-- (You can also specify both.)\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.\n--\n-- If you specify the 'Source' parameter and have feedback forwarding enabled,\n-- then bounces and complaints will be sent to this email address. This takes\n-- precedence over any /Return-Path/ header that you might include in the raw text\n-- of the message.",
+                        "documentation": "-- | The identity's email address. If you do not provide a value for this\n-- parameter, you must specify a \"From\" address in the raw text of the message.\n-- (You can also specify both.)\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.\n--\n-- If you specify the 'Source' parameter and have feedback forwarding enabled,\n-- then bounces and complaints will be sent to this email address. This takes\n-- precedence over any /Return-Path/ header that you might include in the raw text\n-- of the message.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3420,6 +4314,60 @@
                         "documentation": "-- | A list of destinations for the message, consisting of To:, CC:, and BCC:\n-- addresses.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sreFromArn",
+                        "name": "_sreFromArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "FromArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to specify a particular \"From\" address in the header of the raw\n-- email.\n--\n-- Instead of using this parameter, you can use the X-header 'X-SES-FROM-ARN' in\n-- the raw message of the email. If you use both the 'FromArn' parameter and the\n-- corresponding X-header, Amazon SES uses the value of the 'FromArn' parameter.\n--\n-- For information about when to use this parameter, see the description of 'SendRawEmail' in this guide, or see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sreSourceArn",
+                        "name": "_sreSourceArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "SourceArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to send for the email address specified in the 'Source' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to send from 'user@example.com',\n-- then you would specify the 'SourceArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'Source' to be 'user@example.com'.\n--\n-- Instead of using this parameter, you can use the X-header 'X-SES-SOURCE-ARN'\n-- in the raw message of the email. If you use both the 'SourceArn' parameter and\n-- the corresponding X-header, Amazon SES uses the value of the 'SourceArn'\n-- parameter.\n--\n-- For information about when to use this parameter, see the description of 'SendRawEmail' in this guide, or see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sreReturnPathArn",
+                        "name": "_sreReturnPathArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "ReturnPathArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to use the email address specified in the 'ReturnPath' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to use 'feedback@example.com',\n-- then you would specify the 'ReturnPathArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'ReturnPath' to be 'feedback@example.com'.\n--\n-- Instead of using this parameter, you can use the X-header 'X-SES-RETURN-PATH-ARN' in the raw message of the email. If you use both the 'ReturnPathArn' parameter\n-- and the corresponding X-header, Amazon SES uses the value of the 'ReturnPathArn'\n-- parameter.\n--\n-- For information about when to use this parameter, see the description of 'SendRawEmail' in this guide, or see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -3445,6 +4393,24 @@
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sreFromArn",
+                        "name": "_sreFromArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "FromArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to specify a particular \"From\" address in the header of the raw\n-- email.\n--\n-- Instead of using this parameter, you can use the X-header 'X-SES-FROM-ARN' in\n-- the raw message of the email. If you use both the 'FromArn' parameter and the\n-- corresponding X-header, Amazon SES uses the value of the 'FromArn' parameter.\n--\n-- For information about when to use this parameter, see the description of 'SendRawEmail' in this guide, or see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "error",
                         "monoid": false,
                         "protocol": "query",
@@ -3455,9 +4421,27 @@
                         "name": "_sreRawMessage",
                         "shape": "RawMessage",
                         "locationName": "RawMessage",
-                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide\u003e.  Content must be base64-encoded, if MIME requires it.\n--",
+                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide>.  Content must be base64-encoded, if MIME requires it.\n--",
                         "typeExposed": "RawMessage",
                         "type": "RawMessage"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sreReturnPathArn",
+                        "name": "_sreReturnPathArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "ReturnPathArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to use the email address specified in the 'ReturnPath' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to use 'feedback@example.com',\n-- then you would specify the 'ReturnPathArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'ReturnPath' to be 'feedback@example.com'.\n--\n-- Instead of using this parameter, you can use the X-header 'X-SES-RETURN-PATH-ARN' in the raw message of the email. If you use both the 'ReturnPathArn' parameter\n-- and the corresponding X-header, Amazon SES uses the value of the 'ReturnPathArn'\n-- parameter.\n--\n-- For information about when to use this parameter, see the description of 'SendRawEmail' in this guide, or see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",
@@ -3473,7 +4457,25 @@
                         "name": "_sreSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address. If you do not provide a value for this\n-- parameter, you must specify a \"From\" address in the raw text of the message.\n-- (You can also specify both.)\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.\n--\n-- If you specify the 'Source' parameter and have feedback forwarding enabled,\n-- then bounces and complaints will be sent to this email address. This takes\n-- precedence over any /Return-Path/ header that you might include in the raw text\n-- of the message.",
+                        "documentation": "-- | The identity's email address. If you do not provide a value for this\n-- parameter, you must specify a \"From\" address in the raw text of the message.\n-- (You can also specify both.)\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.\n--\n-- If you specify the 'Source' parameter and have feedback forwarding enabled,\n-- then bounces and complaints will be sent to this email address. This takes\n-- precedence over any /Return-Path/ header that you might include in the raw text\n-- of the message.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sreSourceArn",
+                        "name": "_sreSourceArn",
+                        "shape": "AmazonResourceName",
+                        "locationName": "SourceArn",
+                        "documentation": "-- | This parameter is used only for sending authorization. It is the ARN of the\n-- identity that is associated with the sending authorization policy that\n-- permits you to send for the email address specified in the 'Source' parameter.\n--\n-- For example, if the owner of 'example.com' (which has ARN 'arn:aws:ses:us-east-1:123456789012:identity/example.com') attaches a policy to it that authorizes you to send from 'user@example.com',\n-- then you would specify the 'SourceArn' to be 'arn:aws:ses:us-east-1:123456789012:identity/example.com', and the 'Source' to be 'user@example.com'.\n--\n-- Instead of using this parameter, you can use the X-header 'X-SES-SOURCE-ARN'\n-- in the raw message of the email. If you use both the 'SourceArn' parameter and\n-- the corresponding X-header, Amazon SES uses the value of the 'SourceArn'\n-- parameter.\n--\n-- For information about when to use this parameter, see the description of 'SendRawEmail' in this guide, or see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3517,7 +4519,7 @@
             "pager": null,
             "name": "SetIdentityDkimEnabled",
             "method": "post",
-            "documentation": "-- | Enables or disables Easy DKIM signing of email sent from an identity:\n--\n-- If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that\n-- domain name (e.g., 'user@example.com'). If Easy DKIM signing is enabled for an\n-- email address, then Amazon SES will DKIM-sign all email sent by that email\n-- address.  For email addresses (e.g., 'user@example.com'), you can only enable\n-- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been\n-- set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about Easy DKIM signing, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES DeveloperGuide\u003e.",
+            "documentation": "-- | Enables or disables Easy DKIM signing of email sent from an identity:\n--\n-- If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that\n-- domain name (e.g., 'user@example.com'). If Easy DKIM signing is enabled for an\n-- email address, then Amazon SES will DKIM-sign all email sent by that email\n-- address.  For email addresses (e.g., 'user@example.com'), you can only enable\n-- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been\n-- set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about Easy DKIM signing, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES DeveloperGuide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3677,7 +4679,7 @@
             "pager": null,
             "name": "SetIdentityFeedbackForwardingEnabled",
             "method": "post",
-            "documentation": "-- | Given an identity (email address or domain), enables or disables whether\n-- Amazon SES forwards bounce and complaint notifications as email. Feedback\n-- forwarding can only be disabled when Amazon Simple Notification Service\n-- (Amazon SNS) topics are specified for both bounces and complaints.\n--\n-- Feedback forwarding does not apply to delivery notifications. Delivery\n-- notifications are only available through Amazon SNS. This action is throttled\n-- at one request per second.\n--\n-- For more information about using notifications with Amazon SES, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide\u003e.",
+            "documentation": "-- | Given an identity (email address or domain), enables or disables whether\n-- Amazon SES forwards bounce and complaint notifications as email. Feedback\n-- forwarding can only be disabled when Amazon Simple Notification Service\n-- (Amazon SNS) topics are specified for both bounces and complaints.\n--\n-- Feedback forwarding does not apply to delivery notifications. Delivery\n-- notifications are only available through Amazon SNS. This action is throttled\n-- at one request per second.\n--\n-- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3837,7 +4839,7 @@
             "pager": null,
             "name": "SetIdentityNotificationTopic",
             "method": "post",
-            "documentation": "-- | Given an identity (email address or domain), sets the Amazon Simple\n-- Notification Service (Amazon SNS) topic to which Amazon SES will publish\n-- bounce, complaint, and/or delivery notifications for emails sent with that\n-- identity as the 'Source'.\n--\n-- Unless feedback forwarding is enabled, you must specify Amazon SNS topics\n-- for bounce and complaint notifications. For more information, see 'SetIdentityFeedbackForwardingEnabled'.  This action is throttled at one request per second.\n--\n-- For more information about feedback notification, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SESDeveloper Guide\u003e.",
+            "documentation": "-- | Given an identity (email address or domain), sets the Amazon Simple\n-- Notification Service (Amazon SNS) topic to which Amazon SES will publish\n-- bounce, complaint, and/or delivery notifications for emails sent with that\n-- identity as the 'Source'.\n--\n-- Unless feedback forwarding is enabled, you must specify Amazon SNS topics\n-- for bounce and complaint notifications. For more information, see 'SetIdentityFeedbackForwardingEnabled'.  This action is throttled at one request per second.\n--\n-- For more information about feedback notification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SESDeveloper Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3874,7 +4876,7 @@
                         "name": "_sintIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. Examples: 'user@example.com', 'example.com'.",
+                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. You can specify an\n-- identity by using its name or by using its Amazon Resource Name (ARN).\n-- Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3958,7 +4960,7 @@
                         "name": "_sintIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. Examples: 'user@example.com', 'example.com'.",
+                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. You can specify an\n-- identity by using its name or by using its Amazon Resource Name (ARN).\n-- Examples: 'user@example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity/example.com'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4032,7 +5034,7 @@
                     "name": "_vddrDkimTokens",
                     "shape": "VerificationTokenList",
                     "locationName": "DkimTokens",
-                    "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
+                    "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.",
                     "typeExposed": "[Text]",
                     "type": "List \"member\" Text"
                 },
@@ -4064,7 +5066,7 @@
                         "name": "_vddrDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -4084,7 +5086,7 @@
                         "name": "_vddrDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -4100,7 +5102,7 @@
             "pager": null,
             "name": "VerifyDomainDkim",
             "method": "post",
-            "documentation": "-- | Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character strings\n-- that represent your domain's identity. Using these tokens, you will need to\n-- create DNS CNAME records that point to DKIM public keys hosted by Amazon SES.\n-- Amazon Web Services will eventually detect that you have updated your DNS\n-- records; this detection process may take up to 72 hours. Upon successful\n-- detection, Amazon SES will be able to DKIM-sign email originating from that\n-- domain.\n--\n-- This action is throttled at one request per second.\n--\n-- To enable or disable Easy DKIM signing for a domain, use the 'SetIdentityDkimEnabled' action.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
+            "documentation": "-- | Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character strings\n-- that represent your domain's identity. Using these tokens, you will need to\n-- create DNS CNAME records that point to DKIM public keys hosted by Amazon SES.\n-- Amazon Web Services will eventually detect that you have updated your DNS\n-- records; this detection process may take up to 72 hours. Upon successful\n-- detection, Amazon SES will be able to DKIM-sign email originating from that\n-- domain.\n--\n-- This action is throttled at one request per second.\n--\n-- To enable or disable Easy DKIM signing for a domain, use the 'SetIdentityDkimEnabled' action.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

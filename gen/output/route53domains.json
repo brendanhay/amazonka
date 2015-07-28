@@ -47,6 +47,14 @@
         },
         "endpointPrefix": "route53domains",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -1299,7 +1307,7 @@
                         "name": "_cdPhoneNumber",
                         "shape": "ContactNumber",
                         "locationName": "PhoneNumber",
-                        "documentation": "-- | The phone number of the contact.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: Phone number must be specified in the format \"+[country dialing\n-- code].[number including any area code\u003e]\". For example, a US phone number\n-- might appear as '\"+1.1234567890\"'.\n--\n-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'\n--\n-- Required: Yes",
+                        "documentation": "-- | The phone number of the contact.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: Phone number must be specified in the format \"+[country dialing\n-- code].[number including any area code>]\". For example, a US phone number\n-- might appear as '\"+1.1234567890\"'.\n--\n-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1559,7 +1567,7 @@
                         "name": "_cdPhoneNumber",
                         "shape": "ContactNumber",
                         "locationName": "PhoneNumber",
-                        "documentation": "-- | The phone number of the contact.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: Phone number must be specified in the format \"+[country dialing\n-- code].[number including any area code\u003e]\". For example, a US phone number\n-- might appear as '\"+1.1234567890\"'.\n--\n-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'\n--\n-- Required: Yes",
+                        "documentation": "-- | The phone number of the contact.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: Phone number must be specified in the format \"+[country dialing\n-- code].[number including any area code>]\". For example, a US phone number\n-- might appear as '\"+1.1234567890\"'.\n--\n-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1831,7 +1839,7 @@
                         "name": "_cdPhoneNumber",
                         "shape": "ContactNumber",
                         "locationName": "PhoneNumber",
-                        "documentation": "-- | The phone number of the contact.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: Phone number must be specified in the format \"+[country dialing\n-- code].[number including any area code\u003e]\". For example, a US phone number\n-- might appear as '\"+1.1234567890\"'.\n--\n-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'\n--\n-- Required: Yes",
+                        "documentation": "-- | The phone number of the contact.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: Phone number must be specified in the format \"+[country dialing\n-- code].[number including any area code>]\". For example, a US phone number\n-- might appear as '\"+1.1234567890\"'.\n--\n-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2468,7 +2476,7 @@
                         "name": "_dtfdTagsToDelete",
                         "shape": "TagKeyList",
                         "locationName": "TagsToDelete",
-                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e",
+                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '>",
                         "typeExposed": "[Text]",
                         "type": "List \"TagsToDelete\" Text"
                     }
@@ -2526,7 +2534,7 @@
                         "name": "_dtfdTagsToDelete",
                         "shape": "TagKeyList",
                         "locationName": "TagsToDelete",
-                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e",
+                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '>",
                         "typeExposed": "[Text]",
                         "type": "List \"TagsToDelete\" Text"
                     }
@@ -2564,7 +2572,7 @@
                         "name": "_dtfdTagsToDelete",
                         "shape": "TagKeyList",
                         "locationName": "TagsToDelete",
-                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e",
+                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '>",
                         "typeExposed": "[Text]",
                         "type": "List \"TagsToDelete\" Text"
                     }
@@ -2995,7 +3003,7 @@
             "pager": null,
             "name": "EnableDomainAutoRenew",
             "method": "post",
-            "documentation": "-- | This operation configures Amazon Route 53 to automatically renew the\n-- specified domain before the domain registration expires. The cost of renewing\n-- your domain registration is billed to your AWS account.\n--\n-- The period during which you can renew a domain name varies by TLD. For a\n-- list of TLDs and their renewal policies, see \u003chttp://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times \"Renewal, restoration, anddeletion times\"\u003e on the website for our registrar partner, Gandi. Route 53\n-- requires that you renew before the end of the renewal period that is listed\n-- on the Gandi website so we can complete processing before the deadline.",
+            "documentation": "-- | This operation configures Amazon Route 53 to automatically renew the\n-- specified domain before the domain registration expires. The cost of renewing\n-- your domain registration is billed to your AWS account.\n--\n-- The period during which you can renew a domain name varies by TLD. For a\n-- list of TLDs and their renewal policies, see <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times \"Renewal, restoration, anddeletion times\"> on the website for our registrar partner, Gandi. Route 53\n-- requires that you renew before the end of the renewal period that is listed\n-- on the Gandi website so we can complete processing before the deadline.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3733,7 +3741,7 @@
                         "name": "_gddrStatusList",
                         "shape": "DomainStatusList",
                         "locationName": "StatusList",
-                        "documentation": "-- | An array of domain name status codes, also known as Extensible Provisioning\n-- Protocol (EPP) status codes.\n--\n-- ICANN, the organization that maintains a central database of domain names,\n-- has developed a set of domain name status codes that tell you the status of a\n-- variety of operations on a domain name, for example, registering a domain\n-- name, transferring a domain name to another registrar, renewing the\n-- registration for a domain name, and so on. All registrars use this same set\n-- of status codes.\n--\n-- For a current list of domain name status codes and an explanation of what\n-- each code means, go to the \u003chttps://www.icann.org/ ICANN website\u003e and search for 'epp status codes'.\n-- (Search on the ICANN website; web searches sometimes return an old version of\n-- the document.)\n--\n-- Type: Array of String",
+                        "documentation": "-- | An array of domain name status codes, also known as Extensible Provisioning\n-- Protocol (EPP) status codes.\n--\n-- ICANN, the organization that maintains a central database of domain names,\n-- has developed a set of domain name status codes that tell you the status of a\n-- variety of operations on a domain name, for example, registering a domain\n-- name, transferring a domain name to another registrar, renewing the\n-- registration for a domain name, and so on. All registrars use this same set\n-- of status codes.\n--\n-- For a current list of domain name status codes and an explanation of what\n-- each code means, go to the <https://www.icann.org/ ICANN website> and search for 'epp status codes'.\n-- (Search on the ICANN website; web searches sometimes return an old version of\n-- the document.)\n--\n-- Type: Array of String",
                         "typeExposed": "[Text]",
                         "type": "List \"StatusList\" Text"
                     }
@@ -4126,7 +4134,7 @@
                         "name": "_gddrStatusList",
                         "shape": "DomainStatusList",
                         "locationName": "StatusList",
-                        "documentation": "-- | An array of domain name status codes, also known as Extensible Provisioning\n-- Protocol (EPP) status codes.\n--\n-- ICANN, the organization that maintains a central database of domain names,\n-- has developed a set of domain name status codes that tell you the status of a\n-- variety of operations on a domain name, for example, registering a domain\n-- name, transferring a domain name to another registrar, renewing the\n-- registration for a domain name, and so on. All registrars use this same set\n-- of status codes.\n--\n-- For a current list of domain name status codes and an explanation of what\n-- each code means, go to the \u003chttps://www.icann.org/ ICANN website\u003e and search for 'epp status codes'.\n-- (Search on the ICANN website; web searches sometimes return an old version of\n-- the document.)\n--\n-- Type: Array of String",
+                        "documentation": "-- | An array of domain name status codes, also known as Extensible Provisioning\n-- Protocol (EPP) status codes.\n--\n-- ICANN, the organization that maintains a central database of domain names,\n-- has developed a set of domain name status codes that tell you the status of a\n-- variety of operations on a domain name, for example, registering a domain\n-- name, transferring a domain name to another registrar, renewing the\n-- registration for a domain name, and so on. All registrars use this same set\n-- of status codes.\n--\n-- For a current list of domain name status codes and an explanation of what\n-- each code means, go to the <https://www.icann.org/ ICANN website> and search for 'epp status codes'.\n-- (Search on the ICANN website; web searches sometimes return an old version of\n-- the document.)\n--\n-- Type: Array of String",
                         "typeExposed": "[Text]",
                         "type": "List \"StatusList\" Text"
                     }
@@ -4434,7 +4442,7 @@
                         "name": "_gddrStatusList",
                         "shape": "DomainStatusList",
                         "locationName": "StatusList",
-                        "documentation": "-- | An array of domain name status codes, also known as Extensible Provisioning\n-- Protocol (EPP) status codes.\n--\n-- ICANN, the organization that maintains a central database of domain names,\n-- has developed a set of domain name status codes that tell you the status of a\n-- variety of operations on a domain name, for example, registering a domain\n-- name, transferring a domain name to another registrar, renewing the\n-- registration for a domain name, and so on. All registrars use this same set\n-- of status codes.\n--\n-- For a current list of domain name status codes and an explanation of what\n-- each code means, go to the \u003chttps://www.icann.org/ ICANN website\u003e and search for 'epp status codes'.\n-- (Search on the ICANN website; web searches sometimes return an old version of\n-- the document.)\n--\n-- Type: Array of String",
+                        "documentation": "-- | An array of domain name status codes, also known as Extensible Provisioning\n-- Protocol (EPP) status codes.\n--\n-- ICANN, the organization that maintains a central database of domain names,\n-- has developed a set of domain name status codes that tell you the status of a\n-- variety of operations on a domain name, for example, registering a domain\n-- name, transferring a domain name to another registrar, renewing the\n-- registration for a domain name, and so on. All registrars use this same set\n-- of status codes.\n--\n-- For a current list of domain name status codes and an explanation of what\n-- each code means, go to the <https://www.icann.org/ ICANN website> and search for 'epp status codes'.\n-- (Search on the ICANN website; web searches sometimes return an old version of\n-- the document.)\n--\n-- Type: Array of String",
                         "typeExposed": "[Text]",
                         "type": "List \"StatusList\" Text"
                     },
@@ -6087,7 +6095,7 @@
             "pager": null,
             "name": "RegisterDomain",
             "method": "post",
-            "documentation": "-- | This operation registers a domain. Domains are registered by the AWS\n-- registrar partner, Gandi. For some top-level domains (TLDs), this operation\n-- requires extra parameters.\n--\n-- When you register a domain, Amazon Route 53 does the following:\n--\n-- Creates a Amazon Route 53 hosted zone that has the same name as the domain.\n-- Amazon Route 53 assigns four name servers to your hosted zone and\n-- automatically updates your domain registration with the names of these name\n-- servers. Enables autorenew, so your domain registration will renew\n-- automatically each year. We'll notify you in advance of the renewal date so\n-- you can choose whether to renew the registration. Optionally enables privacy\n-- protection, so WHOIS queries return contact information for our registrar\n-- partner, Gandi, instead of the information you entered for registrant, admin,\n-- and tech contacts. If registration is successful, returns an operation ID\n-- that you can use to track the progress and completion of the action. If the\n-- request is not completed successfully, the domain registrant is notified by\n-- email. Charges your AWS account an amount based on the top-level domain. For\n-- more information, see \u003chttp://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing\u003e.",
+            "documentation": "-- | This operation registers a domain. Domains are registered by the AWS\n-- registrar partner, Gandi. For some top-level domains (TLDs), this operation\n-- requires extra parameters.\n--\n-- When you register a domain, Amazon Route 53 does the following:\n--\n-- Creates a Amazon Route 53 hosted zone that has the same name as the domain.\n-- Amazon Route 53 assigns four name servers to your hosted zone and\n-- automatically updates your domain registration with the names of these name\n-- servers. Enables autorenew, so your domain registration will renew\n-- automatically each year. We'll notify you in advance of the renewal date so\n-- you can choose whether to renew the registration. Optionally enables privacy\n-- protection, so WHOIS queries return contact information for our registrar\n-- partner, Gandi, instead of the information you entered for registrant, admin,\n-- and tech contacts. If registration is successful, returns an operation ID\n-- that you can use to track the progress and completion of the action. If the\n-- request is not completed successfully, the domain registrant is notified by\n-- email. Charges your AWS account an amount based on the top-level domain. For\n-- more information, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7020,7 +7028,7 @@
             "pager": null,
             "name": "TransferDomain",
             "method": "post",
-            "documentation": "-- | This operation transfers a domain from another registrar to Amazon Route 53.\n-- When the transfer is complete, the domain is registered with the AWS\n-- registrar partner, Gandi.\n--\n-- For transfer requirements, a detailed procedure, and information about\n-- viewing the status of a domain transfer, see \u003chttp://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html Transferring Registration for aDomain to Amazon Route 53\u003e in the Amazon Route 53 Developer Guide.\n--\n-- If the registrar for your domain is also the DNS service provider for the\n-- domain, we highly recommend that you consider transferring your DNS service\n-- to Amazon Route 53 or to another DNS service provider before you transfer\n-- your registration. Some registrars provide free DNS service when you purchase\n-- a domain registration. When you transfer the registration, the previous\n-- registrar will not renew your domain registration and could end your DNS\n-- service at any time.\n--\n-- Caution! If the registrar for your domain is also the DNS service provider\n-- for the domain and you don't transfer DNS service to another provider, your\n-- website, email, and the web applications associated with the domain might\n-- become unavailable. If the transfer is successful, this method returns an\n-- operation ID that you can use to track the progress and completion of the\n-- action. If the transfer doesn't complete successfully, the domain registrant\n-- will be notified by email.",
+            "documentation": "-- | This operation transfers a domain from another registrar to Amazon Route 53.\n-- When the transfer is complete, the domain is registered with the AWS\n-- registrar partner, Gandi.\n--\n-- For transfer requirements, a detailed procedure, and information about\n-- viewing the status of a domain transfer, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html Transferring Registration for aDomain to Amazon Route 53> in the Amazon Route 53 Developer Guide.\n--\n-- If the registrar for your domain is also the DNS service provider for the\n-- domain, we highly recommend that you consider transferring your DNS service\n-- to Amazon Route 53 or to another DNS service provider before you transfer\n-- your registration. Some registrars provide free DNS service when you purchase\n-- a domain registration. When you transfer the registration, the previous\n-- registrar will not renew your domain registration and could end your DNS\n-- service at any time.\n--\n-- Caution! If the registrar for your domain is also the DNS service provider\n-- for the domain and you don't transfer DNS service to another provider, your\n-- website, email, and the web applications associated with the domain might\n-- become unavailable. If the transfer is successful, this method returns an\n-- operation ID that you can use to track the progress and completion of the\n-- action. If the transfer doesn't complete successfully, the domain registrant\n-- will be notified by email.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8202,7 +8210,7 @@
             "pager": null,
             "name": "UpdateDomainContactPrivacy",
             "method": "post",
-            "documentation": "-- | This operation updates the specified domain contact's privacy setting. When\n-- the privacy option is enabled, personal information such as postal or email\n-- address is hidden from the results of a public WHOIS query. The privacy\n-- services are provided by the AWS registrar, Gandi. For more information, see\n-- the \u003chttp://www.gandi.net/domain/whois/?currency=USD&amp;lang=en Gandi privacy features\u003e.\n--\n-- This operation only affects the privacy of the specified contact type\n-- (registrant, administrator, or tech). Successful acceptance returns an\n-- operation ID that you can use with GetOperationDetail to track the progress\n-- and completion of the action. If the request is not completed successfully,\n-- the domain registrant will be notified by email.",
+            "documentation": "-- | This operation updates the specified domain contact's privacy setting. When\n-- the privacy option is enabled, personal information such as postal or email\n-- address is hidden from the results of a public WHOIS query. The privacy\n-- services are provided by the AWS registrar, Gandi. For more information, see\n-- the <http://www.gandi.net/domain/whois/?currency=USD&amp;lang=en Gandi privacy features>.\n--\n-- This operation only affects the privacy of the specified contact type\n-- (registrant, administrator, or tech). Successful acceptance returns an\n-- operation ID that you can use with GetOperationDetail to track the progress\n-- and completion of the action. If the request is not completed successfully,\n-- the domain registrant will be notified by email.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8864,7 +8872,7 @@
                         "name": "_utfdTagsToUpdate",
                         "shape": "TagList",
                         "locationName": "TagsToUpdate",
-                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '> Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"TagsToUpdate\" Tag"
                     }
@@ -8922,7 +8930,7 @@
                         "name": "_utfdTagsToUpdate",
                         "shape": "TagList",
                         "locationName": "TagsToUpdate",
-                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '> Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"TagsToUpdate\" Tag"
                     }
@@ -8960,7 +8968,7 @@
                         "name": "_utfdTagsToUpdate",
                         "shape": "TagList",
                         "locationName": "TagsToUpdate",
-                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '> Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"TagsToUpdate\" Tag"
                     }

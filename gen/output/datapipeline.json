@@ -48,6 +48,10 @@
         },
         "endpointPrefix": "datapipeline",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
             "throttling": {
                 "error": "Throttling",
                 "code": 400
@@ -441,7 +445,7 @@
                         "name": "_tagKey",
                         "shape": "tagKey",
                         "locationName": "key",
-                        "documentation": "-- | The key name of a tag defined by a user. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -459,7 +463,7 @@
                         "name": "_tagValue",
                         "shape": "tagValue",
                         "locationName": "value",
-                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline DeveloperGuide/.",
+                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline DeveloperGuide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -480,7 +484,7 @@
                         "name": "_tagKey",
                         "shape": "tagKey",
                         "locationName": "key",
-                        "documentation": "-- | The key name of a tag defined by a user. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -498,7 +502,7 @@
                         "name": "_tagValue",
                         "shape": "tagValue",
                         "locationName": "value",
-                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline DeveloperGuide/.",
+                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline DeveloperGuide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -523,7 +527,7 @@
                         "name": "_tagKey",
                         "shape": "tagKey",
                         "locationName": "key",
-                        "documentation": "-- | The key name of a tag defined by a user. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -541,7 +545,7 @@
                         "name": "_tagValue",
                         "shape": "tagValue",
                         "locationName": "value",
-                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline DeveloperGuide/.",
+                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline DeveloperGuide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1712,7 +1716,7 @@
                         "name": "_pdTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in\n-- the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in\n-- the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -1811,7 +1815,7 @@
                         "name": "_pdTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in\n-- the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in\n-- the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -1903,7 +1907,7 @@
                         "name": "_pdTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in\n-- the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in\n-- the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -3073,7 +3077,7 @@
                         "name": "_cpTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines> in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -3167,7 +3171,7 @@
                         "name": "_cpTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines> in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -3223,7 +3227,7 @@
                         "name": "_cpTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines> in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     },
@@ -5474,7 +5478,7 @@
                         "name": "_pftInstanceIdentity",
                         "shape": "InstanceIdentity",
                         "locationName": "instanceIdentity",
-                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
+                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
                         "typeExposed": "Maybe InstanceIdentity",
                         "type": "Maybe InstanceIdentity"
                     }
@@ -5550,7 +5554,7 @@
                         "name": "_pftInstanceIdentity",
                         "shape": "InstanceIdentity",
                         "locationName": "instanceIdentity",
-                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
+                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
                         "typeExposed": "Maybe InstanceIdentity",
                         "type": "Maybe InstanceIdentity"
                     }
@@ -5588,7 +5592,7 @@
                         "name": "_pftInstanceIdentity",
                         "shape": "InstanceIdentity",
                         "locationName": "instanceIdentity",
-                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
+                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
                         "typeExposed": "Maybe InstanceIdentity",
                         "type": "Maybe InstanceIdentity"
                     },

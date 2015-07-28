@@ -40,6 +40,14 @@
         },
         "endpointPrefix": "config",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -397,7 +405,7 @@
                         "name": "_csdiLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.",
+                        "documentation": "-- | Status of the last attempted delivery.\n--\n-- Note Providing an SNS topic on a <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional.\n-- If the SNS delivery is turned off, the last status will be Not_Applicable.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -477,7 +485,7 @@
                         "name": "_csdiLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.",
+                        "documentation": "-- | Status of the last attempted delivery.\n--\n-- Note Providing an SNS topic on a <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional.\n-- If the SNS delivery is turned off, the last status will be Not_Applicable.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -587,7 +595,7 @@
                         "name": "_csdiLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.",
+                        "documentation": "-- | Status of the last attempted delivery.\n--\n-- Note Providing an SNS topic on a <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional.\n-- If the SNS delivery is turned off, the last status will be Not_Applicable.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -652,7 +660,7 @@
                         "name": "_rResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.",
+                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -714,7 +722,7 @@
                         "name": "_rResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.",
+                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -770,7 +778,7 @@
                         "name": "_rResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.",
+                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1319,7 +1327,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -1597,7 +1605,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -1797,7 +1805,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -2643,11 +2651,139 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 10,
+                "fieldPad": 16,
+                "ctor": "recordingGroup",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rgAllSupported",
+                        "name": "_rgAllSupported",
+                        "shape": "AllSupported",
+                        "locationName": "allSupported",
+                        "documentation": "-- | Records all supported resource types in the recording group. For a list of\n-- supported resource types, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>. If you specify allSupported\n-- , you cannot enumerate a list of resourceTypes.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rgResourceTypes",
+                        "name": "_rgResourceTypes",
+                        "shape": "ResourceTypeList",
+                        "locationName": "resourceTypes",
+                        "documentation": "-- | A comma-separated list of strings representing valid AWS resource types\n-- (e.g., 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail'). resourceTypes is only\n-- valid if you have chosen not to select allSupported. For a list of valid resourceTypes\n-- values, see the resourceType Value column in the following topic: <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources SupportedAWS Resource Types>.",
+                        "typeExposed": "[ResourceType]",
+                        "type": "List \"resourceTypes\" ResourceType"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 14,
+                "name": "RecordingGroup",
+                "locationPad": 14,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rgAllSupported",
+                        "name": "_rgAllSupported",
+                        "shape": "AllSupported",
+                        "locationName": "allSupported",
+                        "documentation": "-- | Records all supported resource types in the recording group. For a list of\n-- supported resource types, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>. If you specify allSupported\n-- , you cannot enumerate a list of resourceTypes.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rgResourceTypes",
+                        "name": "_rgResourceTypes",
+                        "shape": "ResourceTypeList",
+                        "locationName": "resourceTypes",
+                        "documentation": "-- | A comma-separated list of strings representing valid AWS resource types\n-- (e.g., 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail'). resourceTypes is only\n-- valid if you have chosen not to select allSupported. For a list of valid resourceTypes\n-- values, see the resourceType Value column in the following topic: <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources SupportedAWS Resource Types>.",
+                        "typeExposed": "[ResourceType]",
+                        "type": "List \"resourceTypes\" ResourceType"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rgAllSupported",
+                        "name": "_rgAllSupported",
+                        "shape": "AllSupported",
+                        "locationName": "allSupported",
+                        "documentation": "-- | Records all supported resource types in the recording group. For a list of\n-- supported resource types, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported resource types>. If you specify allSupported\n-- , you cannot enumerate a list of resourceTypes.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rgResourceTypes",
+                        "name": "_rgResourceTypes",
+                        "shape": "ResourceTypeList",
+                        "locationName": "resourceTypes",
+                        "documentation": "-- | A comma-separated list of strings representing valid AWS resource types\n-- (e.g., 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail'). resourceTypes is only\n-- valid if you have chosen not to select allSupported. For a list of valid resourceTypes\n-- values, see the resourceType Value column in the following topic: <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources SupportedAWS Resource Types>.",
+                        "typeExposed": "[ResourceType]",
+                        "type": "List \"resourceTypes\" ResourceType"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 17,
                 "ctor": "configurationRecorder",
                 "contents": [
                     {
@@ -2685,13 +2821,31 @@
                         "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "crRecordingGroup",
+                        "name": "_crRecordingGroup",
+                        "shape": "RecordingGroup",
+                        "locationName": "recordingGroup",
+                        "documentation": "-- | The recording group specifies either to record configurations for all\n-- supported resources or to provide a list of resource types to record. The\n-- list of resource types must be a subset of supported resource types.",
+                        "typeExposed": "Maybe RecordingGroup",
+                        "type": "Maybe RecordingGroup"
                     }
                 ],
                 "payload": null,
                 "required": [],
-                "contentPad": 8,
+                "contentPad": 15,
                 "name": "ConfigurationRecorder",
-                "locationPad": 8,
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -2729,6 +2883,24 @@
                         "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "crRecordingGroup",
+                        "name": "_crRecordingGroup",
+                        "shape": "RecordingGroup",
+                        "locationName": "recordingGroup",
+                        "documentation": "-- | The recording group specifies either to record configurations for all\n-- supported resources or to provide a list of resource types to record. The\n-- list of resource types must be a subset of supported resource types.",
+                        "typeExposed": "Maybe RecordingGroup",
+                        "type": "Maybe RecordingGroup"
                     }
                 ],
                 "fields": [
@@ -2749,6 +2921,24 @@
                         "documentation": "-- | The name of the recorder. By default, AWS Config automatically assigns the\n-- name \"default\" when creating the configuration recorder. You cannot change\n-- the assigned name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "crRecordingGroup",
+                        "name": "_crRecordingGroup",
+                        "shape": "RecordingGroup",
+                        "locationName": "recordingGroup",
+                        "documentation": "-- | The recording group specifies either to record configurations for all\n-- supported resources or to provide a list of resource types to record. The\n-- list of resource types must be a subset of supported resource types.",
+                        "typeExposed": "Maybe RecordingGroup",
+                        "type": "Maybe RecordingGroup"
                     },
                     {
                         "location": null,
@@ -4721,7 +4911,7 @@
             "pager": null,
             "name": "PutConfigurationRecorder",
             "method": "post",
-            "documentation": "-- | Creates a new configuration recorder to record the resource configurations.\n--\n-- You can use this action to change the role ('roleARN') of an existing\n-- recorder. To change the role, call the action on the existing configuration\n-- recorder and specify a role.\n--\n-- Currently, you can specify only one configuration recorder per account.\n--\n--",
+            "documentation": "-- | Creates a new configuration recorder to record the selected resource\n-- configurations.\n--\n-- You can use this action to change the role 'roleARN' and/or the 'recordingGroup'\n-- of an existing recorder. To change the role, call the action on the existing\n-- configuration recorder and specify a role.\n--\n-- Currently, you can specify only one configuration recorder per account.\n--\n-- If 'ConfigurationRecorder' does not have the recordingGroup parameter\n-- specified, the default is to record all supported resource types.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5021,7 +5211,7 @@
             "pager": null,
             "name": "StartConfigurationRecorder",
             "method": "post",
-            "documentation": "-- | Starts recording configurations of all the resources associated with the\n-- account.\n--\n-- You must have created at least one delivery channel to successfully start\n-- the configuration recorder.",
+            "documentation": "-- | Starts recording configurations of the AWS resources you have selected to\n-- record in your AWS account.\n--\n-- You must have created at least one delivery channel to successfully start\n-- the configuration recorder.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5174,7 +5364,7 @@
             "pager": null,
             "name": "StopConfigurationRecorder",
             "method": "post",
-            "documentation": "-- | Stops recording configurations of all the resources associated with the\n-- account.",
+            "documentation": "-- | Stops recording configurations of the AWS resources you have selected to\n-- record in your AWS account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

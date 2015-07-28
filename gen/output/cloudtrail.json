@@ -37,6 +37,14 @@
         },
         "endpointPrefix": "cloudtrail",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -996,7 +1004,7 @@
                         "name": "_rResourceType",
                         "shape": "String",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of a resource referenced by the event returned. When the resource\n-- type cannot be determined, null is returned. Some examples of resource types\n-- are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey\n-- for IAM. For a list of resource types supported for event lookup, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup\u003e.",
+                        "documentation": "-- | The type of a resource referenced by the event returned. When the resource\n-- type cannot be determined, null is returned. Some examples of resource types\n-- are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey\n-- for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1040,7 +1048,7 @@
                         "name": "_rResourceType",
                         "shape": "String",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of a resource referenced by the event returned. When the resource\n-- type cannot be determined, null is returned. Some examples of resource types\n-- are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey\n-- for IAM. For a list of resource types supported for event lookup, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup\u003e.",
+                        "documentation": "-- | The type of a resource referenced by the event returned. When the resource\n-- type cannot be determined, null is returned. Some examples of resource types\n-- are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey\n-- for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1096,7 +1104,7 @@
                         "name": "_rResourceType",
                         "shape": "String",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of a resource referenced by the event returned. When the resource\n-- type cannot be determined, null is returned. Some examples of resource types\n-- are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey\n-- for IAM. For a list of resource types supported for event lookup, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup\u003e.",
+                        "documentation": "-- | The type of a resource referenced by the event returned. When the resource\n-- type cannot be determined, null is returned. Some examples of resource types\n-- are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey\n-- for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2381,7 +2389,7 @@
                         "name": "_gtsrLatestDeliveryError",
                         "shape": "String",
                         "locationName": "LatestDeliveryError",
-                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.",
+                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic <http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2399,7 +2407,7 @@
                         "name": "_gtsrLatestNotificationError",
                         "shape": "String",
                         "locationName": "LatestNotificationError",
-                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.",
+                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the <http://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2557,7 +2565,7 @@
                         "name": "_gtsrLatestDeliveryError",
                         "shape": "String",
                         "locationName": "LatestDeliveryError",
-                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.",
+                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic <http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2575,7 +2583,7 @@
                         "name": "_gtsrLatestNotificationError",
                         "shape": "String",
                         "locationName": "LatestNotificationError",
-                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.",
+                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the <http://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2757,7 +2765,7 @@
                         "name": "_gtsrLatestDeliveryError",
                         "shape": "String",
                         "locationName": "LatestDeliveryError",
-                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.",
+                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic <http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2793,7 +2801,7 @@
                         "name": "_gtsrLatestNotificationError",
                         "shape": "String",
                         "locationName": "LatestNotificationError",
-                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.",
+                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the <http://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },

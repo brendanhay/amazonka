@@ -1,8 +1,89 @@
 {
     "waiters": {
-        "waiters": {},
+        "waiters": {
+            "MLModelAvailable": {
+                "operation": "DescribeMLModels",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf dmlmrResults) . mlmStatus . _Just",
+                        "expected": "ESCompleted"
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dmlmrResults) . mlmStatus . _Just",
+                        "expected": "ESFailed"
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "BatchPredictionAvailable": {
+                "operation": "DescribeBatchPredictions",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf dbprResults) . bpStatus . _Just",
+                        "expected": "ESCompleted"
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dbprResults) . bpStatus . _Just",
+                        "expected": "ESFailed"
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "DataSourceAvailable": {
+                "operation": "DescribeDataSources",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf ddsrResults) . dsStatus . _Just",
+                        "expected": "ESCompleted"
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddsrResults) . dsStatus . _Just",
+                        "expected": "ESFailed"
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "EvaluationAvailable": {
+                "operation": "DescribeEvaluations",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf derResults) . eStatus . _Just",
+                        "expected": "ESCompleted"
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf derResults) . eStatus . _Just",
+                        "expected": "ESFailed"
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            }
+        },
         "namespace": "Network.AWS.MachineLearning.Waiters",
         "imports": [
+            "Network.AWS.MachineLearning.DescribeBatchPredictions",
+            "Network.AWS.MachineLearning.DescribeDataSources",
+            "Network.AWS.MachineLearning.DescribeEvaluations",
+            "Network.AWS.MachineLearning.DescribeMLModels",
             "Network.AWS.MachineLearning.Types"
         ]
     },
@@ -40,7 +121,8 @@
             "Network.AWS.MachineLearning.UpdateBatchPrediction",
             "Network.AWS.MachineLearning.UpdateDataSource",
             "Network.AWS.MachineLearning.UpdateEvaluation",
-            "Network.AWS.MachineLearning.UpdateMLModel"
+            "Network.AWS.MachineLearning.UpdateMLModel",
+            "Network.AWS.MachineLearning.Waiters"
         ],
         "name": "Amazon Machine Learning",
         "version": "2014-12-12",
@@ -54,6 +136,14 @@
         },
         "endpointPrefix": "machinelearning",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -100,7 +190,8 @@
             "Network.AWS.MachineLearning.UpdateBatchPrediction",
             "Network.AWS.MachineLearning.UpdateDataSource",
             "Network.AWS.MachineLearning.UpdateEvaluation",
-            "Network.AWS.MachineLearning.UpdateMLModel"
+            "Network.AWS.MachineLearning.UpdateMLModel",
+            "Network.AWS.MachineLearning.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html",
         "protocol": "json",
@@ -1155,7 +1246,7 @@
                         "name": "_rdsdsResourceRole",
                         "shape": "EDPResourceRole",
                         "locationName": "ResourceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic\n-- Compute Cloud (Amazon EC2) instance to carry out the copy operation from\n-- Amazon RDS to an Amazon S3 task. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for\n-- data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic\n-- Compute Cloud (Amazon EC2) instance to carry out the copy operation from\n-- Amazon RDS to an Amazon S3 task. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for\n-- data pipelines.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1173,7 +1264,7 @@
                         "name": "_rdsdsServiceRole",
                         "shape": "EDPServiceRole",
                         "locationName": "ServiceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1302,7 +1393,7 @@
                         "name": "_rdsdsResourceRole",
                         "shape": "EDPResourceRole",
                         "locationName": "ResourceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic\n-- Compute Cloud (Amazon EC2) instance to carry out the copy operation from\n-- Amazon RDS to an Amazon S3 task. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for\n-- data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic\n-- Compute Cloud (Amazon EC2) instance to carry out the copy operation from\n-- Amazon RDS to an Amazon S3 task. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for\n-- data pipelines.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1320,7 +1411,7 @@
                         "name": "_rdsdsServiceRole",
                         "shape": "EDPServiceRole",
                         "locationName": "ServiceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1526,7 +1617,7 @@
                         "name": "_rdsdsResourceRole",
                         "shape": "EDPResourceRole",
                         "locationName": "ResourceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic\n-- Compute Cloud (Amazon EC2) instance to carry out the copy operation from\n-- Amazon RDS to an Amazon S3 task. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for\n-- data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic\n-- Compute Cloud (Amazon EC2) instance to carry out the copy operation from\n-- Amazon RDS to an Amazon S3 task. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for\n-- data pipelines.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1598,7 +1689,7 @@
                         "name": "_rdsdsServiceRole",
                         "shape": "EDPServiceRole",
                         "locationName": "ServiceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1699,7 +1790,7 @@
                         "name": "_rdsmResourceRole",
                         "shape": "EDPResourceRole",
                         "locationName": "ResourceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance\n-- to carry out the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance\n-- to carry out the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1717,7 +1808,7 @@
                         "name": "_rdsmServiceRole",
                         "shape": "EDPServiceRole",
                         "locationName": "ServiceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1815,7 +1906,7 @@
                         "name": "_rdsmResourceRole",
                         "shape": "EDPResourceRole",
                         "locationName": "ResourceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance\n-- to carry out the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance\n-- to carry out the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1833,7 +1924,7 @@
                         "name": "_rdsmServiceRole",
                         "shape": "EDPServiceRole",
                         "locationName": "ServiceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1925,7 +2016,7 @@
                         "name": "_rdsmResourceRole",
                         "shape": "EDPResourceRole",
                         "locationName": "ResourceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance\n-- to carry out the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance\n-- to carry out the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1961,7 +2052,7 @@
                         "name": "_rdsmServiceRole",
                         "shape": "EDPServiceRole",
                         "locationName": "ServiceRole",
-                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.",
+                        "documentation": "-- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to\n-- monitor the progress of the copy task from Amazon RDS to Amazon S3. For more\n-- information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5507,7 +5598,7 @@
                         "name": "_ePerformanceMetrics",
                         "shape": "PerformanceMetrics",
                         "locationName": "PerformanceMetrics",
-                        "documentation": "-- | Measurements of how well the 'MLModel' performed, using observations referenced\n-- by the 'DataSource'. One of the following metrics is returned, based on the\n-- type of the MLModel:\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide\u003e.",
+                        "documentation": "-- | Measurements of how well the 'MLModel' performed, using observations referenced\n-- by the 'DataSource'. One of the following metrics is returned, based on the\n-- type of the MLModel:\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide>.",
                         "typeExposed": "Maybe PerformanceMetrics",
                         "type": "Maybe PerformanceMetrics"
                     },
@@ -5713,7 +5804,7 @@
                         "name": "_ePerformanceMetrics",
                         "shape": "PerformanceMetrics",
                         "locationName": "PerformanceMetrics",
-                        "documentation": "-- | Measurements of how well the 'MLModel' performed, using observations referenced\n-- by the 'DataSource'. One of the following metrics is returned, based on the\n-- type of the MLModel:\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide\u003e.",
+                        "documentation": "-- | Measurements of how well the 'MLModel' performed, using observations referenced\n-- by the 'DataSource'. One of the following metrics is returned, based on the\n-- type of the MLModel:\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide>.",
                         "typeExposed": "Maybe PerformanceMetrics",
                         "type": "Maybe PerformanceMetrics"
                     },
@@ -5913,7 +6004,7 @@
                         "name": "_ePerformanceMetrics",
                         "shape": "PerformanceMetrics",
                         "locationName": "PerformanceMetrics",
-                        "documentation": "-- | Measurements of how well the 'MLModel' performed, using observations referenced\n-- by the 'DataSource'. One of the following metrics is returned, based on the\n-- type of the MLModel:\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide\u003e.",
+                        "documentation": "-- | Measurements of how well the 'MLModel' performed, using observations referenced\n-- by the 'DataSource'. One of the following metrics is returned, based on the\n-- type of the MLModel:\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide>.",
                         "typeExposed": "Maybe PerformanceMetrics",
                         "type": "Maybe PerformanceMetrics"
                     },
@@ -6367,7 +6458,7 @@
                         "name": "_cbpOutputUri",
                         "shape": "S3Url",
                         "locationName": "OutputUri",
-                        "documentation": "-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or\n-- directory to store the batch prediction results. The following substrings are\n-- not allowed in the s3 key portion of the \"outputURI\" field: ':', '//', '/./',\n-- '/../'.\n--\n-- Amazon ML needs permissions to store and retrieve the logs on your behalf.\n-- For information about how to set permissions, see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine LearningDeveloper Guide\u003e.",
+                        "documentation": "-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or\n-- directory to store the batch prediction results. The following substrings are\n-- not allowed in the s3 key portion of the \"outputURI\" field: ':', '//', '/./',\n-- '/../'.\n--\n-- Amazon ML needs permissions to store and retrieve the logs on your behalf.\n-- For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine LearningDeveloper Guide>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6449,7 +6540,7 @@
                         "name": "_cbpOutputUri",
                         "shape": "S3Url",
                         "locationName": "OutputUri",
-                        "documentation": "-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or\n-- directory to store the batch prediction results. The following substrings are\n-- not allowed in the s3 key portion of the \"outputURI\" field: ':', '//', '/./',\n-- '/../'.\n--\n-- Amazon ML needs permissions to store and retrieve the logs on your behalf.\n-- For information about how to set permissions, see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine LearningDeveloper Guide\u003e.",
+                        "documentation": "-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or\n-- directory to store the batch prediction results. The following substrings are\n-- not allowed in the s3 key portion of the \"outputURI\" field: ':', '//', '/./',\n-- '/../'.\n--\n-- Amazon ML needs permissions to store and retrieve the logs on your behalf.\n-- For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine LearningDeveloper Guide>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6571,7 +6662,7 @@
                         "name": "_cbpOutputUri",
                         "shape": "S3Url",
                         "locationName": "OutputUri",
-                        "documentation": "-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or\n-- directory to store the batch prediction results. The following substrings are\n-- not allowed in the s3 key portion of the \"outputURI\" field: ':', '//', '/./',\n-- '/../'.\n--\n-- Amazon ML needs permissions to store and retrieve the logs on your behalf.\n-- For information about how to set permissions, see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine LearningDeveloper Guide\u003e.",
+                        "documentation": "-- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or\n-- directory to store the batch prediction results. The following substrings are\n-- not allowed in the s3 key portion of the \"outputURI\" field: ':', '//', '/./',\n-- '/../'.\n--\n-- Amazon ML needs permissions to store and retrieve the logs on your behalf.\n-- For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine LearningDeveloper Guide>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6695,7 +6786,7 @@
             "pager": null,
             "name": "CreateDataSourceFromRDS",
             "method": "post",
-            "documentation": "-- | Creates a 'DataSource' object from an \u003chttp://aws.amazon.com/rds/  Amazon Relational Database Service\u003e\n-- (Amazon RDS). A 'DataSource' references data that can be used to perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- 'CreateDataSourceFromRDS' is an asynchronous operation. In response to 'CreateDataSourceFromRDS', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'DataSource' status to 'PENDING'. After the 'DataSource' is created and ready for use, Amazon\n-- ML sets the 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or 'PENDING'\n-- status can only be used to perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- If Amazon ML cannot accept the input source, it sets the 'Status' parameter\n-- to 'FAILED' and includes an error message in the 'Message' attribute of the 'GetDataSource' operation response.",
+            "documentation": "-- | Creates a 'DataSource' object from an <http://aws.amazon.com/rds/  Amazon Relational Database Service>\n-- (Amazon RDS). A 'DataSource' references data that can be used to perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- 'CreateDataSourceFromRDS' is an asynchronous operation. In response to 'CreateDataSourceFromRDS', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'DataSource' status to 'PENDING'. After the 'DataSource' is created and ready for use, Amazon\n-- ML sets the 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or 'PENDING'\n-- status can only be used to perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- If Amazon ML cannot accept the input source, it sets the 'Status' parameter\n-- to 'FAILED' and includes an error message in the 'Message' attribute of the 'GetDataSource' operation response.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6759,7 +6850,7 @@
                         "name": "_cdsfrdsRDSData",
                         "shape": "RDSDataSpec",
                         "locationName": "RDSData",
-                        "documentation": "-- | The data specification of an Amazon RDS 'DataSource':\n--\n-- DatabaseInformation -   'DatabaseName ' - Name of the Amazon RDS database.  'InstanceIdentifier ' - Unique identifier for the Amazon RDS database instance.\n--\n--\n-- DatabaseCredentials - AWS Identity and Access Management (IAM) credentials\n-- that are used to connect to the Amazon RDS database.\n--\n-- ResourceRole - Role (DataPipelineDefaultResourceRole) assumed by an Amazon\n-- Elastic Compute Cloud (EC2) instance to carry out the copy task from Amazon\n-- RDS to Amazon S3. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.\n--\n-- ServiceRole - Role (DataPipelineDefaultRole) assumed by the AWS Data\n-- Pipeline service to monitor the progress of the copy task from Amazon RDS to\n-- Amazon Simple Storage Service (S3). For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e\n-- for data pipelines.\n--\n-- SecurityInfo - Security information to use to access an Amazon RDS instance.\n-- You need to set up appropriate ingress rules for the security entity IDs\n-- provided to allow access to the Amazon RDS instance. Specify a ['SubnetId', 'SecurityGroupIds'] pair for a VPC-based Amazon RDS instance.\n--\n-- SelectSqlQuery - Query that is used to retrieve the observation data for the 'Datasource'.\n--\n-- S3StagingLocation - Amazon S3 location for staging RDS data. The data\n-- retrieved from Amazon RDS using 'SelectSqlQuery' is stored in this location.\n--\n-- DataSchemaUri - Amazon S3 location of the 'DataSchema'.\n--\n-- DataSchema - A JSON string representing the schema. This is not required if 'DataSchemaUri' is specified.\n--\n-- DataRearrangement - A JSON string representing the splitting requirement of\n-- a 'Datasource'.\n--\n--\n-- Sample - ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\",\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'\n--\n--",
+                        "documentation": "-- | The data specification of an Amazon RDS 'DataSource':\n--\n-- DatabaseInformation -   'DatabaseName ' - Name of the Amazon RDS database.  'InstanceIdentifier ' - Unique identifier for the Amazon RDS database instance.\n--\n--\n-- DatabaseCredentials - AWS Identity and Access Management (IAM) credentials\n-- that are used to connect to the Amazon RDS database.\n--\n-- ResourceRole - Role (DataPipelineDefaultResourceRole) assumed by an Amazon\n-- Elastic Compute Cloud (EC2) instance to carry out the copy task from Amazon\n-- RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.\n--\n-- ServiceRole - Role (DataPipelineDefaultRole) assumed by the AWS Data\n-- Pipeline service to monitor the progress of the copy task from Amazon RDS to\n-- Amazon Simple Storage Service (S3). For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>\n-- for data pipelines.\n--\n-- SecurityInfo - Security information to use to access an Amazon RDS instance.\n-- You need to set up appropriate ingress rules for the security entity IDs\n-- provided to allow access to the Amazon RDS instance. Specify a ['SubnetId', 'SecurityGroupIds'] pair for a VPC-based Amazon RDS instance.\n--\n-- SelectSqlQuery - Query that is used to retrieve the observation data for the 'Datasource'.\n--\n-- S3StagingLocation - Amazon S3 location for staging RDS data. The data\n-- retrieved from Amazon RDS using 'SelectSqlQuery' is stored in this location.\n--\n-- DataSchemaUri - Amazon S3 location of the 'DataSchema'.\n--\n-- DataSchema - A JSON string representing the schema. This is not required if 'DataSchemaUri' is specified.\n--\n-- DataRearrangement - A JSON string representing the splitting requirement of\n-- a 'Datasource'.\n--\n--\n-- Sample - ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\",\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'\n--\n--",
                         "typeExposed": "RDSDataSpec",
                         "type": "RDSDataSpec"
                     },
@@ -6841,7 +6932,7 @@
                         "name": "_cdsfrdsRDSData",
                         "shape": "RDSDataSpec",
                         "locationName": "RDSData",
-                        "documentation": "-- | The data specification of an Amazon RDS 'DataSource':\n--\n-- DatabaseInformation -   'DatabaseName ' - Name of the Amazon RDS database.  'InstanceIdentifier ' - Unique identifier for the Amazon RDS database instance.\n--\n--\n-- DatabaseCredentials - AWS Identity and Access Management (IAM) credentials\n-- that are used to connect to the Amazon RDS database.\n--\n-- ResourceRole - Role (DataPipelineDefaultResourceRole) assumed by an Amazon\n-- Elastic Compute Cloud (EC2) instance to carry out the copy task from Amazon\n-- RDS to Amazon S3. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.\n--\n-- ServiceRole - Role (DataPipelineDefaultRole) assumed by the AWS Data\n-- Pipeline service to monitor the progress of the copy task from Amazon RDS to\n-- Amazon Simple Storage Service (S3). For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e\n-- for data pipelines.\n--\n-- SecurityInfo - Security information to use to access an Amazon RDS instance.\n-- You need to set up appropriate ingress rules for the security entity IDs\n-- provided to allow access to the Amazon RDS instance. Specify a ['SubnetId', 'SecurityGroupIds'] pair for a VPC-based Amazon RDS instance.\n--\n-- SelectSqlQuery - Query that is used to retrieve the observation data for the 'Datasource'.\n--\n-- S3StagingLocation - Amazon S3 location for staging RDS data. The data\n-- retrieved from Amazon RDS using 'SelectSqlQuery' is stored in this location.\n--\n-- DataSchemaUri - Amazon S3 location of the 'DataSchema'.\n--\n-- DataSchema - A JSON string representing the schema. This is not required if 'DataSchemaUri' is specified.\n--\n-- DataRearrangement - A JSON string representing the splitting requirement of\n-- a 'Datasource'.\n--\n--\n-- Sample - ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\",\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'\n--\n--",
+                        "documentation": "-- | The data specification of an Amazon RDS 'DataSource':\n--\n-- DatabaseInformation -   'DatabaseName ' - Name of the Amazon RDS database.  'InstanceIdentifier ' - Unique identifier for the Amazon RDS database instance.\n--\n--\n-- DatabaseCredentials - AWS Identity and Access Management (IAM) credentials\n-- that are used to connect to the Amazon RDS database.\n--\n-- ResourceRole - Role (DataPipelineDefaultResourceRole) assumed by an Amazon\n-- Elastic Compute Cloud (EC2) instance to carry out the copy task from Amazon\n-- RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.\n--\n-- ServiceRole - Role (DataPipelineDefaultRole) assumed by the AWS Data\n-- Pipeline service to monitor the progress of the copy task from Amazon RDS to\n-- Amazon Simple Storage Service (S3). For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>\n-- for data pipelines.\n--\n-- SecurityInfo - Security information to use to access an Amazon RDS instance.\n-- You need to set up appropriate ingress rules for the security entity IDs\n-- provided to allow access to the Amazon RDS instance. Specify a ['SubnetId', 'SecurityGroupIds'] pair for a VPC-based Amazon RDS instance.\n--\n-- SelectSqlQuery - Query that is used to retrieve the observation data for the 'Datasource'.\n--\n-- S3StagingLocation - Amazon S3 location for staging RDS data. The data\n-- retrieved from Amazon RDS using 'SelectSqlQuery' is stored in this location.\n--\n-- DataSchemaUri - Amazon S3 location of the 'DataSchema'.\n--\n-- DataSchema - A JSON string representing the schema. This is not required if 'DataSchemaUri' is specified.\n--\n-- DataRearrangement - A JSON string representing the splitting requirement of\n-- a 'Datasource'.\n--\n--\n-- Sample - ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\",\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'\n--\n--",
                         "typeExposed": "RDSDataSpec",
                         "type": "RDSDataSpec"
                     },
@@ -6981,7 +7072,7 @@
                         "name": "_cdsfrdsRDSData",
                         "shape": "RDSDataSpec",
                         "locationName": "RDSData",
-                        "documentation": "-- | The data specification of an Amazon RDS 'DataSource':\n--\n-- DatabaseInformation -   'DatabaseName ' - Name of the Amazon RDS database.  'InstanceIdentifier ' - Unique identifier for the Amazon RDS database instance.\n--\n--\n-- DatabaseCredentials - AWS Identity and Access Management (IAM) credentials\n-- that are used to connect to the Amazon RDS database.\n--\n-- ResourceRole - Role (DataPipelineDefaultResourceRole) assumed by an Amazon\n-- Elastic Compute Cloud (EC2) instance to carry out the copy task from Amazon\n-- RDS to Amazon S3. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e for data pipelines.\n--\n-- ServiceRole - Role (DataPipelineDefaultRole) assumed by the AWS Data\n-- Pipeline service to monitor the progress of the copy task from Amazon RDS to\n-- Amazon Simple Storage Service (S3). For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates\u003e\n-- for data pipelines.\n--\n-- SecurityInfo - Security information to use to access an Amazon RDS instance.\n-- You need to set up appropriate ingress rules for the security entity IDs\n-- provided to allow access to the Amazon RDS instance. Specify a ['SubnetId', 'SecurityGroupIds'] pair for a VPC-based Amazon RDS instance.\n--\n-- SelectSqlQuery - Query that is used to retrieve the observation data for the 'Datasource'.\n--\n-- S3StagingLocation - Amazon S3 location for staging RDS data. The data\n-- retrieved from Amazon RDS using 'SelectSqlQuery' is stored in this location.\n--\n-- DataSchemaUri - Amazon S3 location of the 'DataSchema'.\n--\n-- DataSchema - A JSON string representing the schema. This is not required if 'DataSchemaUri' is specified.\n--\n-- DataRearrangement - A JSON string representing the splitting requirement of\n-- a 'Datasource'.\n--\n--\n-- Sample - ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\",\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'\n--\n--",
+                        "documentation": "-- | The data specification of an Amazon RDS 'DataSource':\n--\n-- DatabaseInformation -   'DatabaseName ' - Name of the Amazon RDS database.  'InstanceIdentifier ' - Unique identifier for the Amazon RDS database instance.\n--\n--\n-- DatabaseCredentials - AWS Identity and Access Management (IAM) credentials\n-- that are used to connect to the Amazon RDS database.\n--\n-- ResourceRole - Role (DataPipelineDefaultResourceRole) assumed by an Amazon\n-- Elastic Compute Cloud (EC2) instance to carry out the copy task from Amazon\n-- RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.\n--\n-- ServiceRole - Role (DataPipelineDefaultRole) assumed by the AWS Data\n-- Pipeline service to monitor the progress of the copy task from Amazon RDS to\n-- Amazon Simple Storage Service (S3). For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>\n-- for data pipelines.\n--\n-- SecurityInfo - Security information to use to access an Amazon RDS instance.\n-- You need to set up appropriate ingress rules for the security entity IDs\n-- provided to allow access to the Amazon RDS instance. Specify a ['SubnetId', 'SecurityGroupIds'] pair for a VPC-based Amazon RDS instance.\n--\n-- SelectSqlQuery - Query that is used to retrieve the observation data for the 'Datasource'.\n--\n-- S3StagingLocation - Amazon S3 location for staging RDS data. The data\n-- retrieved from Amazon RDS using 'SelectSqlQuery' is stored in this location.\n--\n-- DataSchemaUri - Amazon S3 location of the 'DataSchema'.\n--\n-- DataSchema - A JSON string representing the schema. This is not required if 'DataSchemaUri' is specified.\n--\n-- DataRearrangement - A JSON string representing the splitting requirement of\n-- a 'Datasource'.\n--\n--\n-- Sample - ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\",\\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'\n--\n--",
                         "typeExposed": "RDSDataSpec",
                         "type": "RDSDataSpec"
                     },
@@ -7123,7 +7214,7 @@
             "pager": null,
             "name": "CreateDataSourceFromRedshift",
             "method": "post",
-            "documentation": "-- | Creates a 'DataSource' from \u003chttp://aws.amazon.com/redshift/ Amazon Redshift\u003e. A 'DataSource' references data that\n-- can be used to perform either 'CreateMLModel', 'CreateEvaluation' or 'CreateBatchPrediction' operations.\n--\n-- 'CreateDataSourceFromRedshift' is an asynchronous operation. In response to 'CreateDataSourceFromRedshift', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'DataSource' status to 'PENDING'. After the 'DataSource' is created and ready for use, Amazon\n-- ML sets the 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or 'PENDING'\n-- status can only be used to perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- If Amazon ML cannot accept the input source, it sets the 'Status' parameter\n-- to 'FAILED' and includes an error message in the 'Message' attribute of the 'GetDataSource' operation response.\n--\n-- The observations should exist in the database hosted on an Amazon Redshift\n-- cluster and should be specified by a 'SelectSqlQuery'. Amazon ML executes \u003chttp://docs.aws.amazon.com/redshift/latest/dg/t_Unloading_tables.html Unload\u003e command in Amazon Redshift to transfer the result set of 'SelectSqlQuery'\n-- to 'S3StagingLocation.'\n--\n-- After the 'DataSource' is created, it's ready for use in evaluations and batch\n-- predictions. If you plan to use the 'DataSource' to train an 'MLModel', the 'DataSource' requires another item -- a recipe. A recipe describes the observation\n-- variables that participate in training an 'MLModel'. A recipe describes how\n-- each input variable will be used in training. Will the variable be included\n-- or excluded from training? Will the variable be manipulated, for example,\n-- combined with another variable or split apart into word combinations? The\n-- recipe provides answers to these questions. For more information, see the\n-- Amazon Machine Learning Developer Guide.",
+            "documentation": "-- | Creates a 'DataSource' from <http://aws.amazon.com/redshift/ Amazon Redshift>. A 'DataSource' references data that\n-- can be used to perform either 'CreateMLModel', 'CreateEvaluation' or 'CreateBatchPrediction' operations.\n--\n-- 'CreateDataSourceFromRedshift' is an asynchronous operation. In response to 'CreateDataSourceFromRedshift', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'DataSource' status to 'PENDING'. After the 'DataSource' is created and ready for use, Amazon\n-- ML sets the 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or 'PENDING'\n-- status can only be used to perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- If Amazon ML cannot accept the input source, it sets the 'Status' parameter\n-- to 'FAILED' and includes an error message in the 'Message' attribute of the 'GetDataSource' operation response.\n--\n-- The observations should exist in the database hosted on an Amazon Redshift\n-- cluster and should be specified by a 'SelectSqlQuery'. Amazon ML executes <http://docs.aws.amazon.com/redshift/latest/dg/t_Unloading_tables.html Unload> command in Amazon Redshift to transfer the result set of 'SelectSqlQuery'\n-- to 'S3StagingLocation.'\n--\n-- After the 'DataSource' is created, it's ready for use in evaluations and batch\n-- predictions. If you plan to use the 'DataSource' to train an 'MLModel', the 'DataSource' requires another item -- a recipe. A recipe describes the observation\n-- variables that participate in training an 'MLModel'. A recipe describes how\n-- each input variable will be used in training. Will the variable be included\n-- or excluded from training? Will the variable be manipulated, for example,\n-- combined with another variable or split apart into word combinations? The\n-- recipe provides answers to these questions. For more information, see the\n-- Amazon Machine Learning Developer Guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7551,7 +7642,7 @@
             "pager": null,
             "name": "CreateDataSourceFromS3",
             "method": "post",
-            "documentation": "-- | Creates a 'DataSource' object. A 'DataSource' references data that can be used to\n-- perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- 'CreateDataSourceFromS3' is an asynchronous operation. In response to 'CreateDataSourceFromS3', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'DataSource' status to 'PENDING'. After the 'DataSource' is created and ready for use, Amazon\n-- ML sets the 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or 'PENDING'\n-- status can only be used to perform 'CreateMLModel', 'CreateEvaluation' or 'CreateBatchPrediction' operations.\n--\n-- If Amazon ML cannot accept the input source, it sets the 'Status' parameter\n-- to 'FAILED' and includes an error message in the 'Message' attribute of the 'GetDataSource' operation response.\n--\n-- The observation data used in a 'DataSource' should be ready to use; that is,\n-- it should have a consistent structure, and missing data values should be kept\n-- to a minimum. The observation data must reside in one or more CSV files in an\n-- Amazon Simple Storage Service (Amazon S3) bucket, along with a schema that\n-- describes the data items by name and type. The same schema must be used for\n-- all of the data files referenced by the 'DataSource'.\n--\n-- After the 'DataSource' has been created, it's ready to use in evaluations and\n-- batch predictions. If you plan to use the 'DataSource' to train an 'MLModel', the 'DataSource' requires another item: a recipe. A recipe describes the\n-- observation variables that participate in training an 'MLModel'. A recipe\n-- describes how each input variable will be used in training. Will the variable\n-- be included or excluded from training? Will the variable be manipulated, for\n-- example, combined with another variable, or split apart into word\n-- combinations? The recipe provides answers to these questions. For more\n-- information, see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide\u003e.",
+            "documentation": "-- | Creates a 'DataSource' object. A 'DataSource' references data that can be used to\n-- perform 'CreateMLModel', 'CreateEvaluation', or 'CreateBatchPrediction' operations.\n--\n-- 'CreateDataSourceFromS3' is an asynchronous operation. In response to 'CreateDataSourceFromS3', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'DataSource' status to 'PENDING'. After the 'DataSource' is created and ready for use, Amazon\n-- ML sets the 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or 'PENDING'\n-- status can only be used to perform 'CreateMLModel', 'CreateEvaluation' or 'CreateBatchPrediction' operations.\n--\n-- If Amazon ML cannot accept the input source, it sets the 'Status' parameter\n-- to 'FAILED' and includes an error message in the 'Message' attribute of the 'GetDataSource' operation response.\n--\n-- The observation data used in a 'DataSource' should be ready to use; that is,\n-- it should have a consistent structure, and missing data values should be kept\n-- to a minimum. The observation data must reside in one or more CSV files in an\n-- Amazon Simple Storage Service (Amazon S3) bucket, along with a schema that\n-- describes the data items by name and type. The same schema must be used for\n-- all of the data files referenced by the 'DataSource'.\n--\n-- After the 'DataSource' has been created, it's ready to use in evaluations and\n-- batch predictions. If you plan to use the 'DataSource' to train an 'MLModel', the 'DataSource' requires another item: a recipe. A recipe describes the\n-- observation variables that participate in training an 'MLModel'. A recipe\n-- describes how each input variable will be used in training. Will the variable\n-- be included or excluded from training? Will the variable be manipulated, for\n-- example, combined with another variable, or split apart into word\n-- combinations? The recipe provides answers to these questions. For more\n-- information, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8364,7 +8455,7 @@
                         "name": "_cmlmMLModelType",
                         "shape": "MLModelType",
                         "locationName": "MLModelType",
-                        "documentation": "-- | The category of supervised learning that this 'MLModel' will address. Choose\n-- from the following types:\n--\n-- Choose 'REGRESSION' if the 'MLModel' will be used to predict a numeric value. Choose\n-- 'BINARY' if the 'MLModel' result has two possible values. Choose 'MULTICLASS' if\n-- the 'MLModel' result has a limited number of values.    For more information,\n-- see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide\u003e.",
+                        "documentation": "-- | The category of supervised learning that this 'MLModel' will address. Choose\n-- from the following types:\n--\n-- Choose 'REGRESSION' if the 'MLModel' will be used to predict a numeric value. Choose\n-- 'BINARY' if the 'MLModel' result has two possible values. Choose 'MULTICLASS' if\n-- the 'MLModel' result has a limited number of values.    For more information,\n-- see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.",
                         "typeExposed": "MLModelType",
                         "type": "MLModelType"
                     },
@@ -8482,7 +8573,7 @@
                         "name": "_cmlmMLModelType",
                         "shape": "MLModelType",
                         "locationName": "MLModelType",
-                        "documentation": "-- | The category of supervised learning that this 'MLModel' will address. Choose\n-- from the following types:\n--\n-- Choose 'REGRESSION' if the 'MLModel' will be used to predict a numeric value. Choose\n-- 'BINARY' if the 'MLModel' result has two possible values. Choose 'MULTICLASS' if\n-- the 'MLModel' result has a limited number of values.    For more information,\n-- see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide\u003e.",
+                        "documentation": "-- | The category of supervised learning that this 'MLModel' will address. Choose\n-- from the following types:\n--\n-- Choose 'REGRESSION' if the 'MLModel' will be used to predict a numeric value. Choose\n-- 'BINARY' if the 'MLModel' result has two possible values. Choose 'MULTICLASS' if\n-- the 'MLModel' result has a limited number of values.    For more information,\n-- see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.",
                         "typeExposed": "MLModelType",
                         "type": "MLModelType"
                     },
@@ -8640,7 +8731,7 @@
                         "name": "_cmlmMLModelType",
                         "shape": "MLModelType",
                         "locationName": "MLModelType",
-                        "documentation": "-- | The category of supervised learning that this 'MLModel' will address. Choose\n-- from the following types:\n--\n-- Choose 'REGRESSION' if the 'MLModel' will be used to predict a numeric value. Choose\n-- 'BINARY' if the 'MLModel' result has two possible values. Choose 'MULTICLASS' if\n-- the 'MLModel' result has a limited number of values.    For more information,\n-- see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide\u003e.",
+                        "documentation": "-- | The category of supervised learning that this 'MLModel' will address. Choose\n-- from the following types:\n--\n-- Choose 'REGRESSION' if the 'MLModel' will be used to predict a numeric value. Choose\n-- 'BINARY' if the 'MLModel' result has two possible values. Choose 'MULTICLASS' if\n-- the 'MLModel' result has a limited number of values.    For more information,\n-- see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.",
                         "typeExposed": "MLModelType",
                         "type": "MLModelType"
                     },
@@ -15461,7 +15552,7 @@
                         "name": "_gerPerformanceMetrics",
                         "shape": "PerformanceMetrics",
                         "locationName": "PerformanceMetrics",
-                        "documentation": "-- | Measurements of how well the 'MLModel' performed using observations referenced\n-- by the 'DataSource'. One of the following metric is returned based on the type\n-- of the 'MLModel':\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide\u003e.",
+                        "documentation": "-- | Measurements of how well the 'MLModel' performed using observations referenced\n-- by the 'DataSource'. One of the following metric is returned based on the type\n-- of the 'MLModel':\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide>.",
                         "typeExposed": "Maybe PerformanceMetrics",
                         "type": "Maybe PerformanceMetrics"
                     },
@@ -15691,7 +15782,7 @@
                         "name": "_gerPerformanceMetrics",
                         "shape": "PerformanceMetrics",
                         "locationName": "PerformanceMetrics",
-                        "documentation": "-- | Measurements of how well the 'MLModel' performed using observations referenced\n-- by the 'DataSource'. One of the following metric is returned based on the type\n-- of the 'MLModel':\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide\u003e.",
+                        "documentation": "-- | Measurements of how well the 'MLModel' performed using observations referenced\n-- by the 'DataSource'. One of the following metric is returned based on the type\n-- of the 'MLModel':\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide>.",
                         "typeExposed": "Maybe PerformanceMetrics",
                         "type": "Maybe PerformanceMetrics"
                     },
@@ -15927,7 +16018,7 @@
                         "name": "_gerPerformanceMetrics",
                         "shape": "PerformanceMetrics",
                         "locationName": "PerformanceMetrics",
-                        "documentation": "-- | Measurements of how well the 'MLModel' performed using observations referenced\n-- by the 'DataSource'. One of the following metric is returned based on the type\n-- of the 'MLModel':\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the \u003chttp://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide\u003e.",
+                        "documentation": "-- | Measurements of how well the 'MLModel' performed using observations referenced\n-- by the 'DataSource'. One of the following metric is returned based on the type\n-- of the 'MLModel':\n--\n-- BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC) technique\n-- to measure performance.\n--\n-- RegressionRMSE: A regression 'MLModel' uses the Root Mean Square Error\n-- (RMSE) technique to measure performance. RMSE measures the difference between\n-- predicted and actual values for a single variable.\n--\n-- MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score technique to\n-- measure performance.\n--\n-- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg AmazonMachine Learning Developer Guide>.",
                         "typeExposed": "Maybe PerformanceMetrics",
                         "type": "Maybe PerformanceMetrics"
                     },

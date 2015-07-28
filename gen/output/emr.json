@@ -86,8 +86,12 @@
         },
         "endpointPrefix": "elasticmapreduce",
         "retryPolicies": {
-            "throttling": {
+            "throttling_exception": {
                 "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
                 "code": 400
             },
             "service_unavailable": {
@@ -164,7 +168,7 @@
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 17,
+                "fieldPad": 18,
                 "ctor": "instanceGroupConfig",
                 "contents": [
                     {
@@ -274,6 +278,24 @@
                         "documentation": "-- | Target number of instances for the instance group.",
                         "typeExposed": "Int",
                         "type": "Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "igcConfigurations",
+                        "name": "_igcConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for an EMR cluster instance group. You\n-- can specify a separate configuration for each instance group (master, core,\n-- and task).",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     }
                 ],
                 "payload": null,
@@ -333,9 +355,9 @@
                         "type": "Int"
                     }
                 ],
-                "contentPad": 14,
+                "contentPad": 15,
                 "name": "InstanceGroupConfig",
-                "locationPad": 14,
+                "locationPad": 15,
                 "type": "record",
                 "optional": [
                     {
@@ -391,6 +413,24 @@
                         "documentation": "-- | Bid price for each Amazon EC2 instance in the instance group when launching\n-- nodes as Spot Instances, expressed in USD.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "igcConfigurations",
+                        "name": "_igcConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for an EMR cluster instance group. You\n-- can specify a separate configuration for each instance group (master, core,\n-- and task).",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     }
                 ],
                 "fields": [
@@ -411,6 +451,24 @@
                         "documentation": "-- | Bid price for each Amazon EC2 instance in the instance group when launching\n-- nodes as Spot Instances, expressed in USD.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "igcConfigurations",
+                        "name": "_igcConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for an EMR cluster instance group. You\n-- can specify a separate configuration for each instance group (master, core,\n-- and task).",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     },
                     {
                         "location": null,
@@ -710,7 +768,7 @@
                         "name": "_jfdAmiVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "AmiVersion",
-                        "documentation": "-- | The version of the AMI used to initialize Amazon EC2 instances in the job\n-- flow. For a list of AMI versions currently supported by Amazon\n-- ElasticMapReduce, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce\u003e in the /Amazon Elastic MapReduce Developer's Guide./",
+                        "documentation": "-- | The version of the AMI used to initialize Amazon EC2 instances in the job\n-- flow. For a list of AMI versions currently supported by Amazon\n-- ElasticMapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer Guide./",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -971,7 +1029,7 @@
                         "name": "_jfdAmiVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "AmiVersion",
-                        "documentation": "-- | The version of the AMI used to initialize Amazon EC2 instances in the job\n-- flow. For a list of AMI versions currently supported by Amazon\n-- ElasticMapReduce, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce\u003e in the /Amazon Elastic MapReduce Developer's Guide./",
+                        "documentation": "-- | The version of the AMI used to initialize Amazon EC2 instances in the job\n-- flow. For a list of AMI versions currently supported by Amazon\n-- ElasticMapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer Guide./",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1099,7 +1157,7 @@
                         "name": "_jfdAmiVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "AmiVersion",
-                        "documentation": "-- | The version of the AMI used to initialize Amazon EC2 instances in the job\n-- flow. For a list of AMI versions currently supported by Amazon\n-- ElasticMapReduce, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce\u003e in the /Amazon Elastic MapReduce Developer's Guide./",
+                        "documentation": "-- | The version of the AMI used to initialize Amazon EC2 instances in the job\n-- flow. For a list of AMI versions currently supported by Amazon\n-- ElasticMapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer Guide./",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1943,7 +2001,7 @@
                         "name": "_tagKey",
                         "shape": "String",
                         "locationName": "Key",
-                        "documentation": "-- | A user-defined key, which is the minimum required information for a valid\n-- tag. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources\u003e.",
+                        "documentation": "-- | A user-defined key, which is the minimum required information for a valid\n-- tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1961,7 +2019,7 @@
                         "name": "_tagValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "-- | A user-defined value, which is optional in a tag. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources\u003e.",
+                        "documentation": "-- | A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1987,7 +2045,7 @@
                         "name": "_tagKey",
                         "shape": "String",
                         "locationName": "Key",
-                        "documentation": "-- | A user-defined key, which is the minimum required information for a valid\n-- tag. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources\u003e.",
+                        "documentation": "-- | A user-defined key, which is the minimum required information for a valid\n-- tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2005,7 +2063,7 @@
                         "name": "_tagValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "-- | A user-defined value, which is optional in a tag. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources\u003e.",
+                        "documentation": "-- | A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2025,7 +2083,7 @@
                         "name": "_tagKey",
                         "shape": "String",
                         "locationName": "Key",
-                        "documentation": "-- | A user-defined key, which is the minimum required information for a valid\n-- tag. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources\u003e.",
+                        "documentation": "-- | A user-defined key, which is the minimum required information for a valid\n-- tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2043,7 +2101,7 @@
                         "name": "_tagValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "-- | A user-defined value, which is optional in a tag. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources\u003e.",
+                        "documentation": "-- | A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2946,7 +3004,25 @@
                         "name": "_c1RunningAmiVersion",
                         "shape": "String",
                         "locationName": "RunningAmiVersion",
-                        "documentation": "-- | The AMI version running on this cluster. This differs from the requested\n-- version only if the requested version is a meta version, such as \"latest\".",
+                        "documentation": "-- | The AMI version running on this cluster.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1ReleaseLabel",
+                        "name": "_c1ReleaseLabel",
+                        "shape": "String",
+                        "locationName": "ReleaseLabel",
+                        "documentation": "-- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x\n-- AMIs, use amiVersion instead instead of ReleaseLabel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3090,9 +3166,27 @@
                         "name": "_c1MasterPublicDnsName",
                         "shape": "String",
                         "locationName": "MasterPublicDnsName",
-                        "documentation": "-- | The public DNS name of the master Ec2 instance.",
+                        "documentation": "-- | The public DNS name of the master EC2 instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "c1Configurations",
+                        "name": "_c1Configurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of Configurations supplied to the EMR cluster.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     }
                 ],
                 "payload": null,
@@ -3225,7 +3319,25 @@
                         "name": "_c1RunningAmiVersion",
                         "shape": "String",
                         "locationName": "RunningAmiVersion",
-                        "documentation": "-- | The AMI version running on this cluster. This differs from the requested\n-- version only if the requested version is a meta version, such as \"latest\".",
+                        "documentation": "-- | The AMI version running on this cluster.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1ReleaseLabel",
+                        "name": "_c1ReleaseLabel",
+                        "shape": "String",
+                        "locationName": "ReleaseLabel",
+                        "documentation": "-- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x\n-- AMIs, use amiVersion instead instead of ReleaseLabel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3369,9 +3481,27 @@
                         "name": "_c1MasterPublicDnsName",
                         "shape": "String",
                         "locationName": "MasterPublicDnsName",
-                        "documentation": "-- | The public DNS name of the master Ec2 instance.",
+                        "documentation": "-- | The public DNS name of the master EC2 instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "c1Configurations",
+                        "name": "_c1Configurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of Configurations supplied to the EMR cluster.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     }
                 ],
                 "fields": [
@@ -3410,6 +3540,24 @@
                         "documentation": "-- | Specifies whether the cluster should terminate after completing all steps.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "c1Configurations",
+                        "name": "_c1Configurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of Configurations supplied to the EMR cluster.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     },
                     {
                         "location": null,
@@ -3479,7 +3627,7 @@
                         "name": "_c1MasterPublicDnsName",
                         "shape": "String",
                         "locationName": "MasterPublicDnsName",
-                        "documentation": "-- | The public DNS name of the master Ec2 instance.",
+                        "documentation": "-- | The public DNS name of the master EC2 instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3529,6 +3677,24 @@
                         "payload": false,
                         "flattened": false,
                         "required": false,
+                        "lens": "c1ReleaseLabel",
+                        "name": "_c1ReleaseLabel",
+                        "shape": "String",
+                        "locationName": "ReleaseLabel",
+                        "documentation": "-- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x\n-- AMIs, use amiVersion instead instead of ReleaseLabel.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
                         "lens": "c1RequestedAmiVersion",
                         "name": "_c1RequestedAmiVersion",
                         "shape": "String",
@@ -3551,7 +3717,7 @@
                         "name": "_c1RunningAmiVersion",
                         "shape": "String",
                         "locationName": "RunningAmiVersion",
-                        "documentation": "-- | The AMI version running on this cluster. This differs from the requested\n-- version only if the requested version is a meta version, such as \"latest\".",
+                        "documentation": "-- | The AMI version running on this cluster.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6888,7 +7054,7 @@
                         "name": "_sscrCode",
                         "shape": "StepStateChangeReasonCode",
                         "locationName": "Code",
-                        "documentation": "-- | The programmable code for the state change reason.",
+                        "documentation": "-- | The programmable code for the state change reason. Note: Currently, the\n-- service provides no code for the state change.",
                         "typeExposed": "Maybe StepStateChangeReasonCode",
                         "type": "Maybe StepStateChangeReasonCode"
                     },
@@ -6932,7 +7098,7 @@
                         "name": "_sscrCode",
                         "shape": "StepStateChangeReasonCode",
                         "locationName": "Code",
-                        "documentation": "-- | The programmable code for the state change reason.",
+                        "documentation": "-- | The programmable code for the state change reason. Note: Currently, the\n-- service provides no code for the state change.",
                         "typeExposed": "Maybe StepStateChangeReasonCode",
                         "type": "Maybe StepStateChangeReasonCode"
                     },
@@ -6970,7 +7136,7 @@
                         "name": "_sscrCode",
                         "shape": "StepStateChangeReasonCode",
                         "locationName": "Code",
-                        "documentation": "-- | The programmable code for the state change reason.",
+                        "documentation": "-- | The programmable code for the state change reason. Note: Currently, the\n-- service provides no code for the state change.",
                         "typeExposed": "Maybe StepStateChangeReasonCode",
                         "type": "Maybe StepStateChangeReasonCode"
                     },
@@ -8233,7 +8399,7 @@
                         "name": "_jficKeepJobFlowAliveWhenNoSteps",
                         "shape": "Boolean",
                         "locationName": "KeepJobFlowAliveWhenNoSteps",
-                        "documentation": "-- | Specifies whether the job flow should terminate after completing all steps.",
+                        "documentation": "-- | Specifies whether the job flow should be kept alive after completing all\n-- steps.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -8269,7 +8435,7 @@
                         "name": "_jficHadoopVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "HadoopVersion",
-                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\",\n-- \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the\n-- default of 0.18 is used, unless the AmiVersion parameter is set in the\n-- RunJobFlow call, in which case the default version of Hadoop for that AMI\n-- version is used.",
+                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\" (deprecated),\n-- \"0.20\" (deprecated), \"0.20.205\" (deprecated), \"1.0.3\", \"2.2.0\", or \"2.4.0\".\n-- If you do not set this value, the default of 0.18 is used, unless the\n-- AmiVersion parameter is set in the RunJobFlow call, in which case the default\n-- version of Hadoop for that AMI version is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8493,7 +8659,7 @@
                         "name": "_jficKeepJobFlowAliveWhenNoSteps",
                         "shape": "Boolean",
                         "locationName": "KeepJobFlowAliveWhenNoSteps",
-                        "documentation": "-- | Specifies whether the job flow should terminate after completing all steps.",
+                        "documentation": "-- | Specifies whether the job flow should be kept alive after completing all\n-- steps.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -8529,7 +8695,7 @@
                         "name": "_jficHadoopVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "HadoopVersion",
-                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\",\n-- \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the\n-- default of 0.18 is used, unless the AmiVersion parameter is set in the\n-- RunJobFlow call, in which case the default version of Hadoop for that AMI\n-- version is used.",
+                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\" (deprecated),\n-- \"0.20\" (deprecated), \"0.20.205\" (deprecated), \"1.0.3\", \"2.2.0\", or \"2.4.0\".\n-- If you do not set this value, the default of 0.18 is used, unless the\n-- AmiVersion parameter is set in the RunJobFlow call, in which case the default\n-- version of Hadoop for that AMI version is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8747,7 +8913,7 @@
                         "name": "_jficHadoopVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "HadoopVersion",
-                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\",\n-- \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the\n-- default of 0.18 is used, unless the AmiVersion parameter is set in the\n-- RunJobFlow call, in which case the default version of Hadoop for that AMI\n-- version is used.",
+                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\" (deprecated),\n-- \"0.20\" (deprecated), \"0.20.205\" (deprecated), \"1.0.3\", \"2.2.0\", or \"2.4.0\".\n-- If you do not set this value, the default of 0.18 is used, unless the\n-- AmiVersion parameter is set in the RunJobFlow call, in which case the default\n-- version of Hadoop for that AMI version is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8801,7 +8967,7 @@
                         "name": "_jficKeepJobFlowAliveWhenNoSteps",
                         "shape": "Boolean",
                         "locationName": "KeepJobFlowAliveWhenNoSteps",
-                        "documentation": "-- | Specifies whether the job flow should terminate after completing all steps.",
+                        "documentation": "-- | Specifies whether the job flow should be kept alive after completing all\n-- steps.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -8876,6 +9042,189 @@
                         "documentation": "-- | Specifies whether to lock the job flow to prevent the Amazon EC2 instances\n-- from being terminated by API call, user intervention, or in the event of a\n-- job flow error.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 16,
+                "ctor": "configuration",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cClassification",
+                        "name": "_cClassification",
+                        "shape": "String",
+                        "locationName": "Classification",
+                        "documentation": "-- | The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMRConfigurations>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cConfigurations",
+                        "name": "_cConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | A list of configurations you apply to this configuration object.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cProperties",
+                        "name": "_cProperties",
+                        "shape": "StringMap",
+                        "locationName": "Properties",
+                        "documentation": "-- | A set of properties supplied to the Configuration object.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 15,
+                "name": "Configuration",
+                "locationPad": 15,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cClassification",
+                        "name": "_cClassification",
+                        "shape": "String",
+                        "locationName": "Classification",
+                        "documentation": "-- | The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMRConfigurations>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cConfigurations",
+                        "name": "_cConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | A list of configurations you apply to this configuration object.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cProperties",
+                        "name": "_cProperties",
+                        "shape": "StringMap",
+                        "locationName": "Properties",
+                        "documentation": "-- | A set of properties supplied to the Configuration object.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cClassification",
+                        "name": "_cClassification",
+                        "shape": "String",
+                        "locationName": "Classification",
+                        "documentation": "-- | The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMRConfigurations>.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cConfigurations",
+                        "name": "_cConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | A list of configurations you apply to this configuration object.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cProperties",
+                        "name": "_cProperties",
+                        "shape": "StringMap",
+                        "locationName": "Properties",
+                        "documentation": "-- | A set of properties supplied to the Configuration object.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
                     }
                 ]
             },
@@ -9233,6 +9582,24 @@
                         "documentation": "-- | The current status of the instance group.",
                         "typeExposed": "Maybe InstanceGroupStatus",
                         "type": "Maybe InstanceGroupStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "igConfigurations",
+                        "name": "_igConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for an EMR cluster instance group. You\n-- can specify a separate configuration for each instance group (master, core,\n-- and task).",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     }
                 ],
                 "payload": null,
@@ -9403,6 +9770,24 @@
                         "documentation": "-- | The current status of the instance group.",
                         "typeExposed": "Maybe InstanceGroupStatus",
                         "type": "Maybe InstanceGroupStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "igConfigurations",
+                        "name": "_igConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for an EMR cluster instance group. You\n-- can specify a separate configuration for each instance group (master, core,\n-- and task).",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     }
                 ],
                 "fields": [
@@ -9423,6 +9808,24 @@
                         "documentation": "-- | The bid price for each EC2 instance in the instance group when launching\n-- nodes as Spot Instances, expressed in USD.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "igConfigurations",
+                        "name": "_igConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for an EMR cluster instance group. You\n-- can specify a separate configuration for each instance group (master, core,\n-- and task).",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     },
                     {
                         "location": null,
@@ -12025,7 +12428,7 @@
             "pager": null,
             "name": "AddJobFlowSteps",
             "method": "post",
-            "documentation": "-- | AddJobFlowSteps adds new steps to a running job flow. A maximum of 256 steps\n-- are allowed in each job flow.\n--\n-- If your job flow is long-running (such as a Hive data warehouse) or complex,\n-- you may require more than 256 steps to process your data. You can bypass the\n-- 256-step limitation in various ways, including using the SSH shell to connect\n-- to the master node and submitting queries directly to the software running on\n-- the master node, such as Hive and Hadoop. For more information on how to do\n-- this, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow\u003e in the /Amazon ElasticMapReduce Developer's Guide/.\n--\n-- A step specifies the location of a JAR file stored either on the master\n-- node of the job flow or in Amazon S3. Each step is performed by the main\n-- function of the main class of the JAR file. The main class can be specified\n-- either in the manifest of the JAR or by using the MainFunction parameter of\n-- the step.\n--\n-- Elastic MapReduce executes each step in the order listed. For a step to be\n-- considered complete, the main function must exit with a zero exit code and\n-- all Hadoop jobs started while the step was running must have completed and\n-- run successfully.\n--\n-- You can only add steps to a job flow that is in one of the following\n-- states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.",
+            "documentation": "-- | AddJobFlowSteps adds new steps to a running job flow. A maximum of 256 steps\n-- are allowed in each job flow.\n--\n-- If your job flow is long-running (such as a Hive data warehouse) or complex,\n-- you may require more than 256 steps to process your data. You can bypass the\n-- 256-step limitation in various ways, including using the SSH shell to connect\n-- to the master node and submitting queries directly to the software running on\n-- the master node, such as Hive and Hadoop. For more information on how to do\n-- this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon ElasticMapReduce Developer's Guide/.\n--\n-- A step specifies the location of a JAR file stored either on the master\n-- node of the job flow or in Amazon S3. Each step is performed by the main\n-- function of the main class of the JAR file. The main class can be specified\n-- either in the manifest of the JAR or by using the MainFunction parameter of\n-- the step.\n--\n-- Elastic MapReduce executes each step in the order listed. For a step to be\n-- considered complete, the main function must exit with a zero exit code and\n-- all Hadoop jobs started while the step was running must have completed and\n-- run successfully.\n--\n-- You can only add steps to a job flow that is in one of the following\n-- states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12211,7 +12614,7 @@
             "pager": null,
             "name": "AddTags",
             "method": "post",
-            "documentation": "-- | Adds tags to an Amazon EMR resource. Tags make it easier to associate\n-- clusters in various ways, such as grouping clusters to track your Amazon EMR\n-- resource allocation costs. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMRResources\u003e.",
+            "documentation": "-- | Adds tags to an Amazon EMR resource. Tags make it easier to associate\n-- clusters in various ways, such as grouping clusters to track your Amazon EMR\n-- resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMRResources>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15282,7 +15685,7 @@
             "pager": null,
             "name": "RemoveTags",
             "method": "post",
-            "documentation": "-- | Removes tags from an Amazon EMR resource. Tags make it easier to associate\n-- clusters in various ways, such as grouping clusters to track your Amazon EMR\n-- resource allocation costs. For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMRResources\u003e.\n--\n-- The following example removes the stack tag with value Prod from a cluster:",
+            "documentation": "-- | Removes tags from an Amazon EMR resource. Tags make it easier to associate\n-- clusters in various ways, such as grouping clusters to track your Amazon EMR\n-- resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMRResources>.\n--\n-- The following example removes the stack tag with value Prod from a cluster:",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15549,7 +15952,7 @@
             "pager": null,
             "name": "RunJobFlow",
             "method": "post",
-            "documentation": "-- | RunJobFlow creates and starts running a new job flow. The job flow will run\n-- the steps specified. Once the job flow completes, the cluster is stopped and\n-- the HDFS partition is lost. To prevent loss of data, configure the last step\n-- of the job flow to store results in Amazon S3. If the 'JobFlowInstancesConfig' 'KeepJobFlowAliveWhenNoSteps' parameter is set to 'TRUE', the job flow will transition to the WAITING state\n-- rather than shutting down once the steps have completed.\n--\n-- For additional protection, you can set the 'JobFlowInstancesConfig' 'TerminationProtected' parameter to 'TRUE' to lock the job flow and prevent it from being terminated\n-- by API call, user intervention, or in the event of a job flow error.\n--\n-- A maximum of 256 steps are allowed in each job flow.\n--\n-- If your job flow is long-running (such as a Hive data warehouse) or complex,\n-- you may require more than 256 steps to process your data. You can bypass the\n-- 256-step limitation in various ways, including using the SSH shell to connect\n-- to the master node and submitting queries directly to the software running on\n-- the master node, such as Hive and Hadoop. For more information on how to do\n-- this, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow\u003e in the /Amazon ElasticMapReduce Developer's Guide/.\n--\n-- For long running job flows, we recommend that you periodically store your\n-- results.",
+            "documentation": "-- | RunJobFlow creates and starts running a new job flow. The job flow will run\n-- the steps specified. Once the job flow completes, the cluster is stopped and\n-- the HDFS partition is lost. To prevent loss of data, configure the last step\n-- of the job flow to store results in Amazon S3. If the 'JobFlowInstancesConfig' 'KeepJobFlowAliveWhenNoSteps' parameter is set to 'TRUE', the job flow will transition to the WAITING state\n-- rather than shutting down once the steps have completed.\n--\n-- For additional protection, you can set the 'JobFlowInstancesConfig' 'TerminationProtected' parameter to 'TRUE' to lock the job flow and prevent it from being terminated\n-- by API call, user intervention, or in the event of a job flow error.\n--\n-- A maximum of 256 steps are allowed in each job flow.\n--\n-- If your job flow is long-running (such as a Hive data warehouse) or complex,\n-- you may require more than 256 steps to process your data. You can bypass the\n-- 256-step limitation in various ways, including using the SSH shell to connect\n-- to the master node and submitting queries directly to the software running on\n-- the master node, such as Hive and Hadoop. For more information on how to do\n-- this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon ElasticMapReduce Developer's Guide/.\n--\n-- For long running job flows, we recommend that you periodically store your\n-- results.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15631,7 +16034,25 @@
                         "name": "_rjfAmiVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "AmiVersion",
-                        "documentation": "-- | The version of the Amazon Machine Image (AMI) to use when launching Amazon\n-- EC2 instances in the job flow. The following values are valid:\n--\n-- \"latest\" (uses the latest AMI) The version number of the AMI to use, for\n-- example, \"2.0\"  If the AMI supports multiple versions of Hadoop (for example,\n-- AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' 'HadoopVersion' parameter to modify the version of Hadoop from the defaults\n-- shown above.\n--\n-- For details about the AMI versions currently supported by Amazon Elastic\n-- MapReduce, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce\u003e in the /AmazonElastic MapReduce Developer's Guide./",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use ReleaseLabel.\n--\n-- The version of the Amazon Machine Image (AMI) to use when launching Amazon\n-- EC2 instances in the job flow. The following values are valid:\n--\n-- The version number of the AMI to use, for example, \"2.0.\"  If the AMI\n-- supports multiple versions of Hadoop (for example, AMI 1.0 supports both\n-- Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' 'HadoopVersion'\n-- parameter to modify the version of Hadoop from the defaults shown above.\n--\n-- For details about the AMI versions currently supported by Amazon Elastic\n-- MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /AmazonElastic MapReduce Developer's Guide./",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rjfReleaseLabel",
+                        "name": "_rjfReleaseLabel",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "ReleaseLabel",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x\n-- AMIs, use amiVersion instead instead of ReleaseLabel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -15703,7 +16124,7 @@
                         "name": "_rjfSupportedProducts",
                         "shape": "SupportedProductsList",
                         "locationName": "SupportedProducts",
-                        "documentation": "-- | A list of strings that indicates third-party software to use with the job\n-- flow. For more information, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR\u003e\n-- . Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition.",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use Applications.\n--\n-- A list of strings that indicates third-party software to use with the job\n-- flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR>\n-- . Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition.",
                         "typeExposed": "[Text]",
                         "type": "List \"SupportedProducts\" Text"
                     },
@@ -15721,9 +16142,45 @@
                         "name": "_rjfNewSupportedProducts",
                         "shape": "NewSupportedProductsList",
                         "locationName": "NewSupportedProducts",
-                        "documentation": "-- | A list of strings that indicates third-party software to use with the job\n-- flow that accepts a user argument list. EMR accepts and forwards the argument\n-- list to the corresponding installation script as bootstrap action arguments.\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution forHadoop\u003e. Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition. \"mapr\" with the user arguments specifying\n-- \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5\n-- Edition respectively.",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use Applications.\n--\n-- A list of strings that indicates third-party software to use with the job\n-- flow that accepts a user argument list. EMR accepts and forwards the argument\n-- list to the corresponding installation script as bootstrap action arguments.\n-- For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution forHadoop>. Currently supported values are:\n--\n-- \"mapr-m3\" - launch the cluster using MapR M3 Edition. \"mapr-m5\" - launch\n-- the cluster using MapR M5 Edition. \"mapr\" with the user arguments specifying\n-- \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5\n-- Edition respectively. \"mapr-m7\" - launch the cluster using MapR M7 Edition. \"hunk\" - launch the cluster with the Hunk Big Data Analtics Platform.\n-- \"hue\"- launch the cluster with Hue installed. \"spark\" - launch the cluster\n-- with Apache Spark installed. \"ganglia\" - launch the cluster with the Ganglia\n-- Monitoring System installed.",
                         "typeExposed": "[SupportedProductConfig]",
                         "type": "List \"NewSupportedProducts\" SupportedProductConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rjfApplications",
+                        "name": "_rjfApplications",
+                        "shape": "ApplicationList",
+                        "locationName": "Applications",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- A list of applications for the cluster. Valid values are: \"Hadoop\", \"Hive\",\n-- \"Mahout\", \"Pig\", and \"Spark.\" They are case insensitive.",
+                        "typeExposed": "[Application]",
+                        "type": "List \"Applications\" Application"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rjfConfigurations",
+                        "name": "_rjfConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for the EMR cluster you are creating.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     },
                     {
                         "location": null,
@@ -15905,7 +16362,25 @@
                         "name": "_rjfAmiVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "AmiVersion",
-                        "documentation": "-- | The version of the Amazon Machine Image (AMI) to use when launching Amazon\n-- EC2 instances in the job flow. The following values are valid:\n--\n-- \"latest\" (uses the latest AMI) The version number of the AMI to use, for\n-- example, \"2.0\"  If the AMI supports multiple versions of Hadoop (for example,\n-- AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' 'HadoopVersion' parameter to modify the version of Hadoop from the defaults\n-- shown above.\n--\n-- For details about the AMI versions currently supported by Amazon Elastic\n-- MapReduce, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce\u003e in the /AmazonElastic MapReduce Developer's Guide./",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use ReleaseLabel.\n--\n-- The version of the Amazon Machine Image (AMI) to use when launching Amazon\n-- EC2 instances in the job flow. The following values are valid:\n--\n-- The version number of the AMI to use, for example, \"2.0.\"  If the AMI\n-- supports multiple versions of Hadoop (for example, AMI 1.0 supports both\n-- Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' 'HadoopVersion'\n-- parameter to modify the version of Hadoop from the defaults shown above.\n--\n-- For details about the AMI versions currently supported by Amazon Elastic\n-- MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /AmazonElastic MapReduce Developer's Guide./",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rjfReleaseLabel",
+                        "name": "_rjfReleaseLabel",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "ReleaseLabel",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x\n-- AMIs, use amiVersion instead instead of ReleaseLabel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -15959,7 +16434,7 @@
                         "name": "_rjfSupportedProducts",
                         "shape": "SupportedProductsList",
                         "locationName": "SupportedProducts",
-                        "documentation": "-- | A list of strings that indicates third-party software to use with the job\n-- flow. For more information, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR\u003e\n-- . Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition.",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use Applications.\n--\n-- A list of strings that indicates third-party software to use with the job\n-- flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR>\n-- . Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition.",
                         "typeExposed": "[Text]",
                         "type": "List \"SupportedProducts\" Text"
                     },
@@ -15977,9 +16452,45 @@
                         "name": "_rjfNewSupportedProducts",
                         "shape": "NewSupportedProductsList",
                         "locationName": "NewSupportedProducts",
-                        "documentation": "-- | A list of strings that indicates third-party software to use with the job\n-- flow that accepts a user argument list. EMR accepts and forwards the argument\n-- list to the corresponding installation script as bootstrap action arguments.\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution forHadoop\u003e. Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition. \"mapr\" with the user arguments specifying\n-- \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5\n-- Edition respectively.",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use Applications.\n--\n-- A list of strings that indicates third-party software to use with the job\n-- flow that accepts a user argument list. EMR accepts and forwards the argument\n-- list to the corresponding installation script as bootstrap action arguments.\n-- For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution forHadoop>. Currently supported values are:\n--\n-- \"mapr-m3\" - launch the cluster using MapR M3 Edition. \"mapr-m5\" - launch\n-- the cluster using MapR M5 Edition. \"mapr\" with the user arguments specifying\n-- \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5\n-- Edition respectively. \"mapr-m7\" - launch the cluster using MapR M7 Edition. \"hunk\" - launch the cluster with the Hunk Big Data Analtics Platform.\n-- \"hue\"- launch the cluster with Hue installed. \"spark\" - launch the cluster\n-- with Apache Spark installed. \"ganglia\" - launch the cluster with the Ganglia\n-- Monitoring System installed.",
                         "typeExposed": "[SupportedProductConfig]",
                         "type": "List \"NewSupportedProducts\" SupportedProductConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rjfApplications",
+                        "name": "_rjfApplications",
+                        "shape": "ApplicationList",
+                        "locationName": "Applications",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- A list of applications for the cluster. Valid values are: \"Hadoop\", \"Hive\",\n-- \"Mahout\", \"Pig\", and \"Spark.\" They are case insensitive.",
+                        "typeExposed": "[Application]",
+                        "type": "List \"Applications\" Application"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rjfConfigurations",
+                        "name": "_rjfConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for the EMR cluster you are creating.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     },
                     {
                         "location": null,
@@ -16087,9 +16598,27 @@
                         "name": "_rjfAmiVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "AmiVersion",
-                        "documentation": "-- | The version of the Amazon Machine Image (AMI) to use when launching Amazon\n-- EC2 instances in the job flow. The following values are valid:\n--\n-- \"latest\" (uses the latest AMI) The version number of the AMI to use, for\n-- example, \"2.0\"  If the AMI supports multiple versions of Hadoop (for example,\n-- AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' 'HadoopVersion' parameter to modify the version of Hadoop from the defaults\n-- shown above.\n--\n-- For details about the AMI versions currently supported by Amazon Elastic\n-- MapReduce, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce\u003e in the /AmazonElastic MapReduce Developer's Guide./",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use ReleaseLabel.\n--\n-- The version of the Amazon Machine Image (AMI) to use when launching Amazon\n-- EC2 instances in the job flow. The following values are valid:\n--\n-- The version number of the AMI to use, for example, \"2.0.\"  If the AMI\n-- supports multiple versions of Hadoop (for example, AMI 1.0 supports both\n-- Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' 'HadoopVersion'\n-- parameter to modify the version of Hadoop from the defaults shown above.\n--\n-- For details about the AMI versions currently supported by Amazon Elastic\n-- MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /AmazonElastic MapReduce Developer's Guide./",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rjfApplications",
+                        "name": "_rjfApplications",
+                        "shape": "ApplicationList",
+                        "locationName": "Applications",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- A list of applications for the cluster. Valid values are: \"Hadoop\", \"Hive\",\n-- \"Mahout\", \"Pig\", and \"Spark.\" They are case insensitive.",
+                        "typeExposed": "[Application]",
+                        "type": "List \"Applications\" Application"
                     },
                     {
                         "location": null,
@@ -16108,6 +16637,24 @@
                         "documentation": "-- | A list of bootstrap actions that will be run before Hadoop is started on the\n-- cluster nodes.",
                         "typeExposed": "[BootstrapActionConfig]",
                         "type": "List \"BootstrapActions\" BootstrapActionConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rjfConfigurations",
+                        "name": "_rjfConfigurations",
+                        "shape": "ConfigurationList",
+                        "locationName": "Configurations",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The list of configurations supplied for the EMR cluster you are creating.",
+                        "typeExposed": "[Configuration]",
+                        "type": "List \"Configurations\" Configuration"
                     },
                     {
                         "location": null,
@@ -16195,9 +16742,27 @@
                         "name": "_rjfNewSupportedProducts",
                         "shape": "NewSupportedProductsList",
                         "locationName": "NewSupportedProducts",
-                        "documentation": "-- | A list of strings that indicates third-party software to use with the job\n-- flow that accepts a user argument list. EMR accepts and forwards the argument\n-- list to the corresponding installation script as bootstrap action arguments.\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution forHadoop\u003e. Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition. \"mapr\" with the user arguments specifying\n-- \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5\n-- Edition respectively.",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use Applications.\n--\n-- A list of strings that indicates third-party software to use with the job\n-- flow that accepts a user argument list. EMR accepts and forwards the argument\n-- list to the corresponding installation script as bootstrap action arguments.\n-- For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution forHadoop>. Currently supported values are:\n--\n-- \"mapr-m3\" - launch the cluster using MapR M3 Edition. \"mapr-m5\" - launch\n-- the cluster using MapR M5 Edition. \"mapr\" with the user arguments specifying\n-- \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5\n-- Edition respectively. \"mapr-m7\" - launch the cluster using MapR M7 Edition. \"hunk\" - launch the cluster with the Hunk Big Data Analtics Platform.\n-- \"hue\"- launch the cluster with Hue installed. \"spark\" - launch the cluster\n-- with Apache Spark installed. \"ganglia\" - launch the cluster with the Ganglia\n-- Monitoring System installed.",
                         "typeExposed": "[SupportedProductConfig]",
                         "type": "List \"NewSupportedProducts\" SupportedProductConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rjfReleaseLabel",
+                        "name": "_rjfReleaseLabel",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "ReleaseLabel",
+                        "documentation": "-- | Amazon EMR releases 4.x or later.\n--\n-- The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x\n-- AMIs, use amiVersion instead instead of ReleaseLabel.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -16249,7 +16814,7 @@
                         "name": "_rjfSupportedProducts",
                         "shape": "SupportedProductsList",
                         "locationName": "SupportedProducts",
-                        "documentation": "-- | A list of strings that indicates third-party software to use with the job\n-- flow. For more information, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR\u003e\n-- . Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition.",
+                        "documentation": "-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,\n-- use Applications.\n--\n-- A list of strings that indicates third-party software to use with the job\n-- flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR>\n-- . Currently supported values are:\n--\n-- \"mapr-m3\" - launch the job flow using MapR M3 Edition. \"mapr-m5\" - launch\n-- the job flow using MapR M5 Edition.",
                         "typeExposed": "[Text]",
                         "type": "List \"SupportedProducts\" Text"
                     },
@@ -16329,7 +16894,7 @@
             "pager": null,
             "name": "SetTerminationProtection",
             "method": "post",
-            "documentation": "-- | SetTerminationProtection locks a job flow so the Amazon EC2 instances in the\n-- cluster cannot be terminated by user intervention, an API call, or in the\n-- event of a job-flow error. The cluster still terminates upon successful\n-- completion of the job flow. Calling SetTerminationProtection on a job flow is\n-- analogous to calling the Amazon EC2 DisableAPITermination API on all of the\n-- EC2 instances in a cluster.\n--\n-- SetTerminationProtection is used to prevent accidental termination of a job\n-- flow and to ensure that in the event of an error, the instances will persist\n-- so you can recover any data stored in their ephemeral instance storage.\n--\n-- To terminate a job flow that has been locked by setting\n-- SetTerminationProtection to 'true', you must first unlock the job flow by a\n-- subsequent call to SetTerminationProtection in which you set the value to 'false'.\n--\n-- For more information, go to \u003chttp://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination\u003e in the /Amazon Elastic MapReduce Developer's Guide./",
+            "documentation": "-- | SetTerminationProtection locks a job flow so the Amazon EC2 instances in the\n-- cluster cannot be terminated by user intervention, an API call, or in the\n-- event of a job-flow error. The cluster still terminates upon successful\n-- completion of the job flow. Calling SetTerminationProtection on a job flow is\n-- analogous to calling the Amazon EC2 DisableAPITermination API on all of the\n-- EC2 instances in a cluster.\n--\n-- SetTerminationProtection is used to prevent accidental termination of a job\n-- flow and to ensure that in the event of an error, the instances will persist\n-- so you can recover any data stored in their ephemeral instance storage.\n--\n-- To terminate a job flow that has been locked by setting\n-- SetTerminationProtection to 'true', you must first unlock the job flow by a\n-- subsequent call to SetTerminationProtection in which you set the value to 'false'.\n--\n-- For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination> in the /Amazon Elastic MapReduce Developer's Guide./",
             "documentationUrl": null,
             "request": {
                 "deriving": [

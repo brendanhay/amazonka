@@ -46,6 +46,10 @@
         },
         "endpointPrefix": "cloudformation",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
             "throttling": {
                 "error": "Throttling",
                 "code": 400
@@ -363,7 +367,7 @@
                         "name": "_seResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -545,7 +549,7 @@
                         "name": "_seResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -957,7 +961,7 @@
                         "name": "_srdResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. ((For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. ((For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1107,7 +1111,7 @@
                         "name": "_srdMetadata",
                         "shape": "Metadata",
                         "locationName": "Metadata",
-                        "documentation": "-- | The JSON format content of the 'Metadata' attribute declared for the resource.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute\u003e in the AWS CloudFormation User\n-- Guide.",
+                        "documentation": "-- | The JSON format content of the 'Metadata' attribute declared for the resource.\n-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User\n-- Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1181,7 +1185,7 @@
                         "name": "_srdMetadata",
                         "shape": "Metadata",
                         "locationName": "Metadata",
-                        "documentation": "-- | The JSON format content of the 'Metadata' attribute declared for the resource.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute\u003e in the AWS CloudFormation User\n-- Guide.",
+                        "documentation": "-- | The JSON format content of the 'Metadata' attribute declared for the resource.\n-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User\n-- Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1253,7 +1257,7 @@
                         "name": "_srdResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. ((For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. ((For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1765,7 +1769,7 @@
                         "name": "_sr1ResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2007,7 +2011,7 @@
                         "name": "_sr1ResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2317,7 +2321,7 @@
                         "name": "_srsResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2505,7 +2509,7 @@
                         "name": "_srsResourceType",
                         "shape": "ResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | Type of resource. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference\u003e\n-- in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>\n-- in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3593,7 +3597,7 @@
                         "name": "_csTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3611,7 +3615,7 @@
                         "name": "_csTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to the \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3683,7 +3687,7 @@
                         "name": "_csNotificationARNs",
                         "shape": "NotificationARNs",
                         "locationName": "NotificationARNs",
-                        "documentation": "-- | The Simple Notification Service (SNS) topic ARNs to publish stack related\n-- events. You can find your SNS topic ARNs using the \u003chttp://console.aws.amazon.com/sns SNS console\u003e or your\n-- Command Line Interface (CLI).",
+                        "documentation": "-- | The Simple Notification Service (SNS) topic ARNs to publish stack related\n-- events. You can find your SNS topic ARNs using the <http://console.aws.amazon.com/sns SNS console> or your\n-- Command Line Interface (CLI).",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -3701,7 +3705,7 @@
                         "name": "_csCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n--\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User\u003e\n-- , and \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition\u003e. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an 'InsufficientCapabilities' error.",
+                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n--\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>\n-- , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an 'InsufficientCapabilities' error.",
                         "typeExposed": "[Capability]",
                         "type": "List \"member\" Capability"
                     },
@@ -3737,7 +3741,7 @@
                         "name": "_csStackPolicyBody",
                         "shape": "StackPolicyBody",
                         "locationName": "StackPolicyBody",
-                        "documentation": "-- | Structure containing the stack policy body. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources\u003e in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
+                        "documentation": "-- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3793,7 +3797,7 @@
                         "name": "_csCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n--\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User\u003e\n-- , and \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition\u003e. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an 'InsufficientCapabilities' error.",
+                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n--\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>\n-- , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an 'InsufficientCapabilities' error.",
                         "typeExposed": "[Capability]",
                         "type": "List \"member\" Capability"
                     },
@@ -3829,7 +3833,7 @@
                         "name": "_csNotificationARNs",
                         "shape": "NotificationARNs",
                         "locationName": "NotificationARNs",
-                        "documentation": "-- | The Simple Notification Service (SNS) topic ARNs to publish stack related\n-- events. You can find your SNS topic ARNs using the \u003chttp://console.aws.amazon.com/sns SNS console\u003e or your\n-- Command Line Interface (CLI).",
+                        "documentation": "-- | The Simple Notification Service (SNS) topic ARNs to publish stack related\n-- events. You can find your SNS topic ARNs using the <http://console.aws.amazon.com/sns SNS console> or your\n-- Command Line Interface (CLI).",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -3901,7 +3905,7 @@
                         "name": "_csStackPolicyBody",
                         "shape": "StackPolicyBody",
                         "locationName": "StackPolicyBody",
-                        "documentation": "-- | Structure containing the stack policy body. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources\u003e in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
+                        "documentation": "-- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3955,7 +3959,7 @@
                         "name": "_csTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3973,7 +3977,7 @@
                         "name": "_csTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to the \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4260,7 +4264,7 @@
             },
             "name": "DescribeStackEvents",
             "method": "post",
-            "documentation": "-- | Returns all stack related events for a specified stack. For more information\n-- about a stack's event history, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks\u003e in the AWS CloudFormation User\n-- Guide.\n--\n-- You can list events for stacks that have failed to create or have been\n-- deleted by specifying the unique stack identifier (stack ID).",
+            "documentation": "-- | Returns all stack related events for a specified stack. For more information\n-- about a stack's event history, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks> in the AWS CloudFormation User\n-- Guide.\n--\n-- You can list events for stacks that have failed to create or have been\n-- deleted by specifying the unique stack identifier (stack ID).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4700,7 +4704,7 @@
             "pager": null,
             "name": "DescribeStackResources",
             "method": "post",
-            "documentation": "-- | Returns AWS resource descriptions for running and deleted stacks. If 'StackName'\n-- is specified, all the associated resources that are part of the stack are\n-- returned. If 'PhysicalResourceId' is specified, the associated resources of the\n-- stack that the resource belongs to are returned.\n--\n-- Only the first 100 resources will be returned. If your stack has more\n-- resources than this, you should use 'ListStackResources' instead. For deleted\n-- stacks, 'DescribeStackResources' returns resource information for up to 90 days\n-- after the stack has been deleted.\n--\n-- You must specify either 'StackName' or 'PhysicalResourceId', but not both. In\n-- addition, you can specify 'LogicalResourceId' to filter the returned result.\n-- For more information about resources, the 'LogicalResourceId' and 'PhysicalResourceId', go to the \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide AWS CloudFormation User Guide\u003e.\n--\n-- A 'ValidationError' is returned if you specify both 'StackName' and 'PhysicalResourceId' in the same request.",
+            "documentation": "-- | Returns AWS resource descriptions for running and deleted stacks. If 'StackName'\n-- is specified, all the associated resources that are part of the stack are\n-- returned. If 'PhysicalResourceId' is specified, the associated resources of the\n-- stack that the resource belongs to are returned.\n--\n-- Only the first 100 resources will be returned. If your stack has more\n-- resources than this, you should use 'ListStackResources' instead. For deleted\n-- stacks, 'DescribeStackResources' returns resource information for up to 90 days\n-- after the stack has been deleted.\n--\n-- You must specify either 'StackName' or 'PhysicalResourceId', but not both. In\n-- addition, you can specify 'LogicalResourceId' to filter the returned result.\n-- For more information about resources, the 'LogicalResourceId' and 'PhysicalResourceId', go to the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide AWS CloudFormation User Guide>.\n--\n-- A 'ValidationError' is returned if you specify both 'StackName' and 'PhysicalResourceId' in the same request.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5271,7 +5275,7 @@
                         "name": "_etcTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must pass 'TemplateBody' or 'TemplateURL'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must pass 'TemplateBody' or 'TemplateURL'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5289,7 +5293,7 @@
                         "name": "_etcTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5345,7 +5349,7 @@
                         "name": "_etcTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must pass 'TemplateBody' or 'TemplateURL'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must pass 'TemplateBody' or 'TemplateURL'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5363,7 +5367,7 @@
                         "name": "_etcTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5400,7 +5404,7 @@
                     "name": "_gsprStackPolicyBody",
                     "shape": "StackPolicyBody",
                     "locationName": "StackPolicyBody",
-                    "documentation": "-- | Structure containing the stack policy body. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources\u003e in the AWS CloudFormation User Guide.)",
+                    "documentation": "-- | Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -5432,7 +5436,7 @@
                         "name": "_gsprStackPolicyBody",
                         "shape": "StackPolicyBody",
                         "locationName": "StackPolicyBody",
-                        "documentation": "-- | Structure containing the stack policy body. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources\u003e in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5452,7 +5456,7 @@
                         "name": "_gsprStackPolicyBody",
                         "shape": "StackPolicyBody",
                         "locationName": "StackPolicyBody",
-                        "documentation": "-- | Structure containing the stack policy body. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources\u003e in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5601,7 +5605,7 @@
                     "name": "_gtrTemplateBody",
                     "shape": "TemplateBody",
                     "locationName": "TemplateBody",
-                    "documentation": "-- | Structure containing the template body. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html TemplateAnatomy\u003e in the AWS CloudFormation User Guide.)",
+                    "documentation": "-- | Structure containing the template body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html TemplateAnatomy> in the AWS CloudFormation User Guide.)",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -5633,7 +5637,7 @@
                         "name": "_gtrTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html TemplateAnatomy\u003e in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Structure containing the template body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html TemplateAnatomy> in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5653,7 +5657,7 @@
                         "name": "_gtrTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html TemplateAnatomy\u003e in the AWS CloudFormation User Guide.)",
+                        "documentation": "-- | Structure containing the template body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html TemplateAnatomy> in the AWS CloudFormation User Guide.)",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6094,7 +6098,7 @@
                         "name": "_gtsTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information about templates, see \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6112,7 +6116,7 @@
                         "name": "_gtsTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For more\n-- information about templates, see \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation\n-- User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For more\n-- information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation\n-- User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6168,7 +6172,7 @@
                         "name": "_gtsTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information about templates, see \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6186,7 +6190,7 @@
                         "name": "_gtsTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For more\n-- information about templates, see \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation\n-- User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For more\n-- information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation\n-- User Guide.\n--\n-- Conditional: You must specify only one of the following parameters: 'StackName'\n-- , 'TemplateBody', or 'TemplateURL'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6804,7 +6808,7 @@
                         "name": "_sspStackPolicyBody",
                         "shape": "StackPolicyBody",
                         "locationName": "StackPolicyBody",
-                        "documentation": "-- | Structure containing the stack policy body. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources\u003e in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
+                        "documentation": "-- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6860,7 +6864,7 @@
                         "name": "_sspStackPolicyBody",
                         "shape": "StackPolicyBody",
                         "locationName": "StackPolicyBody",
-                        "documentation": "-- | Structure containing the stack policy body. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources\u003e in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
+                        "documentation": "-- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You\n-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but\n-- not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7224,7 +7228,7 @@
             "pager": null,
             "name": "UpdateStack",
             "method": "post",
-            "documentation": "-- | Updates a stack as specified in the template. After the call completes\n-- successfully, the stack update starts. You can check the status of the stack\n-- via the 'DescribeStacks' action.\n--\n-- To get a copy of the template for an existing stack, you can use the 'GetTemplate' action.\n--\n-- Tags that were associated with this stack during creation time will still be\n-- associated with the stack after an 'UpdateStack' operation.\n--\n-- For more information about creating an update template, updating a stack,\n-- and monitoring the progress of the update, see \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html Updating a Stack\u003e.",
+            "documentation": "-- | Updates a stack as specified in the template. After the call completes\n-- successfully, the stack update starts. You can check the status of the stack\n-- via the 'DescribeStacks' action.\n--\n-- To get a copy of the template for an existing stack, you can use the 'GetTemplate' action.\n--\n-- Tags that were associated with this stack during creation time will still be\n-- associated with the stack after an 'UpdateStack' operation.\n--\n-- For more information about creating an update template, updating a stack,\n-- and monitoring the progress of the update, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html Updating a Stack>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7347,7 +7351,7 @@
                         "name": "_usTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7365,7 +7369,7 @@
                         "name": "_usTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7437,7 +7441,7 @@
                         "name": "_usParameters",
                         "shape": "Parameters",
                         "locationName": "Parameters",
-                        "documentation": "-- | A list of 'Parameter' structures that specify input parameters for the stack.\n-- For more information, see the \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter\u003e data type.",
+                        "documentation": "-- | A list of 'Parameter' structures that specify input parameters for the stack.\n-- For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.",
                         "typeExposed": "[Parameter]",
                         "type": "List \"member\" Parameter"
                     },
@@ -7455,7 +7459,7 @@
                         "name": "_usCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User\u003e\n-- , and \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition\u003e. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an\n-- InsufficientCapabilities error.",
+                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>\n-- , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an\n-- InsufficientCapabilities error.",
                         "typeExposed": "[Capability]",
                         "type": "List \"member\" Capability"
                     },
@@ -7529,7 +7533,7 @@
                         "name": "_usCapabilities",
                         "shape": "Capabilities",
                         "locationName": "Capabilities",
-                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role\u003e, \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User\u003e\n-- , and \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition\u003e. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an\n-- InsufficientCapabilities error.",
+                        "documentation": "-- | A list of capabilities that you must specify before AWS CloudFormation can\n-- create or update certain stacks. Some stack templates might include resources\n-- that can affect permissions in your AWS account. For those stacks, you must\n-- explicitly acknowledge their capabilities by specifying this parameter.\n-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the\n-- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>\n-- , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your stack template contains these\n-- resources, we recommend that you review any permissions associated with them.\n-- If you don't specify this parameter, this action returns an\n-- InsufficientCapabilities error.",
                         "typeExposed": "[Capability]",
                         "type": "List \"member\" Capability"
                     },
@@ -7565,7 +7569,7 @@
                         "name": "_usParameters",
                         "shape": "Parameters",
                         "locationName": "Parameters",
-                        "documentation": "-- | A list of 'Parameter' structures that specify input parameters for the stack.\n-- For more information, see the \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter\u003e data type.",
+                        "documentation": "-- | A list of 'Parameter' structures that specify input parameters for the stack.\n-- For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.",
                         "typeExposed": "[Parameter]",
                         "type": "List \"member\" Parameter"
                     },
@@ -7673,7 +7677,7 @@
                         "name": "_usTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.)\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7691,7 +7695,7 @@
                         "name": "_usTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template located in an S3 bucket in the same region as the stack. For more\n-- information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'\n-- parameter, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7961,7 +7965,7 @@
                         "name": "_vtTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7979,7 +7983,7 @@
                         "name": "_vtTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -7999,7 +8003,7 @@
                         "name": "_vtTemplateBody",
                         "shape": "TemplateBody",
                         "locationName": "TemplateBody",
-                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Structure containing the template body with a minimum length of 1 byte and a\n-- maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>\n-- in the AWS CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8017,7 +8021,7 @@
                         "name": "_vtTemplateURL",
                         "shape": "TemplateURL",
                         "locationName": "TemplateURL",
-                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to \u003chttp://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy\u003e in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
+                        "documentation": "-- | Location of file containing the template body. The URL must point to a\n-- template (max size: 460,800 bytes) located in an S3 bucket in the same region\n-- as the stack. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS\n-- CloudFormation User Guide.\n--\n-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,\n-- only 'TemplateBody' is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }

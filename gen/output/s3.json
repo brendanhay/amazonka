@@ -151,6 +151,18 @@
         },
         "endpointPrefix": "s3",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "contentmd5": {
+                "error": "BadDigest",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -615,7 +627,7 @@
                     "name": "_nveNoncurrentDays",
                     "shape": "Days",
                     "locationName": "NoncurrentDays",
-                    "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see \u003c/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent\u003e\n-- in the Amazon Simple Storage Service Developer Guide.",
+                    "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>\n-- in the Amazon Simple Storage Service Developer Guide.",
                     "typeExposed": "Int",
                     "type": "Int"
                 },
@@ -634,7 +646,7 @@
                         "name": "_nveNoncurrentDays",
                         "shape": "Days",
                         "locationName": "NoncurrentDays",
-                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see \u003c/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent\u003e\n-- in the Amazon Simple Storage Service Developer Guide.",
+                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>\n-- in the Amazon Simple Storage Service Developer Guide.",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -655,7 +667,7 @@
                         "name": "_nveNoncurrentDays",
                         "shape": "Days",
                         "locationName": "NoncurrentDays",
-                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see \u003c/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent\u003e\n-- in the Amazon Simple Storage Service Developer Guide.",
+                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>\n-- in the Amazon Simple Storage Service Developer Guide.",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -680,7 +692,7 @@
                         "name": "_nveNoncurrentDays",
                         "shape": "Days",
                         "locationName": "NoncurrentDays",
-                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see \u003c/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent\u003e\n-- in the Amazon Simple Storage Service Developer Guide.",
+                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>\n-- in the Amazon Simple Storage Service Developer Guide.",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -3719,7 +3731,7 @@
                         "name": "_nvtNoncurrentDays",
                         "shape": "Days",
                         "locationName": "NoncurrentDays",
-                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see \u003c/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent\u003e\n-- in the Amazon Simple Storage Service Developer Guide.",
+                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>\n-- in the Amazon Simple Storage Service Developer Guide.",
                         "typeExposed": "Int",
                         "type": "Int"
                     },
@@ -3758,7 +3770,7 @@
                         "name": "_nvtNoncurrentDays",
                         "shape": "Days",
                         "locationName": "NoncurrentDays",
-                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see \u003c/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent\u003e\n-- in the Amazon Simple Storage Service Developer Guide.",
+                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>\n-- in the Amazon Simple Storage Service Developer Guide.",
                         "typeExposed": "Int",
                         "type": "Int"
                     },
@@ -3801,7 +3813,7 @@
                         "name": "_nvtNoncurrentDays",
                         "shape": "Days",
                         "locationName": "NoncurrentDays",
-                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see \u003c/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent\u003e\n-- in the Amazon Simple Storage Service Developer Guide.",
+                        "documentation": "-- | Specifies the number of days an object is noncurrent before Amazon S3 can\n-- perform the associated action. For information about the noncurrent days\n-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>\n-- in the Amazon Simple Storage Service Developer Guide.",
                         "typeExposed": "Int",
                         "type": "Int"
                     },

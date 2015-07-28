@@ -208,6 +208,10 @@
         },
         "endpointPrefix": "rds",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
             "throttling": {
                 "error": "Throttling",
                 "code": 400
@@ -10611,7 +10615,7 @@
             "pager": null,
             "name": "AddTagsToResource",
             "method": "post",
-            "documentation": "-- | Adds metadata tags to an Amazon RDS resource. These tags can also be used\n-- with cost allocation reporting to track cost associated with Amazon RDS\n-- resources, or used in Condition statement in IAM policy for Amazon RDS.\n--\n-- For an overview on tagging Amazon RDS resources, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources\u003e.",
+            "documentation": "-- | Adds metadata tags to an Amazon RDS resource. These tags can also be used\n-- with cost allocation reporting to track cost associated with Amazon RDS\n-- resources, or used in Condition statement in IAM policy for Amazon RDS.\n--\n-- For an overview on tagging Amazon RDS resources, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10648,7 +10652,7 @@
                         "name": "_attrResourceName",
                         "shape": "String",
                         "locationName": "ResourceName",
-                        "documentation": "-- | The Amazon RDS resource the tags will be added to. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The Amazon RDS resource the tags will be added to. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10709,7 +10713,7 @@
                         "name": "_attrResourceName",
                         "shape": "String",
                         "locationName": "ResourceName",
-                        "documentation": "-- | The Amazon RDS resource the tags will be added to. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The Amazon RDS resource the tags will be added to. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -11090,7 +11094,7 @@
             "pager": null,
             "name": "AuthorizeDBSecurityGroupIngress",
             "method": "post",
-            "documentation": "-- | Enables ingress to a DBSecurityGroup using one of two forms of\n-- authorization. First, EC2 or VPC security groups can be added to the\n-- DBSecurityGroup if the application using the database is running on EC2 or\n-- VPC instances. Second, IP ranges are available if the application accessing\n-- your database is running on the Internet. Required parameters for this API\n-- are one of CIDR range, EC2SecurityGroupId for VPC, or\n-- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or\n-- EC2SecurityGroupId for non-VPC).\n--\n-- You cannot authorize ingress from an EC2 security group in one Region to an\n-- Amazon RDS DB instance in another. You cannot authorize ingress from a VPC\n-- security group in one VPC to an Amazon RDS DB instance in another.  For an\n-- overview of CIDR ranges, go to the \u003chttp://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial\u003e.",
+            "documentation": "-- | Enables ingress to a DBSecurityGroup using one of two forms of\n-- authorization. First, EC2 or VPC security groups can be added to the\n-- DBSecurityGroup if the application using the database is running on EC2 or\n-- VPC instances. Second, IP ranges are available if the application accessing\n-- your database is running on the Internet. Required parameters for this API\n-- are one of CIDR range, EC2SecurityGroupId for VPC, or\n-- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or\n-- EC2SecurityGroupId for non-VPC).\n--\n-- You cannot authorize ingress from an EC2 security group in one Region to an\n-- Amazon RDS DB instance in another. You cannot authorize ingress from a VPC\n-- security group in one VPC to an Amazon RDS DB instance in another.  For an\n-- overview of CIDR ranges, go to the <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11771,7 +11775,7 @@
                         "name": "_cdbsSourceDBSnapshotIdentifier",
                         "shape": "String",
                         "locationName": "SourceDBSnapshotIdentifier",
-                        "documentation": "-- | The identifier for the source DB snapshot.\n--\n-- Constraints:\n--\n-- Must specify a valid system snapshot in the \"available\" state. If the\n-- source snapshot is in the same region as the copy, specify a valid DB\n-- snapshot identifier. If the source snapshot is in a different region than the\n-- copy, specify a valid DB snapshot ARN. For more information, go to \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html  Copying aDB Snapshot\u003e.  Example: 'rds:mydb-2012-04-02-00-01'\n--\n-- Example: 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'",
+                        "documentation": "-- | The identifier for the source DB snapshot.\n--\n-- Constraints:\n--\n-- Must specify a valid system snapshot in the \"available\" state. If the\n-- source snapshot is in the same region as the copy, specify a valid DB\n-- snapshot identifier. If the source snapshot is in a different region than the\n-- copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html  Copying aDB Snapshot>.  Example: 'rds:mydb-2012-04-02-00-01'\n--\n-- Example: 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -11855,7 +11859,7 @@
                         "name": "_cdbsSourceDBSnapshotIdentifier",
                         "shape": "String",
                         "locationName": "SourceDBSnapshotIdentifier",
-                        "documentation": "-- | The identifier for the source DB snapshot.\n--\n-- Constraints:\n--\n-- Must specify a valid system snapshot in the \"available\" state. If the\n-- source snapshot is in the same region as the copy, specify a valid DB\n-- snapshot identifier. If the source snapshot is in a different region than the\n-- copy, specify a valid DB snapshot ARN. For more information, go to \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html  Copying aDB Snapshot\u003e.  Example: 'rds:mydb-2012-04-02-00-01'\n--\n-- Example: 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'",
+                        "documentation": "-- | The identifier for the source DB snapshot.\n--\n-- Constraints:\n--\n-- Must specify a valid system snapshot in the \"available\" state. If the\n-- source snapshot is in the same region as the copy, specify a valid DB\n-- snapshot identifier. If the source snapshot is in a different region than the\n-- copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html  Copying aDB Snapshot>.  Example: 'rds:mydb-2012-04-02-00-01'\n--\n-- Example: 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -12657,7 +12661,7 @@
                         "name": "_cdbiAvailabilityZone",
                         "shape": "String",
                         "locationName": "AvailabilityZone",
-                        "documentation": "-- | The EC2 Availability Zone that the database instance will be created in. For\n-- information on regions and Availability Zones, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and AvailabilityZones\u003e.\n--\n-- Default: A random, system-chosen Availability Zone in the endpoint's\n-- region.\n--\n-- Example: 'us-east-1d'\n--\n-- Constraint: The AvailabilityZone parameter cannot be specified if the\n-- MultiAZ parameter is set to 'true'. The specified Availability Zone must be in\n-- the same region as the current endpoint.",
+                        "documentation": "-- | The EC2 Availability Zone that the database instance will be created in. For\n-- information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and AvailabilityZones>.\n--\n-- Default: A random, system-chosen Availability Zone in the endpoint's\n-- region.\n--\n-- Example: 'us-east-1d'\n--\n-- Constraint: The AvailabilityZone parameter cannot be specified if the\n-- MultiAZ parameter is set to 'true'. The specified Availability Zone must be in\n-- the same region as the current endpoint.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12693,7 +12697,7 @@
                         "name": "_cdbiPreferredMaintenanceWindow",
                         "shape": "String",
                         "locationName": "PreferredMaintenanceWindow",
-                        "documentation": "-- | The weekly time range (in UTC) during which system maintenance can occur.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance\u003e.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. To see the time blocks\n-- available, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html  Adjusting the Preferred Maintenance Window\u003e in the Amazon RDS\n-- User Guide.\n--\n-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun\n--\n-- Constraints: Minimum 30-minute window.",
+                        "documentation": "-- | The weekly time range (in UTC) during which system maintenance can occur.\n-- For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance>.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. To see the time blocks\n-- available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html  Adjusting the Preferred Maintenance Window> in the Amazon RDS\n-- User Guide.\n--\n-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun\n--\n-- Constraints: Minimum 30-minute window.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12747,7 +12751,7 @@
                         "name": "_cdbiPreferredBackupWindow",
                         "shape": "String",
                         "locationName": "PreferredBackupWindow",
-                        "documentation": "-- | The daily time range during which automated backups are created if automated\n-- backups are enabled, using the 'BackupRetentionPeriod' parameter. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups\u003e.\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region. See the Amazon RDS User Guide for the time blocks for each region\n-- from which the default backup windows are assigned.\n--\n-- Constraints: Must be in the format 'hh24:mi-hh24:mi'. Times should be\n-- Universal Time Coordinated (UTC). Must not conflict with the preferred\n-- maintenance window. Must be at least 30 minutes.",
+                        "documentation": "-- | The daily time range during which automated backups are created if automated\n-- backups are enabled, using the 'BackupRetentionPeriod' parameter. For more\n-- information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups>.\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region. See the Amazon RDS User Guide for the time blocks for each region\n-- from which the default backup windows are assigned.\n--\n-- Constraints: Must be in the format 'hh24:mi-hh24:mi'. Times should be\n-- Universal Time Coordinated (UTC). Must not conflict with the preferred\n-- maintenance window. Must be at least 30 minutes.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13073,7 +13077,7 @@
                         "name": "_cdbiAvailabilityZone",
                         "shape": "String",
                         "locationName": "AvailabilityZone",
-                        "documentation": "-- | The EC2 Availability Zone that the database instance will be created in. For\n-- information on regions and Availability Zones, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and AvailabilityZones\u003e.\n--\n-- Default: A random, system-chosen Availability Zone in the endpoint's\n-- region.\n--\n-- Example: 'us-east-1d'\n--\n-- Constraint: The AvailabilityZone parameter cannot be specified if the\n-- MultiAZ parameter is set to 'true'. The specified Availability Zone must be in\n-- the same region as the current endpoint.",
+                        "documentation": "-- | The EC2 Availability Zone that the database instance will be created in. For\n-- information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and AvailabilityZones>.\n--\n-- Default: A random, system-chosen Availability Zone in the endpoint's\n-- region.\n--\n-- Example: 'us-east-1d'\n--\n-- Constraint: The AvailabilityZone parameter cannot be specified if the\n-- MultiAZ parameter is set to 'true'. The specified Availability Zone must be in\n-- the same region as the current endpoint.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13415,7 +13419,7 @@
                         "name": "_cdbiPreferredBackupWindow",
                         "shape": "String",
                         "locationName": "PreferredBackupWindow",
-                        "documentation": "-- | The daily time range during which automated backups are created if automated\n-- backups are enabled, using the 'BackupRetentionPeriod' parameter. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups\u003e.\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region. See the Amazon RDS User Guide for the time blocks for each region\n-- from which the default backup windows are assigned.\n--\n-- Constraints: Must be in the format 'hh24:mi-hh24:mi'. Times should be\n-- Universal Time Coordinated (UTC). Must not conflict with the preferred\n-- maintenance window. Must be at least 30 minutes.",
+                        "documentation": "-- | The daily time range during which automated backups are created if automated\n-- backups are enabled, using the 'BackupRetentionPeriod' parameter. For more\n-- information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups>.\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region. See the Amazon RDS User Guide for the time blocks for each region\n-- from which the default backup windows are assigned.\n--\n-- Constraints: Must be in the format 'hh24:mi-hh24:mi'. Times should be\n-- Universal Time Coordinated (UTC). Must not conflict with the preferred\n-- maintenance window. Must be at least 30 minutes.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13433,7 +13437,7 @@
                         "name": "_cdbiPreferredMaintenanceWindow",
                         "shape": "String",
                         "locationName": "PreferredMaintenanceWindow",
-                        "documentation": "-- | The weekly time range (in UTC) during which system maintenance can occur.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance\u003e.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. To see the time blocks\n-- available, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html  Adjusting the Preferred Maintenance Window\u003e in the Amazon RDS\n-- User Guide.\n--\n-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun\n--\n-- Constraints: Minimum 30-minute window.",
+                        "documentation": "-- | The weekly time range (in UTC) during which system maintenance can occur.\n-- For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance>.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. To see the time blocks\n-- available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html  Adjusting the Preferred Maintenance Window> in the Amazon RDS\n-- User Guide.\n--\n-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun\n--\n-- Constraints: Minimum 30-minute window.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13717,7 +13721,7 @@
                         "name": "_cdbirrSourceDBInstanceIdentifier",
                         "shape": "String",
                         "locationName": "SourceDBInstanceIdentifier",
-                        "documentation": "-- | The identifier of the DB instance that will act as the source for the Read\n-- Replica. Each DB instance can have up to five Read Replicas.\n--\n-- Constraints:\n--\n-- Must be the identifier of an existing DB instance. Can specify a DB\n-- instance that is a MySQL Read Replica only if the source is running MySQL 5.6.\n-- Can specify a DB instance that is a PostgreSQL Read Replica only if the\n-- source is running PostgreSQL 9.3.5. The specified DB instance must have\n-- automatic backups enabled, its backup retention period must be greater than 0.\n-- If the source DB instance is in the same region as the Read Replica, specify\n-- a valid DB instance identifier. If the source DB instance is in a different\n-- region than the Read Replica, specify a valid DB instance ARN. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructing a Amazon RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The identifier of the DB instance that will act as the source for the Read\n-- Replica. Each DB instance can have up to five Read Replicas.\n--\n-- Constraints:\n--\n-- Must be the identifier of an existing DB instance. Can specify a DB\n-- instance that is a MySQL Read Replica only if the source is running MySQL 5.6.\n-- Can specify a DB instance that is a PostgreSQL Read Replica only if the\n-- source is running PostgreSQL 9.3.5. The specified DB instance must have\n-- automatic backups enabled, its backup retention period must be greater than 0.\n-- If the source DB instance is in the same region as the Read Replica, specify\n-- a valid DB instance identifier. If the source DB instance is in a different\n-- region than the Read Replica, specify a valid DB instance ARN. For more\n-- information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructing a Amazon RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -14152,7 +14156,7 @@
                         "name": "_cdbirrSourceDBInstanceIdentifier",
                         "shape": "String",
                         "locationName": "SourceDBInstanceIdentifier",
-                        "documentation": "-- | The identifier of the DB instance that will act as the source for the Read\n-- Replica. Each DB instance can have up to five Read Replicas.\n--\n-- Constraints:\n--\n-- Must be the identifier of an existing DB instance. Can specify a DB\n-- instance that is a MySQL Read Replica only if the source is running MySQL 5.6.\n-- Can specify a DB instance that is a PostgreSQL Read Replica only if the\n-- source is running PostgreSQL 9.3.5. The specified DB instance must have\n-- automatic backups enabled, its backup retention period must be greater than 0.\n-- If the source DB instance is in the same region as the Read Replica, specify\n-- a valid DB instance identifier. If the source DB instance is in a different\n-- region than the Read Replica, specify a valid DB instance ARN. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructing a Amazon RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The identifier of the DB instance that will act as the source for the Read\n-- Replica. Each DB instance can have up to five Read Replicas.\n--\n-- Constraints:\n--\n-- Must be the identifier of an existing DB instance. Can specify a DB\n-- instance that is a MySQL Read Replica only if the source is running MySQL 5.6.\n-- Can specify a DB instance that is a PostgreSQL Read Replica only if the\n-- source is running PostgreSQL 9.3.5. The specified DB instance must have\n-- automatic backups enabled, its backup retention period must be greater than 0.\n-- If the source DB instance is in the same region as the Read Replica, specify\n-- a valid DB instance identifier. If the source DB instance is in a different\n-- region than the Read Replica, specify a valid DB instance ARN. For more\n-- information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructing a Amazon RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -14291,7 +14295,7 @@
             "pager": null,
             "name": "CreateDBParameterGroup",
             "method": "post",
-            "documentation": "-- | Creates a new DB parameter group.\n--\n-- A DB parameter group is initially created with the default parameters for\n-- the database engine used by the DB instance. To provide custom values for any\n-- of the parameters, you must modify the group after creating it using /ModifyDBParameterGroup/. Once you've created a DB parameter group, you need to associate it with\n-- your DB instance using /ModifyDBInstance/. When you associate a new DB\n-- parameter group with a running DB instance, you need to reboot the DB\n-- instance without failover for the new DB parameter group and associated\n-- settings to take effect.\n--\n-- After you create a DB parameter group, you should wait at least 5 minutes\n-- before creating your first DB instance that uses that DB parameter group as\n-- the default parameter group. This allows Amazon RDS to fully complete the\n-- create action before the parameter group is used as the default for a new DB\n-- instance. This is especially important for parameters that are critical when\n-- creating the default database for a DB instance, such as the character set\n-- for the default database defined by the 'character_set_database' parameter. You\n-- can use the /Parameter Groups/ option of the \u003chttps://console.aws.amazon.com/rds/ Amazon RDS console\u003e or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.\n--\n--",
+            "documentation": "-- | Creates a new DB parameter group.\n--\n-- A DB parameter group is initially created with the default parameters for\n-- the database engine used by the DB instance. To provide custom values for any\n-- of the parameters, you must modify the group after creating it using /ModifyDBParameterGroup/. Once you've created a DB parameter group, you need to associate it with\n-- your DB instance using /ModifyDBInstance/. When you associate a new DB\n-- parameter group with a running DB instance, you need to reboot the DB\n-- instance without failover for the new DB parameter group and associated\n-- settings to take effect.\n--\n-- After you create a DB parameter group, you should wait at least 5 minutes\n-- before creating your first DB instance that uses that DB parameter group as\n-- the default parameter group. This allows Amazon RDS to fully complete the\n-- create action before the parameter group is used as the default for a new DB\n-- instance. This is especially important for parameters that are critical when\n-- creating the default database for a DB instance, such as the character set\n-- for the default database defined by the 'character_set_database' parameter. You\n-- can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15552,7 +15556,7 @@
                         "name": "_cesEventCategories",
                         "shape": "EventCategoriesList",
                         "locationName": "EventCategories",
-                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
+                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -15644,7 +15648,7 @@
                         "name": "_cesEventCategories",
                         "shape": "EventCategoriesList",
                         "locationName": "EventCategories",
-                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
+                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -20568,7 +20572,7 @@
             },
             "name": "DescribeDBSubnetGroups",
             "method": "post",
-            "documentation": "-- | Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is\n-- specified, the list will contain only the descriptions of the specified\n-- DBSubnetGroup.\n--\n-- For an overview of CIDR ranges, go to the \u003chttp://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial\u003e.",
+            "documentation": "-- | Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is\n-- specified, the list will contain only the descriptions of the specified\n-- DBSubnetGroup.\n--\n-- For an overview of CIDR ranges, go to the <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -21180,7 +21184,7 @@
             "pager": null,
             "name": "DescribeEventCategories",
             "method": "post",
-            "documentation": "-- | Displays a list of categories for all event source types, or, if specified,\n-- for a specified source type. You can see a list of the event categories and\n-- source types in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html  Events\u003e topic in the Amazon RDS User Guide.",
+            "documentation": "-- | Displays a list of categories for all event source types, or, if specified,\n-- for a specified source type. You can see a list of the event categories and\n-- source types in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html  Events> topic in the Amazon RDS User Guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -21880,7 +21884,7 @@
                         "name": "_deStartTime",
                         "shape": "TStamp",
                         "locationName": "StartTime",
-                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
+                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -21898,7 +21902,7 @@
                         "name": "_deEndTime",
                         "shape": "TStamp",
                         "locationName": "EndTime",
-                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
+                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -22026,7 +22030,7 @@
                         "name": "_deEndTime",
                         "shape": "TStamp",
                         "locationName": "EndTime",
-                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
+                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -22152,7 +22156,7 @@
                         "name": "_deStartTime",
                         "shape": "TStamp",
                         "locationName": "StartTime",
-                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
+                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     }
@@ -25309,7 +25313,7 @@
             "pager": null,
             "name": "ListTagsForResource",
             "method": "post",
-            "documentation": "-- | Lists all tags on an Amazon RDS resource.\n--\n-- For an overview on tagging an Amazon RDS resource, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources\u003e.",
+            "documentation": "-- | Lists all tags on an Amazon RDS resource.\n--\n-- For an overview on tagging an Amazon RDS resource, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -25346,7 +25350,7 @@
                         "name": "_ltfrResourceName",
                         "shape": "String",
                         "locationName": "ResourceName",
-                        "documentation": "-- | The Amazon RDS resource with tags to be listed. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The Amazon RDS resource with tags to be listed. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -25425,7 +25429,7 @@
                         "name": "_ltfrResourceName",
                         "shape": "String",
                         "locationName": "ResourceName",
-                        "documentation": "-- | The Amazon RDS resource with tags to be listed. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The Amazon RDS resource with tags to be listed. This value is an Amazon\n-- Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -25779,7 +25783,7 @@
                         "name": "_mdbiApplyImmediately",
                         "shape": "Boolean",
                         "locationName": "ApplyImmediately",
-                        "documentation": "-- | Specifies whether the modifications in this request and any pending\n-- modifications are asynchronously applied as soon as possible, regardless of\n-- the 'PreferredMaintenanceWindow' setting for the DB instance.\n--\n-- If this parameter is set to 'false', changes to the DB instance are applied\n-- during the next maintenance window. Some parameter changes can cause an\n-- outage and will be applied on the next call to 'RebootDBInstance', or the next\n-- failure reboot. Review the table of parameters in \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying Modifying a DB Instance andUsing the Apply Immediately Parameter\u003e to see the impact that setting 'ApplyImmediately' to 'true' or 'false' has for each modified parameter and to determine when the\n-- changes will be applied.\n--\n-- Default: 'false'",
+                        "documentation": "-- | Specifies whether the modifications in this request and any pending\n-- modifications are asynchronously applied as soon as possible, regardless of\n-- the 'PreferredMaintenanceWindow' setting for the DB instance.\n--\n-- If this parameter is set to 'false', changes to the DB instance are applied\n-- during the next maintenance window. Some parameter changes can cause an\n-- outage and will be applied on the next call to 'RebootDBInstance', or the next\n-- failure reboot. Review the table of parameters in <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying Modifying a DB Instance andUsing the Apply Immediately Parameter> to see the impact that setting 'ApplyImmediately' to 'true' or 'false' has for each modified parameter and to determine when the\n-- changes will be applied.\n--\n-- Default: 'false'",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -26123,7 +26127,7 @@
                         "name": "_mdbiApplyImmediately",
                         "shape": "Boolean",
                         "locationName": "ApplyImmediately",
-                        "documentation": "-- | Specifies whether the modifications in this request and any pending\n-- modifications are asynchronously applied as soon as possible, regardless of\n-- the 'PreferredMaintenanceWindow' setting for the DB instance.\n--\n-- If this parameter is set to 'false', changes to the DB instance are applied\n-- during the next maintenance window. Some parameter changes can cause an\n-- outage and will be applied on the next call to 'RebootDBInstance', or the next\n-- failure reboot. Review the table of parameters in \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying Modifying a DB Instance andUsing the Apply Immediately Parameter\u003e to see the impact that setting 'ApplyImmediately' to 'true' or 'false' has for each modified parameter and to determine when the\n-- changes will be applied.\n--\n-- Default: 'false'",
+                        "documentation": "-- | Specifies whether the modifications in this request and any pending\n-- modifications are asynchronously applied as soon as possible, regardless of\n-- the 'PreferredMaintenanceWindow' setting for the DB instance.\n--\n-- If this parameter is set to 'false', changes to the DB instance are applied\n-- during the next maintenance window. Some parameter changes can cause an\n-- outage and will be applied on the next call to 'RebootDBInstance', or the next\n-- failure reboot. Review the table of parameters in <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying Modifying a DB Instance andUsing the Apply Immediately Parameter> to see the impact that setting 'ApplyImmediately' to 'true' or 'false' has for each modified parameter and to determine when the\n-- changes will be applied.\n--\n-- Default: 'false'",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -26570,7 +26574,7 @@
             "pager": null,
             "name": "ModifyDBParameterGroup",
             "method": "post",
-            "documentation": "-- | Modifies the parameters of a DB parameter group. To modify more than one\n-- parameter, submit a list of the following: 'ParameterName', 'ParameterValue', and 'ApplyMethod'. A maximum of 20 parameters can be modified in a single request.\n--\n-- Changes to dynamic parameters are applied immediately. Changes to static\n-- parameters require a reboot without failover to the DB instance associated\n-- with the parameter group before the change can take effect.\n--\n-- After you modify a DB parameter group, you should wait at least 5 minutes\n-- before creating your first DB instance that uses that DB parameter group as\n-- the default parameter group. This allows Amazon RDS to fully complete the\n-- modify action before the parameter group is used as the default for a new DB\n-- instance. This is especially important for parameters that are critical when\n-- creating the default database for a DB instance, such as the character set\n-- for the default database defined by the 'character_set_database' parameter. You\n-- can use the /Parameter Groups/ option of the \u003chttps://console.aws.amazon.com/rds/ Amazon RDS console\u003e or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.\n--\n--",
+            "documentation": "-- | Modifies the parameters of a DB parameter group. To modify more than one\n-- parameter, submit a list of the following: 'ParameterName', 'ParameterValue', and 'ApplyMethod'. A maximum of 20 parameters can be modified in a single request.\n--\n-- Changes to dynamic parameters are applied immediately. Changes to static\n-- parameters require a reboot without failover to the DB instance associated\n-- with the parameter group before the change can take effect.\n--\n-- After you modify a DB parameter group, you should wait at least 5 minutes\n-- before creating your first DB instance that uses that DB parameter group as\n-- the default parameter group. This allows Amazon RDS to fully complete the\n-- modify action before the parameter group is used as the default for a new DB\n-- instance. This is especially important for parameters that are critical when\n-- creating the default database for a DB instance, such as the character set\n-- for the default database defined by the 'character_set_database' parameter. You\n-- can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -27050,7 +27054,7 @@
             "pager": null,
             "name": "ModifyEventSubscription",
             "method": "post",
-            "documentation": "-- | Modifies an existing RDS event notification subscription. Note that you\n-- cannot modify the source identifiers using this call; to change source\n-- identifiers for a subscription, use the 'AddSourceIdentifierToSubscription' and 'RemoveSourceIdentifierFromSubscription' calls.\n--\n-- You can see a list of the event categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
+            "documentation": "-- | Modifies an existing RDS event notification subscription. Note that you\n-- cannot modify the source identifiers using this call; to change source\n-- identifiers for a subscription, use the 'AddSourceIdentifierToSubscription' and 'RemoveSourceIdentifierFromSubscription' calls.\n--\n-- You can see a list of the event categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events> topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -27180,7 +27184,7 @@
                         "name": "_mesEventCategories",
                         "shape": "EventCategoriesList",
                         "locationName": "EventCategories",
-                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
+                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -27236,7 +27240,7 @@
                         "name": "_mesEventCategories",
                         "shape": "EventCategoriesList",
                         "locationName": "EventCategories",
-                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
+                        "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -28636,7 +28640,7 @@
             "pager": null,
             "name": "RemoveTagsFromResource",
             "method": "post",
-            "documentation": "-- | Removes metadata tags from an Amazon RDS resource.\n--\n-- For an overview on tagging an Amazon RDS resource, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources\u003e.",
+            "documentation": "-- | Removes metadata tags from an Amazon RDS resource.\n--\n-- For an overview on tagging an Amazon RDS resource, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -28674,7 +28678,7 @@
                         "name": "_rtfrResourceName",
                         "shape": "String",
                         "locationName": "ResourceName",
-                        "documentation": "-- | The Amazon RDS resource the tags will be removed from. This value is an\n-- Amazon Resource Name (ARN). For information about creating an ARN, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The Amazon RDS resource the tags will be removed from. This value is an\n-- Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -28735,7 +28739,7 @@
                         "name": "_rtfrResourceName",
                         "shape": "String",
                         "locationName": "ResourceName",
-                        "documentation": "-- | The Amazon RDS resource the tags will be removed from. This value is an\n-- Amazon Resource Name (ARN). For information about creating an ARN, see \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)\u003e.",
+                        "documentation": "-- | The Amazon RDS resource the tags will be removed from. This value is an\n-- Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },

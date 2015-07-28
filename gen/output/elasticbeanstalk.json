@@ -59,6 +59,10 @@
         },
         "endpointPrefix": "elasticbeanstalk",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
             "throttling": {
                 "error": "Throttling",
                 "code": 400
@@ -12538,7 +12542,7 @@
                         "name": "_teTerminateResources",
                         "shape": "TerminateEnvironmentResources",
                         "locationName": "TerminateResources",
-                        "documentation": "-- | Indicates whether the associated AWS resources should shut down when the\n-- environment is terminated:\n--\n-- 'true': (default) The user AWS resources (for example, the Auto Scaling\n-- group, LoadBalancer, etc.) are terminated along with the environment.\n--\n-- 'false': The environment is removed from the AWS Elastic Beanstalk but the\n-- AWS resources continue to operate.\n--\n-- 'true': The specified environment as well as the associated AWS resources,\n-- such as Auto Scaling group and LoadBalancer, are terminated.   'false': AWS\n-- Elastic Beanstalk resource management is removed from the environment, but\n-- the AWS resources continue to operate.    For more information, see the \u003chttp://docs.aws.amazon.com/elasticbeanstalk/latest/ug/  AWSElastic Beanstalk User Guide. \u003e\n--\n-- Default: 'true'\n--\n-- Valid Values: 'true' | 'false'",
+                        "documentation": "-- | Indicates whether the associated AWS resources should shut down when the\n-- environment is terminated:\n--\n-- 'true': (default) The user AWS resources (for example, the Auto Scaling\n-- group, LoadBalancer, etc.) are terminated along with the environment.\n--\n-- 'false': The environment is removed from the AWS Elastic Beanstalk but the\n-- AWS resources continue to operate.\n--\n-- 'true': The specified environment as well as the associated AWS resources,\n-- such as Auto Scaling group and LoadBalancer, are terminated.   'false': AWS\n-- Elastic Beanstalk resource management is removed from the environment, but\n-- the AWS resources continue to operate.    For more information, see the <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/  AWSElastic Beanstalk User Guide. >\n--\n-- Default: 'true'\n--\n-- Valid Values: 'true' | 'false'",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -12594,7 +12598,7 @@
                         "name": "_teTerminateResources",
                         "shape": "TerminateEnvironmentResources",
                         "locationName": "TerminateResources",
-                        "documentation": "-- | Indicates whether the associated AWS resources should shut down when the\n-- environment is terminated:\n--\n-- 'true': (default) The user AWS resources (for example, the Auto Scaling\n-- group, LoadBalancer, etc.) are terminated along with the environment.\n--\n-- 'false': The environment is removed from the AWS Elastic Beanstalk but the\n-- AWS resources continue to operate.\n--\n-- 'true': The specified environment as well as the associated AWS resources,\n-- such as Auto Scaling group and LoadBalancer, are terminated.   'false': AWS\n-- Elastic Beanstalk resource management is removed from the environment, but\n-- the AWS resources continue to operate.    For more information, see the \u003chttp://docs.aws.amazon.com/elasticbeanstalk/latest/ug/  AWSElastic Beanstalk User Guide. \u003e\n--\n-- Default: 'true'\n--\n-- Valid Values: 'true' | 'false'",
+                        "documentation": "-- | Indicates whether the associated AWS resources should shut down when the\n-- environment is terminated:\n--\n-- 'true': (default) The user AWS resources (for example, the Auto Scaling\n-- group, LoadBalancer, etc.) are terminated along with the environment.\n--\n-- 'false': The environment is removed from the AWS Elastic Beanstalk but the\n-- AWS resources continue to operate.\n--\n-- 'true': The specified environment as well as the associated AWS resources,\n-- such as Auto Scaling group and LoadBalancer, are terminated.   'false': AWS\n-- Elastic Beanstalk resource management is removed from the environment, but\n-- the AWS resources continue to operate.    For more information, see the <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/  AWSElastic Beanstalk User Guide. >\n--\n-- Default: 'true'\n--\n-- Valid Values: 'true' | 'false'",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }

@@ -16,6 +16,7 @@
         "protocol": "json",
         "imports": [
             "Network.AWS.CognitoIdentity.CreateIdentityPool",
+            "Network.AWS.CognitoIdentity.DeleteIdentities",
             "Network.AWS.CognitoIdentity.DeleteIdentityPool",
             "Network.AWS.CognitoIdentity.DescribeIdentity",
             "Network.AWS.CognitoIdentity.DescribeIdentityPool",
@@ -46,6 +47,14 @@
         },
         "endpointPrefix": "cognito-identity",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -68,6 +77,7 @@
         "exposed": [
             "Network.AWS.CognitoIdentity",
             "Network.AWS.CognitoIdentity.CreateIdentityPool",
+            "Network.AWS.CognitoIdentity.DeleteIdentities",
             "Network.AWS.CognitoIdentity.DeleteIdentityPool",
             "Network.AWS.CognitoIdentity.DescribeIdentity",
             "Network.AWS.CognitoIdentity.DescribeIdentityPool",
@@ -95,6 +105,135 @@
     "types": {
         "namespace": "Network.AWS.CognitoIdentity.Types",
         "types": [
+            {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 14,
+                "ctor": "unprocessedIdentityId",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uiiIdentityId",
+                        "name": "_uiiIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uiiErrorCode",
+                        "name": "_uiiErrorCode",
+                        "shape": "ErrorCode",
+                        "locationName": "ErrorCode",
+                        "documentation": "-- | The error code indicating the type of error that occurred.",
+                        "typeExposed": "Maybe ErrorCode",
+                        "type": "Maybe ErrorCode"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 11,
+                "name": "UnprocessedIdentityId",
+                "locationPad": 11,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uiiIdentityId",
+                        "name": "_uiiIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uiiErrorCode",
+                        "name": "_uiiErrorCode",
+                        "shape": "ErrorCode",
+                        "locationName": "ErrorCode",
+                        "documentation": "-- | The error code indicating the type of error that occurred.",
+                        "typeExposed": "Maybe ErrorCode",
+                        "type": "Maybe ErrorCode"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uiiErrorCode",
+                        "name": "_uiiErrorCode",
+                        "shape": "ErrorCode",
+                        "locationName": "ErrorCode",
+                        "documentation": "-- | The error code indicating the type of error that occurred.",
+                        "typeExposed": "Maybe ErrorCode",
+                        "type": "Maybe ErrorCode"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uiiIdentityId",
+                        "name": "_uiiIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
             {
                 "deriving": [
                     "Eq",
@@ -922,6 +1061,24 @@
                     "Eq",
                     "Ord",
                     "Read",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "InternalServerError": "InternalServerError",
+                    "AccessDenied": "AccessDenied"
+                },
+                "valuePad": 20,
+                "name": "ErrorCode",
+                "type": "nullary",
+                "branchPad": 19
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -1422,7 +1579,7 @@
             "pager": null,
             "name": "CreateIdentityPool",
             "method": "post",
-            "documentation": "-- | Creates a new identity pool. The identity pool is a store of user identity\n-- information that is specific to your AWS account. The limit on identity pools\n-- is 60 per account.",
+            "documentation": "-- | Creates a new identity pool. The identity pool is a store of user identity\n-- information that is specific to your AWS account. The limit on identity pools\n-- is 60 per account. You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1738,6 +1895,238 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "UnprocessedIdentityId",
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "deleteIdentitiesResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "json",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "dirUnprocessedIdentityIds",
+                    "name": "_dirUnprocessedIdentityIds",
+                    "shape": "UnprocessedIdentityIdList",
+                    "locationName": "UnprocessedIdentityIds",
+                    "documentation": "-- | An array of UnprocessedIdentityId objects, each of which contains an\n-- ErrorCode and IdentityId.",
+                    "typeExposed": "[UnprocessedIdentityId]",
+                    "type": "List \"UnprocessedIdentityIds\" UnprocessedIdentityId"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dirUnprocessedIdentityIds",
+                        "name": "_dirUnprocessedIdentityIds",
+                        "shape": "UnprocessedIdentityIdList",
+                        "locationName": "UnprocessedIdentityIds",
+                        "documentation": "-- | An array of UnprocessedIdentityId objects, each of which contains an\n-- ErrorCode and IdentityId.",
+                        "typeExposed": "[UnprocessedIdentityId]",
+                        "type": "List \"UnprocessedIdentityIds\" UnprocessedIdentityId"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "DeleteIdentitiesResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dirUnprocessedIdentityIds",
+                        "name": "_dirUnprocessedIdentityIds",
+                        "shape": "UnprocessedIdentityIdList",
+                        "locationName": "UnprocessedIdentityIds",
+                        "documentation": "-- | An array of UnprocessedIdentityId objects, each of which contains an\n-- ErrorCode and IdentityId.",
+                        "typeExposed": "[UnprocessedIdentityId]",
+                        "type": "List \"UnprocessedIdentityIds\" UnprocessedIdentityId"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dirUnprocessedIdentityIds",
+                        "name": "_dirUnprocessedIdentityIds",
+                        "shape": "UnprocessedIdentityIdList",
+                        "locationName": "UnprocessedIdentityIds",
+                        "documentation": "-- | An array of UnprocessedIdentityId objects, each of which contains an\n-- ErrorCode and IdentityId.",
+                        "typeExposed": "[UnprocessedIdentityId]",
+                        "type": "List \"UnprocessedIdentityIds\" UnprocessedIdentityId"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentities.html",
+            "namespace": "Network.AWS.CognitoIdentity.DeleteIdentities",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "pager": null,
+            "name": "DeleteIdentities",
+            "method": "post",
+            "documentation": "-- | Deletes identities from an identity pool. You can specify a list of 1-60\n-- identities that you want to delete.\n--\n-- You must use AWS Developer credentials to call this API.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "deleteIdentities",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": "_List1",
+                    "lensMapping": "_List1",
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "json",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "diIdentityIdsToDelete",
+                    "name": "_diIdentityIdsToDelete",
+                    "shape": "IdentityIdList",
+                    "locationName": "IdentityIdsToDelete",
+                    "documentation": "-- | A list of 1-60 identities that you want to delete.",
+                    "typeExposed": "NonEmpty Text",
+                    "type": "List1 \"IdentityIdsToDelete\" Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diIdentityIdsToDelete",
+                        "name": "_diIdentityIdsToDelete",
+                        "shape": "IdentityIdList",
+                        "locationName": "IdentityIdsToDelete",
+                        "documentation": "-- | A list of 1-60 identities that you want to delete.",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 \"IdentityIdsToDelete\" Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diIdentityIdsToDelete",
+                        "name": "_diIdentityIdsToDelete",
+                        "shape": "IdentityIdList",
+                        "locationName": "IdentityIdsToDelete",
+                        "documentation": "-- | A list of 1-60 identities that you want to delete.",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 \"IdentityIdsToDelete\" Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "DeleteIdentities",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diIdentityIdsToDelete",
+                        "name": "_diIdentityIdsToDelete",
+                        "shape": "IdentityIdList",
+                        "locationName": "IdentityIdsToDelete",
+                        "documentation": "-- | A list of 1-60 identities that you want to delete.",
+                        "typeExposed": "NonEmpty Text",
+                        "type": "List1 \"IdentityIdsToDelete\" Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoIdentity",
+            "response": {
+                "deriving": [
+                    "Eq",
                     "Ord",
                     "Read",
                     "Show",
@@ -1770,7 +2159,7 @@
             "pager": null,
             "name": "DeleteIdentityPool",
             "method": "post",
-            "documentation": "-- | Deletes a user pool. Once a pool is deleted, users will not be able to\n-- authenticate with the pool.",
+            "documentation": "-- | Deletes a user pool. Once a pool is deleted, users will not be able to\n-- authenticate with the pool.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2145,7 +2534,7 @@
             "pager": null,
             "name": "DescribeIdentity",
             "method": "post",
-            "documentation": "-- | Returns metadata related to the given identity, including when the identity\n-- was created and any associated linked logins.",
+            "documentation": "-- | Returns metadata related to the given identity, including when the identity\n-- was created and any associated linked logins.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2628,7 +3017,7 @@
             "pager": null,
             "name": "DescribeIdentityPool",
             "method": "post",
-            "documentation": "-- | Gets details about a particular identity pool, including the pool name, ID\n-- description, creation date, and current number of users.",
+            "documentation": "-- | Gets details about a particular identity pool, including the pool name, ID\n-- description, creation date, and current number of users.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2894,7 +3283,7 @@
             "pager": null,
             "name": "GetCredentialsForIdentity",
             "method": "post",
-            "documentation": "-- | Returns credentials for the the provided identity ID. Any provided logins\n-- will be validated against supported login providers. If the token is for\n-- cognito-identity.amazonaws.com, it will be passed through to AWS Security\n-- Token Service with the appropriate role for the token.",
+            "documentation": "-- | Returns credentials for the the provided identity ID. Any provided logins\n-- will be validated against supported login providers. If the token is for\n-- cognito-identity.amazonaws.com, it will be passed through to AWS Security\n-- Token Service with the appropriate role for the token.\n--\n-- This is a public API. You do not need any credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3160,7 +3549,7 @@
             "pager": null,
             "name": "GetId",
             "method": "post",
-            "documentation": "-- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will create\n-- an implicit linked account.",
+            "documentation": "-- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will create\n-- an implicit linked account.\n--\n-- token+\";\"+tokenSecret.\n--\n-- This is a public API. You do not need any credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3224,7 +3613,7 @@
                         "name": "_giLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'  Twitter: 'www.twitter.com'  Digits: 'www.digits.com'",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -3300,7 +3689,7 @@
                         "name": "_giLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'  Twitter: 'www.twitter.com'  Digits: 'www.digits.com'",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -3356,7 +3745,7 @@
                         "name": "_giLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'  Twitter: 'www.twitter.com'  Digits: 'www.digits.com'",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -3513,7 +3902,7 @@
             "pager": null,
             "name": "GetIdentityPoolRoles",
             "method": "post",
-            "documentation": "-- | Gets the roles for an identity pool.",
+            "documentation": "-- | Gets the roles for an identity pool.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3521,7 +3910,8 @@
                     "Ord",
                     "Read",
                     "Show",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -3533,38 +3923,38 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "error",
                     "monoid": false,
                     "protocol": "json",
                     "payload": false,
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "giprIdentityPoolId",
                     "name": "_giprIdentityPoolId",
                     "shape": "IdentityPoolId",
                     "locationName": "IdentityPoolId",
                     "documentation": "-- | An identity pool ID in the format REGION:GUID.",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Text",
+                    "type": "Text"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "error",
                         "monoid": false,
                         "protocol": "json",
                         "payload": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "giprIdentityPoolId",
                         "name": "_giprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
                         "documentation": "-- | An identity pool ID in the format REGION:GUID.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ],
                 "path": [
@@ -3575,7 +3965,26 @@
                 ],
                 "protocol": "json",
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "giprIdentityPoolId",
+                        "name": "_giprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -3586,44 +3995,25 @@
                 "type": "newtype",
                 "queryAll": false,
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "json",
-                        "payload": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "giprIdentityPoolId",
-                        "name": "_giprIdentityPoolId",
-                        "shape": "IdentityPoolId",
-                        "locationName": "IdentityPoolId",
-                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "error",
                         "monoid": false,
                         "protocol": "json",
                         "payload": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "giprIdentityPoolId",
                         "name": "_giprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
                         "documentation": "-- | An identity pool ID in the format REGION:GUID.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ]
             }
@@ -3779,7 +4169,7 @@
             "pager": null,
             "name": "GetOpenIdToken",
             "method": "post",
-            "documentation": "-- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is\n-- returned by 'GetId'. You can optionally add additional logins for the identity.\n-- Supplying multiple logins creates an implicit link.\n--\n-- The OpenId token is valid for 15 minutes.",
+            "documentation": "-- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is\n-- returned by 'GetId'. You can optionally add additional logins for the identity.\n-- Supplying multiple logins creates an implicit link.\n--\n-- The OpenId token is valid for 15 minutes.\n--\n-- This is a public API. You do not need any credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3825,7 +4215,7 @@
                         "name": "_goitLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider\n-- tokens. When using graph.facebook.com and www.amazon.com, supply the\n-- access_token returned from the provider's authflow. For accounts.google.com\n-- or any other OpenId Connect provider, always include the id_token.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -3883,7 +4273,7 @@
                         "name": "_goitLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider\n-- tokens. When using graph.facebook.com and www.amazon.com, supply the\n-- access_token returned from the provider's authflow. For accounts.google.com\n-- or any other OpenId Connect provider, always include the id_token.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -3921,7 +4311,7 @@
                         "name": "_goitLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider\n-- tokens. When using graph.facebook.com and www.amazon.com, supply the\n-- access_token returned from the provider's authflow. For accounts.google.com\n-- or any other OpenId Connect provider, always include the id_token.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -4079,7 +4469,7 @@
             "pager": null,
             "name": "GetOpenIdTokenForDeveloperIdentity",
             "method": "post",
-            "documentation": "-- | Registers (or retrieves) a Cognito 'IdentityId' and an OpenID Connect token for\n-- a user authenticated by your backend authentication process. Supplying\n-- multiple logins will create an implicit linked account. You can only specify\n-- one developer provider as part of the 'Logins' map, which is linked to the\n-- identity pool. The developer provider is the \"domain\" by which Cognito will\n-- refer to your users.\n--\n-- You can use 'GetOpenIdTokenForDeveloperIdentity' to create a new identity and\n-- to link new logins (that is, user credentials issued by a public provider or\n-- developer provider) to an existing identity. When you want to create a new\n-- identity, the 'IdentityId' should be null. When you want to associate a new\n-- login with an existing authenticated/unauthenticated identity, you can do so\n-- by providing the existing 'IdentityId'. This API will create the identity in\n-- the specified 'IdentityPoolId'.",
+            "documentation": "-- | Registers (or retrieves) a Cognito 'IdentityId' and an OpenID Connect token for\n-- a user authenticated by your backend authentication process. Supplying\n-- multiple logins will create an implicit linked account. You can only specify\n-- one developer provider as part of the 'Logins' map, which is linked to the\n-- identity pool. The developer provider is the \"domain\" by which Cognito will\n-- refer to your users.\n--\n-- You can use 'GetOpenIdTokenForDeveloperIdentity' to create a new identity and\n-- to link new logins (that is, user credentials issued by a public provider or\n-- developer provider) to an existing identity. When you want to create a new\n-- identity, the 'IdentityId' should be null. When you want to associate a new\n-- login with an existing authenticated/unauthenticated identity, you can do so\n-- by providing the existing 'IdentityId'. This API will create the identity in\n-- the specified 'IdentityPoolId'.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4540,7 +4930,7 @@
             "pager": null,
             "name": "ListIdentities",
             "method": "post",
-            "documentation": "-- | Lists the identities in a pool.",
+            "documentation": "-- | Lists the identities in a pool.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4608,6 +4998,24 @@
                         "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "liHideDisabled",
+                        "name": "_liHideDisabled",
+                        "shape": "HideDisabled",
+                        "locationName": "HideDisabled",
+                        "documentation": "-- | An optional boolean parameter that allows you to hide disabled identities. If\n-- omitted, the ListIdentities API will include disabled identities in the\n-- response.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
                     }
                 ],
                 "path": [
@@ -4684,9 +5092,45 @@
                         "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "liHideDisabled",
+                        "name": "_liHideDisabled",
+                        "shape": "HideDisabled",
+                        "locationName": "HideDisabled",
+                        "documentation": "-- | An optional boolean parameter that allows you to hide disabled identities. If\n-- omitted, the ListIdentities API will include disabled identities in the\n-- response.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "liHideDisabled",
+                        "name": "_liHideDisabled",
+                        "shape": "HideDisabled",
+                        "locationName": "HideDisabled",
+                        "documentation": "-- | An optional boolean parameter that allows you to hide disabled identities. If\n-- omitted, the ListIdentities API will include disabled identities in the\n-- response.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -4894,7 +5338,7 @@
             "pager": null,
             "name": "ListIdentityPools",
             "method": "post",
-            "documentation": "-- | Lists all of the Cognito identity pools registered for your account.",
+            "documentation": "-- | Lists all of the Cognito identity pools registered for your account.\n--\n-- This is a public API. You do not need any credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5249,7 +5693,7 @@
             "pager": null,
             "name": "LookupDeveloperIdentity",
             "method": "post",
-            "documentation": "-- | Retrieves the 'IdentityID' associated with a 'DeveloperUserIdentifier' or the\n-- list of 'DeveloperUserIdentifier's associated with an 'IdentityId' for an\n-- existing identity. Either 'IdentityID' or 'DeveloperUserIdentifier' must not be\n-- null. If you supply only one of these values, the other value will be\n-- searched in the database and returned as a part of the response. If you\n-- supply both, 'DeveloperUserIdentifier' will be matched against 'IdentityID'. If\n-- the values are verified against the database, the response returns both\n-- values and is the same as the request. Otherwise a 'ResourceConflictException'\n-- is thrown.",
+            "documentation": "-- | Retrieves the 'IdentityID' associated with a 'DeveloperUserIdentifier' or the\n-- list of 'DeveloperUserIdentifier's associated with an 'IdentityId' for an\n-- existing identity. Either 'IdentityID' or 'DeveloperUserIdentifier' must not be\n-- null. If you supply only one of these values, the other value will be\n-- searched in the database and returned as a part of the response. If you\n-- supply both, 'DeveloperUserIdentifier' will be matched against 'IdentityID'. If\n-- the values are verified against the database, the response returns both\n-- values and is the same as the request. Otherwise a 'ResourceConflictException'\n-- is thrown.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5678,7 +6122,7 @@
             "pager": null,
             "name": "MergeDeveloperIdentities",
             "method": "post",
-            "documentation": "-- | Merges two users having different 'IdentityId's, existing in the same identity\n-- pool, and identified by the same developer provider. You can use this action\n-- to request that discrete users be merged and identified as a single user in\n-- the Cognito environment. Cognito associates the given source user ('SourceUserIdentifier') with the 'IdentityId' of the 'DestinationUserIdentifier'. Only\n-- developer-authenticated users can be merged. If the users to be merged are\n-- associated with the same public provider, but as two different users, an\n-- exception will be thrown.",
+            "documentation": "-- | Merges two users having different 'IdentityId's, existing in the same identity\n-- pool, and identified by the same developer provider. You can use this action\n-- to request that discrete users be merged and identified as a single user in\n-- the Cognito environment. Cognito associates the given source user ('SourceUserIdentifier') with the 'IdentityId' of the 'DestinationUserIdentifier'. Only\n-- developer-authenticated users can be merged. If the users to be merged are\n-- associated with the same public provider, but as two different users, an\n-- exception will be thrown.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5972,7 +6416,7 @@
             "pager": null,
             "name": "SetIdentityPoolRoles",
             "method": "post",
-            "documentation": "-- | Sets the roles for an identity pool. These roles are used when making calls\n-- to 'GetCredentialsForIdentity' action.",
+            "documentation": "-- | Sets the roles for an identity pool. These roles are used when making calls\n-- to 'GetCredentialsForIdentity' action.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6018,7 +6462,7 @@
                         "name": "_siprRoles",
                         "shape": "RolesMap",
                         "locationName": "Roles",
-                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "documentation": "-- | The map of roles associated with this pool. For a given role, the key will be\n-- either \"authenticated\" or \"unauthenticated\" and the value will be the Role\n-- ARN.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -6076,7 +6520,7 @@
                         "name": "_siprRoles",
                         "shape": "RolesMap",
                         "locationName": "Roles",
-                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "documentation": "-- | The map of roles associated with this pool. For a given role, the key will be\n-- either \"authenticated\" or \"unauthenticated\" and the value will be the Role\n-- ARN.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -6114,7 +6558,7 @@
                         "name": "_siprRoles",
                         "shape": "RolesMap",
                         "locationName": "Roles",
-                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "documentation": "-- | The map of roles associated with this pool. For a given role, the key will be\n-- either \"authenticated\" or \"unauthenticated\" and the value will be the Role\n-- ARN.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -6158,7 +6602,7 @@
             "pager": null,
             "name": "UnlinkDeveloperIdentity",
             "method": "post",
-            "documentation": "-- | Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked\n-- developer users will be considered new identities next time they are seen.\n-- If, for a given Cognito identity, you remove all federated identities as well\n-- as the developer user identifier, the Cognito identity becomes inaccessible.",
+            "documentation": "-- | Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked\n-- developer users will be considered new identities next time they are seen.\n-- If, for a given Cognito identity, you remove all federated identities as well\n-- as the developer user identifier, the Cognito identity becomes inaccessible.\n--\n-- This is a public API. You do not need any credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6452,7 +6896,7 @@
             "pager": null,
             "name": "UnlinkIdentity",
             "method": "post",
-            "documentation": "-- | Unlinks a federated identity from an existing account. Unlinked logins will\n-- be considered new identities next time they are seen. Removing the last\n-- linked login will make this identity inaccessible.",
+            "documentation": "-- | Unlinks a federated identity from an existing account. Unlinked logins will\n-- be considered new identities next time they are seen. Removing the last\n-- linked login will make this identity inaccessible.\n--\n-- This is a public API. You do not need any credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7022,7 +7466,7 @@
             "pager": null,
             "name": "UpdateIdentityPool",
             "method": "post",
-            "documentation": "-- | Updates a user pool.",
+            "documentation": "-- | Updates a user pool.\n--\n-- You must use AWS Developer credentials to call this API.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

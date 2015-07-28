@@ -46,6 +46,14 @@
         },
         "endpointPrefix": "lambda",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -105,6 +113,7 @@
                     "Enum"
                 ],
                 "branches": {
+                    "Java8": "java8",
                     "Nodejs": "nodejs"
                 },
                 "valuePad": 7,
@@ -190,7 +199,7 @@
                         "name": "_fcZipFile",
                         "shape": "Blob",
                         "locationName": "ZipFile",
-                        "documentation": "-- | A base64-encoded .zip file containing your deployment package. For more\n-- information about creating a .zip file, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions\u003e in the /AWS Lambda Developer Guide/.",
+                        "documentation": "-- | A base64-encoded .zip file containing your deployment package. For more\n-- information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.",
                         "typeExposed": "Maybe Base64",
                         "type": "Maybe Base64"
                     },
@@ -270,7 +279,7 @@
                         "name": "_fcZipFile",
                         "shape": "Blob",
                         "locationName": "ZipFile",
-                        "documentation": "-- | A base64-encoded .zip file containing your deployment package. For more\n-- information about creating a .zip file, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions\u003e in the /AWS Lambda Developer Guide/.",
+                        "documentation": "-- | A base64-encoded .zip file containing your deployment package. For more\n-- information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.",
                         "typeExposed": "Maybe Base64",
                         "type": "Maybe Base64"
                     },
@@ -398,7 +407,7 @@
                         "name": "_fcZipFile",
                         "shape": "Blob",
                         "locationName": "ZipFile",
-                        "documentation": "-- | A base64-encoded .zip file containing your deployment package. For more\n-- information about creating a .zip file, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions\u003e in the /AWS Lambda Developer Guide/.",
+                        "documentation": "-- | A base64-encoded .zip file containing your deployment package. For more\n-- information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.",
                         "typeExposed": "Maybe Base64",
                         "type": "Maybe Base64"
                     }
@@ -1675,7 +1684,7 @@
             "pager": null,
             "name": "AddPermission",
             "method": "post",
-            "documentation": "-- | Adds a permission to the access policy associated with the specified AWS\n-- Lambda function. In a \"push event\" model, the access policy attached to the\n-- Lambda function grants Amazon S3 or a user application permission for the\n-- Lambda 'lambda:Invoke' action. For information about the push model, see \u003chttp://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWSLambda: How it Works\u003e. Each Lambda function has one access policy associated\n-- with it. You can use the 'AddPermission' API to add a permission to the policy.\n-- You have one access policy but it can have multiple permission statements.\n--\n-- This operation requires permission for the 'lambda:AddPermission' action.",
+            "documentation": "-- | Adds a permission to the access policy associated with the specified AWS\n-- Lambda function. In a \"push event\" model, the access policy attached to the\n-- Lambda function grants Amazon S3 or a user application permission for the\n-- Lambda 'lambda:Invoke' action. For information about the push model, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWSLambda: How it Works>. Each Lambda function has one access policy associated\n-- with it. You can use the 'AddPermission' API to add a permission to the policy.\n-- You have one access policy but it can have multiple permission statements.\n--\n-- This operation requires permission for the 'lambda:AddPermission' action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1776,7 +1785,7 @@
                         "name": "_apSourceAccount",
                         "shape": "SourceOwner",
                         "locationName": "SourceAccount",
-                        "documentation": "-- | The AWS account ID (without a hyphen) of the source owner. If the 'SourceArn'\n-- identifies a bucket, then this is the bucket owner's account ID. You can use\n-- this additional condition to ensure the bucket you specify is owned by a\n-- specific account (it is possible the bucket owner deleted the bucket and some\n-- other AWS account created the bucket). You can also use this condition to\n-- specify all sources (that is, you don't specify the 'SourceArn') owned by a\n-- specific account.",
+                        "documentation": "-- | The AWS account ID (without a hyphen) of the source owner. For example, if\n-- the 'SourceArn' identifies a bucket, then this is the bucket owner's account\n-- ID. You can use this additional condition to ensure the bucket you specify is\n-- owned by a specific account (it is possible the bucket owner deleted the\n-- bucket and some other AWS account created the bucket). You can also use this\n-- condition to specify all sources (that is, you don't specify the 'SourceArn')\n-- owned by a specific account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1914,7 +1923,7 @@
                         "name": "_apSourceAccount",
                         "shape": "SourceOwner",
                         "locationName": "SourceAccount",
-                        "documentation": "-- | The AWS account ID (without a hyphen) of the source owner. If the 'SourceArn'\n-- identifies a bucket, then this is the bucket owner's account ID. You can use\n-- this additional condition to ensure the bucket you specify is owned by a\n-- specific account (it is possible the bucket owner deleted the bucket and some\n-- other AWS account created the bucket). You can also use this condition to\n-- specify all sources (that is, you don't specify the 'SourceArn') owned by a\n-- specific account.",
+                        "documentation": "-- | The AWS account ID (without a hyphen) of the source owner. For example, if\n-- the 'SourceArn' identifies a bucket, then this is the bucket owner's account\n-- ID. You can use this additional condition to ensure the bucket you specify is\n-- owned by a specific account (it is possible the bucket owner deleted the\n-- bucket and some other AWS account created the bucket). You can also use this\n-- condition to specify all sources (that is, you don't specify the 'SourceArn')\n-- owned by a specific account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1988,7 +1997,7 @@
                         "name": "_apSourceAccount",
                         "shape": "SourceOwner",
                         "locationName": "SourceAccount",
-                        "documentation": "-- | The AWS account ID (without a hyphen) of the source owner. If the 'SourceArn'\n-- identifies a bucket, then this is the bucket owner's account ID. You can use\n-- this additional condition to ensure the bucket you specify is owned by a\n-- specific account (it is possible the bucket owner deleted the bucket and some\n-- other AWS account created the bucket). You can also use this condition to\n-- specify all sources (that is, you don't specify the 'SourceArn') owned by a\n-- specific account.",
+                        "documentation": "-- | The AWS account ID (without a hyphen) of the source owner. For example, if\n-- the 'SourceArn' identifies a bucket, then this is the bucket owner's account\n-- ID. You can use this additional condition to ensure the bucket you specify is\n-- owned by a specific account (it is possible the bucket owner deleted the\n-- bucket and some other AWS account created the bucket). You can also use this\n-- condition to specify all sources (that is, you don't specify the 'SourceArn')\n-- owned by a specific account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2506,7 +2515,7 @@
             "pager": null,
             "name": "CreateEventSourceMapping",
             "method": "post",
-            "documentation": "-- | Identifies a stream as an event source for a Lambda function. It can be\n-- either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda\n-- invokes the specified function when records are posted to the stream.\n--\n-- This is the pull model, where AWS Lambda invokes the function. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works\u003e in the /AWS Lambda Developer Guide/.\n--\n-- This association between an Amazon Kinesis stream and a Lambda function is\n-- called the event source mapping. You provide the configuration information\n-- (for example, which stream to read from and which Lambda function to invoke)\n-- for the event source mapping in the request body.\n--\n-- Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be\n-- associated with multiple AWS Lambda function. A given Lambda function can be\n-- associated with multiple AWS event sources.\n--\n-- This operation requires permission for the 'lambda:CreateEventSourceMapping'\n-- action.",
+            "documentation": "-- | Identifies a stream as an event source for a Lambda function. It can be\n-- either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda\n-- invokes the specified function when records are posted to the stream.\n--\n-- This is the pull model, where AWS Lambda invokes the function. For more\n-- information, go to <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/.\n--\n-- This association between an Amazon Kinesis stream and a Lambda function is\n-- called the event source mapping. You provide the configuration information\n-- (for example, which stream to read from and which Lambda function to invoke)\n-- for the event source mapping in the request body.\n--\n-- Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be\n-- associated with multiple AWS Lambda function. A given Lambda function can be\n-- associated with multiple AWS event sources.\n--\n-- This operation requires permission for the 'lambda:CreateEventSourceMapping'\n-- action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2570,7 +2579,7 @@
                         "name": "_cesmEnabled",
                         "shape": "Enabled",
                         "locationName": "Enabled",
-                        "documentation": "-- | Indicates whether AWS Lambda should begin polling the event source.",
+                        "documentation": "-- | Indicates whether AWS Lambda should begin polling the event source, the\n-- default is not enabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2606,7 +2615,7 @@
                         "name": "_cesmStartingPosition",
                         "shape": "EventSourcePosition",
                         "locationName": "StartingPosition",
-                        "documentation": "-- | The position in the stream where AWS Lambda should start reading. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType\u003e in the /Amazon Kinesis API Reference/.",
+                        "documentation": "-- | The position in the stream where AWS Lambda should start reading. For more\n-- information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/.",
                         "typeExposed": "EventSourcePosition",
                         "type": "EventSourcePosition"
                     }
@@ -2670,7 +2679,7 @@
                         "name": "_cesmStartingPosition",
                         "shape": "EventSourcePosition",
                         "locationName": "StartingPosition",
-                        "documentation": "-- | The position in the stream where AWS Lambda should start reading. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType\u003e in the /Amazon Kinesis API Reference/.",
+                        "documentation": "-- | The position in the stream where AWS Lambda should start reading. For more\n-- information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/.",
                         "typeExposed": "EventSourcePosition",
                         "type": "EventSourcePosition"
                     }
@@ -2700,7 +2709,7 @@
                         "name": "_cesmEnabled",
                         "shape": "Enabled",
                         "locationName": "Enabled",
-                        "documentation": "-- | Indicates whether AWS Lambda should begin polling the event source.",
+                        "documentation": "-- | Indicates whether AWS Lambda should begin polling the event source, the\n-- default is not enabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2756,7 +2765,7 @@
                         "name": "_cesmEnabled",
                         "shape": "Enabled",
                         "locationName": "Enabled",
-                        "documentation": "-- | Indicates whether AWS Lambda should begin polling the event source.",
+                        "documentation": "-- | Indicates whether AWS Lambda should begin polling the event source, the\n-- default is not enabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2810,7 +2819,7 @@
                         "name": "_cesmStartingPosition",
                         "shape": "EventSourcePosition",
                         "locationName": "StartingPosition",
-                        "documentation": "-- | The position in the stream where AWS Lambda should start reading. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType\u003e in the /Amazon Kinesis API Reference/.",
+                        "documentation": "-- | The position in the stream where AWS Lambda should start reading. For more\n-- information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/.",
                         "typeExposed": "EventSourcePosition",
                         "type": "EventSourcePosition"
                     }
@@ -3445,7 +3454,7 @@
                         "name": "_cfRuntime",
                         "shape": "Runtime",
                         "locationName": "Runtime",
-                        "documentation": "-- | The runtime environment for the Lambda function you are uploading. Currently,\n-- Lambda supports only \"nodejs\" as the runtime.",
+                        "documentation": "-- | The runtime environment for the Lambda function you are uploading. Currently,\n-- Lambda supports \"java\" and \"nodejs\" as the runtime.",
                         "typeExposed": "Runtime",
                         "type": "Runtime"
                     },
@@ -3463,7 +3472,7 @@
                         "name": "_cfRole",
                         "shape": "RoleArn",
                         "locationName": "Role",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it\n-- executes your function to access any other Amazon Web Services (AWS)\n-- resources. For more information, see \u003chttp://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works\u003e",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it\n-- executes your function to access any other Amazon Web Services (AWS)\n-- resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3481,7 +3490,7 @@
                         "name": "_cfHandler",
                         "shape": "Handler",
                         "locationName": "Handler",
-                        "documentation": "-- | The function within your code that Lambda calls to begin execution. For\n-- Node.js, it is the /module-name/./export/ value in your function.",
+                        "documentation": "-- | The function within your code that Lambda calls to begin execution. For\n-- Node.js, it is the /module-name/./export/ value in your function. For Java, it\n-- can be 'package.class-name::handler' or 'package.class-name'. For more\n-- information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3553,7 +3562,7 @@
                         "name": "_cfCode",
                         "shape": "FunctionCode",
                         "locationName": "Code",
-                        "documentation": "-- | A structure that includes ZipFile.",
+                        "documentation": "-- | The code for the Lambda function.",
                         "typeExposed": "FunctionCode",
                         "type": "FunctionCode"
                     }
@@ -3599,7 +3608,7 @@
                         "name": "_cfRuntime",
                         "shape": "Runtime",
                         "locationName": "Runtime",
-                        "documentation": "-- | The runtime environment for the Lambda function you are uploading. Currently,\n-- Lambda supports only \"nodejs\" as the runtime.",
+                        "documentation": "-- | The runtime environment for the Lambda function you are uploading. Currently,\n-- Lambda supports \"java\" and \"nodejs\" as the runtime.",
                         "typeExposed": "Runtime",
                         "type": "Runtime"
                     },
@@ -3617,7 +3626,7 @@
                         "name": "_cfRole",
                         "shape": "RoleArn",
                         "locationName": "Role",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it\n-- executes your function to access any other Amazon Web Services (AWS)\n-- resources. For more information, see \u003chttp://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works\u003e",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it\n-- executes your function to access any other Amazon Web Services (AWS)\n-- resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3635,7 +3644,7 @@
                         "name": "_cfHandler",
                         "shape": "Handler",
                         "locationName": "Handler",
-                        "documentation": "-- | The function within your code that Lambda calls to begin execution. For\n-- Node.js, it is the /module-name/./export/ value in your function.",
+                        "documentation": "-- | The function within your code that Lambda calls to begin execution. For\n-- Node.js, it is the /module-name/./export/ value in your function. For Java, it\n-- can be 'package.class-name::handler' or 'package.class-name'. For more\n-- information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3653,7 +3662,7 @@
                         "name": "_cfCode",
                         "shape": "FunctionCode",
                         "locationName": "Code",
-                        "documentation": "-- | A structure that includes ZipFile.",
+                        "documentation": "-- | The code for the Lambda function.",
                         "typeExposed": "FunctionCode",
                         "type": "FunctionCode"
                     }
@@ -3739,7 +3748,7 @@
                         "name": "_cfCode",
                         "shape": "FunctionCode",
                         "locationName": "Code",
-                        "documentation": "-- | A structure that includes ZipFile.",
+                        "documentation": "-- | The code for the Lambda function.",
                         "typeExposed": "FunctionCode",
                         "type": "FunctionCode"
                     },
@@ -3793,7 +3802,7 @@
                         "name": "_cfHandler",
                         "shape": "Handler",
                         "locationName": "Handler",
-                        "documentation": "-- | The function within your code that Lambda calls to begin execution. For\n-- Node.js, it is the /module-name/./export/ value in your function.",
+                        "documentation": "-- | The function within your code that Lambda calls to begin execution. For\n-- Node.js, it is the /module-name/./export/ value in your function. For Java, it\n-- can be 'package.class-name::handler' or 'package.class-name'. For more\n-- information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3829,7 +3838,7 @@
                         "name": "_cfRole",
                         "shape": "RoleArn",
                         "locationName": "Role",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it\n-- executes your function to access any other Amazon Web Services (AWS)\n-- resources. For more information, see \u003chttp://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works\u003e",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it\n-- executes your function to access any other Amazon Web Services (AWS)\n-- resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3847,7 +3856,7 @@
                         "name": "_cfRuntime",
                         "shape": "Runtime",
                         "locationName": "Runtime",
-                        "documentation": "-- | The runtime environment for the Lambda function you are uploading. Currently,\n-- Lambda supports only \"nodejs\" as the runtime.",
+                        "documentation": "-- | The runtime environment for the Lambda function you are uploading. Currently,\n-- Lambda supports \"java\" and \"nodejs\" as the runtime.",
                         "typeExposed": "Runtime",
                         "type": "Runtime"
                     },
@@ -6431,7 +6440,7 @@
                         "name": "_irFunctionError",
                         "shape": "String",
                         "locationName": "X-Amz-Function-Error",
-                        "documentation": "-- | Indicates whether an error occurred while executing the Lambda function. If\n-- an error occurred this field will have one of two values; 'Handled' or 'Unhandled'\n-- . 'Handled' errors are errors that are reported by the function while the 'Unhandled' errors are those detected and reported by AWS Lambda. Unhandled errors\n-- include out of memory errors and function timeouts. For information about how\n-- to report an 'Handled' error, see \u003chttp://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model\u003e.",
+                        "documentation": "-- | Indicates whether an error occurred while executing the Lambda function. If\n-- an error occurred this field will have one of two values; 'Handled' or 'Unhandled'\n-- . 'Handled' errors are errors that are reported by the function while the 'Unhandled' errors are those detected and reported by AWS Lambda. Unhandled errors\n-- include out of memory errors and function timeouts. For information about how\n-- to report an 'Handled' error, see <http://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6487,7 +6496,7 @@
                         "name": "_irFunctionError",
                         "shape": "String",
                         "locationName": "X-Amz-Function-Error",
-                        "documentation": "-- | Indicates whether an error occurred while executing the Lambda function. If\n-- an error occurred this field will have one of two values; 'Handled' or 'Unhandled'\n-- . 'Handled' errors are errors that are reported by the function while the 'Unhandled' errors are those detected and reported by AWS Lambda. Unhandled errors\n-- include out of memory errors and function timeouts. For information about how\n-- to report an 'Handled' error, see \u003chttp://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model\u003e.",
+                        "documentation": "-- | Indicates whether an error occurred while executing the Lambda function. If\n-- an error occurred this field will have one of two values; 'Handled' or 'Unhandled'\n-- . 'Handled' errors are errors that are reported by the function while the 'Unhandled' errors are those detected and reported by AWS Lambda. Unhandled errors\n-- include out of memory errors and function timeouts. For information about how\n-- to report an 'Handled' error, see <http://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6719,7 +6728,7 @@
                         "name": "_iClientContext",
                         "shape": "String",
                         "locationName": "X-Amz-Client-Context",
-                        "documentation": "-- | Using the 'ClientContext' you can pass client-specific information to the\n-- Lambda function you are invoking. You can then process the client information\n-- in your Lambda function as you choose through the context variable. For an\n-- example of a ClientContext JSON, go to \u003chttp://docs.aws.amazon.com/mobileanalytics/latest/ug/PutEvents.html PutEvents\u003e in the /Amazon MobileAnalytics API Reference and User Guide/.\n--\n-- The ClientContext JSON must be base64-encoded.",
+                        "documentation": "-- | Using the 'ClientContext' you can pass client-specific information to the\n-- Lambda function you are invoking. You can then process the client information\n-- in your Lambda function as you choose through the context variable. For an\n-- example of a ClientContext JSON, go to <http://docs.aws.amazon.com/mobileanalytics/latest/ug/PutEvents.html PutEvents> in the /Amazon MobileAnalytics API Reference and User Guide/.\n--\n-- The ClientContext JSON must be base64-encoded.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6757,7 +6766,7 @@
                         "name": "_iClientContext",
                         "shape": "String",
                         "locationName": "X-Amz-Client-Context",
-                        "documentation": "-- | Using the 'ClientContext' you can pass client-specific information to the\n-- Lambda function you are invoking. You can then process the client information\n-- in your Lambda function as you choose through the context variable. For an\n-- example of a ClientContext JSON, go to \u003chttp://docs.aws.amazon.com/mobileanalytics/latest/ug/PutEvents.html PutEvents\u003e in the /Amazon MobileAnalytics API Reference and User Guide/.\n--\n-- The ClientContext JSON must be base64-encoded.",
+                        "documentation": "-- | Using the 'ClientContext' you can pass client-specific information to the\n-- Lambda function you are invoking. You can then process the client information\n-- in your Lambda function as you choose through the context variable. For an\n-- example of a ClientContext JSON, go to <http://docs.aws.amazon.com/mobileanalytics/latest/ug/PutEvents.html PutEvents> in the /Amazon MobileAnalytics API Reference and User Guide/.\n--\n-- The ClientContext JSON must be base64-encoded.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },

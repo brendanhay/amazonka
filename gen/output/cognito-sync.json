@@ -46,6 +46,14 @@
         },
         "endpointPrefix": "cognito-sync",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -2180,7 +2188,7 @@
             "pager": null,
             "name": "BulkPublish",
             "method": "post",
-            "documentation": "-- | Initiates a bulk publish of all existing datasets for an Identity Pool to the\n-- configured stream. Customers are limited to one successful bulk publish per\n-- 24 hours. Bulk publish is an asynchronous request, customers can see the\n-- status of the request via the GetBulkPublishDetails operation.",
+            "documentation": "-- | Initiates a bulk publish of all existing datasets for an Identity Pool to the\n-- configured stream. Customers are limited to one successful bulk publish per\n-- 24 hours. Bulk publish is an asynchronous request, customers can see the\n-- status of the request via the GetBulkPublishDetails operation.\n--\n-- This API can only be called with developer credentials. You cannot call this\n-- API with the temporary user credentials provided by Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2400,7 +2408,7 @@
             "pager": null,
             "name": "DeleteDataset",
             "method": "delete",
-            "documentation": "-- | Deletes the specific dataset. The dataset will be deleted permanently, and\n-- the action can't be undone. Datasets that this dataset was merged with will\n-- no longer report the merge. Any subsequent operation on this dataset will\n-- result in a ResourceNotFoundException.\n--\n-- DeleteDataset can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials.",
+            "documentation": "-- | Deletes the specific dataset. The dataset will be deleted permanently, and\n-- the action can't be undone. Datasets that this dataset was merged with will\n-- no longer report the merge. Any subsequent operation on this dataset will\n-- result in a ResourceNotFoundException.\n--\n-- This API can be called with temporary user credentials provided by Cognito\n-- Identity or with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2683,7 +2691,7 @@
             "pager": null,
             "name": "DescribeDataset",
             "method": "get",
-            "documentation": "-- | Gets meta data about a dataset by identity and dataset name. With Amazon\n-- Cognito Sync, each identity has access only to its own data. Thus, the\n-- credentials used to make this API call need to have access to the identity\n-- data.\n--\n-- DescribeDataset can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use Cognito\n-- Identity credentials to make this API call.",
+            "documentation": "-- | Gets meta data about a dataset by identity and dataset name. With Amazon\n-- Cognito Sync, each identity has access only to its own data. Thus, the\n-- credentials used to make this API call need to have access to the identity\n-- data.\n--\n-- This API can be called with temporary user credentials provided by Cognito\n-- Identity or with developer credentials. You should use Cognito Identity\n-- credentials to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2966,7 +2974,7 @@
             "pager": null,
             "name": "DescribeIdentityPoolUsage",
             "method": "get",
-            "documentation": "-- | Gets usage details (for example, data storage) about a particular identity\n-- pool.\n--\n-- DescribeIdentityPoolUsage can only be called with developer credentials. You\n-- cannot make this API call with the temporary user credentials provided by\n-- Cognito Identity.",
+            "documentation": "-- | Gets usage details (for example, data storage) about a particular identity\n-- pool.\n--\n-- This API can only be called with developer credentials. You cannot call this\n-- API with the temporary user credentials provided by Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3182,7 +3190,7 @@
             "pager": null,
             "name": "DescribeIdentityUsage",
             "method": "get",
-            "documentation": "-- | Gets usage information for an identity, including number of datasets and data\n-- usage.\n--\n-- DescribeIdentityUsage can be called with temporary user credentials provided\n-- by Cognito Identity or with developer credentials.",
+            "documentation": "-- | Gets usage information for an identity, including number of datasets and data\n-- usage.\n--\n-- This API can be called with temporary user credentials provided by Cognito\n-- Identity or with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3618,7 +3626,7 @@
             "pager": null,
             "name": "GetBulkPublishDetails",
             "method": "post",
-            "documentation": "-- | Get the status of the last BulkPublish operation for an identity pool.",
+            "documentation": "-- | Get the status of the last BulkPublish operation for an identity pool.\n--\n-- This API can only be called with developer credentials. You cannot call this\n-- API with the temporary user credentials provided by Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3840,7 +3848,7 @@
             "pager": null,
             "name": "GetCognitoEvents",
             "method": "get",
-            "documentation": "-- | Gets the events and the corresponding Lambda functions associated with an\n-- identity pool",
+            "documentation": "-- | Gets the events and the corresponding Lambda functions associated with an\n-- identity pool.\n--\n-- This API can only be called with developer credentials. You cannot call this\n-- API with the temporary user credentials provided by Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4149,7 +4157,7 @@
             "pager": null,
             "name": "GetIdentityPoolConfiguration",
             "method": "get",
-            "documentation": "-- | Gets the configuration settings of an identity pool.",
+            "documentation": "-- | Gets the configuration settings of an identity pool.\n--\n-- This API can only be called with developer credentials. You cannot call this\n-- API with the temporary user credentials provided by Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6034,7 +6042,7 @@
             "pager": null,
             "name": "RegisterDevice",
             "method": "post",
-            "documentation": "-- | Registers a device to receive push sync notifications.",
+            "documentation": "-- | Registers a device to receive push sync notifications.\n--\n-- This API can only be called with temporary credentials provided by Cognito\n-- Identity. You cannot call this API with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6307,7 +6315,7 @@
             "pager": null,
             "name": "SetCognitoEvents",
             "method": "post",
-            "documentation": "-- | Sets the AWS Lambda function for a given event type for an identity pool.\n-- This request only updates the key/value pair specified. Other key/values\n-- pairs are not updated. To remove a key value pair, pass a empty value for the\n-- particular key.",
+            "documentation": "-- | Sets the AWS Lambda function for a given event type for an identity pool.\n-- This request only updates the key/value pair specified. Other key/values\n-- pairs are not updated. To remove a key value pair, pass a empty value for the\n-- particular key.\n--\n-- This API can only be called with developer credentials. You cannot call this\n-- API with the temporary user credentials provided by Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6650,7 +6658,7 @@
             "pager": null,
             "name": "SetIdentityPoolConfiguration",
             "method": "post",
-            "documentation": "-- | Sets the necessary configuration for push sync.",
+            "documentation": "-- | Sets the necessary configuration for push sync.\n--\n-- This API can only be called with developer credentials. You cannot call this\n-- API with the temporary user credentials provided by Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6880,7 +6888,7 @@
             "pager": null,
             "name": "SubscribeToDataset",
             "method": "post",
-            "documentation": "-- | Subscribes to receive notifications when a dataset is modified by another\n-- device.",
+            "documentation": "-- | Subscribes to receive notifications when a dataset is modified by another\n-- device.\n--\n-- This API can only be called with temporary credentials provided by Cognito\n-- Identity. You cannot call this API with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7129,7 +7137,7 @@
             "pager": null,
             "name": "UnsubscribeFromDataset",
             "method": "delete",
-            "documentation": "-- | Unsubscribes from receiving notifications when a dataset is modified by\n-- another device.",
+            "documentation": "-- | Unsubscribes from receiving notifications when a dataset is modified by\n-- another device.\n--\n-- This API can only be called with temporary credentials provided by Cognito\n-- Identity. You cannot call this API with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7458,7 +7466,7 @@
             "pager": null,
             "name": "UpdateRecords",
             "method": "post",
-            "documentation": "-- | Posts updates to records and adds and deletes records for a dataset and user.\n--\n-- UpdateRecords can only be called with temporary user credentials provided by\n-- Cognito Identity. You cannot make this API call with developer credentials.",
+            "documentation": "-- | Posts updates to records and adds and deletes records for a dataset and user.\n--\n-- The sync count in the record patch is your last known sync count for that\n-- record. The server will reject an UpdateRecords request with a\n-- ResourceConflictException if you try to patch a record with a new value but a\n-- stale sync count.\n--\n-- For example, if the sync count on the server is 5 for a key called highScore\n-- and you try and submit a new highScore with sync count of 4, the request will\n-- be rejected. To obtain the current sync count for a record, call ListRecords.\n-- On a successful update of the record, the response returns the new sync count\n-- for that record. You should present that sync count the next time you try to\n-- update that same record. When the record does not exist, specify the sync\n-- count as 0.\n--\n-- This API can be called with temporary user credentials provided by Cognito\n-- Identity or with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

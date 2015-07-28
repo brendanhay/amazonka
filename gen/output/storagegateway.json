@@ -50,6 +50,7 @@
             "Network.AWS.StorageGateway.DisableGateway",
             "Network.AWS.StorageGateway.ListGateways",
             "Network.AWS.StorageGateway.ListLocalDisks",
+            "Network.AWS.StorageGateway.ListVolumeInitiators",
             "Network.AWS.StorageGateway.ListVolumeRecoveryPoints",
             "Network.AWS.StorageGateway.ListVolumes",
             "Network.AWS.StorageGateway.ResetCache",
@@ -78,8 +79,12 @@
         },
         "endpointPrefix": "storagegateway",
         "retryPolicies": {
-            "throttling": {
+            "throttling_exception": {
                 "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
                 "code": 400
             },
             "service_unavailable": {
@@ -138,6 +143,7 @@
             "Network.AWS.StorageGateway.DisableGateway",
             "Network.AWS.StorageGateway.ListGateways",
             "Network.AWS.StorageGateway.ListLocalDisks",
+            "Network.AWS.StorageGateway.ListVolumeInitiators",
             "Network.AWS.StorageGateway.ListVolumeRecoveryPoints",
             "Network.AWS.StorageGateway.ListVolumes",
             "Network.AWS.StorageGateway.ResetCache",
@@ -205,7 +211,7 @@
                         "name": "_ciSecretToAuthenticateInitiator",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateInitiator",
-                        "documentation": "-- | The secret key that the initiator (e.g. Windows client) must provide to\n-- participate in mutual CHAP with the target.",
+                        "documentation": "-- | The secret key that the initiator (for example, the Windows client) must\n-- provide to participate in mutual CHAP with the target.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -285,7 +291,7 @@
                         "name": "_ciSecretToAuthenticateInitiator",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateInitiator",
-                        "documentation": "-- | The secret key that the initiator (e.g. Windows client) must provide to\n-- participate in mutual CHAP with the target.",
+                        "documentation": "-- | The secret key that the initiator (for example, the Windows client) must\n-- provide to participate in mutual CHAP with the target.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -359,7 +365,7 @@
                         "name": "_ciSecretToAuthenticateInitiator",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateInitiator",
-                        "documentation": "-- | The secret key that the initiator (e.g. Windows client) must provide to\n-- participate in mutual CHAP with the target.",
+                        "documentation": "-- | The secret key that the initiator (for example, the Windows client) must\n-- provide to participate in mutual CHAP with the target.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4630,7 +4636,7 @@
             "pager": null,
             "name": "ActivateGateway",
             "method": "post",
-            "documentation": "-- | This operation activates the gateway you previously deployed on your host.\n-- For more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html  Activate the AWS Storage Gateway\u003e. In the\n-- activation process, you specify information such as the region you want to\n-- use for storing snapshots, the time zone for scheduled snapshots the gateway\n-- snapshot schedule window, an activation key, and a name for your gateway. The\n-- activation process also associates your gateway with your account; for more\n-- information, see 'UpdateGatewayInformation'.\n--\n-- You must turn on the gateway VM before you can activate your gateway.",
+            "documentation": "-- | This operation activates the gateway you previously deployed on your host.\n-- For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html  Activate the AWS Storage Gateway>. In the\n-- activation process, you specify information such as the region you want to\n-- use for storing snapshots, the time zone for scheduled snapshots the gateway\n-- snapshot schedule window, an activation key, and a name for your gateway. The\n-- activation process also associates your gateway with your account; for more\n-- information, see 'UpdateGatewayInformation'.\n--\n-- You must turn on the gateway VM before you can activate your gateway.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4713,7 +4719,7 @@
                         "name": "_agGatewayRegion",
                         "shape": "RegionId",
                         "locationName": "GatewayRegion",
-                        "documentation": "-- | One of the values that indicates the region where you want to store the\n-- snapshot backups. The gateway region specified must be the same region as the\n-- region in your 'Host' header in the request. For more information about\n-- available regions and endpoints for AWS Storage Gateway, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions andEndpoints\u003e in the /Amazon Web Services Glossary/.\n--\n-- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\",\n-- \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\", \"ap-southeast-2\",\n-- \"sa-east-1\"",
+                        "documentation": "-- | One of the values that indicates the region where you want to store the\n-- snapshot backups. The gateway region specified must be the same region as the\n-- region in your 'Host' header in the request. For more information about\n-- available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions andEndpoints> in the /Amazon Web Services Glossary/.\n--\n-- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\",\n-- \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\", \"ap-southeast-2\",\n-- \"sa-east-1\"",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4849,7 +4855,7 @@
                         "name": "_agGatewayRegion",
                         "shape": "RegionId",
                         "locationName": "GatewayRegion",
-                        "documentation": "-- | One of the values that indicates the region where you want to store the\n-- snapshot backups. The gateway region specified must be the same region as the\n-- region in your 'Host' header in the request. For more information about\n-- available regions and endpoints for AWS Storage Gateway, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions andEndpoints\u003e in the /Amazon Web Services Glossary/.\n--\n-- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\",\n-- \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\", \"ap-southeast-2\",\n-- \"sa-east-1\"",
+                        "documentation": "-- | One of the values that indicates the region where you want to store the\n-- snapshot backups. The gateway region specified must be the same region as the\n-- region in your 'Host' header in the request. For more information about\n-- available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions andEndpoints> in the /Amazon Web Services Glossary/.\n--\n-- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\",\n-- \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\", \"ap-southeast-2\",\n-- \"sa-east-1\"",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4971,7 +4977,7 @@
                         "name": "_agGatewayRegion",
                         "shape": "RegionId",
                         "locationName": "GatewayRegion",
-                        "documentation": "-- | One of the values that indicates the region where you want to store the\n-- snapshot backups. The gateway region specified must be the same region as the\n-- region in your 'Host' header in the request. For more information about\n-- available regions and endpoints for AWS Storage Gateway, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions andEndpoints\u003e in the /Amazon Web Services Glossary/.\n--\n-- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\",\n-- \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\", \"ap-southeast-2\",\n-- \"sa-east-1\"",
+                        "documentation": "-- | One of the values that indicates the region where you want to store the\n-- snapshot backups. The gateway region specified must be the same region as the\n-- region in your 'Host' header in the request. For more information about\n-- available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions andEndpoints> in the /Amazon Web Services Glossary/.\n--\n-- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\", \"eu-west-1\",\n-- \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\", \"ap-southeast-2\",\n-- \"sa-east-1\"",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5167,7 +5173,7 @@
             "pager": null,
             "name": "AddCache",
             "method": "post",
-            "documentation": "-- | This operation configures one or more gateway local disks as cache for a\n-- cached-volume gateway. This operation is supported only for the\n-- gateway-cached volume architecture (see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts\u003e).\n--\n-- In the request, you specify the gateway Amazon Resource Name (ARN) to which\n-- you want to add cache, and one or more disk IDs that you want to configure as\n-- cache.",
+            "documentation": "-- | This operation configures one or more gateway local disks as cache for a\n-- cached-volume gateway. This operation is supported only for the\n-- gateway-cached volume architecture (see <http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts>).\n--\n-- In the request, you specify the gateway Amazon Resource Name (ARN) to which\n-- you want to add cache, and one or more disk IDs that you want to configure as\n-- cache.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7051,7 +7057,7 @@
             "pager": null,
             "name": "CreateSnapshot",
             "method": "post",
-            "documentation": "-- | This operation initiates a snapshot of a volume.\n--\n-- AWS Storage Gateway provides the ability to back up point-in-time snapshots\n-- of your data to Amazon Simple Storage (S3) for durable off-site recovery, as\n-- well as import the data to an Amazon Elastic Block Store (EBS) volume in\n-- Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway\n-- volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc\n-- snapshot. For more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working With Snapshots in the AWS StorageGateway Console\u003e.\n--\n-- In the CreateSnapshot request you identify the volume by providing its\n-- Amazon Resource Name (ARN). You must also provide description for the\n-- snapshot. When AWS Storage Gateway takes the snapshot of specified volume,\n-- the snapshot and description appears in the AWS Storage Gateway Console. In\n-- response, AWS Storage Gateway returns you a snapshot ID. You can use this\n-- snapshot ID to check the snapshot progress or later use it when you want to\n-- create a volume from a snapshot.\n--\n-- To list or delete a snapshot, you must use the Amazon EC2 API. For more\n-- information, .",
+            "documentation": "-- | This operation initiates a snapshot of a volume.\n--\n-- AWS Storage Gateway provides the ability to back up point-in-time snapshots\n-- of your data to Amazon Simple Storage (S3) for durable off-site recovery, as\n-- well as import the data to an Amazon Elastic Block Store (EBS) volume in\n-- Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway\n-- volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc\n-- snapshot. For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working With Snapshots in the AWS StorageGateway Console>.\n--\n-- In the CreateSnapshot request you identify the volume by providing its\n-- Amazon Resource Name (ARN). You must also provide description for the\n-- snapshot. When AWS Storage Gateway takes the snapshot of specified volume,\n-- the snapshot and description appears in the AWS Storage Gateway Console. In\n-- response, AWS Storage Gateway returns you a snapshot ID. You can use this\n-- snapshot ID to check the snapshot progress or later use it when you want to\n-- create a volume from a snapshot.\n--\n-- To list or delete a snapshot, you must use the Amazon EC2 API. For more\n-- information, see DescribeSnapshots or DeleteSnapshot in the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html EC2 API reference>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7806,7 +7812,7 @@
                         "name": "_csscsivDiskId",
                         "shape": "DiskId",
                         "locationName": "DiskId",
-                        "documentation": "-- | The unique identifier for the gateway local disk that is configured as a\n-- stored volume. Use \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks\u003e to list disk IDs for a gateway.",
+                        "documentation": "-- | The unique identifier for the gateway local disk that is configured as a\n-- stored volume. Use <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7824,7 +7830,7 @@
                         "name": "_csscsivSnapshotId",
                         "shape": "SnapshotId",
                         "locationName": "SnapshotId",
-                        "documentation": "-- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new\n-- stored volume. Specify this field if you want to create the iSCSI storage\n-- volume from a snapshot otherwise do not include this field. To list snapshots\n-- for your account use \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots\u003e in the /Amazon Elastic Compute CloudAPI Reference/.",
+                        "documentation": "-- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new\n-- stored volume. Specify this field if you want to create the iSCSI storage\n-- volume from a snapshot otherwise do not include this field. To list snapshots\n-- for your account use <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute CloudAPI Reference/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7924,7 +7930,7 @@
                         "name": "_csscsivDiskId",
                         "shape": "DiskId",
                         "locationName": "DiskId",
-                        "documentation": "-- | The unique identifier for the gateway local disk that is configured as a\n-- stored volume. Use \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks\u003e to list disk IDs for a gateway.",
+                        "documentation": "-- | The unique identifier for the gateway local disk that is configured as a\n-- stored volume. Use <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -8008,7 +8014,7 @@
                         "name": "_csscsivSnapshotId",
                         "shape": "SnapshotId",
                         "locationName": "SnapshotId",
-                        "documentation": "-- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new\n-- stored volume. Specify this field if you want to create the iSCSI storage\n-- volume from a snapshot otherwise do not include this field. To list snapshots\n-- for your account use \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots\u003e in the /Amazon Elastic Compute CloudAPI Reference/.",
+                        "documentation": "-- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new\n-- stored volume. Specify this field if you want to create the iSCSI storage\n-- volume from a snapshot otherwise do not include this field. To list snapshots\n-- for your account use <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute CloudAPI Reference/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -8028,7 +8034,7 @@
                         "name": "_csscsivDiskId",
                         "shape": "DiskId",
                         "locationName": "DiskId",
-                        "documentation": "-- | The unique identifier for the gateway local disk that is configured as a\n-- stored volume. Use \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks\u003e to list disk IDs for a gateway.",
+                        "documentation": "-- | The unique identifier for the gateway local disk that is configured as a\n-- stored volume. Use <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -8100,7 +8106,7 @@
                         "name": "_csscsivSnapshotId",
                         "shape": "SnapshotId",
                         "locationName": "SnapshotId",
-                        "documentation": "-- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new\n-- stored volume. Specify this field if you want to create the iSCSI storage\n-- volume from a snapshot otherwise do not include this field. To list snapshots\n-- for your account use \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots\u003e in the /Amazon Elastic Compute CloudAPI Reference/.",
+                        "documentation": "-- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new\n-- stored volume. Specify this field if you want to create the iSCSI storage\n-- volume from a snapshot otherwise do not include this field. To list snapshots\n-- for your account use <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute CloudAPI Reference/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9237,7 +9243,7 @@
             "pager": null,
             "name": "DeleteGateway",
             "method": "post",
-            "documentation": "-- | This operation deletes a gateway. To specify which gateway to delete, use the\n-- Amazon Resource Name (ARN) of the gateway in your request. The operation\n-- deletes the gateway; however, it does not delete the gateway virtual machine\n-- (VM) from your host computer.\n--\n-- After you delete a gateway, you cannot reactivate it. Completed snapshots of\n-- the gateway volumes are not deleted upon deleting the gateway, however,\n-- pending snapshots will not complete. After you delete a gateway, your next\n-- step is to remove it from your environment.\n--\n-- You no longer pay software charges after the gateway is deleted; however,\n-- your existing Amazon EBS snapshots persist and you will continue to be billed\n-- for these snapshots. You can choose to remove all remaining Amazon EBS\n-- snapshots by canceling your Amazon EC2 subscription.  If you prefer not to\n-- cancel your Amazon EC2 subscription, you can delete your snapshots using the\n-- Amazon EC2 console. For more information, see the \u003chttp://aws.amazon.com/storagegateway  AWS Storage Gateway DetailPage\u003e.\n--\n--",
+            "documentation": "-- | This operation deletes a gateway. To specify which gateway to delete, use the\n-- Amazon Resource Name (ARN) of the gateway in your request. The operation\n-- deletes the gateway; however, it does not delete the gateway virtual machine\n-- (VM) from your host computer.\n--\n-- After you delete a gateway, you cannot reactivate it. Completed snapshots of\n-- the gateway volumes are not deleted upon deleting the gateway, however,\n-- pending snapshots will not complete. After you delete a gateway, your next\n-- step is to remove it from your environment.\n--\n-- You no longer pay software charges after the gateway is deleted; however,\n-- your existing Amazon EBS snapshots persist and you will continue to be billed\n-- for these snapshots. You can choose to remove all remaining Amazon EBS\n-- snapshots by canceling your Amazon EC2 subscription.  If you prefer not to\n-- cancel your Amazon EC2 subscription, you can delete your snapshots using the\n-- Amazon EC2 console. For more information, see the <http://aws.amazon.com/storagegateway  AWS Storage Gateway DetailPage>.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9470,7 +9476,7 @@
             "pager": null,
             "name": "DeleteSnapshotSchedule",
             "method": "post",
-            "documentation": "-- | This operation deletes a snapshot of a volume.\n--\n-- You can take snapshots of your gateway volumes on a scheduled or ad-hoc\n-- basis. This API enables you to delete a snapshot schedule for a volume. For\n-- more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots\u003e. In the 'DeleteSnapshotSchedule'\n-- request, you identify the volume by providing its Amazon Resource Name (ARN).\n--\n-- To list or delete a snapshot, you must use the Amazon EC2 API. in /AmazonElastic Compute Cloud API Reference/.\n--\n--",
+            "documentation": "-- | This operation deletes a snapshot of a volume.\n--\n-- You can take snapshots of your gateway volumes on a scheduled or ad-hoc\n-- basis. This API enables you to delete a snapshot schedule for a volume. For\n-- more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots>. In the 'DeleteSnapshotSchedule'\n-- request, you identify the volume by providing its Amazon Resource Name (ARN).\n--\n-- To list or delete a snapshot, you must use the Amazon EC2 API. in /AmazonElastic Compute Cloud API Reference/.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10202,7 +10208,7 @@
             "pager": null,
             "name": "DeleteVolume",
             "method": "post",
-            "documentation": "-- | This operation delete the specified gateway volume that you previously\n-- created using the 'CreateStorediSCSIVolume' API. For gateway-stored volumes,\n-- the local disk that was configured as the storage volume is not deleted. You\n-- can reuse the local disk to create another storage volume.\n--\n-- Before you delete a gateway volume, make sure there are no iSCSI connections\n-- to the volume you are deleting. You should also make sure there is no\n-- snapshot in progress. You can use the Amazon Elastic Compute Cloud (Amazon\n-- EC2) API to query snapshots on the volume you are deleting and check the\n-- snapshot status. For more information, go to \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots\u003e in the /AmazonElastic Compute Cloud API Reference/.\n--\n-- In the request, you must provide the Amazon Resource Name (ARN) of the\n-- storage volume you want to delete.",
+            "documentation": "-- | This operation delete the specified gateway volume that you previously\n-- created using the 'CreateStorediSCSIVolume' API. For gateway-stored volumes,\n-- the local disk that was configured as the storage volume is not deleted. You\n-- can reuse the local disk to create another storage volume.\n--\n-- Before you delete a gateway volume, make sure there are no iSCSI connections\n-- to the volume you are deleting. You should also make sure there is no\n-- snapshot in progress. You can use the Amazon Elastic Compute Cloud (Amazon\n-- EC2) API to query snapshots on the volume you are deleting and check the\n-- snapshot status. For more information, go to <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /AmazonElastic Compute Cloud API Reference/.\n--\n-- In the request, you must provide the Amazon Resource Name (ARN) of the\n-- storage volume you want to delete.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11439,7 +11445,7 @@
                     "name": "_dccrChapCredentials",
                     "shape": "ChapCredentials",
                     "locationName": "ChapCredentials",
-                    "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (e.g.\n-- Windows client) must provide to participate in mutual CHAP with the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
+                    "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (for\n-- example, the Windows client) must provide to participate in mutual CHAP with\n-- the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
                     "typeExposed": "[ChapInfo]",
                     "type": "List \"ChapCredentials\" ChapInfo"
                 },
@@ -11458,7 +11464,7 @@
                         "name": "_dccrChapCredentials",
                         "shape": "ChapCredentials",
                         "locationName": "ChapCredentials",
-                        "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (e.g.\n-- Windows client) must provide to participate in mutual CHAP with the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
+                        "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (for\n-- example, the Windows client) must provide to participate in mutual CHAP with\n-- the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
                         "typeExposed": "[ChapInfo]",
                         "type": "List \"ChapCredentials\" ChapInfo"
                     }
@@ -11490,7 +11496,7 @@
                         "name": "_dccrChapCredentials",
                         "shape": "ChapCredentials",
                         "locationName": "ChapCredentials",
-                        "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (e.g.\n-- Windows client) must provide to participate in mutual CHAP with the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
+                        "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (for\n-- example, the Windows client) must provide to participate in mutual CHAP with\n-- the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
                         "typeExposed": "[ChapInfo]",
                         "type": "List \"ChapCredentials\" ChapInfo"
                     }
@@ -11510,7 +11516,7 @@
                         "name": "_dccrChapCredentials",
                         "shape": "ChapCredentials",
                         "locationName": "ChapCredentials",
-                        "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (e.g.\n-- Windows client) must provide to participate in mutual CHAP with the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
+                        "documentation": "-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in\n-- the array contains CHAP credential information for one target-initiator pair.\n-- If no CHAP credentials are set, an empty array is returned. CHAP credential\n-- information is provided in a JSON object with the following fields:\n--\n-- InitiatorName: The iSCSI initiator that connects to the target.\n--\n-- SecretToAuthenticateInitiator: The secret key that the initiator (for\n-- example, the Windows client) must provide to participate in mutual CHAP with\n-- the target.\n--\n-- SecretToAuthenticateTarget: The secret key that the target must provide to\n-- participate in mutual CHAP with the initiator (e.g. Windows client).\n--\n-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.\n--\n--",
                         "typeExposed": "[ChapInfo]",
                         "type": "List \"ChapCredentials\" ChapInfo"
                     }
@@ -11760,7 +11766,7 @@
                         "name": "_dgirGatewayType",
                         "shape": "GatewayType",
                         "locationName": "GatewayType",
-                        "documentation": "-- | TBD",
+                        "documentation": "-- | The type of the gateway.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11778,7 +11784,25 @@
                         "name": "_dgirNextUpdateAvailabilityDate",
                         "shape": "NextUpdateAvailabilityDate",
                         "locationName": "NextUpdateAvailabilityDate",
-                        "documentation": "-- | The date at which an update to the gateway is available. This date is in the\n-- time zone of the gateway. If the gateway is not available for an update this\n-- field is not returned in the response.",
+                        "documentation": "-- | The date on which an update to the gateway is available. This date is in the\n-- time zone of the gateway. If the gateway is not available for an update this\n-- field is not returned in the response.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dgirLastSoftwareUpdate",
+                        "name": "_dgirLastSoftwareUpdate",
+                        "shape": "LastSoftwareUpdate",
+                        "locationName": "LastSoftwareUpdate",
+                        "documentation": "-- | The date on which the last software update was applied to the gateway. If the\n-- gateway has never been updated, this field does not return a value in the\n-- response.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -11900,7 +11924,7 @@
                         "name": "_dgirGatewayType",
                         "shape": "GatewayType",
                         "locationName": "GatewayType",
-                        "documentation": "-- | TBD",
+                        "documentation": "-- | The type of the gateway.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11918,7 +11942,25 @@
                         "name": "_dgirNextUpdateAvailabilityDate",
                         "shape": "NextUpdateAvailabilityDate",
                         "locationName": "NextUpdateAvailabilityDate",
-                        "documentation": "-- | The date at which an update to the gateway is available. This date is in the\n-- time zone of the gateway. If the gateway is not available for an update this\n-- field is not returned in the response.",
+                        "documentation": "-- | The date on which an update to the gateway is available. This date is in the\n-- time zone of the gateway. If the gateway is not available for an update this\n-- field is not returned in the response.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dgirLastSoftwareUpdate",
+                        "name": "_dgirLastSoftwareUpdate",
+                        "shape": "LastSoftwareUpdate",
+                        "locationName": "LastSoftwareUpdate",
+                        "documentation": "-- | The date on which the last software update was applied to the gateway. If the\n-- gateway has never been updated, this field does not return a value in the\n-- response.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12028,7 +12070,25 @@
                         "name": "_dgirGatewayType",
                         "shape": "GatewayType",
                         "locationName": "GatewayType",
-                        "documentation": "-- | TBD",
+                        "documentation": "-- | The type of the gateway.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dgirLastSoftwareUpdate",
+                        "name": "_dgirLastSoftwareUpdate",
+                        "shape": "LastSoftwareUpdate",
+                        "locationName": "LastSoftwareUpdate",
+                        "documentation": "-- | The date on which the last software update was applied to the gateway. If the\n-- gateway has never been updated, this field does not return a value in the\n-- response.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12046,7 +12106,7 @@
                         "name": "_dgirNextUpdateAvailabilityDate",
                         "shape": "NextUpdateAvailabilityDate",
                         "locationName": "NextUpdateAvailabilityDate",
-                        "documentation": "-- | The date at which an update to the gateway is available. This date is in the\n-- time zone of the gateway. If the gateway is not available for an update this\n-- field is not returned in the response.",
+                        "documentation": "-- | The date on which an update to the gateway is available. This date is in the\n-- time zone of the gateway. If the gateway is not available for an update this\n-- field is not returned in the response.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -13153,7 +13213,7 @@
             "pager": null,
             "name": "DescribeStorediSCSIVolumes",
             "method": "post",
-            "documentation": "-- | This operation returns description of the gateway volumes specified in the\n-- request. The list of gateway volumes in the request must be from one gateway.\n-- In the response Amazon Storage Gateway returns volume information sorted by\n-- volume ARNs.",
+            "documentation": "-- | This operation returns the description of the gateway volumes specified in\n-- the request. The list of gateway volumes in the request must be from one\n-- gateway. In the response Amazon Storage Gateway returns volume information\n-- sorted by volume ARNs.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16377,7 +16437,7 @@
             "pager": null,
             "name": "ListLocalDisks",
             "method": "post",
-            "documentation": "-- | This operation returns a list of the gateway's local disks. To specify which\n-- gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in\n-- the body of the request.\n--\n-- The request returns a list of all disks, specifying which are configured as\n-- working storage, cache storage, or stored volume or not configured at all.\n-- The response includes a 'DiskStatus' field. This field can have a value of\n-- present (the disk is availble to use), missing (the disk is no longer\n-- connected to the gateway), or mismatch (the disk node is occupied by a disk\n-- that has incorrect metadata or the disk content is corrupted).",
+            "documentation": "-- | This operation returns a list of the gateway's local disks. To specify which\n-- gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in\n-- the body of the request.\n--\n-- The request returns a list of all disks, specifying which are configured as\n-- working storage, cache storage, or stored volume or not configured at all.\n-- The response includes a 'DiskStatus' field. This field can have a value of\n-- present (the disk is available to use), missing (the disk is no longer\n-- connected to the gateway), or mismatch (the disk node is occupied by a disk\n-- that has incorrect metadata or the disk content is corrupted).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16487,6 +16547,240 @@
                         "shape": "GatewayARN",
                         "locationName": "GatewayARN",
                         "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "StorageGateway",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "listVolumeInitiatorsResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "json",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "lvirInitiators",
+                    "name": "_lvirInitiators",
+                    "shape": "Initiators",
+                    "locationName": "Initiators",
+                    "documentation": "-- | The host names and port numbers of all iSCSI initiators that are connected to\n-- the gateway.",
+                    "typeExposed": "[Text]",
+                    "type": "List \"Initiators\" Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lvirInitiators",
+                        "name": "_lvirInitiators",
+                        "shape": "Initiators",
+                        "locationName": "Initiators",
+                        "documentation": "-- | The host names and port numbers of all iSCSI initiators that are connected to\n-- the gateway.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Initiators\" Text"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "ListVolumeInitiatorsResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lvirInitiators",
+                        "name": "_lvirInitiators",
+                        "shape": "Initiators",
+                        "locationName": "Initiators",
+                        "documentation": "-- | The host names and port numbers of all iSCSI initiators that are connected to\n-- the gateway.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Initiators\" Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lvirInitiators",
+                        "name": "_lvirInitiators",
+                        "shape": "Initiators",
+                        "locationName": "Initiators",
+                        "documentation": "-- | The host names and port numbers of all iSCSI initiators that are connected to\n-- the gateway.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Initiators\" Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeInitiators.html",
+            "namespace": "Network.AWS.StorageGateway.ListVolumeInitiators",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.StorageGateway.Types"
+            ],
+            "pager": null,
+            "name": "ListVolumeInitiators",
+            "method": "post",
+            "documentation": "-- | This operation lists iSCSI initiators that are connected to a volume. You can\n-- use this operation to determine whether a volume is being used or not.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "listVolumeInitiators",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "json",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "lviVolumeARN",
+                    "name": "_lviVolumeARN",
+                    "shape": "VolumeARN",
+                    "locationName": "VolumeARN",
+                    "documentation": "-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation\n-- to return a list of gateway volumes for the gateway.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lviVolumeARN",
+                        "name": "_lviVolumeARN",
+                        "shape": "VolumeARN",
+                        "locationName": "VolumeARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation\n-- to return a list of gateway volumes for the gateway.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lviVolumeARN",
+                        "name": "_lviVolumeARN",
+                        "shape": "VolumeARN",
+                        "locationName": "VolumeARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation\n-- to return a list of gateway volumes for the gateway.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "ListVolumeInitiators",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lviVolumeARN",
+                        "name": "_lviVolumeARN",
+                        "shape": "VolumeARN",
+                        "locationName": "VolumeARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation\n-- to return a list of gateway volumes for the gateway.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -17293,7 +17587,7 @@
             "pager": null,
             "name": "ResetCache",
             "method": "post",
-            "documentation": "-- | This operation resets all cache disks and makes the disks available for\n-- reconfiguration as cache storage. When a cache is reset, the gateway loses\n-- its cache storage. At this point you can reconfigure the disks as cache\n-- disks.",
+            "documentation": "-- | This operation resets all cache disks that have encountered a error and makes\n-- the disks available for reconfiguration as cache storage. If your cache disk\n-- encounters a error, the gateway prevents read and write operations on virtual\n-- tapes in the gateway. For example, an error can occur when a disk is\n-- corrupted or removed from the gateway. When a cache is reset, the gateway\n-- loses its cache storage. At this point you can reconfigure the disks as cache\n-- disks.\n--\n-- If the cache disk you are resetting contains data that has not been\n-- uploaded to Amazon S3 yet, that data can be lost. After you reset cache\n-- disks, there will be no configured cache disks left in the gateway, so you\n-- must configure at least one new cache disk for your gateway to function\n-- properly.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -18908,7 +19202,7 @@
                         "name": "_uccTargetARN",
                         "shape": "TargetARN",
                         "locationName": "TargetARN",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -18926,7 +19220,7 @@
                         "name": "_uccSecretToAuthenticateInitiator",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateInitiator",
-                        "documentation": "-- | The secret key that the initiator (e.g. Windows client) must provide to\n-- participate in mutual CHAP with the target.",
+                        "documentation": "-- | The secret key that the initiator (for example, the Windows client) must\n-- provide to participate in mutual CHAP with the target.\n--\n-- The secret key must be between 12 and 16 bytes when encoded in UTF-8.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -18962,7 +19256,7 @@
                         "name": "_uccSecretToAuthenticateTarget",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateTarget",
-                        "documentation": "-- | The secret key that the target must provide to participate in mutual CHAP\n-- with the initiator (e.g. Windows client).",
+                        "documentation": "-- | The secret key that the target must provide to participate in mutual CHAP\n-- with the initiator (e.g. Windows client).\n--\n-- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.\n--\n-- The secret key must be between 12 and 16 bytes when encoded in UTF-8.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -18990,7 +19284,7 @@
                         "name": "_uccTargetARN",
                         "shape": "TargetARN",
                         "locationName": "TargetARN",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -19008,7 +19302,7 @@
                         "name": "_uccSecretToAuthenticateInitiator",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateInitiator",
-                        "documentation": "-- | The secret key that the initiator (e.g. Windows client) must provide to\n-- participate in mutual CHAP with the target.",
+                        "documentation": "-- | The secret key that the initiator (for example, the Windows client) must\n-- provide to participate in mutual CHAP with the target.\n--\n-- The secret key must be between 12 and 16 bytes when encoded in UTF-8.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -19056,7 +19350,7 @@
                         "name": "_uccSecretToAuthenticateTarget",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateTarget",
-                        "documentation": "-- | The secret key that the target must provide to participate in mutual CHAP\n-- with the initiator (e.g. Windows client).",
+                        "documentation": "-- | The secret key that the target must provide to participate in mutual CHAP\n-- with the initiator (e.g. Windows client).\n--\n-- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.\n--\n-- The secret key must be between 12 and 16 bytes when encoded in UTF-8.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -19094,7 +19388,7 @@
                         "name": "_uccSecretToAuthenticateInitiator",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateInitiator",
-                        "documentation": "-- | The secret key that the initiator (e.g. Windows client) must provide to\n-- participate in mutual CHAP with the target.",
+                        "documentation": "-- | The secret key that the initiator (for example, the Windows client) must\n-- provide to participate in mutual CHAP with the target.\n--\n-- The secret key must be between 12 and 16 bytes when encoded in UTF-8.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -19112,7 +19406,7 @@
                         "name": "_uccSecretToAuthenticateTarget",
                         "shape": "ChapSecret",
                         "locationName": "SecretToAuthenticateTarget",
-                        "documentation": "-- | The secret key that the target must provide to participate in mutual CHAP\n-- with the initiator (e.g. Windows client).",
+                        "documentation": "-- | The secret key that the target must provide to participate in mutual CHAP\n-- with the initiator (e.g. Windows client).\n--\n-- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.\n--\n-- The secret key must be between 12 and 16 bytes when encoded in UTF-8.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -19130,7 +19424,7 @@
                         "name": "_uccTargetARN",
                         "shape": "TargetARN",
                         "locationName": "TargetARN",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -19575,7 +19869,7 @@
             "pager": null,
             "name": "UpdateGatewaySoftwareNow",
             "method": "post",
-            "documentation": "-- | This operation updates the gateway virtual machine (VM) software. The request\n-- immediately triggers the software update.\n--\n-- When you make this request, you get a '200 OK' success response immediately.\n-- However, it might take some time for the update to complete. You can call 'DescribeGatewayInformation' to verify the gateway is in the 'STATE_RUNNING' state. A software update\n-- forces a system restart of your gateway. You can minimize the chance of any\n-- disruption to your applications by increasing your iSCSI Initiators'\n-- timeouts. For more information about increasing iSCSI Initiator timeouts for\n-- Windows and Linux, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings\u003e and \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings\u003e, respectively.",
+            "documentation": "-- | This operation updates the gateway virtual machine (VM) software. The request\n-- immediately triggers the software update.\n--\n-- When you make this request, you get a '200 OK' success response immediately.\n-- However, it might take some time for the update to complete. You can call 'DescribeGatewayInformation' to verify the gateway is in the 'STATE_RUNNING' state. A software update\n-- forces a system restart of your gateway. You can minimize the chance of any\n-- disruption to your applications by increasing your iSCSI Initiators'\n-- timeouts. For more information about increasing iSCSI Initiator timeouts for\n-- Windows and Linux, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings> and <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>, respectively.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

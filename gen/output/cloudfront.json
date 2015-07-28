@@ -39,9 +39,9 @@
             "Network.AWS.CloudFront.UpdateStreamingDistribution"
         ],
         "name": "Amazon CloudFront",
-        "version": "2014-11-06",
+        "version": "2015-04-17",
         "documentation": "-- | Amazon CloudFront is a web service that speeds up distribution of your static\n-- and dynamic web content, for example, .html, .css, .php, image, and media\n-- files, to end users. CloudFront delivers your content through a worldwide\n-- network of edge locations. When an end user requests content that you're\n-- serving with CloudFront, the user is routed to the edge location that\n-- provides the lowest latency, so content is delivered with the best possible\n-- performance. If the content is already in that edge location, CloudFront\n-- delivers it immediately. If the content is not currently in that edge\n-- location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server\n-- (for example, a web server) that you have identified as the source for the\n-- definitive version of your content.",
-        "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-11-06/",
+        "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2015-04-17/",
         "jsonVersion": null,
         "retryDelay": {
             "base": 5.0e-2,
@@ -50,6 +50,14 @@
         },
         "endpointPrefix": "cloudfront",
         "retryPolicies": {
+            "throttling_exception": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503
@@ -5053,6 +5061,42 @@
                         "documentation": "-- | Indicates whether you want to distribute media files in Microsoft Smooth\n-- Streaming format using the origin that is associated with this cache\n-- behavior. If so, specify true; if not, specify false.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cbDefaultTTL",
+                        "name": "_cbDefaultTTL",
+                        "shape": "long",
+                        "locationName": "DefaultTTL",
+                        "documentation": "-- | If you don't configure your origin to add a Cache-Control max-age directive\n-- or an Expires header, DefaultTTL is the default amount of time (in seconds)\n-- that an object is in a CloudFront cache before CloudFront forwards another\n-- request to your origin to determine whether the object has been updated. The\n-- value that you specify applies only when your origin does not add HTTP\n-- headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to\n-- objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cbMaxTTL",
+                        "name": "_cbMaxTTL",
+                        "shape": "long",
+                        "locationName": "MaxTTL",
+                        "documentation": "-- | The maximum amount of time (in seconds) that an object is in a CloudFront\n-- cache before CloudFront forwards another request to your origin to determine\n-- whether the object has been updated. The value that you specify applies only\n-- when your origin adds HTTP headers such as Cache-Control max-age,\n-- Cache-Control s-maxage, and Expires to objects. You can specify a value from\n-- 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     }
                 ],
                 "payload": null,
@@ -5206,6 +5250,42 @@
                         "documentation": "-- | Indicates whether you want to distribute media files in Microsoft Smooth\n-- Streaming format using the origin that is associated with this cache\n-- behavior. If so, specify true; if not, specify false.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cbDefaultTTL",
+                        "name": "_cbDefaultTTL",
+                        "shape": "long",
+                        "locationName": "DefaultTTL",
+                        "documentation": "-- | If you don't configure your origin to add a Cache-Control max-age directive\n-- or an Expires header, DefaultTTL is the default amount of time (in seconds)\n-- that an object is in a CloudFront cache before CloudFront forwards another\n-- request to your origin to determine whether the object has been updated. The\n-- value that you specify applies only when your origin does not add HTTP\n-- headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to\n-- objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cbMaxTTL",
+                        "name": "_cbMaxTTL",
+                        "shape": "long",
+                        "locationName": "MaxTTL",
+                        "documentation": "-- | The maximum amount of time (in seconds) that an object is in a CloudFront\n-- cache before CloudFront forwards another request to your origin to determine\n-- whether the object has been updated. The value that you specify applies only\n-- when your origin adds HTTP headers such as Cache-Control max-age,\n-- Cache-Control s-maxage, and Expires to objects. You can specify a value from\n-- 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     }
                 ],
                 "fields": [
@@ -5231,6 +5311,24 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cbDefaultTTL",
+                        "name": "_cbDefaultTTL",
+                        "shape": "long",
+                        "locationName": "DefaultTTL",
+                        "documentation": "-- | If you don't configure your origin to add a Cache-Control max-age directive\n-- or an Expires header, DefaultTTL is the default amount of time (in seconds)\n-- that an object is in a CloudFront cache before CloudFront forwards another\n-- request to your origin to determine whether the object has been updated. The\n-- value that you specify applies only when your origin does not add HTTP\n-- headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to\n-- objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "error",
                         "monoid": false,
                         "protocol": "rest-xml",
@@ -5244,6 +5342,24 @@
                         "documentation": "-- | A complex type that specifies how CloudFront handles query strings, cookies\n-- and headers.",
                         "typeExposed": "ForwardedValues",
                         "type": "ForwardedValues"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cbMaxTTL",
+                        "name": "_cbMaxTTL",
+                        "shape": "long",
+                        "locationName": "MaxTTL",
+                        "documentation": "-- | The maximum amount of time (in seconds) that an object is in a CloudFront\n-- cache before CloudFront forwards another request to your origin to determine\n-- whether the object has been updated. The value that you specify applies only\n-- when your origin adds HTTP headers such as Cache-Control max-age,\n-- Cache-Control s-maxage, and Expires to objects. You can specify a value from\n-- 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -8360,6 +8476,42 @@
                         "documentation": "-- | Indicates whether you want to distribute media files in Microsoft Smooth\n-- Streaming format using the origin that is associated with this cache\n-- behavior. If so, specify true; if not, specify false.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcbDefaultTTL",
+                        "name": "_dcbDefaultTTL",
+                        "shape": "long",
+                        "locationName": "DefaultTTL",
+                        "documentation": "-- | If you don't configure your origin to add a Cache-Control max-age directive\n-- or an Expires header, DefaultTTL is the default amount of time (in seconds)\n-- that an object is in a CloudFront cache before CloudFront forwards another\n-- request to your origin to determine whether the object has been updated. The\n-- value that you specify applies only when your origin does not add HTTP\n-- headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to\n-- objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcbMaxTTL",
+                        "name": "_dcbMaxTTL",
+                        "shape": "long",
+                        "locationName": "MaxTTL",
+                        "documentation": "-- | The maximum amount of time (in seconds) that an object is in a CloudFront\n-- cache before CloudFront forwards another request to your origin to determine\n-- whether the object has been updated. The value that you specify applies only\n-- when your origin adds HTTP headers such as Cache-Control max-age,\n-- Cache-Control s-maxage, and Expires to objects. You can specify a value from\n-- 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     }
                 ],
                 "payload": null,
@@ -8495,6 +8647,42 @@
                         "documentation": "-- | Indicates whether you want to distribute media files in Microsoft Smooth\n-- Streaming format using the origin that is associated with this cache\n-- behavior. If so, specify true; if not, specify false.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcbDefaultTTL",
+                        "name": "_dcbDefaultTTL",
+                        "shape": "long",
+                        "locationName": "DefaultTTL",
+                        "documentation": "-- | If you don't configure your origin to add a Cache-Control max-age directive\n-- or an Expires header, DefaultTTL is the default amount of time (in seconds)\n-- that an object is in a CloudFront cache before CloudFront forwards another\n-- request to your origin to determine whether the object has been updated. The\n-- value that you specify applies only when your origin does not add HTTP\n-- headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to\n-- objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcbMaxTTL",
+                        "name": "_dcbMaxTTL",
+                        "shape": "long",
+                        "locationName": "MaxTTL",
+                        "documentation": "-- | The maximum amount of time (in seconds) that an object is in a CloudFront\n-- cache before CloudFront forwards another request to your origin to determine\n-- whether the object has been updated. The value that you specify applies only\n-- when your origin adds HTTP headers such as Cache-Control max-age,\n-- Cache-Control s-maxage, and Expires to objects. You can specify a value from\n-- 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     }
                 ],
                 "fields": [
@@ -8520,6 +8708,24 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcbDefaultTTL",
+                        "name": "_dcbDefaultTTL",
+                        "shape": "long",
+                        "locationName": "DefaultTTL",
+                        "documentation": "-- | If you don't configure your origin to add a Cache-Control max-age directive\n-- or an Expires header, DefaultTTL is the default amount of time (in seconds)\n-- that an object is in a CloudFront cache before CloudFront forwards another\n-- request to your origin to determine whether the object has been updated. The\n-- value that you specify applies only when your origin does not add HTTP\n-- headers such as Cache-Control max-age, Cache-Control s-maxage, and Expires to\n-- objects. You can specify a value from 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "error",
                         "monoid": false,
                         "protocol": "rest-xml",
@@ -8533,6 +8739,24 @@
                         "documentation": "-- | A complex type that specifies how CloudFront handles query strings, cookies\n-- and headers.",
                         "typeExposed": "ForwardedValues",
                         "type": "ForwardedValues"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcbMaxTTL",
+                        "name": "_dcbMaxTTL",
+                        "shape": "long",
+                        "locationName": "MaxTTL",
+                        "documentation": "-- | The maximum amount of time (in seconds) that an object is in a CloudFront\n-- cache before CloudFront forwards another request to your origin to determine\n-- whether the object has been updated. The value that you specify applies only\n-- when your origin adds HTTP headers such as Cache-Control max-age,\n-- Cache-Control s-maxage, and Expires to objects. You can specify a value from\n-- 0 to 3,153,600,000 seconds (100 years).",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -11114,7 +11338,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-11-06/origin-access-identity/cloudfront",
+                        "value": "/2015-04-17/origin-access-identity/cloudfront",
                         "type": "const"
                     }
                 ],
@@ -11440,7 +11664,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution",
+                        "value": "/2015-04-17/distribution",
                         "type": "const"
                     }
                 ],
@@ -11706,7 +11930,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution/",
+                        "value": "/2015-04-17/distribution/",
                         "type": "const"
                     },
                     {
@@ -12076,7 +12300,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-11-06/streaming-distribution",
+                        "value": "/2015-04-17/streaming-distribution",
                         "type": "const"
                     }
                 ],
@@ -12206,7 +12430,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
+                        "value": "/2015-04-17/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -12366,7 +12590,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution/",
+                        "value": "/2015-04-17/distribution/",
                         "type": "const"
                     },
                     {
@@ -12526,7 +12750,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/streaming-distribution/",
+                        "value": "/2015-04-17/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -12825,7 +13049,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
+                        "value": "/2015-04-17/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -13081,7 +13305,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
+                        "value": "/2015-04-17/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -13341,7 +13565,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution/",
+                        "value": "/2015-04-17/distribution/",
                         "type": "const"
                     },
                     {
@@ -13597,7 +13821,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution/",
+                        "value": "/2015-04-17/distribution/",
                         "type": "const"
                     },
                     {
@@ -13813,7 +14037,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution/",
+                        "value": "/2015-04-17/distribution/",
                         "type": "const"
                     },
                     {
@@ -14113,7 +14337,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/streaming-distribution/",
+                        "value": "/2015-04-17/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -14369,7 +14593,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/streaming-distribution/",
+                        "value": "/2015-04-17/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -14565,16 +14789,7 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
-            "pager": {
-                "more": "lcfoairCloudFrontOriginAccessIdentityList . cfoailIsTruncated",
-                "token": {
-                    "input": "lcfoaiMarker",
-                    "outputRequired": false,
-                    "output": "lcfoairCloudFrontOriginAccessIdentityList . cfoailNextMarker",
-                    "inputRequired": false
-                },
-                "type": "one"
-            },
+            "pager": null,
             "name": "ListCloudFrontOriginAccessIdentities",
             "method": "get",
             "documentation": "-- | List origin access identities.",
@@ -14594,7 +14809,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/origin-access-identity/cloudfront",
+                        "value": "/2015-04-17/origin-access-identity/cloudfront",
                         "type": "const"
                     }
                 ],
@@ -14829,16 +15044,7 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
-            "pager": {
-                "more": "ldrDistributionList . dlIsTruncated",
-                "token": {
-                    "input": "ldMarker",
-                    "outputRequired": false,
-                    "output": "ldrDistributionList . dlNextMarker",
-                    "inputRequired": false
-                },
-                "type": "one"
-            },
+            "pager": null,
             "name": "ListDistributions",
             "method": "get",
             "documentation": "-- | List distributions.",
@@ -14858,7 +15064,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution",
+                        "value": "/2015-04-17/distribution",
                         "type": "const"
                     }
                 ],
@@ -15093,16 +15299,7 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
-            "pager": {
-                "more": "lirInvalidationList . ilIsTruncated",
-                "token": {
-                    "input": "liMarker",
-                    "outputRequired": false,
-                    "output": "lirInvalidationList . ilNextMarker",
-                    "inputRequired": false
-                },
-                "type": "one"
-            },
+            "pager": null,
             "name": "ListInvalidations",
             "method": "get",
             "documentation": "-- | List invalidation batches.",
@@ -15122,7 +15319,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution/",
+                        "value": "/2015-04-17/distribution/",
                         "type": "const"
                     },
                     {
@@ -15402,16 +15599,7 @@
                 "Network.AWS.Request.RestXML",
                 "Network.AWS.CloudFront.Types"
             ],
-            "pager": {
-                "more": "lsdrStreamingDistributionList . sdlIsTruncated",
-                "token": {
-                    "input": "lsdMarker",
-                    "outputRequired": false,
-                    "output": "lsdrStreamingDistributionList . sdlNextMarker",
-                    "inputRequired": false
-                },
-                "type": "one"
-            },
+            "pager": null,
             "name": "ListStreamingDistributions",
             "method": "get",
             "documentation": "-- | List streaming distributions.",
@@ -15431,7 +15619,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-11-06/streaming-distribution",
+                        "value": "/2015-04-17/streaming-distribution",
                         "type": "const"
                     }
                 ],
@@ -15727,7 +15915,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
+                        "value": "/2015-04-17/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -16080,7 +16268,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-11-06/distribution/",
+                        "value": "/2015-04-17/distribution/",
                         "type": "const"
                     },
                     {
@@ -16433,7 +16621,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-11-06/streaming-distribution/",
+                        "value": "/2015-04-17/streaming-distribution/",
                         "type": "const"
                     },
                     {

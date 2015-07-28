@@ -36,9 +36,11 @@ instance ToText ParameterApplyType where
         Dynamic -> "dynamic"
         Static -> "static"
 
-instance Hashable ParameterApplyType
-instance ToQuery  ParameterApplyType
-instance ToHeader ParameterApplyType
+instance Hashable     ParameterApplyType
+instance ToByteString ParameterApplyType
+instance ToPath       ParameterApplyType
+instance ToQuery      ParameterApplyType
+instance ToHeader     ParameterApplyType
 
 instance FromXML ParameterApplyType where
     parseXML = parseXMLText "ParameterApplyType"
@@ -66,9 +68,11 @@ instance ToText SourceType where
         ClusterSecurityGroup -> "cluster-security-group"
         ClusterSnapshot -> "cluster-snapshot"
 
-instance Hashable SourceType
-instance ToQuery  SourceType
-instance ToHeader SourceType
+instance Hashable     SourceType
+instance ToByteString SourceType
+instance ToPath       SourceType
+instance ToQuery      SourceType
+instance ToHeader     SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"

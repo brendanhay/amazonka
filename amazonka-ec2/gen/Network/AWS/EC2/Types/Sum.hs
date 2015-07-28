@@ -36,9 +36,11 @@ instance ToText AccountAttributeName where
         DefaultVPC -> "default-vpc"
         SupportedPlatforms -> "supported-platforms"
 
-instance Hashable AccountAttributeName
-instance ToQuery  AccountAttributeName
-instance ToHeader AccountAttributeName
+instance Hashable     AccountAttributeName
+instance ToByteString AccountAttributeName
+instance ToPath       AccountAttributeName
+instance ToQuery      AccountAttributeName
+instance ToHeader     AccountAttributeName
 
 data AddressStatus
     = MoveInProgress
@@ -60,9 +62,11 @@ instance ToText AddressStatus where
         InVPC -> "invpc"
         MoveInProgress -> "moveinprogress"
 
-instance Hashable AddressStatus
-instance ToQuery  AddressStatus
-instance ToHeader AddressStatus
+instance Hashable     AddressStatus
+instance ToByteString AddressStatus
+instance ToPath       AddressStatus
+instance ToQuery      AddressStatus
+instance ToHeader     AddressStatus
 
 instance FromXML AddressStatus where
     parseXML = parseXMLText "AddressStatus"
@@ -84,9 +88,11 @@ instance ToText ArchitectureValues where
         I386 -> "i386"
         X86_64 -> "x86_64"
 
-instance Hashable ArchitectureValues
-instance ToQuery  ArchitectureValues
-instance ToHeader ArchitectureValues
+instance Hashable     ArchitectureValues
+instance ToByteString ArchitectureValues
+instance ToPath       ArchitectureValues
+instance ToQuery      ArchitectureValues
+instance ToHeader     ArchitectureValues
 
 instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
@@ -114,9 +120,11 @@ instance ToText AttachmentStatus where
         Detached -> "detached"
         Detaching -> "detaching"
 
-instance Hashable AttachmentStatus
-instance ToQuery  AttachmentStatus
-instance ToHeader AttachmentStatus
+instance Hashable     AttachmentStatus
+instance ToByteString AttachmentStatus
+instance ToPath       AttachmentStatus
+instance ToQuery      AttachmentStatus
+instance ToHeader     AttachmentStatus
 
 instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
@@ -135,9 +143,11 @@ instance ToText AvailabilityZoneState where
     toText = \case
         AZSAvailable -> "available"
 
-instance Hashable AvailabilityZoneState
-instance ToQuery  AvailabilityZoneState
-instance ToHeader AvailabilityZoneState
+instance Hashable     AvailabilityZoneState
+instance ToByteString AvailabilityZoneState
+instance ToPath       AvailabilityZoneState
+instance ToQuery      AvailabilityZoneState
+instance ToHeader     AvailabilityZoneState
 
 instance FromXML AvailabilityZoneState where
     parseXML = parseXMLText "AvailabilityZoneState"
@@ -171,9 +181,11 @@ instance ToText BatchState where
         BSFailed -> "failed"
         BSSubmitted -> "submitted"
 
-instance Hashable BatchState
-instance ToQuery  BatchState
-instance ToHeader BatchState
+instance Hashable     BatchState
+instance ToByteString BatchState
+instance ToPath       BatchState
+instance ToQuery      BatchState
+instance ToHeader     BatchState
 
 instance FromXML BatchState where
     parseXML = parseXMLText "BatchState"
@@ -210,9 +222,11 @@ instance ToText BundleTaskState where
         BTSStoring -> "storing"
         BTSWaitingForShutdown -> "waiting-for-shutdown"
 
-instance Hashable BundleTaskState
-instance ToQuery  BundleTaskState
-instance ToHeader BundleTaskState
+instance Hashable     BundleTaskState
+instance ToByteString BundleTaskState
+instance ToPath       BundleTaskState
+instance ToQuery      BundleTaskState
+instance ToHeader     BundleTaskState
 
 instance FromXML BundleTaskState where
     parseXML = parseXMLText "BundleTaskState"
@@ -240,9 +254,11 @@ instance ToText CancelBatchErrorCode where
         FleetRequestNotInCancellableState -> "fleetrequestnotincancellablestate"
         UnexpectedError -> "unexpectederror"
 
-instance Hashable CancelBatchErrorCode
-instance ToQuery  CancelBatchErrorCode
-instance ToHeader CancelBatchErrorCode
+instance Hashable     CancelBatchErrorCode
+instance ToByteString CancelBatchErrorCode
+instance ToPath       CancelBatchErrorCode
+instance ToQuery      CancelBatchErrorCode
+instance ToHeader     CancelBatchErrorCode
 
 instance FromXML CancelBatchErrorCode where
     parseXML = parseXMLText "CancelBatchErrorCode"
@@ -273,9 +289,11 @@ instance ToText CancelSpotInstanceRequestState where
         CSIRSCompleted -> "completed"
         CSIRSOpen -> "open"
 
-instance Hashable CancelSpotInstanceRequestState
-instance ToQuery  CancelSpotInstanceRequestState
-instance ToHeader CancelSpotInstanceRequestState
+instance Hashable     CancelSpotInstanceRequestState
+instance ToByteString CancelSpotInstanceRequestState
+instance ToPath       CancelSpotInstanceRequestState
+instance ToQuery      CancelSpotInstanceRequestState
+instance ToHeader     CancelSpotInstanceRequestState
 
 instance FromXML CancelSpotInstanceRequestState where
     parseXML = parseXMLText "CancelSpotInstanceRequestState"
@@ -294,9 +312,11 @@ instance ToText ContainerFormat where
     toText = \case
         Ova -> "ova"
 
-instance Hashable ContainerFormat
-instance ToQuery  ContainerFormat
-instance ToHeader ContainerFormat
+instance Hashable     ContainerFormat
+instance ToByteString ContainerFormat
+instance ToPath       ContainerFormat
+instance ToQuery      ContainerFormat
+instance ToHeader     ContainerFormat
 
 instance FromXML ContainerFormat where
     parseXML = parseXMLText "ContainerFormat"
@@ -324,9 +344,11 @@ instance ToText ConversionTaskState where
         CTSCancelling -> "cancelling"
         CTSCompleted -> "completed"
 
-instance Hashable ConversionTaskState
-instance ToQuery  ConversionTaskState
-instance ToHeader ConversionTaskState
+instance Hashable     ConversionTaskState
+instance ToByteString ConversionTaskState
+instance ToPath       ConversionTaskState
+instance ToQuery      ConversionTaskState
+instance ToHeader     ConversionTaskState
 
 instance FromXML ConversionTaskState where
     parseXML = parseXMLText "ConversionTaskState"
@@ -345,9 +367,11 @@ instance ToText CurrencyCodeValues where
     toText = \case
         Usd -> "usd"
 
-instance Hashable CurrencyCodeValues
-instance ToQuery  CurrencyCodeValues
-instance ToHeader CurrencyCodeValues
+instance Hashable     CurrencyCodeValues
+instance ToByteString CurrencyCodeValues
+instance ToPath       CurrencyCodeValues
+instance ToQuery      CurrencyCodeValues
+instance ToHeader     CurrencyCodeValues
 
 instance FromXML CurrencyCodeValues where
     parseXML = parseXMLText "CurrencyCodeValues"
@@ -369,9 +393,11 @@ instance ToText DatafeedSubscriptionState where
         DSSActive -> "active"
         DSSInactive -> "inactive"
 
-instance Hashable DatafeedSubscriptionState
-instance ToQuery  DatafeedSubscriptionState
-instance ToHeader DatafeedSubscriptionState
+instance Hashable     DatafeedSubscriptionState
+instance ToByteString DatafeedSubscriptionState
+instance ToPath       DatafeedSubscriptionState
+instance ToQuery      DatafeedSubscriptionState
+instance ToHeader     DatafeedSubscriptionState
 
 instance FromXML DatafeedSubscriptionState where
     parseXML = parseXMLText "DatafeedSubscriptionState"
@@ -393,9 +419,11 @@ instance ToText DeviceType where
         EBS -> "ebs"
         InstanceStore -> "instance-store"
 
-instance Hashable DeviceType
-instance ToQuery  DeviceType
-instance ToHeader DeviceType
+instance Hashable     DeviceType
+instance ToByteString DeviceType
+instance ToPath       DeviceType
+instance ToQuery      DeviceType
+instance ToHeader     DeviceType
 
 instance FromXML DeviceType where
     parseXML = parseXMLText "DeviceType"
@@ -420,9 +448,11 @@ instance ToText DiskImageFormat where
         VHD -> "vhd"
         VMDK -> "vmdk"
 
-instance Hashable DiskImageFormat
-instance ToQuery  DiskImageFormat
-instance ToHeader DiskImageFormat
+instance Hashable     DiskImageFormat
+instance ToByteString DiskImageFormat
+instance ToPath       DiskImageFormat
+instance ToQuery      DiskImageFormat
+instance ToHeader     DiskImageFormat
 
 instance FromXML DiskImageFormat where
     parseXML = parseXMLText "DiskImageFormat"
@@ -444,9 +474,11 @@ instance ToText DomainType where
         DTStandard -> "standard"
         DTVPC -> "vpc"
 
-instance Hashable DomainType
-instance ToQuery  DomainType
-instance ToHeader DomainType
+instance Hashable     DomainType
+instance ToByteString DomainType
+instance ToPath       DomainType
+instance ToQuery      DomainType
+instance ToHeader     DomainType
 
 instance FromXML DomainType where
     parseXML = parseXMLText "DomainType"
@@ -477,9 +509,11 @@ instance ToText EventCode where
         SystemMaintenance -> "system-maintenance"
         SystemReboot -> "system-reboot"
 
-instance Hashable EventCode
-instance ToQuery  EventCode
-instance ToHeader EventCode
+instance Hashable     EventCode
+instance ToByteString EventCode
+instance ToPath       EventCode
+instance ToQuery      EventCode
+instance ToHeader     EventCode
 
 instance FromXML EventCode where
     parseXML = parseXMLText "EventCode"
@@ -504,9 +538,11 @@ instance ToText EventType where
         FleetRequestChange -> "fleetrequestchange"
         InstanceChange -> "instancechange"
 
-instance Hashable EventType
-instance ToQuery  EventType
-instance ToHeader EventType
+instance Hashable     EventType
+instance ToByteString EventType
+instance ToPath       EventType
+instance ToQuery      EventType
+instance ToHeader     EventType
 
 instance FromXML EventType where
     parseXML = parseXMLText "EventType"
@@ -531,9 +567,11 @@ instance ToText ExportEnvironment where
         Microsoft -> "microsoft"
         VMware -> "vmware"
 
-instance Hashable ExportEnvironment
-instance ToQuery  ExportEnvironment
-instance ToHeader ExportEnvironment
+instance Hashable     ExportEnvironment
+instance ToByteString ExportEnvironment
+instance ToPath       ExportEnvironment
+instance ToQuery      ExportEnvironment
+instance ToHeader     ExportEnvironment
 
 instance FromXML ExportEnvironment where
     parseXML = parseXMLText "ExportEnvironment"
@@ -561,9 +599,11 @@ instance ToText ExportTaskState where
         ETSCancelling -> "cancelling"
         ETSCompleted -> "completed"
 
-instance Hashable ExportTaskState
-instance ToQuery  ExportTaskState
-instance ToHeader ExportTaskState
+instance Hashable     ExportTaskState
+instance ToByteString ExportTaskState
+instance ToPath       ExportTaskState
+instance ToQuery      ExportTaskState
+instance ToHeader     ExportTaskState
 
 instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
@@ -588,9 +628,11 @@ instance ToText FlowLogsResourceType where
         FLRTSubnet -> "subnet"
         FLRTVPC -> "vpc"
 
-instance Hashable FlowLogsResourceType
-instance ToQuery  FlowLogsResourceType
-instance ToHeader FlowLogsResourceType
+instance Hashable     FlowLogsResourceType
+instance ToByteString FlowLogsResourceType
+instance ToPath       FlowLogsResourceType
+instance ToQuery      FlowLogsResourceType
+instance ToHeader     FlowLogsResourceType
 
 data GatewayType =
     IPsec_1
@@ -606,9 +648,11 @@ instance ToText GatewayType where
     toText = \case
         IPsec_1 -> "ipsec.1"
 
-instance Hashable GatewayType
-instance ToQuery  GatewayType
-instance ToHeader GatewayType
+instance Hashable     GatewayType
+instance ToByteString GatewayType
+instance ToPath       GatewayType
+instance ToQuery      GatewayType
+instance ToHeader     GatewayType
 
 instance FromXML GatewayType where
     parseXML = parseXMLText "GatewayType"
@@ -630,9 +674,11 @@ instance ToText HypervisorType where
         Ovm -> "ovm"
         Xen -> "xen"
 
-instance Hashable HypervisorType
-instance ToQuery  HypervisorType
-instance ToHeader HypervisorType
+instance Hashable     HypervisorType
+instance ToByteString HypervisorType
+instance ToPath       HypervisorType
+instance ToQuery      HypervisorType
+instance ToHeader     HypervisorType
 
 instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
@@ -669,9 +715,11 @@ instance ToText ImageAttributeName where
         RAMDisk -> "ramdisk"
         SRIOVNetSupport -> "sriovnetsupport"
 
-instance Hashable ImageAttributeName
-instance ToQuery  ImageAttributeName
-instance ToHeader ImageAttributeName
+instance Hashable     ImageAttributeName
+instance ToByteString ImageAttributeName
+instance ToPath       ImageAttributeName
+instance ToQuery      ImageAttributeName
+instance ToHeader     ImageAttributeName
 
 data ImageState
     = ISAvailable
@@ -705,9 +753,11 @@ instance ToText ImageState where
         ISPending -> "pending"
         ISTransient -> "transient"
 
-instance Hashable ImageState
-instance ToQuery  ImageState
-instance ToHeader ImageState
+instance Hashable     ImageState
+instance ToByteString ImageState
+instance ToPath       ImageState
+instance ToQuery      ImageState
+instance ToHeader     ImageState
 
 instance FromXML ImageState where
     parseXML = parseXMLText "ImageState"
@@ -732,9 +782,11 @@ instance ToText ImageTypeValues where
         ITVMachine -> "machine"
         ITVRAMDisk -> "ramdisk"
 
-instance Hashable ImageTypeValues
-instance ToQuery  ImageTypeValues
-instance ToHeader ImageTypeValues
+instance Hashable     ImageTypeValues
+instance ToByteString ImageTypeValues
+instance ToPath       ImageTypeValues
+instance ToQuery      ImageTypeValues
+instance ToHeader     ImageTypeValues
 
 instance FromXML ImageTypeValues where
     parseXML = parseXMLText "ImageTypeValues"
@@ -789,9 +841,11 @@ instance ToText InstanceAttributeName where
         IANSourceDestCheck -> "sourcedestcheck"
         IANUserData -> "userdata"
 
-instance Hashable InstanceAttributeName
-instance ToQuery  InstanceAttributeName
-instance ToHeader InstanceAttributeName
+instance Hashable     InstanceAttributeName
+instance ToByteString InstanceAttributeName
+instance ToPath       InstanceAttributeName
+instance ToQuery      InstanceAttributeName
+instance ToHeader     InstanceAttributeName
 
 data InstanceLifecycleType =
     Spot
@@ -807,9 +861,11 @@ instance ToText InstanceLifecycleType where
     toText = \case
         Spot -> "spot"
 
-instance Hashable InstanceLifecycleType
-instance ToQuery  InstanceLifecycleType
-instance ToHeader InstanceLifecycleType
+instance Hashable     InstanceLifecycleType
+instance ToByteString InstanceLifecycleType
+instance ToPath       InstanceLifecycleType
+instance ToQuery      InstanceLifecycleType
+instance ToHeader     InstanceLifecycleType
 
 instance FromXML InstanceLifecycleType where
     parseXML = parseXMLText "InstanceLifecycleType"
@@ -843,9 +899,11 @@ instance ToText InstanceStateName where
         ISNStopping -> "stopping"
         ISNTerminated -> "terminated"
 
-instance Hashable InstanceStateName
-instance ToQuery  InstanceStateName
-instance ToHeader InstanceStateName
+instance Hashable     InstanceStateName
+instance ToByteString InstanceStateName
+instance ToPath       InstanceStateName
+instance ToQuery      InstanceStateName
+instance ToHeader     InstanceStateName
 
 instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
@@ -1020,9 +1078,11 @@ instance ToText InstanceType where
         T2_Micro -> "t2.micro"
         T2_Small -> "t2.small"
 
-instance Hashable InstanceType
-instance ToQuery  InstanceType
-instance ToHeader InstanceType
+instance Hashable     InstanceType
+instance ToByteString InstanceType
+instance ToPath       InstanceType
+instance ToQuery      InstanceType
+instance ToHeader     InstanceType
 
 instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
@@ -1050,9 +1110,11 @@ instance ToText ListingState where
         LPending -> "pending"
         LSold -> "sold"
 
-instance Hashable ListingState
-instance ToQuery  ListingState
-instance ToHeader ListingState
+instance Hashable     ListingState
+instance ToByteString ListingState
+instance ToPath       ListingState
+instance ToQuery      ListingState
+instance ToHeader     ListingState
 
 instance FromXML ListingState where
     parseXML = parseXMLText "ListingState"
@@ -1080,9 +1142,11 @@ instance ToText ListingStatus where
         LSClosed -> "closed"
         LSPending -> "pending"
 
-instance Hashable ListingStatus
-instance ToQuery  ListingStatus
-instance ToHeader ListingStatus
+instance Hashable     ListingStatus
+instance ToByteString ListingStatus
+instance ToPath       ListingStatus
+instance ToQuery      ListingStatus
+instance ToHeader     ListingStatus
 
 instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
@@ -1110,9 +1174,11 @@ instance ToText MonitoringState where
         MSEnabled -> "enabled"
         MSPending -> "pending"
 
-instance Hashable MonitoringState
-instance ToQuery  MonitoringState
-instance ToHeader MonitoringState
+instance Hashable     MonitoringState
+instance ToByteString MonitoringState
+instance ToPath       MonitoringState
+instance ToQuery      MonitoringState
+instance ToHeader     MonitoringState
 
 instance FromXML MonitoringState where
     parseXML = parseXMLText "MonitoringState"
@@ -1134,9 +1200,11 @@ instance ToText MoveStatus where
         MovingToVPC -> "movingtovpc"
         RestoringToClassic -> "restoringtoclassic"
 
-instance Hashable MoveStatus
-instance ToQuery  MoveStatus
-instance ToHeader MoveStatus
+instance Hashable     MoveStatus
+instance ToByteString MoveStatus
+instance ToPath       MoveStatus
+instance ToQuery      MoveStatus
+instance ToHeader     MoveStatus
 
 instance FromXML MoveStatus where
     parseXML = parseXMLText "MoveStatus"
@@ -1164,9 +1232,11 @@ instance ToText NetworkInterfaceAttribute where
         NIAGroupSet -> "groupset"
         NIASourceDestCheck -> "sourcedestcheck"
 
-instance Hashable NetworkInterfaceAttribute
-instance ToQuery  NetworkInterfaceAttribute
-instance ToHeader NetworkInterfaceAttribute
+instance Hashable     NetworkInterfaceAttribute
+instance ToByteString NetworkInterfaceAttribute
+instance ToPath       NetworkInterfaceAttribute
+instance ToQuery      NetworkInterfaceAttribute
+instance ToHeader     NetworkInterfaceAttribute
 
 data NetworkInterfaceStatus
     = NISInUse
@@ -1191,9 +1261,11 @@ instance ToText NetworkInterfaceStatus where
         NISDetaching -> "detaching"
         NISInUse -> "in-use"
 
-instance Hashable NetworkInterfaceStatus
-instance ToQuery  NetworkInterfaceStatus
-instance ToHeader NetworkInterfaceStatus
+instance Hashable     NetworkInterfaceStatus
+instance ToByteString NetworkInterfaceStatus
+instance ToPath       NetworkInterfaceStatus
+instance ToQuery      NetworkInterfaceStatus
+instance ToHeader     NetworkInterfaceStatus
 
 instance FromXML NetworkInterfaceStatus where
     parseXML = parseXMLText "NetworkInterfaceStatus"
@@ -1227,9 +1299,11 @@ instance ToText OfferingTypeValues where
         NoUpfront -> "no upfront"
         PartialUpfront -> "partial upfront"
 
-instance Hashable OfferingTypeValues
-instance ToQuery  OfferingTypeValues
-instance ToHeader OfferingTypeValues
+instance Hashable     OfferingTypeValues
+instance ToByteString OfferingTypeValues
+instance ToPath       OfferingTypeValues
+instance ToQuery      OfferingTypeValues
+instance ToHeader     OfferingTypeValues
 
 instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
@@ -1248,9 +1322,11 @@ instance ToText PermissionGroup where
     toText = \case
         PGAll -> "all"
 
-instance Hashable PermissionGroup
-instance ToQuery  PermissionGroup
-instance ToHeader PermissionGroup
+instance Hashable     PermissionGroup
+instance ToByteString PermissionGroup
+instance ToPath       PermissionGroup
+instance ToQuery      PermissionGroup
+instance ToHeader     PermissionGroup
 
 instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
@@ -1278,9 +1354,11 @@ instance ToText PlacementGroupState where
         PGSDeleting -> "deleting"
         PGSPending -> "pending"
 
-instance Hashable PlacementGroupState
-instance ToQuery  PlacementGroupState
-instance ToHeader PlacementGroupState
+instance Hashable     PlacementGroupState
+instance ToByteString PlacementGroupState
+instance ToPath       PlacementGroupState
+instance ToQuery      PlacementGroupState
+instance ToHeader     PlacementGroupState
 
 instance FromXML PlacementGroupState where
     parseXML = parseXMLText "PlacementGroupState"
@@ -1299,9 +1377,11 @@ instance ToText PlacementStrategy where
     toText = \case
         Cluster -> "cluster"
 
-instance Hashable PlacementStrategy
-instance ToQuery  PlacementStrategy
-instance ToHeader PlacementStrategy
+instance Hashable     PlacementStrategy
+instance ToByteString PlacementStrategy
+instance ToPath       PlacementStrategy
+instance ToQuery      PlacementStrategy
+instance ToHeader     PlacementStrategy
 
 instance FromXML PlacementStrategy where
     parseXML = parseXMLText "PlacementStrategy"
@@ -1320,9 +1400,11 @@ instance ToText PlatformValues where
     toText = \case
         PVWindows -> "windows"
 
-instance Hashable PlatformValues
-instance ToQuery  PlatformValues
-instance ToHeader PlatformValues
+instance Hashable     PlatformValues
+instance ToByteString PlatformValues
+instance ToPath       PlatformValues
+instance ToQuery      PlatformValues
+instance ToHeader     PlatformValues
 
 instance FromXML PlatformValues where
     parseXML = parseXMLText "PlatformValues"
@@ -1344,9 +1426,11 @@ instance ToText ProductCodeValues where
         Devpay -> "devpay"
         Marketplace -> "marketplace"
 
-instance Hashable ProductCodeValues
-instance ToQuery  ProductCodeValues
-instance ToHeader ProductCodeValues
+instance Hashable     ProductCodeValues
+instance ToByteString ProductCodeValues
+instance ToPath       ProductCodeValues
+instance ToQuery      ProductCodeValues
+instance ToHeader     ProductCodeValues
 
 instance FromXML ProductCodeValues where
     parseXML = parseXMLText "ProductCodeValues"
@@ -1374,9 +1458,11 @@ instance ToText RIProductDescription where
         Windows -> "windows"
         WindowsAmazonVPC -> "windows (amazon vpc)"
 
-instance Hashable RIProductDescription
-instance ToQuery  RIProductDescription
-instance ToHeader RIProductDescription
+instance Hashable     RIProductDescription
+instance ToByteString RIProductDescription
+instance ToPath       RIProductDescription
+instance ToQuery      RIProductDescription
+instance ToHeader     RIProductDescription
 
 instance FromXML RIProductDescription where
     parseXML = parseXMLText "RIProductDescription"
@@ -1395,9 +1481,11 @@ instance ToText RecurringChargeFrequency where
     toText = \case
         Hourly -> "hourly"
 
-instance Hashable RecurringChargeFrequency
-instance ToQuery  RecurringChargeFrequency
-instance ToHeader RecurringChargeFrequency
+instance Hashable     RecurringChargeFrequency
+instance ToByteString RecurringChargeFrequency
+instance ToPath       RecurringChargeFrequency
+instance ToQuery      RecurringChargeFrequency
+instance ToHeader     RecurringChargeFrequency
 
 instance FromXML RecurringChargeFrequency where
     parseXML = parseXMLText "RecurringChargeFrequency"
@@ -1440,9 +1528,11 @@ instance ToText ReportInstanceReasonCodes where
         PerformanceOther -> "performance-other"
         Unresponsive -> "unresponsive"
 
-instance Hashable ReportInstanceReasonCodes
-instance ToQuery  ReportInstanceReasonCodes
-instance ToHeader ReportInstanceReasonCodes
+instance Hashable     ReportInstanceReasonCodes
+instance ToByteString ReportInstanceReasonCodes
+instance ToPath       ReportInstanceReasonCodes
+instance ToQuery      ReportInstanceReasonCodes
+instance ToHeader     ReportInstanceReasonCodes
 
 data ReportStatusType
     = OK
@@ -1461,9 +1551,11 @@ instance ToText ReportStatusType where
         Impaired -> "impaired"
         OK -> "ok"
 
-instance Hashable ReportStatusType
-instance ToQuery  ReportStatusType
-instance ToHeader ReportStatusType
+instance Hashable     ReportStatusType
+instance ToByteString ReportStatusType
+instance ToPath       ReportStatusType
+instance ToQuery      ReportStatusType
+instance ToHeader     ReportStatusType
 
 data ReservedInstanceState
     = PaymentPending
@@ -1488,9 +1580,11 @@ instance ToText ReservedInstanceState where
         PaymentPending -> "payment-pending"
         Retired -> "retired"
 
-instance Hashable ReservedInstanceState
-instance ToQuery  ReservedInstanceState
-instance ToHeader ReservedInstanceState
+instance Hashable     ReservedInstanceState
+instance ToByteString ReservedInstanceState
+instance ToPath       ReservedInstanceState
+instance ToQuery      ReservedInstanceState
+instance ToHeader     ReservedInstanceState
 
 instance FromXML ReservedInstanceState where
     parseXML = parseXMLText "ReservedInstanceState"
@@ -1509,9 +1603,11 @@ instance ToText ResetImageAttributeName where
     toText = \case
         RIANLaunchPermission -> "launchpermission"
 
-instance Hashable ResetImageAttributeName
-instance ToQuery  ResetImageAttributeName
-instance ToHeader ResetImageAttributeName
+instance Hashable     ResetImageAttributeName
+instance ToByteString ResetImageAttributeName
+instance ToPath       ResetImageAttributeName
+instance ToQuery      ResetImageAttributeName
+instance ToHeader     ResetImageAttributeName
 
 data ResourceType
     = Snapshot
@@ -1575,9 +1671,11 @@ instance ToText ResourceType where
         VPNGateway -> "vpn-gateway"
         Volume -> "volume"
 
-instance Hashable ResourceType
-instance ToQuery  ResourceType
-instance ToHeader ResourceType
+instance Hashable     ResourceType
+instance ToByteString ResourceType
+instance ToPath       ResourceType
+instance ToQuery      ResourceType
+instance ToHeader     ResourceType
 
 instance FromXML ResourceType where
     parseXML = parseXMLText "ResourceType"
@@ -1602,9 +1700,11 @@ instance ToText RouteOrigin where
         CreateRouteTable -> "createroutetable"
         EnableVGWRoutePropagation -> "enablevgwroutepropagation"
 
-instance Hashable RouteOrigin
-instance ToQuery  RouteOrigin
-instance ToHeader RouteOrigin
+instance Hashable     RouteOrigin
+instance ToByteString RouteOrigin
+instance ToPath       RouteOrigin
+instance ToQuery      RouteOrigin
+instance ToHeader     RouteOrigin
 
 instance FromXML RouteOrigin where
     parseXML = parseXMLText "RouteOrigin"
@@ -1626,9 +1726,11 @@ instance ToText RouteState where
         RSActive -> "active"
         RSBlackhole -> "blackhole"
 
-instance Hashable RouteState
-instance ToQuery  RouteState
-instance ToHeader RouteState
+instance Hashable     RouteState
+instance ToByteString RouteState
+instance ToPath       RouteState
+instance ToQuery      RouteState
+instance ToHeader     RouteState
 
 instance FromXML RouteState where
     parseXML = parseXMLText "RouteState"
@@ -1650,9 +1752,11 @@ instance ToText RuleAction where
         Allow -> "allow"
         Deny -> "deny"
 
-instance Hashable RuleAction
-instance ToQuery  RuleAction
-instance ToHeader RuleAction
+instance Hashable     RuleAction
+instance ToByteString RuleAction
+instance ToPath       RuleAction
+instance ToQuery      RuleAction
+instance ToHeader     RuleAction
 
 instance FromXML RuleAction where
     parseXML = parseXMLText "RuleAction"
@@ -1674,9 +1778,11 @@ instance ToText ShutdownBehavior where
         Stop -> "stop"
         Terminate -> "terminate"
 
-instance Hashable ShutdownBehavior
-instance ToQuery  ShutdownBehavior
-instance ToHeader ShutdownBehavior
+instance Hashable     ShutdownBehavior
+instance ToByteString ShutdownBehavior
+instance ToPath       ShutdownBehavior
+instance ToQuery      ShutdownBehavior
+instance ToHeader     ShutdownBehavior
 
 data SnapshotAttributeName
     = SANProductCodes
@@ -1695,9 +1801,11 @@ instance ToText SnapshotAttributeName where
         SANCreateVolumePermission -> "createvolumepermission"
         SANProductCodes -> "productcodes"
 
-instance Hashable SnapshotAttributeName
-instance ToQuery  SnapshotAttributeName
-instance ToHeader SnapshotAttributeName
+instance Hashable     SnapshotAttributeName
+instance ToByteString SnapshotAttributeName
+instance ToPath       SnapshotAttributeName
+instance ToQuery      SnapshotAttributeName
+instance ToHeader     SnapshotAttributeName
 
 data SnapshotState
     = SSCompleted
@@ -1719,9 +1827,11 @@ instance ToText SnapshotState where
         SSError' -> "error"
         SSPending -> "pending"
 
-instance Hashable SnapshotState
-instance ToQuery  SnapshotState
-instance ToHeader SnapshotState
+instance Hashable     SnapshotState
+instance ToByteString SnapshotState
+instance ToPath       SnapshotState
+instance ToQuery      SnapshotState
+instance ToHeader     SnapshotState
 
 instance FromXML SnapshotState where
     parseXML = parseXMLText "SnapshotState"
@@ -1752,9 +1862,11 @@ instance ToText SpotInstanceState where
         SISFailed -> "failed"
         SISOpen -> "open"
 
-instance Hashable SpotInstanceState
-instance ToQuery  SpotInstanceState
-instance ToHeader SpotInstanceState
+instance Hashable     SpotInstanceState
+instance ToByteString SpotInstanceState
+instance ToPath       SpotInstanceState
+instance ToQuery      SpotInstanceState
+instance ToHeader     SpotInstanceState
 
 instance FromXML SpotInstanceState where
     parseXML = parseXMLText "SpotInstanceState"
@@ -1776,9 +1888,11 @@ instance ToText SpotInstanceType where
         OneTime -> "one-time"
         Persistent -> "persistent"
 
-instance Hashable SpotInstanceType
-instance ToQuery  SpotInstanceType
-instance ToHeader SpotInstanceType
+instance Hashable     SpotInstanceType
+instance ToByteString SpotInstanceType
+instance ToPath       SpotInstanceType
+instance ToQuery      SpotInstanceType
+instance ToHeader     SpotInstanceType
 
 instance FromXML SpotInstanceType where
     parseXML = parseXMLText "SpotInstanceType"
@@ -1806,9 +1920,11 @@ instance ToText State where
         Deleting -> "deleting"
         Pending -> "pending"
 
-instance Hashable State
-instance ToQuery  State
-instance ToHeader State
+instance Hashable     State
+instance ToByteString State
+instance ToPath       State
+instance ToQuery      State
+instance ToHeader     State
 
 instance FromXML State where
     parseXML = parseXMLText "State"
@@ -1827,9 +1943,11 @@ instance ToText StatusName where
     toText = \case
         Reachability -> "reachability"
 
-instance Hashable StatusName
-instance ToQuery  StatusName
-instance ToHeader StatusName
+instance Hashable     StatusName
+instance ToByteString StatusName
+instance ToPath       StatusName
+instance ToQuery      StatusName
+instance ToHeader     StatusName
 
 instance FromXML StatusName where
     parseXML = parseXMLText "StatusName"
@@ -1857,9 +1975,11 @@ instance ToText StatusType where
         InsufficientData -> "insufficient-data"
         Passed -> "passed"
 
-instance Hashable StatusType
-instance ToQuery  StatusType
-instance ToHeader StatusType
+instance Hashable     StatusType
+instance ToByteString StatusType
+instance ToPath       StatusType
+instance ToQuery      StatusType
+instance ToHeader     StatusType
 
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
@@ -1881,9 +2001,11 @@ instance ToText SubnetState where
         SAvailable -> "available"
         SPending -> "pending"
 
-instance Hashable SubnetState
-instance ToQuery  SubnetState
-instance ToHeader SubnetState
+instance Hashable     SubnetState
+instance ToByteString SubnetState
+instance ToPath       SubnetState
+instance ToQuery      SubnetState
+instance ToHeader     SubnetState
 
 instance FromXML SubnetState where
     parseXML = parseXMLText "SubnetState"
@@ -1914,9 +2036,11 @@ instance ToText SummaryStatus where
         SSNotApplicable -> "not-applicable"
         SSOK -> "ok"
 
-instance Hashable SummaryStatus
-instance ToQuery  SummaryStatus
-instance ToHeader SummaryStatus
+instance Hashable     SummaryStatus
+instance ToByteString SummaryStatus
+instance ToPath       SummaryStatus
+instance ToQuery      SummaryStatus
+instance ToHeader     SummaryStatus
 
 instance FromXML SummaryStatus where
     parseXML = parseXMLText "SummaryStatus"
@@ -1938,9 +2062,11 @@ instance ToText TelemetryStatus where
         Down -> "down"
         UP -> "up"
 
-instance Hashable TelemetryStatus
-instance ToQuery  TelemetryStatus
-instance ToHeader TelemetryStatus
+instance Hashable     TelemetryStatus
+instance ToByteString TelemetryStatus
+instance ToPath       TelemetryStatus
+instance ToQuery      TelemetryStatus
+instance ToHeader     TelemetryStatus
 
 instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
@@ -1962,9 +2088,11 @@ instance ToText Tenancy where
         Dedicated -> "dedicated"
         Default -> "default"
 
-instance Hashable Tenancy
-instance ToQuery  Tenancy
-instance ToHeader Tenancy
+instance Hashable     Tenancy
+instance ToByteString Tenancy
+instance ToPath       Tenancy
+instance ToQuery      Tenancy
+instance ToHeader     Tenancy
 
 instance FromXML Tenancy where
     parseXML = parseXMLText "Tenancy"
@@ -1989,9 +2117,11 @@ instance ToText TrafficType where
         All -> "all"
         Reject -> "reject"
 
-instance Hashable TrafficType
-instance ToQuery  TrafficType
-instance ToHeader TrafficType
+instance Hashable     TrafficType
+instance ToByteString TrafficType
+instance ToPath       TrafficType
+instance ToQuery      TrafficType
+instance ToHeader     TrafficType
 
 instance FromXML TrafficType where
     parseXML = parseXMLText "TrafficType"
@@ -2013,9 +2143,11 @@ instance ToText VPCAttributeName where
         EnableDNSHostnames -> "enablednshostnames"
         EnableDNSSupport -> "enablednssupport"
 
-instance Hashable VPCAttributeName
-instance ToQuery  VPCAttributeName
-instance ToHeader VPCAttributeName
+instance Hashable     VPCAttributeName
+instance ToByteString VPCAttributeName
+instance ToPath       VPCAttributeName
+instance ToQuery      VPCAttributeName
+instance ToHeader     VPCAttributeName
 
 data VPCPeeringConnectionStateReasonCode
     = VPCSRCFailed
@@ -2055,9 +2187,11 @@ instance ToText VPCPeeringConnectionStateReasonCode where
         VPCSRCProvisioning -> "provisioning"
         VPCSRCRejected -> "rejected"
 
-instance Hashable VPCPeeringConnectionStateReasonCode
-instance ToQuery  VPCPeeringConnectionStateReasonCode
-instance ToHeader VPCPeeringConnectionStateReasonCode
+instance Hashable     VPCPeeringConnectionStateReasonCode
+instance ToByteString VPCPeeringConnectionStateReasonCode
+instance ToPath       VPCPeeringConnectionStateReasonCode
+instance ToQuery      VPCPeeringConnectionStateReasonCode
+instance ToHeader     VPCPeeringConnectionStateReasonCode
 
 instance FromXML VPCPeeringConnectionStateReasonCode where
     parseXML = parseXMLText "VPCPeeringConnectionStateReasonCode"
@@ -2079,9 +2213,11 @@ instance ToText VPCState where
         VPCSAvailable -> "available"
         VPCSPending -> "pending"
 
-instance Hashable VPCState
-instance ToQuery  VPCState
-instance ToHeader VPCState
+instance Hashable     VPCState
+instance ToByteString VPCState
+instance ToPath       VPCState
+instance ToQuery      VPCState
+instance ToHeader     VPCState
 
 instance FromXML VPCState where
     parseXML = parseXMLText "VPCState"
@@ -2109,9 +2245,11 @@ instance ToText VPNState where
         VSDeleting -> "deleting"
         VSPending -> "pending"
 
-instance Hashable VPNState
-instance ToQuery  VPNState
-instance ToHeader VPNState
+instance Hashable     VPNState
+instance ToByteString VPNState
+instance ToPath       VPNState
+instance ToQuery      VPNState
+instance ToHeader     VPNState
 
 instance FromXML VPNState where
     parseXML = parseXMLText "VPNState"
@@ -2130,9 +2268,11 @@ instance ToText VPNStaticRouteSource where
     toText = \case
         Static -> "static"
 
-instance Hashable VPNStaticRouteSource
-instance ToQuery  VPNStaticRouteSource
-instance ToHeader VPNStaticRouteSource
+instance Hashable     VPNStaticRouteSource
+instance ToByteString VPNStaticRouteSource
+instance ToPath       VPNStaticRouteSource
+instance ToQuery      VPNStaticRouteSource
+instance ToHeader     VPNStaticRouteSource
 
 instance FromXML VPNStaticRouteSource where
     parseXML = parseXMLText "VPNStaticRouteSource"
@@ -2154,9 +2294,11 @@ instance ToText VirtualizationType where
         HVM -> "hvm"
         Paravirtual -> "paravirtual"
 
-instance Hashable VirtualizationType
-instance ToQuery  VirtualizationType
-instance ToHeader VirtualizationType
+instance Hashable     VirtualizationType
+instance ToByteString VirtualizationType
+instance ToPath       VirtualizationType
+instance ToQuery      VirtualizationType
+instance ToHeader     VirtualizationType
 
 instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
@@ -2184,9 +2326,11 @@ instance ToText VolumeAttachmentState where
         VASDetached -> "detached"
         VASDetaching -> "detaching"
 
-instance Hashable VolumeAttachmentState
-instance ToQuery  VolumeAttachmentState
-instance ToHeader VolumeAttachmentState
+instance Hashable     VolumeAttachmentState
+instance ToByteString VolumeAttachmentState
+instance ToPath       VolumeAttachmentState
+instance ToQuery      VolumeAttachmentState
+instance ToHeader     VolumeAttachmentState
 
 instance FromXML VolumeAttachmentState where
     parseXML = parseXMLText "VolumeAttachmentState"
@@ -2208,9 +2352,11 @@ instance ToText VolumeAttributeName where
         VANAutoEnableIO -> "autoenableio"
         VANProductCodes -> "productcodes"
 
-instance Hashable VolumeAttributeName
-instance ToQuery  VolumeAttributeName
-instance ToHeader VolumeAttributeName
+instance Hashable     VolumeAttributeName
+instance ToByteString VolumeAttributeName
+instance ToPath       VolumeAttributeName
+instance ToQuery      VolumeAttributeName
+instance ToHeader     VolumeAttributeName
 
 data VolumeState
     = VCreating
@@ -2241,9 +2387,11 @@ instance ToText VolumeState where
         VError' -> "error"
         VInUse -> "in-use"
 
-instance Hashable VolumeState
-instance ToQuery  VolumeState
-instance ToHeader VolumeState
+instance Hashable     VolumeState
+instance ToByteString VolumeState
+instance ToPath       VolumeState
+instance ToQuery      VolumeState
+instance ToHeader     VolumeState
 
 instance FromXML VolumeState where
     parseXML = parseXMLText "VolumeState"
@@ -2268,9 +2416,11 @@ instance ToText VolumeStatusInfoStatus where
         VSISInsufficientData -> "insufficient-data"
         VSISOK -> "ok"
 
-instance Hashable VolumeStatusInfoStatus
-instance ToQuery  VolumeStatusInfoStatus
-instance ToHeader VolumeStatusInfoStatus
+instance Hashable     VolumeStatusInfoStatus
+instance ToByteString VolumeStatusInfoStatus
+instance ToPath       VolumeStatusInfoStatus
+instance ToQuery      VolumeStatusInfoStatus
+instance ToHeader     VolumeStatusInfoStatus
 
 instance FromXML VolumeStatusInfoStatus where
     parseXML = parseXMLText "VolumeStatusInfoStatus"
@@ -2292,9 +2442,11 @@ instance ToText VolumeStatusName where
         IOEnabled -> "io-enabled"
         IOPerformance -> "io-performance"
 
-instance Hashable VolumeStatusName
-instance ToQuery  VolumeStatusName
-instance ToHeader VolumeStatusName
+instance Hashable     VolumeStatusName
+instance ToByteString VolumeStatusName
+instance ToPath       VolumeStatusName
+instance ToQuery      VolumeStatusName
+instance ToHeader     VolumeStatusName
 
 instance FromXML VolumeStatusName where
     parseXML = parseXMLText "VolumeStatusName"
@@ -2319,9 +2471,11 @@ instance ToText VolumeType where
         IO1 -> "io1"
         Standard -> "standard"
 
-instance Hashable VolumeType
-instance ToQuery  VolumeType
-instance ToHeader VolumeType
+instance Hashable     VolumeType
+instance ToByteString VolumeType
+instance ToPath       VolumeType
+instance ToQuery      VolumeType
+instance ToHeader     VolumeType
 
 instance FromXML VolumeType where
     parseXML = parseXMLText "VolumeType"

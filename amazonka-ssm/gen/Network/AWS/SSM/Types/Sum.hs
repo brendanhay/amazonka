@@ -36,9 +36,11 @@ instance ToText AssociationFilterKey where
         AFKInstanceId -> "instanceid"
         AFKName -> "name"
 
-instance Hashable AssociationFilterKey
-instance ToQuery  AssociationFilterKey
-instance ToHeader AssociationFilterKey
+instance Hashable     AssociationFilterKey
+instance ToByteString AssociationFilterKey
+instance ToPath       AssociationFilterKey
+instance ToQuery      AssociationFilterKey
+instance ToHeader     AssociationFilterKey
 
 instance ToJSON AssociationFilterKey where
     toJSON = toJSONText
@@ -63,9 +65,11 @@ instance ToText AssociationStatusName where
         Pending -> "pending"
         Success -> "success"
 
-instance Hashable AssociationStatusName
-instance ToQuery  AssociationStatusName
-instance ToHeader AssociationStatusName
+instance Hashable     AssociationStatusName
+instance ToByteString AssociationStatusName
+instance ToPath       AssociationStatusName
+instance ToQuery      AssociationStatusName
+instance ToHeader     AssociationStatusName
 
 instance ToJSON AssociationStatusName where
     toJSON = toJSONText
@@ -87,9 +91,11 @@ instance ToText DocumentFilterKey where
     toText = \case
         Name -> "name"
 
-instance Hashable DocumentFilterKey
-instance ToQuery  DocumentFilterKey
-instance ToHeader DocumentFilterKey
+instance Hashable     DocumentFilterKey
+instance ToByteString DocumentFilterKey
+instance ToPath       DocumentFilterKey
+instance ToQuery      DocumentFilterKey
+instance ToHeader     DocumentFilterKey
 
 instance ToJSON DocumentFilterKey where
     toJSON = toJSONText
@@ -114,9 +120,11 @@ instance ToText DocumentStatus where
         Creating -> "creating"
         Deleting -> "deleting"
 
-instance Hashable DocumentStatus
-instance ToQuery  DocumentStatus
-instance ToHeader DocumentStatus
+instance Hashable     DocumentStatus
+instance ToByteString DocumentStatus
+instance ToPath       DocumentStatus
+instance ToQuery      DocumentStatus
+instance ToHeader     DocumentStatus
 
 instance FromJSON DocumentStatus where
     parseJSON = parseJSONText "DocumentStatus"
@@ -141,9 +149,11 @@ instance ToText Fault where
         Server -> "server"
         Unknown -> "unknown"
 
-instance Hashable Fault
-instance ToQuery  Fault
-instance ToHeader Fault
+instance Hashable     Fault
+instance ToByteString Fault
+instance ToPath       Fault
+instance ToQuery      Fault
+instance ToHeader     Fault
 
 instance FromJSON Fault where
     parseJSON = parseJSONText "Fault"

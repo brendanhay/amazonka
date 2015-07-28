@@ -138,8 +138,8 @@ instance ToJSON SetVaultNotifications where
 instance ToPath SetVaultNotifications where
         toPath SetVaultNotifications'{..}
           = mconcat
-              ["/", toText _svnAccountId, "/vaults/",
-               toText _svnVaultName, "/notification-configuration"]
+              ["/", toPath _svnAccountId, "/vaults/",
+               toPath _svnVaultName, "/notification-configuration"]
 
 instance ToQuery SetVaultNotifications where
         toQuery = const mempty

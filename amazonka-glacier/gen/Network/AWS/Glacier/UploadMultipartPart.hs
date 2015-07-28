@@ -189,9 +189,9 @@ instance ToHeaders UploadMultipartPart where
 instance ToPath UploadMultipartPart where
         toPath UploadMultipartPart'{..}
           = mconcat
-              ["/", toText _umpAccountId, "/vaults/",
-               toText _umpVaultName, "/multipart-uploads/",
-               toText _umpUploadId]
+              ["/", toPath _umpAccountId, "/vaults/",
+               toPath _umpVaultName, "/multipart-uploads/",
+               toPath _umpUploadId]
 
 instance ToQuery UploadMultipartPart where
         toQuery = const mempty

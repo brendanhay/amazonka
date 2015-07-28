@@ -44,6 +44,7 @@ import           Network.AWS.Types           as Export hiding (AccessKey,
                                                         Endpoint, Seconds,
                                                         SecretKey)
 import           Network.HTTP.Types.Status   as Export (Status (..))
+import           Network.HTTP.Types.URI      as Export (urlDecode, urlEncode)
 import           Numeric.Natural             as Export (Natural)
 
 infixl 7 .!@

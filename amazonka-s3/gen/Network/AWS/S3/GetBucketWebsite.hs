@@ -87,7 +87,7 @@ instance ToHeaders GetBucketWebsite where
 
 instance ToPath GetBucketWebsite where
         toPath GetBucketWebsite'{..}
-          = mconcat ["/", toText _gbwBucket]
+          = mconcat ["/", toPath _gbwBucket]
 
 instance ToQuery GetBucketWebsite where
         toQuery = const (mconcat ["website"])

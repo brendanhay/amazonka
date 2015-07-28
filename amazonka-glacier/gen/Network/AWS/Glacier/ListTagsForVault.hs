@@ -97,8 +97,8 @@ instance ToHeaders ListTagsForVault where
 instance ToPath ListTagsForVault where
         toPath ListTagsForVault'{..}
           = mconcat
-              ["/", toText _ltfvAccountId, "/vaults/",
-               toText _ltfvVaultName, "/tags"]
+              ["/", toPath _ltfvAccountId, "/vaults/",
+               toPath _ltfvVaultName, "/tags"]
 
 instance ToQuery ListTagsForVault where
         toQuery = const mempty

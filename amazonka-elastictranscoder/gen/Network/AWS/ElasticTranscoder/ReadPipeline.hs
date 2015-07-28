@@ -82,7 +82,7 @@ instance ToHeaders ReadPipeline where
 
 instance ToPath ReadPipeline where
         toPath ReadPipeline'{..}
-          = mconcat ["/2012-09-25/pipelines/", toText _rId]
+          = mconcat ["/2012-09-25/pipelines/", toPath _rId]
 
 instance ToQuery ReadPipeline where
         toQuery = const mempty

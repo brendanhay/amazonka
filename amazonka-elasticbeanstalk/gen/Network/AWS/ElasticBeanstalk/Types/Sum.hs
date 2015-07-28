@@ -39,9 +39,11 @@ instance ToText ConfigurationDeploymentStatus where
         Failed -> "failed"
         Pending -> "pending"
 
-instance Hashable ConfigurationDeploymentStatus
-instance ToQuery  ConfigurationDeploymentStatus
-instance ToHeader ConfigurationDeploymentStatus
+instance Hashable     ConfigurationDeploymentStatus
+instance ToByteString ConfigurationDeploymentStatus
+instance ToPath       ConfigurationDeploymentStatus
+instance ToQuery      ConfigurationDeploymentStatus
+instance ToHeader     ConfigurationDeploymentStatus
 
 instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
@@ -63,9 +65,11 @@ instance ToText ConfigurationOptionValueType where
         List -> "list"
         Scalar -> "scalar"
 
-instance Hashable ConfigurationOptionValueType
-instance ToQuery  ConfigurationOptionValueType
-instance ToHeader ConfigurationOptionValueType
+instance Hashable     ConfigurationOptionValueType
+instance ToByteString ConfigurationOptionValueType
+instance ToPath       ConfigurationOptionValueType
+instance ToQuery      ConfigurationOptionValueType
+instance ToHeader     ConfigurationOptionValueType
 
 instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
@@ -93,9 +97,11 @@ instance ToText EnvironmentHealth where
         Red -> "red"
         Yellow -> "yellow"
 
-instance Hashable EnvironmentHealth
-instance ToQuery  EnvironmentHealth
-instance ToHeader EnvironmentHealth
+instance Hashable     EnvironmentHealth
+instance ToByteString EnvironmentHealth
+instance ToPath       EnvironmentHealth
+instance ToQuery      EnvironmentHealth
+instance ToHeader     EnvironmentHealth
 
 instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"
@@ -117,9 +123,11 @@ instance ToText EnvironmentInfoType where
         Bundle -> "bundle"
         Tail -> "tail"
 
-instance Hashable EnvironmentInfoType
-instance ToQuery  EnvironmentInfoType
-instance ToHeader EnvironmentInfoType
+instance Hashable     EnvironmentInfoType
+instance ToByteString EnvironmentInfoType
+instance ToPath       EnvironmentInfoType
+instance ToQuery      EnvironmentInfoType
+instance ToHeader     EnvironmentInfoType
 
 instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
@@ -150,9 +158,11 @@ instance ToText EnvironmentStatus where
         Terminating -> "terminating"
         Updating -> "updating"
 
-instance Hashable EnvironmentStatus
-instance ToQuery  EnvironmentStatus
-instance ToHeader EnvironmentStatus
+instance Hashable     EnvironmentStatus
+instance ToByteString EnvironmentStatus
+instance ToPath       EnvironmentStatus
+instance ToQuery      EnvironmentStatus
+instance ToHeader     EnvironmentStatus
 
 instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
@@ -186,9 +196,11 @@ instance ToText EventSeverity where
         LevelTrace -> "trace"
         LevelWarn -> "warn"
 
-instance Hashable EventSeverity
-instance ToQuery  EventSeverity
-instance ToHeader EventSeverity
+instance Hashable     EventSeverity
+instance ToByteString EventSeverity
+instance ToPath       EventSeverity
+instance ToQuery      EventSeverity
+instance ToHeader     EventSeverity
 
 instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
@@ -210,9 +222,11 @@ instance ToText ValidationSeverity where
         Error' -> "error"
         Warning -> "warning"
 
-instance Hashable ValidationSeverity
-instance ToQuery  ValidationSeverity
-instance ToHeader ValidationSeverity
+instance Hashable     ValidationSeverity
+instance ToByteString ValidationSeverity
+instance ToPath       ValidationSeverity
+instance ToQuery      ValidationSeverity
+instance ToHeader     ValidationSeverity
 
 instance FromXML ValidationSeverity where
     parseXML = parseXMLText "ValidationSeverity"

@@ -110,7 +110,7 @@ instance ToHeaders DescribeTags where
 instance ToPath DescribeTags where
         toPath DescribeTags'{..}
           = mconcat
-              ["/2015-02-01/tags/", toText _dtFileSystemId, "/"]
+              ["/2015-02-01/tags/", toPath _dtFileSystemId, "/"]
 
 instance ToQuery DescribeTags where
         toQuery DescribeTags'{..}

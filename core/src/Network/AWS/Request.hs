@@ -48,7 +48,6 @@ module Network.AWS.Request
 import           Control.Lens
 import           Data.Maybe
 import           Data.Monoid
-import qualified Data.Text.Encoding           as Text
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
@@ -116,7 +115,7 @@ putBody x = defaultRequest x
 defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 defaultRequest x = Request
     { _rqMethod  = GET
-    , _rqPath    = Text.encodeUtf8 (toPath x)
+    , _rqPath    = toBS (toPath x)
     , _rqQuery   = toQuery x
     , _rqHeaders = toHeaders x
     , _rqBody    = ""

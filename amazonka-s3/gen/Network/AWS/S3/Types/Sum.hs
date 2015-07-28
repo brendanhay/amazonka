@@ -43,9 +43,11 @@ instance ToText BucketCannedACL where
         BPublicRead -> "public-read"
         BPublicReadWrite -> "public-read-write"
 
-instance Hashable BucketCannedACL
-instance ToQuery  BucketCannedACL
-instance ToHeader BucketCannedACL
+instance Hashable     BucketCannedACL
+instance ToByteString BucketCannedACL
+instance ToPath       BucketCannedACL
+instance ToQuery      BucketCannedACL
+instance ToHeader     BucketCannedACL
 
 instance ToXML BucketCannedACL where
     toXML = toXMLText
@@ -70,9 +72,11 @@ instance ToText BucketLogsPermission where
         Read -> "read"
         Write -> "write"
 
-instance Hashable BucketLogsPermission
-instance ToQuery  BucketLogsPermission
-instance ToHeader BucketLogsPermission
+instance Hashable     BucketLogsPermission
+instance ToByteString BucketLogsPermission
+instance ToPath       BucketLogsPermission
+instance ToQuery      BucketLogsPermission
+instance ToHeader     BucketLogsPermission
 
 instance FromXML BucketLogsPermission where
     parseXML = parseXMLText "BucketLogsPermission"
@@ -97,9 +101,11 @@ instance ToText BucketVersioningStatus where
         BVSEnabled -> "enabled"
         BVSSuspended -> "suspended"
 
-instance Hashable BucketVersioningStatus
-instance ToQuery  BucketVersioningStatus
-instance ToHeader BucketVersioningStatus
+instance Hashable     BucketVersioningStatus
+instance ToByteString BucketVersioningStatus
+instance ToPath       BucketVersioningStatus
+instance ToQuery      BucketVersioningStatus
+instance ToHeader     BucketVersioningStatus
 
 instance FromXML BucketVersioningStatus where
     parseXML = parseXMLText "BucketVersioningStatus"
@@ -127,9 +133,11 @@ instance ToText EncodingType where
     toText = \case
         URL -> "url"
 
-instance Hashable EncodingType
-instance ToQuery  EncodingType
-instance ToHeader EncodingType
+instance Hashable     EncodingType
+instance ToByteString EncodingType
+instance ToPath       EncodingType
+instance ToQuery      EncodingType
+instance ToHeader     EncodingType
 
 instance FromXML EncodingType where
     parseXML = parseXMLText "EncodingType"
@@ -164,9 +172,11 @@ instance ToText Event where
         S3ObjectCreatedPut -> "s3:objectcreated:put"
         S3ReducedRedundancyLostObject -> "s3:reducedredundancylostobject"
 
-instance Hashable Event
-instance ToQuery  Event
-instance ToHeader Event
+instance Hashable     Event
+instance ToByteString Event
+instance ToPath       Event
+instance ToQuery      Event
+instance ToHeader     Event
 
 instance FromXML Event where
     parseXML = parseXMLText "Event"
@@ -191,9 +201,11 @@ instance ToText ExpirationStatus where
         ESDisabled -> "disabled"
         ESEnabled -> "enabled"
 
-instance Hashable ExpirationStatus
-instance ToQuery  ExpirationStatus
-instance ToHeader ExpirationStatus
+instance Hashable     ExpirationStatus
+instance ToByteString ExpirationStatus
+instance ToPath       ExpirationStatus
+instance ToQuery      ExpirationStatus
+instance ToHeader     ExpirationStatus
 
 instance FromXML ExpirationStatus where
     parseXML = parseXMLText "ExpirationStatus"
@@ -218,9 +230,11 @@ instance ToText MFADelete where
         MDDisabled -> "disabled"
         MDEnabled -> "enabled"
 
-instance Hashable MFADelete
-instance ToQuery  MFADelete
-instance ToHeader MFADelete
+instance Hashable     MFADelete
+instance ToByteString MFADelete
+instance ToPath       MFADelete
+instance ToQuery      MFADelete
+instance ToHeader     MFADelete
 
 instance ToXML MFADelete where
     toXML = toXMLText
@@ -242,9 +256,11 @@ instance ToText MFADeleteStatus where
         MDSDisabled -> "disabled"
         MDSEnabled -> "enabled"
 
-instance Hashable MFADeleteStatus
-instance ToQuery  MFADeleteStatus
-instance ToHeader MFADeleteStatus
+instance Hashable     MFADeleteStatus
+instance ToByteString MFADeleteStatus
+instance ToPath       MFADeleteStatus
+instance ToQuery      MFADeleteStatus
+instance ToHeader     MFADeleteStatus
 
 instance FromXML MFADeleteStatus where
     parseXML = parseXMLText "MFADeleteStatus"
@@ -266,9 +282,11 @@ instance ToText MetadataDirective where
         Copy -> "copy"
         Replace -> "replace"
 
-instance Hashable MetadataDirective
-instance ToQuery  MetadataDirective
-instance ToHeader MetadataDirective
+instance Hashable     MetadataDirective
+instance ToByteString MetadataDirective
+instance ToPath       MetadataDirective
+instance ToQuery      MetadataDirective
+instance ToHeader     MetadataDirective
 
 instance ToXML MetadataDirective where
     toXML = toXMLText
@@ -302,9 +320,11 @@ instance ToText ObjectCannedACL where
         OPublicRead -> "public-read"
         OPublicReadWrite -> "public-read-write"
 
-instance Hashable ObjectCannedACL
-instance ToQuery  ObjectCannedACL
-instance ToHeader ObjectCannedACL
+instance Hashable     ObjectCannedACL
+instance ToByteString ObjectCannedACL
+instance ToPath       ObjectCannedACL
+instance ToQuery      ObjectCannedACL
+instance ToHeader     ObjectCannedACL
 
 instance ToXML ObjectCannedACL where
     toXML = toXMLText
@@ -329,9 +349,11 @@ instance ToText ObjectStorageClass where
         OSCReducedRedundancy -> "reduced_redundancy"
         OSCStandard -> "standard"
 
-instance Hashable ObjectStorageClass
-instance ToQuery  ObjectStorageClass
-instance ToHeader ObjectStorageClass
+instance Hashable     ObjectStorageClass
+instance ToByteString ObjectStorageClass
+instance ToPath       ObjectStorageClass
+instance ToQuery      ObjectStorageClass
+instance ToHeader     ObjectStorageClass
 
 instance FromXML ObjectStorageClass where
     parseXML = parseXMLText "ObjectStorageClass"
@@ -350,9 +372,11 @@ instance ToText ObjectVersionStorageClass where
     toText = \case
         OVSCStandard -> "standard"
 
-instance Hashable ObjectVersionStorageClass
-instance ToQuery  ObjectVersionStorageClass
-instance ToHeader ObjectVersionStorageClass
+instance Hashable     ObjectVersionStorageClass
+instance ToByteString ObjectVersionStorageClass
+instance ToPath       ObjectVersionStorageClass
+instance ToQuery      ObjectVersionStorageClass
+instance ToHeader     ObjectVersionStorageClass
 
 instance FromXML ObjectVersionStorageClass where
     parseXML = parseXMLText "ObjectVersionStorageClass"
@@ -374,9 +398,11 @@ instance ToText Payer where
         BucketOwner -> "bucketowner"
         Requester -> "requester"
 
-instance Hashable Payer
-instance ToQuery  Payer
-instance ToHeader Payer
+instance Hashable     Payer
+instance ToByteString Payer
+instance ToPath       Payer
+instance ToQuery      Payer
+instance ToHeader     Payer
 
 instance FromXML Payer where
     parseXML = parseXMLText "Payer"
@@ -410,9 +436,11 @@ instance ToText Permission where
         PWrite -> "write"
         PWriteAcp -> "write_acp"
 
-instance Hashable Permission
-instance ToQuery  Permission
-instance ToHeader Permission
+instance Hashable     Permission
+instance ToByteString Permission
+instance ToPath       Permission
+instance ToQuery      Permission
+instance ToHeader     Permission
 
 instance FromXML Permission where
     parseXML = parseXMLText "Permission"
@@ -437,9 +465,11 @@ instance ToText Protocol where
         HTTP -> "http"
         HTTPS -> "https"
 
-instance Hashable Protocol
-instance ToQuery  Protocol
-instance ToHeader Protocol
+instance Hashable     Protocol
+instance ToByteString Protocol
+instance ToPath       Protocol
+instance ToQuery      Protocol
+instance ToHeader     Protocol
 
 instance FromXML Protocol where
     parseXML = parseXMLText "Protocol"
@@ -464,9 +494,11 @@ instance ToText ReplicationRuleStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable ReplicationRuleStatus
-instance ToQuery  ReplicationRuleStatus
-instance ToHeader ReplicationRuleStatus
+instance Hashable     ReplicationRuleStatus
+instance ToByteString ReplicationRuleStatus
+instance ToPath       ReplicationRuleStatus
+instance ToQuery      ReplicationRuleStatus
+instance ToHeader     ReplicationRuleStatus
 
 instance FromXML ReplicationRuleStatus where
     parseXML = parseXMLText "ReplicationRuleStatus"
@@ -497,9 +529,11 @@ instance ToText ReplicationStatus where
         Pending -> "pending"
         Replica -> "replica"
 
-instance Hashable ReplicationStatus
-instance ToQuery  ReplicationStatus
-instance ToHeader ReplicationStatus
+instance Hashable     ReplicationStatus
+instance ToByteString ReplicationStatus
+instance ToPath       ReplicationStatus
+instance ToQuery      ReplicationStatus
+instance ToHeader     ReplicationStatus
 
 instance FromXML ReplicationStatus where
     parseXML = parseXMLText "ReplicationStatus"
@@ -520,9 +554,11 @@ instance ToText RequestCharged where
     toText = \case
         RCRequester -> "requester"
 
-instance Hashable RequestCharged
-instance ToQuery  RequestCharged
-instance ToHeader RequestCharged
+instance Hashable     RequestCharged
+instance ToByteString RequestCharged
+instance ToPath       RequestCharged
+instance ToQuery      RequestCharged
+instance ToHeader     RequestCharged
 
 instance FromXML RequestCharged where
     parseXML = parseXMLText "RequestCharged"
@@ -546,9 +582,11 @@ instance ToText RequestPayer where
     toText = \case
         RPRequester -> "requester"
 
-instance Hashable RequestPayer
-instance ToQuery  RequestPayer
-instance ToHeader RequestPayer
+instance Hashable     RequestPayer
+instance ToByteString RequestPayer
+instance ToPath       RequestPayer
+instance ToQuery      RequestPayer
+instance ToHeader     RequestPayer
 
 instance ToXML RequestPayer where
     toXML = toXMLText
@@ -567,9 +605,11 @@ instance ToText ServerSideEncryption where
     toText = \case
         AES256 -> "aes256"
 
-instance Hashable ServerSideEncryption
-instance ToQuery  ServerSideEncryption
-instance ToHeader ServerSideEncryption
+instance Hashable     ServerSideEncryption
+instance ToByteString ServerSideEncryption
+instance ToPath       ServerSideEncryption
+instance ToQuery      ServerSideEncryption
+instance ToHeader     ServerSideEncryption
 
 instance FromXML ServerSideEncryption where
     parseXML = parseXMLText "ServerSideEncryption"
@@ -594,9 +634,11 @@ instance ToText StorageClass where
         ReducedRedundancy -> "reduced_redundancy"
         Standard -> "standard"
 
-instance Hashable StorageClass
-instance ToQuery  StorageClass
-instance ToHeader StorageClass
+instance Hashable     StorageClass
+instance ToByteString StorageClass
+instance ToPath       StorageClass
+instance ToQuery      StorageClass
+instance ToHeader     StorageClass
 
 instance FromXML StorageClass where
     parseXML = parseXMLText "StorageClass"
@@ -618,9 +660,11 @@ instance ToText TransitionStorageClass where
     toText = \case
         Glacier -> "glacier"
 
-instance Hashable TransitionStorageClass
-instance ToQuery  TransitionStorageClass
-instance ToHeader TransitionStorageClass
+instance Hashable     TransitionStorageClass
+instance ToByteString TransitionStorageClass
+instance ToPath       TransitionStorageClass
+instance ToQuery      TransitionStorageClass
+instance ToHeader     TransitionStorageClass
 
 instance FromXML TransitionStorageClass where
     parseXML = parseXMLText "TransitionStorageClass"
@@ -648,9 +692,11 @@ instance ToText Type where
         CanonicalUser -> "canonicaluser"
         Group -> "group"
 
-instance Hashable Type
-instance ToQuery  Type
-instance ToHeader Type
+instance Hashable     Type
+instance ToByteString Type
+instance ToPath       Type
+instance ToQuery      Type
+instance ToHeader     Type
 
 instance FromXML Type where
     parseXML = parseXMLText "Type"

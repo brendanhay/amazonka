@@ -36,9 +36,11 @@ instance ToText ChronologicalOrder where
         Forward -> "forward"
         Reverse -> "reverse"
 
-instance Hashable ChronologicalOrder
-instance ToQuery  ChronologicalOrder
-instance ToHeader ChronologicalOrder
+instance Hashable     ChronologicalOrder
+instance ToByteString ChronologicalOrder
+instance ToPath       ChronologicalOrder
+instance ToQuery      ChronologicalOrder
+instance ToHeader     ChronologicalOrder
 
 instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
@@ -66,9 +68,11 @@ instance ToText ConfigurationItemStatus where
         Failed -> "failed"
         OK -> "ok"
 
-instance Hashable ConfigurationItemStatus
-instance ToQuery  ConfigurationItemStatus
-instance ToHeader ConfigurationItemStatus
+instance Hashable     ConfigurationItemStatus
+instance ToByteString ConfigurationItemStatus
+instance ToPath       ConfigurationItemStatus
+instance ToQuery      ConfigurationItemStatus
+instance ToHeader     ConfigurationItemStatus
 
 instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
@@ -93,9 +97,11 @@ instance ToText DeliveryStatus where
         NotApplicable -> "not_applicable"
         Success -> "success"
 
-instance Hashable DeliveryStatus
-instance ToQuery  DeliveryStatus
-instance ToHeader DeliveryStatus
+instance Hashable     DeliveryStatus
+instance ToByteString DeliveryStatus
+instance ToPath       DeliveryStatus
+instance ToQuery      DeliveryStatus
+instance ToHeader     DeliveryStatus
 
 instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
@@ -120,9 +126,11 @@ instance ToText RecorderStatus where
         RSPending -> "pending"
         RSSuccess -> "success"
 
-instance Hashable RecorderStatus
-instance ToQuery  RecorderStatus
-instance ToHeader RecorderStatus
+instance Hashable     RecorderStatus
+instance ToByteString RecorderStatus
+instance ToPath       RecorderStatus
+instance ToQuery      RecorderStatus
+instance ToHeader     RecorderStatus
 
 instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"
@@ -180,9 +188,11 @@ instance ToText ResourceType where
         AWSEC2VPNGateway -> "aws::ec2::vpngateway"
         AWSEC2Volume -> "aws::ec2::volume"
 
-instance Hashable ResourceType
-instance ToQuery  ResourceType
-instance ToHeader ResourceType
+instance Hashable     ResourceType
+instance ToByteString ResourceType
+instance ToPath       ResourceType
+instance ToQuery      ResourceType
+instance ToHeader     ResourceType
 
 instance ToJSON ResourceType where
     toJSON = toJSONText

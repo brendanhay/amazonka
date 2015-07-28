@@ -36,9 +36,11 @@ instance ToText ContentType where
         ApplicationJSON -> "application/json"
         ApplicationXML -> "application/xml"
 
-instance Hashable ContentType
-instance ToQuery  ContentType
-instance ToHeader ContentType
+instance Hashable     ContentType
+instance ToByteString ContentType
+instance ToPath       ContentType
+instance ToQuery      ContentType
+instance ToHeader     ContentType
 
 instance ToJSON ContentType where
     toJSON = toJSONText
@@ -66,9 +68,11 @@ instance ToText QueryParser where
         Simple -> "simple"
         Structured -> "structured"
 
-instance Hashable QueryParser
-instance ToQuery  QueryParser
-instance ToHeader QueryParser
+instance Hashable     QueryParser
+instance ToByteString QueryParser
+instance ToPath       QueryParser
+instance ToQuery      QueryParser
+instance ToHeader     QueryParser
 
 instance ToJSON QueryParser where
     toJSON = toJSONText

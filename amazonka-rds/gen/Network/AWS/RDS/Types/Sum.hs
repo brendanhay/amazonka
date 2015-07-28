@@ -36,9 +36,11 @@ instance ToText ApplyMethod where
         Immediate -> "immediate"
         PendingReboot -> "pending-reboot"
 
-instance Hashable ApplyMethod
-instance ToQuery  ApplyMethod
-instance ToHeader ApplyMethod
+instance Hashable     ApplyMethod
+instance ToByteString ApplyMethod
+instance ToPath       ApplyMethod
+instance ToQuery      ApplyMethod
+instance ToHeader     ApplyMethod
 
 instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"
@@ -66,9 +68,11 @@ instance ToText SourceType where
         DBSecurityGroup -> "db-security-group"
         DBSnapshot -> "db-snapshot"
 
-instance Hashable SourceType
-instance ToQuery  SourceType
-instance ToHeader SourceType
+instance Hashable     SourceType
+instance ToByteString SourceType
+instance ToPath       SourceType
+instance ToQuery      SourceType
+instance ToHeader     SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"

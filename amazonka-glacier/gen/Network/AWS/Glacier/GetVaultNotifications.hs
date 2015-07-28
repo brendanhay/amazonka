@@ -116,8 +116,8 @@ instance ToHeaders GetVaultNotifications where
 instance ToPath GetVaultNotifications where
         toPath GetVaultNotifications'{..}
           = mconcat
-              ["/", toText _gvnAccountId, "/vaults/",
-               toText _gvnVaultName, "/notification-configuration"]
+              ["/", toPath _gvnAccountId, "/vaults/",
+               toPath _gvnVaultName, "/notification-configuration"]
 
 instance ToQuery GetVaultNotifications where
         toQuery = const mempty

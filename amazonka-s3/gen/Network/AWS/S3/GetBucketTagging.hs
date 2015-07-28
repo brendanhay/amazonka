@@ -79,7 +79,7 @@ instance ToHeaders GetBucketTagging where
 
 instance ToPath GetBucketTagging where
         toPath GetBucketTagging'{..}
-          = mconcat ["/", toText _gbtBucket]
+          = mconcat ["/", toPath _gbtBucket]
 
 instance ToQuery GetBucketTagging where
         toQuery = const (mconcat ["tagging"])

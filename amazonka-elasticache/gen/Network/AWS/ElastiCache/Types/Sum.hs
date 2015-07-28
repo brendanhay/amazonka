@@ -36,9 +36,11 @@ instance ToText AZMode where
         CrossAz -> "cross-az"
         SingleAz -> "single-az"
 
-instance Hashable AZMode
-instance ToQuery  AZMode
-instance ToHeader AZMode
+instance Hashable     AZMode
+instance ToByteString AZMode
+instance ToPath       AZMode
+instance ToQuery      AZMode
+instance ToHeader     AZMode
 
 data AutomaticFailoverStatus
     = AFSEnabling
@@ -63,9 +65,11 @@ instance ToText AutomaticFailoverStatus where
         AFSEnabled -> "enabled"
         AFSEnabling -> "enabling"
 
-instance Hashable AutomaticFailoverStatus
-instance ToQuery  AutomaticFailoverStatus
-instance ToHeader AutomaticFailoverStatus
+instance Hashable     AutomaticFailoverStatus
+instance ToByteString AutomaticFailoverStatus
+instance ToPath       AutomaticFailoverStatus
+instance ToQuery      AutomaticFailoverStatus
+instance ToHeader     AutomaticFailoverStatus
 
 instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
@@ -87,9 +91,11 @@ instance ToText PendingAutomaticFailoverStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable PendingAutomaticFailoverStatus
-instance ToQuery  PendingAutomaticFailoverStatus
-instance ToHeader PendingAutomaticFailoverStatus
+instance Hashable     PendingAutomaticFailoverStatus
+instance ToByteString PendingAutomaticFailoverStatus
+instance ToPath       PendingAutomaticFailoverStatus
+instance ToQuery      PendingAutomaticFailoverStatus
+instance ToHeader     PendingAutomaticFailoverStatus
 
 instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
@@ -117,9 +123,11 @@ instance ToText SourceType where
         CacheSecurityGroup -> "cache-security-group"
         CacheSubnetGroup -> "cache-subnet-group"
 
-instance Hashable SourceType
-instance ToQuery  SourceType
-instance ToHeader SourceType
+instance Hashable     SourceType
+instance ToByteString SourceType
+instance ToPath       SourceType
+instance ToQuery      SourceType
+instance ToHeader     SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"

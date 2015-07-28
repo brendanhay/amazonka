@@ -164,8 +164,8 @@ instance ToHeaders UploadArchive where
 instance ToPath UploadArchive where
         toPath UploadArchive'{..}
           = mconcat
-              ["/", toText _uaAccountId, "/vaults/",
-               toText _uaVaultName, "/archives"]
+              ["/", toPath _uaAccountId, "/vaults/",
+               toPath _uaVaultName, "/archives"]
 
 instance ToQuery UploadArchive where
         toQuery = const mempty

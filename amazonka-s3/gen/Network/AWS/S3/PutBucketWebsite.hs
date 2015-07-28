@@ -97,7 +97,7 @@ instance ToHeaders PutBucketWebsite where
 
 instance ToPath PutBucketWebsite where
         toPath PutBucketWebsite'{..}
-          = mconcat ["/", toText _pbwBucket]
+          = mconcat ["/", toPath _pbwBucket]
 
 instance ToQuery PutBucketWebsite where
         toQuery = const (mconcat ["website"])

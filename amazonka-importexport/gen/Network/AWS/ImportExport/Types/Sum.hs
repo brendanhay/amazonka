@@ -37,9 +37,11 @@ instance ToText JobType where
         Export -> "export"
         Import -> "import"
 
-instance Hashable JobType
-instance ToQuery  JobType
-instance ToHeader JobType
+instance Hashable     JobType
+instance ToByteString JobType
+instance ToPath       JobType
+instance ToQuery      JobType
+instance ToHeader     JobType
 
 instance FromXML JobType where
     parseXML = parseXMLText "JobType"

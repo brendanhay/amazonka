@@ -33,9 +33,11 @@ instance ToText Capability where
     toText = \case
         CapabilityIAM -> "capability_iam"
 
-instance Hashable Capability
-instance ToQuery  Capability
-instance ToHeader Capability
+instance Hashable     Capability
+instance ToByteString Capability
+instance ToPath       Capability
+instance ToQuery      Capability
+instance ToHeader     Capability
 
 instance FromXML Capability where
     parseXML = parseXMLText "Capability"
@@ -60,9 +62,11 @@ instance ToText OnFailure where
         DoNothing -> "do_nothing"
         Rollback -> "rollback"
 
-instance Hashable OnFailure
-instance ToQuery  OnFailure
-instance ToHeader OnFailure
+instance Hashable     OnFailure
+instance ToByteString OnFailure
+instance ToPath       OnFailure
+instance ToQuery      OnFailure
+instance ToHeader     OnFailure
 
 data ResourceSignalStatus
     = Success
@@ -81,9 +85,11 @@ instance ToText ResourceSignalStatus where
         Failure -> "failure"
         Success -> "success"
 
-instance Hashable ResourceSignalStatus
-instance ToQuery  ResourceSignalStatus
-instance ToHeader ResourceSignalStatus
+instance Hashable     ResourceSignalStatus
+instance ToByteString ResourceSignalStatus
+instance ToPath       ResourceSignalStatus
+instance ToQuery      ResourceSignalStatus
+instance ToHeader     ResourceSignalStatus
 
 data ResourceStatus
     = CreateFailed
@@ -126,9 +132,11 @@ instance ToText ResourceStatus where
         UpdateFailed -> "update_failed"
         UpdateInProgress -> "update_in_progress"
 
-instance Hashable ResourceStatus
-instance ToQuery  ResourceStatus
-instance ToHeader ResourceStatus
+instance Hashable     ResourceStatus
+instance ToByteString ResourceStatus
+instance ToPath       ResourceStatus
+instance ToQuery      ResourceStatus
+instance ToHeader     ResourceStatus
 
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
@@ -192,9 +200,11 @@ instance ToText StackStatus where
         SSUpdateRollbackFailed -> "update_rollback_failed"
         SSUpdateRollbackInProgress -> "update_rollback_in_progress"
 
-instance Hashable StackStatus
-instance ToQuery  StackStatus
-instance ToHeader StackStatus
+instance Hashable     StackStatus
+instance ToByteString StackStatus
+instance ToPath       StackStatus
+instance ToQuery      StackStatus
+instance ToHeader     StackStatus
 
 instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"

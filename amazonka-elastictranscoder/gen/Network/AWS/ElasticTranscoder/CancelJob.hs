@@ -85,7 +85,7 @@ instance ToHeaders CancelJob where
 
 instance ToPath CancelJob where
         toPath CancelJob'{..}
-          = mconcat ["/2012-09-25/jobs/", toText _cjId]
+          = mconcat ["/2012-09-25/jobs/", toPath _cjId]
 
 instance ToQuery CancelJob where
         toQuery = const mempty

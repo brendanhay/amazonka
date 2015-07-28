@@ -69,9 +69,11 @@ instance ToText QueueAttributeName where
         RedrivePolicy -> "redrivepolicy"
         VisibilityTimeout -> "visibilitytimeout"
 
-instance Hashable QueueAttributeName
-instance ToQuery  QueueAttributeName
-instance ToHeader QueueAttributeName
+instance Hashable     QueueAttributeName
+instance ToByteString QueueAttributeName
+instance ToPath       QueueAttributeName
+instance ToQuery      QueueAttributeName
+instance ToHeader     QueueAttributeName
 
 instance FromXML QueueAttributeName where
     parseXML = parseXMLText "QueueAttributeName"

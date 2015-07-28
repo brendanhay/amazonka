@@ -40,9 +40,11 @@ instance ToText ChangeAction where
         Delete -> "delete"
         Upsert -> "upsert"
 
-instance Hashable ChangeAction
-instance ToQuery  ChangeAction
-instance ToHeader ChangeAction
+instance Hashable     ChangeAction
+instance ToByteString ChangeAction
+instance ToPath       ChangeAction
+instance ToQuery      ChangeAction
+instance ToHeader     ChangeAction
 
 instance ToXML ChangeAction where
     toXML = toXMLText
@@ -64,9 +66,11 @@ instance ToText ChangeStatus where
         Insync -> "insync"
         Pending -> "pending"
 
-instance Hashable ChangeStatus
-instance ToQuery  ChangeStatus
-instance ToHeader ChangeStatus
+instance Hashable     ChangeStatus
+instance ToByteString ChangeStatus
+instance ToPath       ChangeStatus
+instance ToQuery      ChangeStatus
+instance ToHeader     ChangeStatus
 
 instance FromXML ChangeStatus where
     parseXML = parseXMLText "ChangeStatus"
@@ -88,9 +92,11 @@ instance ToText Failover where
         Primary -> "primary"
         Secondary -> "secondary"
 
-instance Hashable Failover
-instance ToQuery  Failover
-instance ToHeader Failover
+instance Hashable     Failover
+instance ToByteString Failover
+instance ToPath       Failover
+instance ToQuery      Failover
+instance ToHeader     Failover
 
 instance FromXML Failover where
     parseXML = parseXMLText "Failover"
@@ -124,9 +130,11 @@ instance ToText HealthCheckType where
         HTTPStrMatch -> "http_str_match"
         TCP -> "tcp"
 
-instance Hashable HealthCheckType
-instance ToQuery  HealthCheckType
-instance ToHeader HealthCheckType
+instance Hashable     HealthCheckType
+instance ToByteString HealthCheckType
+instance ToPath       HealthCheckType
+instance ToQuery      HealthCheckType
+instance ToHeader     HealthCheckType
 
 instance FromXML HealthCheckType where
     parseXML = parseXMLText "HealthCheckType"
@@ -175,9 +183,11 @@ instance ToText RecordType where
         Srv -> "srv"
         Txt -> "txt"
 
-instance Hashable RecordType
-instance ToQuery  RecordType
-instance ToHeader RecordType
+instance Hashable     RecordType
+instance ToByteString RecordType
+instance ToPath       RecordType
+instance ToQuery      RecordType
+instance ToHeader     RecordType
 
 instance FromXML RecordType where
     parseXML = parseXMLText "RecordType"
@@ -202,9 +212,11 @@ instance ToText TagResourceType where
         Healthcheck -> "healthcheck"
         Hostedzone -> "hostedzone"
 
-instance Hashable TagResourceType
-instance ToQuery  TagResourceType
-instance ToHeader TagResourceType
+instance Hashable     TagResourceType
+instance ToByteString TagResourceType
+instance ToPath       TagResourceType
+instance ToQuery      TagResourceType
+instance ToHeader     TagResourceType
 
 instance FromXML TagResourceType where
     parseXML = parseXMLText "TagResourceType"
@@ -253,9 +265,11 @@ instance ToText VPCRegion where
         UsWest1 -> "us-west-1"
         UsWest2 -> "us-west-2"
 
-instance Hashable VPCRegion
-instance ToQuery  VPCRegion
-instance ToHeader VPCRegion
+instance Hashable     VPCRegion
+instance ToByteString VPCRegion
+instance ToPath       VPCRegion
+instance ToQuery      VPCRegion
+instance ToHeader     VPCRegion
 
 instance FromXML VPCRegion where
     parseXML = parseXMLText "VPCRegion"

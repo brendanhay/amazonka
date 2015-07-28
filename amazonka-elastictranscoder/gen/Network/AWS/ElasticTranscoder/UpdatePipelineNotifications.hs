@@ -120,7 +120,7 @@ instance ToJSON UpdatePipelineNotifications where
 instance ToPath UpdatePipelineNotifications where
         toPath UpdatePipelineNotifications'{..}
           = mconcat
-              ["/2012-09-25/pipelines/", toText _upnId,
+              ["/2012-09-25/pipelines/", toPath _upnId,
                "/notifications"]
 
 instance ToQuery UpdatePipelineNotifications where

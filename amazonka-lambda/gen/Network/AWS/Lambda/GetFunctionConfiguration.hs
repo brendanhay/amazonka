@@ -99,7 +99,7 @@ instance ToHeaders GetFunctionConfiguration where
 instance ToPath GetFunctionConfiguration where
         toPath GetFunctionConfiguration'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _gfcFunctionName,
+              ["/2015-03-31/functions/", toPath _gfcFunctionName,
                "/versions/HEAD/configuration"]
 
 instance ToQuery GetFunctionConfiguration where

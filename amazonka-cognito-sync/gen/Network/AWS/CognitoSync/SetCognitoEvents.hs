@@ -100,7 +100,7 @@ instance ToJSON SetCognitoEvents where
 instance ToPath SetCognitoEvents where
         toPath SetCognitoEvents'{..}
           = mconcat
-              ["/identitypools/", toText _sceIdentityPoolId,
+              ["/identitypools/", toPath _sceIdentityPoolId,
                "/events"]
 
 instance ToQuery SetCognitoEvents where

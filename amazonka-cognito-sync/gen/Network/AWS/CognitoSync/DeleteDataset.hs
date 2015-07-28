@@ -114,9 +114,9 @@ instance ToHeaders DeleteDataset where
 instance ToPath DeleteDataset where
         toPath DeleteDataset'{..}
           = mconcat
-              ["/identitypools/", toText _delIdentityPoolId,
-               "/identities/", toText _delIdentityId, "/datasets/",
-               toText _delDatasetName]
+              ["/identitypools/", toPath _delIdentityPoolId,
+               "/identities/", toPath _delIdentityId, "/datasets/",
+               toPath _delDatasetName]
 
 instance ToQuery DeleteDataset where
         toQuery = const mempty

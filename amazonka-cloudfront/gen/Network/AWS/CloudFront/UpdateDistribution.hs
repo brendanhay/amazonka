@@ -111,7 +111,7 @@ instance ToHeaders UpdateDistribution where
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2015-04-17/distribution/", toText _udId,
+              ["/2015-04-17/distribution/", toPath _udId,
                "/config"]
 
 instance ToQuery UpdateDistribution where

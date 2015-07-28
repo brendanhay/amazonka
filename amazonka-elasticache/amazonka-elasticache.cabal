@@ -107,7 +107,7 @@ test-suite amazonka-elasticache-test
 
     build-depends:
           amazonka-core == 1.0.0
-        , amazonka-test
+        , amazonka-test == 1.0.0
         , amazonka-elasticache == 1.0.0
         , base
         , bytestring

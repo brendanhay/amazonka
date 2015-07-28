@@ -111,7 +111,7 @@ instance ToHeaders PutBucketVersioning where
 
 instance ToPath PutBucketVersioning where
         toPath PutBucketVersioning'{..}
-          = mconcat ["/", toText _pbvBucket]
+          = mconcat ["/", toPath _pbvBucket]
 
 instance ToQuery PutBucketVersioning where
         toQuery = const (mconcat ["versioning"])

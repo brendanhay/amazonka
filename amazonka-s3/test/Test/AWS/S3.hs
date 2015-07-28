@@ -29,7 +29,16 @@ tests =
 
 fixtures :: [TestTree]
 fixtures =
-    [ testGroup "response"
+    [ testGroup "reqest"
+        [ testDeleteObjects $
+            deleteObjects "bucketname" $
+                delete' & dObjects .~
+                    [ objectIdentifier "sample1.text"
+                    , objectIdentifier "sample2.text"
+                    ]
+        ]
+
+    , testGroup "response"
         [ testGetBucketReplicationResponse $
             getBucketReplicationResponse 200
                 & gbrrsReplicationConfiguration ?~

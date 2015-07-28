@@ -1,0 +1,12 @@
+---
+method: POST
+path:   /bucketname
+query:  ?delete
+headers:
+  Host: s3.amazonaws.com
+  Authorization: AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=bcd6243fe30f3c16f5a7889d57b5a7e28bf27a9a985d6144f5f3a02a522b9728
+  Content-MD5: 3f774192403fc435496814f3f2562396
+  X-Amz-Content-SHA256: 814ce0b4a1759cc16123c1af18191b943c66e65a13b92c2f62bf15d0f51c80ea
+  X-Amz-Date: 20091028T223200UTC
+body: <?xml version="1.0" encoding="UTF-8"?><Delete xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Quiet xmlns=""/><Object xmlns=""><VersionId/><Key>sample1.text</Key></Object><Object xmlns=""><VersionId/><Key>sample2.text</Key></Object></Delete>
+

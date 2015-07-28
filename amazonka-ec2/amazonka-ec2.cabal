@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               0.3.6
+version:               0.3.6.1
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

@@ -284,10 +284,10 @@ type Response a = Either Error (Status, Rs a)
 -- | An unsigned request.
 data Request a = Request
     { _rqMethod    :: !StdMethod
-    , _rqPath      :: ByteString
-    , _rqQuery     :: QueryString
-    , _rqHeaders   :: [Header]
-    , _rqBody      :: RqBody
+    , _rqPath      :: !ByteString
+    , _rqQuery     :: !QueryString
+    , _rqHeaders   :: ![Header]
+    , _rqBody      :: !RqBody
     }
 
 instance ToBuilder (Request a) where

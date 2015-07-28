@@ -83,11 +83,14 @@ postJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
 postJSON x = putJSON x & rqMethod .~ POST
 
 postQuery :: (ToQuery a, ToPath a, ToHeaders a) => a -> Request a
-postQuery x = defaultRequest x
-    & rqMethod  .~ POST
-    & rqBody    .~ toBody (toQuery x)
-    & rqHeaders %~ hdr HTTP.hContentType "application/x-www-form-urlencoded"
-    & contentSHA256
+postQuery x = Request
+    { _rqMethod  = POST
+    , _rqPath    = Text.encodeUtf8 (toPath x)
+    , _rqQuery   = mempty
+    , _rqBody    = toBody (toQuery x)
+    , _rqHeaders = hdr HTTP.hContentType "application/x-www-form-urlencoded"
+        (toHeaders x)
+    } & contentSHA256
 
 postBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
 postBody x = putBody x & rqMethod .~ POST
@@ -166,4 +169,3 @@ requestURL = toBS . uri
         80  -> ""
         443 -> ""
         n   -> build ':' <> build n
-

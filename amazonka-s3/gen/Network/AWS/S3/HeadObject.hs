@@ -60,6 +60,7 @@ module Network.AWS.S3.HeadObject
     , horsMissingMeta
     , horsWebsiteRedirectLocation
     , horsAcceptRanges
+    , horsStorageClass
     , horsContentEncoding
     , horsSSEKMSKeyId
     , horsSSECustomerKeyMD5
@@ -149,7 +150,7 @@ hoVersionId :: Lens' HeadObject (Maybe ObjectVersionId)
 hoVersionId = lens _hoVersionId (\ s a -> s{_hoVersionId = a});
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- AES256).
 hoSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
 hoSSECustomerAlgorithm = lens _hoSSECustomerAlgorithm (\ s a -> s{_hoSSECustomerAlgorithm = a});
 
@@ -221,6 +222,7 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "x-amz-missing-meta")
                      <*> (h .#? "x-amz-website-redirect-location")
                      <*> (h .#? "accept-ranges")
+                     <*> (h .#? "x-amz-storage-class")
                      <*> (h .#? "Content-Encoding")
                      <*>
                      (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
@@ -289,6 +291,8 @@ instance ToQuery HeadObject where
 --
 -- * 'horsAcceptRanges'
 --
+-- * 'horsStorageClass'
+--
 -- * 'horsContentEncoding'
 --
 -- * 'horsSSEKMSKeyId'
@@ -325,6 +329,7 @@ data HeadObjectResponse = HeadObjectResponse'
     , _horsMissingMeta             :: !(Maybe Int)
     , _horsWebsiteRedirectLocation :: !(Maybe Text)
     , _horsAcceptRanges            :: !(Maybe Text)
+    , _horsStorageClass            :: !(Maybe StorageClass)
     , _horsContentEncoding         :: !(Maybe Text)
     , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
     , _horsSSECustomerKeyMD5       :: !(Maybe Text)
@@ -355,6 +360,7 @@ headObjectResponse pStatus_ =
     , _horsMissingMeta = Nothing
     , _horsWebsiteRedirectLocation = Nothing
     , _horsAcceptRanges = Nothing
+    , _horsStorageClass = Nothing
     , _horsContentEncoding = Nothing
     , _horsSSEKMSKeyId = Nothing
     , _horsSSECustomerKeyMD5 = Nothing
@@ -431,6 +437,10 @@ horsWebsiteRedirectLocation = lens _horsWebsiteRedirectLocation (\ s a -> s{_hor
 -- | FIXME: Undocumented member.
 horsAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
 horsAcceptRanges = lens _horsAcceptRanges (\ s a -> s{_horsAcceptRanges = a});
+
+-- | FIXME: Undocumented member.
+horsStorageClass :: Lens' HeadObjectResponse (Maybe StorageClass)
+horsStorageClass = lens _horsStorageClass (\ s a -> s{_horsStorageClass = a});
 
 -- | Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type

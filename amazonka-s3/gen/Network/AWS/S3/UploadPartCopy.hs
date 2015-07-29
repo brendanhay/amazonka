@@ -168,7 +168,7 @@ upcCopySourceSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceSSECustomerKeyMD5 = lens _upcCopySourceSSECustomerKeyMD5 (\ s a -> s{_upcCopySourceSSECustomerKeyMD5 = a});
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- AES256).
 upcSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
 upcSSECustomerAlgorithm = lens _upcSSECustomerAlgorithm (\ s a -> s{_upcSSECustomerAlgorithm = a});
 
@@ -225,7 +225,8 @@ upcCopySource = lens _upcCopySource (\ s a -> s{_upcCopySource = a});
 upcKey :: Lens' UploadPartCopy ObjectKey
 upcKey = lens _upcKey (\ s a -> s{_upcKey = a});
 
--- | Part number of part being copied.
+-- | Part number of part being copied. This is a positive integer between 1
+-- and 10,000.
 upcPartNumber :: Lens' UploadPartCopy Int
 upcPartNumber = lens _upcPartNumber (\ s a -> s{_upcPartNumber = a});
 

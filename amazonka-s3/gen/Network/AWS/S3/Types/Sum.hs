@@ -148,28 +148,40 @@ instance ToXML EncodingType where
 -- | Bucket event for which to send notifications.
 data Event
     = S3ObjectCreatedPut
+    | S3ObjectRemovedDeleteMarkerCreated
     | S3ReducedRedundancyLostObject
+    | S3ObjectRemoved
+    | S3ObjectCreated
     | S3ObjectCreatedPost
     | S3ObjectCreatedCopy
+    | S3ObjectRemovedDelete
     | S3ObjectCreatedCompleteMultipartUpload
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Event where
     parser = takeLowerText >>= \case
+        "s3:objectcreated:*" -> pure S3ObjectCreated
         "s3:objectcreated:completemultipartupload" -> pure S3ObjectCreatedCompleteMultipartUpload
         "s3:objectcreated:copy" -> pure S3ObjectCreatedCopy
         "s3:objectcreated:post" -> pure S3ObjectCreatedPost
         "s3:objectcreated:put" -> pure S3ObjectCreatedPut
+        "s3:objectremoved:*" -> pure S3ObjectRemoved
+        "s3:objectremoved:delete" -> pure S3ObjectRemovedDelete
+        "s3:objectremoved:deletemarkercreated" -> pure S3ObjectRemovedDeleteMarkerCreated
         "s3:reducedredundancylostobject" -> pure S3ReducedRedundancyLostObject
         e -> fromTextError $ "Failure parsing Event from value: '" <> e
-           <> "'. Accepted values: s3:objectcreated:completemultipartupload, s3:objectcreated:copy, s3:objectcreated:post, s3:objectcreated:put, s3:reducedredundancylostobject"
+           <> "'. Accepted values: s3:objectcreated:*, s3:objectcreated:completemultipartupload, s3:objectcreated:copy, s3:objectcreated:post, s3:objectcreated:put, s3:objectremoved:*, s3:objectremoved:delete, s3:objectremoved:deletemarkercreated, s3:reducedredundancylostobject"
 
 instance ToText Event where
     toText = \case
+        S3ObjectCreated -> "s3:objectcreated:*"
         S3ObjectCreatedCompleteMultipartUpload -> "s3:objectcreated:completemultipartupload"
         S3ObjectCreatedCopy -> "s3:objectcreated:copy"
         S3ObjectCreatedPost -> "s3:objectcreated:post"
         S3ObjectCreatedPut -> "s3:objectcreated:put"
+        S3ObjectRemoved -> "s3:objectremoved:*"
+        S3ObjectRemovedDelete -> "s3:objectremoved:delete"
+        S3ObjectRemovedDeleteMarkerCreated -> "s3:objectremoved:deletemarkercreated"
         S3ReducedRedundancyLostObject -> "s3:reducedredundancylostobject"
 
 instance Hashable     Event
@@ -591,19 +603,22 @@ instance ToHeader     RequestPayer
 instance ToXML RequestPayer where
     toXML = toXMLText
 
-data ServerSideEncryption =
-    AES256
+data ServerSideEncryption
+    = AES256
+    | AWSKMS
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ServerSideEncryption where
     parser = takeLowerText >>= \case
         "aes256" -> pure AES256
+        "aws:kms" -> pure AWSKMS
         e -> fromTextError $ "Failure parsing ServerSideEncryption from value: '" <> e
-           <> "'. Accepted values: aes256"
+           <> "'. Accepted values: aes256, aws:kms"
 
 instance ToText ServerSideEncryption where
     toText = \case
         AES256 -> "aes256"
+        AWSKMS -> "aws:kms"
 
 instance Hashable     ServerSideEncryption
 instance ToByteString ServerSideEncryption
@@ -619,18 +634,21 @@ instance ToXML ServerSideEncryption where
 
 data StorageClass
     = Standard
+    | LT'
     | ReducedRedundancy
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
+        "lt" -> pure LT'
         "reduced_redundancy" -> pure ReducedRedundancy
         "standard" -> pure Standard
         e -> fromTextError $ "Failure parsing StorageClass from value: '" <> e
-           <> "'. Accepted values: reduced_redundancy, standard"
+           <> "'. Accepted values: lt, reduced_redundancy, standard"
 
 instance ToText StorageClass where
     toText = \case
+        LT' -> "lt"
         ReducedRedundancy -> "reduced_redundancy"
         Standard -> "standard"
 

@@ -240,7 +240,7 @@ coExpires :: Lens' CopyObject (Maybe UTCTime)
 coExpires = lens _coExpires (\ s a -> s{_coExpires = a}) . mapping _Time;
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- AES256).
 coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 coSSECustomerAlgorithm = lens _coSSECustomerAlgorithm (\ s a -> s{_coSSECustomerAlgorithm = a});
 

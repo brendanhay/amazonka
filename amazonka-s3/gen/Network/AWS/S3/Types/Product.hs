@@ -284,7 +284,8 @@ completedPart pPartNumber_ pETag_ =
     , _cpETag = pETag_
     }
 
--- | Part number that identifies the part.
+-- | Part number that identifies the part. This is a positive integer between
+-- 1 and 10,000.
 cpPartNumber :: Lens' CompletedPart Int
 cpPartNumber = lens _cpPartNumber (\ s a -> s{_cpPartNumber = a});
 
@@ -1464,7 +1465,8 @@ pETag = lens _pETag (\ s a -> s{_pETag = a});
 pSize :: Lens' Part (Maybe Int)
 pSize = lens _pSize (\ s a -> s{_pSize = a});
 
--- | Part number identifying the part.
+-- | Part number identifying the part. This is a positive integer between 1
+-- and 10,000.
 pPartNumber :: Lens' Part (Maybe Int)
 pPartNumber = lens _pPartNumber (\ s a -> s{_pPartNumber = a});
 

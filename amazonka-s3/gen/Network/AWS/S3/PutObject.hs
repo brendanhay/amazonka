@@ -196,7 +196,7 @@ poExpires :: Lens' PutObject (Maybe UTCTime)
 poExpires = lens _poExpires (\ s a -> s{_poExpires = a}) . mapping _Time;
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- AES256).
 poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
 poSSECustomerAlgorithm = lens _poSSECustomerAlgorithm (\ s a -> s{_poSSECustomerAlgorithm = a});
 

@@ -63,6 +63,7 @@ module Network.AWS.S3.GetObject
     , gorsMissingMeta
     , gorsWebsiteRedirectLocation
     , gorsAcceptRanges
+    , gorsStorageClass
     , gorsContentEncoding
     , gorsSSEKMSKeyId
     , gorsSSECustomerKeyMD5
@@ -72,6 +73,7 @@ module Network.AWS.S3.GetObject
     , gorsContentLanguage
     , gorsLastModified
     , gorsContentDisposition
+    , gorsContentRange
     , gorsServerSideEncryption
     , gorsContentType
     , gorsStatus
@@ -189,7 +191,7 @@ goResponseContentLanguage :: Lens' GetObject (Maybe Text)
 goResponseContentLanguage = lens _goResponseContentLanguage (\ s a -> s{_goResponseContentLanguage = a});
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- AES256).
 goSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
 goSSECustomerAlgorithm = lens _goSSECustomerAlgorithm (\ s a -> s{_goSSECustomerAlgorithm = a});
 
@@ -273,6 +275,7 @@ instance AWSRequest GetObject where
                      <*> (h .#? "x-amz-missing-meta")
                      <*> (h .#? "x-amz-website-redirect-location")
                      <*> (h .#? "accept-ranges")
+                     <*> (h .#? "x-amz-storage-class")
                      <*> (h .#? "Content-Encoding")
                      <*>
                      (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
@@ -285,6 +288,7 @@ instance AWSRequest GetObject where
                      <*> (h .#? "Content-Language")
                      <*> (h .#? "Last-Modified")
                      <*> (h .#? "Content-Disposition")
+                     <*> (h .#? "Content-Range")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (h .#? "Content-Type")
                      <*> (pure (fromEnum s))
@@ -352,6 +356,8 @@ instance ToQuery GetObject where
 --
 -- * 'gorsAcceptRanges'
 --
+-- * 'gorsStorageClass'
+--
 -- * 'gorsContentEncoding'
 --
 -- * 'gorsSSEKMSKeyId'
@@ -369,6 +375,8 @@ instance ToQuery GetObject where
 -- * 'gorsLastModified'
 --
 -- * 'gorsContentDisposition'
+--
+-- * 'gorsContentRange'
 --
 -- * 'gorsServerSideEncryption'
 --
@@ -390,6 +398,7 @@ data GetObjectResponse = GetObjectResponse'
     , _gorsMissingMeta             :: !(Maybe Int)
     , _gorsWebsiteRedirectLocation :: !(Maybe Text)
     , _gorsAcceptRanges            :: !(Maybe Text)
+    , _gorsStorageClass            :: !(Maybe StorageClass)
     , _gorsContentEncoding         :: !(Maybe Text)
     , _gorsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
     , _gorsSSECustomerKeyMD5       :: !(Maybe Text)
@@ -399,6 +408,7 @@ data GetObjectResponse = GetObjectResponse'
     , _gorsContentLanguage         :: !(Maybe Text)
     , _gorsLastModified            :: !(Maybe RFC822)
     , _gorsContentDisposition      :: !(Maybe Text)
+    , _gorsContentRange            :: !(Maybe Text)
     , _gorsServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _gorsContentType             :: !(Maybe Text)
     , _gorsStatus                  :: !Int
@@ -421,6 +431,7 @@ getObjectResponse pStatus_ pBody_ =
     , _gorsMissingMeta = Nothing
     , _gorsWebsiteRedirectLocation = Nothing
     , _gorsAcceptRanges = Nothing
+    , _gorsStorageClass = Nothing
     , _gorsContentEncoding = Nothing
     , _gorsSSEKMSKeyId = Nothing
     , _gorsSSECustomerKeyMD5 = Nothing
@@ -430,6 +441,7 @@ getObjectResponse pStatus_ pBody_ =
     , _gorsContentLanguage = Nothing
     , _gorsLastModified = Nothing
     , _gorsContentDisposition = Nothing
+    , _gorsContentRange = Nothing
     , _gorsServerSideEncryption = Nothing
     , _gorsContentType = Nothing
     , _gorsStatus = pStatus_
@@ -499,6 +511,10 @@ gorsWebsiteRedirectLocation = lens _gorsWebsiteRedirectLocation (\ s a -> s{_gor
 gorsAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
 gorsAcceptRanges = lens _gorsAcceptRanges (\ s a -> s{_gorsAcceptRanges = a});
 
+-- | FIXME: Undocumented member.
+gorsStorageClass :: Lens' GetObjectResponse (Maybe StorageClass)
+gorsStorageClass = lens _gorsStorageClass (\ s a -> s{_gorsStorageClass = a});
+
 -- | Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
@@ -539,6 +555,10 @@ gorsLastModified = lens _gorsLastModified (\ s a -> s{_gorsLastModified = a}) . 
 -- | Specifies presentational information for the object.
 gorsContentDisposition :: Lens' GetObjectResponse (Maybe Text)
 gorsContentDisposition = lens _gorsContentDisposition (\ s a -> s{_gorsContentDisposition = a});
+
+-- | The portion of the object returned in the response.
+gorsContentRange :: Lens' GetObjectResponse (Maybe Text)
+gorsContentRange = lens _gorsContentRange (\ s a -> s{_gorsContentRange = a});
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).

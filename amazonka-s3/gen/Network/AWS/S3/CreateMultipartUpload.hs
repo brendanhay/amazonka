@@ -182,7 +182,7 @@ cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
 cmuExpires = lens _cmuExpires (\ s a -> s{_cmuExpires = a}) . mapping _Time;
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- AES256).
 cmuSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerAlgorithm = lens _cmuSSECustomerAlgorithm (\ s a -> s{_cmuSSECustomerAlgorithm = a});
 

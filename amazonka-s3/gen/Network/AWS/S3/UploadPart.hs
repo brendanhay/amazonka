@@ -126,7 +126,7 @@ upContentLength :: Lens' UploadPart (Maybe Int)
 upContentLength = lens _upContentLength (\ s a -> s{_upContentLength = a});
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- AES256).
 upSSECustomerAlgorithm :: Lens' UploadPart (Maybe Text)
 upSSECustomerAlgorithm = lens _upSSECustomerAlgorithm (\ s a -> s{_upSSECustomerAlgorithm = a});
 
@@ -162,7 +162,8 @@ upBucket = lens _upBucket (\ s a -> s{_upBucket = a});
 upKey :: Lens' UploadPart ObjectKey
 upKey = lens _upKey (\ s a -> s{_upKey = a});
 
--- | Part number of part being uploaded.
+-- | Part number of part being uploaded. This is a positive integer between 1
+-- and 10,000.
 upPartNumber :: Lens' UploadPart Int
 upPartNumber = lens _upPartNumber (\ s a -> s{_upPartNumber = a});
 

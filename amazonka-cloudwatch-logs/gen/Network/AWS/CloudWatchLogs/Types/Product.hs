@@ -21,6 +21,77 @@ module Network.AWS.CloudWatchLogs.Types.Product where
 import           Network.AWS.CloudWatchLogs.Types.Sum
 import           Network.AWS.Prelude
 
+-- | /See:/ 'destination' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dTargetARN'
+--
+-- * 'dCreationTime'
+--
+-- * 'dArn'
+--
+-- * 'dAccessPolicy'
+--
+-- * 'dDestinationName'
+--
+-- * 'dRoleARN'
+data Destination = Destination'
+    { _dTargetARN       :: !(Maybe Text)
+    , _dCreationTime    :: !(Maybe Nat)
+    , _dArn             :: !(Maybe Text)
+    , _dAccessPolicy    :: !(Maybe Text)
+    , _dDestinationName :: !(Maybe Text)
+    , _dRoleARN         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'Destination' smart constructor.
+destination :: Destination
+destination =
+    Destination'
+    { _dTargetARN = Nothing
+    , _dCreationTime = Nothing
+    , _dArn = Nothing
+    , _dAccessPolicy = Nothing
+    , _dDestinationName = Nothing
+    , _dRoleARN = Nothing
+    }
+
+-- | FIXME: Undocumented member.
+dTargetARN :: Lens' Destination (Maybe Text)
+dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
+
+-- | FIXME: Undocumented member.
+dCreationTime :: Lens' Destination (Maybe Natural)
+dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
+
+-- | FIXME: Undocumented member.
+dArn :: Lens' Destination (Maybe Text)
+dArn = lens _dArn (\ s a -> s{_dArn = a});
+
+-- | FIXME: Undocumented member.
+dAccessPolicy :: Lens' Destination (Maybe Text)
+dAccessPolicy = lens _dAccessPolicy (\ s a -> s{_dAccessPolicy = a});
+
+-- | FIXME: Undocumented member.
+dDestinationName :: Lens' Destination (Maybe Text)
+dDestinationName = lens _dDestinationName (\ s a -> s{_dDestinationName = a});
+
+-- | FIXME: Undocumented member.
+dRoleARN :: Lens' Destination (Maybe Text)
+dRoleARN = lens _dRoleARN (\ s a -> s{_dRoleARN = a});
+
+instance FromJSON Destination where
+        parseJSON
+          = withObject "Destination"
+              (\ x ->
+                 Destination' <$>
+                   (x .:? "targetArn") <*> (x .:? "creationTime") <*>
+                     (x .:? "arn")
+                     <*> (x .:? "accessPolicy")
+                     <*> (x .:? "destinationName")
+                     <*> (x .:? "roleArn"))
+
 -- | Represents a matched event from a @FilterLogEvents@ request.
 --
 -- /See:/ 'filteredLogEvent' smart constructor.

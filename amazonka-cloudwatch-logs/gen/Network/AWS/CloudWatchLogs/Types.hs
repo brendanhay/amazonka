@@ -29,6 +29,16 @@ module Network.AWS.CloudWatchLogs.Types
     -- * OrderBy
     , OrderBy (..)
 
+    -- * Destination
+    , Destination
+    , destination
+    , dTargetARN
+    , dCreationTime
+    , dArn
+    , dAccessPolicy
+    , dDestinationName
+    , dRoleARN
+
     -- * FilteredLogEvent
     , FilteredLogEvent
     , filteredLogEvent

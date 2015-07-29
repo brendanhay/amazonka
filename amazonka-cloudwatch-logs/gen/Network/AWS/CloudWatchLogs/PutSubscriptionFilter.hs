@@ -20,9 +20,13 @@
 -- Creates or updates a subscription filter and associates it with the
 -- specified log group. Subscription filters allow you to subscribe to a
 -- real-time stream of log events ingested through @PutLogEvents@ requests
--- and have them delivered to a specific destination. Currently the only
--- supported destination is an Amazon Kinesis stream belonging to the same
--- account as the subscription filter.
+-- and have them delivered to a specific destination. Currently, the
+-- supported destinations are:
+--
+-- -   A Amazon Kinesis stream belonging to the same account as the
+--     subscription filter, for same-account delivery.
+-- -   A logical destination (used via an ARN of @Destination@) belonging
+--     to a different account, for cross-account delivery.
 --
 -- Currently there can only be one subscription filter associated with a
 -- log group.
@@ -35,11 +39,11 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     -- ** Request constructor
     , putSubscriptionFilter
     -- ** Request lenses
+    , psfRoleARN
     , psfLogGroupName
     , psfFilterName
     , psfFilterPattern
     , psfDestinationARN
-    , psfRoleARN
 
     -- * Response
     , PutSubscriptionFilterResponse
@@ -56,6 +60,8 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'psfRoleARN'
+--
 -- * 'psfLogGroupName'
 --
 -- * 'psfFilterName'
@@ -63,26 +69,31 @@ import           Network.AWS.Response
 -- * 'psfFilterPattern'
 --
 -- * 'psfDestinationARN'
---
--- * 'psfRoleARN'
 data PutSubscriptionFilter = PutSubscriptionFilter'
-    { _psfLogGroupName   :: !Text
+    { _psfRoleARN        :: !(Maybe Text)
+    , _psfLogGroupName   :: !Text
     , _psfFilterName     :: !Text
     , _psfFilterPattern  :: !Text
     , _psfDestinationARN :: !Text
-    , _psfRoleARN        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutSubscriptionFilter' smart constructor.
-putSubscriptionFilter :: Text -> Text -> Text -> Text -> Text -> PutSubscriptionFilter
-putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ pRoleARN_ =
+putSubscriptionFilter :: Text -> Text -> Text -> Text -> PutSubscriptionFilter
+putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ =
     PutSubscriptionFilter'
-    { _psfLogGroupName = pLogGroupName_
+    { _psfRoleARN = Nothing
+    , _psfLogGroupName = pLogGroupName_
     , _psfFilterName = pFilterName_
     , _psfFilterPattern = pFilterPattern_
     , _psfDestinationARN = pDestinationARN_
-    , _psfRoleARN = pRoleARN_
     }
+
+-- | The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to
+-- deliver ingested log events to the destination stream. You don\'t need
+-- to provide the ARN when you are working with a logical destination (used
+-- via an ARN of @Destination@) for cross-account delivery.
+psfRoleARN :: Lens' PutSubscriptionFilter (Maybe Text)
+psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a});
 
 -- | The name of the log group to associate the subscription filter with.
 psfLogGroupName :: Lens' PutSubscriptionFilter Text
@@ -97,14 +108,15 @@ psfFilterName = lens _psfFilterName (\ s a -> s{_psfFilterName = a});
 psfFilterPattern :: Lens' PutSubscriptionFilter Text
 psfFilterPattern = lens _psfFilterPattern (\ s a -> s{_psfFilterPattern = a});
 
--- | The ARN of an Amazon Kinesis stream to deliver matching log events to.
+-- | The ARN of the destination to deliver matching log events to. Currently,
+-- the supported destinations are:
+--
+-- -   A Amazon Kinesis stream belonging to the same account as the
+--     subscription filter, for same-account delivery.
+-- -   A logical destination (used via an ARN of @Destination@) belonging
+--     to a different account, for cross-account delivery.
 psfDestinationARN :: Lens' PutSubscriptionFilter Text
 psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a});
-
--- | The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to
--- do Amazon Kinesis PutRecord requests on the desitnation stream.
-psfRoleARN :: Lens' PutSubscriptionFilter Text
-psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a});
 
 instance AWSRequest PutSubscriptionFilter where
         type Sv PutSubscriptionFilter = CloudWatchLogs
@@ -126,11 +138,11 @@ instance ToHeaders PutSubscriptionFilter where
 instance ToJSON PutSubscriptionFilter where
         toJSON PutSubscriptionFilter'{..}
           = object
-              ["logGroupName" .= _psfLogGroupName,
+              ["roleArn" .= _psfRoleARN,
+               "logGroupName" .= _psfLogGroupName,
                "filterName" .= _psfFilterName,
                "filterPattern" .= _psfFilterPattern,
-               "destinationArn" .= _psfDestinationARN,
-               "roleArn" .= _psfRoleARN]
+               "destinationArn" .= _psfDestinationARN]
 
 instance ToPath PutSubscriptionFilter where
         toPath = const "/"

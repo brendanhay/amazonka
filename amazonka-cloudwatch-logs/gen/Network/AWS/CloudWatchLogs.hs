@@ -57,17 +57,21 @@ module Network.AWS.CloudWatchLogs
 
 import           Network.AWS.CloudWatchLogs.CreateLogGroup              as Export
 import           Network.AWS.CloudWatchLogs.CreateLogStream             as Export
+import           Network.AWS.CloudWatchLogs.DeleteDestination           as Export
 import           Network.AWS.CloudWatchLogs.DeleteLogGroup              as Export
 import           Network.AWS.CloudWatchLogs.DeleteLogStream             as Export
 import           Network.AWS.CloudWatchLogs.DeleteMetricFilter          as Export
 import           Network.AWS.CloudWatchLogs.DeleteRetentionPolicy       as Export
 import           Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter    as Export
+import           Network.AWS.CloudWatchLogs.DescribeDestinations        as Export
 import           Network.AWS.CloudWatchLogs.DescribeLogGroups           as Export
 import           Network.AWS.CloudWatchLogs.DescribeLogStreams          as Export
 import           Network.AWS.CloudWatchLogs.DescribeMetricFilters       as Export
 import           Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters as Export
 import           Network.AWS.CloudWatchLogs.FilterLogEvents             as Export
 import           Network.AWS.CloudWatchLogs.GetLogEvents                as Export
+import           Network.AWS.CloudWatchLogs.PutDestination              as Export
+import           Network.AWS.CloudWatchLogs.PutDestinationPolicy        as Export
 import           Network.AWS.CloudWatchLogs.PutLogEvents                as Export
 import           Network.AWS.CloudWatchLogs.PutMetricFilter             as Export
 import           Network.AWS.CloudWatchLogs.PutRetentionPolicy          as Export

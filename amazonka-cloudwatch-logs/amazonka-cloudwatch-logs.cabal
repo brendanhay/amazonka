@@ -71,17 +71,21 @@ library
           Network.AWS.CloudWatchLogs
         , Network.AWS.CloudWatchLogs.CreateLogGroup
         , Network.AWS.CloudWatchLogs.CreateLogStream
+        , Network.AWS.CloudWatchLogs.DeleteDestination
         , Network.AWS.CloudWatchLogs.DeleteLogGroup
         , Network.AWS.CloudWatchLogs.DeleteLogStream
         , Network.AWS.CloudWatchLogs.DeleteMetricFilter
         , Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
         , Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+        , Network.AWS.CloudWatchLogs.DescribeDestinations
         , Network.AWS.CloudWatchLogs.DescribeLogGroups
         , Network.AWS.CloudWatchLogs.DescribeLogStreams
         , Network.AWS.CloudWatchLogs.DescribeMetricFilters
         , Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
         , Network.AWS.CloudWatchLogs.FilterLogEvents
         , Network.AWS.CloudWatchLogs.GetLogEvents
+        , Network.AWS.CloudWatchLogs.PutDestination
+        , Network.AWS.CloudWatchLogs.PutDestinationPolicy
         , Network.AWS.CloudWatchLogs.PutLogEvents
         , Network.AWS.CloudWatchLogs.PutMetricFilter
         , Network.AWS.CloudWatchLogs.PutRetentionPolicy

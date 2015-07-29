@@ -28,7 +28,16 @@ import Test.AWS.CloudWatchLogs.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDescribeSubscriptionFilters $
+--         [ testDescribeDestinations $
+--             describeDestinations
+--
+--         , testDeleteDestination $
+--             deleteDestination
+--
+--         , testPutDestination $
+--             putDestination
+--
+--         , testDescribeSubscriptionFilters $
 --             describeSubscriptionFilters
 --
 --         , testGetLogEvents $
@@ -79,13 +88,25 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , testPutMetricFilter $
 --             putMetricFilter
 --
+--         , testPutDestinationPolicy $
+--             putDestinationPolicy
+--
 --         , testDescribeLogStreams $
 --             describeLogStreams
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDescribeSubscriptionFiltersResponse $
+--         [ testDescribeDestinationsResponse $
+--             describeDestinationsResponse
+--
+--         , testDeleteDestinationResponse $
+--             deleteDestinationResponse
+--
+--         , testPutDestinationResponse $
+--             putDestinationResponse
+--
+--         , testDescribeSubscriptionFiltersResponse $
 --             describeSubscriptionFiltersResponse
 --
 --         , testGetLogEventsResponse $
@@ -136,6 +157,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , testPutMetricFilterResponse $
 --             putMetricFilterResponse
 --
+--         , testPutDestinationPolicyResponse $
+--             putDestinationPolicyResponse
+--
 --         , testDescribeLogStreamsResponse $
 --             describeLogStreamsResponse
 --
@@ -143,6 +167,21 @@ import Test.AWS.CloudWatchLogs.Internal
 --     ]
 
 -- Requests
+
+testDescribeDestinations :: DescribeDestinations -> TestTree
+testDescribeDestinations = req
+    "DescribeDestinations"
+    "fixture/DescribeDestinations"
+
+testDeleteDestination :: DeleteDestination -> TestTree
+testDeleteDestination = req
+    "DeleteDestination"
+    "fixture/DeleteDestination"
+
+testPutDestination :: PutDestination -> TestTree
+testPutDestination = req
+    "PutDestination"
+    "fixture/PutDestination"
 
 testDescribeSubscriptionFilters :: DescribeSubscriptionFilters -> TestTree
 testDescribeSubscriptionFilters = req
@@ -229,12 +268,35 @@ testPutMetricFilter = req
     "PutMetricFilter"
     "fixture/PutMetricFilter"
 
+testPutDestinationPolicy :: PutDestinationPolicy -> TestTree
+testPutDestinationPolicy = req
+    "PutDestinationPolicy"
+    "fixture/PutDestinationPolicy"
+
 testDescribeLogStreams :: DescribeLogStreams -> TestTree
 testDescribeLogStreams = req
     "DescribeLogStreams"
     "fixture/DescribeLogStreams"
 
 -- Responses
+
+testDescribeDestinationsResponse :: DescribeDestinationsResponse -> TestTree
+testDescribeDestinationsResponse = res
+    "DescribeDestinationsResponse"
+    "fixture/DescribeDestinationsResponse"
+    (Proxy :: Proxy DescribeDestinations)
+
+testDeleteDestinationResponse :: DeleteDestinationResponse -> TestTree
+testDeleteDestinationResponse = res
+    "DeleteDestinationResponse"
+    "fixture/DeleteDestinationResponse"
+    (Proxy :: Proxy DeleteDestination)
+
+testPutDestinationResponse :: PutDestinationResponse -> TestTree
+testPutDestinationResponse = res
+    "PutDestinationResponse"
+    "fixture/PutDestinationResponse"
+    (Proxy :: Proxy PutDestination)
 
 testDescribeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse -> TestTree
 testDescribeSubscriptionFiltersResponse = res
@@ -337,6 +399,12 @@ testPutMetricFilterResponse = res
     "PutMetricFilterResponse"
     "fixture/PutMetricFilterResponse"
     (Proxy :: Proxy PutMetricFilter)
+
+testPutDestinationPolicyResponse :: PutDestinationPolicyResponse -> TestTree
+testPutDestinationPolicyResponse = res
+    "PutDestinationPolicyResponse"
+    "fixture/PutDestinationPolicyResponse"
+    (Proxy :: Proxy PutDestinationPolicy)
 
 testDescribeLogStreamsResponse :: DescribeLogStreamsResponse -> TestTree
 testDescribeLogStreamsResponse = res

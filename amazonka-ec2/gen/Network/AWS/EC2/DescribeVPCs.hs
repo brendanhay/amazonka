@@ -130,7 +130,7 @@ instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
 
 instance ToPath DescribeVPCs where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVPCs where
         toQuery DescribeVPCs'{..}

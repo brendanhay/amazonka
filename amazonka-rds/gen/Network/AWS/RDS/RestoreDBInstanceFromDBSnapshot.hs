@@ -341,7 +341,7 @@ instance ToHeaders RestoreDBInstanceFromDBSnapshot
         toHeaders = const mempty
 
 instance ToPath RestoreDBInstanceFromDBSnapshot where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RestoreDBInstanceFromDBSnapshot
          where

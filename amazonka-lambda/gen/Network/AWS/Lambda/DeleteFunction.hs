@@ -86,8 +86,7 @@ instance ToHeaders DeleteFunction where
 
 instance ToPath DeleteFunction where
         toPath DeleteFunction'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toPath _dfFunctionName]
+          = ["2015-03-31", "functions", toBS _dfFunctionName]
 
 instance ToQuery DeleteFunction where
         toQuery = const mempty

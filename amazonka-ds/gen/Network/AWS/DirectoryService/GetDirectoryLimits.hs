@@ -77,7 +77,7 @@ instance ToJSON GetDirectoryLimits where
         toJSON = const (Object mempty)
 
 instance ToPath GetDirectoryLimits where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetDirectoryLimits where
         toQuery = const mempty

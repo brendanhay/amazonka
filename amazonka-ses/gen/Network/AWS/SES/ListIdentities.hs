@@ -115,7 +115,7 @@ instance ToHeaders ListIdentities where
         toHeaders = const mempty
 
 instance ToPath ListIdentities where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListIdentities where
         toQuery ListIdentities'{..}

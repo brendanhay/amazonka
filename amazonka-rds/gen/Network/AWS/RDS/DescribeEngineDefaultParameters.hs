@@ -135,7 +135,7 @@ instance ToHeaders DescribeEngineDefaultParameters
         toHeaders = const mempty
 
 instance ToPath DescribeEngineDefaultParameters where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeEngineDefaultParameters
          where

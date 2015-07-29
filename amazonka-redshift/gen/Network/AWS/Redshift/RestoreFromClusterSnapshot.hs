@@ -344,7 +344,7 @@ instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
 
 instance ToPath RestoreFromClusterSnapshot where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RestoreFromClusterSnapshot where
         toQuery RestoreFromClusterSnapshot'{..}

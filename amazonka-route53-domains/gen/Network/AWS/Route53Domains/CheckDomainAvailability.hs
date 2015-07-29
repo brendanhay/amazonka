@@ -115,7 +115,7 @@ instance ToJSON CheckDomainAvailability where
                "DomainName" .= _cdaDomainName]
 
 instance ToPath CheckDomainAvailability where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CheckDomainAvailability where
         toQuery = const mempty

@@ -188,8 +188,7 @@ instance ToHeaders PutObjectACL where
 
 instance ToPath PutObjectACL where
         toPath PutObjectACL'{..}
-          = mconcat
-              ["/", toPath _poaBucket, "/", toPath _poaKey]
+          = [toBS _poaBucket, toBS _poaKey]
 
 instance ToQuery PutObjectACL where
         toQuery = const (mconcat ["acl"])

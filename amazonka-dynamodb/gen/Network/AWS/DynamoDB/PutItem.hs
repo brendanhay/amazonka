@@ -558,7 +558,7 @@ instance ToJSON PutItem where
                "TableName" .= _piTableName, "Item" .= _piItem]
 
 instance ToPath PutItem where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutItem where
         toQuery = const mempty

@@ -135,7 +135,7 @@ instance ToJSON DescribeDirectories where
                "Limit" .= _ddLimit]
 
 instance ToPath DescribeDirectories where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDirectories where
         toQuery = const mempty

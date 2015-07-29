@@ -245,7 +245,7 @@ instance ToHeaders UpdateStack where
         toHeaders = const mempty
 
 instance ToPath UpdateStack where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateStack where
         toQuery UpdateStack'{..}

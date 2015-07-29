@@ -106,7 +106,7 @@ instance ToHeaders PutUserPolicy where
         toHeaders = const mempty
 
 instance ToPath PutUserPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutUserPolicy where
         toQuery PutUserPolicy'{..}

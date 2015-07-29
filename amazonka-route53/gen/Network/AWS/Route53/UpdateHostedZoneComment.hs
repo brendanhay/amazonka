@@ -101,7 +101,7 @@ instance ToHeaders UpdateHostedZoneComment where
 
 instance ToPath UpdateHostedZoneComment where
         toPath UpdateHostedZoneComment'{..}
-          = mconcat ["/2013-04-01/hostedzone/", toPath _uhzcId]
+          = ["2013-04-01", "hostedzone", toBS _uhzcId]
 
 instance ToQuery UpdateHostedZoneComment where
         toQuery = const mempty

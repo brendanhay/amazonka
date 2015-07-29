@@ -142,7 +142,7 @@ instance ToJSON CreateStream where
                "ShardCount" .= _csShardCount]
 
 instance ToPath CreateStream where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateStream where
         toQuery = const mempty

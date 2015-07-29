@@ -69,7 +69,7 @@ instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
 
 instance ToPath GetHostedZoneCount where
-        toPath = const "/2013-04-01/hostedzonecount"
+        toPath = const ["2013-04-01", "hostedzonecount"]
 
 instance ToQuery GetHostedZoneCount where
         toQuery = const mempty

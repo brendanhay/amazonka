@@ -100,7 +100,7 @@ instance ToHeaders DisableMetricsCollection where
         toHeaders = const mempty
 
 instance ToPath DisableMetricsCollection where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DisableMetricsCollection where
         toQuery DisableMetricsCollection'{..}

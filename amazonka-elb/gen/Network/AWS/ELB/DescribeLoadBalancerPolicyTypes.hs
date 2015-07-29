@@ -87,7 +87,7 @@ instance ToHeaders DescribeLoadBalancerPolicyTypes
         toHeaders = const mempty
 
 instance ToPath DescribeLoadBalancerPolicyTypes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLoadBalancerPolicyTypes
          where

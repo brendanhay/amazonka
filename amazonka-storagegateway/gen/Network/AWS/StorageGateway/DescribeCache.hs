@@ -104,7 +104,7 @@ instance ToJSON DescribeCache where
           = object ["GatewayARN" .= _dcGatewayARN]
 
 instance ToPath DescribeCache where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCache where
         toQuery = const mempty

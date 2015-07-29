@@ -41,7 +41,6 @@ instance ToText ArtifactCategory where
 
 instance Hashable     ArtifactCategory
 instance ToByteString ArtifactCategory
-instance ToPath       ArtifactCategory
 instance ToQuery      ArtifactCategory
 instance ToHeader     ArtifactCategory
 
@@ -109,7 +108,6 @@ instance ToText ArtifactType where
 
 instance Hashable     ArtifactType
 instance ToByteString ArtifactType
-instance ToPath       ArtifactType
 instance ToQuery      ArtifactType
 instance ToHeader     ArtifactType
 
@@ -141,7 +139,6 @@ instance ToText DeviceAttribute where
 
 instance Hashable     DeviceAttribute
 instance ToByteString DeviceAttribute
-instance ToPath       DeviceAttribute
 instance ToQuery      DeviceAttribute
 instance ToHeader     DeviceAttribute
 
@@ -170,7 +167,6 @@ instance ToText DeviceFormFactor where
 
 instance Hashable     DeviceFormFactor
 instance ToByteString DeviceFormFactor
-instance ToPath       DeviceFormFactor
 instance ToQuery      DeviceFormFactor
 instance ToHeader     DeviceFormFactor
 
@@ -193,7 +189,6 @@ instance ToText DevicePlatform where
 
 instance Hashable     DevicePlatform
 instance ToByteString DevicePlatform
-instance ToPath       DevicePlatform
 instance ToQuery      DevicePlatform
 instance ToHeader     DevicePlatform
 
@@ -219,7 +214,6 @@ instance ToText DevicePoolType where
 
 instance Hashable     DevicePoolType
 instance ToByteString DevicePoolType
-instance ToPath       DevicePoolType
 instance ToQuery      DevicePoolType
 instance ToHeader     DevicePoolType
 
@@ -263,7 +257,6 @@ instance ToText ExecutionResult where
 
 instance Hashable     ExecutionResult
 instance ToByteString ExecutionResult
-instance ToPath       ExecutionResult
 instance ToQuery      ExecutionResult
 instance ToHeader     ExecutionResult
 
@@ -298,7 +291,6 @@ instance ToText ExecutionStatus where
 
 instance Hashable     ExecutionStatus
 instance ToByteString ExecutionStatus
-instance ToPath       ExecutionStatus
 instance ToQuery      ExecutionStatus
 instance ToHeader     ExecutionStatus
 
@@ -333,7 +325,6 @@ instance ToText RuleOperator where
 
 instance Hashable     RuleOperator
 instance ToByteString RuleOperator
-instance ToPath       RuleOperator
 instance ToQuery      RuleOperator
 instance ToHeader     RuleOperator
 
@@ -407,7 +398,6 @@ instance ToText SampleType where
 
 instance Hashable     SampleType
 instance ToByteString SampleType
-instance ToPath       SampleType
 instance ToQuery      SampleType
 instance ToHeader     SampleType
 
@@ -448,7 +438,6 @@ instance ToText TestType where
 
 instance Hashable     TestType
 instance ToByteString TestType
-instance ToPath       TestType
 instance ToQuery      TestType
 instance ToHeader     TestType
 
@@ -483,7 +472,6 @@ instance ToText UploadStatus where
 
 instance Hashable     UploadStatus
 instance ToByteString UploadStatus
-instance ToPath       UploadStatus
 instance ToQuery      UploadStatus
 instance ToHeader     UploadStatus
 
@@ -524,7 +512,6 @@ instance ToText UploadType where
 
 instance Hashable     UploadType
 instance ToByteString UploadType
-instance ToPath       UploadType
 instance ToQuery      UploadType
 instance ToHeader     UploadType
 

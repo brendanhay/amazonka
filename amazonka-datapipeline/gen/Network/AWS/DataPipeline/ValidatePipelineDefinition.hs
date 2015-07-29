@@ -129,7 +129,7 @@ instance ToJSON ValidatePipelineDefinition where
                "pipelineObjects" .= _vpdPipelineObjects]
 
 instance ToPath ValidatePipelineDefinition where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ValidatePipelineDefinition where
         toQuery = const mempty

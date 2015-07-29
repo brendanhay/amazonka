@@ -102,7 +102,7 @@ instance ToHeaders UpdateAccessKey where
         toHeaders = const mempty
 
 instance ToPath UpdateAccessKey where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateAccessKey where
         toQuery UpdateAccessKey'{..}

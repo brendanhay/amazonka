@@ -74,7 +74,7 @@ instance ToHeaders DeleteStack where
         toHeaders = const mempty
 
 instance ToPath DeleteStack where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteStack where
         toQuery DeleteStack'{..}

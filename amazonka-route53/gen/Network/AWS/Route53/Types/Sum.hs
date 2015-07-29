@@ -42,7 +42,6 @@ instance ToText ChangeAction where
 
 instance Hashable     ChangeAction
 instance ToByteString ChangeAction
-instance ToPath       ChangeAction
 instance ToQuery      ChangeAction
 instance ToHeader     ChangeAction
 
@@ -68,7 +67,6 @@ instance ToText ChangeStatus where
 
 instance Hashable     ChangeStatus
 instance ToByteString ChangeStatus
-instance ToPath       ChangeStatus
 instance ToQuery      ChangeStatus
 instance ToHeader     ChangeStatus
 
@@ -94,7 +92,6 @@ instance ToText Failover where
 
 instance Hashable     Failover
 instance ToByteString Failover
-instance ToPath       Failover
 instance ToQuery      Failover
 instance ToHeader     Failover
 
@@ -132,7 +129,6 @@ instance ToText HealthCheckType where
 
 instance Hashable     HealthCheckType
 instance ToByteString HealthCheckType
-instance ToPath       HealthCheckType
 instance ToQuery      HealthCheckType
 instance ToHeader     HealthCheckType
 
@@ -185,7 +181,6 @@ instance ToText RecordType where
 
 instance Hashable     RecordType
 instance ToByteString RecordType
-instance ToPath       RecordType
 instance ToQuery      RecordType
 instance ToHeader     RecordType
 
@@ -214,7 +209,6 @@ instance ToText TagResourceType where
 
 instance Hashable     TagResourceType
 instance ToByteString TagResourceType
-instance ToPath       TagResourceType
 instance ToQuery      TagResourceType
 instance ToHeader     TagResourceType
 
@@ -267,7 +261,6 @@ instance ToText VPCRegion where
 
 instance Hashable     VPCRegion
 instance ToByteString VPCRegion
-instance ToPath       VPCRegion
 instance ToQuery      VPCRegion
 instance ToHeader     VPCRegion
 

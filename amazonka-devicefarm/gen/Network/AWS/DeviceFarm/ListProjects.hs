@@ -103,7 +103,7 @@ instance ToJSON ListProjects where
               ["arn" .= _lpArn, "nextToken" .= _lpNextToken]
 
 instance ToPath ListProjects where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListProjects where
         toQuery = const mempty

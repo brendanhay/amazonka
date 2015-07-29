@@ -87,7 +87,7 @@ instance ToJSON DeleteTrail where
         toJSON DeleteTrail'{..} = object ["Name" .= _dtName]
 
 instance ToPath DeleteTrail where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteTrail where
         toQuery = const mempty

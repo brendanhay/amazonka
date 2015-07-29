@@ -119,7 +119,7 @@ instance ToHeaders Suggest where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToPath Suggest where
-        toPath = const "/2013-01-01/suggest"
+        toPath = const ["2013-01-01", "suggest"]
 
 instance ToQuery Suggest where
         toQuery Suggest'{..}

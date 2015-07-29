@@ -74,7 +74,7 @@ instance ToHeaders DeleteAccountAlias where
         toHeaders = const mempty
 
 instance ToPath DeleteAccountAlias where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteAccountAlias where
         toQuery DeleteAccountAlias'{..}

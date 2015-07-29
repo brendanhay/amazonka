@@ -119,7 +119,7 @@ instance ToJSON SetTerminationProtection where
                "TerminationProtected" .= _stpTerminationProtected]
 
 instance ToPath SetTerminationProtection where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetTerminationProtection where
         toQuery = const mempty

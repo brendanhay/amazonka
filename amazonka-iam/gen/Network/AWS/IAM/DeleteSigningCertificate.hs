@@ -88,7 +88,7 @@ instance ToHeaders DeleteSigningCertificate where
         toHeaders = const mempty
 
 instance ToPath DeleteSigningCertificate where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteSigningCertificate where
         toQuery DeleteSigningCertificate'{..}

@@ -76,7 +76,7 @@ instance ToJSON DescribeLocations where
         toJSON = const (Object mempty)
 
 instance ToPath DescribeLocations where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLocations where
         toQuery = const mempty

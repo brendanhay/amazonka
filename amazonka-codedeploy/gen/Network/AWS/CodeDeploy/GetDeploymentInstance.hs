@@ -102,7 +102,7 @@ instance ToJSON GetDeploymentInstance where
                "instanceId" .= _gdiInstanceId]
 
 instance ToPath GetDeploymentInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetDeploymentInstance where
         toQuery = const mempty

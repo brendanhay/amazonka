@@ -125,7 +125,7 @@ instance ToHeaders CreateOptionGroup where
         toHeaders = const mempty
 
 instance ToPath CreateOptionGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateOptionGroup where
         toQuery CreateOptionGroup'{..}

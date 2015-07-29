@@ -99,7 +99,7 @@ instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
 
 instance ToPath UpdateScalingParameters where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateScalingParameters where
         toQuery UpdateScalingParameters'{..}

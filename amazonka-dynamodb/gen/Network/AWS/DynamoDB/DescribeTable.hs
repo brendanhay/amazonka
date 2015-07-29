@@ -97,7 +97,7 @@ instance ToJSON DescribeTable where
           = object ["TableName" .= _dTableName]
 
 instance ToPath DescribeTable where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeTable where
         toQuery = const mempty

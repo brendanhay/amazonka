@@ -138,7 +138,7 @@ instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
 
 instance ToPath DescribeAlarmHistory where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeAlarmHistory where
         toQuery DescribeAlarmHistory'{..}

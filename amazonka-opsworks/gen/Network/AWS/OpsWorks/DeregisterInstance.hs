@@ -91,7 +91,7 @@ instance ToJSON DeregisterInstance where
           = object ["InstanceId" .= _dInstanceId]
 
 instance ToPath DeregisterInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeregisterInstance where
         toQuery = const mempty

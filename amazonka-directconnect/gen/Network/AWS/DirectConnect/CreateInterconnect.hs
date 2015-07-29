@@ -140,7 +140,7 @@ instance ToJSON CreateInterconnect where
                "location" .= _ciLocation]
 
 instance ToPath CreateInterconnect where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateInterconnect where
         toQuery = const mempty

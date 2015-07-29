@@ -90,9 +90,8 @@ instance ToHeaders GetPolicy where
 
 instance ToPath GetPolicy where
         toPath GetPolicy'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toPath _gpFunctionName,
-               "/versions/HEAD/policy"]
+          = ["2015-03-31", "functions", toBS _gpFunctionName,
+             "versions", "HEAD", "policy"]
 
 instance ToQuery GetPolicy where
         toQuery = const mempty

@@ -124,7 +124,7 @@ instance ToHeaders ListGroups where
         toHeaders = const mempty
 
 instance ToPath ListGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListGroups where
         toQuery ListGroups'{..}

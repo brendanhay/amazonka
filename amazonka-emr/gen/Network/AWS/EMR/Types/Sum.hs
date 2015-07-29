@@ -44,7 +44,6 @@ instance ToText ActionOnFailure where
 
 instance Hashable     ActionOnFailure
 instance ToByteString ActionOnFailure
-instance ToPath       ActionOnFailure
 instance ToQuery      ActionOnFailure
 instance ToHeader     ActionOnFailure
 
@@ -88,7 +87,6 @@ instance ToText ClusterState where
 
 instance Hashable     ClusterState
 instance ToByteString ClusterState
-instance ToPath       ClusterState
 instance ToQuery      ClusterState
 instance ToHeader     ClusterState
 
@@ -132,7 +130,6 @@ instance ToText ClusterStateChangeReasonCode where
 
 instance Hashable     ClusterStateChangeReasonCode
 instance ToByteString ClusterStateChangeReasonCode
-instance ToPath       ClusterStateChangeReasonCode
 instance ToQuery      ClusterStateChangeReasonCode
 instance ToHeader     ClusterStateChangeReasonCode
 
@@ -182,7 +179,6 @@ instance ToText InstanceGroupState where
 
 instance Hashable     InstanceGroupState
 instance ToByteString InstanceGroupState
-instance ToPath       InstanceGroupState
 instance ToQuery      InstanceGroupState
 instance ToHeader     InstanceGroupState
 
@@ -214,7 +210,6 @@ instance ToText InstanceGroupStateChangeReasonCode where
 
 instance Hashable     InstanceGroupStateChangeReasonCode
 instance ToByteString InstanceGroupStateChangeReasonCode
-instance ToPath       InstanceGroupStateChangeReasonCode
 instance ToQuery      InstanceGroupStateChangeReasonCode
 instance ToHeader     InstanceGroupStateChangeReasonCode
 
@@ -243,7 +238,6 @@ instance ToText InstanceGroupType where
 
 instance Hashable     InstanceGroupType
 instance ToByteString InstanceGroupType
-instance ToPath       InstanceGroupType
 instance ToQuery      InstanceGroupType
 instance ToHeader     InstanceGroupType
 
@@ -275,7 +269,6 @@ instance ToText InstanceRoleType where
 
 instance Hashable     InstanceRoleType
 instance ToByteString InstanceRoleType
-instance ToPath       InstanceRoleType
 instance ToQuery      InstanceRoleType
 instance ToHeader     InstanceRoleType
 
@@ -310,7 +303,6 @@ instance ToText InstanceState where
 
 instance Hashable     InstanceState
 instance ToByteString InstanceState
-instance ToPath       InstanceState
 instance ToQuery      InstanceState
 instance ToHeader     InstanceState
 
@@ -345,7 +337,6 @@ instance ToText InstanceStateChangeReasonCode where
 
 instance Hashable     InstanceStateChangeReasonCode
 instance ToByteString InstanceStateChangeReasonCode
-instance ToPath       InstanceStateChangeReasonCode
 instance ToQuery      InstanceStateChangeReasonCode
 instance ToHeader     InstanceStateChangeReasonCode
 
@@ -371,7 +362,6 @@ instance ToText MarketType where
 
 instance Hashable     MarketType
 instance ToByteString MarketType
-instance ToPath       MarketType
 instance ToQuery      MarketType
 instance ToHeader     MarketType
 
@@ -412,7 +402,6 @@ instance ToText StepState where
 
 instance Hashable     StepState
 instance ToByteString StepState
-instance ToPath       StepState
 instance ToQuery      StepState
 instance ToHeader     StepState
 
@@ -438,7 +427,6 @@ instance ToText StepStateChangeReasonCode where
 
 instance Hashable     StepStateChangeReasonCode
 instance ToByteString StepStateChangeReasonCode
-instance ToPath       StepStateChangeReasonCode
 instance ToQuery      StepStateChangeReasonCode
 instance ToHeader     StepStateChangeReasonCode
 

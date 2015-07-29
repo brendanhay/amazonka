@@ -118,7 +118,7 @@ instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty
 
 instance ToPath CreatePlatformApplication where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreatePlatformApplication where
         toQuery CreatePlatformApplication'{..}

@@ -83,7 +83,7 @@ instance ToHeaders EnableVolumeIO where
         toHeaders = const mempty
 
 instance ToPath EnableVolumeIO where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery EnableVolumeIO where
         toQuery EnableVolumeIO'{..}

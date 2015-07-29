@@ -70,7 +70,7 @@ instance ToHeaders GetSendQuota where
         toHeaders = const mempty
 
 instance ToPath GetSendQuota where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetSendQuota where
         toQuery

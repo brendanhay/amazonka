@@ -96,7 +96,7 @@ instance ToJSON GetIdentityPoolRoles where
           = object ["IdentityPoolId" .= _giprIdentityPoolId]
 
 instance ToPath GetIdentityPoolRoles where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetIdentityPoolRoles where
         toQuery = const mempty

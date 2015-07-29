@@ -121,7 +121,7 @@ instance ToJSON DescribeInstances where
                "StackId" .= _diStackId, "LayerId" .= _diLayerId]
 
 instance ToPath DescribeInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeInstances where
         toQuery = const mempty

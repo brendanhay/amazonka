@@ -38,7 +38,6 @@ instance ToText IdentityType where
 
 instance Hashable     IdentityType
 instance ToByteString IdentityType
-instance ToPath       IdentityType
 instance ToQuery      IdentityType
 instance ToHeader     IdentityType
 
@@ -64,7 +63,6 @@ instance ToText NotificationType where
 
 instance Hashable     NotificationType
 instance ToByteString NotificationType
-instance ToPath       NotificationType
 instance ToQuery      NotificationType
 instance ToHeader     NotificationType
 
@@ -96,7 +94,6 @@ instance ToText VerificationStatus where
 
 instance Hashable     VerificationStatus
 instance ToByteString VerificationStatus
-instance ToPath       VerificationStatus
 instance ToQuery      VerificationStatus
 instance ToHeader     VerificationStatus
 

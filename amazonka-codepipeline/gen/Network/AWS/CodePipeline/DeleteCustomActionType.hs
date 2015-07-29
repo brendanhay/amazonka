@@ -114,7 +114,7 @@ instance ToJSON DeleteCustomActionType where
                "version" .= _dcatVersion]
 
 instance ToPath DeleteCustomActionType where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteCustomActionType where
         toQuery = const mempty

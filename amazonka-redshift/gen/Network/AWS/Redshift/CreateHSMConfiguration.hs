@@ -147,7 +147,7 @@ instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
 
 instance ToPath CreateHSMConfiguration where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateHSMConfiguration where
         toQuery CreateHSMConfiguration'{..}

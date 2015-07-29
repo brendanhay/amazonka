@@ -86,7 +86,7 @@ instance ToHeaders DeleteApplication where
         toHeaders = const mempty
 
 instance ToPath DeleteApplication where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteApplication where
         toQuery DeleteApplication'{..}

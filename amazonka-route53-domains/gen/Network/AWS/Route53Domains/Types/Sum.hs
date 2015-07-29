@@ -47,7 +47,6 @@ instance ToText ContactType where
 
 instance Hashable     ContactType
 instance ToByteString ContactType
-instance ToPath       ContactType
 instance ToQuery      ContactType
 instance ToHeader     ContactType
 
@@ -757,7 +756,6 @@ instance ToText CountryCode where
 
 instance Hashable     CountryCode
 instance ToByteString CountryCode
-instance ToPath       CountryCode
 instance ToQuery      CountryCode
 instance ToHeader     CountryCode
 
@@ -804,7 +802,6 @@ instance ToText DomainAvailability where
 
 instance Hashable     DomainAvailability
 instance ToByteString DomainAvailability
-instance ToPath       DomainAvailability
 instance ToQuery      DomainAvailability
 instance ToHeader     DomainAvailability
 
@@ -884,7 +881,6 @@ instance ToText ExtraParamName where
 
 instance Hashable     ExtraParamName
 instance ToByteString ExtraParamName
-instance ToPath       ExtraParamName
 instance ToQuery      ExtraParamName
 instance ToHeader     ExtraParamName
 
@@ -922,7 +918,6 @@ instance ToText OperationStatus where
 
 instance Hashable     OperationStatus
 instance ToByteString OperationStatus
-instance ToPath       OperationStatus
 instance ToQuery      OperationStatus
 instance ToHeader     OperationStatus
 
@@ -963,7 +958,6 @@ instance ToText OperationType where
 
 instance Hashable     OperationType
 instance ToByteString OperationType
-instance ToPath       OperationType
 instance ToQuery      OperationType
 instance ToHeader     OperationType
 

@@ -100,8 +100,7 @@ instance ToHeaders GetObjectTorrent where
 
 instance ToPath GetObjectTorrent where
         toPath GetObjectTorrent'{..}
-          = mconcat
-              ["/", toPath _gotBucket, "/", toPath _gotKey]
+          = [toBS _gotBucket, toBS _gotKey]
 
 instance ToQuery GetObjectTorrent where
         toQuery = const (mconcat ["torrent"])

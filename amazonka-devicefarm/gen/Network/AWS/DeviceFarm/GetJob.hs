@@ -88,7 +88,7 @@ instance ToJSON GetJob where
         toJSON GetJob'{..} = object ["arn" .= _gjArn]
 
 instance ToPath GetJob where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetJob where
         toQuery = const mempty

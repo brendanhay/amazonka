@@ -103,7 +103,7 @@ instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty
 
 instance ToPath PurchaseReservedNodeOffering where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PurchaseReservedNodeOffering where
         toQuery PurchaseReservedNodeOffering'{..}

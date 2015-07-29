@@ -144,7 +144,7 @@ instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
 
 instance ToPath DescribeClusterVersions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeClusterVersions where
         toQuery DescribeClusterVersions'{..}

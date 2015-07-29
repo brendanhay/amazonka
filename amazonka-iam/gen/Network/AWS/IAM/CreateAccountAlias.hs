@@ -74,7 +74,7 @@ instance ToHeaders CreateAccountAlias where
         toHeaders = const mempty
 
 instance ToPath CreateAccountAlias where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateAccountAlias where
         toQuery CreateAccountAlias'{..}

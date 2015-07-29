@@ -104,7 +104,7 @@ instance ToJSON GetDeploymentGroup where
                "deploymentGroupName" .= _gdgDeploymentGroupName]
 
 instance ToPath GetDeploymentGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetDeploymentGroup where
         toQuery = const mempty

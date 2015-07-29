@@ -129,7 +129,7 @@ instance ToJSON DescribeActivityType where
                "activityType" .= _datActivityType]
 
 instance ToPath DescribeActivityType where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeActivityType where
         toQuery = const mempty

@@ -90,7 +90,7 @@ instance ToHeaders ModifyCacheParameterGroup where
         toHeaders = const mempty
 
 instance ToPath ModifyCacheParameterGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyCacheParameterGroup where
         toQuery ModifyCacheParameterGroup'{..}

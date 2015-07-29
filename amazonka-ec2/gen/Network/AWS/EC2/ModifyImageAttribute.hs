@@ -164,7 +164,7 @@ instance ToHeaders ModifyImageAttribute where
         toHeaders = const mempty
 
 instance ToPath ModifyImageAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyImageAttribute where
         toQuery ModifyImageAttribute'{..}

@@ -88,7 +88,7 @@ instance ToJSON GetDevice where
         toJSON GetDevice'{..} = object ["arn" .= _gdArn]
 
 instance ToPath GetDevice where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetDevice where
         toQuery = const mempty

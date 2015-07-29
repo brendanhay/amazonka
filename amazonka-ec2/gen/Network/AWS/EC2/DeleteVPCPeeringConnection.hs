@@ -93,7 +93,7 @@ instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty
 
 instance ToPath DeleteVPCPeeringConnection where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteVPCPeeringConnection where
         toQuery DeleteVPCPeeringConnection'{..}

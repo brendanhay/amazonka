@@ -203,7 +203,7 @@ instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
 
 instance ToPath DescribeSpotPriceHistory where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSpotPriceHistory where
         toQuery DescribeSpotPriceHistory'{..}

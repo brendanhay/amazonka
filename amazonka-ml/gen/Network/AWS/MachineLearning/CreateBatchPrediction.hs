@@ -155,7 +155,7 @@ instance ToJSON CreateBatchPrediction where
                "OutputUri" .= _cbpOutputURI]
 
 instance ToPath CreateBatchPrediction where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateBatchPrediction where
         toQuery = const mempty

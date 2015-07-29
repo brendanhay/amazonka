@@ -122,7 +122,7 @@ instance ToJSON DeprecateActivityType where
                "activityType" .= _depActivityType]
 
 instance ToPath DeprecateActivityType where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeprecateActivityType where
         toQuery = const mempty

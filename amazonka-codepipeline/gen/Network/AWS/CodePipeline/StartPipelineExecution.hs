@@ -93,7 +93,7 @@ instance ToJSON StartPipelineExecution where
           = object ["name" .= _speName]
 
 instance ToPath StartPipelineExecution where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StartPipelineExecution where
         toQuery = const mempty

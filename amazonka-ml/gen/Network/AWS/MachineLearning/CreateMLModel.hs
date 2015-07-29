@@ -216,7 +216,7 @@ instance ToJSON CreateMLModel where
                "TrainingDataSourceId" .= _cmlmTrainingDataSourceId]
 
 instance ToPath CreateMLModel where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateMLModel where
         toQuery = const mempty

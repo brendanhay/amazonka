@@ -97,7 +97,7 @@ instance ToHeaders
 
 instance ToPath
          RemoveSourceIdentifierFromSubscription where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery
          RemoveSourceIdentifierFromSubscription where

@@ -104,7 +104,7 @@ instance ToHeaders ResetCacheParameterGroup where
         toHeaders = const mempty
 
 instance ToPath ResetCacheParameterGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResetCacheParameterGroup where
         toQuery ResetCacheParameterGroup'{..}

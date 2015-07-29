@@ -104,7 +104,7 @@ instance ToHeaders CreateCacheParameterGroup where
         toHeaders = const mempty
 
 instance ToPath CreateCacheParameterGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateCacheParameterGroup where
         toQuery CreateCacheParameterGroup'{..}

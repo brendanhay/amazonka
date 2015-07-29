@@ -119,7 +119,7 @@ instance ToJSON EnableSso where
                "DirectoryId" .= _esDirectoryId]
 
 instance ToPath EnableSso where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery EnableSso where
         toQuery = const mempty

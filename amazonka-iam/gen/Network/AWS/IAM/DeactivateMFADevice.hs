@@ -87,7 +87,7 @@ instance ToHeaders DeactivateMFADevice where
         toHeaders = const mempty
 
 instance ToPath DeactivateMFADevice where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeactivateMFADevice where
         toQuery DeactivateMFADevice'{..}

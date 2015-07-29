@@ -362,8 +362,7 @@ instance ToHeaders PutObject where
                "Content-Type" =# _poContentType]
 
 instance ToPath PutObject where
-        toPath PutObject'{..}
-          = mconcat ["/", toPath _poBucket, "/", toPath _poKey]
+        toPath PutObject'{..} = [toBS _poBucket, toBS _poKey]
 
 instance ToQuery PutObject where
         toQuery = const mempty

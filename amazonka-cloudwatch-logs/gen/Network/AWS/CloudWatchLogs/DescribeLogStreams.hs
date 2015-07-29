@@ -161,7 +161,7 @@ instance ToJSON DescribeLogStreams where
                "logGroupName" .= _dlssLogGroupName]
 
 instance ToPath DescribeLogStreams where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLogStreams where
         toQuery = const mempty

@@ -124,7 +124,7 @@ instance ToJSON RetireGrant where
                "GrantToken" .= _rgGrantToken]
 
 instance ToPath RetireGrant where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RetireGrant where
         toQuery = const mempty

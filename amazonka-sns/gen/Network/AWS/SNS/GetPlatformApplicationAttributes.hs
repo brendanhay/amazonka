@@ -89,7 +89,7 @@ instance ToHeaders GetPlatformApplicationAttributes
 
 instance ToPath GetPlatformApplicationAttributes
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetPlatformApplicationAttributes
          where

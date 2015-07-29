@@ -120,7 +120,7 @@ instance ToHeaders StartInstances where
         toHeaders = const mempty
 
 instance ToPath StartInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StartInstances where
         toQuery StartInstances'{..}

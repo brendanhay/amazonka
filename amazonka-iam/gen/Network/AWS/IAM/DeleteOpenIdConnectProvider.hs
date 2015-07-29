@@ -81,7 +81,7 @@ instance ToHeaders DeleteOpenIdConnectProvider where
         toHeaders = const mempty
 
 instance ToPath DeleteOpenIdConnectProvider where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteOpenIdConnectProvider where
         toQuery DeleteOpenIdConnectProvider'{..}

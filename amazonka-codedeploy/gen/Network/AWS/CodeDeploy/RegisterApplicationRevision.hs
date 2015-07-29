@@ -108,7 +108,7 @@ instance ToJSON RegisterApplicationRevision where
                "revision" .= _rarRevision]
 
 instance ToPath RegisterApplicationRevision where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterApplicationRevision where
         toQuery = const mempty

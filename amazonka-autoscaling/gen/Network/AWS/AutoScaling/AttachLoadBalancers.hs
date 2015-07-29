@@ -93,7 +93,7 @@ instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
 
 instance ToPath AttachLoadBalancers where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AttachLoadBalancers where
         toQuery AttachLoadBalancers'{..}

@@ -41,7 +41,6 @@ instance ToText ConfigurationDeploymentStatus where
 
 instance Hashable     ConfigurationDeploymentStatus
 instance ToByteString ConfigurationDeploymentStatus
-instance ToPath       ConfigurationDeploymentStatus
 instance ToQuery      ConfigurationDeploymentStatus
 instance ToHeader     ConfigurationDeploymentStatus
 
@@ -67,7 +66,6 @@ instance ToText ConfigurationOptionValueType where
 
 instance Hashable     ConfigurationOptionValueType
 instance ToByteString ConfigurationOptionValueType
-instance ToPath       ConfigurationOptionValueType
 instance ToQuery      ConfigurationOptionValueType
 instance ToHeader     ConfigurationOptionValueType
 
@@ -99,7 +97,6 @@ instance ToText EnvironmentHealth where
 
 instance Hashable     EnvironmentHealth
 instance ToByteString EnvironmentHealth
-instance ToPath       EnvironmentHealth
 instance ToQuery      EnvironmentHealth
 instance ToHeader     EnvironmentHealth
 
@@ -125,7 +122,6 @@ instance ToText EnvironmentInfoType where
 
 instance Hashable     EnvironmentInfoType
 instance ToByteString EnvironmentInfoType
-instance ToPath       EnvironmentInfoType
 instance ToQuery      EnvironmentInfoType
 instance ToHeader     EnvironmentInfoType
 
@@ -160,7 +156,6 @@ instance ToText EnvironmentStatus where
 
 instance Hashable     EnvironmentStatus
 instance ToByteString EnvironmentStatus
-instance ToPath       EnvironmentStatus
 instance ToQuery      EnvironmentStatus
 instance ToHeader     EnvironmentStatus
 
@@ -198,7 +193,6 @@ instance ToText EventSeverity where
 
 instance Hashable     EventSeverity
 instance ToByteString EventSeverity
-instance ToPath       EventSeverity
 instance ToQuery      EventSeverity
 instance ToHeader     EventSeverity
 
@@ -224,7 +218,6 @@ instance ToText ValidationSeverity where
 
 instance Hashable     ValidationSeverity
 instance ToByteString ValidationSeverity
-instance ToPath       ValidationSeverity
 instance ToQuery      ValidationSeverity
 instance ToHeader     ValidationSeverity
 

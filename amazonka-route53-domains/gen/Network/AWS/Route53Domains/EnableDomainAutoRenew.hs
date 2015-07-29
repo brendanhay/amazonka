@@ -97,7 +97,7 @@ instance ToJSON EnableDomainAutoRenew where
           = object ["DomainName" .= _edarDomainName]
 
 instance ToPath EnableDomainAutoRenew where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery EnableDomainAutoRenew where
         toQuery = const mempty

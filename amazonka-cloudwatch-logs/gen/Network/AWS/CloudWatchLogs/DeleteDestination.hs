@@ -82,7 +82,7 @@ instance ToJSON DeleteDestination where
           = object ["destinationName" .= _ddDestinationName]
 
 instance ToPath DeleteDestination where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteDestination where
         toQuery = const mempty

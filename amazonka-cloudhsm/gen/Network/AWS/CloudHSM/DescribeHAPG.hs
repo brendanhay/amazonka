@@ -106,7 +106,7 @@ instance ToJSON DescribeHAPG where
           = object ["HapgArn" .= _dhapgHAPGARN]
 
 instance ToPath DescribeHAPG where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeHAPG where
         toQuery = const mempty

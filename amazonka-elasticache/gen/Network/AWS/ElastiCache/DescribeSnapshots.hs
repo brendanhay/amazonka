@@ -144,7 +144,7 @@ instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty
 
 instance ToPath DescribeSnapshots where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSnapshots where
         toQuery DescribeSnapshots'{..}

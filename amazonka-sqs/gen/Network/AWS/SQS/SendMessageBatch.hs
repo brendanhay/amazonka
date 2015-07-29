@@ -119,7 +119,7 @@ instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
 
 instance ToPath SendMessageBatch where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SendMessageBatch where
         toQuery SendMessageBatch'{..}

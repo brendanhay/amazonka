@@ -203,7 +203,7 @@ instance ToHeaders GetFederationToken where
         toHeaders = const mempty
 
 instance ToPath GetFederationToken where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetFederationToken where
         toQuery GetFederationToken'{..}

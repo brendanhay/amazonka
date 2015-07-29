@@ -41,7 +41,6 @@ instance ToText AppAttributesKeys where
 
 instance Hashable     AppAttributesKeys
 instance ToByteString AppAttributesKeys
-instance ToPath       AppAttributesKeys
 instance ToQuery      AppAttributesKeys
 instance ToHeader     AppAttributesKeys
 
@@ -82,7 +81,6 @@ instance ToText AppType where
 
 instance Hashable     AppType
 instance ToByteString AppType
-instance ToPath       AppType
 instance ToQuery      AppType
 instance ToHeader     AppType
 
@@ -111,7 +109,6 @@ instance ToText Architecture where
 
 instance Hashable     Architecture
 instance ToByteString Architecture
-instance ToPath       Architecture
 instance ToQuery      Architecture
 instance ToHeader     Architecture
 
@@ -140,7 +137,6 @@ instance ToText AutoScalingType where
 
 instance Hashable     AutoScalingType
 instance ToByteString AutoScalingType
-instance ToPath       AutoScalingType
 instance ToQuery      AutoScalingType
 instance ToHeader     AutoScalingType
 
@@ -199,7 +195,6 @@ instance ToText DeploymentCommandName where
 
 instance Hashable     DeploymentCommandName
 instance ToByteString DeploymentCommandName
-instance ToPath       DeploymentCommandName
 instance ToQuery      DeploymentCommandName
 instance ToHeader     DeploymentCommandName
 
@@ -294,7 +289,6 @@ instance ToText LayerAttributesKeys where
 
 instance Hashable     LayerAttributesKeys
 instance ToByteString LayerAttributesKeys
-instance ToPath       LayerAttributesKeys
 instance ToQuery      LayerAttributesKeys
 instance ToHeader     LayerAttributesKeys
 
@@ -347,7 +341,6 @@ instance ToText LayerType where
 
 instance Hashable     LayerType
 instance ToByteString LayerType
-instance ToPath       LayerType
 instance ToQuery      LayerType
 instance ToHeader     LayerType
 
@@ -376,7 +369,6 @@ instance ToText RootDeviceType where
 
 instance Hashable     RootDeviceType
 instance ToByteString RootDeviceType
-instance ToPath       RootDeviceType
 instance ToQuery      RootDeviceType
 instance ToHeader     RootDeviceType
 
@@ -411,7 +403,6 @@ instance ToText SourceType where
 
 instance Hashable     SourceType
 instance ToByteString SourceType
-instance ToPath       SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType
 
@@ -437,7 +428,6 @@ instance ToText StackAttributesKeys where
 
 instance Hashable     StackAttributesKeys
 instance ToByteString StackAttributesKeys
-instance ToPath       StackAttributesKeys
 instance ToQuery      StackAttributesKeys
 instance ToHeader     StackAttributesKeys
 
@@ -466,7 +456,6 @@ instance ToText VirtualizationType where
 
 instance Hashable     VirtualizationType
 instance ToByteString VirtualizationType
-instance ToPath       VirtualizationType
 instance ToQuery      VirtualizationType
 instance ToHeader     VirtualizationType
 
@@ -495,7 +484,6 @@ instance ToText VolumeType where
 
 instance Hashable     VolumeType
 instance ToByteString VolumeType
-instance ToPath       VolumeType
 instance ToQuery      VolumeType
 instance ToHeader     VolumeType
 

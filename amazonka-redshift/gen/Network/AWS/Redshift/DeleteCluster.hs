@@ -138,7 +138,7 @@ instance ToHeaders DeleteCluster where
         toHeaders = const mempty
 
 instance ToPath DeleteCluster where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteCluster where
         toQuery DeleteCluster'{..}

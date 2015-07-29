@@ -141,9 +141,8 @@ instance ToJSON InitiateVaultLock where
 
 instance ToPath InitiateVaultLock where
         toPath InitiateVaultLock'{..}
-          = mconcat
-              ["/", toPath _ivlAccountId, "/vaults/",
-               toPath _ivlVaultName, "/lock-policy"]
+          = [toBS _ivlAccountId, "vaults", toBS _ivlVaultName,
+             "lock-policy"]
 
 instance ToQuery InitiateVaultLock where
         toQuery = const mempty

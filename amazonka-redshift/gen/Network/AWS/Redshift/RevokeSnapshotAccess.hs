@@ -108,7 +108,7 @@ instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty
 
 instance ToPath RevokeSnapshotAccess where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RevokeSnapshotAccess where
         toQuery RevokeSnapshotAccess'{..}

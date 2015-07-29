@@ -93,7 +93,7 @@ instance ToHeaders DeletePolicyVersion where
         toHeaders = const mempty
 
 instance ToPath DeletePolicyVersion where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeletePolicyVersion where
         toQuery DeletePolicyVersion'{..}

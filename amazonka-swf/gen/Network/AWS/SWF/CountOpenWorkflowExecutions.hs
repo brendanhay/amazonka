@@ -167,7 +167,7 @@ instance ToJSON CountOpenWorkflowExecutions where
                "startTimeFilter" .= _coweStartTimeFilter]
 
 instance ToPath CountOpenWorkflowExecutions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CountOpenWorkflowExecutions where
         toQuery = const mempty

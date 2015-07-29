@@ -103,7 +103,7 @@ instance ToJSON DescribeSnapshotSchedule where
           = object ["VolumeARN" .= _dssVolumeARN]
 
 instance ToPath DescribeSnapshotSchedule where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSnapshotSchedule where
         toQuery = const mempty

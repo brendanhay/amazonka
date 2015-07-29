@@ -41,7 +41,6 @@ instance ToText AssignmentStatusType where
 
 instance Hashable     AssignmentStatusType
 instance ToByteString AssignmentStatusType
-instance ToPath       AssignmentStatusType
 instance ToQuery      AssignmentStatusType
 instance ToHeader     AssignmentStatusType
 
@@ -64,7 +63,6 @@ instance ToText EncodingType where
 
 instance Hashable     EncodingType
 instance ToByteString EncodingType
-instance ToPath       EncodingType
 instance ToQuery      EncodingType
 instance ToHeader     EncodingType
 
@@ -96,7 +94,6 @@ instance ToText EntityType where
 
 instance Hashable     EntityType
 instance ToByteString EntityType
-instance ToPath       EntityType
 instance ToQuery      EntityType
 instance ToHeader     EntityType
 
@@ -122,7 +119,6 @@ instance ToText PolicyScopeType where
 
 instance Hashable     PolicyScopeType
 instance ToByteString PolicyScopeType
-instance ToPath       PolicyScopeType
 instance ToQuery      PolicyScopeType
 instance ToHeader     PolicyScopeType
 
@@ -142,7 +138,6 @@ instance ToText ReportFormatType where
 
 instance Hashable     ReportFormatType
 instance ToByteString ReportFormatType
-instance ToPath       ReportFormatType
 instance ToQuery      ReportFormatType
 instance ToHeader     ReportFormatType
 
@@ -171,7 +166,6 @@ instance ToText ReportStateType where
 
 instance Hashable     ReportStateType
 instance ToByteString ReportStateType
-instance ToPath       ReportStateType
 instance ToQuery      ReportStateType
 instance ToHeader     ReportStateType
 
@@ -197,7 +191,6 @@ instance ToText StatusType where
 
 instance Hashable     StatusType
 instance ToByteString StatusType
-instance ToPath       StatusType
 instance ToQuery      StatusType
 instance ToHeader     StatusType
 
@@ -292,7 +285,6 @@ instance ToText SummaryKeyType where
 
 instance Hashable     SummaryKeyType
 instance ToByteString SummaryKeyType
-instance ToPath       SummaryKeyType
 instance ToQuery      SummaryKeyType
 instance ToHeader     SummaryKeyType
 

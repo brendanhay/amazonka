@@ -47,7 +47,6 @@ instance ToText LookupAttributeKey where
 
 instance Hashable     LookupAttributeKey
 instance ToByteString LookupAttributeKey
-instance ToPath       LookupAttributeKey
 instance ToQuery      LookupAttributeKey
 instance ToHeader     LookupAttributeKey
 

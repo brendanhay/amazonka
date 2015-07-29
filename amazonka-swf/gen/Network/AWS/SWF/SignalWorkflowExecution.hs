@@ -154,7 +154,7 @@ instance ToJSON SignalWorkflowExecution where
                "signalName" .= _sweSignalName]
 
 instance ToPath SignalWorkflowExecution where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SignalWorkflowExecution where
         toQuery = const mempty

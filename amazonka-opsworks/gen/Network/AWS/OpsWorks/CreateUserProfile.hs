@@ -130,7 +130,7 @@ instance ToJSON CreateUserProfile where
                "IamUserArn" .= _cupIAMUserARN]
 
 instance ToPath CreateUserProfile where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateUserProfile where
         toQuery = const mempty

@@ -123,7 +123,7 @@ instance ToJSON DescribeCommands where
                "CommandIds" .= _dcCommandIds]
 
 instance ToPath DescribeCommands where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCommands where
         toQuery = const mempty

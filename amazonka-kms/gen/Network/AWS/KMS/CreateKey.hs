@@ -115,7 +115,7 @@ instance ToJSON CreateKey where
                "Description" .= _ckDescription]
 
 instance ToPath CreateKey where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateKey where
         toQuery = const mempty

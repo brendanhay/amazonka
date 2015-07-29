@@ -44,7 +44,6 @@ instance ToText ActivityTaskTimeoutType where
 
 instance Hashable     ActivityTaskTimeoutType
 instance ToByteString ActivityTaskTimeoutType
-instance ToPath       ActivityTaskTimeoutType
 instance ToQuery      ActivityTaskTimeoutType
 instance ToHeader     ActivityTaskTimeoutType
 
@@ -70,7 +69,6 @@ instance ToText CancelTimerFailedCause where
 
 instance Hashable     CancelTimerFailedCause
 instance ToByteString CancelTimerFailedCause
-instance ToPath       CancelTimerFailedCause
 instance ToQuery      CancelTimerFailedCause
 instance ToHeader     CancelTimerFailedCause
 
@@ -96,7 +94,6 @@ instance ToText CancelWorkflowExecutionFailedCause where
 
 instance Hashable     CancelWorkflowExecutionFailedCause
 instance ToByteString CancelWorkflowExecutionFailedCause
-instance ToPath       CancelWorkflowExecutionFailedCause
 instance ToQuery      CancelWorkflowExecutionFailedCause
 instance ToHeader     CancelWorkflowExecutionFailedCause
 
@@ -125,7 +122,6 @@ instance ToText ChildPolicy where
 
 instance Hashable     ChildPolicy
 instance ToByteString ChildPolicy
-instance ToPath       ChildPolicy
 instance ToQuery      ChildPolicy
 instance ToHeader     ChildPolicy
 
@@ -166,7 +162,6 @@ instance ToText CloseStatus where
 
 instance Hashable     CloseStatus
 instance ToByteString CloseStatus
-instance ToPath       CloseStatus
 instance ToQuery      CloseStatus
 instance ToHeader     CloseStatus
 
@@ -195,7 +190,6 @@ instance ToText CompleteWorkflowExecutionFailedCause where
 
 instance Hashable     CompleteWorkflowExecutionFailedCause
 instance ToByteString CompleteWorkflowExecutionFailedCause
-instance ToPath       CompleteWorkflowExecutionFailedCause
 instance ToQuery      CompleteWorkflowExecutionFailedCause
 instance ToHeader     CompleteWorkflowExecutionFailedCause
 
@@ -242,7 +236,6 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
 
 instance Hashable     ContinueAsNewWorkflowExecutionFailedCause
 instance ToByteString ContinueAsNewWorkflowExecutionFailedCause
-instance ToPath       ContinueAsNewWorkflowExecutionFailedCause
 instance ToQuery      ContinueAsNewWorkflowExecutionFailedCause
 instance ToHeader     ContinueAsNewWorkflowExecutionFailedCause
 
@@ -265,7 +258,6 @@ instance ToText DecisionTaskTimeoutType where
 
 instance Hashable     DecisionTaskTimeoutType
 instance ToByteString DecisionTaskTimeoutType
-instance ToPath       DecisionTaskTimeoutType
 instance ToQuery      DecisionTaskTimeoutType
 instance ToHeader     DecisionTaskTimeoutType
 
@@ -321,7 +313,6 @@ instance ToText DecisionType where
 
 instance Hashable     DecisionType
 instance ToByteString DecisionType
-instance ToPath       DecisionType
 instance ToQuery      DecisionType
 instance ToHeader     DecisionType
 
@@ -482,7 +473,6 @@ instance ToText EventType where
 
 instance Hashable     EventType
 instance ToByteString EventType
-instance ToPath       EventType
 instance ToQuery      EventType
 instance ToHeader     EventType
 
@@ -508,7 +498,6 @@ instance ToText ExecutionStatus where
 
 instance Hashable     ExecutionStatus
 instance ToByteString ExecutionStatus
-instance ToPath       ExecutionStatus
 instance ToQuery      ExecutionStatus
 instance ToHeader     ExecutionStatus
 
@@ -534,7 +523,6 @@ instance ToText FailWorkflowExecutionFailedCause where
 
 instance Hashable     FailWorkflowExecutionFailedCause
 instance ToByteString FailWorkflowExecutionFailedCause
-instance ToPath       FailWorkflowExecutionFailedCause
 instance ToQuery      FailWorkflowExecutionFailedCause
 instance ToHeader     FailWorkflowExecutionFailedCause
 
@@ -557,7 +545,6 @@ instance ToText RecordMarkerFailedCause where
 
 instance Hashable     RecordMarkerFailedCause
 instance ToByteString RecordMarkerFailedCause
-instance ToPath       RecordMarkerFailedCause
 instance ToQuery      RecordMarkerFailedCause
 instance ToHeader     RecordMarkerFailedCause
 
@@ -583,7 +570,6 @@ instance ToText RegistrationStatus where
 
 instance Hashable     RegistrationStatus
 instance ToByteString RegistrationStatus
-instance ToPath       RegistrationStatus
 instance ToQuery      RegistrationStatus
 instance ToHeader     RegistrationStatus
 
@@ -612,7 +598,6 @@ instance ToText RequestCancelActivityTaskFailedCause where
 
 instance Hashable     RequestCancelActivityTaskFailedCause
 instance ToByteString RequestCancelActivityTaskFailedCause
-instance ToPath       RequestCancelActivityTaskFailedCause
 instance ToQuery      RequestCancelActivityTaskFailedCause
 instance ToHeader     RequestCancelActivityTaskFailedCause
 
@@ -641,7 +626,6 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
 
 instance Hashable     RequestCancelExternalWorkflowExecutionFailedCause
 instance ToByteString RequestCancelExternalWorkflowExecutionFailedCause
-instance ToPath       RequestCancelExternalWorkflowExecutionFailedCause
 instance ToQuery      RequestCancelExternalWorkflowExecutionFailedCause
 instance ToHeader     RequestCancelExternalWorkflowExecutionFailedCause
 
@@ -694,7 +678,6 @@ instance ToText ScheduleActivityTaskFailedCause where
 
 instance Hashable     ScheduleActivityTaskFailedCause
 instance ToByteString ScheduleActivityTaskFailedCause
-instance ToPath       ScheduleActivityTaskFailedCause
 instance ToQuery      ScheduleActivityTaskFailedCause
 instance ToHeader     ScheduleActivityTaskFailedCause
 
@@ -723,7 +706,6 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
 
 instance Hashable     SignalExternalWorkflowExecutionFailedCause
 instance ToByteString SignalExternalWorkflowExecutionFailedCause
-instance ToPath       SignalExternalWorkflowExecutionFailedCause
 instance ToQuery      SignalExternalWorkflowExecutionFailedCause
 instance ToHeader     SignalExternalWorkflowExecutionFailedCause
 
@@ -776,7 +758,6 @@ instance ToText StartChildWorkflowExecutionFailedCause where
 
 instance Hashable     StartChildWorkflowExecutionFailedCause
 instance ToByteString StartChildWorkflowExecutionFailedCause
-instance ToPath       StartChildWorkflowExecutionFailedCause
 instance ToQuery      StartChildWorkflowExecutionFailedCause
 instance ToHeader     StartChildWorkflowExecutionFailedCause
 
@@ -808,7 +789,6 @@ instance ToText StartTimerFailedCause where
 
 instance Hashable     StartTimerFailedCause
 instance ToByteString StartTimerFailedCause
-instance ToPath       StartTimerFailedCause
 instance ToQuery      StartTimerFailedCause
 instance ToHeader     StartTimerFailedCause
 
@@ -831,7 +811,6 @@ instance ToText WorkflowExecutionCancelRequestedCause where
 
 instance Hashable     WorkflowExecutionCancelRequestedCause
 instance ToByteString WorkflowExecutionCancelRequestedCause
-instance ToPath       WorkflowExecutionCancelRequestedCause
 instance ToQuery      WorkflowExecutionCancelRequestedCause
 instance ToHeader     WorkflowExecutionCancelRequestedCause
 
@@ -860,7 +839,6 @@ instance ToText WorkflowExecutionTerminatedCause where
 
 instance Hashable     WorkflowExecutionTerminatedCause
 instance ToByteString WorkflowExecutionTerminatedCause
-instance ToPath       WorkflowExecutionTerminatedCause
 instance ToQuery      WorkflowExecutionTerminatedCause
 instance ToHeader     WorkflowExecutionTerminatedCause
 
@@ -883,7 +861,6 @@ instance ToText WorkflowExecutionTimeoutType where
 
 instance Hashable     WorkflowExecutionTimeoutType
 instance ToByteString WorkflowExecutionTimeoutType
-instance ToPath       WorkflowExecutionTimeoutType
 instance ToQuery      WorkflowExecutionTimeoutType
 instance ToHeader     WorkflowExecutionTimeoutType
 

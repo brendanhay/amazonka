@@ -92,7 +92,7 @@ instance ToHeaders GetTemplate where
         toHeaders = const mempty
 
 instance ToPath GetTemplate where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetTemplate where
         toQuery GetTemplate'{..}

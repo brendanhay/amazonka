@@ -152,7 +152,7 @@ instance ToJSON RecordActivityTaskHeartbeat where
                "taskToken" .= _rathTaskToken]
 
 instance ToPath RecordActivityTaskHeartbeat where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RecordActivityTaskHeartbeat where
         toQuery = const mempty

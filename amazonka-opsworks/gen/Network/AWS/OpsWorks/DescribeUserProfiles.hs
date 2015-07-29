@@ -95,7 +95,7 @@ instance ToJSON DescribeUserProfiles where
           = object ["IamUserArns" .= _dupIAMUserARNs]
 
 instance ToPath DescribeUserProfiles where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeUserProfiles where
         toQuery = const mempty

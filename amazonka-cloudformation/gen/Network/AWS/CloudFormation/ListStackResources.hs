@@ -114,7 +114,7 @@ instance ToHeaders ListStackResources where
         toHeaders = const mempty
 
 instance ToPath ListStackResources where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListStackResources where
         toQuery ListStackResources'{..}

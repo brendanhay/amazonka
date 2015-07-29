@@ -72,7 +72,7 @@ instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
 
 instance ToPath DescribeAccountLimits where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeAccountLimits where
         toQuery

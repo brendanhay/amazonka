@@ -201,7 +201,7 @@ instance ToJSON DescribeCases where
                "maxResults" .= _dcMaxResults]
 
 instance ToPath DescribeCases where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCases where
         toQuery = const mempty

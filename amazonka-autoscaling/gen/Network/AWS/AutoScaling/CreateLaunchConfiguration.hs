@@ -336,7 +336,7 @@ instance ToHeaders CreateLaunchConfiguration where
         toHeaders = const mempty
 
 instance ToPath CreateLaunchConfiguration where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateLaunchConfiguration where
         toQuery CreateLaunchConfiguration'{..}

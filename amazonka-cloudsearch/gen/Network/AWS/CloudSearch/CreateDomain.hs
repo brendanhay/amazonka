@@ -85,7 +85,7 @@ instance ToHeaders CreateDomain where
         toHeaders = const mempty
 
 instance ToPath CreateDomain where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateDomain where
         toQuery CreateDomain'{..}

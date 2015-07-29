@@ -47,7 +47,6 @@ instance ToText OperatorType where
 
 instance Hashable     OperatorType
 instance ToByteString OperatorType
-instance ToPath       OperatorType
 instance ToQuery      OperatorType
 instance ToHeader     OperatorType
 
@@ -76,7 +75,6 @@ instance ToText TaskStatus where
 
 instance Hashable     TaskStatus
 instance ToByteString TaskStatus
-instance ToPath       TaskStatus
 instance ToQuery      TaskStatus
 instance ToHeader     TaskStatus
 

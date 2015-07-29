@@ -213,7 +213,7 @@ instance ToHeaders UploadPart where
 
 instance ToPath UploadPart where
         toPath UploadPart'{..}
-          = mconcat ["/", toPath _upBucket, "/", toPath _upKey]
+          = [toBS _upBucket, toBS _upKey]
 
 instance ToQuery UploadPart where
         toQuery UploadPart'{..}

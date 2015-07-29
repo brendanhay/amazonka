@@ -140,7 +140,7 @@ instance ToHeaders DescribeOptionGroupOptions where
         toHeaders = const mempty
 
 instance ToPath DescribeOptionGroupOptions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeOptionGroupOptions where
         toQuery DescribeOptionGroupOptions'{..}

@@ -115,7 +115,7 @@ instance ToHeaders CreateSnapshotCopyGrant where
         toHeaders = const mempty
 
 instance ToPath CreateSnapshotCopyGrant where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateSnapshotCopyGrant where
         toQuery CreateSnapshotCopyGrant'{..}

@@ -109,7 +109,7 @@ instance ToJSON UnlinkIdentity where
                "LoginsToRemove" .= _uiLoginsToRemove]
 
 instance ToPath UnlinkIdentity where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UnlinkIdentity where
         toQuery = const mempty

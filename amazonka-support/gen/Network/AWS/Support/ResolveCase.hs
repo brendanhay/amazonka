@@ -93,7 +93,7 @@ instance ToJSON ResolveCase where
           = object ["caseId" .= _rcCaseId]
 
 instance ToPath ResolveCase where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResolveCase where
         toQuery = const mempty

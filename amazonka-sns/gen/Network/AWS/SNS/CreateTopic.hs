@@ -88,7 +88,7 @@ instance ToHeaders CreateTopic where
         toHeaders = const mempty
 
 instance ToPath CreateTopic where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateTopic where
         toQuery CreateTopic'{..}

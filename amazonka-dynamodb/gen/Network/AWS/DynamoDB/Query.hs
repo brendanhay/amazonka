@@ -749,7 +749,7 @@ instance ToJSON Query where
                "TableName" .= _qTableName]
 
 instance ToPath Query where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery Query where
         toQuery = const mempty

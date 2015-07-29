@@ -139,7 +139,7 @@ instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty
 
 instance ToPath DescribeVPNGateways where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVPNGateways where
         toQuery DescribeVPNGateways'{..}

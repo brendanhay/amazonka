@@ -44,7 +44,6 @@ instance ToText LifeCycleState where
 
 instance Hashable     LifeCycleState
 instance ToByteString LifeCycleState
-instance ToPath       LifeCycleState
 instance ToQuery      LifeCycleState
 instance ToHeader     LifeCycleState
 

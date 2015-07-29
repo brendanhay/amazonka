@@ -88,7 +88,7 @@ instance ToJSON GetTest where
         toJSON GetTest'{..} = object ["arn" .= _gtArn]
 
 instance ToPath GetTest where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetTest where
         toQuery = const mempty

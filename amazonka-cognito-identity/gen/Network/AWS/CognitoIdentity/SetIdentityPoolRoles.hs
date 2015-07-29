@@ -100,7 +100,7 @@ instance ToJSON SetIdentityPoolRoles where
                "Roles" .= _siprRoles]
 
 instance ToPath SetIdentityPoolRoles where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetIdentityPoolRoles where
         toQuery = const mempty

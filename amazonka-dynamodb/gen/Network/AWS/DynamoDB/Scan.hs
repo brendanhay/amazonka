@@ -520,7 +520,7 @@ instance ToJSON Scan where
                "TableName" .= _sTableName]
 
 instance ToPath Scan where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery Scan where
         toQuery = const mempty

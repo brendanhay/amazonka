@@ -110,7 +110,7 @@ instance ToJSON DescribeLunaClient where
                  _dlcCertificateFingerprint]
 
 instance ToPath DescribeLunaClient where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLunaClient where
         toQuery = const mempty

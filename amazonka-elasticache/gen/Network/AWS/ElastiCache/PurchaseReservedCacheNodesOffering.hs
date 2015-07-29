@@ -110,7 +110,7 @@ instance ToHeaders PurchaseReservedCacheNodesOffering
 
 instance ToPath PurchaseReservedCacheNodesOffering
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PurchaseReservedCacheNodesOffering
          where

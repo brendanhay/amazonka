@@ -38,7 +38,6 @@ instance ToText EventSourcePosition where
 
 instance Hashable     EventSourcePosition
 instance ToByteString EventSourcePosition
-instance ToPath       EventSourcePosition
 instance ToQuery      EventSourcePosition
 instance ToHeader     EventSourcePosition
 
@@ -67,7 +66,6 @@ instance ToText InvocationType where
 
 instance Hashable     InvocationType
 instance ToByteString InvocationType
-instance ToPath       InvocationType
 instance ToQuery      InvocationType
 instance ToHeader     InvocationType
 
@@ -93,7 +91,6 @@ instance ToText LogType where
 
 instance Hashable     LogType
 instance ToByteString LogType
-instance ToPath       LogType
 instance ToQuery      LogType
 instance ToHeader     LogType
 
@@ -119,7 +116,6 @@ instance ToText Runtime where
 
 instance Hashable     Runtime
 instance ToByteString Runtime
-instance ToPath       Runtime
 instance ToQuery      Runtime
 instance ToHeader     Runtime
 

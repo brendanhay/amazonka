@@ -44,7 +44,6 @@ instance ToText ComparisonOperator where
 
 instance Hashable     ComparisonOperator
 instance ToByteString ComparisonOperator
-instance ToPath       ComparisonOperator
 instance ToQuery      ComparisonOperator
 instance ToHeader     ComparisonOperator
 
@@ -73,7 +72,6 @@ instance ToText HistoryItemType where
 
 instance Hashable     HistoryItemType
 instance ToByteString HistoryItemType
-instance ToPath       HistoryItemType
 instance ToQuery      HistoryItemType
 instance ToHeader     HistoryItemType
 
@@ -174,7 +172,6 @@ instance ToText StandardUnit where
 
 instance Hashable     StandardUnit
 instance ToByteString StandardUnit
-instance ToPath       StandardUnit
 instance ToQuery      StandardUnit
 instance ToHeader     StandardUnit
 
@@ -203,7 +200,6 @@ instance ToText StateValue where
 
 instance Hashable     StateValue
 instance ToByteString StateValue
-instance ToPath       StateValue
 instance ToQuery      StateValue
 instance ToHeader     StateValue
 
@@ -238,7 +234,6 @@ instance ToText Statistic where
 
 instance Hashable     Statistic
 instance ToByteString Statistic
-instance ToPath       Statistic
 instance ToQuery      Statistic
 instance ToHeader     Statistic
 

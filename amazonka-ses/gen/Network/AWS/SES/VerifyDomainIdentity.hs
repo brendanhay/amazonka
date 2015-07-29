@@ -83,7 +83,7 @@ instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
 
 instance ToPath VerifyDomainIdentity where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery VerifyDomainIdentity where
         toQuery VerifyDomainIdentity'{..}

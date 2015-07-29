@@ -102,7 +102,7 @@ instance ToJSON DetachElasticLoadBalancer where
                "LayerId" .= _delbLayerId]
 
 instance ToPath DetachElasticLoadBalancer where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DetachElasticLoadBalancer where
         toQuery = const mempty

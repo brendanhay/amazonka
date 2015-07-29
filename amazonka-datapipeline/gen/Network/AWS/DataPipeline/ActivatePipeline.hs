@@ -116,7 +116,7 @@ instance ToJSON ActivatePipeline where
                "pipelineId" .= _apPipelineId]
 
 instance ToPath ActivatePipeline where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ActivatePipeline where
         toQuery = const mempty

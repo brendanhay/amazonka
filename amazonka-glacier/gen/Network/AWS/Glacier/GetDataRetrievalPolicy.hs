@@ -90,9 +90,7 @@ instance ToHeaders GetDataRetrievalPolicy where
 
 instance ToPath GetDataRetrievalPolicy where
         toPath GetDataRetrievalPolicy'{..}
-          = mconcat
-              ["/", toPath _gdrpAccountId,
-               "/policies/data-retrieval"]
+          = [toBS _gdrpAccountId, "policies", "data-retrieval"]
 
 instance ToQuery GetDataRetrievalPolicy where
         toQuery = const mempty

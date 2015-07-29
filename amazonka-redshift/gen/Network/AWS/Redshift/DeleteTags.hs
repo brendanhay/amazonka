@@ -83,7 +83,7 @@ instance ToHeaders DeleteTags where
         toHeaders = const mempty
 
 instance ToPath DeleteTags where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteTags where
         toQuery DeleteTags'{..}

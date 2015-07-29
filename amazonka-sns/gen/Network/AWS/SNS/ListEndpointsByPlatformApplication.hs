@@ -118,7 +118,7 @@ instance ToHeaders ListEndpointsByPlatformApplication
 
 instance ToPath ListEndpointsByPlatformApplication
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListEndpointsByPlatformApplication
          where

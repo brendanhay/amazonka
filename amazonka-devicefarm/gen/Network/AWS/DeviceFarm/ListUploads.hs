@@ -103,7 +103,7 @@ instance ToJSON ListUploads where
               ["nextToken" .= _luNextToken, "arn" .= _luArn]
 
 instance ToPath ListUploads where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListUploads where
         toQuery = const mempty

@@ -107,7 +107,7 @@ instance ToHeaders PutGroupPolicy where
         toHeaders = const mempty
 
 instance ToPath PutGroupPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutGroupPolicy where
         toQuery PutGroupPolicy'{..}

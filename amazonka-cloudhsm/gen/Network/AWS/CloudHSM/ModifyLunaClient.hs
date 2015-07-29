@@ -102,7 +102,7 @@ instance ToJSON ModifyLunaClient where
                "Certificate" .= _mlcCertificate]
 
 instance ToPath ModifyLunaClient where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyLunaClient where
         toQuery = const mempty

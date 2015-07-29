@@ -101,7 +101,7 @@ instance ToJSON DescribeServices where
               ["cluster" .= _dCluster, "services" .= _dServices]
 
 instance ToPath DescribeServices where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeServices where
         toQuery = const mempty

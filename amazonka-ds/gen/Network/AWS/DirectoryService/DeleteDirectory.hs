@@ -90,7 +90,7 @@ instance ToJSON DeleteDirectory where
           = object ["DirectoryId" .= _dDirectoryId]
 
 instance ToPath DeleteDirectory where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteDirectory where
         toQuery = const mempty

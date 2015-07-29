@@ -88,7 +88,7 @@ instance ToJSON DescribeConnections where
           = object ["connectionId" .= _dConnectionId]
 
 instance ToPath DescribeConnections where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeConnections where
         toQuery = const mempty

@@ -113,7 +113,7 @@ instance ToJSON ReportTaskProgress where
               ["fields" .= _rtpFields, "taskId" .= _rtpTaskId]
 
 instance ToPath ReportTaskProgress where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ReportTaskProgress where
         toQuery = const mempty

@@ -95,7 +95,7 @@ instance ToJSON DescribeSeverityLevels where
           = object ["language" .= _dslLanguage]
 
 instance ToPath DescribeSeverityLevels where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSeverityLevels where
         toQuery = const mempty

@@ -184,7 +184,7 @@ instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
 
 instance ToPath GetMetricStatistics where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetMetricStatistics where
         toQuery GetMetricStatistics'{..}

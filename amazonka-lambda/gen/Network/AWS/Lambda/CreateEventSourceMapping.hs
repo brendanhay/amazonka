@@ -165,7 +165,8 @@ instance ToJSON CreateEventSourceMapping where
                "StartingPosition" .= _cesmStartingPosition]
 
 instance ToPath CreateEventSourceMapping where
-        toPath = const "/2015-03-31/event-source-mappings/"
+        toPath
+          = const ["2015-03-31", "event-source-mappings"]
 
 instance ToQuery CreateEventSourceMapping where
         toQuery = const mempty

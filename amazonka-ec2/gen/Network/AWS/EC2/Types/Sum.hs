@@ -38,7 +38,6 @@ instance ToText AccountAttributeName where
 
 instance Hashable     AccountAttributeName
 instance ToByteString AccountAttributeName
-instance ToPath       AccountAttributeName
 instance ToQuery      AccountAttributeName
 instance ToHeader     AccountAttributeName
 
@@ -64,7 +63,6 @@ instance ToText AddressStatus where
 
 instance Hashable     AddressStatus
 instance ToByteString AddressStatus
-instance ToPath       AddressStatus
 instance ToQuery      AddressStatus
 instance ToHeader     AddressStatus
 
@@ -90,7 +88,6 @@ instance ToText ArchitectureValues where
 
 instance Hashable     ArchitectureValues
 instance ToByteString ArchitectureValues
-instance ToPath       ArchitectureValues
 instance ToQuery      ArchitectureValues
 instance ToHeader     ArchitectureValues
 
@@ -122,7 +119,6 @@ instance ToText AttachmentStatus where
 
 instance Hashable     AttachmentStatus
 instance ToByteString AttachmentStatus
-instance ToPath       AttachmentStatus
 instance ToQuery      AttachmentStatus
 instance ToHeader     AttachmentStatus
 
@@ -145,7 +141,6 @@ instance ToText AvailabilityZoneState where
 
 instance Hashable     AvailabilityZoneState
 instance ToByteString AvailabilityZoneState
-instance ToPath       AvailabilityZoneState
 instance ToQuery      AvailabilityZoneState
 instance ToHeader     AvailabilityZoneState
 
@@ -183,7 +178,6 @@ instance ToText BatchState where
 
 instance Hashable     BatchState
 instance ToByteString BatchState
-instance ToPath       BatchState
 instance ToQuery      BatchState
 instance ToHeader     BatchState
 
@@ -224,7 +218,6 @@ instance ToText BundleTaskState where
 
 instance Hashable     BundleTaskState
 instance ToByteString BundleTaskState
-instance ToPath       BundleTaskState
 instance ToQuery      BundleTaskState
 instance ToHeader     BundleTaskState
 
@@ -256,7 +249,6 @@ instance ToText CancelBatchErrorCode where
 
 instance Hashable     CancelBatchErrorCode
 instance ToByteString CancelBatchErrorCode
-instance ToPath       CancelBatchErrorCode
 instance ToQuery      CancelBatchErrorCode
 instance ToHeader     CancelBatchErrorCode
 
@@ -291,7 +283,6 @@ instance ToText CancelSpotInstanceRequestState where
 
 instance Hashable     CancelSpotInstanceRequestState
 instance ToByteString CancelSpotInstanceRequestState
-instance ToPath       CancelSpotInstanceRequestState
 instance ToQuery      CancelSpotInstanceRequestState
 instance ToHeader     CancelSpotInstanceRequestState
 
@@ -314,7 +305,6 @@ instance ToText ContainerFormat where
 
 instance Hashable     ContainerFormat
 instance ToByteString ContainerFormat
-instance ToPath       ContainerFormat
 instance ToQuery      ContainerFormat
 instance ToHeader     ContainerFormat
 
@@ -346,7 +336,6 @@ instance ToText ConversionTaskState where
 
 instance Hashable     ConversionTaskState
 instance ToByteString ConversionTaskState
-instance ToPath       ConversionTaskState
 instance ToQuery      ConversionTaskState
 instance ToHeader     ConversionTaskState
 
@@ -369,7 +358,6 @@ instance ToText CurrencyCodeValues where
 
 instance Hashable     CurrencyCodeValues
 instance ToByteString CurrencyCodeValues
-instance ToPath       CurrencyCodeValues
 instance ToQuery      CurrencyCodeValues
 instance ToHeader     CurrencyCodeValues
 
@@ -395,7 +383,6 @@ instance ToText DatafeedSubscriptionState where
 
 instance Hashable     DatafeedSubscriptionState
 instance ToByteString DatafeedSubscriptionState
-instance ToPath       DatafeedSubscriptionState
 instance ToQuery      DatafeedSubscriptionState
 instance ToHeader     DatafeedSubscriptionState
 
@@ -421,7 +408,6 @@ instance ToText DeviceType where
 
 instance Hashable     DeviceType
 instance ToByteString DeviceType
-instance ToPath       DeviceType
 instance ToQuery      DeviceType
 instance ToHeader     DeviceType
 
@@ -450,7 +436,6 @@ instance ToText DiskImageFormat where
 
 instance Hashable     DiskImageFormat
 instance ToByteString DiskImageFormat
-instance ToPath       DiskImageFormat
 instance ToQuery      DiskImageFormat
 instance ToHeader     DiskImageFormat
 
@@ -476,7 +461,6 @@ instance ToText DomainType where
 
 instance Hashable     DomainType
 instance ToByteString DomainType
-instance ToPath       DomainType
 instance ToQuery      DomainType
 instance ToHeader     DomainType
 
@@ -511,7 +495,6 @@ instance ToText EventCode where
 
 instance Hashable     EventCode
 instance ToByteString EventCode
-instance ToPath       EventCode
 instance ToQuery      EventCode
 instance ToHeader     EventCode
 
@@ -540,7 +523,6 @@ instance ToText EventType where
 
 instance Hashable     EventType
 instance ToByteString EventType
-instance ToPath       EventType
 instance ToQuery      EventType
 instance ToHeader     EventType
 
@@ -569,7 +551,6 @@ instance ToText ExportEnvironment where
 
 instance Hashable     ExportEnvironment
 instance ToByteString ExportEnvironment
-instance ToPath       ExportEnvironment
 instance ToQuery      ExportEnvironment
 instance ToHeader     ExportEnvironment
 
@@ -601,7 +582,6 @@ instance ToText ExportTaskState where
 
 instance Hashable     ExportTaskState
 instance ToByteString ExportTaskState
-instance ToPath       ExportTaskState
 instance ToQuery      ExportTaskState
 instance ToHeader     ExportTaskState
 
@@ -630,7 +610,6 @@ instance ToText FlowLogsResourceType where
 
 instance Hashable     FlowLogsResourceType
 instance ToByteString FlowLogsResourceType
-instance ToPath       FlowLogsResourceType
 instance ToQuery      FlowLogsResourceType
 instance ToHeader     FlowLogsResourceType
 
@@ -650,7 +629,6 @@ instance ToText GatewayType where
 
 instance Hashable     GatewayType
 instance ToByteString GatewayType
-instance ToPath       GatewayType
 instance ToQuery      GatewayType
 instance ToHeader     GatewayType
 
@@ -676,7 +654,6 @@ instance ToText HypervisorType where
 
 instance Hashable     HypervisorType
 instance ToByteString HypervisorType
-instance ToPath       HypervisorType
 instance ToQuery      HypervisorType
 instance ToHeader     HypervisorType
 
@@ -717,7 +694,6 @@ instance ToText ImageAttributeName where
 
 instance Hashable     ImageAttributeName
 instance ToByteString ImageAttributeName
-instance ToPath       ImageAttributeName
 instance ToQuery      ImageAttributeName
 instance ToHeader     ImageAttributeName
 
@@ -755,7 +731,6 @@ instance ToText ImageState where
 
 instance Hashable     ImageState
 instance ToByteString ImageState
-instance ToPath       ImageState
 instance ToQuery      ImageState
 instance ToHeader     ImageState
 
@@ -784,7 +759,6 @@ instance ToText ImageTypeValues where
 
 instance Hashable     ImageTypeValues
 instance ToByteString ImageTypeValues
-instance ToPath       ImageTypeValues
 instance ToQuery      ImageTypeValues
 instance ToHeader     ImageTypeValues
 
@@ -843,7 +817,6 @@ instance ToText InstanceAttributeName where
 
 instance Hashable     InstanceAttributeName
 instance ToByteString InstanceAttributeName
-instance ToPath       InstanceAttributeName
 instance ToQuery      InstanceAttributeName
 instance ToHeader     InstanceAttributeName
 
@@ -863,7 +836,6 @@ instance ToText InstanceLifecycleType where
 
 instance Hashable     InstanceLifecycleType
 instance ToByteString InstanceLifecycleType
-instance ToPath       InstanceLifecycleType
 instance ToQuery      InstanceLifecycleType
 instance ToHeader     InstanceLifecycleType
 
@@ -901,7 +873,6 @@ instance ToText InstanceStateName where
 
 instance Hashable     InstanceStateName
 instance ToByteString InstanceStateName
-instance ToPath       InstanceStateName
 instance ToQuery      InstanceStateName
 instance ToHeader     InstanceStateName
 
@@ -1080,7 +1051,6 @@ instance ToText InstanceType where
 
 instance Hashable     InstanceType
 instance ToByteString InstanceType
-instance ToPath       InstanceType
 instance ToQuery      InstanceType
 instance ToHeader     InstanceType
 
@@ -1112,7 +1082,6 @@ instance ToText ListingState where
 
 instance Hashable     ListingState
 instance ToByteString ListingState
-instance ToPath       ListingState
 instance ToQuery      ListingState
 instance ToHeader     ListingState
 
@@ -1144,7 +1113,6 @@ instance ToText ListingStatus where
 
 instance Hashable     ListingStatus
 instance ToByteString ListingStatus
-instance ToPath       ListingStatus
 instance ToQuery      ListingStatus
 instance ToHeader     ListingStatus
 
@@ -1176,7 +1144,6 @@ instance ToText MonitoringState where
 
 instance Hashable     MonitoringState
 instance ToByteString MonitoringState
-instance ToPath       MonitoringState
 instance ToQuery      MonitoringState
 instance ToHeader     MonitoringState
 
@@ -1202,7 +1169,6 @@ instance ToText MoveStatus where
 
 instance Hashable     MoveStatus
 instance ToByteString MoveStatus
-instance ToPath       MoveStatus
 instance ToQuery      MoveStatus
 instance ToHeader     MoveStatus
 
@@ -1234,7 +1200,6 @@ instance ToText NetworkInterfaceAttribute where
 
 instance Hashable     NetworkInterfaceAttribute
 instance ToByteString NetworkInterfaceAttribute
-instance ToPath       NetworkInterfaceAttribute
 instance ToQuery      NetworkInterfaceAttribute
 instance ToHeader     NetworkInterfaceAttribute
 
@@ -1263,7 +1228,6 @@ instance ToText NetworkInterfaceStatus where
 
 instance Hashable     NetworkInterfaceStatus
 instance ToByteString NetworkInterfaceStatus
-instance ToPath       NetworkInterfaceStatus
 instance ToQuery      NetworkInterfaceStatus
 instance ToHeader     NetworkInterfaceStatus
 
@@ -1301,7 +1265,6 @@ instance ToText OfferingTypeValues where
 
 instance Hashable     OfferingTypeValues
 instance ToByteString OfferingTypeValues
-instance ToPath       OfferingTypeValues
 instance ToQuery      OfferingTypeValues
 instance ToHeader     OfferingTypeValues
 
@@ -1324,7 +1287,6 @@ instance ToText PermissionGroup where
 
 instance Hashable     PermissionGroup
 instance ToByteString PermissionGroup
-instance ToPath       PermissionGroup
 instance ToQuery      PermissionGroup
 instance ToHeader     PermissionGroup
 
@@ -1356,7 +1318,6 @@ instance ToText PlacementGroupState where
 
 instance Hashable     PlacementGroupState
 instance ToByteString PlacementGroupState
-instance ToPath       PlacementGroupState
 instance ToQuery      PlacementGroupState
 instance ToHeader     PlacementGroupState
 
@@ -1379,7 +1340,6 @@ instance ToText PlacementStrategy where
 
 instance Hashable     PlacementStrategy
 instance ToByteString PlacementStrategy
-instance ToPath       PlacementStrategy
 instance ToQuery      PlacementStrategy
 instance ToHeader     PlacementStrategy
 
@@ -1402,7 +1362,6 @@ instance ToText PlatformValues where
 
 instance Hashable     PlatformValues
 instance ToByteString PlatformValues
-instance ToPath       PlatformValues
 instance ToQuery      PlatformValues
 instance ToHeader     PlatformValues
 
@@ -1428,7 +1387,6 @@ instance ToText ProductCodeValues where
 
 instance Hashable     ProductCodeValues
 instance ToByteString ProductCodeValues
-instance ToPath       ProductCodeValues
 instance ToQuery      ProductCodeValues
 instance ToHeader     ProductCodeValues
 
@@ -1460,7 +1418,6 @@ instance ToText RIProductDescription where
 
 instance Hashable     RIProductDescription
 instance ToByteString RIProductDescription
-instance ToPath       RIProductDescription
 instance ToQuery      RIProductDescription
 instance ToHeader     RIProductDescription
 
@@ -1483,7 +1440,6 @@ instance ToText RecurringChargeFrequency where
 
 instance Hashable     RecurringChargeFrequency
 instance ToByteString RecurringChargeFrequency
-instance ToPath       RecurringChargeFrequency
 instance ToQuery      RecurringChargeFrequency
 instance ToHeader     RecurringChargeFrequency
 
@@ -1530,7 +1486,6 @@ instance ToText ReportInstanceReasonCodes where
 
 instance Hashable     ReportInstanceReasonCodes
 instance ToByteString ReportInstanceReasonCodes
-instance ToPath       ReportInstanceReasonCodes
 instance ToQuery      ReportInstanceReasonCodes
 instance ToHeader     ReportInstanceReasonCodes
 
@@ -1553,7 +1508,6 @@ instance ToText ReportStatusType where
 
 instance Hashable     ReportStatusType
 instance ToByteString ReportStatusType
-instance ToPath       ReportStatusType
 instance ToQuery      ReportStatusType
 instance ToHeader     ReportStatusType
 
@@ -1582,7 +1536,6 @@ instance ToText ReservedInstanceState where
 
 instance Hashable     ReservedInstanceState
 instance ToByteString ReservedInstanceState
-instance ToPath       ReservedInstanceState
 instance ToQuery      ReservedInstanceState
 instance ToHeader     ReservedInstanceState
 
@@ -1605,7 +1558,6 @@ instance ToText ResetImageAttributeName where
 
 instance Hashable     ResetImageAttributeName
 instance ToByteString ResetImageAttributeName
-instance ToPath       ResetImageAttributeName
 instance ToQuery      ResetImageAttributeName
 instance ToHeader     ResetImageAttributeName
 
@@ -1673,7 +1625,6 @@ instance ToText ResourceType where
 
 instance Hashable     ResourceType
 instance ToByteString ResourceType
-instance ToPath       ResourceType
 instance ToQuery      ResourceType
 instance ToHeader     ResourceType
 
@@ -1702,7 +1653,6 @@ instance ToText RouteOrigin where
 
 instance Hashable     RouteOrigin
 instance ToByteString RouteOrigin
-instance ToPath       RouteOrigin
 instance ToQuery      RouteOrigin
 instance ToHeader     RouteOrigin
 
@@ -1728,7 +1678,6 @@ instance ToText RouteState where
 
 instance Hashable     RouteState
 instance ToByteString RouteState
-instance ToPath       RouteState
 instance ToQuery      RouteState
 instance ToHeader     RouteState
 
@@ -1754,7 +1703,6 @@ instance ToText RuleAction where
 
 instance Hashable     RuleAction
 instance ToByteString RuleAction
-instance ToPath       RuleAction
 instance ToQuery      RuleAction
 instance ToHeader     RuleAction
 
@@ -1780,7 +1728,6 @@ instance ToText ShutdownBehavior where
 
 instance Hashable     ShutdownBehavior
 instance ToByteString ShutdownBehavior
-instance ToPath       ShutdownBehavior
 instance ToQuery      ShutdownBehavior
 instance ToHeader     ShutdownBehavior
 
@@ -1803,7 +1750,6 @@ instance ToText SnapshotAttributeName where
 
 instance Hashable     SnapshotAttributeName
 instance ToByteString SnapshotAttributeName
-instance ToPath       SnapshotAttributeName
 instance ToQuery      SnapshotAttributeName
 instance ToHeader     SnapshotAttributeName
 
@@ -1829,7 +1775,6 @@ instance ToText SnapshotState where
 
 instance Hashable     SnapshotState
 instance ToByteString SnapshotState
-instance ToPath       SnapshotState
 instance ToQuery      SnapshotState
 instance ToHeader     SnapshotState
 
@@ -1864,7 +1809,6 @@ instance ToText SpotInstanceState where
 
 instance Hashable     SpotInstanceState
 instance ToByteString SpotInstanceState
-instance ToPath       SpotInstanceState
 instance ToQuery      SpotInstanceState
 instance ToHeader     SpotInstanceState
 
@@ -1890,7 +1834,6 @@ instance ToText SpotInstanceType where
 
 instance Hashable     SpotInstanceType
 instance ToByteString SpotInstanceType
-instance ToPath       SpotInstanceType
 instance ToQuery      SpotInstanceType
 instance ToHeader     SpotInstanceType
 
@@ -1922,7 +1865,6 @@ instance ToText State where
 
 instance Hashable     State
 instance ToByteString State
-instance ToPath       State
 instance ToQuery      State
 instance ToHeader     State
 
@@ -1945,7 +1887,6 @@ instance ToText StatusName where
 
 instance Hashable     StatusName
 instance ToByteString StatusName
-instance ToPath       StatusName
 instance ToQuery      StatusName
 instance ToHeader     StatusName
 
@@ -1977,7 +1918,6 @@ instance ToText StatusType where
 
 instance Hashable     StatusType
 instance ToByteString StatusType
-instance ToPath       StatusType
 instance ToQuery      StatusType
 instance ToHeader     StatusType
 
@@ -2003,7 +1943,6 @@ instance ToText SubnetState where
 
 instance Hashable     SubnetState
 instance ToByteString SubnetState
-instance ToPath       SubnetState
 instance ToQuery      SubnetState
 instance ToHeader     SubnetState
 
@@ -2038,7 +1977,6 @@ instance ToText SummaryStatus where
 
 instance Hashable     SummaryStatus
 instance ToByteString SummaryStatus
-instance ToPath       SummaryStatus
 instance ToQuery      SummaryStatus
 instance ToHeader     SummaryStatus
 
@@ -2064,7 +2002,6 @@ instance ToText TelemetryStatus where
 
 instance Hashable     TelemetryStatus
 instance ToByteString TelemetryStatus
-instance ToPath       TelemetryStatus
 instance ToQuery      TelemetryStatus
 instance ToHeader     TelemetryStatus
 
@@ -2090,7 +2027,6 @@ instance ToText Tenancy where
 
 instance Hashable     Tenancy
 instance ToByteString Tenancy
-instance ToPath       Tenancy
 instance ToQuery      Tenancy
 instance ToHeader     Tenancy
 
@@ -2119,7 +2055,6 @@ instance ToText TrafficType where
 
 instance Hashable     TrafficType
 instance ToByteString TrafficType
-instance ToPath       TrafficType
 instance ToQuery      TrafficType
 instance ToHeader     TrafficType
 
@@ -2145,7 +2080,6 @@ instance ToText VPCAttributeName where
 
 instance Hashable     VPCAttributeName
 instance ToByteString VPCAttributeName
-instance ToPath       VPCAttributeName
 instance ToQuery      VPCAttributeName
 instance ToHeader     VPCAttributeName
 
@@ -2189,7 +2123,6 @@ instance ToText VPCPeeringConnectionStateReasonCode where
 
 instance Hashable     VPCPeeringConnectionStateReasonCode
 instance ToByteString VPCPeeringConnectionStateReasonCode
-instance ToPath       VPCPeeringConnectionStateReasonCode
 instance ToQuery      VPCPeeringConnectionStateReasonCode
 instance ToHeader     VPCPeeringConnectionStateReasonCode
 
@@ -2215,7 +2148,6 @@ instance ToText VPCState where
 
 instance Hashable     VPCState
 instance ToByteString VPCState
-instance ToPath       VPCState
 instance ToQuery      VPCState
 instance ToHeader     VPCState
 
@@ -2247,7 +2179,6 @@ instance ToText VPNState where
 
 instance Hashable     VPNState
 instance ToByteString VPNState
-instance ToPath       VPNState
 instance ToQuery      VPNState
 instance ToHeader     VPNState
 
@@ -2270,7 +2201,6 @@ instance ToText VPNStaticRouteSource where
 
 instance Hashable     VPNStaticRouteSource
 instance ToByteString VPNStaticRouteSource
-instance ToPath       VPNStaticRouteSource
 instance ToQuery      VPNStaticRouteSource
 instance ToHeader     VPNStaticRouteSource
 
@@ -2296,7 +2226,6 @@ instance ToText VirtualizationType where
 
 instance Hashable     VirtualizationType
 instance ToByteString VirtualizationType
-instance ToPath       VirtualizationType
 instance ToQuery      VirtualizationType
 instance ToHeader     VirtualizationType
 
@@ -2328,7 +2257,6 @@ instance ToText VolumeAttachmentState where
 
 instance Hashable     VolumeAttachmentState
 instance ToByteString VolumeAttachmentState
-instance ToPath       VolumeAttachmentState
 instance ToQuery      VolumeAttachmentState
 instance ToHeader     VolumeAttachmentState
 
@@ -2354,7 +2282,6 @@ instance ToText VolumeAttributeName where
 
 instance Hashable     VolumeAttributeName
 instance ToByteString VolumeAttributeName
-instance ToPath       VolumeAttributeName
 instance ToQuery      VolumeAttributeName
 instance ToHeader     VolumeAttributeName
 
@@ -2389,7 +2316,6 @@ instance ToText VolumeState where
 
 instance Hashable     VolumeState
 instance ToByteString VolumeState
-instance ToPath       VolumeState
 instance ToQuery      VolumeState
 instance ToHeader     VolumeState
 
@@ -2418,7 +2344,6 @@ instance ToText VolumeStatusInfoStatus where
 
 instance Hashable     VolumeStatusInfoStatus
 instance ToByteString VolumeStatusInfoStatus
-instance ToPath       VolumeStatusInfoStatus
 instance ToQuery      VolumeStatusInfoStatus
 instance ToHeader     VolumeStatusInfoStatus
 
@@ -2444,7 +2369,6 @@ instance ToText VolumeStatusName where
 
 instance Hashable     VolumeStatusName
 instance ToByteString VolumeStatusName
-instance ToPath       VolumeStatusName
 instance ToQuery      VolumeStatusName
 instance ToHeader     VolumeStatusName
 
@@ -2473,7 +2397,6 @@ instance ToText VolumeType where
 
 instance Hashable     VolumeType
 instance ToByteString VolumeType
-instance ToPath       VolumeType
 instance ToQuery      VolumeType
 instance ToHeader     VolumeType
 

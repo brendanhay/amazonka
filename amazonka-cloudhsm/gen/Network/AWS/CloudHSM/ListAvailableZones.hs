@@ -77,7 +77,7 @@ instance ToJSON ListAvailableZones where
         toJSON = const (Object mempty)
 
 instance ToPath ListAvailableZones where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListAvailableZones where
         toQuery = const mempty

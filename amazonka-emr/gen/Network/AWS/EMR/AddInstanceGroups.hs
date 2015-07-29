@@ -103,7 +103,7 @@ instance ToJSON AddInstanceGroups where
                "JobFlowId" .= _aigJobFlowId]
 
 instance ToPath AddInstanceGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddInstanceGroups where
         toQuery = const mempty

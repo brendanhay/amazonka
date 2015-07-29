@@ -292,7 +292,7 @@ instance ToJSON StartWorkflowExecution where
                "workflowType" .= _sWorkflowType]
 
 instance ToPath StartWorkflowExecution where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StartWorkflowExecution where
         toQuery = const mempty

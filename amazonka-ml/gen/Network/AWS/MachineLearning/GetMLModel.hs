@@ -138,7 +138,7 @@ instance ToJSON GetMLModel where
                "MLModelId" .= _gmlmMLModelId]
 
 instance ToPath GetMLModel where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetMLModel where
         toQuery = const mempty

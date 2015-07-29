@@ -123,7 +123,7 @@ instance ToJSON CreateConnection where
                "connectionName" .= _ccConnectionName]
 
 instance ToPath CreateConnection where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateConnection where
         toQuery = const mempty

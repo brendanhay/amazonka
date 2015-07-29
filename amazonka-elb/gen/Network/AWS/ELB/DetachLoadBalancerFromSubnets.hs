@@ -98,7 +98,7 @@ instance ToHeaders DetachLoadBalancerFromSubnets
         toHeaders = const mempty
 
 instance ToPath DetachLoadBalancerFromSubnets where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DetachLoadBalancerFromSubnets where
         toQuery DetachLoadBalancerFromSubnets'{..}

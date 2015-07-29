@@ -140,7 +140,7 @@ instance ToHeaders DescribeDefaultClusterParameters
 
 instance ToPath DescribeDefaultClusterParameters
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDefaultClusterParameters
          where

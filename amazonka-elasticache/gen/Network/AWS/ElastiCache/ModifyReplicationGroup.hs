@@ -288,7 +288,7 @@ instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty
 
 instance ToPath ModifyReplicationGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyReplicationGroup where
         toQuery ModifyReplicationGroup'{..}

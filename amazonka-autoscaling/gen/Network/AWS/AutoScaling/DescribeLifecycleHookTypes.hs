@@ -68,7 +68,7 @@ instance ToHeaders DescribeLifecycleHookTypes where
         toHeaders = const mempty
 
 instance ToPath DescribeLifecycleHookTypes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLifecycleHookTypes where
         toQuery

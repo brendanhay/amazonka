@@ -99,7 +99,7 @@ instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty
 
 instance ToPath DeleteCacheCluster where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteCacheCluster where
         toQuery DeleteCacheCluster'{..}

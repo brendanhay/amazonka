@@ -158,7 +158,7 @@ instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
 
 instance ToPath DescribeCacheEngineVersions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCacheEngineVersions where
         toQuery DescribeCacheEngineVersions'{..}

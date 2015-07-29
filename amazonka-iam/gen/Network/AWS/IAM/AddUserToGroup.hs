@@ -79,7 +79,7 @@ instance ToHeaders AddUserToGroup where
         toHeaders = const mempty
 
 instance ToPath AddUserToGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddUserToGroup where
         toQuery AddUserToGroup'{..}

@@ -108,7 +108,7 @@ instance ToJSON PutKeyPolicy where
                "Policy" .= _pkpPolicy]
 
 instance ToPath PutKeyPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutKeyPolicy where
         toQuery = const mempty

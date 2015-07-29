@@ -119,7 +119,7 @@ instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty
 
 instance ToPath DescribeVPCClassicLink where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVPCClassicLink where
         toQuery DescribeVPCClassicLink'{..}

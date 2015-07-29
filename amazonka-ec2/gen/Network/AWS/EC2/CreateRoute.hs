@@ -158,7 +158,7 @@ instance ToHeaders CreateRoute where
         toHeaders = const mempty
 
 instance ToPath CreateRoute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateRoute where
         toQuery CreateRoute'{..}

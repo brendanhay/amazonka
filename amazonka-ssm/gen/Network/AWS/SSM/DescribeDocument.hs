@@ -87,7 +87,7 @@ instance ToJSON DescribeDocument where
           = object ["Name" .= _ddName]
 
 instance ToPath DescribeDocument where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDocument where
         toQuery = const mempty

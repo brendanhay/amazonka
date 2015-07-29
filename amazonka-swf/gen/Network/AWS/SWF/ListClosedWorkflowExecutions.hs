@@ -259,7 +259,7 @@ instance ToJSON ListClosedWorkflowExecutions where
                "domain" .= _lcweDomain]
 
 instance ToPath ListClosedWorkflowExecutions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListClosedWorkflowExecutions where
         toQuery = const mempty

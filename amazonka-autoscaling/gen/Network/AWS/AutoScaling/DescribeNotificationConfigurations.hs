@@ -116,7 +116,7 @@ instance ToHeaders DescribeNotificationConfigurations
 
 instance ToPath DescribeNotificationConfigurations
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeNotificationConfigurations
          where

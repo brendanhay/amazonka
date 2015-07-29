@@ -157,8 +157,7 @@ instance ToHeaders ListParts where
           = mconcat ["x-amz-request-payer" =# _lpRequestPayer]
 
 instance ToPath ListParts where
-        toPath ListParts'{..}
-          = mconcat ["/", toPath _lpBucket, "/", toPath _lpKey]
+        toPath ListParts'{..} = [toBS _lpBucket, toBS _lpKey]
 
 instance ToQuery ListParts where
         toQuery ListParts'{..}

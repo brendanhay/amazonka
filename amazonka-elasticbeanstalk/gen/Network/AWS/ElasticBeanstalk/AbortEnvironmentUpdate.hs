@@ -86,7 +86,7 @@ instance ToHeaders AbortEnvironmentUpdate where
         toHeaders = const mempty
 
 instance ToPath AbortEnvironmentUpdate where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AbortEnvironmentUpdate where
         toQuery AbortEnvironmentUpdate'{..}

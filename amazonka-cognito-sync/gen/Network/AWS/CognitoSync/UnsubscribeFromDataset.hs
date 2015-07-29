@@ -117,11 +117,10 @@ instance ToHeaders UnsubscribeFromDataset where
 
 instance ToPath UnsubscribeFromDataset where
         toPath UnsubscribeFromDataset'{..}
-          = mconcat
-              ["/identitypools/", toPath _ufdIdentityPoolId,
-               "/identities/", toPath _ufdIdentityId, "/datasets/",
-               toPath _ufdDatasetName, "/subscriptions/",
-               toPath _ufdDeviceId]
+          = ["identitypools", toBS _ufdIdentityPoolId,
+             "identities", toBS _ufdIdentityId, "datasets",
+             toBS _ufdDatasetName, "subscriptions",
+             toBS _ufdDeviceId]
 
 instance ToQuery UnsubscribeFromDataset where
         toQuery = const mempty

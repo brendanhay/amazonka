@@ -121,7 +121,7 @@ instance ToJSON ListStreams where
                "Limit" .= _lsLimit, "TableName" .= _lsTableName]
 
 instance ToPath ListStreams where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListStreams where
         toQuery = const mempty

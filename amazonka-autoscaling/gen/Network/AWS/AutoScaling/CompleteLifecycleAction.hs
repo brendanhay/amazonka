@@ -128,7 +128,7 @@ instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
 
 instance ToPath CompleteLifecycleAction where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CompleteLifecycleAction where
         toQuery CompleteLifecycleAction'{..}

@@ -92,7 +92,7 @@ instance ToHeaders ExitStandby where
         toHeaders = const mempty
 
 instance ToPath ExitStandby where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ExitStandby where
         toQuery ExitStandby'{..}

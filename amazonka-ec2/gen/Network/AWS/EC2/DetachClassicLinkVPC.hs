@@ -102,7 +102,7 @@ instance ToHeaders DetachClassicLinkVPC where
         toHeaders = const mempty
 
 instance ToPath DetachClassicLinkVPC where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DetachClassicLinkVPC where
         toQuery DetachClassicLinkVPC'{..}

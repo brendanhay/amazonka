@@ -96,7 +96,7 @@ instance ToJSON GetJobDetails where
           = object ["jobId" .= _gjdJobId]
 
 instance ToPath GetJobDetails where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetJobDetails where
         toQuery = const mempty

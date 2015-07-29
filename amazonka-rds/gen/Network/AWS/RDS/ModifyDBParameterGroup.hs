@@ -122,7 +122,7 @@ instance ToHeaders ModifyDBParameterGroup where
         toHeaders = const mempty
 
 instance ToPath ModifyDBParameterGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyDBParameterGroup where
         toQuery ModifyDBParameterGroup'{..}

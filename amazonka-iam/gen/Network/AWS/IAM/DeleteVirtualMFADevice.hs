@@ -77,7 +77,7 @@ instance ToHeaders DeleteVirtualMFADevice where
         toHeaders = const mempty
 
 instance ToPath DeleteVirtualMFADevice where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteVirtualMFADevice where
         toQuery DeleteVirtualMFADevice'{..}

@@ -235,7 +235,7 @@ instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
 
 instance ToPath DescribeSpotInstanceRequests where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSpotInstanceRequests where
         toQuery DescribeSpotInstanceRequests'{..}

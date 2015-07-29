@@ -115,7 +115,7 @@ instance ToJSON DescribeWorkspaceDirectories where
                "DirectoryIds" .= _dwdDirectoryIds]
 
 instance ToPath DescribeWorkspaceDirectories where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeWorkspaceDirectories where
         toQuery = const mempty

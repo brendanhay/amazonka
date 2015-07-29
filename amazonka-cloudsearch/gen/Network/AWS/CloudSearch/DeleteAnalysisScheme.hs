@@ -93,7 +93,7 @@ instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
 
 instance ToPath DeleteAnalysisScheme where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteAnalysisScheme where
         toQuery DeleteAnalysisScheme'{..}

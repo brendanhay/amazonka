@@ -105,7 +105,7 @@ instance ToHeaders UpdateApplicationVersion where
         toHeaders = const mempty
 
 instance ToPath UpdateApplicationVersion where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateApplicationVersion where
         toQuery UpdateApplicationVersion'{..}

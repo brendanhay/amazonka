@@ -136,7 +136,7 @@ instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
 
 instance ToPath DescribeCacheParameters where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCacheParameters where
         toQuery DescribeCacheParameters'{..}

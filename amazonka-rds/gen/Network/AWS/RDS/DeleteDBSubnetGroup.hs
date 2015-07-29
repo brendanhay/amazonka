@@ -84,7 +84,7 @@ instance ToHeaders DeleteDBSubnetGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteDBSubnetGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteDBSubnetGroup where
         toQuery DeleteDBSubnetGroup'{..}

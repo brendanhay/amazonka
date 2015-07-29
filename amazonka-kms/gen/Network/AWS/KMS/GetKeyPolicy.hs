@@ -105,7 +105,7 @@ instance ToJSON GetKeyPolicy where
                "PolicyName" .= _gkpPolicyName]
 
 instance ToPath GetKeyPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetKeyPolicy where
         toQuery = const mempty

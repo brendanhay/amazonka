@@ -141,7 +141,7 @@ instance ToJSON PutPipelineDefinition where
                "pipelineObjects" .= _ppdPipelineObjects]
 
 instance ToPath PutPipelineDefinition where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutPipelineDefinition where
         toQuery = const mempty

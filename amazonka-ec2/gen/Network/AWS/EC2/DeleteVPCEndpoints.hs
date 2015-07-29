@@ -94,7 +94,7 @@ instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
 
 instance ToPath DeleteVPCEndpoints where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteVPCEndpoints where
         toQuery DeleteVPCEndpoints'{..}

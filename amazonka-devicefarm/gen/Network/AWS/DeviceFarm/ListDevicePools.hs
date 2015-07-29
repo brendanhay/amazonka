@@ -124,7 +124,7 @@ instance ToJSON ListDevicePools where
                "arn" .= _ldpArn]
 
 instance ToPath ListDevicePools where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListDevicePools where
         toQuery = const mempty

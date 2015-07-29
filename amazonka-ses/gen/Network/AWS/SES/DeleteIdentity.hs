@@ -82,7 +82,7 @@ instance ToHeaders DeleteIdentity where
         toHeaders = const mempty
 
 instance ToPath DeleteIdentity where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteIdentity where
         toQuery DeleteIdentity'{..}

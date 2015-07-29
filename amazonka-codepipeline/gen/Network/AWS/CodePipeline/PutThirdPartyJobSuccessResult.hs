@@ -133,7 +133,7 @@ instance ToJSON PutThirdPartyJobSuccessResult where
                "clientToken" .= _ptpjsrClientToken]
 
 instance ToPath PutThirdPartyJobSuccessResult where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutThirdPartyJobSuccessResult where
         toQuery = const mempty

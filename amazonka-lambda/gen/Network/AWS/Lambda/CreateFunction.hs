@@ -186,7 +186,7 @@ instance ToJSON CreateFunction where
                "Handler" .= _cfHandler, "Code" .= _cfCode]
 
 instance ToPath CreateFunction where
-        toPath = const "/2015-03-31/functions"
+        toPath = const ["2015-03-31", "functions"]
 
 instance ToQuery CreateFunction where
         toQuery = const mempty

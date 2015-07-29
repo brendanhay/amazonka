@@ -92,7 +92,7 @@ instance ToHeaders ListTopics where
         toHeaders = const mempty
 
 instance ToPath ListTopics where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListTopics where
         toQuery ListTopics'{..}

@@ -144,7 +144,7 @@ instance ToHeaders DescribeFileSystems where
         toHeaders = const mempty
 
 instance ToPath DescribeFileSystems where
-        toPath = const "/2015-02-01/file-systems"
+        toPath = const ["2015-02-01", "file-systems"]
 
 instance ToQuery DescribeFileSystems where
         toQuery DescribeFileSystems'{..}

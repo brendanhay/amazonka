@@ -131,7 +131,7 @@ instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeDBSecurityGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDBSecurityGroups where
         toQuery DescribeDBSecurityGroups'{..}

@@ -131,7 +131,7 @@ instance ToHeaders GetAccountAuthorizationDetails
         toHeaders = const mempty
 
 instance ToPath GetAccountAuthorizationDetails where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetAccountAuthorizationDetails where
         toQuery GetAccountAuthorizationDetails'{..}

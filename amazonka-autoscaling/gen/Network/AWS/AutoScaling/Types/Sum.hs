@@ -71,7 +71,6 @@ instance ToText LifecycleState where
 
 instance Hashable     LifecycleState
 instance ToByteString LifecycleState
-instance ToPath       LifecycleState
 instance ToQuery      LifecycleState
 instance ToHeader     LifecycleState
 
@@ -124,7 +123,6 @@ instance ToText ScalingActivityStatusCode where
 
 instance Hashable     ScalingActivityStatusCode
 instance ToByteString ScalingActivityStatusCode
-instance ToPath       ScalingActivityStatusCode
 instance ToQuery      ScalingActivityStatusCode
 instance ToHeader     ScalingActivityStatusCode
 

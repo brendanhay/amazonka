@@ -73,7 +73,6 @@ instance ToText ConnectionState where
 
 instance Hashable     ConnectionState
 instance ToByteString ConnectionState
-instance ToPath       ConnectionState
 instance ToQuery      ConnectionState
 instance ToHeader     ConnectionState
 
@@ -122,7 +121,6 @@ instance ToText InterconnectState where
 
 instance Hashable     InterconnectState
 instance ToByteString InterconnectState
-instance ToPath       InterconnectState
 instance ToQuery      InterconnectState
 instance ToHeader     InterconnectState
 
@@ -185,7 +183,6 @@ instance ToText VirtualInterfaceState where
 
 instance Hashable     VirtualInterfaceState
 instance ToByteString VirtualInterfaceState
-instance ToPath       VirtualInterfaceState
 instance ToQuery      VirtualInterfaceState
 instance ToHeader     VirtualInterfaceState
 

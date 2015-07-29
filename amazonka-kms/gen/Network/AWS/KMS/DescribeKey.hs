@@ -96,7 +96,7 @@ instance ToJSON DescribeKey where
         toJSON DescribeKey'{..} = object ["KeyId" .= _dKeyId]
 
 instance ToPath DescribeKey where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeKey where
         toQuery = const mempty

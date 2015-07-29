@@ -326,7 +326,7 @@ instance ToJSON TransferDomain where
                "TechContact" .= _tdTechContact]
 
 instance ToPath TransferDomain where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery TransferDomain where
         toQuery = const mempty

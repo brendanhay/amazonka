@@ -108,7 +108,7 @@ instance ToJSON GetOperationDetail where
           = object ["OperationId" .= _godOperationId]
 
 instance ToPath GetOperationDetail where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetOperationDetail where
         toQuery = const mempty

@@ -176,7 +176,7 @@ instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty
 
 instance ToPath CreateLoadBalancer where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateLoadBalancer where
         toQuery CreateLoadBalancer'{..}

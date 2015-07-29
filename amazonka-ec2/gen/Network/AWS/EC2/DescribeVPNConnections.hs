@@ -149,7 +149,7 @@ instance ToHeaders DescribeVPNConnections where
         toHeaders = const mempty
 
 instance ToPath DescribeVPNConnections where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVPNConnections where
         toQuery DescribeVPNConnections'{..}

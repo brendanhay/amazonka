@@ -74,7 +74,7 @@ instance ToHeaders DeleteHSMConfiguration where
         toHeaders = const mempty
 
 instance ToPath DeleteHSMConfiguration where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteHSMConfiguration where
         toQuery DeleteHSMConfiguration'{..}

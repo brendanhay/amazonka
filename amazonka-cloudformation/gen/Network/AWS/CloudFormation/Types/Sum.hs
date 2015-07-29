@@ -35,7 +35,6 @@ instance ToText Capability where
 
 instance Hashable     Capability
 instance ToByteString Capability
-instance ToPath       Capability
 instance ToQuery      Capability
 instance ToHeader     Capability
 
@@ -64,7 +63,6 @@ instance ToText OnFailure where
 
 instance Hashable     OnFailure
 instance ToByteString OnFailure
-instance ToPath       OnFailure
 instance ToQuery      OnFailure
 instance ToHeader     OnFailure
 
@@ -87,7 +85,6 @@ instance ToText ResourceSignalStatus where
 
 instance Hashable     ResourceSignalStatus
 instance ToByteString ResourceSignalStatus
-instance ToPath       ResourceSignalStatus
 instance ToQuery      ResourceSignalStatus
 instance ToHeader     ResourceSignalStatus
 
@@ -134,7 +131,6 @@ instance ToText ResourceStatus where
 
 instance Hashable     ResourceStatus
 instance ToByteString ResourceStatus
-instance ToPath       ResourceStatus
 instance ToQuery      ResourceStatus
 instance ToHeader     ResourceStatus
 
@@ -202,7 +198,6 @@ instance ToText StackStatus where
 
 instance Hashable     StackStatus
 instance ToByteString StackStatus
-instance ToPath       StackStatus
 instance ToQuery      StackStatus
 instance ToHeader     StackStatus
 

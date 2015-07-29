@@ -100,7 +100,7 @@ instance ToHeaders CancelConversionTask where
         toHeaders = const mempty
 
 instance ToPath CancelConversionTask where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CancelConversionTask where
         toQuery CancelConversionTask'{..}

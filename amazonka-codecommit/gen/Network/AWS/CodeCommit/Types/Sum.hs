@@ -38,7 +38,6 @@ instance ToText OrderEnum where
 
 instance Hashable     OrderEnum
 instance ToByteString OrderEnum
-instance ToPath       OrderEnum
 instance ToQuery      OrderEnum
 instance ToHeader     OrderEnum
 
@@ -64,7 +63,6 @@ instance ToText SortByEnum where
 
 instance Hashable     SortByEnum
 instance ToByteString SortByEnum
-instance ToPath       SortByEnum
 instance ToQuery      SortByEnum
 instance ToHeader     SortByEnum
 

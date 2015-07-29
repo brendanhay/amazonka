@@ -90,7 +90,7 @@ instance ToJSON DeregisterElasticIP where
           = object ["ElasticIp" .= _deipElasticIP]
 
 instance ToPath DeregisterElasticIP where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeregisterElasticIP where
         toQuery = const mempty

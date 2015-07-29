@@ -96,7 +96,7 @@ instance ToJSON ListApplications where
           = object ["nextToken" .= _laNextToken]
 
 instance ToPath ListApplications where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListApplications where
         toQuery = const mempty

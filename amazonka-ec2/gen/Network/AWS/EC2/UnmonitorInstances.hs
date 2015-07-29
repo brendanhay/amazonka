@@ -95,7 +95,7 @@ instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty
 
 instance ToPath UnmonitorInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UnmonitorInstances where
         toQuery UnmonitorInstances'{..}

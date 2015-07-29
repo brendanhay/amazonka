@@ -94,7 +94,7 @@ instance ToJSON UpdateApplication where
                "applicationName" .= _uaApplicationName]
 
 instance ToPath UpdateApplication where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateApplication where
         toQuery = const mempty

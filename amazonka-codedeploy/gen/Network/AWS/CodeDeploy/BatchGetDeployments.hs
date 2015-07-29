@@ -93,7 +93,7 @@ instance ToJSON BatchGetDeployments where
           = object ["deploymentIds" .= _bgdDeploymentIds]
 
 instance ToPath BatchGetDeployments where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery BatchGetDeployments where
         toQuery = const mempty

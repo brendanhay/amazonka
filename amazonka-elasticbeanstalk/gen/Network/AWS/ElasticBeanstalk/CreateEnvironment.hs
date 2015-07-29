@@ -224,7 +224,7 @@ instance ToHeaders CreateEnvironment where
         toHeaders = const mempty
 
 instance ToPath CreateEnvironment where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateEnvironment where
         toQuery CreateEnvironment'{..}

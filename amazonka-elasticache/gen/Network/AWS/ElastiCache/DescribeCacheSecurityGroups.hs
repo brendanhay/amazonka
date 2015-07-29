@@ -122,7 +122,7 @@ instance ToHeaders DescribeCacheSecurityGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeCacheSecurityGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCacheSecurityGroups where
         toQuery DescribeCacheSecurityGroups'{..}

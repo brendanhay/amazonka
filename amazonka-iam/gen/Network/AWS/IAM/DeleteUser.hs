@@ -71,7 +71,7 @@ instance ToHeaders DeleteUser where
         toHeaders = const mempty
 
 instance ToPath DeleteUser where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteUser where
         toQuery DeleteUser'{..}

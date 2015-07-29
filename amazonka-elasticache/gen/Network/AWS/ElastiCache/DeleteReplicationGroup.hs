@@ -111,7 +111,7 @@ instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteReplicationGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteReplicationGroup where
         toQuery DeleteReplicationGroup'{..}

@@ -119,9 +119,8 @@ instance ToHeaders ListJobsByPipeline where
 
 instance ToPath ListJobsByPipeline where
         toPath ListJobsByPipeline'{..}
-          = mconcat
-              ["/2012-09-25/jobsByPipeline/",
-               toPath _ljbpPipelineId]
+          = ["2012-09-25", "jobsByPipeline",
+             toBS _ljbpPipelineId]
 
 instance ToQuery ListJobsByPipeline where
         toQuery ListJobsByPipeline'{..}

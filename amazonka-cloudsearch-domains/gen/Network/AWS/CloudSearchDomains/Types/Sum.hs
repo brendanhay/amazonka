@@ -38,7 +38,6 @@ instance ToText ContentType where
 
 instance Hashable     ContentType
 instance ToByteString ContentType
-instance ToPath       ContentType
 instance ToQuery      ContentType
 instance ToHeader     ContentType
 
@@ -70,7 +69,6 @@ instance ToText QueryParser where
 
 instance Hashable     QueryParser
 instance ToByteString QueryParser
-instance ToPath       QueryParser
 instance ToQuery      QueryParser
 instance ToHeader     QueryParser
 

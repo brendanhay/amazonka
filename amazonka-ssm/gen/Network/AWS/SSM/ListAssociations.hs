@@ -116,7 +116,7 @@ instance ToJSON ListAssociations where
                "AssociationFilterList" .= _laAssociationFilterList]
 
 instance ToPath ListAssociations where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListAssociations where
         toQuery = const mempty

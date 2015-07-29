@@ -98,7 +98,7 @@ instance ToHeaders SetDesiredCapacity where
         toHeaders = const mempty
 
 instance ToPath SetDesiredCapacity where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetDesiredCapacity where
         toQuery SetDesiredCapacity'{..}

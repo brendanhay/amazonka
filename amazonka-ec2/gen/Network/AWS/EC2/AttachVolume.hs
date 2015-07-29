@@ -139,7 +139,7 @@ instance ToHeaders AttachVolume where
         toHeaders = const mempty
 
 instance ToPath AttachVolume where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AttachVolume where
         toQuery AttachVolume'{..}

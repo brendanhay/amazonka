@@ -120,7 +120,7 @@ instance ToJSON PutJobSuccessResult where
                "jobId" .= _pjsrJobId]
 
 instance ToPath PutJobSuccessResult where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutJobSuccessResult where
         toQuery = const mempty

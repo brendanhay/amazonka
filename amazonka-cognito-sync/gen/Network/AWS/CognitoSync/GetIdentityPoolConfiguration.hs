@@ -96,9 +96,8 @@ instance ToHeaders GetIdentityPoolConfiguration where
 
 instance ToPath GetIdentityPoolConfiguration where
         toPath GetIdentityPoolConfiguration'{..}
-          = mconcat
-              ["/identitypools/", toPath _gipcIdentityPoolId,
-               "/configuration"]
+          = ["identitypools", toBS _gipcIdentityPoolId,
+             "configuration"]
 
 instance ToQuery GetIdentityPoolConfiguration where
         toQuery = const mempty

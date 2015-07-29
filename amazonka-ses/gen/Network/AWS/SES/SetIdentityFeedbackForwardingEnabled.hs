@@ -109,7 +109,7 @@ instance ToHeaders
 
 instance ToPath SetIdentityFeedbackForwardingEnabled
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetIdentityFeedbackForwardingEnabled
          where

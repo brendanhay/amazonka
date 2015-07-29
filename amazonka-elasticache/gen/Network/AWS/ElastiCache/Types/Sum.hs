@@ -38,7 +38,6 @@ instance ToText AZMode where
 
 instance Hashable     AZMode
 instance ToByteString AZMode
-instance ToPath       AZMode
 instance ToQuery      AZMode
 instance ToHeader     AZMode
 
@@ -67,7 +66,6 @@ instance ToText AutomaticFailoverStatus where
 
 instance Hashable     AutomaticFailoverStatus
 instance ToByteString AutomaticFailoverStatus
-instance ToPath       AutomaticFailoverStatus
 instance ToQuery      AutomaticFailoverStatus
 instance ToHeader     AutomaticFailoverStatus
 
@@ -93,7 +91,6 @@ instance ToText PendingAutomaticFailoverStatus where
 
 instance Hashable     PendingAutomaticFailoverStatus
 instance ToByteString PendingAutomaticFailoverStatus
-instance ToPath       PendingAutomaticFailoverStatus
 instance ToQuery      PendingAutomaticFailoverStatus
 instance ToHeader     PendingAutomaticFailoverStatus
 
@@ -125,7 +122,6 @@ instance ToText SourceType where
 
 instance Hashable     SourceType
 instance ToByteString SourceType
-instance ToPath       SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType
 

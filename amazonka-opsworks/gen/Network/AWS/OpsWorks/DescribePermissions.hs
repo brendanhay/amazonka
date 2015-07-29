@@ -108,7 +108,7 @@ instance ToJSON DescribePermissions where
                "StackId" .= _dpStackId]
 
 instance ToPath DescribePermissions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribePermissions where
         toQuery = const mempty

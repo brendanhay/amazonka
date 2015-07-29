@@ -133,7 +133,7 @@ instance ToHeaders ListAttachedUserPolicies where
         toHeaders = const mempty
 
 instance ToPath ListAttachedUserPolicies where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListAttachedUserPolicies where
         toQuery ListAttachedUserPolicies'{..}

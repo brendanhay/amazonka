@@ -102,7 +102,7 @@ instance ToJSON DeleteAssociation where
               ["Name" .= _delName, "InstanceId" .= _delInstanceId]
 
 instance ToPath DeleteAssociation where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteAssociation where
         toQuery = const mempty

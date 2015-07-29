@@ -88,7 +88,7 @@ instance ToJSON CreateLogGroup where
           = object ["logGroupName" .= _clgLogGroupName]
 
 instance ToPath CreateLogGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateLogGroup where
         toQuery = const mempty

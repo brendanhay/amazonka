@@ -95,7 +95,7 @@ instance ToJSON DeleteDataSource where
           = object ["DataSourceId" .= _ddsDataSourceId]
 
 instance ToPath DeleteDataSource where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteDataSource where
         toQuery = const mempty

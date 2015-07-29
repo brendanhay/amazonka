@@ -85,7 +85,7 @@ instance ToHeaders DeleteNotificationConfiguration
         toHeaders = const mempty
 
 instance ToPath DeleteNotificationConfiguration where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteNotificationConfiguration
          where

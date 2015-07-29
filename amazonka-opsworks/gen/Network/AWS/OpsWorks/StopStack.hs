@@ -86,7 +86,7 @@ instance ToJSON StopStack where
           = object ["StackId" .= _stoStackId]
 
 instance ToPath StopStack where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StopStack where
         toQuery = const mempty

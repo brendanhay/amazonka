@@ -83,7 +83,7 @@ instance ToHeaders UpdateAssumeRolePolicy where
         toHeaders = const mempty
 
 instance ToPath UpdateAssumeRolePolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateAssumeRolePolicy where
         toQuery UpdateAssumeRolePolicy'{..}

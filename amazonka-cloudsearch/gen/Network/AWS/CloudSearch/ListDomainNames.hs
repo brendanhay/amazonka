@@ -66,7 +66,7 @@ instance ToHeaders ListDomainNames where
         toHeaders = const mempty
 
 instance ToPath ListDomainNames where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListDomainNames where
         toQuery

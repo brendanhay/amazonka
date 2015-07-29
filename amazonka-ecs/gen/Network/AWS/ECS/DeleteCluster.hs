@@ -92,7 +92,7 @@ instance ToJSON DeleteCluster where
           = object ["cluster" .= _dcCluster]
 
 instance ToPath DeleteCluster where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteCluster where
         toQuery = const mempty

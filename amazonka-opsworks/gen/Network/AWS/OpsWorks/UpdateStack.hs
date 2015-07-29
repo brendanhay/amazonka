@@ -373,7 +373,7 @@ instance ToJSON UpdateStack where
                "StackId" .= _usStackId]
 
 instance ToPath UpdateStack where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateStack where
         toQuery = const mempty

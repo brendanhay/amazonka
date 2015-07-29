@@ -132,7 +132,7 @@ instance ToJSON RespondActivityTaskCanceled where
               ["details" .= _rDetails, "taskToken" .= _rTaskToken]
 
 instance ToPath RespondActivityTaskCanceled where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RespondActivityTaskCanceled where
         toQuery = const mempty

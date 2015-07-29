@@ -104,7 +104,7 @@ instance ToJSON DescribeBandwidthRateLimit where
           = object ["GatewayARN" .= _dbrlGatewayARN]
 
 instance ToPath DescribeBandwidthRateLimit where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeBandwidthRateLimit where
         toQuery = const mempty

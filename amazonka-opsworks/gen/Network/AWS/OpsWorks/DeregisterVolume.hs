@@ -90,7 +90,7 @@ instance ToJSON DeregisterVolume where
           = object ["VolumeId" .= _dvVolumeId]
 
 instance ToPath DeregisterVolume where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeregisterVolume where
         toQuery = const mempty

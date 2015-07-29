@@ -257,7 +257,7 @@ instance ToHeaders HeadObject where
 
 instance ToPath HeadObject where
         toPath HeadObject'{..}
-          = mconcat ["/", toPath _hoBucket, "/", toPath _hoKey]
+          = [toBS _hoBucket, toBS _hoKey]
 
 instance ToQuery HeadObject where
         toQuery HeadObject'{..}

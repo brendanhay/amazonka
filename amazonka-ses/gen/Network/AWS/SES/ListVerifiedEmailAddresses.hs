@@ -75,7 +75,7 @@ instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
 
 instance ToPath ListVerifiedEmailAddresses where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListVerifiedEmailAddresses where
         toQuery

@@ -122,7 +122,7 @@ instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty
 
 instance ToPath DescribeImportImageTasks where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeImportImageTasks where
         toQuery DescribeImportImageTasks'{..}

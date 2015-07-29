@@ -144,7 +144,7 @@ instance ToJSON CreateIdentityPool where
                  _cipAllowUnauthenticatedIdentities]
 
 instance ToPath CreateIdentityPool where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateIdentityPool where
         toQuery = const mempty

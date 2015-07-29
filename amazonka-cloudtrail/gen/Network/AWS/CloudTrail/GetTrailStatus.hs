@@ -109,7 +109,7 @@ instance ToJSON GetTrailStatus where
           = object ["Name" .= _gtsName]
 
 instance ToPath GetTrailStatus where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetTrailStatus where
         toQuery = const mempty

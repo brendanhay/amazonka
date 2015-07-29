@@ -109,7 +109,7 @@ instance ToJSON UpdateRDSDBInstance where
                "RdsDbInstanceArn" .= _urdiRDSDBInstanceARN]
 
 instance ToPath UpdateRDSDBInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateRDSDBInstance where
         toQuery = const mempty

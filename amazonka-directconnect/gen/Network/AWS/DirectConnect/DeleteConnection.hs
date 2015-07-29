@@ -97,7 +97,7 @@ instance ToJSON DeleteConnection where
           = object ["connectionId" .= _dcConnectionId]
 
 instance ToPath DeleteConnection where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteConnection where
         toQuery = const mempty

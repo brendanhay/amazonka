@@ -209,7 +209,7 @@ instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
 
 instance ToPath AssumeRoleWithSAML where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AssumeRoleWithSAML where
         toQuery AssumeRoleWithSAML'{..}

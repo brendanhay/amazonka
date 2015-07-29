@@ -105,9 +105,8 @@ instance ToHeaders DeleteVaultNotifications where
 
 instance ToPath DeleteVaultNotifications where
         toPath DeleteVaultNotifications'{..}
-          = mconcat
-              ["/", toPath _dvnAccountId, "/vaults/",
-               toPath _dvnVaultName, "/notification-configuration"]
+          = [toBS _dvnAccountId, "vaults", toBS _dvnVaultName,
+             "notification-configuration"]
 
 instance ToQuery DeleteVaultNotifications where
         toQuery = const mempty

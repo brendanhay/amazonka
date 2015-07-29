@@ -41,7 +41,6 @@ instance ToText Compute where
 
 instance Hashable     Compute
 instance ToByteString Compute
-instance ToPath       Compute
 instance ToQuery      Compute
 instance ToHeader     Compute
 
@@ -76,7 +75,6 @@ instance ToText WorkspaceDirectoryState where
 
 instance Hashable     WorkspaceDirectoryState
 instance ToByteString WorkspaceDirectoryState
-instance ToPath       WorkspaceDirectoryState
 instance ToQuery      WorkspaceDirectoryState
 instance ToHeader     WorkspaceDirectoryState
 
@@ -102,7 +100,6 @@ instance ToText WorkspaceDirectoryType where
 
 instance Hashable     WorkspaceDirectoryType
 instance ToByteString WorkspaceDirectoryType
-instance ToPath       WorkspaceDirectoryType
 instance ToQuery      WorkspaceDirectoryType
 instance ToHeader     WorkspaceDirectoryType
 
@@ -152,7 +149,6 @@ instance ToText WorkspaceState where
 
 instance Hashable     WorkspaceState
 instance ToByteString WorkspaceState
-instance ToPath       WorkspaceState
 instance ToQuery      WorkspaceState
 instance ToHeader     WorkspaceState
 

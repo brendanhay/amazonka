@@ -139,7 +139,7 @@ instance ToJSON DeregisterContainerInstance where
                "containerInstance" .= _derContainerInstance]
 
 instance ToPath DeregisterContainerInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeregisterContainerInstance where
         toQuery = const mempty

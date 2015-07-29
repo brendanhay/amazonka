@@ -137,7 +137,8 @@ instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
 
 instance ToPath ListEventSourceMappings where
-        toPath = const "/2015-03-31/event-source-mappings/"
+        toPath
+          = const ["2015-03-31", "event-source-mappings"]
 
 instance ToQuery ListEventSourceMappings where
         toQuery ListEventSourceMappings'{..}

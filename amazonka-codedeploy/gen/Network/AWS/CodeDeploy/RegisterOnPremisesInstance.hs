@@ -96,7 +96,7 @@ instance ToJSON RegisterOnPremisesInstance where
                "iamUserArn" .= _ropiIamUserARN]
 
 instance ToPath RegisterOnPremisesInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterOnPremisesInstance where
         toQuery = const mempty

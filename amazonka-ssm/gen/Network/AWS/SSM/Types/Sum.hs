@@ -38,7 +38,6 @@ instance ToText AssociationFilterKey where
 
 instance Hashable     AssociationFilterKey
 instance ToByteString AssociationFilterKey
-instance ToPath       AssociationFilterKey
 instance ToQuery      AssociationFilterKey
 instance ToHeader     AssociationFilterKey
 
@@ -67,7 +66,6 @@ instance ToText AssociationStatusName where
 
 instance Hashable     AssociationStatusName
 instance ToByteString AssociationStatusName
-instance ToPath       AssociationStatusName
 instance ToQuery      AssociationStatusName
 instance ToHeader     AssociationStatusName
 
@@ -93,7 +91,6 @@ instance ToText DocumentFilterKey where
 
 instance Hashable     DocumentFilterKey
 instance ToByteString DocumentFilterKey
-instance ToPath       DocumentFilterKey
 instance ToQuery      DocumentFilterKey
 instance ToHeader     DocumentFilterKey
 
@@ -122,7 +119,6 @@ instance ToText DocumentStatus where
 
 instance Hashable     DocumentStatus
 instance ToByteString DocumentStatus
-instance ToPath       DocumentStatus
 instance ToQuery      DocumentStatus
 instance ToHeader     DocumentStatus
 
@@ -151,7 +147,6 @@ instance ToText Fault where
 
 instance Hashable     Fault
 instance ToByteString Fault
-instance ToPath       Fault
 instance ToQuery      Fault
 instance ToHeader     Fault
 

@@ -157,7 +157,7 @@ instance ToJSON DescribeCommunications where
                "maxResults" .= _dMaxResults, "caseId" .= _dCaseId]
 
 instance ToPath DescribeCommunications where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCommunications where
         toQuery = const mempty

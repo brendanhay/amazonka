@@ -85,7 +85,7 @@ instance ToHeaders DeregisterImage where
         toHeaders = const mempty
 
 instance ToPath DeregisterImage where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeregisterImage where
         toQuery DeregisterImage'{..}

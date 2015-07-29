@@ -76,7 +76,7 @@ instance ToHeaders DeleteLaunchConfiguration where
         toHeaders = const mempty
 
 instance ToPath DeleteLaunchConfiguration where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteLaunchConfiguration where
         toQuery DeleteLaunchConfiguration'{..}

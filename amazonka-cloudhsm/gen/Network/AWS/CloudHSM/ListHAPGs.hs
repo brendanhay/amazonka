@@ -95,7 +95,7 @@ instance ToJSON ListHAPGs where
           = object ["NextToken" .= _lhNextToken]
 
 instance ToPath ListHAPGs where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListHAPGs where
         toQuery = const mempty

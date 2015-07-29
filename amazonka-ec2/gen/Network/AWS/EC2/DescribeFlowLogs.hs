@@ -127,7 +127,7 @@ instance ToHeaders DescribeFlowLogs where
         toHeaders = const mempty
 
 instance ToPath DescribeFlowLogs where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeFlowLogs where
         toQuery DescribeFlowLogs'{..}

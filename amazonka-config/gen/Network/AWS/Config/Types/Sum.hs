@@ -38,7 +38,6 @@ instance ToText ChronologicalOrder where
 
 instance Hashable     ChronologicalOrder
 instance ToByteString ChronologicalOrder
-instance ToPath       ChronologicalOrder
 instance ToQuery      ChronologicalOrder
 instance ToHeader     ChronologicalOrder
 
@@ -70,7 +69,6 @@ instance ToText ConfigurationItemStatus where
 
 instance Hashable     ConfigurationItemStatus
 instance ToByteString ConfigurationItemStatus
-instance ToPath       ConfigurationItemStatus
 instance ToQuery      ConfigurationItemStatus
 instance ToHeader     ConfigurationItemStatus
 
@@ -99,7 +97,6 @@ instance ToText DeliveryStatus where
 
 instance Hashable     DeliveryStatus
 instance ToByteString DeliveryStatus
-instance ToPath       DeliveryStatus
 instance ToQuery      DeliveryStatus
 instance ToHeader     DeliveryStatus
 
@@ -128,7 +125,6 @@ instance ToText RecorderStatus where
 
 instance Hashable     RecorderStatus
 instance ToByteString RecorderStatus
-instance ToPath       RecorderStatus
 instance ToQuery      RecorderStatus
 instance ToHeader     RecorderStatus
 
@@ -190,7 +186,6 @@ instance ToText ResourceType where
 
 instance Hashable     ResourceType
 instance ToByteString ResourceType
-instance ToPath       ResourceType
 instance ToQuery      ResourceType
 instance ToHeader     ResourceType
 

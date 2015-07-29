@@ -159,8 +159,7 @@ instance ToHeaders PutBucketACL where
                "x-amz-acl" =# _pbaACL]
 
 instance ToPath PutBucketACL where
-        toPath PutBucketACL'{..}
-          = mconcat ["/", toPath _pbaBucket]
+        toPath PutBucketACL'{..} = [toBS _pbaBucket]
 
 instance ToQuery PutBucketACL where
         toQuery = const (mconcat ["acl"])

@@ -39,7 +39,6 @@ instance ToText JobType where
 
 instance Hashable     JobType
 instance ToByteString JobType
-instance ToPath       JobType
 instance ToQuery      JobType
 instance ToHeader     JobType
 

@@ -38,7 +38,6 @@ instance ToText ParameterApplyType where
 
 instance Hashable     ParameterApplyType
 instance ToByteString ParameterApplyType
-instance ToPath       ParameterApplyType
 instance ToQuery      ParameterApplyType
 instance ToHeader     ParameterApplyType
 
@@ -70,7 +69,6 @@ instance ToText SourceType where
 
 instance Hashable     SourceType
 instance ToByteString SourceType
-instance ToPath       SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType
 

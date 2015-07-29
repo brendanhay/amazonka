@@ -223,7 +223,7 @@ instance ToJSON CreateCase where
                "communicationBody" .= _ccCommunicationBody]
 
 instance ToPath CreateCase where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateCase where
         toQuery = const mempty

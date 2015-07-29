@@ -80,7 +80,7 @@ instance ToJSON DescribeMyUserProfile where
         toJSON = const (Object mempty)
 
 instance ToPath DescribeMyUserProfile where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeMyUserProfile where
         toQuery = const mempty

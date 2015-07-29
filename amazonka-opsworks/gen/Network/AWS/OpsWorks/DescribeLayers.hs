@@ -107,7 +107,7 @@ instance ToJSON DescribeLayers where
               ["LayerIds" .= _dlLayerIds, "StackId" .= _dlStackId]
 
 instance ToPath DescribeLayers where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLayers where
         toQuery = const mempty

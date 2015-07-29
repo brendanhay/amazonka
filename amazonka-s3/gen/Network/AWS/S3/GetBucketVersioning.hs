@@ -78,8 +78,7 @@ instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
 
 instance ToPath GetBucketVersioning where
-        toPath GetBucketVersioning'{..}
-          = mconcat ["/", toPath _gbvBucket]
+        toPath GetBucketVersioning'{..} = [toBS _gbvBucket]
 
 instance ToQuery GetBucketVersioning where
         toQuery = const (mconcat ["versioning"])

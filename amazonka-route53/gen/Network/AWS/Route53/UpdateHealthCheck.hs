@@ -184,9 +184,8 @@ instance ToHeaders UpdateHealthCheck where
 
 instance ToPath UpdateHealthCheck where
         toPath UpdateHealthCheck'{..}
-          = mconcat
-              ["/2013-04-01/healthcheck/",
-               toPath _uhcHealthCheckId]
+          = ["2013-04-01", "healthcheck",
+             toBS _uhcHealthCheckId]
 
 instance ToQuery UpdateHealthCheck where
         toQuery = const mempty

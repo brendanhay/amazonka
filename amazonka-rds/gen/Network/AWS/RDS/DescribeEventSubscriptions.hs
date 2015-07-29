@@ -136,7 +136,7 @@ instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
 
 instance ToPath DescribeEventSubscriptions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeEventSubscriptions where
         toQuery DescribeEventSubscriptions'{..}

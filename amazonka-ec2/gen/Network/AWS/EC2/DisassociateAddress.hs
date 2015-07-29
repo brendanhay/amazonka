@@ -101,7 +101,7 @@ instance ToHeaders DisassociateAddress where
         toHeaders = const mempty
 
 instance ToPath DisassociateAddress where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DisassociateAddress where
         toQuery DisassociateAddress'{..}

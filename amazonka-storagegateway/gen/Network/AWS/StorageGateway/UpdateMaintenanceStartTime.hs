@@ -132,7 +132,7 @@ instance ToJSON UpdateMaintenanceStartTime where
                "DayOfWeek" .= _umstDayOfWeek]
 
 instance ToPath UpdateMaintenanceStartTime where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateMaintenanceStartTime where
         toQuery = const mempty

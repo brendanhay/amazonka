@@ -100,7 +100,7 @@ instance ToJSON CreateAssociationBatch where
           = object ["Entries" .= _cabEntries]
 
 instance ToPath CreateAssociationBatch where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateAssociationBatch where
         toQuery = const mempty

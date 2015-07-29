@@ -151,7 +151,7 @@ instance ToHeaders CreateApplicationVersion where
         toHeaders = const mempty
 
 instance ToPath CreateApplicationVersion where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateApplicationVersion where
         toQuery CreateApplicationVersion'{..}

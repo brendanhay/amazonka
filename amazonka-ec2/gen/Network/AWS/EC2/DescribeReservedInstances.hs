@@ -174,7 +174,7 @@ instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty
 
 instance ToPath DescribeReservedInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeReservedInstances where
         toQuery DescribeReservedInstances'{..}

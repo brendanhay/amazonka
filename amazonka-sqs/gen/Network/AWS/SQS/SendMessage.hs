@@ -126,7 +126,7 @@ instance ToHeaders SendMessage where
         toHeaders = const mempty
 
 instance ToPath SendMessage where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SendMessage where
         toQuery SendMessage'{..}

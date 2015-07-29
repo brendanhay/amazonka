@@ -102,7 +102,7 @@ instance ToHeaders PutNotificationConfiguration where
         toHeaders = const mempty
 
 instance ToPath PutNotificationConfiguration where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutNotificationConfiguration where
         toQuery PutNotificationConfiguration'{..}

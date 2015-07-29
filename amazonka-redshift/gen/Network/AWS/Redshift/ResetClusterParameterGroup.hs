@@ -108,7 +108,7 @@ instance ToHeaders ResetClusterParameterGroup where
         toHeaders = const mempty
 
 instance ToPath ResetClusterParameterGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResetClusterParameterGroup where
         toQuery ResetClusterParameterGroup'{..}

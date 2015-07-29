@@ -235,9 +235,8 @@ instance ToJSON InitiateJob where
 
 instance ToPath InitiateJob where
         toPath InitiateJob'{..}
-          = mconcat
-              ["/", toPath _ijAccountId, "/vaults/",
-               toPath _ijVaultName, "/jobs"]
+          = [toBS _ijAccountId, "vaults", toBS _ijVaultName,
+             "jobs"]
 
 instance ToQuery InitiateJob where
         toQuery = const mempty

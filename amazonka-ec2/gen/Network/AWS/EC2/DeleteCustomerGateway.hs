@@ -84,7 +84,7 @@ instance ToHeaders DeleteCustomerGateway where
         toHeaders = const mempty
 
 instance ToPath DeleteCustomerGateway where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteCustomerGateway where
         toQuery DeleteCustomerGateway'{..}

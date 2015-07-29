@@ -104,7 +104,7 @@ instance ToHeaders ListPipelines where
         toHeaders = const mempty
 
 instance ToPath ListPipelines where
-        toPath = const "/2012-09-25/pipelines"
+        toPath = const ["2012-09-25", "pipelines"]
 
 instance ToQuery ListPipelines where
         toQuery ListPipelines'{..}

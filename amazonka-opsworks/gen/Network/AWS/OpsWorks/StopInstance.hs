@@ -90,7 +90,7 @@ instance ToJSON StopInstance where
           = object ["InstanceId" .= _siInstanceId]
 
 instance ToPath StopInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StopInstance where
         toQuery = const mempty

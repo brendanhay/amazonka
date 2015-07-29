@@ -135,7 +135,7 @@ instance ToJSON ListClusters where
                "CreatedBefore" .= _lcCreatedBefore]
 
 instance ToPath ListClusters where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListClusters where
         toQuery = const mempty

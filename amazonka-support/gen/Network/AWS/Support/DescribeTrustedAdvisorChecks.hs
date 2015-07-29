@@ -97,7 +97,7 @@ instance ToJSON DescribeTrustedAdvisorChecks where
           = object ["language" .= _dtacLanguage]
 
 instance ToPath DescribeTrustedAdvisorChecks where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeTrustedAdvisorChecks where
         toQuery = const mempty

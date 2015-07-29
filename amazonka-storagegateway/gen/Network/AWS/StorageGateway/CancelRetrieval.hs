@@ -104,7 +104,7 @@ instance ToJSON CancelRetrieval where
                "TapeARN" .= _crTapeARN]
 
 instance ToPath CancelRetrieval where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CancelRetrieval where
         toQuery = const mempty

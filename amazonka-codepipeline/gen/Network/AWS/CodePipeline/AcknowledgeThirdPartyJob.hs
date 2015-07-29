@@ -115,7 +115,7 @@ instance ToJSON AcknowledgeThirdPartyJob where
                "clientToken" .= _atpjClientToken]
 
 instance ToPath AcknowledgeThirdPartyJob where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AcknowledgeThirdPartyJob where
         toQuery = const mempty

@@ -102,7 +102,7 @@ instance ToHeaders RebootCacheCluster where
         toHeaders = const mempty
 
 instance ToPath RebootCacheCluster where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RebootCacheCluster where
         toQuery RebootCacheCluster'{..}

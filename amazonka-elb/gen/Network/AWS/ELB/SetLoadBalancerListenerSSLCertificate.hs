@@ -105,7 +105,7 @@ instance ToHeaders
 
 instance ToPath SetLoadBalancerListenerSSLCertificate
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery
          SetLoadBalancerListenerSSLCertificate where

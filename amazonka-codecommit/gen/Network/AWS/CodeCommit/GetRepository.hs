@@ -96,7 +96,7 @@ instance ToJSON GetRepository where
           = object ["repositoryName" .= _grRepositoryName]
 
 instance ToPath GetRepository where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetRepository where
         toQuery = const mempty

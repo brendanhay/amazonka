@@ -109,7 +109,7 @@ instance ToHeaders DescribeMountTargets where
         toHeaders = const mempty
 
 instance ToPath DescribeMountTargets where
-        toPath = const "/2015-02-01/mount-targets"
+        toPath = const ["2015-02-01", "mount-targets"]
 
 instance ToQuery DescribeMountTargets where
         toQuery DescribeMountTargets'{..}

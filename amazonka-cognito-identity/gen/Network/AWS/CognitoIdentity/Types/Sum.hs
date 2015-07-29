@@ -38,7 +38,6 @@ instance ToText CognitoErrorCode where
 
 instance Hashable     CognitoErrorCode
 instance ToByteString CognitoErrorCode
-instance ToPath       CognitoErrorCode
 instance ToQuery      CognitoErrorCode
 instance ToHeader     CognitoErrorCode
 

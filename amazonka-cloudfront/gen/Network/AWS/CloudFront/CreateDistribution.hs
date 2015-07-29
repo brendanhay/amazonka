@@ -91,7 +91,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2015-04-17/distribution"
+        toPath = const ["2015-04-17", "distribution"]
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty

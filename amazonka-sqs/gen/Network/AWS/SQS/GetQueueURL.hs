@@ -96,7 +96,7 @@ instance ToHeaders GetQueueURL where
         toHeaders = const mempty
 
 instance ToPath GetQueueURL where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetQueueURL where
         toQuery GetQueueURL'{..}

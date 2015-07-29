@@ -102,7 +102,7 @@ instance ToHeaders ModifyVolumeAttribute where
         toHeaders = const mempty
 
 instance ToPath ModifyVolumeAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyVolumeAttribute where
         toQuery ModifyVolumeAttribute'{..}

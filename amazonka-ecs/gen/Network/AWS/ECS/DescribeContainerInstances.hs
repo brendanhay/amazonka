@@ -108,7 +108,7 @@ instance ToJSON DescribeContainerInstances where
                "containerInstances" .= _dciContainerInstances]
 
 instance ToPath DescribeContainerInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeContainerInstances where
         toQuery = const mempty

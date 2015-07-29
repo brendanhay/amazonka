@@ -99,7 +99,7 @@ instance ToJSON DeleteSnapshotSchedule where
           = object ["VolumeARN" .= _dVolumeARN]
 
 instance ToPath DeleteSnapshotSchedule where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteSnapshotSchedule where
         toQuery = const mempty

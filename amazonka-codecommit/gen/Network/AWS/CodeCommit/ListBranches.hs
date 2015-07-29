@@ -102,7 +102,7 @@ instance ToJSON ListBranches where
                "repositoryName" .= _lbRepositoryName]
 
 instance ToPath ListBranches where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListBranches where
         toQuery = const mempty

@@ -134,7 +134,7 @@ instance ToJSON DescribeMetricFilters where
                "logGroupName" .= _dmfLogGroupName]
 
 instance ToPath DescribeMetricFilters where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeMetricFilters where
         toQuery = const mempty

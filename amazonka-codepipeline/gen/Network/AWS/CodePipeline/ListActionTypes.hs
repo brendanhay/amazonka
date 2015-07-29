@@ -106,7 +106,7 @@ instance ToJSON ListActionTypes where
                "nextToken" .= _latNextToken]
 
 instance ToPath ListActionTypes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListActionTypes where
         toQuery = const mempty

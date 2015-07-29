@@ -82,7 +82,7 @@ instance ToHeaders DisableVGWRoutePropagation where
         toHeaders = const mempty
 
 instance ToPath DisableVGWRoutePropagation where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DisableVGWRoutePropagation where
         toQuery DisableVGWRoutePropagation'{..}

@@ -88,7 +88,7 @@ instance ToJSON GetDocument where
         toJSON GetDocument'{..} = object ["Name" .= _gdName]
 
 instance ToPath GetDocument where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetDocument where
         toQuery = const mempty

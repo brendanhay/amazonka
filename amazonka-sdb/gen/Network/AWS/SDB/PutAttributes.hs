@@ -135,7 +135,7 @@ instance ToHeaders PutAttributes where
         toHeaders = const mempty
 
 instance ToPath PutAttributes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutAttributes where
         toQuery PutAttributes'{..}

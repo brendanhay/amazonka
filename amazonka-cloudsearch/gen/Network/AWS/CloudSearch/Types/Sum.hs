@@ -44,7 +44,6 @@ instance ToText AlgorithmicStemming where
 
 instance Hashable     AlgorithmicStemming
 instance ToByteString AlgorithmicStemming
-instance ToPath       AlgorithmicStemming
 instance ToQuery      AlgorithmicStemming
 instance ToHeader     AlgorithmicStemming
 
@@ -171,7 +170,6 @@ instance ToText AnalysisSchemeLanguage where
 
 instance Hashable     AnalysisSchemeLanguage
 instance ToByteString AnalysisSchemeLanguage
-instance ToPath       AnalysisSchemeLanguage
 instance ToQuery      AnalysisSchemeLanguage
 instance ToHeader     AnalysisSchemeLanguage
 
@@ -228,7 +226,6 @@ instance ToText IndexFieldType where
 
 instance Hashable     IndexFieldType
 instance ToByteString IndexFieldType
-instance ToPath       IndexFieldType
 instance ToQuery      IndexFieldType
 instance ToHeader     IndexFieldType
 
@@ -272,7 +269,6 @@ instance ToText OptionState where
 
 instance Hashable     OptionState
 instance ToByteString OptionState
-instance ToPath       OptionState
 instance ToQuery      OptionState
 instance ToHeader     OptionState
 
@@ -318,7 +314,6 @@ instance ToText PartitionInstanceType where
 
 instance Hashable     PartitionInstanceType
 instance ToByteString PartitionInstanceType
-instance ToPath       PartitionInstanceType
 instance ToQuery      PartitionInstanceType
 instance ToHeader     PartitionInstanceType
 
@@ -347,7 +342,6 @@ instance ToText SuggesterFuzzyMatching where
 
 instance Hashable     SuggesterFuzzyMatching
 instance ToByteString SuggesterFuzzyMatching
-instance ToPath       SuggesterFuzzyMatching
 instance ToQuery      SuggesterFuzzyMatching
 instance ToHeader     SuggesterFuzzyMatching
 

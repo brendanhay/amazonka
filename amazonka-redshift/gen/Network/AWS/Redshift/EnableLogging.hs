@@ -119,7 +119,7 @@ instance ToHeaders EnableLogging where
         toHeaders = const mempty
 
 instance ToPath EnableLogging where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery EnableLogging where
         toQuery EnableLogging'{..}

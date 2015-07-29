@@ -200,7 +200,7 @@ instance ToHeaders UpdateEnvironment where
         toHeaders = const mempty
 
 instance ToPath UpdateEnvironment where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateEnvironment where
         toQuery UpdateEnvironment'{..}

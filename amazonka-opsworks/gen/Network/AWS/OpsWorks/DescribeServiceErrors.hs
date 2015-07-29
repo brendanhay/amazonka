@@ -122,7 +122,7 @@ instance ToJSON DescribeServiceErrors where
                "StackId" .= _dseStackId]
 
 instance ToPath DescribeServiceErrors where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeServiceErrors where
         toQuery = const mempty

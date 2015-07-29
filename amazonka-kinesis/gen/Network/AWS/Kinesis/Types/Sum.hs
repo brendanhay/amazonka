@@ -44,7 +44,6 @@ instance ToText ShardIteratorType where
 
 instance Hashable     ShardIteratorType
 instance ToByteString ShardIteratorType
-instance ToPath       ShardIteratorType
 instance ToQuery      ShardIteratorType
 instance ToHeader     ShardIteratorType
 
@@ -76,7 +75,6 @@ instance ToText StreamStatus where
 
 instance Hashable     StreamStatus
 instance ToByteString StreamStatus
-instance ToPath       StreamStatus
 instance ToQuery      StreamStatus
 instance ToHeader     StreamStatus
 

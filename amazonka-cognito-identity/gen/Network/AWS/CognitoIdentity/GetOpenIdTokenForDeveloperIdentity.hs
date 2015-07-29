@@ -162,7 +162,7 @@ instance ToJSON GetOpenIdTokenForDeveloperIdentity
 
 instance ToPath GetOpenIdTokenForDeveloperIdentity
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetOpenIdTokenForDeveloperIdentity
          where

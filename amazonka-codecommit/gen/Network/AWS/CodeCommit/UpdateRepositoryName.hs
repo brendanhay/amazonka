@@ -94,7 +94,7 @@ instance ToJSON UpdateRepositoryName where
               ["oldName" .= _urnOldName, "newName" .= _urnNewName]
 
 instance ToPath UpdateRepositoryName where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateRepositoryName where
         toQuery = const mempty

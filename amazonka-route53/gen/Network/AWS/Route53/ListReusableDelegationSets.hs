@@ -121,7 +121,7 @@ instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
 
 instance ToPath ListReusableDelegationSets where
-        toPath = const "/2013-04-01/delegationset"
+        toPath = const ["2013-04-01", "delegationset"]
 
 instance ToQuery ListReusableDelegationSets where
         toQuery ListReusableDelegationSets'{..}

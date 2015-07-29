@@ -110,7 +110,7 @@ instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
 
 instance ToPath DescribeVPCEndpointServices where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVPCEndpointServices where
         toQuery DescribeVPCEndpointServices'{..}

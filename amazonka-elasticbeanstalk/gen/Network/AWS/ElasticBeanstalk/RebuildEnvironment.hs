@@ -92,7 +92,7 @@ instance ToHeaders RebuildEnvironment where
         toHeaders = const mempty
 
 instance ToPath RebuildEnvironment where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RebuildEnvironment where
         toQuery RebuildEnvironment'{..}

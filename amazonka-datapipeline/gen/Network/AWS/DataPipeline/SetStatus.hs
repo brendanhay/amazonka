@@ -110,7 +110,7 @@ instance ToJSON SetStatus where
                "objectIds" .= _ssObjectIds, "status" .= _ssStatus]
 
 instance ToPath SetStatus where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetStatus where
         toQuery = const mempty

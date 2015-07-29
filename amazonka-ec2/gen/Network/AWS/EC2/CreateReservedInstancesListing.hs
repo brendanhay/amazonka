@@ -137,7 +137,7 @@ instance ToHeaders CreateReservedInstancesListing
         toHeaders = const mempty
 
 instance ToPath CreateReservedInstancesListing where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateReservedInstancesListing where
         toQuery CreateReservedInstancesListing'{..}

@@ -38,7 +38,6 @@ instance ToText ApplyMethod where
 
 instance Hashable     ApplyMethod
 instance ToByteString ApplyMethod
-instance ToPath       ApplyMethod
 instance ToQuery      ApplyMethod
 instance ToHeader     ApplyMethod
 
@@ -70,7 +69,6 @@ instance ToText SourceType where
 
 instance Hashable     SourceType
 instance ToByteString SourceType
-instance ToPath       SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType
 

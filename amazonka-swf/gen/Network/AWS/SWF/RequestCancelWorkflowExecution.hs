@@ -135,7 +135,7 @@ instance ToJSON RequestCancelWorkflowExecution where
                "workflowId" .= _rcweWorkflowId]
 
 instance ToPath RequestCancelWorkflowExecution where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RequestCancelWorkflowExecution where
         toQuery = const mempty

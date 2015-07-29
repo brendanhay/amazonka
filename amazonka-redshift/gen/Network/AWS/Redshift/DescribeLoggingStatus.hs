@@ -84,7 +84,7 @@ instance ToHeaders DescribeLoggingStatus where
         toHeaders = const mempty
 
 instance ToPath DescribeLoggingStatus where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLoggingStatus where
         toQuery DescribeLoggingStatus'{..}

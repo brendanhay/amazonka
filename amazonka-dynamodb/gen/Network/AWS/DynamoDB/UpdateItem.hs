@@ -737,7 +737,7 @@ instance ToJSON UpdateItem where
                "TableName" .= _uiTableName, "Key" .= _uiKey]
 
 instance ToPath UpdateItem where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateItem where
         toQuery = const mempty

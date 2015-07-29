@@ -119,7 +119,7 @@ instance ToJSON CreatePrivateVirtualInterface where
                  _creNewPrivateVirtualInterface]
 
 instance ToPath CreatePrivateVirtualInterface where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreatePrivateVirtualInterface where
         toQuery = const mempty

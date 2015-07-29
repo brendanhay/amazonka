@@ -154,7 +154,7 @@ instance ToHeaders ReplaceNetworkACLEntry where
         toHeaders = const mempty
 
 instance ToPath ReplaceNetworkACLEntry where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ReplaceNetworkACLEntry where
         toQuery ReplaceNetworkACLEntry'{..}

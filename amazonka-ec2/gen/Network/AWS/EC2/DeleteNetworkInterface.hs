@@ -85,7 +85,7 @@ instance ToHeaders DeleteNetworkInterface where
         toHeaders = const mempty
 
 instance ToPath DeleteNetworkInterface where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteNetworkInterface where
         toQuery DeleteNetworkInterface'{..}

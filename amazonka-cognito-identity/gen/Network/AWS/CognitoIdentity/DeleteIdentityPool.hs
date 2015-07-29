@@ -87,7 +87,7 @@ instance ToJSON DeleteIdentityPool where
           = object ["IdentityPoolId" .= _dIdentityPoolId]
 
 instance ToPath DeleteIdentityPool where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteIdentityPool where
         toQuery = const mempty

@@ -100,9 +100,8 @@ instance ToHeaders GetVaultAccessPolicy where
 
 instance ToPath GetVaultAccessPolicy where
         toPath GetVaultAccessPolicy'{..}
-          = mconcat
-              ["/", toPath _gvapAccountId, "/vaults/",
-               toPath _gvapVaultName, "/access-policy"]
+          = [toBS _gvapAccountId, "vaults",
+             toBS _gvapVaultName, "access-policy"]
 
 instance ToQuery GetVaultAccessPolicy where
         toQuery = const mempty

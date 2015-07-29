@@ -275,7 +275,7 @@ instance ToHeaders CreateAutoScalingGroup where
         toHeaders = const mempty
 
 instance ToPath CreateAutoScalingGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateAutoScalingGroup where
         toQuery CreateAutoScalingGroup'{..}

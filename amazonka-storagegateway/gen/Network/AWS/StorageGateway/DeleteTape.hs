@@ -102,7 +102,7 @@ instance ToJSON DeleteTape where
                "TapeARN" .= _dttTapeARN]
 
 instance ToPath DeleteTape where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteTape where
         toQuery = const mempty

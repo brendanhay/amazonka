@@ -71,8 +71,7 @@ instance ToHeaders HeadBucket where
         toHeaders = const mempty
 
 instance ToPath HeadBucket where
-        toPath HeadBucket'{..}
-          = mconcat ["/", toPath _hbBucket]
+        toPath HeadBucket'{..} = [toBS _hbBucket]
 
 instance ToQuery HeadBucket where
         toQuery = const mempty

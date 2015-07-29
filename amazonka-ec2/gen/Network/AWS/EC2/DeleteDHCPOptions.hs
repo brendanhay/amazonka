@@ -85,7 +85,7 @@ instance ToHeaders DeleteDHCPOptions where
         toHeaders = const mempty
 
 instance ToPath DeleteDHCPOptions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteDHCPOptions where
         toQuery DeleteDHCPOptions'{..}

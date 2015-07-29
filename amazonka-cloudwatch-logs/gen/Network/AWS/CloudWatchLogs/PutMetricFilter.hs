@@ -118,7 +118,7 @@ instance ToJSON PutMetricFilter where
                "metricTransformations" .= _pmfMetricTransformations]
 
 instance ToPath PutMetricFilter where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutMetricFilter where
         toQuery = const mempty

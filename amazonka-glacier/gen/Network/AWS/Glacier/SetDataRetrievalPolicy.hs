@@ -102,9 +102,7 @@ instance ToJSON SetDataRetrievalPolicy where
 
 instance ToPath SetDataRetrievalPolicy where
         toPath SetDataRetrievalPolicy'{..}
-          = mconcat
-              ["/", toPath _sdrpAccountId,
-               "/policies/data-retrieval"]
+          = [toBS _sdrpAccountId, "policies", "data-retrieval"]
 
 instance ToQuery SetDataRetrievalPolicy where
         toQuery = const mempty

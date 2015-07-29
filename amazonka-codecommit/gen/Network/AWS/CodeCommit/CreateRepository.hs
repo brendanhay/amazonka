@@ -105,7 +105,7 @@ instance ToJSON CreateRepository where
                "repositoryName" .= _crRepositoryName]
 
 instance ToPath CreateRepository where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateRepository where
         toQuery = const mempty

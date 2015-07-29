@@ -123,10 +123,8 @@ instance ToHeaders AbortMultipartUpload where
 
 instance ToPath AbortMultipartUpload where
         toPath AbortMultipartUpload'{..}
-          = mconcat
-              ["/", toPath _amuAccountId, "/vaults/",
-               toPath _amuVaultName, "/multipart-uploads/",
-               toPath _amuUploadId]
+          = [toBS _amuAccountId, "vaults", toBS _amuVaultName,
+             "multipart-uploads", toBS _amuUploadId]
 
 instance ToQuery AbortMultipartUpload where
         toQuery = const mempty

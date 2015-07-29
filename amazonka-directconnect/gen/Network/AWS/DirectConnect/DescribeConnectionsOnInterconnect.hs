@@ -97,7 +97,7 @@ instance ToJSON DescribeConnectionsOnInterconnect
 
 instance ToPath DescribeConnectionsOnInterconnect
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeConnectionsOnInterconnect
          where

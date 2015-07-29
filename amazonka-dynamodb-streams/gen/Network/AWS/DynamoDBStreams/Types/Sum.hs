@@ -38,7 +38,6 @@ instance ToText KeyType where
 
 instance Hashable     KeyType
 instance ToByteString KeyType
-instance ToPath       KeyType
 instance ToQuery      KeyType
 instance ToHeader     KeyType
 
@@ -67,7 +66,6 @@ instance ToText OperationType where
 
 instance Hashable     OperationType
 instance ToByteString OperationType
-instance ToPath       OperationType
 instance ToQuery      OperationType
 instance ToHeader     OperationType
 
@@ -99,7 +97,6 @@ instance ToText ShardIteratorType where
 
 instance Hashable     ShardIteratorType
 instance ToByteString ShardIteratorType
-instance ToPath       ShardIteratorType
 instance ToQuery      ShardIteratorType
 instance ToHeader     ShardIteratorType
 
@@ -131,7 +128,6 @@ instance ToText StreamStatus where
 
 instance Hashable     StreamStatus
 instance ToByteString StreamStatus
-instance ToPath       StreamStatus
 instance ToQuery      StreamStatus
 instance ToHeader     StreamStatus
 
@@ -163,7 +159,6 @@ instance ToText StreamViewType where
 
 instance Hashable     StreamViewType
 instance ToByteString StreamViewType
-instance ToPath       StreamViewType
 instance ToQuery      StreamViewType
 instance ToHeader     StreamViewType
 

@@ -149,7 +149,7 @@ instance ToJSON CreateTapes where
                "TapeBarcodePrefix" .= _ctTapeBarcodePrefix]
 
 instance ToPath CreateTapes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateTapes where
         toQuery = const mempty

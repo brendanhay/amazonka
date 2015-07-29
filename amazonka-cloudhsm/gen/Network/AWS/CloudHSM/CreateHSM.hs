@@ -162,7 +162,7 @@ instance ToJSON CreateHSM where
                "SubscriptionType" .= _chSubscriptionType]
 
 instance ToPath CreateHSM where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateHSM where
         toQuery = const mempty

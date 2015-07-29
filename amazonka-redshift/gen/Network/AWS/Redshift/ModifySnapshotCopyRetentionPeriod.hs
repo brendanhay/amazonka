@@ -107,7 +107,7 @@ instance ToHeaders ModifySnapshotCopyRetentionPeriod
 
 instance ToPath ModifySnapshotCopyRetentionPeriod
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifySnapshotCopyRetentionPeriod
          where

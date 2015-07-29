@@ -147,7 +147,7 @@ instance ToHeaders DescribeVPCPeeringConnections
         toHeaders = const mempty
 
 instance ToPath DescribeVPCPeeringConnections where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVPCPeeringConnections where
         toQuery DescribeVPCPeeringConnections'{..}

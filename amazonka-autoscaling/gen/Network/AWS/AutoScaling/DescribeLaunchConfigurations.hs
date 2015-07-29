@@ -112,7 +112,7 @@ instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty
 
 instance ToPath DescribeLaunchConfigurations where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLaunchConfigurations where
         toQuery DescribeLaunchConfigurations'{..}

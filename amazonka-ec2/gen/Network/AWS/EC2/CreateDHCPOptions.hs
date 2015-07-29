@@ -127,7 +127,7 @@ instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
 
 instance ToPath CreateDHCPOptions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateDHCPOptions where
         toQuery CreateDHCPOptions'{..}

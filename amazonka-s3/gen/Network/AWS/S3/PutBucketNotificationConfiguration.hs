@@ -94,7 +94,7 @@ instance ToHeaders PutBucketNotificationConfiguration
 instance ToPath PutBucketNotificationConfiguration
          where
         toPath PutBucketNotificationConfiguration'{..}
-          = mconcat ["/", toPath _pbncBucket]
+          = [toBS _pbncBucket]
 
 instance ToQuery PutBucketNotificationConfiguration
          where

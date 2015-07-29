@@ -104,7 +104,7 @@ instance ToJSON DeleteBandwidthRateLimit where
                "BandwidthType" .= _delBandwidthType]
 
 instance ToPath DeleteBandwidthRateLimit where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteBandwidthRateLimit where
         toQuery = const mempty

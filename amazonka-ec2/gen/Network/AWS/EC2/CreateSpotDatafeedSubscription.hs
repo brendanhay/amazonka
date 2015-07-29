@@ -108,7 +108,7 @@ instance ToHeaders CreateSpotDatafeedSubscription
         toHeaders = const mempty
 
 instance ToPath CreateSpotDatafeedSubscription where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateSpotDatafeedSubscription where
         toQuery CreateSpotDatafeedSubscription'{..}

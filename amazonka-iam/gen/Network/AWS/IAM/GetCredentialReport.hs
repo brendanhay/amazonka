@@ -72,7 +72,7 @@ instance ToHeaders GetCredentialReport where
         toHeaders = const mempty
 
 instance ToPath GetCredentialReport where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetCredentialReport where
         toQuery

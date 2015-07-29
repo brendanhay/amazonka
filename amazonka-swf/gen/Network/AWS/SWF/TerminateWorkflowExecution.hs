@@ -184,7 +184,7 @@ instance ToJSON TerminateWorkflowExecution where
                "workflowId" .= _tweWorkflowId]
 
 instance ToPath TerminateWorkflowExecution where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery TerminateWorkflowExecution where
         toQuery = const mempty

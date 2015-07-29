@@ -90,7 +90,7 @@ instance ToJSON CreatePipeline where
           = object ["pipeline" .= _cpPipeline]
 
 instance ToPath CreatePipeline where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreatePipeline where
         toQuery = const mempty

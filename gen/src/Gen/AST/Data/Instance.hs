@@ -24,6 +24,7 @@ import           Data.Aeson
 import           Data.List            (find, partition)
 import           Data.Monoid
 import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Gen.AST.Data.Field
 import           Gen.Formatting
 import           Gen.Types
@@ -99,7 +100,12 @@ requestInsts m h r fs = do
         ++ map Left  protocolHeaders
 
     toPath :: Either Error Inst
-    toPath = ToPath <$> uriFields h uriPath id fs
+    toPath = ToPath . concatMap split <$> uriFields h uriPath id fs
+      where
+        split (Right f)  = [Right f]
+        split (Left "/") = [] -- drop delimiters
+        split (Left  x)  =
+            map Left . filter (not . Text.null) $ Text.split (== '/') x
 
     toBody :: Maybe Inst
     toBody = ToBody <$> stream

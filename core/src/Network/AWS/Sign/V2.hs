@@ -24,6 +24,7 @@ import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
+import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
 import           Network.AWS.Request
@@ -56,12 +57,13 @@ instance AWSSigner V2 where
         rq = clientRequest
             & method         .~ meth
             & host           .~ _endpointHost
-            & path           .~ _rqPath
+            & path           .~ path'
             & queryString    .~ toBS authorised
             & requestHeaders .~ headers
             & requestBody    .~ bodyRequest _rqBody
 
-        meth = toBS _rqMethod
+        meth  = toBS _rqMethod
+        path' = toBS (escapePath _rqPath)
 
         Endpoint {..} = _svcEndpoint r
 
@@ -72,7 +74,7 @@ instance AWSSigner V2 where
             $ BS8.intercalate "\n"
                 [ meth
                 , _endpointHost
-                , _rqPath
+                , path'
                 , toBS query
                 ]
 

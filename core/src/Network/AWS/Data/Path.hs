@@ -1,5 +1,11 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DataKinds          #-}
+{-# LANGUAGE DefaultSignatures  #-}
+{-# LANGUAGE FlexibleInstances  #-}
+{-# LANGUAGE GADTs              #-}
+{-# LANGUAGE KindSignatures     #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE StandaloneDeriving #-}
 
 -- |
 -- Module      : Network.AWS.Data.Path
@@ -9,68 +15,72 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Data.Path where
+module Network.AWS.Data.Path
+    ( ToPath   (..)
+    , Encoding (..)
+    , Path
+    , rawPath
+    , escapePath
+    , collapsePath
+    ) where
 
-import           Data.ByteString.Builder
 import qualified Data.ByteString.Char8       as BS8
-import qualified Data.Foldable               as Fold
 import           Data.List                   (intersperse)
 import           Data.Monoid
-import           Data.Monoid                 (mempty)
-import           Data.Text                   (Text)
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI
 
 class ToPath a where
-    toPath :: a -> Builder
+    toPath :: a -> [ByteString]
 
-    default toPath :: ToByteString a => a -> Builder
-    toPath = toPath . toBS
+rawPath :: ToPath a => a -> Path 'NoEncoding
+rawPath = Raw . toPath
 
-instance ToPath ByteString where
-    toPath = mconcat
-        . intersperse "/"
-        . map (urlEncodeBuilder False)
-        . BS8.split '/'
+data Encoding = NoEncoding | Percent
+    deriving (Eq, Show)
 
-instance ToPath Text where
-    toPath = toPath . toBS
+data Path :: Encoding -> * where
+    Raw     :: [ByteString] -> Path 'NoEncoding
+    Encoded :: [ByteString] -> Path 'Percent
 
-instance ToPath Builder where
-    toPath = id
+deriving instance Show (Path a)
+deriving instance Eq   (Path a)
 
-collapsePath :: ByteString -> ByteString
-collapsePath bs
-    | BS8.null bs   = slash
-    | BS8.null path = slash
-    | otherwise     = tl (hd path)
+instance Monoid (Path 'NoEncoding) where
+    mempty                    = Raw []
+    mappend (Raw xs) (Raw ys) = Raw (xs ++ ys)
+
+instance ToByteString (Path 'Percent) where
+    toBS (Encoded []) = slash
+    toBS (Encoded xs) = BS8.intercalate slash xs
+
+instance ToBuilder (Path 'Percent) where
+    build = build . toBS
+
+escapePath :: Path a -> Path 'Percent
+escapePath (Raw     xs) = Encoded (map (urlEncode True) xs)
+escapePath (Encoded xs) = Encoded xs
+
+collapsePath :: Path a -> Path a
+collapsePath = \case
+    Raw     xs -> Raw     (go xs)
+    Encoded xs -> Encoded (go xs)
   where
-    path = BS8.intercalate slash
-        . reverse
-        . Fold.foldl' go []
-        . filter (/= mempty)
-        $ BS8.split sep bs
+    go = reverse . f . reverse
 
-    hd x | BS8.head x  == sep = x
-         | otherwise          = sep `BS8.cons` x
-
-    tl x | BS8.last x  == sep = x
-         | BS8.last bs == sep = x `BS8.snoc` sep
-         | otherwise          = x
-
-    go acc c | c == dot  = acc
-    go acc c | c == dots = remv acc c
-    go acc c             = c : acc
-
-    remv []       _ = []
-    remv (x : xs) c
-        | x == dot  = c : xs
-        | x == dots = c : x : xs
-        | otherwise = xs
+    f :: [ByteString] -> [ByteString]
+    f []            = []
+    f (x:xs)
+        | x == dot  = f xs
+        | x == dots = drop 1 (f xs)
+        | otherwise = x : f xs
 
     dot  = "."
     dots = ".."
 
-    slash = BS8.singleton sep
+slash :: ByteString
+slash = BS8.singleton sep
 
-    sep = '/'
+sep :: Char
+sep = '/'

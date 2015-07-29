@@ -134,13 +134,17 @@ finalise AuthEnv{..} r t Service{..} Request{..} qry hashed =
     rq = clientRequest
         & method         .~ meth
         & host           .~ _endpointHost
-        & path           .~ _rqPath
+        & path           .~ path'
         & queryString    .~ BS.cons '?' (toBS query)
         & requestHeaders .~ headers
         & requestBody    .~ bodyRequest _rqBody
 
     meth  = toBS _rqMethod
     query = qry accessScope signedHeaders _rqQuery
+    path' = toBS . escapePath $
+        if _svcAbbrev /= "S3"
+            then collapsePath _rqPath
+            else _rqPath
 
     Endpoint {..} = _svcEndpoint r
 
@@ -169,7 +173,7 @@ finalise AuthEnv{..} r t Service{..} Request{..} qry hashed =
 
     canonicalRequest = mconcat $ intersperse "\n"
        [ meth
-       , collapsePath _rqPath
+       , path'
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders

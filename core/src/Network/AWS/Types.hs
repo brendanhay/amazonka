@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
@@ -120,6 +121,7 @@ import           Data.Time
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
@@ -284,7 +286,7 @@ type Response a = Either Error (Status, Rs a)
 -- | An unsigned request.
 data Request a = Request
     { _rqMethod    :: !StdMethod
-    , _rqPath      :: !ByteString
+    , _rqPath      :: !(Path 'NoEncoding)
     , _rqQuery     :: !QueryString
     , _rqHeaders   :: ![Header]
     , _rqBody      :: !RqBody
@@ -294,7 +296,7 @@ instance ToBuilder (Request a) where
     build Request{..} = buildLines
         [ "[Raw Request] {"
         , "  method    = "  <> build _rqMethod
-        , "  path      = "  <> build _rqPath
+        , "  path      = "  <> build (escapePath _rqPath)
         , "  query     = "  <> build _rqQuery
         , "  headers   = "  <> build _rqHeaders
         , "  body      = {"
@@ -313,7 +315,7 @@ rqHeaders = lens _rqHeaders (\s a -> s { _rqHeaders = a })
 rqMethod :: Lens' (Request a) StdMethod
 rqMethod = lens _rqMethod (\s a -> s { _rqMethod = a })
 
-rqPath :: Lens' (Request a) ByteString
+rqPath :: Lens' (Request a) (Path 'NoEncoding)
 rqPath = lens _rqPath (\s a -> s { _rqPath = a })
 
 rqQuery :: Lens' (Request a) QueryString

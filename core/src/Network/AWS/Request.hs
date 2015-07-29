@@ -87,8 +87,9 @@ postQuery x = Request
     , _rqPath    = toBS (toPath x)
     , _rqQuery   = mempty
     , _rqBody    = toBody (toQuery x)
-    , _rqHeaders = hdr HTTP.hContentType "application/x-www-form-urlencoded"
-        (toHeaders x)
+    , _rqHeaders =
+        hdr HTTP.hContentType "application/x-www-form-urlencoded; charset=utf-8"
+            (toHeaders x)
     } & contentSHA256
 
 postBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
@@ -118,7 +119,7 @@ defaultRequest x = Request
     , _rqPath    = toBS (toPath x)
     , _rqQuery   = toQuery x
     , _rqHeaders = toHeaders x
-    , _rqBody    = ""
+    , _rqBody    = mempty
     }
 
 contentSHA256 :: Request a -> Request a

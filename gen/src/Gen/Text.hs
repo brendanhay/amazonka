@@ -75,12 +75,15 @@ renameBranch :: Text -> (Text, Text)
 renameBranch = bimap (renameReserved . go) Text.toLower . join (,)
   where
     go x | Text.length x <= 2 = Text.toUpper x
-         | otherwise          =
-             upperAcronym
-                 . Fold.foldMap (Text.intercalate "_" . map h . Text.split g)
-                 $ Text.split f x
+         | otherwise          = upperAcronym . cat $ split x
 
-    f x = x == '\\'
+    cat   = Fold.foldMap (Text.intercalate "_" . map component . Text.split dot)
+    split = Text.split seperator
+
+    dot x = x == '.'
+
+    seperator x =
+          x == '\\'
        || x == '/'
        || x == '+'
        || x == ' '
@@ -89,10 +92,10 @@ renameBranch = bimap (renameReserved . go) Text.toLower . join (,)
        || x == ':'
        || x == '-'
        || x == '_'
+       || x == '*'
 
-    g x = x == '.'
-
-    h x | Text.length x <= 1    = x
+    component x
+        | Text.length x <= 1    = x
         | isDigit (Text.last x) = Text.toUpper x
         | Text.all isUpper x    = toPascal (Text.toLower x)
         | otherwise             = toPascal x

@@ -25,7 +25,6 @@ module Network.AWS.Data.ByteString
     ) where
 
 import           Data.ByteString                   (ByteString)
-import qualified Data.ByteString                   as BS
 import           Data.ByteString.Builder           (Builder)
 import qualified Data.ByteString.Char8             as BS8
 import qualified Data.ByteString.Lazy              as LBS
@@ -34,19 +33,11 @@ import           Data.CaseInsensitive              (CI)
 import qualified Data.CaseInsensitive              as CI
 import           Data.Char
 import           Data.Double.Conversion.ByteString (toShortest)
-import           Data.Int
-import           Data.List                         (intersperse)
 import           Data.Monoid
-import qualified Data.Text                         as Text
 import qualified Data.Text.Encoding                as Text
-import qualified Data.Text.Lazy                    as LText
-import qualified Data.Text.Lazy.Encoding           as LText
 import           Data.Time                         (UTCTime)
-import           Data.Word
-import           GHC.Float
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Text
-import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Numeric.Natural
 

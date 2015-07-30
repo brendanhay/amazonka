@@ -15,9 +15,8 @@
 module Network.AWS.Sign.V2 where
 
 import           Control.Applicative
-import           Control.Lens
-import qualified Data.ByteString.Char8       as BS8
-import           Data.List                   (intersperse)
+import qualified Data.ByteString.Char8        as BS8
+import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data.Body
@@ -30,43 +29,44 @@ import           Network.AWS.Data.Time
 import           Network.AWS.Logger
 import           Network.AWS.Request
 import           Network.AWS.Types
-import           Network.HTTP.Types          hiding (toQuery)
+import qualified Network.HTTP.Client.Internal as Client
+import           Network.HTTP.Types           hiding (toQuery)
 
 data V2
 
 data instance Meta V2 = Meta
-    { _mSignature :: ByteString
-    , _mTime      :: UTCTime
+    { metaTime      :: !UTCTime
+    , metaEndpoint  :: !Endpoint
+    , metaSignature :: !ByteString
     }
 
 instance ToLog (Meta V2) where
     message Meta{..} = mconcat $ intersperse "\n"
         [ "[Version 2 Metadata] {"
-        , "  signature = " <> message _mSignature
-        , "  time      = " <> message _mTime
+        , "  time      = " <> build metaTime
+        , "  endpoint  = " <> build (_endpointHost metaEndpoint)
+        , "  signature = " <> build metaSignature
         , "}"
         ]
 
 instance AWSSigner V2 where
     signed AuthEnv{..} r t Service{..} Request{..} = Signed meta rq
       where
-        meta = Meta
-            { _mSignature = signature
-            , _mTime      = t
-            }
+        meta = Meta t end signature
 
         rq = clientRequest
-            & method         .~ meth
-            & host           .~ _endpointHost
-            & path           .~ path'
-            & queryString    .~ toBS authorised
-            & requestHeaders .~ headers
-            & requestBody    .~ bodyRequest _rqBody
+            { Client.method         = meth
+            , Client.host           = _endpointHost
+            , Client.path           = path'
+            , Client.queryString    = toBS authorised
+            , Client.requestHeaders = headers
+            , Client.requestBody    = bodyRequest _rqBody
+            }
 
         meth  = toBS _rqMethod
         path' = toBS (escapePath _rqPath)
 
-        Endpoint {..} = _svcEndpoint r
+        end@Endpoint{..} = _svcEndpoint r
 
         authorised = pair "Signature" (urlEncode True signature) query
 

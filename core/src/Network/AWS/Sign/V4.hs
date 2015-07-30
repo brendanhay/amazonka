@@ -33,6 +33,7 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
+import           Network.AWS.Logger
 import           Network.AWS.Request
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
@@ -49,17 +50,17 @@ data instance Meta V4 = Meta
     , _mTime      :: UTCTime
     }
 
-instance ToBuilder (Meta V4) where
-    build Meta{..} = mconcat $ intersperse "\n"
+instance ToLog (Meta V4) where
+    message Meta{..} = mconcat $ intersperse "\n"
         [ "[Version 4 Metadata] {"
-        , "  algorithm         = " <> build _mAlgorithm
-        , "  credential scope  = " <> build _mScope
-        , "  signed headers    = " <> build _mSigned
-        , "  string to sign    = " <> build _mSTS
-        , "  signature         = " <> build _mSignature
-        , "  time              = " <> build _mTime
+        , "  algorithm         = " <> message _mAlgorithm
+        , "  credential scope  = " <> message _mScope
+        , "  signed headers    = " <> message _mSigned
+        , "  string to sign    = " <> message _mSTS
+        , "  signature         = " <> message _mSignature
+        , "  time              = " <> message _mTime
         , "  canonical request = {"
-        , build _mCReq
+        , message _mCReq
         , "  }"
         , "}"
         ]

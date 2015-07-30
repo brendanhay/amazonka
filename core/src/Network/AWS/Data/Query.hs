@@ -20,7 +20,6 @@
 module Network.AWS.Data.Query where
 
 import           Control.Lens
-import qualified Data.ByteString.Builder     as Build
 import qualified Data.ByteString.Char8       as BS
 import           Data.Data
 import           Data.Data.Lens
@@ -79,9 +78,6 @@ instance ToByteString QueryString where
 
         ksep = "&"
         vsep = "="
-
-instance ToBuilder QueryString where
-    build = Build.byteString . toBS
 
 valuesOf :: Traversal' QueryString (Maybe ByteString)
 valuesOf = deep _QValue

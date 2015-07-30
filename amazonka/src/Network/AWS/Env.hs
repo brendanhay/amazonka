@@ -99,14 +99,14 @@ class AWSEnv a where
 instance AWSEnv Env where
     env = id
 
-instance ToBuilder Env where
-    build Env{..} = b <> "\n" <> build _envAuth
+instance ToLog Env where
+    message Env{..} = b <> "\n" <> message _envAuth
       where
         b = buildLines
             [ "[Amazonka Env] {"
-            , "  region      = " <> build _envRegion
-            , "  retry (n=0) = " <> build (join $ ($ 0) . getRetryPolicy <$> _envRetryPolicy)
-            , "  timeout     = " <> build _envTimeout
+            , "  region      = " <> message _envRegion
+            , "  retry (n=0) = " <> message (join $ ($ 0) . getRetryPolicy <$> _envRetryPolicy)
+            , "  timeout     = " <> message _envTimeout
             , "}"
             ]
 

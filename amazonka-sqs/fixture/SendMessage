@@ -1,9 +1,9 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=1b5db977afd6d07cbade281149b73e4bff214460b1e60bac40317989ca5e0b4c
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=9f77f9e079c9f23809225179ec8fc8f71159b969cad8d1aee40a8575e6a688a9
   Host:                  queue.amazonaws.com
-  Content-Type:          application/x-www-form-urlencoded
+  Content-Type:          application/x-www-form-urlencoded; charset=utf-8
   X-Amz-Content-SHA256:  f2d70aeaa05157f45a6ac8613342e77d8e76f8ce5e5090eba0173592792c6e71
   X-Amz-Date:            20091028T223200UTC
 body:

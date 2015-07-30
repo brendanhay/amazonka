@@ -16,19 +16,23 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Data.Path
-    ( ToPath   (..)
-    , Encoding (..)
-    , Path
+    (
+    -- * Path Types
+      RawPath
+    , EscapedPath
+
+    -- * Constructing Paths
+    , ToPath (..)
     , rawPath
+
+    -- * Manipulating Paths
     , escapePath
     , collapsePath
     ) where
 
 import qualified Data.ByteString.Char8       as BS8
-import           Data.List                   (intersperse)
 import           Data.Monoid
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI
 
 class ToPath a where
@@ -47,18 +51,24 @@ data Path :: Encoding -> * where
 deriving instance Show (Path a)
 deriving instance Eq   (Path a)
 
-instance Monoid (Path 'NoEncoding) where
+type RawPath     = Path 'NoEncoding
+type EscapedPath = Path 'Percent
+
+instance Monoid RawPath where
     mempty                    = Raw []
     mappend (Raw xs) (Raw ys) = Raw (xs ++ ys)
 
-instance ToByteString (Path 'Percent) where
+instance ToByteString RawPath where
+    toBS = toBS . escapePath
+
+instance ToByteString EscapedPath where
     toBS (Encoded []) = slash
     toBS (Encoded xs) = BS8.intercalate slash xs
 
-instance ToBuilder (Path 'Percent) where
+instance ToBuilder (EscapedPath) where
     build = build . toBS
 
-escapePath :: Path a -> Path 'Percent
+escapePath :: Path a -> EscapedPath
 escapePath (Raw     xs) = Encoded (map (urlEncode True) xs)
 escapePath (Encoded xs) = Encoded xs
 

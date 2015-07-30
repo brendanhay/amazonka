@@ -20,17 +20,22 @@ tests :: TestTree
 tests = testGroup "object key"
     [ testGroup "encoding"
         [ testCase "without delimiters" $
-            "/key" @=? toBS (rawPath (ObjectKey "key"))
+            "/key" @=?
+                enc (ObjectKey "key")
 
         , testCase "without leading prefix" $
-            "/some/obj%23ect" @=? toBS (rawPath (ObjectKey "some/obj#ect"))
+            "/some/obj%23ect" @=?
+                enc (ObjectKey "some/obj#ect")
 
         , testCase "custom delimiter" $
             "/%5Esome%5Eobj%25ect%5Efoo" @=?
-                 toBS (rawPath (ObjectKey "^some^obj%ect^foo"))
+                enc (ObjectKey "^some^obj%ect^foo")
 
         , testCase "leading prefix" $
-             "/some%3D1/path%20to/foo%3Dbar/object%20here" @=?
-                 toBS (rawPath (ObjectKey "/some=1/path to/foo=bar/object here"))
+            "/some%3D1/path%20to/foo%3Dbar/object%20here" @=?
+                enc (ObjectKey "/some=1/path to/foo=bar/object here")
         ]
     ]
+
+enc :: ObjectKey -> ByteString
+enc = toBS . escapePath . rawPath

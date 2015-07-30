@@ -159,7 +159,7 @@ instance ToJSON PollForActivityTask where
                "domain" .= _pfatDomain, "taskList" .= _pfatTaskList]
 
 instance ToPath PollForActivityTask where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PollForActivityTask where
         toQuery = const mempty

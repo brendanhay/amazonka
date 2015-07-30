@@ -68,7 +68,7 @@ instance ToHeaders ListOpenIdConnectProviders where
         toHeaders = const mempty
 
 instance ToPath ListOpenIdConnectProviders where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListOpenIdConnectProviders where
         toQuery

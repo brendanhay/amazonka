@@ -102,7 +102,7 @@ instance ToHeaders
 
 instance ToPath
          EnableAvailabilityZonesForLoadBalancer where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery
          EnableAvailabilityZonesForLoadBalancer where

@@ -238,7 +238,7 @@ instance ToJSON DescribeDataSources where
                "LE" .= _ddsLE]
 
 instance ToPath DescribeDataSources where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDataSources where
         toQuery = const mempty

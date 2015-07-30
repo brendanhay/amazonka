@@ -47,7 +47,6 @@ instance ToText ActionCategory where
 
 instance Hashable     ActionCategory
 instance ToByteString ActionCategory
-instance ToPath       ActionCategory
 instance ToQuery      ActionCategory
 instance ToHeader     ActionCategory
 
@@ -79,7 +78,6 @@ instance ToText ActionConfigurationPropertyType where
 
 instance Hashable     ActionConfigurationPropertyType
 instance ToByteString ActionConfigurationPropertyType
-instance ToPath       ActionConfigurationPropertyType
 instance ToQuery      ActionConfigurationPropertyType
 instance ToHeader     ActionConfigurationPropertyType
 
@@ -111,7 +109,6 @@ instance ToText ActionExecutionStatus where
 
 instance Hashable     ActionExecutionStatus
 instance ToByteString ActionExecutionStatus
-instance ToPath       ActionExecutionStatus
 instance ToQuery      ActionExecutionStatus
 instance ToHeader     ActionExecutionStatus
 
@@ -140,7 +137,6 @@ instance ToText ActionOwner where
 
 instance Hashable     ActionOwner
 instance ToByteString ActionOwner
-instance ToPath       ActionOwner
 instance ToQuery      ActionOwner
 instance ToHeader     ActionOwner
 
@@ -166,7 +162,6 @@ instance ToText ArtifactLocationType where
 
 instance Hashable     ArtifactLocationType
 instance ToByteString ArtifactLocationType
-instance ToPath       ArtifactLocationType
 instance ToQuery      ArtifactLocationType
 instance ToHeader     ArtifactLocationType
 
@@ -189,7 +184,6 @@ instance ToText ArtifactStoreType where
 
 instance Hashable     ArtifactStoreType
 instance ToByteString ArtifactStoreType
-instance ToPath       ArtifactStoreType
 instance ToQuery      ArtifactStoreType
 instance ToHeader     ArtifactStoreType
 
@@ -215,7 +209,6 @@ instance ToText BlockerType where
 
 instance Hashable     BlockerType
 instance ToByteString BlockerType
-instance ToPath       BlockerType
 instance ToQuery      BlockerType
 instance ToHeader     BlockerType
 
@@ -256,7 +249,6 @@ instance ToText FailureType where
 
 instance Hashable     FailureType
 instance ToByteString FailureType
-instance ToPath       FailureType
 instance ToQuery      FailureType
 instance ToHeader     FailureType
 
@@ -297,7 +289,6 @@ instance ToText JobStatus where
 
 instance Hashable     JobStatus
 instance ToByteString JobStatus
-instance ToPath       JobStatus
 instance ToQuery      JobStatus
 instance ToHeader     JobStatus
 
@@ -323,7 +314,6 @@ instance ToText StageTransitionType where
 
 instance Hashable     StageTransitionType
 instance ToByteString StageTransitionType
-instance ToPath       StageTransitionType
 instance ToQuery      StageTransitionType
 instance ToHeader     StageTransitionType
 

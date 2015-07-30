@@ -89,7 +89,7 @@ instance ToJSON DeleteLayer where
           = object ["LayerId" .= _dlLayerId]
 
 instance ToPath DeleteLayer where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteLayer where
         toQuery = const mempty

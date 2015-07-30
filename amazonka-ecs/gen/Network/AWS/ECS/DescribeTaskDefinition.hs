@@ -97,7 +97,7 @@ instance ToJSON DescribeTaskDefinition where
           = object ["taskDefinition" .= _dtdTaskDefinition]
 
 instance ToPath DescribeTaskDefinition where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeTaskDefinition where
         toQuery = const mempty

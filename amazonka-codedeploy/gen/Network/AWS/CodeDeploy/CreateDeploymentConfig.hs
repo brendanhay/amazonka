@@ -119,7 +119,7 @@ instance ToJSON CreateDeploymentConfig where
                "deploymentConfigName" .= _cdcDeploymentConfigName]
 
 instance ToPath CreateDeploymentConfig where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateDeploymentConfig where
         toQuery = const mempty

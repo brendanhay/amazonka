@@ -142,7 +142,7 @@ instance ToJSON UpdateService where
                "service" .= _usService]
 
 instance ToPath UpdateService where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateService where
         toQuery = const mempty

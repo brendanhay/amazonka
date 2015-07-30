@@ -103,7 +103,7 @@ instance ToJSON RemoveTagsFromOnPremisesInstances
 
 instance ToPath RemoveTagsFromOnPremisesInstances
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RemoveTagsFromOnPremisesInstances
          where

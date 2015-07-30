@@ -105,7 +105,7 @@ instance ToHeaders EnterStandby where
         toHeaders = const mempty
 
 instance ToPath EnterStandby where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery EnterStandby where
         toQuery EnterStandby'{..}

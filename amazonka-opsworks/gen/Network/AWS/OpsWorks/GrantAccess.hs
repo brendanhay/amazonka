@@ -104,7 +104,7 @@ instance ToJSON GrantAccess where
                "InstanceId" .= _gaInstanceId]
 
 instance ToPath GrantAccess where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GrantAccess where
         toQuery = const mempty

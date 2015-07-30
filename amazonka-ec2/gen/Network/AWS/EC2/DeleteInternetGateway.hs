@@ -84,7 +84,7 @@ instance ToHeaders DeleteInternetGateway where
         toHeaders = const mempty
 
 instance ToPath DeleteInternetGateway where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteInternetGateway where
         toQuery DeleteInternetGateway'{..}

@@ -119,7 +119,7 @@ instance ToHeaders PutIdentityPolicy where
         toHeaders = const mempty
 
 instance ToPath PutIdentityPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutIdentityPolicy where
         toQuery PutIdentityPolicy'{..}

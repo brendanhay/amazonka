@@ -96,7 +96,7 @@ instance ToHeaders ResetNetworkInterfaceAttribute
         toHeaders = const mempty
 
 instance ToPath ResetNetworkInterfaceAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResetNetworkInterfaceAttribute where
         toQuery ResetNetworkInterfaceAttribute'{..}

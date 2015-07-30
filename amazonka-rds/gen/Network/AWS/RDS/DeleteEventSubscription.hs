@@ -80,7 +80,7 @@ instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
 
 instance ToPath DeleteEventSubscription where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteEventSubscription where
         toQuery DeleteEventSubscription'{..}

@@ -95,7 +95,7 @@ instance ToJSON ListVolumeInitiators where
           = object ["VolumeARN" .= _lviVolumeARN]
 
 instance ToPath ListVolumeInitiators where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListVolumeInitiators where
         toQuery = const mempty

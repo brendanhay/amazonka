@@ -95,7 +95,7 @@ instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
 
 instance ToPath MoveAddressToVPC where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery MoveAddressToVPC where
         toQuery MoveAddressToVPC'{..}

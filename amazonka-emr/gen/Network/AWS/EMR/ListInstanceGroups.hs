@@ -113,7 +113,7 @@ instance ToJSON ListInstanceGroups where
                "ClusterId" .= _ligClusterId]
 
 instance ToPath ListInstanceGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListInstanceGroups where
         toQuery = const mempty

@@ -128,7 +128,7 @@ instance ToHeaders PurchaseReservedInstancesOffering
 
 instance ToPath PurchaseReservedInstancesOffering
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PurchaseReservedInstancesOffering
          where

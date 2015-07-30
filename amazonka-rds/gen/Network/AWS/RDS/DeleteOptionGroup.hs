@@ -74,7 +74,7 @@ instance ToHeaders DeleteOptionGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteOptionGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteOptionGroup where
         toQuery DeleteOptionGroup'{..}

@@ -96,7 +96,7 @@ instance ToJSON ListLunaClients where
           = object ["NextToken" .= _llcNextToken]
 
 instance ToPath ListLunaClients where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListLunaClients where
         toQuery = const mempty

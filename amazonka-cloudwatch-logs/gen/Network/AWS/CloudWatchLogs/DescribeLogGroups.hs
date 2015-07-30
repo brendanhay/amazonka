@@ -123,7 +123,7 @@ instance ToJSON DescribeLogGroups where
                "limit" .= _dlgLimit]
 
 instance ToPath DescribeLogGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLogGroups where
         toQuery = const mempty

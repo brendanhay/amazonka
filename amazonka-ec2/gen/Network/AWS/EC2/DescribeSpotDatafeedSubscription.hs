@@ -89,7 +89,7 @@ instance ToHeaders DescribeSpotDatafeedSubscription
 
 instance ToPath DescribeSpotDatafeedSubscription
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSpotDatafeedSubscription
          where

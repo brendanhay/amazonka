@@ -230,7 +230,7 @@ instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
 
 instance ToPath DescribeClusterSnapshots where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeClusterSnapshots where
         toQuery DescribeClusterSnapshots'{..}

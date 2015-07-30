@@ -125,7 +125,7 @@ instance ToHeaders DescribeImageAttribute where
         toHeaders = const mempty
 
 instance ToPath DescribeImageAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeImageAttribute where
         toQuery DescribeImageAttribute'{..}

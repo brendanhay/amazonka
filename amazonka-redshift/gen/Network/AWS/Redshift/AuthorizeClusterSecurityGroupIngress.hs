@@ -135,7 +135,7 @@ instance ToHeaders
 
 instance ToPath AuthorizeClusterSecurityGroupIngress
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AuthorizeClusterSecurityGroupIngress
          where

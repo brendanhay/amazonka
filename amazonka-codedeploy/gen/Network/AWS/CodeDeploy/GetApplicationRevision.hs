@@ -107,7 +107,7 @@ instance ToJSON GetApplicationRevision where
                "revision" .= _garRevision]
 
 instance ToPath GetApplicationRevision where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetApplicationRevision where
         toQuery = const mempty

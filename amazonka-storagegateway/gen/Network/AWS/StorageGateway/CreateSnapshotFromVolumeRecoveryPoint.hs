@@ -129,7 +129,7 @@ instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery
          CreateSnapshotFromVolumeRecoveryPoint where

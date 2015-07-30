@@ -120,7 +120,7 @@ instance ToJSON PutDestination where
                "targetArn" .= _pdTargetARN, "roleArn" .= _pdRoleARN]
 
 instance ToPath PutDestination where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutDestination where
         toQuery = const mempty

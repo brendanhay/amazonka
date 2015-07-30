@@ -92,7 +92,7 @@ instance ToJSON DeleteRealtimeEndpoint where
           = object ["MLModelId" .= _dreMLModelId]
 
 instance ToPath DeleteRealtimeEndpoint where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteRealtimeEndpoint where
         toQuery = const mempty

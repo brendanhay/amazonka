@@ -84,7 +84,7 @@ instance ToHeaders GetUser where
         toHeaders = const mempty
 
 instance ToPath GetUser where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetUser where
         toQuery GetUser'{..}

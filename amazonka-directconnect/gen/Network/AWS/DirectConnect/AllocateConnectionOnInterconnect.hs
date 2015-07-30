@@ -164,7 +164,7 @@ instance ToJSON AllocateConnectionOnInterconnect
 
 instance ToPath AllocateConnectionOnInterconnect
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AllocateConnectionOnInterconnect
          where

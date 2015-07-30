@@ -94,7 +94,7 @@ instance ToJSON ListPipelines where
           = object ["nextToken" .= _lpNextToken]
 
 instance ToPath ListPipelines where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListPipelines where
         toQuery = const mempty

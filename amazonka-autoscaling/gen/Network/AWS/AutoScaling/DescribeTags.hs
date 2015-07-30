@@ -117,7 +117,7 @@ instance ToHeaders DescribeTags where
         toHeaders = const mempty
 
 instance ToPath DescribeTags where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeTags where
         toQuery DescribeTags'{..}

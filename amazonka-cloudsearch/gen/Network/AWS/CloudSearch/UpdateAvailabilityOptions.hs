@@ -101,7 +101,7 @@ instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty
 
 instance ToPath UpdateAvailabilityOptions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateAvailabilityOptions where
         toQuery UpdateAvailabilityOptions'{..}

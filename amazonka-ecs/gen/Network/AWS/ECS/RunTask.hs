@@ -158,7 +158,7 @@ instance ToJSON RunTask where
                "taskDefinition" .= _rtTaskDefinition]
 
 instance ToPath RunTask where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RunTask where
         toQuery = const mempty

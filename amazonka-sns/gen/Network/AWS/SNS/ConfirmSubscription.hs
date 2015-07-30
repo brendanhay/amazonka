@@ -105,7 +105,7 @@ instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty
 
 instance ToPath ConfirmSubscription where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ConfirmSubscription where
         toQuery ConfirmSubscription'{..}

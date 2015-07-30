@@ -89,7 +89,7 @@ instance ToHeaders DeleteConfigurationTemplate where
         toHeaders = const mempty
 
 instance ToPath DeleteConfigurationTemplate where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteConfigurationTemplate where
         toQuery DeleteConfigurationTemplate'{..}

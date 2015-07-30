@@ -266,7 +266,7 @@ instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
 
 instance ToPath CreateDBInstanceReadReplica where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateDBInstanceReadReplica where
         toQuery CreateDBInstanceReadReplica'{..}

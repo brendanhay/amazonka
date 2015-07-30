@@ -81,7 +81,7 @@ instance ToHeaders DeleteDBParameterGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteDBParameterGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteDBParameterGroup where
         toQuery DeleteDBParameterGroup'{..}

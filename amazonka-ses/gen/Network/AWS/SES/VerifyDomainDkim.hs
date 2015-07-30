@@ -97,7 +97,7 @@ instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
 
 instance ToPath VerifyDomainDkim where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery VerifyDomainDkim where
         toQuery VerifyDomainDkim'{..}

@@ -67,7 +67,7 @@ instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
 
 instance ToPath CreateStorageLocation where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateStorageLocation where
         toQuery

@@ -93,7 +93,7 @@ instance ToJSON UpdatePipeline where
           = object ["pipeline" .= _upPipeline]
 
 instance ToPath UpdatePipeline where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdatePipeline where
         toQuery = const mempty

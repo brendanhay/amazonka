@@ -90,7 +90,7 @@ instance ToHeaders GetHostedZone where
 
 instance ToPath GetHostedZone where
         toPath GetHostedZone'{..}
-          = mconcat ["/2013-04-01/hostedzone/", toPath _ghzId]
+          = ["2013-04-01", "hostedzone", toBS _ghzId]
 
 instance ToQuery GetHostedZone where
         toQuery = const mempty

@@ -135,7 +135,7 @@ instance ToJSON RespondActivityTaskCompleted where
                "taskToken" .= _ratcTaskToken]
 
 instance ToPath RespondActivityTaskCompleted where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RespondActivityTaskCompleted where
         toQuery = const mempty

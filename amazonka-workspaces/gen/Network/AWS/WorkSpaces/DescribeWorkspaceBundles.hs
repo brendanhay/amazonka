@@ -132,7 +132,7 @@ instance ToJSON DescribeWorkspaceBundles where
                "NextToken" .= _dwbNextToken]
 
 instance ToPath DescribeWorkspaceBundles where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeWorkspaceBundles where
         toQuery = const mempty

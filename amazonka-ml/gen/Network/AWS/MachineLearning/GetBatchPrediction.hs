@@ -111,7 +111,7 @@ instance ToJSON GetBatchPrediction where
               ["BatchPredictionId" .= _gbpBatchPredictionId]
 
 instance ToPath GetBatchPrediction where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetBatchPrediction where
         toQuery = const mempty

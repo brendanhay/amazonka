@@ -254,7 +254,7 @@ instance ToJSON RegisterActivityType where
                "version" .= _ratVersion]
 
 instance ToPath RegisterActivityType where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterActivityType where
         toQuery = const mempty

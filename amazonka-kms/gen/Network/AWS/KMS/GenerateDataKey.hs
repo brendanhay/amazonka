@@ -182,7 +182,7 @@ instance ToJSON GenerateDataKey where
                "KeyId" .= _gdkKeyId]
 
 instance ToPath GenerateDataKey where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GenerateDataKey where
         toQuery = const mempty

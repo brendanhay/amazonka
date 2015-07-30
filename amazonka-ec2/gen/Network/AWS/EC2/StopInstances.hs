@@ -138,7 +138,7 @@ instance ToHeaders StopInstances where
         toHeaders = const mempty
 
 instance ToPath StopInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StopInstances where
         toQuery StopInstances'{..}

@@ -98,8 +98,7 @@ instance ToHeaders PutBucketLogging where
           = mconcat ["Content-MD5" =# _pblContentMD5]
 
 instance ToPath PutBucketLogging where
-        toPath PutBucketLogging'{..}
-          = mconcat ["/", toPath _pblBucket]
+        toPath PutBucketLogging'{..} = [toBS _pblBucket]
 
 instance ToQuery PutBucketLogging where
         toQuery = const (mconcat ["logging"])

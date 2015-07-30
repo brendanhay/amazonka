@@ -139,7 +139,7 @@ instance ToJSON ModifyHSM where
                "HsmArn" .= _mhHSMARN]
 
 instance ToPath ModifyHSM where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyHSM where
         toQuery = const mempty

@@ -119,7 +119,7 @@ instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
 
 instance ToPath ListGroupsForUser where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListGroupsForUser where
         toQuery ListGroupsForUser'{..}

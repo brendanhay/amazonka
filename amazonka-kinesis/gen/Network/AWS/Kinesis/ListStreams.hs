@@ -130,7 +130,7 @@ instance ToJSON ListStreams where
                  _lsExclusiveStartStreamName]
 
 instance ToPath ListStreams where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListStreams where
         toQuery = const mempty

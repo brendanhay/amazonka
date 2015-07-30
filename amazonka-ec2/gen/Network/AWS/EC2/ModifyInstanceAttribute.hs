@@ -244,7 +244,7 @@ instance ToHeaders ModifyInstanceAttribute where
         toHeaders = const mempty
 
 instance ToPath ModifyInstanceAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyInstanceAttribute where
         toQuery ModifyInstanceAttribute'{..}

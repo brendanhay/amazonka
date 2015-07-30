@@ -224,7 +224,7 @@ instance ToJSON BatchWriteItem where
                "RequestItems" .= _bwiRequestItems]
 
 instance ToPath BatchWriteItem where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery BatchWriteItem where
         toQuery = const mempty

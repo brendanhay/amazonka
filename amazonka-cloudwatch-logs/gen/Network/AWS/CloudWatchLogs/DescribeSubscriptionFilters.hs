@@ -131,7 +131,7 @@ instance ToJSON DescribeSubscriptionFilters where
                "logGroupName" .= _dsfLogGroupName]
 
 instance ToPath DescribeSubscriptionFilters where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSubscriptionFilters where
         toQuery = const mempty

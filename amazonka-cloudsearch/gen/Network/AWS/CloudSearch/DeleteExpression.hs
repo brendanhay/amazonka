@@ -93,7 +93,7 @@ instance ToHeaders DeleteExpression where
         toHeaders = const mempty
 
 instance ToPath DeleteExpression where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteExpression where
         toQuery DeleteExpression'{..}

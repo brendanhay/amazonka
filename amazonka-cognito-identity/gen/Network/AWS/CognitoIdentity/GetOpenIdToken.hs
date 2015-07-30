@@ -113,7 +113,7 @@ instance ToJSON GetOpenIdToken where
                "IdentityId" .= _goitIdentityId]
 
 instance ToPath GetOpenIdToken where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetOpenIdToken where
         toQuery = const mempty

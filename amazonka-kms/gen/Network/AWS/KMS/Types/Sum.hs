@@ -38,7 +38,6 @@ instance ToText DataKeySpec where
 
 instance Hashable     DataKeySpec
 instance ToByteString DataKeySpec
-instance ToPath       DataKeySpec
 instance ToQuery      DataKeySpec
 instance ToHeader     DataKeySpec
 
@@ -82,7 +81,6 @@ instance ToText GrantOperation where
 
 instance Hashable     GrantOperation
 instance ToByteString GrantOperation
-instance ToPath       GrantOperation
 instance ToQuery      GrantOperation
 instance ToHeader     GrantOperation
 
@@ -108,7 +106,6 @@ instance ToText KeyUsageType where
 
 instance Hashable     KeyUsageType
 instance ToByteString KeyUsageType
-instance ToPath       KeyUsageType
 instance ToQuery      KeyUsageType
 instance ToHeader     KeyUsageType
 

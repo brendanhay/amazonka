@@ -121,7 +121,7 @@ instance ToHeaders DescribeImportSnapshotTasks where
         toHeaders = const mempty
 
 instance ToPath DescribeImportSnapshotTasks where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeImportSnapshotTasks where
         toQuery DescribeImportSnapshotTasks'{..}

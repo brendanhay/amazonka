@@ -143,7 +143,7 @@ instance ToJSON SetTaskStatus where
                "taskStatus" .= _stsTaskStatus]
 
 instance ToPath SetTaskStatus where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetTaskStatus where
         toQuery = const mempty

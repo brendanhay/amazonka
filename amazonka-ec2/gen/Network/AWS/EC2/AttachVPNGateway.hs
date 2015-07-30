@@ -100,7 +100,7 @@ instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty
 
 instance ToPath AttachVPNGateway where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AttachVPNGateway where
         toQuery AttachVPNGateway'{..}

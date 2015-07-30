@@ -94,7 +94,7 @@ instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
 
 instance ToPath CreateAccessKey where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateAccessKey where
         toQuery CreateAccessKey'{..}

@@ -79,7 +79,7 @@ instance ToHeaders DeleteCacheSecurityGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteCacheSecurityGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteCacheSecurityGroup where
         toQuery DeleteCacheSecurityGroup'{..}

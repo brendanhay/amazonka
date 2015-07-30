@@ -252,7 +252,7 @@ instance ToJSON BatchGetItem where
                "RequestItems" .= _bgiRequestItems]
 
 instance ToPath BatchGetItem where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery BatchGetItem where
         toQuery = const mempty

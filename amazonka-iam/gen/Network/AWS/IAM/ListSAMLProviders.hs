@@ -69,7 +69,7 @@ instance ToHeaders ListSAMLProviders where
         toHeaders = const mempty
 
 instance ToPath ListSAMLProviders where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListSAMLProviders where
         toQuery

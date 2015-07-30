@@ -83,7 +83,7 @@ instance ToHeaders DeleteNetworkACL where
         toHeaders = const mempty
 
 instance ToPath DeleteNetworkACL where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteNetworkACL where
         toQuery DeleteNetworkACL'{..}

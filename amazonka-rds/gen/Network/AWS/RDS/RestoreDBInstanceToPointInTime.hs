@@ -361,7 +361,7 @@ instance ToHeaders RestoreDBInstanceToPointInTime
         toHeaders = const mempty
 
 instance ToPath RestoreDBInstanceToPointInTime where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RestoreDBInstanceToPointInTime where
         toQuery RestoreDBInstanceToPointInTime'{..}

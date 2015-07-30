@@ -91,7 +91,7 @@ instance ToJSON TerminateJobFlows where
           = object ["JobFlowIds" .= _tjfJobFlowIds]
 
 instance ToPath TerminateJobFlows where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery TerminateJobFlows where
         toQuery = const mempty

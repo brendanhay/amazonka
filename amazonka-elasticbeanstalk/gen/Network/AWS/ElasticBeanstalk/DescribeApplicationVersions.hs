@@ -95,7 +95,7 @@ instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty
 
 instance ToPath DescribeApplicationVersions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeApplicationVersions where
         toQuery DescribeApplicationVersions'{..}

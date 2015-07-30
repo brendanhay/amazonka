@@ -212,7 +212,7 @@ instance ToHeaders RegisterImage where
         toHeaders = const mempty
 
 instance ToPath RegisterImage where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterImage where
         toQuery RegisterImage'{..}

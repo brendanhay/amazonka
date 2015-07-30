@@ -84,7 +84,7 @@ instance ToHeaders DeleteRouteTable where
         toHeaders = const mempty
 
 instance ToPath DeleteRouteTable where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteRouteTable where
         toQuery DeleteRouteTable'{..}

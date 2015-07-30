@@ -99,7 +99,7 @@ instance ToJSON DescribeStep where
               ["ClusterId" .= _dsClusterId, "StepId" .= _dsStepId]
 
 instance ToPath DescribeStep where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeStep where
         toQuery = const mempty

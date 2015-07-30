@@ -38,7 +38,6 @@ instance ToText ClientVersion where
 
 instance Hashable     ClientVersion
 instance ToByteString ClientVersion
-instance ToPath       ClientVersion
 instance ToQuery      ClientVersion
 instance ToHeader     ClientVersion
 
@@ -67,7 +66,6 @@ instance ToText CloudHSMObjectState where
 
 instance Hashable     CloudHSMObjectState
 instance ToByteString CloudHSMObjectState
-instance ToPath       CloudHSMObjectState
 instance ToQuery      CloudHSMObjectState
 instance ToHeader     CloudHSMObjectState
 
@@ -108,7 +106,6 @@ instance ToText HSMStatus where
 
 instance Hashable     HSMStatus
 instance ToByteString HSMStatus
-instance ToPath       HSMStatus
 instance ToQuery      HSMStatus
 instance ToHeader     HSMStatus
 
@@ -131,7 +128,6 @@ instance ToText SubscriptionType where
 
 instance Hashable     SubscriptionType
 instance ToByteString SubscriptionType
-instance ToPath       SubscriptionType
 instance ToQuery      SubscriptionType
 instance ToHeader     SubscriptionType
 

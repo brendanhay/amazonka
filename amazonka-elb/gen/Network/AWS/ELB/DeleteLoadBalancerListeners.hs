@@ -87,7 +87,7 @@ instance ToHeaders DeleteLoadBalancerListeners where
         toHeaders = const mempty
 
 instance ToPath DeleteLoadBalancerListeners where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteLoadBalancerListeners where
         toQuery DeleteLoadBalancerListeners'{..}

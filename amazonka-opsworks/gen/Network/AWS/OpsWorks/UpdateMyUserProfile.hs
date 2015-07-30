@@ -87,7 +87,7 @@ instance ToJSON UpdateMyUserProfile where
           = object ["SshPublicKey" .= _umupSSHPublicKey]
 
 instance ToPath UpdateMyUserProfile where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateMyUserProfile where
         toQuery = const mempty

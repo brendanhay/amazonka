@@ -105,7 +105,7 @@ instance ToJSON AddCache where
                "DiskIds" .= _acDiskIds]
 
 instance ToPath AddCache where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddCache where
         toQuery = const mempty

@@ -115,7 +115,7 @@ instance ToHeaders TerminateInstances where
         toHeaders = const mempty
 
 instance ToPath TerminateInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery TerminateInstances where
         toQuery TerminateInstances'{..}

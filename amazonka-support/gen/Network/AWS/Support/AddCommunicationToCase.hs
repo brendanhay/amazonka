@@ -135,7 +135,7 @@ instance ToJSON AddCommunicationToCase where
                "communicationBody" .= _actcCommunicationBody]
 
 instance ToPath AddCommunicationToCase where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddCommunicationToCase where
         toQuery = const mempty

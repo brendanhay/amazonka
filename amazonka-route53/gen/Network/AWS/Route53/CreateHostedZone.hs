@@ -171,7 +171,7 @@ instance ToHeaders CreateHostedZone where
         toHeaders = const mempty
 
 instance ToPath CreateHostedZone where
-        toPath = const "/2013-04-01/hostedzone"
+        toPath = const ["2013-04-01", "hostedzone"]
 
 instance ToQuery CreateHostedZone where
         toQuery = const mempty

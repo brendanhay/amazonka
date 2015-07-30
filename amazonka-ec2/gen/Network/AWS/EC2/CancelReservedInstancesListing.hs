@@ -87,7 +87,7 @@ instance ToHeaders CancelReservedInstancesListing
         toHeaders = const mempty
 
 instance ToPath CancelReservedInstancesListing where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CancelReservedInstancesListing where
         toQuery CancelReservedInstancesListing'{..}

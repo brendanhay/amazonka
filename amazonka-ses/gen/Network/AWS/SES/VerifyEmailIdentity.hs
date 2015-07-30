@@ -82,7 +82,7 @@ instance ToHeaders VerifyEmailIdentity where
         toHeaders = const mempty
 
 instance ToPath VerifyEmailIdentity where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery VerifyEmailIdentity where
         toQuery VerifyEmailIdentity'{..}

@@ -93,7 +93,7 @@ instance ToJSON DeleteVirtualInterface where
               ["virtualInterfaceId" .= _dVirtualInterfaceId]
 
 instance ToPath DeleteVirtualInterface where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteVirtualInterface where
         toQuery = const mempty

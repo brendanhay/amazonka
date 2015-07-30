@@ -105,7 +105,7 @@ instance ToHeaders RevokeCacheSecurityGroupIngress
         toHeaders = const mempty
 
 instance ToPath RevokeCacheSecurityGroupIngress where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RevokeCacheSecurityGroupIngress
          where

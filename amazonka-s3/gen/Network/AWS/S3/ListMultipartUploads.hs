@@ -171,8 +171,7 @@ instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
 
 instance ToPath ListMultipartUploads where
-        toPath ListMultipartUploads'{..}
-          = mconcat ["/", toPath _lmuBucket]
+        toPath ListMultipartUploads'{..} = [toBS _lmuBucket]
 
 instance ToQuery ListMultipartUploads where
         toQuery ListMultipartUploads'{..}

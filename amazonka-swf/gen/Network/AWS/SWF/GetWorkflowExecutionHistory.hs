@@ -178,7 +178,7 @@ instance ToJSON GetWorkflowExecutionHistory where
                "execution" .= _gwehExecution]
 
 instance ToPath GetWorkflowExecutionHistory where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetWorkflowExecutionHistory where
         toQuery = const mempty

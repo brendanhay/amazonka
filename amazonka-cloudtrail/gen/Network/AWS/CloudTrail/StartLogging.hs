@@ -87,7 +87,7 @@ instance ToJSON StartLogging where
         toJSON StartLogging'{..} = object ["Name" .= _sName]
 
 instance ToPath StartLogging where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StartLogging where
         toQuery = const mempty

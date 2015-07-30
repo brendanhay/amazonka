@@ -97,7 +97,7 @@ instance ToJSON DisableGateway where
           = object ["GatewayARN" .= _dGatewayARN]
 
 instance ToPath DisableGateway where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DisableGateway where
         toQuery = const mempty

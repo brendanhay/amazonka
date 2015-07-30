@@ -69,7 +69,7 @@ instance ToHeaders ListBuckets where
         toHeaders = const mempty
 
 instance ToPath ListBuckets where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListBuckets where
         toQuery = const mempty

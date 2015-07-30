@@ -180,7 +180,7 @@ instance ToHeaders AuthorizeSecurityGroupEgress where
         toHeaders = const mempty
 
 instance ToPath AuthorizeSecurityGroupEgress where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AuthorizeSecurityGroupEgress where
         toQuery AuthorizeSecurityGroupEgress'{..}

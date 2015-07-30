@@ -137,7 +137,7 @@ instance ToHeaders TerminateEnvironment where
         toHeaders = const mempty
 
 instance ToPath TerminateEnvironment where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery TerminateEnvironment where
         toQuery TerminateEnvironment'{..}

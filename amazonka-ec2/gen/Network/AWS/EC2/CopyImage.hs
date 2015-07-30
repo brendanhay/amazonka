@@ -135,7 +135,7 @@ instance ToHeaders CopyImage where
         toHeaders = const mempty
 
 instance ToPath CopyImage where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CopyImage where
         toQuery CopyImage'{..}

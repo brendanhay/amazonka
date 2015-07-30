@@ -160,8 +160,7 @@ instance ToHeaders ListObjects where
         toHeaders = const mempty
 
 instance ToPath ListObjects where
-        toPath ListObjects'{..}
-          = mconcat ["/", toPath _loBucket]
+        toPath ListObjects'{..} = [toBS _loBucket]
 
 instance ToQuery ListObjects where
         toQuery ListObjects'{..}

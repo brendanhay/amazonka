@@ -156,8 +156,7 @@ instance ToHeaders CreateBucket where
                "x-amz-acl" =# _cbACL]
 
 instance ToPath CreateBucket where
-        toPath CreateBucket'{..}
-          = mconcat ["/", toPath _cbBucket]
+        toPath CreateBucket'{..} = [toBS _cbBucket]
 
 instance ToQuery CreateBucket where
         toQuery = const mempty

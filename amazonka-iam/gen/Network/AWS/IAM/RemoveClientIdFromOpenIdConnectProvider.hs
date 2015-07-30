@@ -93,7 +93,7 @@ instance ToHeaders
 
 instance ToPath
          RemoveClientIdFromOpenIdConnectProvider where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery
          RemoveClientIdFromOpenIdConnectProvider where

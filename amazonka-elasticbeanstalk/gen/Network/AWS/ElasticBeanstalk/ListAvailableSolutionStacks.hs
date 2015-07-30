@@ -73,7 +73,7 @@ instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
 
 instance ToPath ListAvailableSolutionStacks where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListAvailableSolutionStacks where
         toQuery

@@ -194,7 +194,7 @@ instance ToHeaders DescribeVolumes where
         toHeaders = const mempty
 
 instance ToPath DescribeVolumes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVolumes where
         toQuery DescribeVolumes'{..}

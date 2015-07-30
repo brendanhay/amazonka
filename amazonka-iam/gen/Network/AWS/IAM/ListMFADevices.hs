@@ -122,7 +122,7 @@ instance ToHeaders ListMFADevices where
         toHeaders = const mempty
 
 instance ToPath ListMFADevices where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListMFADevices where
         toQuery ListMFADevices'{..}

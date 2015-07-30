@@ -94,7 +94,7 @@ instance ToHeaders GetIdentityNotificationAttributes
 
 instance ToPath GetIdentityNotificationAttributes
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetIdentityNotificationAttributes
          where

@@ -125,7 +125,7 @@ instance ToJSON ListGateways where
           = object ["Marker" .= _lgMarker, "Limit" .= _lgLimit]
 
 instance ToPath ListGateways where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListGateways where
         toQuery = const mempty

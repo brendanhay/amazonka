@@ -133,9 +133,8 @@ instance ToJSON UpdateEventSourceMapping where
 
 instance ToPath UpdateEventSourceMapping where
         toPath UpdateEventSourceMapping'{..}
-          = mconcat
-              ["/2015-03-31/event-source-mappings/",
-               toPath _uesmUUId]
+          = ["2015-03-31", "event-source-mappings",
+             toBS _uesmUUId]
 
 instance ToQuery UpdateEventSourceMapping where
         toQuery = const mempty

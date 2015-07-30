@@ -97,7 +97,7 @@ instance ToHeaders
 
 instance ToPath TerminateInstanceInAutoScalingGroup
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery TerminateInstanceInAutoScalingGroup
          where

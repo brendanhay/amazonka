@@ -103,7 +103,7 @@ instance ToHeaders UpdateUser where
         toHeaders = const mempty
 
 instance ToPath UpdateUser where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateUser where
         toQuery UpdateUser'{..}

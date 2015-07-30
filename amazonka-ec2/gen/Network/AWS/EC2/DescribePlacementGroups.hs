@@ -115,7 +115,7 @@ instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
 
 instance ToPath DescribePlacementGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribePlacementGroups where
         toQuery DescribePlacementGroups'{..}

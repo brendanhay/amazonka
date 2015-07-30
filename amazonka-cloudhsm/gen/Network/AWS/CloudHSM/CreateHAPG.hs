@@ -90,7 +90,7 @@ instance ToJSON CreateHAPG where
         toJSON CreateHAPG'{..} = object ["Label" .= _chLabel]
 
 instance ToPath CreateHAPG where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateHAPG where
         toQuery = const mempty

@@ -142,7 +142,7 @@ instance ToJSON AllocatePrivateVirtualInterface where
                  _apviNewPrivateVirtualInterfaceAllocation]
 
 instance ToPath AllocatePrivateVirtualInterface where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AllocatePrivateVirtualInterface
          where

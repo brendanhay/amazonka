@@ -155,7 +155,7 @@ instance ToJSON LookupDeveloperIdentity where
                "IdentityPoolId" .= _ldiIdentityPoolId]
 
 instance ToPath LookupDeveloperIdentity where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery LookupDeveloperIdentity where
         toQuery = const mempty

@@ -111,7 +111,7 @@ instance ToJSON GetEvaluation where
           = object ["EvaluationId" .= _geEvaluationId]
 
 instance ToPath GetEvaluation where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetEvaluation where
         toQuery = const mempty

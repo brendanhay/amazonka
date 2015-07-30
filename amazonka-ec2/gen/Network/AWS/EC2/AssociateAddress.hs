@@ -163,7 +163,7 @@ instance ToHeaders AssociateAddress where
         toHeaders = const mempty
 
 instance ToPath AssociateAddress where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AssociateAddress where
         toQuery AssociateAddress'{..}

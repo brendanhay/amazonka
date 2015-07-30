@@ -128,7 +128,7 @@ instance ToHeaders ListInstanceProfiles where
         toHeaders = const mempty
 
 instance ToPath ListInstanceProfiles where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListInstanceProfiles where
         toQuery ListInstanceProfiles'{..}

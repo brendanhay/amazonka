@@ -89,7 +89,7 @@ instance ToJSON DeletePipeline where
           = object ["pipelineId" .= _dpPipelineId]
 
 instance ToPath DeletePipeline where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeletePipeline where
         toQuery = const mempty

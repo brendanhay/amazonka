@@ -82,7 +82,7 @@ instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
 
 instance ToPath CheckDNSAvailability where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CheckDNSAvailability where
         toQuery CheckDNSAvailability'{..}

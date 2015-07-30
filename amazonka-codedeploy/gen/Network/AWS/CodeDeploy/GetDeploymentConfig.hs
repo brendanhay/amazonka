@@ -94,7 +94,7 @@ instance ToJSON GetDeploymentConfig where
               ["deploymentConfigName" .= _gdcDeploymentConfigName]
 
 instance ToPath GetDeploymentConfig where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetDeploymentConfig where
         toQuery = const mempty

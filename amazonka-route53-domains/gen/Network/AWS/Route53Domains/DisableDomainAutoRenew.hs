@@ -94,7 +94,7 @@ instance ToJSON DisableDomainAutoRenew where
           = object ["DomainName" .= _ddarDomainName]
 
 instance ToPath DisableDomainAutoRenew where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DisableDomainAutoRenew where
         toQuery = const mempty

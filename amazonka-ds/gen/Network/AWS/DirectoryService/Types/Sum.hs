@@ -38,7 +38,6 @@ instance ToText DirectorySize where
 
 instance Hashable     DirectorySize
 instance ToByteString DirectorySize
-instance ToPath       DirectorySize
 instance ToQuery      DirectorySize
 instance ToHeader     DirectorySize
 
@@ -94,7 +93,6 @@ instance ToText DirectoryStage where
 
 instance Hashable     DirectoryStage
 instance ToByteString DirectoryStage
-instance ToPath       DirectoryStage
 instance ToQuery      DirectoryStage
 instance ToHeader     DirectoryStage
 
@@ -120,7 +118,6 @@ instance ToText DirectoryType where
 
 instance Hashable     DirectoryType
 instance ToByteString DirectoryType
-instance ToPath       DirectoryType
 instance ToQuery      DirectoryType
 instance ToHeader     DirectoryType
 
@@ -152,7 +149,6 @@ instance ToText RadiusAuthenticationProtocol where
 
 instance Hashable     RadiusAuthenticationProtocol
 instance ToByteString RadiusAuthenticationProtocol
-instance ToPath       RadiusAuthenticationProtocol
 instance ToQuery      RadiusAuthenticationProtocol
 instance ToHeader     RadiusAuthenticationProtocol
 
@@ -184,7 +180,6 @@ instance ToText RadiusStatus where
 
 instance Hashable     RadiusStatus
 instance ToByteString RadiusStatus
-instance ToPath       RadiusStatus
 instance ToQuery      RadiusStatus
 instance ToHeader     RadiusStatus
 
@@ -213,7 +208,6 @@ instance ToText SnapshotStatus where
 
 instance Hashable     SnapshotStatus
 instance ToByteString SnapshotStatus
-instance ToPath       SnapshotStatus
 instance ToQuery      SnapshotStatus
 instance ToHeader     SnapshotStatus
 
@@ -239,7 +233,6 @@ instance ToText SnapshotType where
 
 instance Hashable     SnapshotType
 instance ToByteString SnapshotType
-instance ToPath       SnapshotType
 instance ToQuery      SnapshotType
 instance ToHeader     SnapshotType
 

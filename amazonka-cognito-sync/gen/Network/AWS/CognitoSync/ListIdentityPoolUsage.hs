@@ -104,7 +104,7 @@ instance ToHeaders ListIdentityPoolUsage where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToPath ListIdentityPoolUsage where
-        toPath = const "/identitypools"
+        toPath = const ["identitypools"]
 
 instance ToQuery ListIdentityPoolUsage where
         toQuery ListIdentityPoolUsage'{..}

@@ -98,7 +98,7 @@ instance ToHeaders ResetSnapshotAttribute where
         toHeaders = const mempty
 
 instance ToPath ResetSnapshotAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResetSnapshotAttribute where
         toQuery ResetSnapshotAttribute'{..}

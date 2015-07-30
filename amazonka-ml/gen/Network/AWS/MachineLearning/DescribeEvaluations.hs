@@ -242,7 +242,7 @@ instance ToJSON DescribeEvaluations where
                "LE" .= _deLE]
 
 instance ToPath DescribeEvaluations where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeEvaluations where
         toQuery = const mempty

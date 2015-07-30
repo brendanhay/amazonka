@@ -127,7 +127,7 @@ instance ToHeaders BatchPutAttributes where
         toHeaders = const mempty
 
 instance ToPath BatchPutAttributes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery BatchPutAttributes where
         toQuery BatchPutAttributes'{..}

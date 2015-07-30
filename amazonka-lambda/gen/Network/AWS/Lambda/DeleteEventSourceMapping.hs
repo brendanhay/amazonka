@@ -85,9 +85,8 @@ instance ToHeaders DeleteEventSourceMapping where
 
 instance ToPath DeleteEventSourceMapping where
         toPath DeleteEventSourceMapping'{..}
-          = mconcat
-              ["/2015-03-31/event-source-mappings/",
-               toPath _desmUUId]
+          = ["2015-03-31", "event-source-mappings",
+             toBS _desmUUId]
 
 instance ToQuery DeleteEventSourceMapping where
         toQuery = const mempty

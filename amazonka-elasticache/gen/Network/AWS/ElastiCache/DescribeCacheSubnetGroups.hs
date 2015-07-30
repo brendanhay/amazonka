@@ -121,7 +121,7 @@ instance ToHeaders DescribeCacheSubnetGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeCacheSubnetGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeCacheSubnetGroups where
         toQuery DescribeCacheSubnetGroups'{..}

@@ -131,7 +131,7 @@ instance ToJSON DescribeWorkflowExecution where
                "execution" .= _dweExecution]
 
 instance ToPath DescribeWorkflowExecution where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeWorkflowExecution where
         toQuery = const mempty

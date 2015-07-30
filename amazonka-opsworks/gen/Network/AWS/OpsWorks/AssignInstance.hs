@@ -104,7 +104,7 @@ instance ToJSON AssignInstance where
                "LayerIds" .= _aiLayerIds]
 
 instance ToPath AssignInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AssignInstance where
         toQuery = const mempty

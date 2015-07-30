@@ -44,7 +44,6 @@ instance ToText BulkPublishStatus where
 
 instance Hashable     BulkPublishStatus
 instance ToByteString BulkPublishStatus
-instance ToPath       BulkPublishStatus
 instance ToQuery      BulkPublishStatus
 instance ToHeader     BulkPublishStatus
 
@@ -70,7 +69,6 @@ instance ToText Operation where
 
 instance Hashable     Operation
 instance ToByteString Operation
-instance ToPath       Operation
 instance ToQuery      Operation
 instance ToHeader     Operation
 
@@ -102,7 +100,6 @@ instance ToText Platform where
 
 instance Hashable     Platform
 instance ToByteString Platform
-instance ToPath       Platform
 instance ToQuery      Platform
 instance ToHeader     Platform
 
@@ -128,7 +125,6 @@ instance ToText StreamingStatus where
 
 instance Hashable     StreamingStatus
 instance ToByteString StreamingStatus
-instance ToPath       StreamingStatus
 instance ToQuery      StreamingStatus
 instance ToHeader     StreamingStatus
 

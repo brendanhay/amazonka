@@ -102,7 +102,7 @@ instance ToJSON SetTimeBasedAutoScaling where
                "InstanceId" .= _stbasInstanceId]
 
 instance ToPath SetTimeBasedAutoScaling where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetTimeBasedAutoScaling where
         toQuery = const mempty

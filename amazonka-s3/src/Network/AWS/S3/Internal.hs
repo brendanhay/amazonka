@@ -51,8 +51,6 @@ newtype BucketName = BucketName Text
         , ToQuery
         )
 
-instance ToPath BucketName
-
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
 newtype ETag = ETag ByteString
@@ -91,8 +89,6 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToQuery
         )
 
-instance ToPath ObjectVersionId
-
 newtype ObjectKey = ObjectKey Text
     deriving
         ( Eq
@@ -109,9 +105,8 @@ newtype ObjectKey = ObjectKey Text
         , FromXML
         , ToXML
         , ToQuery
+        , ToPath
         )
-
-instance ToPath ObjectKey
 
 type Delimiter = Char
 

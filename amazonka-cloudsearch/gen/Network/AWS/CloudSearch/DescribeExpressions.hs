@@ -112,7 +112,7 @@ instance ToHeaders DescribeExpressions where
         toHeaders = const mempty
 
 instance ToPath DescribeExpressions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeExpressions where
         toQuery DescribeExpressions'{..}

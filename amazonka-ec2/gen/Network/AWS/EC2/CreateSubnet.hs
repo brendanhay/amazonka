@@ -136,7 +136,7 @@ instance ToHeaders CreateSubnet where
         toHeaders = const mempty
 
 instance ToPath CreateSubnet where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateSubnet where
         toQuery CreateSubnet'{..}

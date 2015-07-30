@@ -213,7 +213,7 @@ instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
 
 instance ToPath RequestSpotInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RequestSpotInstances where
         toQuery RequestSpotInstances'{..}

@@ -242,7 +242,7 @@ instance ToJSON DescribeMLModels where
                "LE" .= _dmlmLE]
 
 instance ToPath DescribeMLModels where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeMLModels where
         toQuery = const mempty

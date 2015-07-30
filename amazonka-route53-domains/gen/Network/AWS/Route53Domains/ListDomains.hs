@@ -133,7 +133,7 @@ instance ToJSON ListDomains where
               ["MaxItems" .= _ldMaxItems, "Marker" .= _ldMarker]
 
 instance ToPath ListDomains where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListDomains where
         toQuery = const mempty

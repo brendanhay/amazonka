@@ -88,7 +88,7 @@ instance ToJSON GetProject where
         toJSON GetProject'{..} = object ["arn" .= _gpArn]
 
 instance ToPath GetProject where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetProject where
         toQuery = const mempty

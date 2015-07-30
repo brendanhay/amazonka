@@ -105,7 +105,7 @@ instance ToJSON UpdateRepositoryDescription where
                "repositoryName" .= _urdRepositoryName]
 
 instance ToPath UpdateRepositoryDescription where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateRepositoryDescription where
         toQuery = const mempty

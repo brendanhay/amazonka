@@ -210,7 +210,7 @@ instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
 
 instance ToPath DescribeNetworkInterfaces where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeNetworkInterfaces where
         toQuery DescribeNetworkInterfaces'{..}

@@ -96,7 +96,7 @@ instance ToHeaders SetSubscriptionAttributes where
         toHeaders = const mempty
 
 instance ToPath SetSubscriptionAttributes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetSubscriptionAttributes where
         toQuery SetSubscriptionAttributes'{..}

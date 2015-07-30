@@ -89,7 +89,7 @@ instance ToJSON UnassignInstance where
           = object ["InstanceId" .= _uInstanceId]
 
 instance ToPath UnassignInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UnassignInstance where
         toQuery = const mempty

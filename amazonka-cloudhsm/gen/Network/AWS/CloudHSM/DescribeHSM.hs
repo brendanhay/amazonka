@@ -142,7 +142,7 @@ instance ToJSON DescribeHSM where
                "HsmArn" .= _dhsmHSMARN]
 
 instance ToPath DescribeHSM where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeHSM where
         toQuery = const mempty

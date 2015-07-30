@@ -112,7 +112,7 @@ instance ToHeaders DescribeIndexFields where
         toHeaders = const mempty
 
 instance ToPath DescribeIndexFields where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeIndexFields where
         toQuery DescribeIndexFields'{..}

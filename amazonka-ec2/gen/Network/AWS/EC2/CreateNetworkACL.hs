@@ -95,7 +95,7 @@ instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
 
 instance ToPath CreateNetworkACL where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateNetworkACL where
         toQuery CreateNetworkACL'{..}

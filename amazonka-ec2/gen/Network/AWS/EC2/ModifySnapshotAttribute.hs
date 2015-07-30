@@ -141,7 +141,7 @@ instance ToHeaders ModifySnapshotAttribute where
         toHeaders = const mempty
 
 instance ToPath ModifySnapshotAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifySnapshotAttribute where
         toQuery ModifySnapshotAttribute'{..}

@@ -158,7 +158,7 @@ instance ToJSON SplitShard where
                "NewStartingHashKey" .= _ssNewStartingHashKey]
 
 instance ToPath SplitShard where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SplitShard where
         toQuery = const mempty

@@ -101,7 +101,7 @@ instance ToJSON DescribeTimeBasedAutoScaling where
           = object ["InstanceIds" .= _dtbasInstanceIds]
 
 instance ToPath DescribeTimeBasedAutoScaling where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeTimeBasedAutoScaling where
         toQuery = const mempty

@@ -38,7 +38,6 @@ instance ToText OrderBy where
 
 instance Hashable     OrderBy
 instance ToByteString OrderBy
-instance ToPath       OrderBy
 instance ToQuery      OrderBy
 instance ToHeader     OrderBy
 

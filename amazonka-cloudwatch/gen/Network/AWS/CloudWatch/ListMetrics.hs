@@ -119,7 +119,7 @@ instance ToHeaders ListMetrics where
         toHeaders = const mempty
 
 instance ToPath ListMetrics where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListMetrics where
         toQuery ListMetrics'{..}

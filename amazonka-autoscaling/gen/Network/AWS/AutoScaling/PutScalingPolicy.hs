@@ -212,7 +212,7 @@ instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty
 
 instance ToPath PutScalingPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutScalingPolicy where
         toQuery PutScalingPolicy'{..}

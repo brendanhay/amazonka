@@ -91,7 +91,7 @@ instance ToJSON DescribeIdentity where
           = object ["IdentityId" .= _diIdentityId]
 
 instance ToPath DescribeIdentity where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeIdentity where
         toQuery = const mempty

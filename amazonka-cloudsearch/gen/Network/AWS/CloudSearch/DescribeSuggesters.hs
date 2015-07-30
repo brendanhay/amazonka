@@ -112,7 +112,7 @@ instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
 
 instance ToPath DescribeSuggesters where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSuggesters where
         toQuery DescribeSuggesters'{..}

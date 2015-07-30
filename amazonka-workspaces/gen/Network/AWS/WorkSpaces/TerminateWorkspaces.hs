@@ -104,7 +104,7 @@ instance ToJSON TerminateWorkspaces where
                  _twTerminateWorkspaceRequests]
 
 instance ToPath TerminateWorkspaces where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery TerminateWorkspaces where
         toQuery = const mempty

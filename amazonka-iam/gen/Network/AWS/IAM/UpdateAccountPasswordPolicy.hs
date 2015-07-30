@@ -184,7 +184,7 @@ instance ToHeaders UpdateAccountPasswordPolicy where
         toHeaders = const mempty
 
 instance ToPath UpdateAccountPasswordPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateAccountPasswordPolicy where
         toQuery UpdateAccountPasswordPolicy'{..}

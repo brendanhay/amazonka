@@ -79,7 +79,7 @@ instance ToHeaders DeleteFlowLogs where
         toHeaders = const mempty
 
 instance ToPath DeleteFlowLogs where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteFlowLogs where
         toQuery DeleteFlowLogs'{..}

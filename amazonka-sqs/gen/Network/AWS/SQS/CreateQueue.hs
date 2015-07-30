@@ -141,7 +141,7 @@ instance ToHeaders CreateQueue where
         toHeaders = const mempty
 
 instance ToPath CreateQueue where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateQueue where
         toQuery CreateQueue'{..}

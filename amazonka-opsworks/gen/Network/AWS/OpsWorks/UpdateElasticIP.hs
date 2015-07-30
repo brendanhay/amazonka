@@ -98,7 +98,7 @@ instance ToJSON UpdateElasticIP where
               ["Name" .= _ueiName, "ElasticIp" .= _ueiElasticIP]
 
 instance ToPath UpdateElasticIP where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateElasticIP where
         toQuery = const mempty

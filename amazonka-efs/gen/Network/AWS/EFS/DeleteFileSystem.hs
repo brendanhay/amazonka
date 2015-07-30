@@ -87,9 +87,8 @@ instance ToHeaders DeleteFileSystem where
 
 instance ToPath DeleteFileSystem where
         toPath DeleteFileSystem'{..}
-          = mconcat
-              ["/2015-02-01/file-systems/",
-               toPath _delFileSystemId]
+          = ["2015-02-01", "file-systems",
+             toBS _delFileSystemId]
 
 instance ToQuery DeleteFileSystem where
         toQuery = const mempty

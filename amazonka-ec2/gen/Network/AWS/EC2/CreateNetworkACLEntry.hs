@@ -170,7 +170,7 @@ instance ToHeaders CreateNetworkACLEntry where
         toHeaders = const mempty
 
 instance ToPath CreateNetworkACLEntry where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateNetworkACLEntry where
         toQuery CreateNetworkACLEntry'{..}

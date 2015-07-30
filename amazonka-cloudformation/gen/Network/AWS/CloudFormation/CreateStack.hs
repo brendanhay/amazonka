@@ -238,7 +238,7 @@ instance ToHeaders CreateStack where
         toHeaders = const mempty
 
 instance ToPath CreateStack where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateStack where
         toQuery CreateStack'{..}

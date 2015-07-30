@@ -103,7 +103,7 @@ instance ToJSON DescribeStackProvisioningParameters
 
 instance ToPath DescribeStackProvisioningParameters
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeStackProvisioningParameters
          where

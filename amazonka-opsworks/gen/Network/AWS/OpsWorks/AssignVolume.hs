@@ -102,7 +102,7 @@ instance ToJSON AssignVolume where
                "VolumeId" .= _avVolumeId]
 
 instance ToPath AssignVolume where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AssignVolume where
         toQuery = const mempty

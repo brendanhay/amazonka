@@ -121,7 +121,7 @@ instance ToJSON DescribeDestinations where
                "DestinationNamePrefix" .= _ddDestinationNamePrefix]
 
 instance ToPath DescribeDestinations where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDestinations where
         toQuery = const mempty

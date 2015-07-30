@@ -90,7 +90,7 @@ instance ToHeaders GetChange where
 
 instance ToPath GetChange where
         toPath GetChange'{..}
-          = mconcat ["/2013-04-01/change/", toPath _gcId]
+          = ["2013-04-01", "change", toBS _gcId]
 
 instance ToQuery GetChange where
         toQuery = const mempty

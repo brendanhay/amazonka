@@ -166,7 +166,7 @@ instance ToJSON CreateJob where
                "PipelineId" .= _cjPipelineId, "Input" .= _cjInput]
 
 instance ToPath CreateJob where
-        toPath = const "/2012-09-25/jobs"
+        toPath = const ["2012-09-25", "jobs"]
 
 instance ToQuery CreateJob where
         toQuery = const mempty

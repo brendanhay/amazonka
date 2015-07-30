@@ -87,7 +87,7 @@ instance ToHeaders BatchDeleteAttributes where
         toHeaders = const mempty
 
 instance ToPath BatchDeleteAttributes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery BatchDeleteAttributes where
         toQuery BatchDeleteAttributes'{..}

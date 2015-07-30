@@ -114,7 +114,7 @@ instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
 
 instance ToPath CreateDBSubnetGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateDBSubnetGroup where
         toQuery CreateDBSubnetGroup'{..}

@@ -125,7 +125,7 @@ instance ToJSON ReportTaskRunnerHeartbeat where
                "taskrunnerId" .= _rtrhTaskrunnerId]
 
 instance ToPath ReportTaskRunnerHeartbeat where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ReportTaskRunnerHeartbeat where
         toQuery = const mempty

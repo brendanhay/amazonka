@@ -114,7 +114,7 @@ instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
 
 instance ToPath DescribeAutoScalingInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeAutoScalingInstances where
         toQuery DescribeAutoScalingInstances'{..}

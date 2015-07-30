@@ -41,7 +41,6 @@ instance ToText AttributeAction where
 
 instance Hashable     AttributeAction
 instance ToByteString AttributeAction
-instance ToPath       AttributeAction
 instance ToQuery      AttributeAction
 instance ToHeader     AttributeAction
 
@@ -100,7 +99,6 @@ instance ToText ComparisonOperator where
 
 instance Hashable     ComparisonOperator
 instance ToByteString ComparisonOperator
-instance ToPath       ComparisonOperator
 instance ToQuery      ComparisonOperator
 instance ToHeader     ComparisonOperator
 
@@ -126,7 +124,6 @@ instance ToText ConditionalOperator where
 
 instance Hashable     ConditionalOperator
 instance ToByteString ConditionalOperator
-instance ToPath       ConditionalOperator
 instance ToQuery      ConditionalOperator
 instance ToHeader     ConditionalOperator
 
@@ -158,7 +155,6 @@ instance ToText IndexStatus where
 
 instance Hashable     IndexStatus
 instance ToByteString IndexStatus
-instance ToPath       IndexStatus
 instance ToQuery      IndexStatus
 instance ToHeader     IndexStatus
 
@@ -184,7 +180,6 @@ instance ToText KeyType where
 
 instance Hashable     KeyType
 instance ToByteString KeyType
-instance ToPath       KeyType
 instance ToQuery      KeyType
 instance ToHeader     KeyType
 
@@ -216,7 +211,6 @@ instance ToText ProjectionType where
 
 instance Hashable     ProjectionType
 instance ToByteString ProjectionType
-instance ToPath       ProjectionType
 instance ToQuery      ProjectionType
 instance ToHeader     ProjectionType
 
@@ -264,7 +258,6 @@ instance ToText ReturnConsumedCapacity where
 
 instance Hashable     ReturnConsumedCapacity
 instance ToByteString ReturnConsumedCapacity
-instance ToPath       ReturnConsumedCapacity
 instance ToQuery      ReturnConsumedCapacity
 instance ToHeader     ReturnConsumedCapacity
 
@@ -290,7 +283,6 @@ instance ToText ReturnItemCollectionMetrics where
 
 instance Hashable     ReturnItemCollectionMetrics
 instance ToByteString ReturnItemCollectionMetrics
-instance ToPath       ReturnItemCollectionMetrics
 instance ToQuery      ReturnItemCollectionMetrics
 instance ToHeader     ReturnItemCollectionMetrics
 
@@ -325,7 +317,6 @@ instance ToText ReturnValue where
 
 instance Hashable     ReturnValue
 instance ToByteString ReturnValue
-instance ToPath       ReturnValue
 instance ToQuery      ReturnValue
 instance ToHeader     ReturnValue
 
@@ -354,7 +345,6 @@ instance ToText ScalarAttributeType where
 
 instance Hashable     ScalarAttributeType
 instance ToByteString ScalarAttributeType
-instance ToPath       ScalarAttributeType
 instance ToQuery      ScalarAttributeType
 instance ToHeader     ScalarAttributeType
 
@@ -389,7 +379,6 @@ instance ToText Select where
 
 instance Hashable     Select
 instance ToByteString Select
-instance ToPath       Select
 instance ToQuery      Select
 instance ToHeader     Select
 
@@ -421,7 +410,6 @@ instance ToText StreamViewType where
 
 instance Hashable     StreamViewType
 instance ToByteString StreamViewType
-instance ToPath       StreamViewType
 instance ToQuery      StreamViewType
 instance ToHeader     StreamViewType
 
@@ -456,7 +444,6 @@ instance ToText TableStatus where
 
 instance Hashable     TableStatus
 instance ToByteString TableStatus
-instance ToPath       TableStatus
 instance ToQuery      TableStatus
 instance ToHeader     TableStatus
 

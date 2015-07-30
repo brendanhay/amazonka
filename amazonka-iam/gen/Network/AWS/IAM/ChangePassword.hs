@@ -86,7 +86,7 @@ instance ToHeaders ChangePassword where
         toHeaders = const mempty
 
 instance ToPath ChangePassword where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ChangePassword where
         toQuery ChangePassword'{..}

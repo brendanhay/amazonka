@@ -40,7 +40,6 @@ instance ToText Algorithm where
 
 instance Hashable     Algorithm
 instance ToByteString Algorithm
-instance ToPath       Algorithm
 instance ToQuery      Algorithm
 instance ToHeader     Algorithm
 
@@ -101,7 +100,6 @@ instance ToText BatchPredictionFilterVariable where
 
 instance Hashable     BatchPredictionFilterVariable
 instance ToByteString BatchPredictionFilterVariable
-instance ToPath       BatchPredictionFilterVariable
 instance ToQuery      BatchPredictionFilterVariable
 instance ToHeader     BatchPredictionFilterVariable
 
@@ -155,7 +153,6 @@ instance ToText DataSourceFilterVariable where
 
 instance Hashable     DataSourceFilterVariable
 instance ToByteString DataSourceFilterVariable
-instance ToPath       DataSourceFilterVariable
 instance ToQuery      DataSourceFilterVariable
 instance ToHeader     DataSourceFilterVariable
 
@@ -184,7 +181,6 @@ instance ToText DetailsAttributes where
 
 instance Hashable     DetailsAttributes
 instance ToByteString DetailsAttributes
-instance ToPath       DetailsAttributes
 instance ToQuery      DetailsAttributes
 instance ToHeader     DetailsAttributes
 
@@ -226,7 +222,6 @@ instance ToText EntityStatus where
 
 instance Hashable     EntityStatus
 instance ToByteString EntityStatus
-instance ToPath       EntityStatus
 instance ToQuery      EntityStatus
 instance ToHeader     EntityStatus
 
@@ -286,7 +281,6 @@ instance ToText EvaluationFilterVariable where
 
 instance Hashable     EvaluationFilterVariable
 instance ToByteString EvaluationFilterVariable
-instance ToPath       EvaluationFilterVariable
 instance ToQuery      EvaluationFilterVariable
 instance ToHeader     EvaluationFilterVariable
 
@@ -336,7 +330,6 @@ instance ToText MLModelFilterVariable where
 
 instance Hashable     MLModelFilterVariable
 instance ToByteString MLModelFilterVariable
-instance ToPath       MLModelFilterVariable
 instance ToQuery      MLModelFilterVariable
 instance ToHeader     MLModelFilterVariable
 
@@ -365,7 +358,6 @@ instance ToText MLModelType where
 
 instance Hashable     MLModelType
 instance ToByteString MLModelType
-instance ToPath       MLModelType
 instance ToQuery      MLModelType
 instance ToHeader     MLModelType
 
@@ -400,7 +392,6 @@ instance ToText RealtimeEndpointStatus where
 
 instance Hashable     RealtimeEndpointStatus
 instance ToByteString RealtimeEndpointStatus
-instance ToPath       RealtimeEndpointStatus
 instance ToQuery      RealtimeEndpointStatus
 instance ToHeader     RealtimeEndpointStatus
 
@@ -431,7 +422,6 @@ instance ToText SortOrder where
 
 instance Hashable     SortOrder
 instance ToByteString SortOrder
-instance ToPath       SortOrder
 instance ToQuery      SortOrder
 instance ToHeader     SortOrder
 

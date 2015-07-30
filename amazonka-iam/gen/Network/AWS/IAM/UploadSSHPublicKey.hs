@@ -95,7 +95,7 @@ instance ToHeaders UploadSSHPublicKey where
         toHeaders = const mempty
 
 instance ToPath UploadSSHPublicKey where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UploadSSHPublicKey where
         toQuery UploadSSHPublicKey'{..}

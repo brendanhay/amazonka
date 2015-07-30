@@ -71,7 +71,6 @@ instance ToText QueueAttributeName where
 
 instance Hashable     QueueAttributeName
 instance ToByteString QueueAttributeName
-instance ToPath       QueueAttributeName
 instance ToQuery      QueueAttributeName
 instance ToHeader     QueueAttributeName
 

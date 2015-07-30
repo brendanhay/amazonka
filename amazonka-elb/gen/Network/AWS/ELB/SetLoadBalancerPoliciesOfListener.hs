@@ -102,7 +102,7 @@ instance ToHeaders SetLoadBalancerPoliciesOfListener
 
 instance ToPath SetLoadBalancerPoliciesOfListener
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetLoadBalancerPoliciesOfListener
          where

@@ -118,7 +118,7 @@ instance ToJSON CountPendingDecisionTasks where
                "taskList" .= _cpdtTaskList]
 
 instance ToPath CountPendingDecisionTasks where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CountPendingDecisionTasks where
         toQuery = const mempty

@@ -78,7 +78,7 @@ instance ToHeaders Unsubscribe where
         toHeaders = const mempty
 
 instance ToPath Unsubscribe where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery Unsubscribe where
         toQuery Unsubscribe'{..}

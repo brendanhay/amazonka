@@ -123,7 +123,7 @@ instance ToHeaders RegisterInstancesWithLoadBalancer
 
 instance ToPath RegisterInstancesWithLoadBalancer
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterInstancesWithLoadBalancer
          where

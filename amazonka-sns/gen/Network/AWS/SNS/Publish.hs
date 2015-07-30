@@ -188,7 +188,7 @@ instance ToHeaders Publish where
         toHeaders = const mempty
 
 instance ToPath Publish where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery Publish where
         toQuery Publish'{..}

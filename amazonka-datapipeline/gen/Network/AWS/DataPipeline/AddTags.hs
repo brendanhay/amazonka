@@ -96,7 +96,7 @@ instance ToJSON AddTags where
               ["pipelineId" .= _atPipelineId, "tags" .= _atTags]
 
 instance ToPath AddTags where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddTags where
         toQuery = const mempty

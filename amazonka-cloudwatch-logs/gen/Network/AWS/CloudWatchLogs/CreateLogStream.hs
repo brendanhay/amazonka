@@ -98,7 +98,7 @@ instance ToJSON CreateLogStream where
                "logStreamName" .= _clsLogStreamName]
 
 instance ToPath CreateLogStream where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateLogStream where
         toQuery = const mempty

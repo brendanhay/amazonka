@@ -92,7 +92,7 @@ instance ToJSON DeleteLogStream where
                "logStreamName" .= _dlsLogStreamName]
 
 instance ToPath DeleteLogStream where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteLogStream where
         toQuery = const mempty

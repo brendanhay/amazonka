@@ -131,7 +131,7 @@ instance ToHeaders ListVaults where
 
 instance ToPath ListVaults where
         toPath ListVaults'{..}
-          = mconcat ["/", toPath _lvAccountId, "/vaults"]
+          = [toBS _lvAccountId, "vaults"]
 
 instance ToQuery ListVaults where
         toQuery ListVaults'{..}

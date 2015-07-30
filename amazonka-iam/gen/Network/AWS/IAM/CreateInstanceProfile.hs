@@ -99,7 +99,7 @@ instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty
 
 instance ToPath CreateInstanceProfile where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateInstanceProfile where
         toQuery CreateInstanceProfile'{..}

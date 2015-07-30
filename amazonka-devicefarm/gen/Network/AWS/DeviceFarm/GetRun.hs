@@ -88,7 +88,7 @@ instance ToJSON GetRun where
         toJSON GetRun'{..} = object ["arn" .= _grArn]
 
 instance ToPath GetRun where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetRun where
         toQuery = const mempty

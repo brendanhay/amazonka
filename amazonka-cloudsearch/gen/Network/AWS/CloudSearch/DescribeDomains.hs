@@ -91,7 +91,7 @@ instance ToHeaders DescribeDomains where
         toHeaders = const mempty
 
 instance ToPath DescribeDomains where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDomains where
         toQuery DescribeDomains'{..}

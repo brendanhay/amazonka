@@ -111,7 +111,7 @@ instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
 
 instance ToPath CreateInstanceExportTask where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateInstanceExportTask where
         toQuery CreateInstanceExportTask'{..}

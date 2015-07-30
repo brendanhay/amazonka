@@ -79,7 +79,7 @@ instance ToHeaders GetBucketRequestPayment where
 
 instance ToPath GetBucketRequestPayment where
         toPath GetBucketRequestPayment'{..}
-          = mconcat ["/", toPath _gbrpBucket]
+          = [toBS _gbrpBucket]
 
 instance ToQuery GetBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])

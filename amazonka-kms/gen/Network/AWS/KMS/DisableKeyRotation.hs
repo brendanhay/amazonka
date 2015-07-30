@@ -87,7 +87,7 @@ instance ToJSON DisableKeyRotation where
           = object ["KeyId" .= _dkrKeyId]
 
 instance ToPath DisableKeyRotation where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DisableKeyRotation where
         toQuery = const mempty

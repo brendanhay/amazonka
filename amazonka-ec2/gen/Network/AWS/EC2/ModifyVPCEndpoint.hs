@@ -129,7 +129,7 @@ instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
 
 instance ToPath ModifyVPCEndpoint where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyVPCEndpoint where
         toQuery ModifyVPCEndpoint'{..}

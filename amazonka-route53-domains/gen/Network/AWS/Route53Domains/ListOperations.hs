@@ -130,7 +130,7 @@ instance ToJSON ListOperations where
               ["MaxItems" .= _loMaxItems, "Marker" .= _loMarker]
 
 instance ToPath ListOperations where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListOperations where
         toQuery = const mempty

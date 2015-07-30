@@ -84,7 +84,7 @@ postJSON x = putJSON x & rqMethod .~ POST
 postQuery :: (ToQuery a, ToPath a, ToHeaders a) => a -> Request a
 postQuery x = Request
     { _rqMethod  = POST
-    , _rqPath    = toBS (toPath x)
+    , _rqPath    = rawPath x
     , _rqQuery   = mempty
     , _rqBody    = toBody (toQuery x)
     , _rqHeaders =
@@ -116,10 +116,10 @@ putBody x = defaultRequest x
 defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 defaultRequest x = Request
     { _rqMethod  = GET
-    , _rqPath    = toBS (toPath x)
+    , _rqPath    = rawPath x
     , _rqQuery   = toQuery x
     , _rqHeaders = toHeaders x
-    , _rqBody    = mempty
+    , _rqBody    = ""
     }
 
 contentSHA256 :: Request a -> Request a

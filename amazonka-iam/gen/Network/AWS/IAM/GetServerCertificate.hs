@@ -79,7 +79,7 @@ instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
 
 instance ToPath GetServerCertificate where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetServerCertificate where
         toQuery GetServerCertificate'{..}

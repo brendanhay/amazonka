@@ -223,7 +223,7 @@ instance ToHeaders UpdateAutoScalingGroup where
         toHeaders = const mempty
 
 instance ToPath UpdateAutoScalingGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateAutoScalingGroup where
         toQuery UpdateAutoScalingGroup'{..}

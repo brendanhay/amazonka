@@ -91,7 +91,7 @@ instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty
 
 instance ToPath DetachLoadBalancers where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DetachLoadBalancers where
         toQuery DetachLoadBalancers'{..}

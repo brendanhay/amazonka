@@ -249,7 +249,7 @@ instance ToJSON UpdateInstance where
                "AmiId" .= _uiAMIId, "InstanceId" .= _uiInstanceId]
 
 instance ToPath UpdateInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateInstance where
         toQuery = const mempty

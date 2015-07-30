@@ -293,7 +293,7 @@ instance ToJSON RegisterDomain where
                "TechContact" .= _rdTechContact]
 
 instance ToPath RegisterDomain where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterDomain where
         toQuery = const mempty

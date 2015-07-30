@@ -126,7 +126,7 @@ instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
 
 instance ToPath DescribeAlarmsForMetric where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeAlarmsForMetric where
         toQuery DescribeAlarmsForMetric'{..}

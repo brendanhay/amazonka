@@ -92,7 +92,7 @@ instance ToHeaders GetIdentityVerificationAttributes
 
 instance ToPath GetIdentityVerificationAttributes
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetIdentityVerificationAttributes
          where

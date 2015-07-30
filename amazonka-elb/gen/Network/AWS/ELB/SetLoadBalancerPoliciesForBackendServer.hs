@@ -111,7 +111,7 @@ instance ToHeaders
 
 instance ToPath
          SetLoadBalancerPoliciesForBackendServer where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery
          SetLoadBalancerPoliciesForBackendServer where

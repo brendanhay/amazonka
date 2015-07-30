@@ -90,7 +90,7 @@ instance ToJSON GetDeployment where
           = object ["deploymentId" .= _gdDeploymentId]
 
 instance ToPath GetDeployment where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetDeployment where
         toQuery = const mempty

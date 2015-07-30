@@ -78,7 +78,7 @@ instance ToHeaders DeleteSAMLProvider where
         toHeaders = const mempty
 
 instance ToPath DeleteSAMLProvider where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteSAMLProvider where
         toQuery DeleteSAMLProvider'{..}

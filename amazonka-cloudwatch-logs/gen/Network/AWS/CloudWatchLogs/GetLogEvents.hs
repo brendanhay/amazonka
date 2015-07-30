@@ -167,7 +167,7 @@ instance ToJSON GetLogEvents where
                "logStreamName" .= _gleLogStreamName]
 
 instance ToPath GetLogEvents where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetLogEvents where
         toQuery = const mempty

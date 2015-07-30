@@ -138,7 +138,7 @@ instance ToJSON ListVolumes where
                "GatewayARN" .= _lvGatewayARN]
 
 instance ToPath ListVolumes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListVolumes where
         toQuery = const mempty

@@ -161,7 +161,7 @@ instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
 
 instance ToPath DescribeDBLogFiles where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDBLogFiles where
         toQuery DescribeDBLogFiles'{..}

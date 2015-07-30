@@ -125,7 +125,7 @@ instance ToHeaders ListVirtualMFADevices where
         toHeaders = const mempty
 
 instance ToPath ListVirtualMFADevices where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListVirtualMFADevices where
         toQuery ListVirtualMFADevices'{..}

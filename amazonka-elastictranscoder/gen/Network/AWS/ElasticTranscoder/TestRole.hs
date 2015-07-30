@@ -126,7 +126,7 @@ instance ToJSON TestRole where
                "Topics" .= _trTopics]
 
 instance ToPath TestRole where
-        toPath = const "/2012-09-25/roleTests"
+        toPath = const ["2012-09-25", "roleTests"]
 
 instance ToQuery TestRole where
         toQuery = const mempty

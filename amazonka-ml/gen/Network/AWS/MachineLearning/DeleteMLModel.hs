@@ -94,7 +94,7 @@ instance ToJSON DeleteMLModel where
           = object ["MLModelId" .= _dmlmMLModelId]
 
 instance ToPath DeleteMLModel where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteMLModel where
         toQuery = const mempty

@@ -113,7 +113,7 @@ instance ToHeaders DescribeNetworkInterfaceAttribute
 
 instance ToPath DescribeNetworkInterfaceAttribute
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeNetworkInterfaceAttribute
          where

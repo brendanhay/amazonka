@@ -81,7 +81,7 @@ instance ToHeaders PurgeQueue where
         toHeaders = const mempty
 
 instance ToPath PurgeQueue where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PurgeQueue where
         toQuery PurgeQueue'{..}

@@ -107,7 +107,7 @@ instance ToHeaders ReleaseAddress where
         toHeaders = const mempty
 
 instance ToPath ReleaseAddress where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ReleaseAddress where
         toQuery ReleaseAddress'{..}

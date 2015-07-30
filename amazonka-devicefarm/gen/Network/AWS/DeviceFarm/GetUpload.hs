@@ -88,7 +88,7 @@ instance ToJSON GetUpload where
         toJSON GetUpload'{..} = object ["arn" .= _guArn]
 
 instance ToPath GetUpload where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetUpload where
         toQuery = const mempty

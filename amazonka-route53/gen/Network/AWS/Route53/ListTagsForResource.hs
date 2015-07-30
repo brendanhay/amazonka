@@ -95,9 +95,8 @@ instance ToHeaders ListTagsForResource where
 
 instance ToPath ListTagsForResource where
         toPath ListTagsForResource'{..}
-          = mconcat
-              ["/2013-04-01/tags/", toPath _ltfrResourceType, "/",
-               toPath _ltfrResourceId]
+          = ["2013-04-01", "tags", toBS _ltfrResourceType,
+             toBS _ltfrResourceId]
 
 instance ToQuery ListTagsForResource where
         toQuery = const mempty

@@ -108,7 +108,7 @@ instance ToJSON ModifyHAPG where
                "Label" .= _mhLabel, "HapgArn" .= _mhHAPGARN]
 
 instance ToPath ModifyHAPG where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyHAPG where
         toQuery = const mempty

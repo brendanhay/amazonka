@@ -171,7 +171,7 @@ instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty
 
 instance ToPath DescribeRouteTables where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeRouteTables where
         toQuery DescribeRouteTables'{..}

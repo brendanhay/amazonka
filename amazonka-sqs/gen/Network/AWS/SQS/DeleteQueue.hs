@@ -87,7 +87,7 @@ instance ToHeaders DeleteQueue where
         toHeaders = const mempty
 
 instance ToPath DeleteQueue where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteQueue where
         toQuery DeleteQueue'{..}

@@ -148,7 +148,7 @@ instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
 
 instance ToPath DescribeScheduledActions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeScheduledActions where
         toQuery DescribeScheduledActions'{..}

@@ -135,7 +135,7 @@ instance ToHeaders DescribeReservedInstancesListings
 
 instance ToPath DescribeReservedInstancesListings
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeReservedInstancesListings
          where

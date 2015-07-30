@@ -153,7 +153,7 @@ instance ToJSON SubmitContainerStateChange where
                "task" .= _scscTask]
 
 instance ToPath SubmitContainerStateChange where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SubmitContainerStateChange where
         toQuery = const mempty

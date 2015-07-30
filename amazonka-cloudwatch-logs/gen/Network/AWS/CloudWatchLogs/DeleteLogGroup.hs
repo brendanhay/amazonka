@@ -81,7 +81,7 @@ instance ToJSON DeleteLogGroup where
           = object ["logGroupName" .= _dlgLogGroupName]
 
 instance ToPath DeleteLogGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteLogGroup where
         toQuery = const mempty

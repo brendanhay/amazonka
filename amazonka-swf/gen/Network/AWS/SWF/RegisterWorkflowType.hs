@@ -250,7 +250,7 @@ instance ToJSON RegisterWorkflowType where
                "version" .= _rwtVersion]
 
 instance ToPath RegisterWorkflowType where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterWorkflowType where
         toQuery = const mempty

@@ -102,7 +102,7 @@ instance ToJSON DeregisterTaskDefinition where
           = object ["taskDefinition" .= _derTaskDefinition]
 
 instance ToPath DeregisterTaskDefinition where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeregisterTaskDefinition where
         toQuery = const mempty

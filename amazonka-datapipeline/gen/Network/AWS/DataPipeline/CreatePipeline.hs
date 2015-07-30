@@ -135,7 +135,7 @@ instance ToJSON CreatePipeline where
                "name" .= _cpName, "uniqueId" .= _cpUniqueId]
 
 instance ToPath CreatePipeline where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreatePipeline where
         toQuery = const mempty

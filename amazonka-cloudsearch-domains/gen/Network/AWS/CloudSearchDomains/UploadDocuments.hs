@@ -128,7 +128,7 @@ instance ToHeaders UploadDocuments where
                  ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToPath UploadDocuments where
-        toPath = const "/2013-01-01/documents/batch"
+        toPath = const ["2013-01-01", "documents", "batch"]
 
 instance ToQuery UploadDocuments where
         toQuery = const (mconcat ["format=sdk"])

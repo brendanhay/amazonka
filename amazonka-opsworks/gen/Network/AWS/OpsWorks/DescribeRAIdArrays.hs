@@ -122,7 +122,7 @@ instance ToJSON DescribeRAIdArrays where
                "StackId" .= _draiaStackId]
 
 instance ToPath DescribeRAIdArrays where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeRAIdArrays where
         toQuery = const mempty

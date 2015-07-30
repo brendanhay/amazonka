@@ -124,7 +124,7 @@ instance ToHeaders DescribeScalingActivities where
         toHeaders = const mempty
 
 instance ToPath DescribeScalingActivities where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeScalingActivities where
         toQuery DescribeScalingActivities'{..}

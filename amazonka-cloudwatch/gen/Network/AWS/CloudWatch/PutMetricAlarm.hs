@@ -217,7 +217,7 @@ instance ToHeaders PutMetricAlarm where
         toHeaders = const mempty
 
 instance ToPath PutMetricAlarm where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutMetricAlarm where
         toQuery PutMetricAlarm'{..}

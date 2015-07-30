@@ -95,7 +95,7 @@ instance ToHeaders ResetImageAttribute where
         toHeaders = const mempty
 
 instance ToPath ResetImageAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResetImageAttribute where
         toQuery ResetImageAttribute'{..}

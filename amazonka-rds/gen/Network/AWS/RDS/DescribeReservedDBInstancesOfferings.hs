@@ -193,7 +193,7 @@ instance ToHeaders
 
 instance ToPath DescribeReservedDBInstancesOfferings
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeReservedDBInstancesOfferings
          where

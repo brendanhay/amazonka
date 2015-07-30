@@ -85,7 +85,7 @@ instance ToHeaders AddRoleToInstanceProfile where
         toHeaders = const mempty
 
 instance ToPath AddRoleToInstanceProfile where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddRoleToInstanceProfile where
         toQuery AddRoleToInstanceProfile'{..}

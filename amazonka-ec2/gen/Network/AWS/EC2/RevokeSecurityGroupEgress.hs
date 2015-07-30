@@ -168,7 +168,7 @@ instance ToHeaders RevokeSecurityGroupEgress where
         toHeaders = const mempty
 
 instance ToPath RevokeSecurityGroupEgress where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RevokeSecurityGroupEgress where
         toQuery RevokeSecurityGroupEgress'{..}

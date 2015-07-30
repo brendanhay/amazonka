@@ -197,7 +197,7 @@ instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
 
 instance ToPath CreateEventSubscription where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateEventSubscription where
         toQuery CreateEventSubscription'{..}

@@ -102,7 +102,7 @@ instance ToJSON DescribeUploadBuffer where
           = object ["GatewayARN" .= _dubGatewayARN]
 
 instance ToPath DescribeUploadBuffer where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeUploadBuffer where
         toQuery = const mempty

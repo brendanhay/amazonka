@@ -92,7 +92,7 @@ instance ToJSON BatchGetOnPremisesInstances where
           = object ["instanceNames" .= _bgopiInstanceNames]
 
 instance ToPath BatchGetOnPremisesInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery BatchGetOnPremisesInstances where
         toQuery = const mempty

@@ -126,7 +126,7 @@ instance ToHeaders ListRoles where
         toHeaders = const mempty
 
 instance ToPath ListRoles where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListRoles where
         toQuery ListRoles'{..}

@@ -125,7 +125,7 @@ instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty
 
 instance ToPath CopyOptionGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CopyOptionGroup where
         toQuery CopyOptionGroup'{..}

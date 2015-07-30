@@ -103,7 +103,7 @@ instance ToJSON ListJobs where
               ["nextToken" .= _ljNextToken, "arn" .= _ljArn]
 
 instance ToPath ListJobs where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListJobs where
         toQuery = const mempty

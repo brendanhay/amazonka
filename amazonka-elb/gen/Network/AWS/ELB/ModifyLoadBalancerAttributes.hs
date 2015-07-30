@@ -106,7 +106,7 @@ instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
 
 instance ToPath ModifyLoadBalancerAttributes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyLoadBalancerAttributes where
         toQuery ModifyLoadBalancerAttributes'{..}

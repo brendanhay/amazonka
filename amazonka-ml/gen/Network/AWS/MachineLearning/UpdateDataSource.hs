@@ -102,7 +102,7 @@ instance ToJSON UpdateDataSource where
                "DataSourceName" .= _udsDataSourceName]
 
 instance ToPath UpdateDataSource where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateDataSource where
         toQuery = const mempty

@@ -80,7 +80,7 @@ instance ToHeaders DeleteInstanceProfile where
         toHeaders = const mempty
 
 instance ToPath DeleteInstanceProfile where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteInstanceProfile where
         toQuery DeleteInstanceProfile'{..}

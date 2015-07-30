@@ -45,7 +45,6 @@ instance ToText BucketCannedACL where
 
 instance Hashable     BucketCannedACL
 instance ToByteString BucketCannedACL
-instance ToPath       BucketCannedACL
 instance ToQuery      BucketCannedACL
 instance ToHeader     BucketCannedACL
 
@@ -74,7 +73,6 @@ instance ToText BucketLogsPermission where
 
 instance Hashable     BucketLogsPermission
 instance ToByteString BucketLogsPermission
-instance ToPath       BucketLogsPermission
 instance ToQuery      BucketLogsPermission
 instance ToHeader     BucketLogsPermission
 
@@ -103,7 +101,6 @@ instance ToText BucketVersioningStatus where
 
 instance Hashable     BucketVersioningStatus
 instance ToByteString BucketVersioningStatus
-instance ToPath       BucketVersioningStatus
 instance ToQuery      BucketVersioningStatus
 instance ToHeader     BucketVersioningStatus
 
@@ -135,7 +132,6 @@ instance ToText EncodingType where
 
 instance Hashable     EncodingType
 instance ToByteString EncodingType
-instance ToPath       EncodingType
 instance ToQuery      EncodingType
 instance ToHeader     EncodingType
 
@@ -186,7 +182,6 @@ instance ToText Event where
 
 instance Hashable     Event
 instance ToByteString Event
-instance ToPath       Event
 instance ToQuery      Event
 instance ToHeader     Event
 
@@ -215,7 +210,6 @@ instance ToText ExpirationStatus where
 
 instance Hashable     ExpirationStatus
 instance ToByteString ExpirationStatus
-instance ToPath       ExpirationStatus
 instance ToQuery      ExpirationStatus
 instance ToHeader     ExpirationStatus
 
@@ -244,7 +238,6 @@ instance ToText MFADelete where
 
 instance Hashable     MFADelete
 instance ToByteString MFADelete
-instance ToPath       MFADelete
 instance ToQuery      MFADelete
 instance ToHeader     MFADelete
 
@@ -270,7 +263,6 @@ instance ToText MFADeleteStatus where
 
 instance Hashable     MFADeleteStatus
 instance ToByteString MFADeleteStatus
-instance ToPath       MFADeleteStatus
 instance ToQuery      MFADeleteStatus
 instance ToHeader     MFADeleteStatus
 
@@ -296,7 +288,6 @@ instance ToText MetadataDirective where
 
 instance Hashable     MetadataDirective
 instance ToByteString MetadataDirective
-instance ToPath       MetadataDirective
 instance ToQuery      MetadataDirective
 instance ToHeader     MetadataDirective
 
@@ -334,7 +325,6 @@ instance ToText ObjectCannedACL where
 
 instance Hashable     ObjectCannedACL
 instance ToByteString ObjectCannedACL
-instance ToPath       ObjectCannedACL
 instance ToQuery      ObjectCannedACL
 instance ToHeader     ObjectCannedACL
 
@@ -363,7 +353,6 @@ instance ToText ObjectStorageClass where
 
 instance Hashable     ObjectStorageClass
 instance ToByteString ObjectStorageClass
-instance ToPath       ObjectStorageClass
 instance ToQuery      ObjectStorageClass
 instance ToHeader     ObjectStorageClass
 
@@ -386,7 +375,6 @@ instance ToText ObjectVersionStorageClass where
 
 instance Hashable     ObjectVersionStorageClass
 instance ToByteString ObjectVersionStorageClass
-instance ToPath       ObjectVersionStorageClass
 instance ToQuery      ObjectVersionStorageClass
 instance ToHeader     ObjectVersionStorageClass
 
@@ -412,7 +400,6 @@ instance ToText Payer where
 
 instance Hashable     Payer
 instance ToByteString Payer
-instance ToPath       Payer
 instance ToQuery      Payer
 instance ToHeader     Payer
 
@@ -450,7 +437,6 @@ instance ToText Permission where
 
 instance Hashable     Permission
 instance ToByteString Permission
-instance ToPath       Permission
 instance ToQuery      Permission
 instance ToHeader     Permission
 
@@ -479,7 +465,6 @@ instance ToText Protocol where
 
 instance Hashable     Protocol
 instance ToByteString Protocol
-instance ToPath       Protocol
 instance ToQuery      Protocol
 instance ToHeader     Protocol
 
@@ -508,7 +493,6 @@ instance ToText ReplicationRuleStatus where
 
 instance Hashable     ReplicationRuleStatus
 instance ToByteString ReplicationRuleStatus
-instance ToPath       ReplicationRuleStatus
 instance ToQuery      ReplicationRuleStatus
 instance ToHeader     ReplicationRuleStatus
 
@@ -543,7 +527,6 @@ instance ToText ReplicationStatus where
 
 instance Hashable     ReplicationStatus
 instance ToByteString ReplicationStatus
-instance ToPath       ReplicationStatus
 instance ToQuery      ReplicationStatus
 instance ToHeader     ReplicationStatus
 
@@ -568,7 +551,6 @@ instance ToText RequestCharged where
 
 instance Hashable     RequestCharged
 instance ToByteString RequestCharged
-instance ToPath       RequestCharged
 instance ToQuery      RequestCharged
 instance ToHeader     RequestCharged
 
@@ -596,7 +578,6 @@ instance ToText RequestPayer where
 
 instance Hashable     RequestPayer
 instance ToByteString RequestPayer
-instance ToPath       RequestPayer
 instance ToQuery      RequestPayer
 instance ToHeader     RequestPayer
 
@@ -622,7 +603,6 @@ instance ToText ServerSideEncryption where
 
 instance Hashable     ServerSideEncryption
 instance ToByteString ServerSideEncryption
-instance ToPath       ServerSideEncryption
 instance ToQuery      ServerSideEncryption
 instance ToHeader     ServerSideEncryption
 
@@ -654,7 +634,6 @@ instance ToText StorageClass where
 
 instance Hashable     StorageClass
 instance ToByteString StorageClass
-instance ToPath       StorageClass
 instance ToQuery      StorageClass
 instance ToHeader     StorageClass
 
@@ -680,7 +659,6 @@ instance ToText TransitionStorageClass where
 
 instance Hashable     TransitionStorageClass
 instance ToByteString TransitionStorageClass
-instance ToPath       TransitionStorageClass
 instance ToQuery      TransitionStorageClass
 instance ToHeader     TransitionStorageClass
 
@@ -712,7 +690,6 @@ instance ToText Type where
 
 instance Hashable     Type
 instance ToByteString Type
-instance ToPath       Type
 instance ToQuery      Type
 instance ToHeader     Type
 

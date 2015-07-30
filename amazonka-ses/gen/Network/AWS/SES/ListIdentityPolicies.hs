@@ -102,7 +102,7 @@ instance ToHeaders ListIdentityPolicies where
         toHeaders = const mempty
 
 instance ToPath ListIdentityPolicies where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListIdentityPolicies where
         toQuery ListIdentityPolicies'{..}

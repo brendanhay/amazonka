@@ -106,7 +106,7 @@ instance ToJSON DeactivatePipeline where
                "pipelineId" .= _dPipelineId]
 
 instance ToPath DeactivatePipeline where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeactivatePipeline where
         toQuery = const mempty

@@ -112,7 +112,7 @@ instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
 
 instance ToPath DescribeAccountAttributes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeAccountAttributes where
         toQuery DescribeAccountAttributes'{..}

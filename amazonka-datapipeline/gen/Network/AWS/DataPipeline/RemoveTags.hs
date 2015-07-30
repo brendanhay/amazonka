@@ -98,7 +98,7 @@ instance ToJSON RemoveTags where
                "tagKeys" .= _rtTagKeys]
 
 instance ToPath RemoveTags where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RemoveTags where
         toQuery = const mempty

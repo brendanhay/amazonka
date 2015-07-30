@@ -102,7 +102,7 @@ instance ToHeaders AddPermission where
         toHeaders = const mempty
 
 instance ToPath AddPermission where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddPermission where
         toQuery AddPermission'{..}

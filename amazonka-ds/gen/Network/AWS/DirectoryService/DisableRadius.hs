@@ -89,7 +89,7 @@ instance ToJSON DisableRadius where
           = object ["DirectoryId" .= _drDirectoryId]
 
 instance ToPath DisableRadius where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DisableRadius where
         toQuery = const mempty

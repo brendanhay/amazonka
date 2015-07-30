@@ -120,7 +120,7 @@ instance ToHeaders AssignPrivateIPAddresses where
         toHeaders = const mempty
 
 instance ToPath AssignPrivateIPAddresses where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AssignPrivateIPAddresses where
         toQuery AssignPrivateIPAddresses'{..}

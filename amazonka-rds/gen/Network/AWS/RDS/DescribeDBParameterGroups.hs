@@ -137,7 +137,7 @@ instance ToHeaders DescribeDBParameterGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeDBParameterGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDBParameterGroups where
         toQuery DescribeDBParameterGroups'{..}

@@ -94,7 +94,7 @@ instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
 
 instance ToPath CreateLoadBalancerListeners where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateLoadBalancerListeners where
         toQuery CreateLoadBalancerListeners'{..}

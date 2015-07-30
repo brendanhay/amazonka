@@ -94,7 +94,7 @@ instance ToJSON PutRetentionPolicy where
                "retentionInDays" .= _prpRetentionInDays]
 
 instance ToPath PutRetentionPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutRetentionPolicy where
         toQuery = const mempty

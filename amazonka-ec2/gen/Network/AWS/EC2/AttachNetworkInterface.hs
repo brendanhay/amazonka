@@ -108,7 +108,7 @@ instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty
 
 instance ToPath AttachNetworkInterface where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AttachNetworkInterface where
         toQuery AttachNetworkInterface'{..}

@@ -92,7 +92,7 @@ instance ToJSON StopLogging where
         toJSON StopLogging'{..} = object ["Name" .= _slName]
 
 instance ToPath StopLogging where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StopLogging where
         toQuery = const mempty

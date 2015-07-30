@@ -124,7 +124,7 @@ instance ToHeaders UpdateJob where
         toHeaders = const mempty
 
 instance ToPath UpdateJob where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery UpdateJob where
         toQuery UpdateJob'{..}

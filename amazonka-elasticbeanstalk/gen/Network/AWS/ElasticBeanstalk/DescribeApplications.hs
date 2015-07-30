@@ -83,7 +83,7 @@ instance ToHeaders DescribeApplications where
         toHeaders = const mempty
 
 instance ToPath DescribeApplications where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeApplications where
         toQuery DescribeApplications'{..}

@@ -785,7 +785,7 @@ instance ToHeaders CreateDBInstance where
         toHeaders = const mempty
 
 instance ToPath CreateDBInstance where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateDBInstance where
         toQuery CreateDBInstance'{..}

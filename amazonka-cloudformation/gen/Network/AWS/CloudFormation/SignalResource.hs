@@ -112,7 +112,7 @@ instance ToHeaders SignalResource where
         toHeaders = const mempty
 
 instance ToPath SignalResource where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SignalResource where
         toQuery SignalResource'{..}

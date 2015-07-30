@@ -116,7 +116,7 @@ instance ToHeaders DescribeSpotFleetRequests where
         toHeaders = const mempty
 
 instance ToPath DescribeSpotFleetRequests where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeSpotFleetRequests where
         toQuery DescribeSpotFleetRequests'{..}

@@ -83,7 +83,7 @@ instance ToHeaders AttachInstances where
         toHeaders = const mempty
 
 instance ToPath AttachInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AttachInstances where
         toQuery AttachInstances'{..}

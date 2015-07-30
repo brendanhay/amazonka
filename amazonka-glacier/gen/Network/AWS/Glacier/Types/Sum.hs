@@ -38,7 +38,6 @@ instance ToText ActionCode where
 
 instance Hashable     ActionCode
 instance ToByteString ActionCode
-instance ToPath       ActionCode
 instance ToQuery      ActionCode
 instance ToHeader     ActionCode
 
@@ -67,7 +66,6 @@ instance ToText StatusCode where
 
 instance Hashable     StatusCode
 instance ToByteString StatusCode
-instance ToPath       StatusCode
 instance ToQuery      StatusCode
 instance ToHeader     StatusCode
 

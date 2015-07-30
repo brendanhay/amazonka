@@ -83,7 +83,7 @@ instance ToHeaders DeleteServerCertificate where
         toHeaders = const mempty
 
 instance ToPath DeleteServerCertificate where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteServerCertificate where
         toQuery DeleteServerCertificate'{..}

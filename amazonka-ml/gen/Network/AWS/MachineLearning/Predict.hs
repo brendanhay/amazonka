@@ -113,7 +113,7 @@ instance ToJSON Predict where
                "PredictEndpoint" .= _pPredictEndpoint]
 
 instance ToPath Predict where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery Predict where
         toQuery = const mempty

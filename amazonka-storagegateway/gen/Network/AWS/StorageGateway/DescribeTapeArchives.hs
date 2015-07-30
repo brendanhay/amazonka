@@ -130,7 +130,7 @@ instance ToJSON DescribeTapeArchives where
                "TapeARNs" .= _dtaTapeARNs]
 
 instance ToPath DescribeTapeArchives where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeTapeArchives where
         toQuery = const mempty

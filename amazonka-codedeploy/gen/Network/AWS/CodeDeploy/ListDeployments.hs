@@ -145,7 +145,7 @@ instance ToJSON ListDeployments where
                "deploymentGroupName" .= _ldDeploymentGroupName]
 
 instance ToPath ListDeployments where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListDeployments where
         toQuery = const mempty

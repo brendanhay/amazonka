@@ -126,7 +126,7 @@ instance ToHeaders ResetDBParameterGroup where
         toHeaders = const mempty
 
 instance ToPath ResetDBParameterGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResetDBParameterGroup where
         toQuery ResetDBParameterGroup'{..}

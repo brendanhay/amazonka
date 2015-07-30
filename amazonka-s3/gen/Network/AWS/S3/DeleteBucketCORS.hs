@@ -70,8 +70,7 @@ instance ToHeaders DeleteBucketCORS where
         toHeaders = const mempty
 
 instance ToPath DeleteBucketCORS where
-        toPath DeleteBucketCORS'{..}
-          = mconcat ["/", toPath _dbcBucket]
+        toPath DeleteBucketCORS'{..} = [toBS _dbcBucket]
 
 instance ToQuery DeleteBucketCORS where
         toQuery = const (mconcat ["cors"])

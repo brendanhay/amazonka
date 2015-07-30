@@ -115,7 +115,7 @@ instance ToJSON ListBootstrapActions where
                "ClusterId" .= _lbaClusterId]
 
 instance ToPath ListBootstrapActions where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListBootstrapActions where
         toQuery = const mempty

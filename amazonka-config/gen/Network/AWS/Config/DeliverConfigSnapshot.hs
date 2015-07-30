@@ -102,7 +102,7 @@ instance ToJSON DeliverConfigSnapshot where
               ["deliveryChannelName" .= _dcsDeliveryChannelName]
 
 instance ToPath DeliverConfigSnapshot where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeliverConfigSnapshot where
         toQuery = const mempty

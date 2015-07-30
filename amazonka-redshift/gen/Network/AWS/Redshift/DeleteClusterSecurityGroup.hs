@@ -81,7 +81,7 @@ instance ToHeaders DeleteClusterSecurityGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteClusterSecurityGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteClusterSecurityGroup where
         toQuery DeleteClusterSecurityGroup'{..}

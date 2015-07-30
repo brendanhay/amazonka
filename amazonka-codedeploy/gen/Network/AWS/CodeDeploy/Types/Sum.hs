@@ -41,7 +41,6 @@ instance ToText ApplicationRevisionSortBy where
 
 instance Hashable     ApplicationRevisionSortBy
 instance ToByteString ApplicationRevisionSortBy
-instance ToPath       ApplicationRevisionSortBy
 instance ToQuery      ApplicationRevisionSortBy
 instance ToHeader     ApplicationRevisionSortBy
 
@@ -70,7 +69,6 @@ instance ToText BundleType where
 
 instance Hashable     BundleType
 instance ToByteString BundleType
-instance ToPath       BundleType
 instance ToQuery      BundleType
 instance ToHeader     BundleType
 
@@ -132,7 +130,6 @@ instance ToText DeployErrorCode where
 
 instance Hashable     DeployErrorCode
 instance ToByteString DeployErrorCode
-instance ToPath       DeployErrorCode
 instance ToQuery      DeployErrorCode
 instance ToHeader     DeployErrorCode
 
@@ -158,7 +155,6 @@ instance ToText DeploymentCreator where
 
 instance Hashable     DeploymentCreator
 instance ToByteString DeploymentCreator
-instance ToPath       DeploymentCreator
 instance ToQuery      DeploymentCreator
 instance ToHeader     DeploymentCreator
 
@@ -196,7 +192,6 @@ instance ToText DeploymentStatus where
 
 instance Hashable     DeploymentStatus
 instance ToByteString DeploymentStatus
-instance ToPath       DeploymentStatus
 instance ToQuery      DeploymentStatus
 instance ToHeader     DeploymentStatus
 
@@ -228,7 +223,6 @@ instance ToText EC2TagFilterType where
 
 instance Hashable     EC2TagFilterType
 instance ToByteString EC2TagFilterType
-instance ToPath       EC2TagFilterType
 instance ToQuery      EC2TagFilterType
 instance ToHeader     EC2TagFilterType
 
@@ -269,7 +263,6 @@ instance ToText InstanceStatus where
 
 instance Hashable     InstanceStatus
 instance ToByteString InstanceStatus
-instance ToPath       InstanceStatus
 instance ToQuery      InstanceStatus
 instance ToHeader     InstanceStatus
 
@@ -310,7 +303,6 @@ instance ToText LifecycleErrorCode where
 
 instance Hashable     LifecycleErrorCode
 instance ToByteString LifecycleErrorCode
-instance ToPath       LifecycleErrorCode
 instance ToQuery      LifecycleErrorCode
 instance ToHeader     LifecycleErrorCode
 
@@ -348,7 +340,6 @@ instance ToText LifecycleEventStatus where
 
 instance Hashable     LifecycleEventStatus
 instance ToByteString LifecycleEventStatus
-instance ToPath       LifecycleEventStatus
 instance ToQuery      LifecycleEventStatus
 instance ToHeader     LifecycleEventStatus
 
@@ -377,7 +368,6 @@ instance ToText ListStateFilterAction where
 
 instance Hashable     ListStateFilterAction
 instance ToByteString ListStateFilterAction
-instance ToPath       ListStateFilterAction
 instance ToQuery      ListStateFilterAction
 instance ToHeader     ListStateFilterAction
 
@@ -403,7 +393,6 @@ instance ToText MinimumHealthyHostsType where
 
 instance Hashable     MinimumHealthyHostsType
 instance ToByteString MinimumHealthyHostsType
-instance ToPath       MinimumHealthyHostsType
 instance ToQuery      MinimumHealthyHostsType
 instance ToHeader     MinimumHealthyHostsType
 
@@ -432,7 +421,6 @@ instance ToText RegistrationStatus where
 
 instance Hashable     RegistrationStatus
 instance ToByteString RegistrationStatus
-instance ToPath       RegistrationStatus
 instance ToQuery      RegistrationStatus
 instance ToHeader     RegistrationStatus
 
@@ -458,7 +446,6 @@ instance ToText RevisionLocationType where
 
 instance Hashable     RevisionLocationType
 instance ToByteString RevisionLocationType
-instance ToPath       RevisionLocationType
 instance ToQuery      RevisionLocationType
 instance ToHeader     RevisionLocationType
 
@@ -487,7 +474,6 @@ instance ToText SortOrder where
 
 instance Hashable     SortOrder
 instance ToByteString SortOrder
-instance ToPath       SortOrder
 instance ToQuery      SortOrder
 instance ToHeader     SortOrder
 
@@ -513,7 +499,6 @@ instance ToText StopStatus where
 
 instance Hashable     StopStatus
 instance ToByteString StopStatus
-instance ToPath       StopStatus
 instance ToQuery      StopStatus
 instance ToHeader     StopStatus
 
@@ -542,7 +527,6 @@ instance ToText TagFilterType where
 
 instance Hashable     TagFilterType
 instance ToByteString TagFilterType
-instance ToPath       TagFilterType
 instance ToQuery      TagFilterType
 instance ToHeader     TagFilterType
 

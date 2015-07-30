@@ -41,7 +41,6 @@ instance ToText GeoRestrictionType where
 
 instance Hashable     GeoRestrictionType
 instance ToByteString GeoRestrictionType
-instance ToPath       GeoRestrictionType
 instance ToQuery      GeoRestrictionType
 instance ToHeader     GeoRestrictionType
 
@@ -73,7 +72,6 @@ instance ToText ItemSelection where
 
 instance Hashable     ItemSelection
 instance ToByteString ItemSelection
-instance ToPath       ItemSelection
 instance ToQuery      ItemSelection
 instance ToHeader     ItemSelection
 
@@ -117,7 +115,6 @@ instance ToText Method where
 
 instance Hashable     Method
 instance ToByteString Method
-instance ToPath       Method
 instance ToQuery      Method
 instance ToHeader     Method
 
@@ -146,7 +143,6 @@ instance ToText MinimumProtocolVersion where
 
 instance Hashable     MinimumProtocolVersion
 instance ToByteString MinimumProtocolVersion
-instance ToPath       MinimumProtocolVersion
 instance ToQuery      MinimumProtocolVersion
 instance ToHeader     MinimumProtocolVersion
 
@@ -175,7 +171,6 @@ instance ToText OriginProtocolPolicy where
 
 instance Hashable     OriginProtocolPolicy
 instance ToByteString OriginProtocolPolicy
-instance ToPath       OriginProtocolPolicy
 instance ToQuery      OriginProtocolPolicy
 instance ToHeader     OriginProtocolPolicy
 
@@ -207,7 +202,6 @@ instance ToText PriceClass where
 
 instance Hashable     PriceClass
 instance ToByteString PriceClass
-instance ToPath       PriceClass
 instance ToQuery      PriceClass
 instance ToHeader     PriceClass
 
@@ -236,7 +230,6 @@ instance ToText SSLSupportMethod where
 
 instance Hashable     SSLSupportMethod
 instance ToByteString SSLSupportMethod
-instance ToPath       SSLSupportMethod
 instance ToQuery      SSLSupportMethod
 instance ToHeader     SSLSupportMethod
 
@@ -268,7 +261,6 @@ instance ToText ViewerProtocolPolicy where
 
 instance Hashable     ViewerProtocolPolicy
 instance ToByteString ViewerProtocolPolicy
-instance ToPath       ViewerProtocolPolicy
 instance ToQuery      ViewerProtocolPolicy
 instance ToHeader     ViewerProtocolPolicy
 

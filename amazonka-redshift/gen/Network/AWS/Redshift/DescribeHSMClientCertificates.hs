@@ -171,7 +171,7 @@ instance ToHeaders DescribeHSMClientCertificates
         toHeaders = const mempty
 
 instance ToPath DescribeHSMClientCertificates where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeHSMClientCertificates where
         toQuery DescribeHSMClientCertificates'{..}

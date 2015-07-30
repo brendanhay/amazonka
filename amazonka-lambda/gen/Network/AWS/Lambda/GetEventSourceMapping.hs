@@ -85,9 +85,8 @@ instance ToHeaders GetEventSourceMapping where
 
 instance ToPath GetEventSourceMapping where
         toPath GetEventSourceMapping'{..}
-          = mconcat
-              ["/2015-03-31/event-source-mappings/",
-               toPath _gesmUUId]
+          = ["2015-03-31", "event-source-mappings",
+             toBS _gesmUUId]
 
 instance ToQuery GetEventSourceMapping where
         toQuery = const mempty

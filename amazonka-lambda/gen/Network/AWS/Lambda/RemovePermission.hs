@@ -96,9 +96,8 @@ instance ToHeaders RemovePermission where
 
 instance ToPath RemovePermission where
         toPath RemovePermission'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toPath _rpFunctionName,
-               "/versions/HEAD/policy/", toPath _rpStatementId]
+          = ["2015-03-31", "functions", toBS _rpFunctionName,
+             "versions", "HEAD", "policy", toBS _rpStatementId]
 
 instance ToQuery RemovePermission where
         toQuery = const mempty

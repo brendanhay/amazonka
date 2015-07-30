@@ -78,8 +78,7 @@ instance ToHeaders GetBucketLogging where
         toHeaders = const mempty
 
 instance ToPath GetBucketLogging where
-        toPath GetBucketLogging'{..}
-          = mconcat ["/", toPath _getBucket]
+        toPath GetBucketLogging'{..} = [toBS _getBucket]
 
 instance ToQuery GetBucketLogging where
         toQuery = const (mconcat ["logging"])

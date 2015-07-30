@@ -103,7 +103,7 @@ instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty
 
 instance ToPath CancelSpotInstanceRequests where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CancelSpotInstanceRequests where
         toQuery CancelSpotInstanceRequests'{..}

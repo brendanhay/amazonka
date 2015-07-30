@@ -135,9 +135,8 @@ instance ToHeaders DescribeJob where
 
 instance ToPath DescribeJob where
         toPath DescribeJob'{..}
-          = mconcat
-              ["/", toPath _djAccountId, "/vaults/",
-               toPath _djVaultName, "/jobs/", toPath _djJobId]
+          = [toBS _djAccountId, "vaults", toBS _djVaultName,
+             "jobs", toBS _djJobId]
 
 instance ToQuery DescribeJob where
         toQuery = const mempty

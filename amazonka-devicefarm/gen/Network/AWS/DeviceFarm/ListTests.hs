@@ -103,7 +103,7 @@ instance ToJSON ListTests where
               ["nextToken" .= _ltNextToken, "arn" .= _ltArn]
 
 instance ToPath ListTests where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListTests where
         toQuery = const mempty

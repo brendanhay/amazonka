@@ -70,7 +70,7 @@ instance ToHeaders DescribeTerminationPolicyTypes
         toHeaders = const mempty
 
 instance ToPath DescribeTerminationPolicyTypes where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeTerminationPolicyTypes where
         toQuery

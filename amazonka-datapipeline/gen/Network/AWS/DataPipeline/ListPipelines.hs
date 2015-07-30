@@ -105,7 +105,7 @@ instance ToJSON ListPipelines where
           = object ["marker" .= _lpMarker]
 
 instance ToPath ListPipelines where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListPipelines where
         toQuery = const mempty

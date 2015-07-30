@@ -106,7 +106,7 @@ instance ToJSON ListKeys where
           = object ["Marker" .= _lkMarker, "Limit" .= _lkLimit]
 
 instance ToPath ListKeys where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListKeys where
         toQuery = const mempty

@@ -100,7 +100,7 @@ instance ToJSON DescribeLoadBasedAutoScaling where
           = object ["LayerIds" .= _dlbasLayerIds]
 
 instance ToPath DescribeLoadBasedAutoScaling where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeLoadBasedAutoScaling where
         toQuery = const mempty

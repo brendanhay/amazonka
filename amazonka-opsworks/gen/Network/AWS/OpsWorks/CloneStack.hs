@@ -454,7 +454,7 @@ instance ToJSON CloneStack where
                "ServiceRoleArn" .= _cServiceRoleARN]
 
 instance ToPath CloneStack where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CloneStack where
         toQuery = const mempty

@@ -103,7 +103,7 @@ instance ToJSON ListDevices where
               ["arn" .= _ldArn, "nextToken" .= _ldNextToken]
 
 instance ToPath ListDevices where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListDevices where
         toQuery = const mempty

@@ -50,7 +50,6 @@ instance ToText AgentUpdateStatus where
 
 instance Hashable     AgentUpdateStatus
 instance ToByteString AgentUpdateStatus
-instance ToPath       AgentUpdateStatus
 instance ToQuery      AgentUpdateStatus
 instance ToHeader     AgentUpdateStatus
 
@@ -79,7 +78,6 @@ instance ToText DesiredStatus where
 
 instance Hashable     DesiredStatus
 instance ToByteString DesiredStatus
-instance ToPath       DesiredStatus
 instance ToQuery      DesiredStatus
 instance ToHeader     DesiredStatus
 
@@ -105,7 +103,6 @@ instance ToText SortOrder where
 
 instance Hashable     SortOrder
 instance ToByteString SortOrder
-instance ToPath       SortOrder
 instance ToQuery      SortOrder
 instance ToHeader     SortOrder
 
@@ -131,7 +128,6 @@ instance ToText TaskDefinitionStatus where
 
 instance Hashable     TaskDefinitionStatus
 instance ToByteString TaskDefinitionStatus
-instance ToPath       TaskDefinitionStatus
 instance ToQuery      TaskDefinitionStatus
 instance ToHeader     TaskDefinitionStatus
 
@@ -160,7 +156,6 @@ instance ToText TransportProtocol where
 
 instance Hashable     TransportProtocol
 instance ToByteString TransportProtocol
-instance ToPath       TransportProtocol
 instance ToQuery      TransportProtocol
 instance ToHeader     TransportProtocol
 

@@ -90,7 +90,7 @@ instance ToHeaders CancelBundleTask where
         toHeaders = const mempty
 
 instance ToPath CancelBundleTask where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CancelBundleTask where
         toQuery CancelBundleTask'{..}

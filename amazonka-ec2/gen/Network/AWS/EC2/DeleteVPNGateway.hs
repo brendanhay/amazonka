@@ -86,7 +86,7 @@ instance ToHeaders DeleteVPNGateway where
         toHeaders = const mempty
 
 instance ToPath DeleteVPNGateway where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteVPNGateway where
         toQuery DeleteVPNGateway'{..}

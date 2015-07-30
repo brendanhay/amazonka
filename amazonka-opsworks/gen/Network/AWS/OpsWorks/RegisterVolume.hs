@@ -108,7 +108,7 @@ instance ToJSON RegisterVolume where
                "StackId" .= _rvStackId]
 
 instance ToPath RegisterVolume where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterVolume where
         toQuery = const mempty

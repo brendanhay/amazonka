@@ -156,9 +156,8 @@ instance ToJSON Invoke where
 
 instance ToPath Invoke where
         toPath Invoke'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toPath _iFunctionName,
-               "/invocations"]
+          = ["2015-03-31", "functions", toBS _iFunctionName,
+             "invocations"]
 
 instance ToQuery Invoke where
         toQuery = const mempty

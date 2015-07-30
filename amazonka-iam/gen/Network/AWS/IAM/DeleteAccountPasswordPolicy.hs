@@ -59,7 +59,7 @@ instance ToHeaders DeleteAccountPasswordPolicy where
         toHeaders = const mempty
 
 instance ToPath DeleteAccountPasswordPolicy where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DeleteAccountPasswordPolicy where
         toQuery

@@ -92,7 +92,7 @@ instance ToHeaders AddClientIdToOpenIdConnectProvider
 
 instance ToPath AddClientIdToOpenIdConnectProvider
          where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AddClientIdToOpenIdConnectProvider
          where

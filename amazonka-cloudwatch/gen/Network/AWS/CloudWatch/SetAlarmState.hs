@@ -104,7 +104,7 @@ instance ToHeaders SetAlarmState where
         toHeaders = const mempty
 
 instance ToPath SetAlarmState where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery SetAlarmState where
         toQuery SetAlarmState'{..}

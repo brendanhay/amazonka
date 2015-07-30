@@ -124,7 +124,7 @@ instance ToJSON DescribeDeployments where
                "StackId" .= _ddStackId]
 
 instance ToPath DescribeDeployments where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDeployments where
         toQuery = const mempty

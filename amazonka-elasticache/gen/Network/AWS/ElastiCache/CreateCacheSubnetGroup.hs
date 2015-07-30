@@ -107,7 +107,7 @@ instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty
 
 instance ToPath CreateCacheSubnetGroup where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateCacheSubnetGroup where
         toQuery CreateCacheSubnetGroup'{..}

@@ -106,7 +106,7 @@ instance ToJSON ListIdentityPools where
                "MaxResults" .= _lipMaxResults]
 
 instance ToPath ListIdentityPools where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListIdentityPools where
         toQuery = const mempty

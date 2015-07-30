@@ -104,7 +104,7 @@ instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
 
 instance ToPath CreateVPNGateway where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateVPNGateway where
         toQuery CreateVPNGateway'{..}

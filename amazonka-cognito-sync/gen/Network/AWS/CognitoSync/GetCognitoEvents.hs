@@ -89,9 +89,8 @@ instance ToHeaders GetCognitoEvents where
 
 instance ToPath GetCognitoEvents where
         toPath GetCognitoEvents'{..}
-          = mconcat
-              ["/identitypools/", toPath _gceIdentityPoolId,
-               "/events"]
+          = ["identitypools", toBS _gceIdentityPoolId,
+             "events"]
 
 instance ToQuery GetCognitoEvents where
         toQuery = const mempty

@@ -201,7 +201,7 @@ instance ToHeaders ReceiveMessage where
         toHeaders = const mempty
 
 instance ToPath ReceiveMessage where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ReceiveMessage where
         toQuery ReceiveMessage'{..}

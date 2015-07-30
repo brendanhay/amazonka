@@ -106,7 +106,7 @@ instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
 
 instance ToPath ModifyReservedInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyReservedInstances where
         toQuery ModifyReservedInstances'{..}

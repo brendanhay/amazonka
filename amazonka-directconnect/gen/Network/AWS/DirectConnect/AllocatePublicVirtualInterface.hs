@@ -141,7 +141,7 @@ instance ToJSON AllocatePublicVirtualInterface where
                  _aNewPublicVirtualInterfaceAllocation]
 
 instance ToPath AllocatePublicVirtualInterface where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery AllocatePublicVirtualInterface where
         toQuery = const mempty

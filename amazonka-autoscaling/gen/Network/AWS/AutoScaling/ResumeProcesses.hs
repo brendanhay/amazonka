@@ -101,7 +101,7 @@ instance ToHeaders ResumeProcesses where
         toHeaders = const mempty
 
 instance ToPath ResumeProcesses where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ResumeProcesses where
         toQuery ResumeProcesses'{..}

@@ -145,7 +145,7 @@ instance ToHeaders GetSessionToken where
         toHeaders = const mempty
 
 instance ToPath GetSessionToken where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetSessionToken where
         toQuery GetSessionToken'{..}

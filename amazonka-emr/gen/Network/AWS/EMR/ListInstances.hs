@@ -134,7 +134,7 @@ instance ToJSON ListInstances where
                "ClusterId" .= _liClusterId]
 
 instance ToPath ListInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListInstances where
         toQuery = const mempty

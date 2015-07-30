@@ -108,7 +108,7 @@ instance ToHeaders CancelSpotFleetRequests where
         toHeaders = const mempty
 
 instance ToPath CancelSpotFleetRequests where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CancelSpotFleetRequests where
         toQuery CancelSpotFleetRequests'{..}

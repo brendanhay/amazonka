@@ -102,7 +102,7 @@ instance ToHeaders DescribeServiceAccessPolicies
         toHeaders = const mempty
 
 instance ToPath DescribeServiceAccessPolicies where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeServiceAccessPolicies where
         toQuery DescribeServiceAccessPolicies'{..}

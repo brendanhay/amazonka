@@ -167,7 +167,7 @@ instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
 
 instance ToPath DescribeHSMConfigurations where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeHSMConfigurations where
         toQuery DescribeHSMConfigurations'{..}

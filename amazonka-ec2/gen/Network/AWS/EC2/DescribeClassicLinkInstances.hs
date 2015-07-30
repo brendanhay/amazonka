@@ -156,7 +156,7 @@ instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
 
 instance ToPath DescribeClassicLinkInstances where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeClassicLinkInstances where
         toQuery DescribeClassicLinkInstances'{..}

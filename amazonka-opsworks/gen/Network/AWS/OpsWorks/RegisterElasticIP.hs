@@ -109,7 +109,7 @@ instance ToJSON RegisterElasticIP where
                "StackId" .= _reiStackId]
 
 instance ToPath RegisterElasticIP where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RegisterElasticIP where
         toQuery = const mempty

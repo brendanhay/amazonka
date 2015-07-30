@@ -200,7 +200,7 @@ instance ToHeaders CreateVolume where
         toHeaders = const mempty
 
 instance ToPath CreateVolume where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CreateVolume where
         toQuery CreateVolume'{..}

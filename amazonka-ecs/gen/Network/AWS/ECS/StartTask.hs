@@ -158,7 +158,7 @@ instance ToJSON StartTask where
                "containerInstances" .= _sContainerInstances]
 
 instance ToPath StartTask where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery StartTask where
         toQuery = const mempty

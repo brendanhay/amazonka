@@ -134,7 +134,7 @@ instance ToHeaders ModifyNetworkInterfaceAttribute
         toHeaders = const mempty
 
 instance ToPath ModifyNetworkInterfaceAttribute where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ModifyNetworkInterfaceAttribute
          where

@@ -213,7 +213,7 @@ instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
 
 instance ToPath DescribeVolumeStatus where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeVolumeStatus where
         toQuery DescribeVolumeStatus'{..}

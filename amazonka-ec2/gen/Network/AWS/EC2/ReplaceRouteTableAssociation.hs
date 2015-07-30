@@ -110,7 +110,7 @@ instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty
 
 instance ToPath ReplaceRouteTableAssociation where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ReplaceRouteTableAssociation where
         toQuery ReplaceRouteTableAssociation'{..}

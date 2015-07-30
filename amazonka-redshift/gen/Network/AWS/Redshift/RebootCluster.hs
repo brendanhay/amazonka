@@ -86,7 +86,7 @@ instance ToHeaders RebootCluster where
         toHeaders = const mempty
 
 instance ToPath RebootCluster where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery RebootCluster where
         toQuery RebootCluster'{..}

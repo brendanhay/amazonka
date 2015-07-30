@@ -134,7 +134,7 @@ instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeDBSubnetGroups where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery DescribeDBSubnetGroups where
         toQuery DescribeDBSubnetGroups'{..}

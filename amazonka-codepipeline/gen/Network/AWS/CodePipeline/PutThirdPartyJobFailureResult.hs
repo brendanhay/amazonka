@@ -112,7 +112,7 @@ instance ToJSON PutThirdPartyJobFailureResult where
                "failureDetails" .= _ptpjfrFailureDetails]
 
 instance ToPath PutThirdPartyJobFailureResult where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery PutThirdPartyJobFailureResult where
         toQuery = const mempty

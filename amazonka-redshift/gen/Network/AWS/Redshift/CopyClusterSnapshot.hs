@@ -131,7 +131,7 @@ instance ToHeaders CopyClusterSnapshot where
         toHeaders = const mempty
 
 instance ToPath CopyClusterSnapshot where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery CopyClusterSnapshot where
         toQuery CopyClusterSnapshot'{..}

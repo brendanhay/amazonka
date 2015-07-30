@@ -105,7 +105,7 @@ instance ToHeaders GetSSHPublicKey where
         toHeaders = const mempty
 
 instance ToPath GetSSHPublicKey where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery GetSSHPublicKey where
         toQuery GetSSHPublicKey'{..}

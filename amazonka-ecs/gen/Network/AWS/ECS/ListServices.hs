@@ -133,7 +133,7 @@ instance ToJSON ListServices where
                "maxResults" .= _lsMaxResults]
 
 instance ToPath ListServices where
-        toPath = const "/"
+        toPath = const mempty
 
 instance ToQuery ListServices where
         toQuery = const mempty

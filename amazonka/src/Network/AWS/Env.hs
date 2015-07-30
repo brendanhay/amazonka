@@ -35,7 +35,6 @@ import           Control.Monad.Trans.Except
 import           Control.Retry
 import           Data.Monoid
 import           Network.AWS.Auth
-import           Network.AWS.Data.ByteString
 import           Network.AWS.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
@@ -135,7 +134,7 @@ newEnv :: (Functor m, MonadIO m)
        => Region
        -> Credentials
        -> m (Either String Env)
-newEnv r c = liftIO (newManager conduitManagerSettings) >>= newEnvWith r c
+newEnv r c = liftIO (newManager tlsManagerSettings) >>= newEnvWith r c
 
 -- | /See:/ 'newEnv'
 newEnvWith :: (Functor m, MonadIO m)

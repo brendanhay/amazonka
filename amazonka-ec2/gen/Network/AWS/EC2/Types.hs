@@ -1674,7 +1674,7 @@ instance AWSService EC2 where
             , _svcPrefix = "ec2"
             , _svcVersion = "2015-04-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry

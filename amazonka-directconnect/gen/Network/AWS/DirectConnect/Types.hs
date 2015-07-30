@@ -155,7 +155,7 @@ instance AWSService DirectConnect where
             , _svcPrefix = "directconnect"
             , _svcVersion = "2012-10-25"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry

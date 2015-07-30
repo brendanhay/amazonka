@@ -385,7 +385,7 @@ instance AWSService ElastiCache where
             , _svcPrefix = "elasticache"
             , _svcVersion = "2015-02-02"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry

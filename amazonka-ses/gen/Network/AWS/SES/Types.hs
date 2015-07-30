@@ -108,7 +108,7 @@ instance AWSService SES where
             , _svcPrefix = "email"
             , _svcVersion = "2010-12-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry

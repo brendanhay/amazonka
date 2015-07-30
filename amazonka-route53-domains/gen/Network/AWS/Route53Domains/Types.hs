@@ -113,7 +113,7 @@ instance AWSService Route53Domains where
             , _svcPrefix = "route53domains"
             , _svcVersion = "2014-05-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry

@@ -283,7 +283,7 @@ instance AWSService DynamoDB where
             , _svcPrefix = "dynamodb"
             , _svcVersion = "2012-08-10"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry

@@ -144,7 +144,7 @@ instance AWSService DataPipeline where
             , _svcPrefix = "datapipeline"
             , _svcVersion = "2012-10-29"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry

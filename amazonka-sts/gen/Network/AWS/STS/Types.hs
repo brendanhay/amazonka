@@ -64,7 +64,7 @@ instance AWSService STS where
             , _svcPrefix = "sts"
             , _svcVersion = "2011-06-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry

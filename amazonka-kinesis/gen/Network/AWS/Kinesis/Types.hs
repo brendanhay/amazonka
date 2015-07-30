@@ -107,7 +107,7 @@ instance AWSService Kinesis where
             , _svcPrefix = "kinesis"
             , _svcVersion = "2013-12-02"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry

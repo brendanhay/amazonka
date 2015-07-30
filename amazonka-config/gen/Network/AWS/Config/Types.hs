@@ -157,7 +157,7 @@ instance AWSService Config where
             , _svcPrefix = "config"
             , _svcVersion = "2014-11-12"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry

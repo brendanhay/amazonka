@@ -519,7 +519,7 @@ instance AWSService RDS where
             , _svcPrefix = "rds"
             , _svcVersion = "2014-10-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry

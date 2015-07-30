@@ -463,7 +463,7 @@ instance AWSService CloudFront where
             , _svcPrefix = "cloudfront"
             , _svcVersion = "2015-04-17"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = Just 70000000
+            , _svcTimeout = Just 70
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry

@@ -30,6 +30,7 @@ module Network.AWS.S3.Internal
 import           Control.Lens
 import           Data.String
 import qualified Data.Text            as Text
+import qualified Data.Text.Encoding   as Text
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
 
@@ -50,8 +51,6 @@ newtype BucketName = BucketName Text
         , ToXML
         , ToQuery
         )
-
-instance ToPath BucketName
 
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
@@ -91,8 +90,6 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToQuery
         )
 
-instance ToPath ObjectVersionId
-
 newtype ObjectKey = ObjectKey Text
     deriving
         ( Eq
@@ -111,7 +108,8 @@ newtype ObjectKey = ObjectKey Text
         , ToQuery
         )
 
-instance ToPath ObjectKey
+instance ToPath ObjectKey where
+    toPath (ObjectKey k) = map Text.encodeUtf8 (Text.split (== '/') k)
 
 type Delimiter = Char
 

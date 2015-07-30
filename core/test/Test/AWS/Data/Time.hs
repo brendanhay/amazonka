@@ -50,7 +50,7 @@ tests = testGroup "time"
                 "2014-11-07T04:42:13UTC" (time :: ISO8601)
 
             , testToText "aws"
-                "20141107T044213UTC" (time :: AWSTime)
+                "20141107T044213Z" (time :: AWSTime)
 
             , testToText "posix"
                 "1415335333" (time :: POSIX)
@@ -66,7 +66,7 @@ tests = testGroup "time"
                 "x=2014-11-07T04%3A42%3A13UTC" (time :: ISO8601)
 
             , testToQuery "aws"
-                "x=20141107T044213UTC" (time :: AWSTime)
+                "x=20141107T044213Z" (time :: AWSTime)
             ]
         ]
 
@@ -101,7 +101,7 @@ tests = testGroup "time"
                 "2014-11-07T04:42:13UTC" (time :: ISO8601)
 
             , testToXML "aws"
-                "20141107T044213UTC" (time :: AWSTime)
+                "20141107T044213Z" (time :: AWSTime)
 
             , testToXML "posix"
                 "1415335333" (time :: POSIX)
@@ -139,7 +139,7 @@ tests = testGroup "time"
                 (str "2014-11-07T04:42:13UTC") (time :: ISO8601)
 
             , testToJSON "aws"
-                (str "20141107T044213UTC") (time :: AWSTime)
+                (str "20141107T044213Z") (time :: AWSTime)
 
             , testToJSON "posix"
                 "1415335333" (time :: POSIX)

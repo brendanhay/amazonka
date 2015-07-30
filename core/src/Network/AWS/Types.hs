@@ -299,7 +299,7 @@ instance ToLog (Request a) where
         , "  query     = "  <> message _rqQuery
         , "  headers   = "  <> message _rqHeaders
         , "  body      = {"
-        , "    hash    = "  <> message (bodySHA256  _rqBody)
+        , "    hash    = "  <> message (toBS (bodySHA256  _rqBody))
         , "    payload =\n" <> message (bodyRequest _rqBody)
         , "  }"
         , "}"

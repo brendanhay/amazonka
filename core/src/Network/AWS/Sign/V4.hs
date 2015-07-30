@@ -1,6 +1,8 @@
+{-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE PackageImports    #-}
+{-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
@@ -13,19 +15,22 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Sign.V4 where
+module Network.AWS.Sign.V4
+    ( V4
+    , Meta (..)
+    ) where
 
 import           Control.Applicative
 import           Control.Lens
-import qualified Data.ByteString.Char8       as BS
-import qualified Data.CaseInsensitive        as CI
-import qualified Data.Foldable               as Fold
-import           Data.Function               hiding ((&))
-import           Data.List                   (groupBy, intersperse, sort,
-                                              sortBy)
+import           Data.Bifunctor
+import qualified Data.ByteString.Char8        as BS8
+import qualified Data.CaseInsensitive         as CI
+import qualified Data.Foldable                as Fold
+import           Data.Function                (on)
+import           Data.List                    (nubBy, sortBy)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Ord
+import           GHC.TypeLits
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
@@ -36,170 +41,230 @@ import           Network.AWS.Data.Time
 import           Network.AWS.Logger
 import           Network.AWS.Request
 import           Network.AWS.Types
+import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types.Header
 
 data V4
 
 data instance Meta V4 = Meta
-    { _mAlgorithm :: ByteString
-    , _mScope     :: ByteString
-    , _mSigned    :: ByteString
-    , _mCReq      :: ByteString
-    , _mSTS       :: ByteString
-    , _mSignature :: ByteString
-    , _mTime      :: UTCTime
+    { metaTime             :: !UTCTime
+    , metaMethod           :: !Method
+    , metaPath             :: !Path
+    , metaEndpoint         :: !Endpoint
+    , metaCredential       :: !Credential
+    , metaCanonicalQuery   :: !CanonicalQuery
+    , metaCanonicalRequest :: !CanonicalRequest
+    , metaCanonicalHeaders :: !CanonicalHeaders
+    , metaSignedHeaders    :: !SignedHeaders
+    , metaStringToSign     :: !StringToSign
+    , metaSignature        :: !Signature
+    , metaHeaders          :: ![Header]
+    , metaBody             :: Client.RequestBody
     }
 
 instance ToLog (Meta V4) where
-    message Meta{..} = mconcat $ intersperse "\n"
+    message Meta{..} = buildLines
         [ "[Version 4 Metadata] {"
-        , "  algorithm         = " <> message _mAlgorithm
-        , "  credential scope  = " <> message _mScope
-        , "  signed headers    = " <> message _mSigned
-        , "  string to sign    = " <> message _mSTS
-        , "  signature         = " <> message _mSignature
-        , "  time              = " <> message _mTime
+        , "  time              = " <> message metaTime
+        , "  endpoint          = " <> message (_endpointHost metaEndpoint)
+        , "  credential        = " <> message metaCredential
+        , "  signed headers    = " <> message metaSignedHeaders
+        , "  string to sign    = " <> message metaStringToSign
+        , "  signature         = " <> message metaSignedHeaders
         , "  canonical request = {"
-        , message _mCReq
+        , message metaCanonicalRequest
         , "  }"
         , "}"
         ]
 
 instance AWSPresigner V4 where
-    presigned a r t ex svc rq =
-        out & sgRequest . queryString <>~ auth (out ^. sgMeta)
+    presigned auth reg ts ex svc rq = finalise meta authorise
       where
-        out = finalise a r t svc inp qry hashed
+        authorise = queryString
+            <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
 
-        inp = rq & rqHeaders .~ []
+        meta = sign auth reg ts svc presign digest (prepare rq)
 
-        qry cs sh =
+        presign c shs =
               pair (CI.original hAMZAlgorithm)     algorithm
-            . pair (CI.original hAMZCredential)    cs
-            . pair (CI.original hAMZDate)          (Time t :: AWSTime)
+            . pair (CI.original hAMZCredential)    (toBS c)
+            . pair (CI.original hAMZDate)          (Time ts :: AWSTime)
             . pair (CI.original hAMZExpires)       ex
-            . pair (CI.original hAMZSignedHeaders) sh
-            . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
+            . pair (CI.original hAMZSignedHeaders) (toBS shs)
+            . pair (CI.original hAMZToken)         (toBS <$> _authToken auth)
 
-        auth   = mappend "&X-Amz-Signature=" . _mSignature
-        hashed = "UNSIGNED-PAYLOAD"
+        digest = Tag "UNSIGNED-PAYLOAD"
+
+        prepare = rqHeaders .~ []
 
 instance AWSSigner V4 where
-    signed a r t svc rq = out & sgRequest
-        %~ requestHeaders
-        %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
+    signed auth reg ts svc rq = finalise meta authorise
       where
-        out = finalise a r t svc inp (\_ _ -> id) hashed
+        authorise = requestHeaders
+            <>~ [(hAuthorization, authorisation meta)]
 
-        inp = rq & rqHeaders %~ hdr hAMZDate date . hdrs (maybeToList tok)
+        meta = sign auth reg ts svc presign digest (prepare rq)
 
-        date   = toBS (Time t :: AWSTime)
-        tok    = (hAMZToken,) . toBS <$> _authToken a
-        hashed = rq ^. rqBody . to bodySHA256
+        presign _ _ = id
+
+        digest = Tag . toBS . bodySHA256 $ _rqBody rq
+
+        prepare = rqHeaders %~
+            ( hdr hHost    (_endpointHost (_svcEndpoint svc reg))
+            . hdr hAMZDate (toBS (Time ts :: AWSTime))
+            . maybe id (hdr hAMZToken . toBS) (_authToken auth)
+            )
+
+-- | Used to tag provenance. This allows keeping the same layout as
+-- the signing documentation, passing 'ByteString's everywhere, with
+-- some type guarantees.
+--
+-- Data.Tagged is not used for no reason other than syntactic length.
+newtype Tag (s :: Symbol) a = Tag { unTag :: a }
+
+instance ToByteString (Tag s ByteString) where toBS    = unTag
+instance ToLog        (Tag s ByteString) where message = message . unTag
+
+instance ToByteString CredentialScope where
+    toBS = BS8.intercalate "/" . unTag
+
+type Hash              = Tag "body-digest"        ByteString
+type StringToSign      = Tag "string-to-sign"     ByteString
+type Credential        = Tag "credential"         ByteString
+type CredentialScope   = Tag "credential-scope"   [ByteString]
+type CanonicalRequest  = Tag "canonical-request"  ByteString
+type CanonicalHeaders  = Tag "canonical-headers"  ByteString
+type CanonicalQuery    = Tag "canonical-query"    ByteString
+type SignedHeaders     = Tag "signed-headers"     ByteString
+type NormalisedHeaders = Tag "normalised-headers" [(ByteString, ByteString)]
+type Method            = Tag "method"             ByteString
+type Path              = Tag "path"               ByteString
+type Signature         = Tag "signature"          ByteString
 
 authorisation :: Meta V4 -> ByteString
-authorisation Meta{..} = BS.concat
-    [ _mAlgorithm
-    , " Credential="
-    , _mScope
-    , ", SignedHeaders="
-    , _mSigned
-    , ", Signature="
-    , _mSignature
-    ]
+authorisation Meta{..} = algorithm
+    <> " Credential="     <> toBS metaCredential
+    <> ", SignedHeaders=" <> toBS metaSignedHeaders
+    <> ", Signature="     <> toBS metaSignature
+
+finalise :: Meta V4 -> (ClientRequest -> ClientRequest) -> Signed V4 a
+finalise meta authorise = Signed meta . authorise $ clientRequest
+    { Client.method         = toBS (metaMethod meta)
+    , Client.host           = _endpointHost (metaEndpoint meta)
+    , Client.path           = toBS (metaPath meta)
+    , Client.queryString    = '?' `BS8.cons` toBS (metaCanonicalQuery meta)
+    , Client.requestHeaders = metaHeaders meta
+    , Client.requestBody    = metaBody meta
+    }
+
+sign :: AuthEnv
+     -> Region
+     -> UTCTime
+     -> Service s
+     -> (Credential -> SignedHeaders -> QueryString -> QueryString)
+     -> Hash
+     -> Request a
+     -> Meta V4
+sign auth reg ts svc presign digest rq = Meta
+    { metaTime             = ts
+    , metaMethod           = method
+    , metaPath             = path
+    , metaEndpoint         = end
+    , metaCredential       = cred
+    , metaCanonicalQuery   = query
+    , metaCanonicalRequest = crq
+    , metaCanonicalHeaders = chs
+    , metaSignedHeaders    = shs
+    , metaStringToSign     = sts
+    , metaSignature        = signature (_authSecret auth) scope sts
+    , metaHeaders          = _rqHeaders rq
+    , metaBody             = bodyRequest (_rqBody rq)
+    }
+  where
+    query = canonicalQuery . presign cred shs $ _rqQuery rq
+
+    sts   = stringToSign ts scope crq
+    cred  = credential (_authAccess auth) scope
+    scope = credentialScope svc end ts
+    crq   = canonicalRequest method path digest query chs shs
+
+    chs     = canonicalHeaders headers
+    shs     = signedHeaders    headers
+    headers = normaliseHeaders (_rqHeaders rq)
+
+    end    = _svcEndpoint svc reg
+    method = Tag . toBS $ _rqMethod rq
+    path   = escapedPath svc rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
 
-finalise :: AuthEnv
-         -> Region
-         -> UTCTime
-         -> Service s
-         -> Request a
-         -> (ByteString -> ByteString -> QueryString -> QueryString)
-         -> ByteString
-         -> Signed V4 a
-finalise AuthEnv{..} r t Service{..} Request{..} qry hashed =
-    Signed meta rq
+signature :: SecretKey -> CredentialScope -> StringToSign -> Signature
+signature k c = Tag . digestToBase Base16 . hmacSHA256 signingKey . unTag
   where
-    meta = Meta
-        { _mAlgorithm = algorithm
-        , _mCReq      = canonicalRequest
-        , _mScope     = accessScope
-        , _mSigned    = signedHeaders
-        , _mSTS       = stringToSign
-        , _mSignature = signature
-        , _mTime      = t
-        }
+    signingKey = Fold.foldl' hmac ("AWS4" <> toBS k) (unTag c)
 
-    rq = clientRequest
-        & method         .~ meth
-        & host           .~ _endpointHost
-        & path           .~ path'
-        & queryString    .~ BS.cons '?' (toBS query)
-        & requestHeaders .~ headers
-        & requestBody    .~ bodyRequest _rqBody
+    hmac x y = digestToBS (hmacSHA256 x y)
 
-    meth  = toBS _rqMethod
-    query = qry accessScope signedHeaders _rqQuery
-    path' = toBS . escapePath $
-        if _svcAbbrev /= "S3"
-            then collapsePath _rqPath
-            else _rqPath
+stringToSign :: UTCTime -> CredentialScope -> CanonicalRequest -> StringToSign
+stringToSign t c r = Tag $ BS8.intercalate "\n"
+    [ algorithm
+    , toBS (Time t :: AWSTime)
+    , toBS c
+    , digestToBase Base16 . hashSHA256 $ toBS r
+    ]
 
-    Endpoint {..} = _svcEndpoint r
+credential :: AccessKey -> CredentialScope -> Credential
+credential k c = Tag (toBS k <> "/" <> toBS c)
 
-    canonicalQuery = toBS (query & valuesOf %~ Just . fromMaybe "")
+credentialScope :: Service s -> Endpoint -> UTCTime -> CredentialScope
+credentialScope s e t = Tag
+    [ toBS (Time t :: BasicTime)
+    , toBS (_endpointScope e)
+    , toBS (_svcPrefix     s)
+    , "aws4_request"
+    ]
 
-    headers = sortBy (comparing fst) (hdr hHost _endpointHost _rqHeaders)
-
-    joinedHeaders = map f $ groupBy ((==) `on` fst) headers
-      where
-        f []     = ("", "")
-        f (h:hs) = (fst h, g (h : hs))
-
-        g = BS.intercalate "," . sort . map snd
-
-    signedHeaders = mconcat
-        . intersperse ";"
-        . map (CI.foldedCase . fst)
-        $ joinedHeaders
-
-    canonicalHeaders = Fold.foldMap f joinedHeaders
-      where
-        f (k, v) = CI.foldedCase k
-            <> ":"
-            <> stripBS v
-            <> "\n"
-
-    canonicalRequest = mconcat $ intersperse "\n"
-       [ meth
-       , path'
-       , canonicalQuery
-       , canonicalHeaders
-       , signedHeaders
-       , hashed
+canonicalRequest :: Method
+                 -> Path
+                 -> Hash
+                 -> CanonicalQuery
+                 -> CanonicalHeaders
+                 -> SignedHeaders
+                 -> CanonicalRequest
+canonicalRequest meth path digest query chs shs = Tag $
+   BS8.intercalate "\n"
+       [ toBS meth
+       , toBS path
+       , toBS query
+       , toBS chs
+       , toBS shs
+       , toBS digest
        ]
 
-    scope =
-        [ toBS (Time t :: BasicTime)
-        , toBS _endpointScope
-        , toBS _svcPrefix
-        , "aws4_request"
-        ]
+escapedPath :: Service s -> Request a -> Path
+escapedPath s r = Tag . toBS . escapePath $
+    case _svcAbbrev s of
+        "S3" -> _rqPath r
+        _    -> collapsePath (_rqPath r)
 
-    credentialScope = BS.intercalate "/" scope
+canonicalQuery :: QueryString -> CanonicalQuery
+canonicalQuery = Tag . toBS . (valuesOf %~ Just . fromMaybe "")
 
-    accessScope = toBS _authAccess <> "/" <> credentialScope
+-- FIXME: the following use of stripBS is too naive, should remove
+-- all internal whitespace, replacing with a single space char,
+-- unless quoted with \"...\"
+canonicalHeaders :: NormalisedHeaders -> CanonicalHeaders
+canonicalHeaders = Tag . foldMap (uncurry f) . unTag
+  where
+    f k v = k <> ":" <> stripBS v <> "\n"
 
-    signingKey = Fold.foldl1 (\k -> digestToBS . hmacSHA256 k) $
-        ("AWS4" <> toBS _authSecret) : scope
+signedHeaders :: NormalisedHeaders -> SignedHeaders
+signedHeaders = Tag . BS8.intercalate ";" . map fst . unTag
 
-    stringToSign = BS.intercalate "\n"
-        [ algorithm
-        , toBS (Time t :: AWSTime)
-        , credentialScope
-        , digestToBase Base16 (hashSHA256 canonicalRequest)
-        ]
-
-    signature = digestToBase Base16 (hmacSHA256 signingKey stringToSign)
+normaliseHeaders :: [Header] -> NormalisedHeaders
+normaliseHeaders = Tag
+    . map    (first CI.foldedCase)
+    . nubBy  ((==)    `on` fst)
+    . sortBy (compare `on` fst)
+    . filter ((/= "authorization") . fst)

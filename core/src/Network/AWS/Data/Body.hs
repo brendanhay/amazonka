@@ -41,12 +41,12 @@ instance Show RsBody where
 
 -- | An opaque request body containing a 'SHA256' hash.
 data RqBody = RqBody
-    { bodyDigest  :: Digest SHA256
+    { bodySHA256  :: Digest SHA256
     , bodyRequest :: RequestBody
     }
 
 instance Show RqBody where
-    show b = "RqBody { RequestBody " ++ BS8.unpack (bodySHA256 b) ++ " }"
+    show b = "RqBody { RequestBody " ++ BS8.unpack (toBS (bodySHA256 b)) ++ " }"
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
@@ -60,16 +60,13 @@ bodyStream x =
         RequestBodyStream        {} -> True
         RequestBodyStreamChunked {} -> True
 
-bodySHA256 :: RqBody -> ByteString
-bodySHA256 = digestToBase Base16 . bodyDigest
-
-bodyCalculateMD5 :: RqBody -> Maybe ByteString
+bodyCalculateMD5 :: RqBody -> Maybe (Digest MD5)
 bodyCalculateMD5 x =
-    let hexMD5 = Just . digestToBase Base16 . hashMD5
+    let md5 = Just . hashMD5
      in case bodyRequest x of
-        RequestBodyLBS           lbs -> hexMD5 (toBS lbs)
-        RequestBodyBS            bs  -> hexMD5 bs
-        RequestBodyBuilder     _ b   -> hexMD5 (toBS b)
+        RequestBodyLBS           lbs -> md5 (toBS lbs)
+        RequestBodyBS            bs  -> md5 bs
+        RequestBodyBuilder     _ b   -> md5 (toBS b)
         _                            -> Nothing
 
 -- | Anything that can be safely converted to a 'RqBody'.

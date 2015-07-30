@@ -65,9 +65,6 @@ instance Monoid RawPath where
     mempty                    = Raw []
     mappend (Raw xs) (Raw ys) = Raw (xs ++ ys)
 
-instance ToByteString RawPath where
-    toBS = toBS . escapePath
-
 instance ToByteString EscapedPath where
     toBS (Encoded []) = slash
     toBS (Encoded xs) = slash <> BS8.intercalate slash xs

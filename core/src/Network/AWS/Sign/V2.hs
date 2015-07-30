@@ -12,7 +12,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Sign.V2 where
+module Network.AWS.Sign.V2
+    ( V2
+    , Meta (..)
+    ) where
 
 import           Control.Applicative
 import qualified Data.ByteString.Char8        as BS8
@@ -43,9 +46,9 @@ data instance Meta V2 = Meta
 instance ToLog (Meta V2) where
     message Meta{..} = mconcat $ intersperse "\n"
         [ "[Version 2 Metadata] {"
-        , "  time      = " <> build metaTime
-        , "  endpoint  = " <> build (_endpointHost metaEndpoint)
-        , "  signature = " <> build metaSignature
+        , "  time      = " <> message metaTime
+        , "  endpoint  = " <> message (_endpointHost metaEndpoint)
+        , "  signature = " <> message metaSignature
         , "}"
         ]
 

@@ -42,7 +42,6 @@ import           Data.Double.Conversion.ByteString (toShortest)
 import           Data.Int
 import           Data.List                         (intersperse)
 import           Data.Monoid
-import           Data.Monoid
 import qualified Data.Text                         as Text
 import qualified Data.Text.Encoding                as Text
 import qualified Data.Text.Lazy                    as LText

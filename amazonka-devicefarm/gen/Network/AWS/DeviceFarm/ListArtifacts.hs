@@ -120,7 +120,7 @@ instance ToJSON ListArtifacts where
                "type" .= _laType]
 
 instance ToPath ListArtifacts where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListArtifacts where
         toQuery = const mempty

@@ -105,7 +105,7 @@ instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
 
 instance ToPath ReplaceNetworkACLAssociation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ReplaceNetworkACLAssociation where
         toQuery ReplaceNetworkACLAssociation'{..}

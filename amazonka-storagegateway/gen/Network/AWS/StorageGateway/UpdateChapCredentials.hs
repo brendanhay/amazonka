@@ -147,7 +147,7 @@ instance ToJSON UpdateChapCredentials where
                "InitiatorName" .= _uccInitiatorName]
 
 instance ToPath UpdateChapCredentials where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateChapCredentials where
         toQuery = const mempty

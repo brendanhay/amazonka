@@ -107,7 +107,7 @@ instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty
 
 instance ToPath AuthorizeSnapshotAccess where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AuthorizeSnapshotAccess where
         toQuery AuthorizeSnapshotAccess'{..}

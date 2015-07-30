@@ -83,7 +83,7 @@ instance ToJSON DeleteAlias where
           = object ["AliasName" .= _daAliasName]
 
 instance ToPath DeleteAlias where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteAlias where
         toQuery = const mempty

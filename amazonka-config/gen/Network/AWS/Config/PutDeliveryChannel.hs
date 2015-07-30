@@ -96,7 +96,7 @@ instance ToJSON PutDeliveryChannel where
           = object ["DeliveryChannel" .= _pdcDeliveryChannel]
 
 instance ToPath PutDeliveryChannel where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutDeliveryChannel where
         toQuery = const mempty

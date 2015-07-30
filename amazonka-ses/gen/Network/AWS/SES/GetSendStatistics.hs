@@ -72,7 +72,7 @@ instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
 
 instance ToPath GetSendStatistics where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetSendStatistics where
         toQuery

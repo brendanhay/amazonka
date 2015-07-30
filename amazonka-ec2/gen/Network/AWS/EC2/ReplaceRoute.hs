@@ -134,7 +134,7 @@ instance ToHeaders ReplaceRoute where
         toHeaders = const mempty
 
 instance ToPath ReplaceRoute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ReplaceRoute where
         toQuery ReplaceRoute'{..}

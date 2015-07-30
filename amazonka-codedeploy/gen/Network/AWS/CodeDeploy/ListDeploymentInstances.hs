@@ -131,7 +131,7 @@ instance ToJSON ListDeploymentInstances where
                "deploymentId" .= _ldiDeploymentId]
 
 instance ToPath ListDeploymentInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListDeploymentInstances where
         toQuery = const mempty

@@ -93,7 +93,7 @@ instance ToHeaders RemoveRoleFromInstanceProfile
         toHeaders = const mempty
 
 instance ToPath RemoveRoleFromInstanceProfile where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RemoveRoleFromInstanceProfile where
         toQuery RemoveRoleFromInstanceProfile'{..}

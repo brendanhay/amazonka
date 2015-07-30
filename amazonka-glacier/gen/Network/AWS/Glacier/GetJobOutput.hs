@@ -172,8 +172,10 @@ instance ToHeaders GetJobOutput where
 
 instance ToPath GetJobOutput where
         toPath GetJobOutput'{..}
-          = [toBS _gjoAccountId, "vaults", toBS _gjoVaultName,
-             "jobs", toBS _gjoJobId, "output"]
+          = mconcat
+              ["/", toBS _gjoAccountId, "/vaults/",
+               toBS _gjoVaultName, "/jobs/", toBS _gjoJobId,
+               "/output"]
 
 instance ToQuery GetJobOutput where
         toQuery = const mempty

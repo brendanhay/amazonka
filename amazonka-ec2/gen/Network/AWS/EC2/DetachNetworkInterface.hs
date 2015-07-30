@@ -93,7 +93,7 @@ instance ToHeaders DetachNetworkInterface where
         toHeaders = const mempty
 
 instance ToPath DetachNetworkInterface where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DetachNetworkInterface where
         toQuery DetachNetworkInterface'{..}

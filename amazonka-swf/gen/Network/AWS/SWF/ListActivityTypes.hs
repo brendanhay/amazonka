@@ -187,7 +187,7 @@ instance ToJSON ListActivityTypes where
                "registrationStatus" .= _latRegistrationStatus]
 
 instance ToPath ListActivityTypes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListActivityTypes where
         toQuery = const mempty

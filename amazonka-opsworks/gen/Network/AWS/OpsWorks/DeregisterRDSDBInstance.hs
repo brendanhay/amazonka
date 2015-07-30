@@ -90,7 +90,7 @@ instance ToJSON DeregisterRDSDBInstance where
               ["RdsDbInstanceArn" .= _drdiRDSDBInstanceARN]
 
 instance ToPath DeregisterRDSDBInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeregisterRDSDBInstance where
         toQuery = const mempty

@@ -198,7 +198,7 @@ instance ToHeaders ImportImage where
         toHeaders = const mempty
 
 instance ToPath ImportImage where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ImportImage where
         toQuery ImportImage'{..}

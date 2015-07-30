@@ -123,7 +123,7 @@ instance ToJSON CreateFileSystem where
           = object ["CreationToken" .= _cfsCreationToken]
 
 instance ToPath CreateFileSystem where
-        toPath = const ["2015-02-01", "file-systems"]
+        toPath = const "/2015-02-01/file-systems"
 
 instance ToQuery CreateFileSystem where
         toQuery = const mempty

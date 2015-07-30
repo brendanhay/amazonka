@@ -88,7 +88,7 @@ instance ToJSON DeleteStack where
           = object ["StackId" .= _dsStackId]
 
 instance ToPath DeleteStack where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteStack where
         toQuery = const mempty

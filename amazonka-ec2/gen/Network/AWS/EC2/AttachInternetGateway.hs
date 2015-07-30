@@ -95,7 +95,7 @@ instance ToHeaders AttachInternetGateway where
         toHeaders = const mempty
 
 instance ToPath AttachInternetGateway where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AttachInternetGateway where
         toQuery AttachInternetGateway'{..}

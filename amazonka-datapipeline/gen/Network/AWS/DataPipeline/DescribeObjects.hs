@@ -139,7 +139,7 @@ instance ToJSON DescribeObjects where
                "objectIds" .= _doObjectIds]
 
 instance ToPath DescribeObjects where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeObjects where
         toQuery = const mempty

@@ -96,7 +96,7 @@ instance ToHeaders SetStackPolicy where
         toHeaders = const mempty
 
 instance ToPath SetStackPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetStackPolicy where
         toQuery SetStackPolicy'{..}

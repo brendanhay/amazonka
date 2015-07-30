@@ -95,7 +95,7 @@ instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty
 
 instance ToPath RejectVPCPeeringConnection where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RejectVPCPeeringConnection where
         toQuery RejectVPCPeeringConnection'{..}

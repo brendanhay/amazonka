@@ -101,7 +101,7 @@ instance ToJSON ConfirmPublicVirtualInterface where
               ["virtualInterfaceId" .= _cVirtualInterfaceId]
 
 instance ToPath ConfirmPublicVirtualInterface where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ConfirmPublicVirtualInterface where
         toQuery = const mempty

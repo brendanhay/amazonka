@@ -125,8 +125,9 @@ instance ToHeaders ListDatasets where
 
 instance ToPath ListDatasets where
         toPath ListDatasets'{..}
-          = ["identitypools", toBS _ldIdentityPoolId,
-             "identities", toBS _ldIdentityId, "datasets"]
+          = mconcat
+              ["/identitypools/", toBS _ldIdentityPoolId,
+               "/identities/", toBS _ldIdentityId, "/datasets"]
 
 instance ToQuery ListDatasets where
         toQuery ListDatasets'{..}

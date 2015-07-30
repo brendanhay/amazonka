@@ -125,7 +125,7 @@ instance ToJSON AddJobFlowSteps where
                "Steps" .= _ajfsSteps]
 
 instance ToPath AddJobFlowSteps where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddJobFlowSteps where
         toQuery = const mempty

@@ -74,7 +74,7 @@ instance ToHeaders DeleteEndpoint where
         toHeaders = const mempty
 
 instance ToPath DeleteEndpoint where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteEndpoint where
         toQuery DeleteEndpoint'{..}

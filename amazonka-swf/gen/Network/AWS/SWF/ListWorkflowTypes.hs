@@ -184,7 +184,7 @@ instance ToJSON ListWorkflowTypes where
                "registrationStatus" .= _lwtRegistrationStatus]
 
 instance ToPath ListWorkflowTypes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListWorkflowTypes where
         toQuery = const mempty

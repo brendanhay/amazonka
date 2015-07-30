@@ -88,7 +88,7 @@ instance ToJSON DeleteHSM where
           = object ["HsmArn" .= _dhHSMARN]
 
 instance ToPath DeleteHSM where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteHSM where
         toQuery = const mempty

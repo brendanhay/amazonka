@@ -111,7 +111,7 @@ instance ToJSON DeleteInstance where
                "InstanceId" .= _diInstanceId]
 
 instance ToPath DeleteInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteInstance where
         toQuery = const mempty

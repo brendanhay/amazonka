@@ -81,7 +81,7 @@ instance ToHeaders DeleteSpotDatafeedSubscription
         toHeaders = const mempty
 
 instance ToPath DeleteSpotDatafeedSubscription where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSpotDatafeedSubscription where
         toQuery DeleteSpotDatafeedSubscription'{..}

@@ -108,7 +108,7 @@ instance ToHeaders GetIdentityDkimAttributes where
         toHeaders = const mempty
 
 instance ToPath GetIdentityDkimAttributes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetIdentityDkimAttributes where
         toQuery GetIdentityDkimAttributes'{..}

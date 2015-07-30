@@ -101,7 +101,7 @@ instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
 
 instance ToPath DescribeEnvironmentResources where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeEnvironmentResources where
         toQuery DescribeEnvironmentResources'{..}

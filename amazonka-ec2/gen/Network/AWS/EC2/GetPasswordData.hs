@@ -107,7 +107,7 @@ instance ToHeaders GetPasswordData where
         toHeaders = const mempty
 
 instance ToPath GetPasswordData where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetPasswordData where
         toQuery GetPasswordData'{..}

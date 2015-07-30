@@ -123,7 +123,7 @@ instance ToHeaders GetStatus where
         toHeaders = const mempty
 
 instance ToPath GetStatus where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetStatus where
         toQuery GetStatus'{..}

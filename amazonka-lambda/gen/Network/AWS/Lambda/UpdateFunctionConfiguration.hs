@@ -162,8 +162,9 @@ instance ToJSON UpdateFunctionConfiguration where
 
 instance ToPath UpdateFunctionConfiguration where
         toPath UpdateFunctionConfiguration'{..}
-          = ["2015-03-31", "functions", toBS _ufcFunctionName,
-             "versions", "HEAD", "configuration"]
+          = mconcat
+              ["/2015-03-31/functions/", toBS _ufcFunctionName,
+               "/versions/HEAD/configuration"]
 
 instance ToQuery UpdateFunctionConfiguration where
         toQuery = const mempty

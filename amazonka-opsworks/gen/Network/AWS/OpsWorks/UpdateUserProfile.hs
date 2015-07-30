@@ -123,7 +123,7 @@ instance ToJSON UpdateUserProfile where
                "IamUserArn" .= _uupIAMUserARN]
 
 instance ToPath UpdateUserProfile where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateUserProfile where
         toQuery = const mempty

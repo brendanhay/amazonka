@@ -98,7 +98,7 @@ instance ToJSON RestoreFromSnapshot where
           = object ["SnapshotId" .= _rfsSnapshotId]
 
 instance ToPath RestoreFromSnapshot where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RestoreFromSnapshot where
         toQuery = const mempty

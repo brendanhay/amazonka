@@ -201,7 +201,7 @@ instance ToJSON UpdateApp where
                "Description" .= _uaDescription, "AppId" .= _uaAppId]
 
 instance ToPath UpdateApp where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateApp where
         toQuery = const mempty

@@ -81,7 +81,7 @@ instance ToHeaders ModifySubnetAttribute where
         toHeaders = const mempty
 
 instance ToPath ModifySubnetAttribute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifySubnetAttribute where
         toQuery ModifySubnetAttribute'{..}

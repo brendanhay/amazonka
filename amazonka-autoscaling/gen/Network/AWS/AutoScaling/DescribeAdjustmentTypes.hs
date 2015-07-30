@@ -67,7 +67,7 @@ instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
 
 instance ToPath DescribeAdjustmentTypes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAdjustmentTypes where
         toQuery

@@ -116,7 +116,7 @@ instance ToHeaders DescribeResize where
         toHeaders = const mempty
 
 instance ToPath DescribeResize where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeResize where
         toQuery DescribeResize'{..}

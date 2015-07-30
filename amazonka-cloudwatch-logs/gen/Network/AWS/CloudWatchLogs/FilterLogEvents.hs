@@ -188,7 +188,7 @@ instance ToJSON FilterLogEvents where
                "logGroupName" .= _fleLogGroupName]
 
 instance ToPath FilterLogEvents where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery FilterLogEvents where
         toQuery = const mempty

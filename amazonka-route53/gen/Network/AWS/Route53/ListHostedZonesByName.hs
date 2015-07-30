@@ -143,7 +143,7 @@ instance ToHeaders ListHostedZonesByName where
         toHeaders = const mempty
 
 instance ToPath ListHostedZonesByName where
-        toPath = const ["2013-04-01", "hostedzonesbyname"]
+        toPath = const "/2013-04-01/hostedzonesbyname"
 
 instance ToQuery ListHostedZonesByName where
         toQuery ListHostedZonesByName'{..}

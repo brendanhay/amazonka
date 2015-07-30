@@ -129,7 +129,7 @@ instance ToJSON RespondDecisionTaskCompleted where
                "taskToken" .= _rdtcTaskToken]
 
 instance ToPath RespondDecisionTaskCompleted where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RespondDecisionTaskCompleted where
         toQuery = const mempty

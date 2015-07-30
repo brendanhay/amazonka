@@ -82,7 +82,7 @@ instance ToHeaders ListQueues where
         toHeaders = const mempty
 
 instance ToPath ListQueues where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListQueues where
         toQuery ListQueues'{..}

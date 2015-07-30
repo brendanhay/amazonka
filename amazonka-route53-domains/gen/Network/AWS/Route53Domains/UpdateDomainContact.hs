@@ -163,7 +163,7 @@ instance ToJSON UpdateDomainContact where
                "DomainName" .= _udcDomainName]
 
 instance ToPath UpdateDomainContact where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateDomainContact where
         toQuery = const mempty

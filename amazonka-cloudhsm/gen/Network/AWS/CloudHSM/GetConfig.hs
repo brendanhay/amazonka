@@ -114,7 +114,7 @@ instance ToJSON GetConfig where
                "HapgList" .= _gcHAPGList]
 
 instance ToPath GetConfig where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetConfig where
         toQuery = const mempty

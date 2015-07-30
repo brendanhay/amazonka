@@ -113,7 +113,7 @@ instance ToJSON RebuildWorkspaces where
                  _rwRebuildWorkspaceRequests]
 
 instance ToPath RebuildWorkspaces where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RebuildWorkspaces where
         toQuery = const mempty

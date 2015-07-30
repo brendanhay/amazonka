@@ -185,7 +185,7 @@ instance ToJSON ListApplicationRevisions where
                "applicationName" .= _larApplicationName]
 
 instance ToPath ListApplicationRevisions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListApplicationRevisions where
         toQuery = const mempty

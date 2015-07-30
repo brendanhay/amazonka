@@ -115,7 +115,7 @@ instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
 
 instance ToPath GetGeoLocation where
-        toPath = const ["2013-04-01", "geolocation"]
+        toPath = const "/2013-04-01/geolocation"
 
 instance ToQuery GetGeoLocation where
         toQuery GetGeoLocation'{..}

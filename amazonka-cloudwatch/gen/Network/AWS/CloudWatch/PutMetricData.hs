@@ -96,7 +96,7 @@ instance ToHeaders PutMetricData where
         toHeaders = const mempty
 
 instance ToPath PutMetricData where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutMetricData where
         toQuery PutMetricData'{..}

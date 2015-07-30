@@ -169,7 +169,7 @@ instance ToJSON GetResourceConfigHistory where
                "resourceId" .= _grchResourceId]
 
 instance ToPath GetResourceConfigHistory where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetResourceConfigHistory where
         toQuery = const mempty

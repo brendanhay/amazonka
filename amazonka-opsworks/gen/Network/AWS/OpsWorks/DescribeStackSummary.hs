@@ -96,7 +96,7 @@ instance ToJSON DescribeStackSummary where
           = object ["StackId" .= _dssStackId]
 
 instance ToPath DescribeStackSummary where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeStackSummary where
         toQuery = const mempty

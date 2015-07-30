@@ -168,7 +168,7 @@ instance ToHeaders PutScheduledUpdateGroupAction
         toHeaders = const mempty
 
 instance ToPath PutScheduledUpdateGroupAction where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutScheduledUpdateGroupAction where
         toQuery PutScheduledUpdateGroupAction'{..}

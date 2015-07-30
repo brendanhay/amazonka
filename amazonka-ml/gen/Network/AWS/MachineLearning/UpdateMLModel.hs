@@ -117,7 +117,7 @@ instance ToJSON UpdateMLModel where
                "MLModelId" .= _umlmMLModelId]
 
 instance ToPath UpdateMLModel where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateMLModel where
         toQuery = const mempty

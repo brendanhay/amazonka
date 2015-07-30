@@ -94,7 +94,7 @@ instance ToHeaders CreateRouteTable where
         toHeaders = const mempty
 
 instance ToPath CreateRouteTable where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateRouteTable where
         toQuery CreateRouteTable'{..}

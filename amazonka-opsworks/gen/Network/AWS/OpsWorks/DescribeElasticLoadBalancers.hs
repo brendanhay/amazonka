@@ -112,7 +112,7 @@ instance ToJSON DescribeElasticLoadBalancers where
                "StackId" .= _delbStackId]
 
 instance ToPath DescribeElasticLoadBalancers where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeElasticLoadBalancers where
         toQuery = const mempty

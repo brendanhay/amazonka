@@ -99,7 +99,7 @@ instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty
 
 instance ToPath DescribeLoadBalancerPolicies where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeLoadBalancerPolicies where
         toQuery DescribeLoadBalancerPolicies'{..}

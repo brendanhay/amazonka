@@ -91,7 +91,7 @@ instance ToHeaders AttachRolePolicy where
         toHeaders = const mempty
 
 instance ToPath AttachRolePolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AttachRolePolicy where
         toQuery AttachRolePolicy'{..}

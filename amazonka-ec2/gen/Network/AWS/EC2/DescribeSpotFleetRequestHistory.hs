@@ -149,7 +149,7 @@ instance ToHeaders DescribeSpotFleetRequestHistory
         toHeaders = const mempty
 
 instance ToPath DescribeSpotFleetRequestHistory where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeSpotFleetRequestHistory
          where

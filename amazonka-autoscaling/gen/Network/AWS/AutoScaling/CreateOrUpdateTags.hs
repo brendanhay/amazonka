@@ -86,7 +86,7 @@ instance ToHeaders CreateOrUpdateTags where
         toHeaders = const mempty
 
 instance ToPath CreateOrUpdateTags where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateOrUpdateTags where
         toQuery CreateOrUpdateTags'{..}

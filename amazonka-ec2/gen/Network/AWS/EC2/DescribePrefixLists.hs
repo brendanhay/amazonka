@@ -136,7 +136,7 @@ instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
 
 instance ToPath DescribePrefixLists where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribePrefixLists where
         toQuery DescribePrefixLists'{..}

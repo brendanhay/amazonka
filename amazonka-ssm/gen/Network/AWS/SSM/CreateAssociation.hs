@@ -107,7 +107,7 @@ instance ToJSON CreateAssociation where
               ["Name" .= _caName, "InstanceId" .= _caInstanceId]
 
 instance ToPath CreateAssociation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateAssociation where
         toQuery = const mempty

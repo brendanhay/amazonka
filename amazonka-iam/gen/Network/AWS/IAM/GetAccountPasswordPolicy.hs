@@ -67,7 +67,7 @@ instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
 
 instance ToPath GetAccountPasswordPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetAccountPasswordPolicy where
         toQuery

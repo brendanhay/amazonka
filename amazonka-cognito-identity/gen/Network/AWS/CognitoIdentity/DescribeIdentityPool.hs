@@ -93,7 +93,7 @@ instance ToJSON DescribeIdentityPool where
           = object ["IdentityPoolId" .= _dipIdentityPoolId]
 
 instance ToPath DescribeIdentityPool where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeIdentityPool where
         toQuery = const mempty

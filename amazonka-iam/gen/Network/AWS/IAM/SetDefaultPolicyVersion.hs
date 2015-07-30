@@ -94,7 +94,7 @@ instance ToHeaders SetDefaultPolicyVersion where
         toHeaders = const mempty
 
 instance ToPath SetDefaultPolicyVersion where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetDefaultPolicyVersion where
         toQuery SetDefaultPolicyVersion'{..}

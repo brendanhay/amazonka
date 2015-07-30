@@ -99,7 +99,7 @@ instance ToJSON ResetCache where
           = object ["GatewayARN" .= _rcGatewayARN]
 
 instance ToPath ResetCache where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ResetCache where
         toQuery = const mempty

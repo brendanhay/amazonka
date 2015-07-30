@@ -109,7 +109,7 @@ instance ToHeaders DescribeRegions where
         toHeaders = const mempty
 
 instance ToPath DescribeRegions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeRegions where
         toQuery DescribeRegions'{..}

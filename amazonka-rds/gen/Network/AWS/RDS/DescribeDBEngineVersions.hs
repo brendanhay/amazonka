@@ -173,7 +173,7 @@ instance ToHeaders DescribeDBEngineVersions where
         toHeaders = const mempty
 
 instance ToPath DescribeDBEngineVersions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeDBEngineVersions where
         toQuery DescribeDBEngineVersions'{..}

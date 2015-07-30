@@ -101,7 +101,7 @@ instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty
 
 instance ToPath ModifyClusterSubnetGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifyClusterSubnetGroup where
         toQuery ModifyClusterSubnetGroup'{..}

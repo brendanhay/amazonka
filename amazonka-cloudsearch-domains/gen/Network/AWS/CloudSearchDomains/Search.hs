@@ -501,7 +501,7 @@ instance ToHeaders Search where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToPath Search where
-        toPath = const ["2013-01-01", "search"]
+        toPath = const "/2013-01-01/search"
 
 instance ToQuery Search where
         toQuery Search'{..}

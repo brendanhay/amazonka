@@ -104,7 +104,7 @@ instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty
 
 instance ToPath ConfirmProductInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ConfirmProductInstance where
         toQuery ConfirmProductInstance'{..}

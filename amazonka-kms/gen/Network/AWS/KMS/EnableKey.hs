@@ -86,7 +86,7 @@ instance ToJSON EnableKey where
         toJSON EnableKey'{..} = object ["KeyId" .= _ekKeyId]
 
 instance ToPath EnableKey where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery EnableKey where
         toQuery = const mempty

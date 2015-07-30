@@ -127,7 +127,7 @@ instance ToHeaders ListRolePolicies where
         toHeaders = const mempty
 
 instance ToPath ListRolePolicies where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListRolePolicies where
         toQuery ListRolePolicies'{..}

@@ -96,7 +96,8 @@ instance ToHeaders PutBucketTagging where
           = mconcat ["Content-MD5" =# _pbtContentMD5]
 
 instance ToPath PutBucketTagging where
-        toPath PutBucketTagging'{..} = [toBS _pbtBucket]
+        toPath PutBucketTagging'{..}
+          = mconcat ["/", toBS _pbtBucket]
 
 instance ToQuery PutBucketTagging where
         toQuery = const (mconcat ["tagging"])

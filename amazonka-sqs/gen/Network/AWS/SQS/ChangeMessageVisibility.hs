@@ -126,7 +126,7 @@ instance ToHeaders ChangeMessageVisibility where
         toHeaders = const mempty
 
 instance ToPath ChangeMessageVisibility where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ChangeMessageVisibility where
         toQuery ChangeMessageVisibility'{..}

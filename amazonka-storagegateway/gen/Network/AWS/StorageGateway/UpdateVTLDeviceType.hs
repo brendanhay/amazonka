@@ -107,7 +107,7 @@ instance ToJSON UpdateVTLDeviceType where
                "DeviceType" .= _uvtldtDeviceType]
 
 instance ToPath UpdateVTLDeviceType where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateVTLDeviceType where
         toQuery = const mempty

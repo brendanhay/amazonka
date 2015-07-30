@@ -140,7 +140,7 @@ instance ToHeaders CompleteMultipartUpload where
 
 instance ToPath CompleteMultipartUpload where
         toPath CompleteMultipartUpload'{..}
-          = [toBS _cBucket, toBS _cKey]
+          = mconcat ["/", toBS _cBucket, "/", toBS _cKey]
 
 instance ToQuery CompleteMultipartUpload where
         toQuery CompleteMultipartUpload'{..}

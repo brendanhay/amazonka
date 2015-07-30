@@ -88,7 +88,7 @@ instance ToJSON UnassignVolume where
           = object ["VolumeId" .= _uvVolumeId]
 
 instance ToPath UnassignVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UnassignVolume where
         toQuery = const mempty

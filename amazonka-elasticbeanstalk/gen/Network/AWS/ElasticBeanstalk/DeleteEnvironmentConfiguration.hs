@@ -93,7 +93,7 @@ instance ToHeaders DeleteEnvironmentConfiguration
         toHeaders = const mempty
 
 instance ToPath DeleteEnvironmentConfiguration where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteEnvironmentConfiguration where
         toQuery DeleteEnvironmentConfiguration'{..}

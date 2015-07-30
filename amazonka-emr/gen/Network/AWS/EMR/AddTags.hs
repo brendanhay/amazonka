@@ -103,7 +103,7 @@ instance ToJSON AddTags where
               ["ResourceId" .= _atResourceId, "Tags" .= _atTags]
 
 instance ToPath AddTags where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddTags where
         toQuery = const mempty

@@ -111,7 +111,7 @@ instance ToHeaders DeleteAttributes where
         toHeaders = const mempty
 
 instance ToPath DeleteAttributes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteAttributes where
         toQuery DeleteAttributes'{..}

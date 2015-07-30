@@ -190,7 +190,7 @@ instance ToJSON CreateDeploymentGroup where
                "serviceRoleArn" .= _cdgServiceRoleARN]
 
 instance ToPath CreateDeploymentGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDeploymentGroup where
         toQuery = const mempty

@@ -100,7 +100,7 @@ instance ToHeaders UpdateSigningCertificate where
         toHeaders = const mempty
 
 instance ToPath UpdateSigningCertificate where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateSigningCertificate where
         toQuery UpdateSigningCertificate'{..}

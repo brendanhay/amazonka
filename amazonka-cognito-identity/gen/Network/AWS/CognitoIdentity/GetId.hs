@@ -123,7 +123,7 @@ instance ToJSON GetId where
                "IdentityPoolId" .= _giIdentityPoolId]
 
 instance ToPath GetId where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetId where
         toQuery = const mempty

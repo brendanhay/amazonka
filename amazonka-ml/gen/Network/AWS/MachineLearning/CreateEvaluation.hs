@@ -140,7 +140,7 @@ instance ToJSON CreateEvaluation where
                  _ceEvaluationDataSourceId]
 
 instance ToPath CreateEvaluation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateEvaluation where
         toQuery = const mempty

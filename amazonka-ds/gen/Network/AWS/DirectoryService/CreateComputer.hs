@@ -136,7 +136,7 @@ instance ToJSON CreateComputer where
                "Password" .= _ccPassword]
 
 instance ToPath CreateComputer where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateComputer where
         toQuery = const mempty

@@ -243,7 +243,7 @@ instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
 
 instance ToPath AssumeRoleWithWebIdentity where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AssumeRoleWithWebIdentity where
         toQuery AssumeRoleWithWebIdentity'{..}

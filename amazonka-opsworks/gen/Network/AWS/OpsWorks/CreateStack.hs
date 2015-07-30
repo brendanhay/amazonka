@@ -414,7 +414,7 @@ instance ToJSON CreateStack where
                  _csDefaultInstanceProfileARN]
 
 instance ToPath CreateStack where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateStack where
         toQuery = const mempty

@@ -125,7 +125,7 @@ instance ToHeaders ListUsers where
         toHeaders = const mempty
 
 instance ToPath ListUsers where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListUsers where
         toQuery ListUsers'{..}

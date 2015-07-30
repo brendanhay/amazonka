@@ -120,7 +120,7 @@ instance ToJSON ConfirmPrivateVirtualInterface where
                "virtualGatewayId" .= _cpviVirtualGatewayId]
 
 instance ToPath ConfirmPrivateVirtualInterface where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ConfirmPrivateVirtualInterface where
         toQuery = const mempty

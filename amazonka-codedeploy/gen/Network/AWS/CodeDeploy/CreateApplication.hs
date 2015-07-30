@@ -91,7 +91,7 @@ instance ToJSON CreateApplication where
           = object ["applicationName" .= _caApplicationName]
 
 instance ToPath CreateApplication where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateApplication where
         toQuery = const mempty

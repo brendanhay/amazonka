@@ -136,7 +136,7 @@ instance ToHeaders DescribeInstanceAttribute where
         toHeaders = const mempty
 
 instance ToPath DescribeInstanceAttribute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeInstanceAttribute where
         toQuery DescribeInstanceAttribute'{..}

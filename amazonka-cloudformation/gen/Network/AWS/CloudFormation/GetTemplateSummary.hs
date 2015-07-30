@@ -142,7 +142,7 @@ instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
 
 instance ToPath GetTemplateSummary where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetTemplateSummary where
         toQuery GetTemplateSummary'{..}

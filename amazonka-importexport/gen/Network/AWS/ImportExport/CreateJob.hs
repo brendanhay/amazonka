@@ -132,7 +132,7 @@ instance ToHeaders CreateJob where
         toHeaders = const mempty
 
 instance ToPath CreateJob where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateJob where
         toQuery CreateJob'{..}

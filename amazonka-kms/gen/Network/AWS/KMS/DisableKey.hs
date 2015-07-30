@@ -85,7 +85,7 @@ instance ToJSON DisableKey where
         toJSON DisableKey'{..} = object ["KeyId" .= _dkKeyId]
 
 instance ToPath DisableKey where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisableKey where
         toQuery = const mempty

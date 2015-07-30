@@ -90,7 +90,7 @@ instance ToJSON GetSnapshotLimits where
           = object ["DirectoryId" .= _gslDirectoryId]
 
 instance ToPath GetSnapshotLimits where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetSnapshotLimits where
         toQuery = const mempty

@@ -128,7 +128,7 @@ instance ToJSON UpdateBandwidthRateLimit where
                "GatewayARN" .= _ubrlGatewayARN]
 
 instance ToPath UpdateBandwidthRateLimit where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateBandwidthRateLimit where
         toQuery = const mempty

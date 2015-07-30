@@ -91,7 +91,7 @@ instance ToHeaders DisableVPCClassicLink where
         toHeaders = const mempty
 
 instance ToPath DisableVPCClassicLink where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisableVPCClassicLink where
         toQuery DisableVPCClassicLink'{..}

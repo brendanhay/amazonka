@@ -74,7 +74,7 @@ instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
 
 instance ToPath DescribeAccountAttributes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAccountAttributes where
         toQuery

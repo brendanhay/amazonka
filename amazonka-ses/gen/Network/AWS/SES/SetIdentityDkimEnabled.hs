@@ -106,7 +106,7 @@ instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty
 
 instance ToPath SetIdentityDkimEnabled where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetIdentityDkimEnabled where
         toQuery SetIdentityDkimEnabled'{..}

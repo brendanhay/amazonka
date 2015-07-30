@@ -96,7 +96,7 @@ instance ToHeaders DefineSuggester where
         toHeaders = const mempty
 
 instance ToPath DefineSuggester where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DefineSuggester where
         toQuery DefineSuggester'{..}

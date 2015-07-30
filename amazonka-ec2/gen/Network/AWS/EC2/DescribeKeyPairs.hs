@@ -111,7 +111,7 @@ instance ToHeaders DescribeKeyPairs where
         toHeaders = const mempty
 
 instance ToPath DescribeKeyPairs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeKeyPairs where
         toQuery DescribeKeyPairs'{..}

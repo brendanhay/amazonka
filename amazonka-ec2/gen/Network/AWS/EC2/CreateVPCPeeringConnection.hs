@@ -123,7 +123,7 @@ instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty
 
 instance ToPath CreateVPCPeeringConnection where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateVPCPeeringConnection where
         toQuery CreateVPCPeeringConnection'{..}

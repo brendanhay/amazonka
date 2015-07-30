@@ -111,7 +111,7 @@ instance ToJSON DiscoverPollEndpoint where
                "containerInstance" .= _dpeContainerInstance]
 
 instance ToPath DiscoverPollEndpoint where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DiscoverPollEndpoint where
         toQuery = const mempty

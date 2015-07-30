@@ -103,7 +103,7 @@ instance ToJSON CancelArchival where
                "TapeARN" .= _caTapeARN]
 
 instance ToPath CancelArchival where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CancelArchival where
         toQuery = const mempty

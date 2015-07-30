@@ -156,7 +156,7 @@ instance ToJSON LookupEvents where
                "MaxResults" .= _leMaxResults]
 
 instance ToPath LookupEvents where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery LookupEvents where
         toQuery = const mempty

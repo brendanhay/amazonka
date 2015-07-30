@@ -103,7 +103,7 @@ instance ToJSON GetPipeline where
           = object ["version" .= _gpVersion, "name" .= _gpName]
 
 instance ToPath GetPipeline where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetPipeline where
         toQuery = const mempty

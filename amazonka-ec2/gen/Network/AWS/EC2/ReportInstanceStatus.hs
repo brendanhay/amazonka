@@ -162,7 +162,7 @@ instance ToHeaders ReportInstanceStatus where
         toHeaders = const mempty
 
 instance ToPath ReportInstanceStatus where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ReportInstanceStatus where
         toQuery ReportInstanceStatus'{..}

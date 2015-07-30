@@ -125,7 +125,7 @@ instance ToJSON DeleteTagsForDomain where
                "TagsToDelete" .= _dtfdTagsToDelete]
 
 instance ToPath DeleteTagsForDomain where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteTagsForDomain where
         toQuery = const mempty

@@ -112,7 +112,7 @@ instance ToJSON UpdateGatewayInformation where
                "GatewayARN" .= _ugiGatewayARN]
 
 instance ToPath UpdateGatewayInformation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateGatewayInformation where
         toQuery = const mempty

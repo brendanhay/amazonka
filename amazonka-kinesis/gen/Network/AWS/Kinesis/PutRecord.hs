@@ -189,7 +189,7 @@ instance ToJSON PutRecord where
                "PartitionKey" .= _prPartitionKey]
 
 instance ToPath PutRecord where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutRecord where
         toQuery = const mempty

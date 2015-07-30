@@ -154,7 +154,7 @@ instance ToJSON Encrypt where
                "Plaintext" .= _ePlaintext]
 
 instance ToPath Encrypt where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery Encrypt where
         toQuery = const mempty

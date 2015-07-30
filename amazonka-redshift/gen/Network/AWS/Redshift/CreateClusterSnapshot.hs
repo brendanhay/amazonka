@@ -113,7 +113,7 @@ instance ToHeaders CreateClusterSnapshot where
         toHeaders = const mempty
 
 instance ToPath CreateClusterSnapshot where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateClusterSnapshot where
         toQuery CreateClusterSnapshot'{..}

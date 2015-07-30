@@ -83,7 +83,7 @@ instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
 
 instance ToPath GetAccessKeyLastUsed where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetAccessKeyLastUsed where
         toQuery GetAccessKeyLastUsed'{..}

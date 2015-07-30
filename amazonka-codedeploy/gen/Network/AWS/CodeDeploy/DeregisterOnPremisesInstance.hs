@@ -86,7 +86,7 @@ instance ToJSON DeregisterOnPremisesInstance where
           = object ["instanceName" .= _dopiInstanceName]
 
 instance ToPath DeregisterOnPremisesInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeregisterOnPremisesInstance where
         toQuery = const mempty

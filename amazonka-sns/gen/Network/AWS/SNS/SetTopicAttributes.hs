@@ -94,7 +94,7 @@ instance ToHeaders SetTopicAttributes where
         toHeaders = const mempty
 
 instance ToPath SetTopicAttributes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetTopicAttributes where
         toQuery SetTopicAttributes'{..}

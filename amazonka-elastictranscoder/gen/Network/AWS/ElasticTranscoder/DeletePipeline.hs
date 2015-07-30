@@ -82,7 +82,7 @@ instance ToHeaders DeletePipeline where
 
 instance ToPath DeletePipeline where
         toPath DeletePipeline'{..}
-          = ["2012-09-25", "pipelines", toBS _dId]
+          = mconcat ["/2012-09-25/pipelines/", toBS _dId]
 
 instance ToQuery DeletePipeline where
         toQuery = const mempty

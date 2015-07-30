@@ -108,7 +108,7 @@ instance ToJSON PollForThirdPartyJobs where
                "actionTypeId" .= _pftpjActionTypeId]
 
 instance ToPath PollForThirdPartyJobs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PollForThirdPartyJobs where
         toQuery = const mempty

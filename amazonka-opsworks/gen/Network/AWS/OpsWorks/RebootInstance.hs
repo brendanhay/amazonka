@@ -87,7 +87,7 @@ instance ToJSON RebootInstance where
           = object ["InstanceId" .= _riInstanceId]
 
 instance ToPath RebootInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RebootInstance where
         toQuery = const mempty

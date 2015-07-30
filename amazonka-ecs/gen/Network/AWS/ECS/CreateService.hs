@@ -165,7 +165,7 @@ instance ToJSON CreateService where
                "desiredCount" .= _cDesiredCount]
 
 instance ToPath CreateService where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateService where
         toQuery = const mempty

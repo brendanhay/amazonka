@@ -93,8 +93,9 @@ instance ToHeaders DescribeMountTargetSecurityGroups
 instance ToPath DescribeMountTargetSecurityGroups
          where
         toPath DescribeMountTargetSecurityGroups'{..}
-          = ["2015-02-01", "mount-targets",
-             toBS _dmtsgMountTargetId, "security-groups"]
+          = mconcat
+              ["/2015-02-01/mount-targets/",
+               toBS _dmtsgMountTargetId, "/security-groups"]
 
 instance ToQuery DescribeMountTargetSecurityGroups
          where

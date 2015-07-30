@@ -137,7 +137,7 @@ instance ToJSON SetPermission where
                "IamUserArn" .= _spIAMUserARN]
 
 instance ToPath SetPermission where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetPermission where
         toQuery = const mempty

@@ -145,7 +145,7 @@ instance ToHeaders CreateImage where
         toHeaders = const mempty
 
 instance ToPath CreateImage where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateImage where
         toQuery CreateImage'{..}

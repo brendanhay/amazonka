@@ -98,8 +98,9 @@ instance ToHeaders GetFunctionConfiguration where
 
 instance ToPath GetFunctionConfiguration where
         toPath GetFunctionConfiguration'{..}
-          = ["2015-03-31", "functions", toBS _gfcFunctionName,
-             "versions", "HEAD", "configuration"]
+          = mconcat
+              ["/2015-03-31/functions/", toBS _gfcFunctionName,
+               "/versions/HEAD/configuration"]
 
 instance ToQuery GetFunctionConfiguration where
         toQuery = const mempty

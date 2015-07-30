@@ -117,7 +117,8 @@ instance ToHeaders ListJobsByStatus where
 
 instance ToPath ListJobsByStatus where
         toPath ListJobsByStatus'{..}
-          = ["2012-09-25", "jobsByStatus", toBS _ljbsStatus]
+          = mconcat
+              ["/2012-09-25/jobsByStatus/", toBS _ljbsStatus]
 
 instance ToQuery ListJobsByStatus where
         toQuery ListJobsByStatus'{..}

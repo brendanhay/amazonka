@@ -115,7 +115,7 @@ instance ToHeaders RebootDBInstance where
         toHeaders = const mempty
 
 instance ToPath RebootDBInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RebootDBInstance where
         toQuery RebootDBInstance'{..}

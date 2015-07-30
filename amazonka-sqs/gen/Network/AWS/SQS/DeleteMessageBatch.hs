@@ -104,7 +104,7 @@ instance ToHeaders DeleteMessageBatch where
         toHeaders = const mempty
 
 instance ToPath DeleteMessageBatch where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteMessageBatch where
         toQuery DeleteMessageBatch'{..}

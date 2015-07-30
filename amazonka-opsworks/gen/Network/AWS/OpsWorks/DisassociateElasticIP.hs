@@ -90,7 +90,7 @@ instance ToJSON DisassociateElasticIP where
           = object ["ElasticIp" .= _deiElasticIP]
 
 instance ToPath DisassociateElasticIP where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisassociateElasticIP where
         toQuery = const mempty

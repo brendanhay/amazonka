@@ -103,7 +103,7 @@ instance ToHeaders CreateHSMClientCertificate where
         toHeaders = const mempty
 
 instance ToPath CreateHSMClientCertificate where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateHSMClientCertificate where
         toQuery CreateHSMClientCertificate'{..}

@@ -97,7 +97,7 @@ instance ToJSON RevokeGrant where
           = object ["KeyId" .= _rKeyId, "GrantId" .= _rGrantId]
 
 instance ToPath RevokeGrant where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RevokeGrant where
         toQuery = const mempty

@@ -126,7 +126,7 @@ instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
 
 instance ToPath CopyDBParameterGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CopyDBParameterGroup where
         toQuery CopyDBParameterGroup'{..}

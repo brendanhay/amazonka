@@ -107,7 +107,7 @@ instance ToJSON DeprecateDomain where
           = object ["name" .= _dName]
 
 instance ToPath DeprecateDomain where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeprecateDomain where
         toQuery = const mempty

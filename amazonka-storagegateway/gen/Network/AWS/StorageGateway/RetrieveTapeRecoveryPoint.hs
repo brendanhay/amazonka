@@ -111,7 +111,7 @@ instance ToJSON RetrieveTapeRecoveryPoint where
                "GatewayARN" .= _rtrpGatewayARN]
 
 instance ToPath RetrieveTapeRecoveryPoint where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RetrieveTapeRecoveryPoint where
         toQuery = const mempty

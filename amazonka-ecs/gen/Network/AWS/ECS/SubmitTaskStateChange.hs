@@ -123,7 +123,7 @@ instance ToJSON SubmitTaskStateChange where
                "reason" .= _stscReason, "task" .= _stscTask]
 
 instance ToPath SubmitTaskStateChange where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SubmitTaskStateChange where
         toQuery = const mempty

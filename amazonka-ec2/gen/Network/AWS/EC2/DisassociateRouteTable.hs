@@ -91,7 +91,7 @@ instance ToHeaders DisassociateRouteTable where
         toHeaders = const mempty
 
 instance ToPath DisassociateRouteTable where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisassociateRouteTable where
         toQuery DisassociateRouteTable'{..}

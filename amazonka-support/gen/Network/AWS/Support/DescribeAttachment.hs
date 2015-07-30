@@ -94,7 +94,7 @@ instance ToJSON DescribeAttachment where
           = object ["attachmentId" .= _daAttachmentId]
 
 instance ToPath DescribeAttachment where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAttachment where
         toQuery = const mempty

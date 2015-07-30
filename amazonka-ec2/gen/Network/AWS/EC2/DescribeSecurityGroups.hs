@@ -165,7 +165,7 @@ instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeSecurityGroups where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeSecurityGroups where
         toQuery DescribeSecurityGroups'{..}

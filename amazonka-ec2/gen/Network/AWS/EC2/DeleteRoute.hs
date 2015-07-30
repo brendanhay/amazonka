@@ -92,7 +92,7 @@ instance ToHeaders DeleteRoute where
         toHeaders = const mempty
 
 instance ToPath DeleteRoute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteRoute where
         toQuery DeleteRoute'{..}

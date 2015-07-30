@@ -94,7 +94,7 @@ instance ToJSON ListTagsForDomain where
           = object ["DomainName" .= _ltfdDomainName]
 
 instance ToPath ListTagsForDomain where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListTagsForDomain where
         toQuery = const mempty

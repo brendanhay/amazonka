@@ -80,7 +80,7 @@ instance ToHeaders DeleteScheduledAction where
         toHeaders = const mempty
 
 instance ToPath DeleteScheduledAction where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteScheduledAction where
         toQuery DeleteScheduledAction'{..}

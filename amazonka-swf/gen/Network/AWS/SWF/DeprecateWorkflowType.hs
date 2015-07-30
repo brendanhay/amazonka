@@ -123,7 +123,7 @@ instance ToJSON DeprecateWorkflowType where
                "workflowType" .= _dWorkflowType]
 
 instance ToPath DeprecateWorkflowType where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeprecateWorkflowType where
         toQuery = const mempty

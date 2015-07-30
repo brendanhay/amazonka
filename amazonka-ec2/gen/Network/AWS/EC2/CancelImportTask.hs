@@ -102,7 +102,7 @@ instance ToHeaders CancelImportTask where
         toHeaders = const mempty
 
 instance ToPath CancelImportTask where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CancelImportTask where
         toQuery CancelImportTask'{..}

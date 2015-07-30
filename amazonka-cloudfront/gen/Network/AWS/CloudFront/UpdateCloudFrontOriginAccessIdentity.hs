@@ -115,8 +115,9 @@ instance ToHeaders
 instance ToPath UpdateCloudFrontOriginAccessIdentity
          where
         toPath UpdateCloudFrontOriginAccessIdentity'{..}
-          = ["2015-04-17", "origin-access-identity",
-             "cloudfront", toBS _ucfoaiId, "config"]
+          = mconcat
+              ["/2015-04-17/origin-access-identity/cloudfront/",
+               toBS _ucfoaiId, "/config"]
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity
          where

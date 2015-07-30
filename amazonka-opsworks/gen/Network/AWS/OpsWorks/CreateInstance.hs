@@ -310,7 +310,7 @@ instance ToJSON CreateInstance where
                "InstanceType" .= _ciInstanceType]
 
 instance ToPath CreateInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateInstance where
         toQuery = const mempty

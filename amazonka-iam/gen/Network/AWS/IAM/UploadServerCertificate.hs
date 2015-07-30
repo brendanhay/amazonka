@@ -145,7 +145,7 @@ instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
 
 instance ToPath UploadServerCertificate where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UploadServerCertificate where
         toQuery UploadServerCertificate'{..}

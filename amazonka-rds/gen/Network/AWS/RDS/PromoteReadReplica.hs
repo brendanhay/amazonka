@@ -130,7 +130,7 @@ instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty
 
 instance ToPath PromoteReadReplica where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PromoteReadReplica where
         toQuery PromoteReadReplica'{..}

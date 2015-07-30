@@ -95,7 +95,7 @@ instance ToHeaders DeleteHostedZone where
 
 instance ToPath DeleteHostedZone where
         toPath DeleteHostedZone'{..}
-          = ["2013-04-01", "hostedzone", toBS _dhzId]
+          = mconcat ["/2013-04-01/hostedzone/", toBS _dhzId]
 
 instance ToQuery DeleteHostedZone where
         toQuery = const mempty

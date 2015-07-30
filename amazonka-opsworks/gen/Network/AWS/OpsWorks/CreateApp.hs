@@ -225,7 +225,7 @@ instance ToJSON CreateApp where
                "Type" .= _caType]
 
 instance ToPath CreateApp where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateApp where
         toQuery = const mempty

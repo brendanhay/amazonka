@@ -184,7 +184,7 @@ instance ToJSON CreateStorediSCSIVolume where
                "NetworkInterfaceId" .= _csscsivNetworkInterfaceId]
 
 instance ToPath CreateStorediSCSIVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateStorediSCSIVolume where
         toQuery = const mempty

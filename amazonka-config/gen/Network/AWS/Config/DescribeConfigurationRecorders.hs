@@ -100,7 +100,7 @@ instance ToJSON DescribeConfigurationRecorders where
                  _dcrConfigurationRecorderNames]
 
 instance ToPath DescribeConfigurationRecorders where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeConfigurationRecorders where
         toQuery = const mempty

@@ -110,7 +110,8 @@ instance ToHeaders PutBucketVersioning where
                "Content-MD5" =# _pbvContentMD5]
 
 instance ToPath PutBucketVersioning where
-        toPath PutBucketVersioning'{..} = [toBS _pbvBucket]
+        toPath PutBucketVersioning'{..}
+          = mconcat ["/", toBS _pbvBucket]
 
 instance ToQuery PutBucketVersioning where
         toQuery = const (mconcat ["versioning"])

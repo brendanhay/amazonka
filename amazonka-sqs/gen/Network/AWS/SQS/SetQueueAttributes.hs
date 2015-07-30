@@ -117,7 +117,7 @@ instance ToHeaders SetQueueAttributes where
         toHeaders = const mempty
 
 instance ToPath SetQueueAttributes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetQueueAttributes where
         toQuery SetQueueAttributes'{..}

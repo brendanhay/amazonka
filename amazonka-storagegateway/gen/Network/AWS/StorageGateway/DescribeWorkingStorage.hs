@@ -107,7 +107,7 @@ instance ToJSON DescribeWorkingStorage where
           = object ["GatewayARN" .= _dwsGatewayARN]
 
 instance ToPath DescribeWorkingStorage where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeWorkingStorage where
         toQuery = const mempty

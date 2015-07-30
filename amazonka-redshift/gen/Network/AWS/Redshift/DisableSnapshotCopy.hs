@@ -90,7 +90,7 @@ instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty
 
 instance ToPath DisableSnapshotCopy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisableSnapshotCopy where
         toQuery DisableSnapshotCopy'{..}

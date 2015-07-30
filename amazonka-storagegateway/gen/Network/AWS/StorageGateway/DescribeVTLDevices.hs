@@ -145,7 +145,7 @@ instance ToJSON DescribeVTLDevices where
                "GatewayARN" .= _dvtldGatewayARN]
 
 instance ToPath DescribeVTLDevices where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeVTLDevices where
         toQuery = const mempty

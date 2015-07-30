@@ -138,7 +138,7 @@ instance ToHeaders CreateClusterParameterGroup where
         toHeaders = const mempty
 
 instance ToPath CreateClusterParameterGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateClusterParameterGroup where
         toQuery CreateClusterParameterGroup'{..}

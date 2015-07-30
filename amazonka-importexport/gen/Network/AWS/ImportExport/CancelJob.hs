@@ -89,7 +89,7 @@ instance ToHeaders CancelJob where
         toHeaders = const mempty
 
 instance ToPath CancelJob where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CancelJob where
         toQuery CancelJob'{..}

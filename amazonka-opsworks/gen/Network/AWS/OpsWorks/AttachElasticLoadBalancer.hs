@@ -109,7 +109,7 @@ instance ToJSON AttachElasticLoadBalancer where
                "LayerId" .= _aelbLayerId]
 
 instance ToPath AttachElasticLoadBalancer where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AttachElasticLoadBalancer where
         toQuery = const mempty

@@ -124,7 +124,7 @@ instance ToJSON UnlinkDeveloperIdentity where
                  _udiDeveloperUserIdentifier]
 
 instance ToPath UnlinkDeveloperIdentity where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UnlinkDeveloperIdentity where
         toQuery = const mempty

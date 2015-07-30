@@ -85,7 +85,7 @@ instance ToJSON DeleteRetentionPolicy where
           = object ["logGroupName" .= _drpLogGroupName]
 
 instance ToPath DeleteRetentionPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteRetentionPolicy where
         toQuery = const mempty

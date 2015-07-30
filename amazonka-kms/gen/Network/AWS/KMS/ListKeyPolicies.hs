@@ -128,7 +128,7 @@ instance ToJSON ListKeyPolicies where
                "KeyId" .= _lkpKeyId]
 
 instance ToPath ListKeyPolicies where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListKeyPolicies where
         toQuery = const mempty

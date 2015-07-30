@@ -96,7 +96,7 @@ instance ToJSON ListHSMs where
           = object ["NextToken" .= _lhsmNextToken]
 
 instance ToPath ListHSMs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListHSMs where
         toQuery = const mempty

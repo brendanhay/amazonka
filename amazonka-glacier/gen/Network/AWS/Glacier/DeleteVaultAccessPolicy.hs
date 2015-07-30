@@ -97,8 +97,9 @@ instance ToHeaders DeleteVaultAccessPolicy where
 
 instance ToPath DeleteVaultAccessPolicy where
         toPath DeleteVaultAccessPolicy'{..}
-          = [toBS _dvapAccountId, "vaults",
-             toBS _dvapVaultName, "access-policy"]
+          = mconcat
+              ["/", toBS _dvapAccountId, "/vaults/",
+               toBS _dvapVaultName, "/access-policy"]
 
 instance ToQuery DeleteVaultAccessPolicy where
         toQuery = const mempty

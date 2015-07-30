@@ -140,7 +140,7 @@ instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
 
 instance ToPath CreateVPCEndpoint where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateVPCEndpoint where
         toQuery CreateVPCEndpoint'{..}

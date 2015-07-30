@@ -134,7 +134,7 @@ instance ToHeaders CreateSnapshot where
         toHeaders = const mempty
 
 instance ToPath CreateSnapshot where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateSnapshot where
         toQuery CreateSnapshot'{..}

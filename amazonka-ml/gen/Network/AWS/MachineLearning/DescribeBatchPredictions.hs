@@ -244,7 +244,7 @@ instance ToJSON DescribeBatchPredictions where
                "LE" .= _dbpLE]
 
 instance ToPath DescribeBatchPredictions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeBatchPredictions where
         toQuery = const mempty

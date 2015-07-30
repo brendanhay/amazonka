@@ -102,7 +102,7 @@ instance ToHeaders DeleteApplicationVersion where
         toHeaders = const mempty
 
 instance ToPath DeleteApplicationVersion where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteApplicationVersion where
         toQuery DeleteApplicationVersion'{..}

@@ -126,7 +126,7 @@ instance ToHeaders DescribeReplicationGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeReplicationGroups where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeReplicationGroups where
         toQuery DescribeReplicationGroups'{..}

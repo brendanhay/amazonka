@@ -159,7 +159,7 @@ instance ToJSON ReEncrypt where
                "DestinationKeyId" .= _reDestinationKeyId]
 
 instance ToPath ReEncrypt where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ReEncrypt where
         toQuery = const mempty

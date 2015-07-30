@@ -99,7 +99,7 @@ instance ToJSON RefreshTrustedAdvisorCheck where
           = object ["checkId" .= _rtacCheckId]
 
 instance ToPath RefreshTrustedAdvisorCheck where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RefreshTrustedAdvisorCheck where
         toQuery = const mempty

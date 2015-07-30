@@ -105,7 +105,7 @@ instance ToHeaders AssociateDHCPOptions where
         toHeaders = const mempty
 
 instance ToPath AssociateDHCPOptions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AssociateDHCPOptions where
         toQuery AssociateDHCPOptions'{..}

@@ -222,7 +222,7 @@ instance ToJSON ListOpenWorkflowExecutions where
                "startTimeFilter" .= _loweStartTimeFilter]
 
 instance ToPath ListOpenWorkflowExecutions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListOpenWorkflowExecutions where
         toQuery = const mempty

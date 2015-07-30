@@ -199,7 +199,7 @@ instance ToJSON CreateDataSourceFromRDS where
                "RoleARN" .= _cdsfrdsRoleARN]
 
 instance ToPath CreateDataSourceFromRDS where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDataSourceFromRDS where
         toQuery = const mempty

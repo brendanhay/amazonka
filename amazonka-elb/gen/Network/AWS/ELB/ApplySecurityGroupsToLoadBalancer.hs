@@ -100,7 +100,7 @@ instance ToHeaders ApplySecurityGroupsToLoadBalancer
 
 instance ToPath ApplySecurityGroupsToLoadBalancer
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ApplySecurityGroupsToLoadBalancer
          where

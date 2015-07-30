@@ -83,7 +83,7 @@ instance ToHeaders DeleteSubnet where
         toHeaders = const mempty
 
 instance ToPath DeleteSubnet where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSubnet where
         toQuery DeleteSubnet'{..}

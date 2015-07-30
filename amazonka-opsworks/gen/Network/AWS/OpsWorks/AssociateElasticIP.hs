@@ -102,7 +102,7 @@ instance ToJSON AssociateElasticIP where
                "ElasticIp" .= _aeiElasticIP]
 
 instance ToPath AssociateElasticIP where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AssociateElasticIP where
         toQuery = const mempty

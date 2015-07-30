@@ -122,7 +122,7 @@ instance ToHeaders ImportInstance where
         toHeaders = const mempty
 
 instance ToPath ImportInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ImportInstance where
         toQuery ImportInstance'{..}

@@ -120,8 +120,9 @@ instance ToJSON SetIdentityPoolConfiguration where
 
 instance ToPath SetIdentityPoolConfiguration where
         toPath SetIdentityPoolConfiguration'{..}
-          = ["identitypools", toBS _sipcIdentityPoolId,
-             "configuration"]
+          = mconcat
+              ["/identitypools/", toBS _sipcIdentityPoolId,
+               "/configuration"]
 
 instance ToQuery SetIdentityPoolConfiguration where
         toQuery = const mempty

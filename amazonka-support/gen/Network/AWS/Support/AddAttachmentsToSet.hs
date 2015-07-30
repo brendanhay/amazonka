@@ -116,7 +116,7 @@ instance ToJSON AddAttachmentsToSet where
                "attachments" .= _aatsAttachments]
 
 instance ToPath AddAttachmentsToSet where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddAttachmentsToSet where
         toQuery = const mempty

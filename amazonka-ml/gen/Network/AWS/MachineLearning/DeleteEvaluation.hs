@@ -95,7 +95,7 @@ instance ToJSON DeleteEvaluation where
           = object ["EvaluationId" .= _deEvaluationId]
 
 instance ToPath DeleteEvaluation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteEvaluation where
         toQuery = const mempty

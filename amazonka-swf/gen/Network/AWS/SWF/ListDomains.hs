@@ -168,7 +168,7 @@ instance ToJSON ListDomains where
                "registrationStatus" .= _ldRegistrationStatus]
 
 instance ToPath ListDomains where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListDomains where
         toQuery = const mempty

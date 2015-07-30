@@ -94,7 +94,7 @@ instance ToJSON CreateRealtimeEndpoint where
           = object ["MLModelId" .= _creMLModelId]
 
 instance ToPath CreateRealtimeEndpoint where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateRealtimeEndpoint where
         toQuery = const mempty

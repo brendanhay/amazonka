@@ -100,7 +100,7 @@ instance ToHeaders DeleteMessage where
         toHeaders = const mempty
 
 instance ToPath DeleteMessage where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteMessage where
         toQuery DeleteMessage'{..}

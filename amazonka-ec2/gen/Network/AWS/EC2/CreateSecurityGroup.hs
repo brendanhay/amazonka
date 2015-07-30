@@ -150,7 +150,7 @@ instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty
 
 instance ToPath CreateSecurityGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateSecurityGroup where
         toQuery CreateSecurityGroup'{..}

@@ -121,7 +121,8 @@ instance ToHeaders DeleteObjects where
                "x-amz-request-payer" =# _dosRequestPayer]
 
 instance ToPath DeleteObjects where
-        toPath DeleteObjects'{..} = [toBS _dosBucket]
+        toPath DeleteObjects'{..}
+          = mconcat ["/", toBS _dosBucket]
 
 instance ToQuery DeleteObjects where
         toQuery = const (mconcat ["delete"])

@@ -87,7 +87,7 @@ instance ToHeaders DeleteSSHPublicKey where
         toHeaders = const mempty
 
 instance ToPath DeleteSSHPublicKey where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSSHPublicKey where
         toQuery DeleteSSHPublicKey'{..}

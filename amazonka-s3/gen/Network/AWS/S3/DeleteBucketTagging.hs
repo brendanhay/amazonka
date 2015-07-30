@@ -71,7 +71,8 @@ instance ToHeaders DeleteBucketTagging where
         toHeaders = const mempty
 
 instance ToPath DeleteBucketTagging where
-        toPath DeleteBucketTagging'{..} = [toBS _dbtBucket]
+        toPath DeleteBucketTagging'{..}
+          = mconcat ["/", toBS _dbtBucket]
 
 instance ToQuery DeleteBucketTagging where
         toQuery = const (mconcat ["tagging"])

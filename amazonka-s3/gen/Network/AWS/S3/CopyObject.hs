@@ -435,7 +435,7 @@ instance ToHeaders CopyObject where
 
 instance ToPath CopyObject where
         toPath CopyObject'{..}
-          = [toBS _coBucket, toBS _coKey]
+          = mconcat ["/", toBS _coBucket, "/", toBS _coKey]
 
 instance ToQuery CopyObject where
         toQuery = const mempty

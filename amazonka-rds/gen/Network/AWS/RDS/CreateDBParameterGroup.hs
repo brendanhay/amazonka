@@ -140,7 +140,7 @@ instance ToHeaders CreateDBParameterGroup where
         toHeaders = const mempty
 
 instance ToPath CreateDBParameterGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDBParameterGroup where
         toQuery CreateDBParameterGroup'{..}

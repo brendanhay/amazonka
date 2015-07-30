@@ -89,8 +89,8 @@ instance ToHeaders DeleteHealthCheck where
 
 instance ToPath DeleteHealthCheck where
         toPath DeleteHealthCheck'{..}
-          = ["2013-04-01", "healthcheck",
-             toBS _dhcHealthCheckId]
+          = mconcat
+              ["/2013-04-01/healthcheck/", toBS _dhcHealthCheckId]
 
 instance ToQuery DeleteHealthCheck where
         toQuery = const mempty

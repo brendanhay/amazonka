@@ -197,7 +197,7 @@ instance ToJSON ListTasks where
                "maxResults" .= _ltMaxResults]
 
 instance ToPath ListTasks where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListTasks where
         toQuery = const mempty

@@ -90,7 +90,7 @@ instance ToJSON DeleteInterconnect where
           = object ["interconnectId" .= _dInterconnectId]
 
 instance ToPath DeleteInterconnect where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteInterconnect where
         toQuery = const mempty

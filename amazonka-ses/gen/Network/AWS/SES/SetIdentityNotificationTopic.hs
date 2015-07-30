@@ -117,7 +117,7 @@ instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty
 
 instance ToPath SetIdentityNotificationTopic where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetIdentityNotificationTopic where
         toQuery SetIdentityNotificationTopic'{..}

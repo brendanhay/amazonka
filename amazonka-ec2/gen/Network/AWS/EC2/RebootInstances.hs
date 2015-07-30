@@ -92,7 +92,7 @@ instance ToHeaders RebootInstances where
         toHeaders = const mempty
 
 instance ToPath RebootInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RebootInstances where
         toQuery RebootInstances'{..}

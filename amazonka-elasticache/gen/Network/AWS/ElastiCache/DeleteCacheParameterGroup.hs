@@ -79,7 +79,7 @@ instance ToHeaders DeleteCacheParameterGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteCacheParameterGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteCacheParameterGroup where
         toQuery DeleteCacheParameterGroup'{..}

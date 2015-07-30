@@ -110,7 +110,7 @@ instance ToJSON GetCredentialsForIdentity where
                "IdentityId" .= _gcfiIdentityId]
 
 instance ToPath GetCredentialsForIdentity where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetCredentialsForIdentity where
         toQuery = const mempty

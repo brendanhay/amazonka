@@ -169,7 +169,8 @@ instance ToHeaders ListObjectVersions where
         toHeaders = const mempty
 
 instance ToPath ListObjectVersions where
-        toPath ListObjectVersions'{..} = [toBS _lovBucket]
+        toPath ListObjectVersions'{..}
+          = mconcat ["/", toBS _lovBucket]
 
 instance ToQuery ListObjectVersions where
         toQuery ListObjectVersions'{..}

@@ -141,7 +141,7 @@ instance ToJSON DescribeTapes where
                "GatewayARN" .= _dtGatewayARN]
 
 instance ToPath DescribeTapes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeTapes where
         toQuery = const mempty

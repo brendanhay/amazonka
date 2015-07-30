@@ -102,7 +102,7 @@ instance ToJSON RetrieveDomainAuthCode where
           = object ["DomainName" .= _rdacDomainName]
 
 instance ToPath RetrieveDomainAuthCode where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RetrieveDomainAuthCode where
         toQuery = const mempty

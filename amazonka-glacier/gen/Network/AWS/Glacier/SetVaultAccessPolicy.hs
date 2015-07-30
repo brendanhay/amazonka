@@ -106,8 +106,9 @@ instance ToJSON SetVaultAccessPolicy where
 
 instance ToPath SetVaultAccessPolicy where
         toPath SetVaultAccessPolicy'{..}
-          = [toBS _svapAccountId, "vaults",
-             toBS _svapVaultName, "access-policy"]
+          = mconcat
+              ["/", toBS _svapAccountId, "/vaults/",
+               toBS _svapVaultName, "/access-policy"]
 
 instance ToQuery SetVaultAccessPolicy where
         toQuery = const mempty

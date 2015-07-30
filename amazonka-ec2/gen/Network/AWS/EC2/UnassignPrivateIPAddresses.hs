@@ -84,7 +84,7 @@ instance ToHeaders UnassignPrivateIPAddresses where
         toHeaders = const mempty
 
 instance ToPath UnassignPrivateIPAddresses where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UnassignPrivateIPAddresses where
         toQuery UnassignPrivateIPAddresses'{..}

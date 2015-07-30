@@ -108,7 +108,7 @@ instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty
 
 instance ToPath AssociateRouteTable where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AssociateRouteTable where
         toQuery AssociateRouteTable'{..}

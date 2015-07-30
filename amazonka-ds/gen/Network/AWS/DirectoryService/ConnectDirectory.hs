@@ -141,7 +141,7 @@ instance ToJSON ConnectDirectory where
                "ConnectSettings" .= _cdConnectSettings]
 
 instance ToPath ConnectDirectory where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ConnectDirectory where
         toQuery = const mempty

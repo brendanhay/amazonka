@@ -532,7 +532,7 @@ instance ToJSON DeleteItem where
                "TableName" .= _diTableName, "Key" .= _diKey]
 
 instance ToPath DeleteItem where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteItem where
         toQuery = const mempty

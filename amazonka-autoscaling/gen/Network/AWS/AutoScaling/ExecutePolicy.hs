@@ -127,7 +127,7 @@ instance ToHeaders ExecutePolicy where
         toHeaders = const mempty
 
 instance ToPath ExecutePolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ExecutePolicy where
         toQuery ExecutePolicy'{..}

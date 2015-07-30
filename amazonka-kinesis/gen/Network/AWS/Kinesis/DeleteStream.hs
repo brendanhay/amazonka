@@ -101,7 +101,7 @@ instance ToJSON DeleteStream where
           = object ["StreamName" .= _dsStreamName]
 
 instance ToPath DeleteStream where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteStream where
         toQuery = const mempty

@@ -88,7 +88,7 @@ instance ToJSON GenerateRandom where
           = object ["NumberOfBytes" .= _grNumberOfBytes]
 
 instance ToPath GenerateRandom where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GenerateRandom where
         toQuery = const mempty

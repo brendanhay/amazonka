@@ -79,7 +79,7 @@ instance ToHeaders GetBucketNotificationConfiguration
 instance ToPath GetBucketNotificationConfiguration
          where
         toPath GetBucketNotificationConfiguration'{..}
-          = [toBS _gbncBucket]
+          = mconcat ["/", toBS _gbncBucket]
 
 instance ToQuery GetBucketNotificationConfiguration
          where

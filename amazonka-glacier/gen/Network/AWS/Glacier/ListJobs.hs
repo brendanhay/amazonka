@@ -182,8 +182,9 @@ instance ToHeaders ListJobs where
 
 instance ToPath ListJobs where
         toPath ListJobs'{..}
-          = [toBS _ljAccountId, "vaults", toBS _ljVaultName,
-             "jobs"]
+          = mconcat
+              ["/", toBS _ljAccountId, "/vaults/",
+               toBS _ljVaultName, "/jobs"]
 
 instance ToQuery ListJobs where
         toQuery ListJobs'{..}

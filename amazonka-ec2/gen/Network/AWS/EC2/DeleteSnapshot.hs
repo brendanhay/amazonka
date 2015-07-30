@@ -98,7 +98,7 @@ instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
 
 instance ToPath DeleteSnapshot where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSnapshot where
         toQuery DeleteSnapshot'{..}

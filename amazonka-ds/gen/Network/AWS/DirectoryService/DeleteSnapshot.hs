@@ -90,7 +90,7 @@ instance ToJSON DeleteSnapshot where
           = object ["SnapshotId" .= _dsSnapshotId]
 
 instance ToPath DeleteSnapshot where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSnapshot where
         toQuery = const mempty

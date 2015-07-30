@@ -114,7 +114,7 @@ instance ToJSON EvaluateExpression where
                "expression" .= _eeExpression]
 
 instance ToPath EvaluateExpression where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery EvaluateExpression where
         toQuery = const mempty

@@ -128,7 +128,7 @@ instance ToHeaders RevokeClusterSecurityGroupIngress
 
 instance ToPath RevokeClusterSecurityGroupIngress
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RevokeClusterSecurityGroupIngress
          where

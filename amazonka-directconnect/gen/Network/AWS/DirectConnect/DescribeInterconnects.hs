@@ -95,7 +95,7 @@ instance ToJSON DescribeInterconnects where
           = object ["interconnectId" .= _diInterconnectId]
 
 instance ToPath DescribeInterconnects where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeInterconnects where
         toQuery = const mempty

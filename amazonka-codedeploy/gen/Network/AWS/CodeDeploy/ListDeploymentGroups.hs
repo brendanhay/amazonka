@@ -110,7 +110,7 @@ instance ToJSON ListDeploymentGroups where
                "applicationName" .= _ldgApplicationName]
 
 instance ToPath ListDeploymentGroups where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListDeploymentGroups where
         toQuery = const mempty

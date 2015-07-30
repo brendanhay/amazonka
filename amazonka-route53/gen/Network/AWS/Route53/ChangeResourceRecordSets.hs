@@ -127,8 +127,9 @@ instance ToHeaders ChangeResourceRecordSets where
 
 instance ToPath ChangeResourceRecordSets where
         toPath ChangeResourceRecordSets'{..}
-          = ["2013-04-01", "hostedzone",
-             toBS _crrsHostedZoneId, "rrset"]
+          = mconcat
+              ["/2013-04-01/hostedzone/", toBS _crrsHostedZoneId,
+               "/rrset/"]
 
 instance ToQuery ChangeResourceRecordSets where
         toQuery = const mempty

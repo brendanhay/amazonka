@@ -123,7 +123,7 @@ instance ToJSON DescribeTrustedAdvisorCheckResult
 
 instance ToPath DescribeTrustedAdvisorCheckResult
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeTrustedAdvisorCheckResult
          where

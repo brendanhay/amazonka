@@ -129,7 +129,7 @@ instance ToJSON ListIdentities where
                "MaxResults" .= _liMaxResults]
 
 instance ToPath ListIdentities where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListIdentities where
         toQuery = const mempty

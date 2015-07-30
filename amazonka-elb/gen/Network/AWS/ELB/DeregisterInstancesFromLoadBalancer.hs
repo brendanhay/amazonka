@@ -102,7 +102,7 @@ instance ToHeaders
 
 instance ToPath DeregisterInstancesFromLoadBalancer
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeregisterInstancesFromLoadBalancer
          where

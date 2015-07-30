@@ -109,7 +109,7 @@ instance ToHeaders ImportKeyPair where
         toHeaders = const mempty
 
 instance ToPath ImportKeyPair where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ImportKeyPair where
         toQuery ImportKeyPair'{..}

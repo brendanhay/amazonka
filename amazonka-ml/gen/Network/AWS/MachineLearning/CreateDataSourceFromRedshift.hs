@@ -206,7 +206,7 @@ instance ToJSON CreateDataSourceFromRedshift where
                "RoleARN" .= _cdsfrRoleARN]
 
 instance ToPath CreateDataSourceFromRedshift where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDataSourceFromRedshift where
         toQuery = const mempty

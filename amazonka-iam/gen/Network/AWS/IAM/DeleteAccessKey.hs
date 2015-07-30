@@ -86,7 +86,7 @@ instance ToHeaders DeleteAccessKey where
         toHeaders = const mempty
 
 instance ToPath DeleteAccessKey where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteAccessKey where
         toQuery DeleteAccessKey'{..}

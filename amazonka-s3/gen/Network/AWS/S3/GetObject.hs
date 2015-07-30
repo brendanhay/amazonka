@@ -311,7 +311,8 @@ instance ToHeaders GetObject where
                "If-None-Match" =# _goIfNoneMatch]
 
 instance ToPath GetObject where
-        toPath GetObject'{..} = [toBS _goBucket, toBS _goKey]
+        toPath GetObject'{..}
+          = mconcat ["/", toBS _goBucket, "/", toBS _goKey]
 
 instance ToQuery GetObject where
         toQuery GetObject'{..}

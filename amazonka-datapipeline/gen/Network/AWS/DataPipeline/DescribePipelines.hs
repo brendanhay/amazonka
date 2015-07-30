@@ -101,7 +101,7 @@ instance ToJSON DescribePipelines where
           = object ["pipelineIds" .= _dpPipelineIds]
 
 instance ToPath DescribePipelines where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribePipelines where
         toQuery = const mempty

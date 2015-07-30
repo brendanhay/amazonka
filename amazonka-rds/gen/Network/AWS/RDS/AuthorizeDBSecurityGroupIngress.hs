@@ -143,7 +143,7 @@ instance ToHeaders AuthorizeDBSecurityGroupIngress
         toHeaders = const mempty
 
 instance ToPath AuthorizeDBSecurityGroupIngress where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AuthorizeDBSecurityGroupIngress
          where

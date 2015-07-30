@@ -179,7 +179,7 @@ instance ToHeaders GetShippingLabel where
         toHeaders = const mempty
 
 instance ToPath GetShippingLabel where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetShippingLabel where
         toQuery GetShippingLabel'{..}

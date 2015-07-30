@@ -110,7 +110,8 @@ instance ToHeaders DeleteVault where
 
 instance ToPath DeleteVault where
         toPath DeleteVault'{..}
-          = [toBS _dAccountId, "vaults", toBS _dVaultName]
+          = mconcat
+              ["/", toBS _dAccountId, "/vaults/", toBS _dVaultName]
 
 instance ToQuery DeleteVault where
         toQuery = const mempty

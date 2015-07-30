@@ -130,7 +130,7 @@ instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty
 
 instance ToPath CreatePlatformEndpoint where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreatePlatformEndpoint where
         toQuery CreatePlatformEndpoint'{..}

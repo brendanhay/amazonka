@@ -106,8 +106,9 @@ instance ToJSON AddTagsToVault where
 
 instance ToPath AddTagsToVault where
         toPath AddTagsToVault'{..}
-          = [toBS _attvAccountId, "vaults",
-             toBS _attvVaultName, "tags"]
+          = mconcat
+              ["/", toBS _attvAccountId, "/vaults/",
+               toBS _attvVaultName, "/tags"]
 
 instance ToQuery AddTagsToVault where
         toQuery = const (mconcat ["operation=add"])

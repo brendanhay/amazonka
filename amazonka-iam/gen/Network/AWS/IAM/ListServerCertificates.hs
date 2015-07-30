@@ -126,7 +126,7 @@ instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
 
 instance ToPath ListServerCertificates where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListServerCertificates where
         toQuery ListServerCertificates'{..}

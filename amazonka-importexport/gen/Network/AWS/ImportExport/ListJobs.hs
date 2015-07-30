@@ -115,7 +115,7 @@ instance ToHeaders ListJobs where
         toHeaders = const mempty
 
 instance ToPath ListJobs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListJobs where
         toQuery ListJobs'{..}

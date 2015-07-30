@@ -100,7 +100,7 @@ instance ToHeaders ModifyClusterParameterGroup where
         toHeaders = const mempty
 
 instance ToPath ModifyClusterParameterGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifyClusterParameterGroup where
         toQuery ModifyClusterParameterGroup'{..}

@@ -122,7 +122,7 @@ instance ToHeaders Select where
         toHeaders = const mempty
 
 instance ToPath Select where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery Select where
         toQuery Select'{..}

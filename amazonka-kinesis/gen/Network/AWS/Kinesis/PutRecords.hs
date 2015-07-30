@@ -160,7 +160,7 @@ instance ToJSON PutRecords where
                "StreamName" .= _pStreamName]
 
 instance ToPath PutRecords where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutRecords where
         toQuery = const mempty

@@ -145,7 +145,7 @@ instance ToJSON PutSubscriptionFilter where
                "destinationArn" .= _psfDestinationARN]
 
 instance ToPath PutSubscriptionFilter where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutSubscriptionFilter where
         toQuery = const mempty

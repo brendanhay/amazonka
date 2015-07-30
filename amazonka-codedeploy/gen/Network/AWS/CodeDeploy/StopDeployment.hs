@@ -89,7 +89,7 @@ instance ToJSON StopDeployment where
           = object ["deploymentId" .= _sdDeploymentId]
 
 instance ToPath StopDeployment where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery StopDeployment where
         toQuery = const mempty

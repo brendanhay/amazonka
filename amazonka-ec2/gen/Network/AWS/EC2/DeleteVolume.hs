@@ -89,7 +89,7 @@ instance ToHeaders DeleteVolume where
         toHeaders = const mempty
 
 instance ToPath DeleteVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteVolume where
         toQuery DeleteVolume'{..}

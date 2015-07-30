@@ -119,7 +119,7 @@ instance ToJSON RegisterRDSDBInstance where
                "DbPassword" .= _rrdiDBPassword]
 
 instance ToPath RegisterRDSDBInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RegisterRDSDBInstance where
         toQuery = const mempty

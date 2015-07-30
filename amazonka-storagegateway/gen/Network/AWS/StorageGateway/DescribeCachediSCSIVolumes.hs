@@ -96,7 +96,7 @@ instance ToJSON DescribeCachediSCSIVolumes where
           = object ["VolumeARNs" .= _dcscsivVolumeARNs]
 
 instance ToPath DescribeCachediSCSIVolumes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeCachediSCSIVolumes where
         toQuery = const mempty

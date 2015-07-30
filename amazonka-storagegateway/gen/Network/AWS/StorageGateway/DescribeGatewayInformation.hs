@@ -108,7 +108,7 @@ instance ToJSON DescribeGatewayInformation where
           = object ["GatewayARN" .= _dgiGatewayARN]
 
 instance ToPath DescribeGatewayInformation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeGatewayInformation where
         toQuery = const mempty

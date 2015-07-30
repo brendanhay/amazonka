@@ -149,7 +149,7 @@ instance ToJSON QueryObjects where
                "sphere" .= _qoSphere]
 
 instance ToPath QueryObjects where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery QueryObjects where
         toQuery = const mempty

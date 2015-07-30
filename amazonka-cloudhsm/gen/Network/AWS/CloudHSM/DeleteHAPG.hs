@@ -87,7 +87,7 @@ instance ToJSON DeleteHAPG where
           = object ["HapgArn" .= _dhHAPGARN]
 
 instance ToPath DeleteHAPG where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteHAPG where
         toQuery = const mempty

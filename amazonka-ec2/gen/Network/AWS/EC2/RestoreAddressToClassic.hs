@@ -93,7 +93,7 @@ instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
 
 instance ToPath RestoreAddressToClassic where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RestoreAddressToClassic where
         toQuery RestoreAddressToClassic'{..}

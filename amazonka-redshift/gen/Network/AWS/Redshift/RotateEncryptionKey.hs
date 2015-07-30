@@ -84,7 +84,7 @@ instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty
 
 instance ToPath RotateEncryptionKey where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RotateEncryptionKey where
         toQuery RotateEncryptionKey'{..}

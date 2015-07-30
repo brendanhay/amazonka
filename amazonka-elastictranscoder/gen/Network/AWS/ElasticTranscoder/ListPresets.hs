@@ -105,7 +105,7 @@ instance ToHeaders ListPresets where
         toHeaders = const mempty
 
 instance ToPath ListPresets where
-        toPath = const ["2012-09-25", "presets"]
+        toPath = const "/2012-09-25/presets"
 
 instance ToQuery ListPresets where
         toQuery ListPresets'{..}

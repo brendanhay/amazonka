@@ -112,7 +112,7 @@ instance ToHeaders ApplyPendingMaintenanceAction
         toHeaders = const mempty
 
 instance ToPath ApplyPendingMaintenanceAction where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ApplyPendingMaintenanceAction where
         toQuery ApplyPendingMaintenanceAction'{..}

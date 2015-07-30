@@ -115,7 +115,7 @@ instance ToJSON RetrieveTapeArchive where
                "GatewayARN" .= _rtaGatewayARN]
 
 instance ToPath RetrieveTapeArchive where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RetrieveTapeArchive where
         toQuery = const mempty

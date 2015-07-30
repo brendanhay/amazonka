@@ -103,8 +103,9 @@ instance ToJSON GetBulkPublishDetails where
 
 instance ToPath GetBulkPublishDetails where
         toPath GetBulkPublishDetails'{..}
-          = ["identitypools", toBS _gbpdIdentityPoolId,
-             "getBulkPublishDetails"]
+          = mconcat
+              ["/identitypools/", toBS _gbpdIdentityPoolId,
+               "/getBulkPublishDetails"]
 
 instance ToQuery GetBulkPublishDetails where
         toQuery = const mempty

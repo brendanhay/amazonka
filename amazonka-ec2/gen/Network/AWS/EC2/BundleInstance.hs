@@ -116,7 +116,7 @@ instance ToHeaders BundleInstance where
         toHeaders = const mempty
 
 instance ToPath BundleInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery BundleInstance where
         toQuery BundleInstance'{..}

@@ -113,7 +113,7 @@ instance ToHeaders CreateReusableDelegationSet where
         toHeaders = const mempty
 
 instance ToPath CreateReusableDelegationSet where
-        toPath = const ["2013-04-01", "delegationset"]
+        toPath = const "/2013-04-01/delegationset"
 
 instance ToQuery CreateReusableDelegationSet where
         toQuery = const mempty

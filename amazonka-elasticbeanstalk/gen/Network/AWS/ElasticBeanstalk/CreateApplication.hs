@@ -91,7 +91,7 @@ instance ToHeaders CreateApplication where
         toHeaders = const mempty
 
 instance ToPath CreateApplication where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateApplication where
         toQuery CreateApplication'{..}

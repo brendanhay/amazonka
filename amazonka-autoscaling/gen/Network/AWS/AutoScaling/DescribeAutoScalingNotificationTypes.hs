@@ -72,7 +72,7 @@ instance ToHeaders
 
 instance ToPath DescribeAutoScalingNotificationTypes
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAutoScalingNotificationTypes
          where

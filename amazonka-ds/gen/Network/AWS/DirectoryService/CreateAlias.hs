@@ -111,7 +111,7 @@ instance ToJSON CreateAlias where
                "Alias" .= _caAlias]
 
 instance ToPath CreateAlias where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateAlias where
         toQuery = const mempty

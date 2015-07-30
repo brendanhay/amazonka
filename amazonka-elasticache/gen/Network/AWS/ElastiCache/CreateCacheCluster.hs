@@ -429,7 +429,7 @@ instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
 
 instance ToPath CreateCacheCluster where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateCacheCluster where
         toQuery CreateCacheCluster'{..}

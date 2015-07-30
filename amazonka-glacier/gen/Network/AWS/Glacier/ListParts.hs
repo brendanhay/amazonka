@@ -166,8 +166,10 @@ instance ToHeaders ListParts where
 
 instance ToPath ListParts where
         toPath ListParts'{..}
-          = [toBS _lpAccountId, "vaults", toBS _lpVaultName,
-             "multipart-uploads", toBS _lpUploadId]
+          = mconcat
+              ["/", toBS _lpAccountId, "/vaults/",
+               toBS _lpVaultName, "/multipart-uploads/",
+               toBS _lpUploadId]
 
 instance ToQuery ListParts where
         toQuery ListParts'{..}

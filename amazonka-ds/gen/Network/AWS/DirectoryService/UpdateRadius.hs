@@ -102,7 +102,7 @@ instance ToJSON UpdateRadius where
                "RadiusSettings" .= _urRadiusSettings]
 
 instance ToPath UpdateRadius where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateRadius where
         toQuery = const mempty

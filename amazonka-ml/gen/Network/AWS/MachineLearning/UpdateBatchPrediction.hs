@@ -103,7 +103,7 @@ instance ToJSON UpdateBatchPrediction where
                "BatchPredictionName" .= _ubpBatchPredictionName]
 
 instance ToPath UpdateBatchPrediction where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateBatchPrediction where
         toQuery = const mempty

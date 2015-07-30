@@ -121,8 +121,9 @@ instance ToJSON RegisterDevice where
 
 instance ToPath RegisterDevice where
         toPath RegisterDevice'{..}
-          = ["identitypools", toBS _rdIdentityPoolId,
-             "identity", toBS _rdIdentityId, "device"]
+          = mconcat
+              ["/identitypools/", toBS _rdIdentityPoolId,
+               "/identity/", toBS _rdIdentityId, "/device"]
 
 instance ToQuery RegisterDevice where
         toQuery = const mempty

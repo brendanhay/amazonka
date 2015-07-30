@@ -106,7 +106,7 @@ instance ToJSON ListUniqueProblems where
               ["nextToken" .= _lupNextToken, "arn" .= _lupArn]
 
 instance ToPath ListUniqueProblems where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListUniqueProblems where
         toQuery = const mempty

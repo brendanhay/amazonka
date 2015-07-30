@@ -104,7 +104,7 @@ instance ToHeaders PutBucketRequestPayment where
 
 instance ToPath PutBucketRequestPayment where
         toPath PutBucketRequestPayment'{..}
-          = [toBS _pbrpBucket]
+          = mconcat ["/", toBS _pbrpBucket]
 
 instance ToQuery PutBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])

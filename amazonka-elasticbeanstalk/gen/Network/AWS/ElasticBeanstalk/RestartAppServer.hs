@@ -90,7 +90,7 @@ instance ToHeaders RestartAppServer where
         toHeaders = const mempty
 
 instance ToPath RestartAppServer where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RestartAppServer where
         toQuery RestartAppServer'{..}

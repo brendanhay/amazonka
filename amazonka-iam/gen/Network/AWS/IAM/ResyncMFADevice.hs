@@ -102,7 +102,7 @@ instance ToHeaders ResyncMFADevice where
         toHeaders = const mempty
 
 instance ToPath ResyncMFADevice where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ResyncMFADevice where
         toQuery ResyncMFADevice'{..}

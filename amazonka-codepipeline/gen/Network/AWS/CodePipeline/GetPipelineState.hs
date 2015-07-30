@@ -99,7 +99,7 @@ instance ToJSON GetPipelineState where
           = object ["name" .= _gpsName]
 
 instance ToPath GetPipelineState where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetPipelineState where
         toQuery = const mempty

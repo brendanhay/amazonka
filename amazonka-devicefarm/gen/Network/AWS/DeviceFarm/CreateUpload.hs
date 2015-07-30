@@ -138,7 +138,7 @@ instance ToJSON CreateUpload where
                "type" .= _cuType]
 
 instance ToPath CreateUpload where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateUpload where
         toQuery = const mempty

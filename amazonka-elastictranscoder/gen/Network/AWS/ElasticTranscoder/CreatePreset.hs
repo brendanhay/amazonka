@@ -154,7 +154,7 @@ instance ToJSON CreatePreset where
                "Name" .= _cpName, "Container" .= _cpContainer]
 
 instance ToPath CreatePreset where
-        toPath = const ["2012-09-25", "presets"]
+        toPath = const "/2012-09-25/presets"
 
 instance ToQuery CreatePreset where
         toQuery = const mempty

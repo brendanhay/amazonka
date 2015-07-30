@@ -123,7 +123,7 @@ instance ToHeaders Subscribe where
         toHeaders = const mempty
 
 instance ToPath Subscribe where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery Subscribe where
         toQuery Subscribe'{..}

@@ -156,7 +156,7 @@ instance ToJSON RegisterContainerInstance where
                "totalResources" .= _rciTotalResources]
 
 instance ToPath RegisterContainerInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RegisterContainerInstance where
         toQuery = const mempty

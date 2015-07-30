@@ -87,7 +87,7 @@ instance ToJSON StartInstance where
           = object ["InstanceId" .= _sInstanceId]
 
 instance ToPath StartInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery StartInstance where
         toQuery = const mempty

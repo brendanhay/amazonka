@@ -100,7 +100,7 @@ instance ToHeaders AllocateAddress where
         toHeaders = const mempty
 
 instance ToPath AllocateAddress where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AllocateAddress where
         toQuery AllocateAddress'{..}

@@ -82,7 +82,7 @@ instance ToHeaders GetRole where
         toHeaders = const mempty
 
 instance ToPath GetRole where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetRole where
         toQuery GetRole'{..}

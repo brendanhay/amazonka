@@ -95,7 +95,7 @@ instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty
 
 instance ToPath UpdateServiceAccessPolicies where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateServiceAccessPolicies where
         toQuery UpdateServiceAccessPolicies'{..}

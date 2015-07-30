@@ -143,7 +143,7 @@ instance ToHeaders UpdateConfigurationTemplate where
         toHeaders = const mempty
 
 instance ToPath UpdateConfigurationTemplate where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateConfigurationTemplate where
         toQuery UpdateConfigurationTemplate'{..}

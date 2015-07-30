@@ -121,7 +121,7 @@ instance ToHeaders RecordLifecycleActionHeartbeat
         toHeaders = const mempty
 
 instance ToPath RecordLifecycleActionHeartbeat where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RecordLifecycleActionHeartbeat where
         toQuery RecordLifecycleActionHeartbeat'{..}

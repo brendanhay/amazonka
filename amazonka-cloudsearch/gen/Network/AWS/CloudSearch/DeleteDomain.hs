@@ -83,7 +83,7 @@ instance ToHeaders DeleteDomain where
         toHeaders = const mempty
 
 instance ToPath DeleteDomain where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteDomain where
         toQuery DeleteDomain'{..}

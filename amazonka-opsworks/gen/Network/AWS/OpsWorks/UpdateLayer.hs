@@ -256,7 +256,7 @@ instance ToJSON UpdateLayer where
                "LayerId" .= _ulLayerId]
 
 instance ToPath UpdateLayer where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateLayer where
         toQuery = const mempty

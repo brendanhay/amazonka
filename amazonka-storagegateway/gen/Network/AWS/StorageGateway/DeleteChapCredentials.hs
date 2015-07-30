@@ -110,7 +110,7 @@ instance ToJSON DeleteChapCredentials where
                "InitiatorName" .= _dInitiatorName]
 
 instance ToPath DeleteChapCredentials where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteChapCredentials where
         toQuery = const mempty

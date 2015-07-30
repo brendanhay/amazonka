@@ -134,7 +134,7 @@ instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty
 
 instance ToPath DeleteDBInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteDBInstance where
         toQuery DeleteDBInstance'{..}

@@ -98,7 +98,7 @@ class TimeFormat a where
 instance TimeFormat RFC822    where format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
 instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X%Q%Z"))
 instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
-instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%S%Z"
+instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
 
 instance FromText BasicTime where parser = parseFormattedTime
 instance FromText AWSTime   where parser = parseFormattedTime

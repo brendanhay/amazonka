@@ -502,7 +502,7 @@ instance ToXML   Region where toXML    = toXMLText
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int
-    deriving (Eq, Ord, Read, Show, Enum, Bounded, Num, Integral, Real, Data, Typeable, Generic)
+    deriving (Eq, Ord, Read, Show, Enum, Num, Bounded, Integral, Real, Data, Typeable, Generic)
 
 _Seconds :: Iso' Seconds Int
 _Seconds = iso (\(Seconds n) -> n) Seconds
@@ -511,7 +511,7 @@ instance ToLog Seconds where
     message (Seconds n) = message n <> "s"
 
 microseconds :: Seconds -> Int
-microseconds (Seconds n) = truncate (toRational n / 1000000)
+microseconds (Seconds n) =n * 1000000
 
 _Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 _Coerce = iso coerce coerce

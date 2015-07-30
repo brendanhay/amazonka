@@ -69,8 +69,10 @@ instance ToLog (Meta V4) where
         , "  endpoint          = " <> message (_endpointHost metaEndpoint)
         , "  credential        = " <> message metaCredential
         , "  signed headers    = " <> message metaSignedHeaders
-        , "  string to sign    = " <> message metaStringToSign
-        , "  signature         = " <> message metaSignedHeaders
+        , "  signature         = " <> message metaSignature
+        , "  string to sign    = {"
+        , message metaStringToSign
+        , "}"
         , "  canonical request = {"
         , message metaCanonicalRequest
         , "  }"

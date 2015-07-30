@@ -77,6 +77,12 @@ env:
     - GHCVER=7.10.1 LIBRARY=amazonka-swf
     - GHCVER=7.10.1 LIBRARY=amazonka-workspaces
 
+matrix:
+  fast_finish: true
+  allow_failures:
+    # This is due to the constant GHC ExitFailure (-9) that occurs.
+    - GHCVER=7.10.1 LIBRARY=amazonka-ec2
+
 sudo: false
 
 addons:

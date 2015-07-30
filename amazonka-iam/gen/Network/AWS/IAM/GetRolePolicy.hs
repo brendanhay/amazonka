@@ -103,7 +103,7 @@ instance ToHeaders GetRolePolicy where
         toHeaders = const mempty
 
 instance ToPath GetRolePolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetRolePolicy where
         toQuery GetRolePolicy'{..}

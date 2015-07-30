@@ -84,7 +84,7 @@ instance ToHeaders BuildSuggesters where
         toHeaders = const mempty
 
 instance ToPath BuildSuggesters where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery BuildSuggesters where
         toQuery BuildSuggesters'{..}

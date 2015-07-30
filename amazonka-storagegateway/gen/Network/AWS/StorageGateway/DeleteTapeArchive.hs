@@ -91,7 +91,7 @@ instance ToJSON DeleteTapeArchive where
           = object ["TapeARN" .= _dtaTapeARN]
 
 instance ToPath DeleteTapeArchive where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteTapeArchive where
         toQuery = const mempty

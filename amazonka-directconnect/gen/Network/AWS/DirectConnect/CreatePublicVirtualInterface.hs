@@ -119,7 +119,7 @@ instance ToJSON CreatePublicVirtualInterface where
                  _cpviNewPublicVirtualInterface]
 
 instance ToPath CreatePublicVirtualInterface where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreatePublicVirtualInterface where
         toQuery = const mempty

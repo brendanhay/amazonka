@@ -121,7 +121,7 @@ instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
 
 instance ToPath DescribeAvailabilityZones where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAvailabilityZones where
         toQuery DescribeAvailabilityZones'{..}

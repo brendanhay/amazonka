@@ -88,7 +88,7 @@ instance ToJSON GetDevicePool where
         toJSON GetDevicePool'{..} = object ["arn" .= _gdpArn]
 
 instance ToPath GetDevicePool where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetDevicePool where
         toQuery = const mempty

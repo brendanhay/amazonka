@@ -100,7 +100,7 @@ instance ToJSON TestMetricFilter where
                "logEventMessages" .= _tmfLogEventMessages]
 
 instance ToPath TestMetricFilter where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery TestMetricFilter where
         toQuery = const mempty

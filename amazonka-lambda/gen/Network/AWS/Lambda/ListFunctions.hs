@@ -105,7 +105,7 @@ instance ToHeaders ListFunctions where
         toHeaders = const mempty
 
 instance ToPath ListFunctions where
-        toPath = const ["2015-03-31", "functions"]
+        toPath = const "/2015-03-31/functions/"
 
 instance ToQuery ListFunctions where
         toQuery ListFunctions'{..}

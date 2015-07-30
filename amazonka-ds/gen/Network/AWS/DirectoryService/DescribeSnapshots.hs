@@ -135,7 +135,7 @@ instance ToJSON DescribeSnapshots where
                "SnapshotIds" .= _dsSnapshotIds, "Limit" .= _dsLimit]
 
 instance ToPath DescribeSnapshots where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeSnapshots where
         toQuery = const mempty

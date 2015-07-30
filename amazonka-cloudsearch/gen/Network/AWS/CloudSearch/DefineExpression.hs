@@ -94,7 +94,7 @@ instance ToHeaders DefineExpression where
         toHeaders = const mempty
 
 instance ToPath DefineExpression where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DefineExpression where
         toQuery DefineExpression'{..}

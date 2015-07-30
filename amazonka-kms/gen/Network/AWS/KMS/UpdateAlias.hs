@@ -113,7 +113,7 @@ instance ToJSON UpdateAlias where
                "TargetKeyId" .= _uaTargetKeyId]
 
 instance ToPath UpdateAlias where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateAlias where
         toQuery = const mempty

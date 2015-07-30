@@ -120,7 +120,7 @@ instance ToJSON RegisterTaskDefinition where
                "containerDefinitions" .= _rtdContainerDefinitions]
 
 instance ToPath RegisterTaskDefinition where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RegisterTaskDefinition where
         toQuery = const mempty

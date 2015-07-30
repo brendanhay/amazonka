@@ -124,7 +124,7 @@ instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty
 
 instance ToPath CreateClusterSubnetGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateClusterSubnetGroup where
         toQuery CreateClusterSubnetGroup'{..}

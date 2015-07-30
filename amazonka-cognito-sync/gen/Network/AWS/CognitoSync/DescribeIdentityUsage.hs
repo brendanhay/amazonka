@@ -102,8 +102,9 @@ instance ToHeaders DescribeIdentityUsage where
 
 instance ToPath DescribeIdentityUsage where
         toPath DescribeIdentityUsage'{..}
-          = ["identitypools", toBS _diuIdentityPoolId,
-             "identities", toBS _diuIdentityId]
+          = mconcat
+              ["/identitypools/", toBS _diuIdentityPoolId,
+               "/identities/", toBS _diuIdentityId]
 
 instance ToQuery DescribeIdentityUsage where
         toQuery = const mempty

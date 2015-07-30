@@ -153,7 +153,7 @@ instance ToJSON GenerateDataKeyWithoutPlaintext where
                "KeyId" .= _gdkwpKeyId]
 
 instance ToPath GenerateDataKeyWithoutPlaintext where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GenerateDataKeyWithoutPlaintext
          where

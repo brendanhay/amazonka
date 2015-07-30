@@ -86,8 +86,8 @@ instance ToHeaders DeleteStreamingDistribution where
 
 instance ToPath DeleteStreamingDistribution where
         toPath DeleteStreamingDistribution'{..}
-          = ["2015-04-17", "streaming-distribution",
-             toBS _dsdId]
+          = mconcat
+              ["/2015-04-17/streaming-distribution/", toBS _dsdId]
 
 instance ToQuery DeleteStreamingDistribution where
         toQuery = const mempty

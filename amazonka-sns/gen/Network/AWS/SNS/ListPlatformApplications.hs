@@ -102,7 +102,7 @@ instance ToHeaders ListPlatformApplications where
         toHeaders = const mempty
 
 instance ToPath ListPlatformApplications where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListPlatformApplications where
         toQuery ListPlatformApplications'{..}

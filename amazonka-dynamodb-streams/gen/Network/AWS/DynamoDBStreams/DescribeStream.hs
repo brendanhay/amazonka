@@ -123,7 +123,7 @@ instance ToJSON DescribeStream where
                "Limit" .= _dsLimit, "StreamArn" .= _dsStreamARN]
 
 instance ToPath DescribeStream where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeStream where
         toQuery = const mempty

@@ -136,7 +136,7 @@ instance ToJSON PollForTask where
                "workerGroup" .= _pftWorkerGroup]
 
 instance ToPath PollForTask where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PollForTask where
         toQuery = const mempty

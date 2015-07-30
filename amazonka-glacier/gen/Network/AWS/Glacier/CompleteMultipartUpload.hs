@@ -179,8 +179,10 @@ instance ToJSON CompleteMultipartUpload where
 
 instance ToPath CompleteMultipartUpload where
         toPath CompleteMultipartUpload'{..}
-          = [toBS _cmuAccountId, "vaults", toBS _cmuVaultName,
-             "multipart-uploads", toBS _cmuUploadId]
+          = mconcat
+              ["/", toBS _cmuAccountId, "/vaults/",
+               toBS _cmuVaultName, "/multipart-uploads/",
+               toBS _cmuUploadId]
 
 instance ToQuery CompleteMultipartUpload where
         toQuery = const mempty

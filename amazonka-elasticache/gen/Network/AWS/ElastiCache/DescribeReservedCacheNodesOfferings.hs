@@ -206,7 +206,7 @@ instance ToHeaders
 
 instance ToPath DescribeReservedCacheNodesOfferings
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeReservedCacheNodesOfferings
          where

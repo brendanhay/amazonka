@@ -133,7 +133,7 @@ instance ToJSON GetDevicePoolCompatibility where
                "appArn" .= _gdpcAppARN]
 
 instance ToPath GetDevicePoolCompatibility where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetDevicePoolCompatibility where
         toQuery = const mempty

@@ -100,7 +100,7 @@ instance ToHeaders EnableMFADevice where
         toHeaders = const mempty
 
 instance ToPath EnableMFADevice where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery EnableMFADevice where
         toQuery EnableMFADevice'{..}

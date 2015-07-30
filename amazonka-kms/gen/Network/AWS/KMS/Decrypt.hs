@@ -128,7 +128,7 @@ instance ToJSON Decrypt where
                "CiphertextBlob" .= _dCiphertextBlob]
 
 instance ToPath Decrypt where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery Decrypt where
         toQuery = const mempty

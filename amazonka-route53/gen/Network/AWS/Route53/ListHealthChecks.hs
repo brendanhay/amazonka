@@ -126,7 +126,7 @@ instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
 
 instance ToPath ListHealthChecks where
-        toPath = const ["2013-04-01", "healthcheck"]
+        toPath = const "/2013-04-01/healthcheck"
 
 instance ToQuery ListHealthChecks where
         toQuery ListHealthChecks'{..}

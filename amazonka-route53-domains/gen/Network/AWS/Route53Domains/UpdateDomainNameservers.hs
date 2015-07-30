@@ -136,7 +136,7 @@ instance ToJSON UpdateDomainNameservers where
                "Nameservers" .= _udnNameservers]
 
 instance ToPath UpdateDomainNameservers where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateDomainNameservers where
         toQuery = const mempty

@@ -76,7 +76,7 @@ instance ToHeaders CancelUpdateStack where
         toHeaders = const mempty
 
 instance ToPath CancelUpdateStack where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CancelUpdateStack where
         toQuery CancelUpdateStack'{..}

@@ -103,7 +103,7 @@ instance ToJSON ListSamples where
               ["nextToken" .= _lsNextToken, "arn" .= _lsArn]
 
 instance ToPath ListSamples where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListSamples where
         toQuery = const mempty

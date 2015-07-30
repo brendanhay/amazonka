@@ -142,7 +142,7 @@ instance ToJSON CreateDirectory where
                "Password" .= _cPassword, "Size" .= _cSize]
 
 instance ToPath CreateDirectory where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDirectory where
         toQuery = const mempty

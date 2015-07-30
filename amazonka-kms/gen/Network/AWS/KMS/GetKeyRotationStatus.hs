@@ -95,7 +95,7 @@ instance ToJSON GetKeyRotationStatus where
           = object ["KeyId" .= _gkrsKeyId]
 
 instance ToPath GetKeyRotationStatus where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetKeyRotationStatus where
         toQuery = const mempty

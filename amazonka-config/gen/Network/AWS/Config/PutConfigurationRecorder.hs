@@ -99,7 +99,7 @@ instance ToJSON PutConfigurationRecorder where
                  _pcrConfigurationRecorder]
 
 instance ToPath PutConfigurationRecorder where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutConfigurationRecorder where
         toQuery = const mempty

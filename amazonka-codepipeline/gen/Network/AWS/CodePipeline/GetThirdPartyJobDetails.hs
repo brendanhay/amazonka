@@ -111,7 +111,7 @@ instance ToJSON GetThirdPartyJobDetails where
                "clientToken" .= _gtpjdClientToken]
 
 instance ToPath GetThirdPartyJobDetails where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetThirdPartyJobDetails where
         toQuery = const mempty

@@ -86,7 +86,7 @@ instance ToHeaders AttachUserPolicy where
         toHeaders = const mempty
 
 instance ToPath AttachUserPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AttachUserPolicy where
         toQuery AttachUserPolicy'{..}

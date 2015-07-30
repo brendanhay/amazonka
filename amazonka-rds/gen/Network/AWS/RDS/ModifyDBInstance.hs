@@ -544,7 +544,7 @@ instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
 
 instance ToPath ModifyDBInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifyDBInstance where
         toQuery ModifyDBInstance'{..}

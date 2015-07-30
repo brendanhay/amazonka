@@ -231,7 +231,7 @@ instance ToJSON GetItem where
                "TableName" .= _giTableName, "Key" .= _giKey]
 
 instance ToPath GetItem where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetItem where
         toQuery = const mempty

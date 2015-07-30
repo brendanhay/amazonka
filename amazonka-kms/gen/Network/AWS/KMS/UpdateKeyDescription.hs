@@ -98,7 +98,7 @@ instance ToJSON UpdateKeyDescription where
                "Description" .= _ukdDescription]
 
 instance ToPath UpdateKeyDescription where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateKeyDescription where
         toQuery = const mempty

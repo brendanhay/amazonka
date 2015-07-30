@@ -91,7 +91,7 @@ instance ToJSON DeleteDeliveryChannel where
               ["DeliveryChannelName" .= _ddcDeliveryChannelName]
 
 instance ToPath DeleteDeliveryChannel where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteDeliveryChannel where
         toQuery = const mempty

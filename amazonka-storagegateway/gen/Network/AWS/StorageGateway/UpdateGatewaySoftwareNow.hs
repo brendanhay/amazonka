@@ -106,7 +106,7 @@ instance ToJSON UpdateGatewaySoftwareNow where
           = object ["GatewayARN" .= _ugsnGatewayARN]
 
 instance ToPath UpdateGatewaySoftwareNow where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateGatewaySoftwareNow where
         toQuery = const mempty

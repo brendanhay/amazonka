@@ -131,7 +131,7 @@ instance ToJSON SetLoadBasedAutoScaling where
                "LayerId" .= _slbasLayerId]
 
 instance ToPath SetLoadBasedAutoScaling where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetLoadBasedAutoScaling where
         toQuery = const mempty

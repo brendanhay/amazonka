@@ -139,7 +139,7 @@ instance ToJSON ScheduleRun where
                "test" .= _srTest]
 
 instance ToPath ScheduleRun where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ScheduleRun where
         toQuery = const mempty

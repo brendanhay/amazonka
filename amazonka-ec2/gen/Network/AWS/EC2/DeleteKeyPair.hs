@@ -83,7 +83,7 @@ instance ToHeaders DeleteKeyPair where
         toHeaders = const mempty
 
 instance ToPath DeleteKeyPair where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteKeyPair where
         toQuery DeleteKeyPair'{..}

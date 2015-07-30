@@ -102,7 +102,7 @@ instance ToJSON CreateSnapshot where
               ["Name" .= _csName, "DirectoryId" .= _csDirectoryId]
 
 instance ToPath CreateSnapshot where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateSnapshot where
         toQuery = const mempty

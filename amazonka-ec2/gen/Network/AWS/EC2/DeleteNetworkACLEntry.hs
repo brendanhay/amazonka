@@ -102,7 +102,7 @@ instance ToHeaders DeleteNetworkACLEntry where
         toHeaders = const mempty
 
 instance ToPath DeleteNetworkACLEntry where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteNetworkACLEntry where
         toQuery DeleteNetworkACLEntry'{..}

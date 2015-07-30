@@ -195,7 +195,7 @@ instance ToJSON ActivateGateway where
                "GatewayRegion" .= _agGatewayRegion]
 
 instance ToPath ActivateGateway where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ActivateGateway where
         toQuery = const mempty

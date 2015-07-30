@@ -98,7 +98,8 @@ instance ToHeaders PutBucketLifecycle where
           = mconcat ["Content-MD5" =# _pContentMD5]
 
 instance ToPath PutBucketLifecycle where
-        toPath PutBucketLifecycle'{..} = [toBS _pBucket]
+        toPath PutBucketLifecycle'{..}
+          = mconcat ["/", toBS _pBucket]
 
 instance ToQuery PutBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

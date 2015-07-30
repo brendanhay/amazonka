@@ -104,7 +104,7 @@ instance ToJSON SetVisibleToAllUsers where
                "VisibleToAllUsers" .= _svtauVisibleToAllUsers]
 
 instance ToPath SetVisibleToAllUsers where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetVisibleToAllUsers where
         toQuery = const mempty

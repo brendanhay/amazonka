@@ -98,7 +98,7 @@ instance ToJSON DeleteService where
               ["cluster" .= _dsCluster, "service" .= _dsService]
 
 instance ToPath DeleteService where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteService where
         toQuery = const mempty

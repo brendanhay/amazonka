@@ -135,7 +135,7 @@ instance ToHeaders DescribePendingMaintenanceActions
 
 instance ToPath DescribePendingMaintenanceActions
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribePendingMaintenanceActions
          where

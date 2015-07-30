@@ -102,7 +102,7 @@ instance ToJSON ListSuites where
           = object ["nextToken" .= _lNextToken, "arn" .= _lArn]
 
 instance ToPath ListSuites where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListSuites where
         toQuery = const mempty

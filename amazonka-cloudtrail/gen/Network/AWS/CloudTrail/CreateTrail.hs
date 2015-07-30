@@ -174,7 +174,7 @@ instance ToJSON CreateTrail where
                "Name" .= _ctName, "S3BucketName" .= _ctS3BucketName]
 
 instance ToPath CreateTrail where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateTrail where
         toQuery = const mempty

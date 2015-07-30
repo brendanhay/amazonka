@@ -139,7 +139,7 @@ instance ToJSON MergeDeveloperIdentities where
                "IdentityPoolId" .= _mdiIdentityPoolId]
 
 instance ToPath MergeDeveloperIdentities where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery MergeDeveloperIdentities where
         toQuery = const mempty

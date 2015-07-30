@@ -122,7 +122,9 @@ instance ToJSON CreateVault where
 
 instance ToPath CreateVault where
         toPath CreateVault'{..}
-          = [toBS _cvAccountId, "vaults", toBS _cvVaultName]
+          = mconcat
+              ["/", toBS _cvAccountId, "/vaults/",
+               toBS _cvVaultName]
 
 instance ToQuery CreateVault where
         toQuery = const mempty

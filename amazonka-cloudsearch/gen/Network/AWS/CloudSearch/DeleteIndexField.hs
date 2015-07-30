@@ -94,7 +94,7 @@ instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
 
 instance ToPath DeleteIndexField where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteIndexField where
         toQuery DeleteIndexField'{..}

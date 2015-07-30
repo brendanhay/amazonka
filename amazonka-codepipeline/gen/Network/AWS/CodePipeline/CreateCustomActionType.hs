@@ -160,7 +160,7 @@ instance ToJSON CreateCustomActionType where
                  _ccatOutputArtifactDetails]
 
 instance ToPath CreateCustomActionType where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateCustomActionType where
         toQuery = const mempty

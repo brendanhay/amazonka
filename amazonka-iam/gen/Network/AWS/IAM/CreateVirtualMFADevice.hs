@@ -110,7 +110,7 @@ instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
 
 instance ToPath CreateVirtualMFADevice where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateVirtualMFADevice where
         toQuery CreateVirtualMFADevice'{..}

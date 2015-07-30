@@ -134,7 +134,7 @@ instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty
 
 instance ToPath RevokeDBSecurityGroupIngress where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RevokeDBSecurityGroupIngress where
         toQuery RevokeDBSecurityGroupIngress'{..}

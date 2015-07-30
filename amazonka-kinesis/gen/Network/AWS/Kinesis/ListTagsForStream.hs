@@ -117,7 +117,7 @@ instance ToJSON ListTagsForStream where
                "StreamName" .= _ltfsStreamName]
 
 instance ToPath ListTagsForStream where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListTagsForStream where
         toQuery = const mempty

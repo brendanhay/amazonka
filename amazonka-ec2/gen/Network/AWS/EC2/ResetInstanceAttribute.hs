@@ -102,7 +102,7 @@ instance ToHeaders ResetInstanceAttribute where
         toHeaders = const mempty
 
 instance ToPath ResetInstanceAttribute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ResetInstanceAttribute where
         toQuery ResetInstanceAttribute'{..}

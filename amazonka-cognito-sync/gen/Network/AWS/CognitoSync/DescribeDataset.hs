@@ -115,9 +115,10 @@ instance ToHeaders DescribeDataset where
 
 instance ToPath DescribeDataset where
         toPath DescribeDataset'{..}
-          = ["identitypools", toBS _ddIdentityPoolId,
-             "identities", toBS _ddIdentityId, "datasets",
-             toBS _ddDatasetName]
+          = mconcat
+              ["/identitypools/", toBS _ddIdentityPoolId,
+               "/identities/", toBS _ddIdentityId, "/datasets/",
+               toBS _ddDatasetName]
 
 instance ToQuery DescribeDataset where
         toQuery = const mempty

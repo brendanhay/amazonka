@@ -93,7 +93,7 @@ instance ToJSON BatchGetApplications where
           = object ["applicationNames" .= _bgaApplicationNames]
 
 instance ToPath BatchGetApplications where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery BatchGetApplications where
         toQuery = const mempty

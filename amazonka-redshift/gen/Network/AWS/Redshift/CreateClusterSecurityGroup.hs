@@ -115,7 +115,7 @@ instance ToHeaders CreateClusterSecurityGroup where
         toHeaders = const mempty
 
 instance ToPath CreateClusterSecurityGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateClusterSecurityGroup where
         toQuery CreateClusterSecurityGroup'{..}

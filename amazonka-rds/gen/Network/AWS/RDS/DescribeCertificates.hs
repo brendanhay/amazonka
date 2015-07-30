@@ -129,7 +129,7 @@ instance ToHeaders DescribeCertificates where
         toHeaders = const mempty
 
 instance ToPath DescribeCertificates where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeCertificates where
         toQuery DescribeCertificates'{..}

@@ -171,9 +171,10 @@ instance ToJSON UpdateRecords where
 
 instance ToPath UpdateRecords where
         toPath UpdateRecords'{..}
-          = ["identitypools", toBS _urIdentityPoolId,
-             "identities", toBS _urIdentityId, "datasets",
-             toBS _urDatasetName]
+          = mconcat
+              ["/identitypools/", toBS _urIdentityPoolId,
+               "/identities/", toBS _urIdentityId, "/datasets/",
+               toBS _urDatasetName]
 
 instance ToQuery UpdateRecords where
         toQuery = const mempty

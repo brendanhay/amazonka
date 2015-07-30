@@ -97,7 +97,7 @@ instance ToJSON DescribeChapCredentials where
           = object ["TargetARN" .= _dccTargetARN]
 
 instance ToPath DescribeChapCredentials where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeChapCredentials where
         toQuery = const mempty

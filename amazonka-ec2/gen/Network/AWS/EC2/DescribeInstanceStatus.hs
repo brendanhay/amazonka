@@ -214,7 +214,7 @@ instance ToHeaders DescribeInstanceStatus where
         toHeaders = const mempty
 
 instance ToPath DescribeInstanceStatus where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeInstanceStatus where
         toQuery DescribeInstanceStatus'{..}

@@ -85,7 +85,7 @@ instance ToJSON DeleteApp where
         toJSON DeleteApp'{..} = object ["AppId" .= _daAppId]
 
 instance ToPath DeleteApp where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteApp where
         toQuery = const mempty

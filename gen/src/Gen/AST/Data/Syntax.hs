@@ -399,10 +399,10 @@ toQueryD p n = instD1 "ToQuery" n . wildcardD n "toQuery" enc memptyE
 
 toPathD :: Id -> [Either Text Field] -> Decl
 toPathD n = instD1 "ToPath" n . \case
-    [Left t] -> funD "toPath" . app (var "const") $ listE [str t]
+    [Left t] -> funD "toPath" . app (var "const") $ str t
     es       -> wildcardD n "toPath" enc memptyE es
   where
-    enc = listE . map toPathE
+    enc = mconcatE . map toPathE
 
 toBodyD :: Id -> Field -> Decl
 toBodyD n f = instD "ToBody" n [funD "toBody" (toBodyE f)]

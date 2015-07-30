@@ -121,7 +121,7 @@ instance ToHeaders RequestEnvironmentInfo where
         toHeaders = const mempty
 
 instance ToPath RequestEnvironmentInfo where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RequestEnvironmentInfo where
         toQuery RequestEnvironmentInfo'{..}

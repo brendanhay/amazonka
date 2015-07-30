@@ -95,7 +95,7 @@ instance ToHeaders CreateGroup where
         toHeaders = const mempty
 
 instance ToPath CreateGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateGroup where
         toQuery CreateGroup'{..}

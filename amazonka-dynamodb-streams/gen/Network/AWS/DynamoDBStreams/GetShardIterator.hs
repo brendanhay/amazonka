@@ -147,7 +147,7 @@ instance ToJSON GetShardIterator where
                "ShardIteratorType" .= _gsiShardIteratorType]
 
 instance ToPath GetShardIterator where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetShardIterator where
         toQuery = const mempty

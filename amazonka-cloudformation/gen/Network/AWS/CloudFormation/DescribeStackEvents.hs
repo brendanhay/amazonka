@@ -117,7 +117,7 @@ instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
 
 instance ToPath DescribeStackEvents where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeStackEvents where
         toQuery DescribeStackEvents'{..}

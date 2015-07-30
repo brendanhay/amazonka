@@ -168,7 +168,7 @@ instance ToJSON UpdateTable where
                "TableName" .= _utTableName]
 
 instance ToPath UpdateTable where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateTable where
         toQuery = const mempty

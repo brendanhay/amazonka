@@ -102,7 +102,7 @@ instance ToJSON CreateDocument where
           = object ["Content" .= _cdContent, "Name" .= _cdName]
 
 instance ToPath CreateDocument where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDocument where
         toQuery = const mempty

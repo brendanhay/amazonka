@@ -102,7 +102,7 @@ instance ToJSON DescribeMaintenanceStartTime where
           = object ["GatewayARN" .= _dmstGatewayARN]
 
 instance ToPath DescribeMaintenanceStartTime where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeMaintenanceStartTime where
         toQuery = const mempty

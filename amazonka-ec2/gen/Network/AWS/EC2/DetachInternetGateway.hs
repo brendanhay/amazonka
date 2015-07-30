@@ -94,7 +94,7 @@ instance ToHeaders DetachInternetGateway where
         toHeaders = const mempty
 
 instance ToPath DetachInternetGateway where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DetachInternetGateway where
         toQuery DetachInternetGateway'{..}

@@ -165,7 +165,7 @@ instance ToJSON DescribeWorkspaces where
                "NextToken" .= _dwNextToken, "Limit" .= _dwLimit]
 
 instance ToPath DescribeWorkspaces where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeWorkspaces where
         toQuery = const mempty

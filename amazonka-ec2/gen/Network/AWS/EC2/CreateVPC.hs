@@ -118,7 +118,7 @@ instance ToHeaders CreateVPC where
         toHeaders = const mempty
 
 instance ToPath CreateVPC where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateVPC where
         toQuery CreateVPC'{..}

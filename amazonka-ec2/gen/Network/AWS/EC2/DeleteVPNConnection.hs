@@ -93,7 +93,7 @@ instance ToHeaders DeleteVPNConnection where
         toHeaders = const mempty
 
 instance ToPath DeleteVPNConnection where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteVPNConnection where
         toQuery DeleteVPNConnection'{..}

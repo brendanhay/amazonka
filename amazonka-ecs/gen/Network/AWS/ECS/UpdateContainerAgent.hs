@@ -115,7 +115,7 @@ instance ToJSON UpdateContainerAgent where
                "containerInstance" .= _ucaContainerInstance]
 
 instance ToPath UpdateContainerAgent where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateContainerAgent where
         toQuery = const mempty

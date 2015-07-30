@@ -212,7 +212,7 @@ instance ToHeaders SendEmail where
         toHeaders = const mempty
 
 instance ToPath SendEmail where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SendEmail where
         toQuery SendEmail'{..}

@@ -86,7 +86,7 @@ instance ToJSON DeleteUserProfile where
           = object ["IamUserArn" .= _dupIAMUserARN]
 
 instance ToPath DeleteUserProfile where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteUserProfile where
         toQuery = const mempty

@@ -102,7 +102,7 @@ instance ToJSON CreateLunaClient where
                "Certificate" .= _clcCertificate]
 
 instance ToPath CreateLunaClient where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateLunaClient where
         toQuery = const mempty

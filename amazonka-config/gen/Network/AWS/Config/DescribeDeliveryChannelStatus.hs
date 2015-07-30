@@ -99,7 +99,7 @@ instance ToJSON DescribeDeliveryChannelStatus where
               ["DeliveryChannelNames" .= _ddcsDeliveryChannelNames]
 
 instance ToPath DescribeDeliveryChannelStatus where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeDeliveryChannelStatus where
         toQuery = const mempty

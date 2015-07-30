@@ -135,7 +135,7 @@ instance ToJSON ListContainerInstances where
                "maxResults" .= _lciMaxResults]
 
 instance ToPath ListContainerInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListContainerInstances where
         toQuery = const mempty

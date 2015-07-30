@@ -84,7 +84,7 @@ instance ToHeaders DisableLogging where
         toHeaders = const mempty
 
 instance ToPath DisableLogging where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisableLogging where
         toQuery DisableLogging'{..}

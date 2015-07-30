@@ -97,7 +97,7 @@ instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
 
 instance ToPath AttachLoadBalancerToSubnets where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AttachLoadBalancerToSubnets where
         toQuery AttachLoadBalancerToSubnets'{..}

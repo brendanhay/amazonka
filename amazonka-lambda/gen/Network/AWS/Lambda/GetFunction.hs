@@ -95,8 +95,9 @@ instance ToHeaders GetFunction where
 
 instance ToPath GetFunction where
         toPath GetFunction'{..}
-          = ["2015-03-31", "functions", toBS _gfFunctionName,
-             "versions", "HEAD"]
+          = mconcat
+              ["/2015-03-31/functions/", toBS _gfFunctionName,
+               "/versions/HEAD"]
 
 instance ToQuery GetFunction where
         toQuery = const mempty

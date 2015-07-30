@@ -108,7 +108,7 @@ instance ToJSON DescribeRDSDBInstances where
                "StackId" .= _drdiStackId]
 
 instance ToPath DescribeRDSDBInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeRDSDBInstances where
         toQuery = const mempty

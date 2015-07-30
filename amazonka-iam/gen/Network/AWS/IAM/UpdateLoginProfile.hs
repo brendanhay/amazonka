@@ -94,7 +94,7 @@ instance ToHeaders UpdateLoginProfile where
         toHeaders = const mempty
 
 instance ToPath UpdateLoginProfile where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateLoginProfile where
         toQuery UpdateLoginProfile'{..}

@@ -120,7 +120,7 @@ instance ToHeaders CreateLBCookieStickinessPolicy
         toHeaders = const mempty
 
 instance ToPath CreateLBCookieStickinessPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateLBCookieStickinessPolicy where
         toQuery CreateLBCookieStickinessPolicy'{..}

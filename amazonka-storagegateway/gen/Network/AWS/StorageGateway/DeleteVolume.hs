@@ -105,7 +105,7 @@ instance ToJSON DeleteVolume where
           = object ["VolumeARN" .= _dvVolumeARN]
 
 instance ToPath DeleteVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteVolume where
         toQuery = const mempty

@@ -389,7 +389,7 @@ instance ToHeaders DescribeInstances where
         toHeaders = const mempty
 
 instance ToPath DescribeInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeInstances where
         toQuery DescribeInstances'{..}

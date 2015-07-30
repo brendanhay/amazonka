@@ -85,7 +85,7 @@ instance ToHeaders DescribeScalingParameters where
         toHeaders = const mempty
 
 instance ToPath DescribeScalingParameters where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeScalingParameters where
         toQuery DescribeScalingParameters'{..}

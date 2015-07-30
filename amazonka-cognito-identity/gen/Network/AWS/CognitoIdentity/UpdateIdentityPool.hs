@@ -146,7 +146,7 @@ instance ToJSON UpdateIdentityPool where
                  _uipAllowUnauthenticatedIdentities]
 
 instance ToPath UpdateIdentityPool where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateIdentityPool where
         toQuery = const mempty

@@ -185,7 +185,7 @@ instance ToHeaders CreateConfigurationTemplate where
         toHeaders = const mempty
 
 instance ToPath CreateConfigurationTemplate where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateConfigurationTemplate where
         toQuery CreateConfigurationTemplate'{..}

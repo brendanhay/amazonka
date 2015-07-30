@@ -234,7 +234,7 @@ instance ToJSON PollForDecisionTask where
                "domain" .= _pfdtDomain, "taskList" .= _pfdtTaskList]
 
 instance ToPath PollForDecisionTask where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PollForDecisionTask where
         toQuery = const mempty

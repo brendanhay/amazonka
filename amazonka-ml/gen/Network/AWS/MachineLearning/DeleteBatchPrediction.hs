@@ -99,7 +99,7 @@ instance ToJSON DeleteBatchPrediction where
               ["BatchPredictionId" .= _dbpBatchPredictionId]
 
 instance ToPath DeleteBatchPrediction where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteBatchPrediction where
         toQuery = const mempty

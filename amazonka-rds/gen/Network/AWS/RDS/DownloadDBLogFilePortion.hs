@@ -150,7 +150,7 @@ instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
 
 instance ToPath DownloadDBLogFilePortion where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DownloadDBLogFilePortion where
         toQuery DownloadDBLogFilePortion'{..}

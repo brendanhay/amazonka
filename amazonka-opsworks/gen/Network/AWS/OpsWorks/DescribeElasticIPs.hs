@@ -126,7 +126,7 @@ instance ToJSON DescribeElasticIPs where
                "StackId" .= _deiStackId]
 
 instance ToPath DescribeElasticIPs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeElasticIPs where
         toQuery = const mempty

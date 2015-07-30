@@ -152,7 +152,7 @@ instance ToHeaders DescribeSnapshotCopyGrants where
         toHeaders = const mempty
 
 instance ToPath DescribeSnapshotCopyGrants where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeSnapshotCopyGrants where
         toQuery DescribeSnapshotCopyGrants'{..}

@@ -119,7 +119,7 @@ instance ToJSON ListTables where
                "Limit" .= _ltLimit]
 
 instance ToPath ListTables where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListTables where
         toQuery = const mempty

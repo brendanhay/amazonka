@@ -111,7 +111,7 @@ instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
 
 instance ToPath EstimateTemplateCost where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery EstimateTemplateCost where
         toQuery EstimateTemplateCost'{..}

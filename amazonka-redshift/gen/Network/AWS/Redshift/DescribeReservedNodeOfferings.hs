@@ -136,7 +136,7 @@ instance ToHeaders DescribeReservedNodeOfferings
         toHeaders = const mempty
 
 instance ToPath DescribeReservedNodeOfferings where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeReservedNodeOfferings where
         toQuery DescribeReservedNodeOfferings'{..}

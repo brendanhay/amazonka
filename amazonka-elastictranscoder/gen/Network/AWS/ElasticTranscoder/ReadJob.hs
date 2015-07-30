@@ -81,7 +81,7 @@ instance ToHeaders ReadJob where
 
 instance ToPath ReadJob where
         toPath ReadJob'{..}
-          = ["2012-09-25", "jobs", toBS _rjId]
+          = mconcat ["/2012-09-25/jobs/", toBS _rjId]
 
 instance ToQuery ReadJob where
         toQuery = const mempty

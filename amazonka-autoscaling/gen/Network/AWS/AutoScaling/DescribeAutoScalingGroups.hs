@@ -109,7 +109,7 @@ instance ToHeaders DescribeAutoScalingGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeAutoScalingGroups where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAutoScalingGroups where
         toQuery DescribeAutoScalingGroups'{..}

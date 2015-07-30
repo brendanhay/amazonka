@@ -115,7 +115,7 @@ instance ToJSON DescribeVirtualInterfaces where
                "virtualInterfaceId" .= _dviVirtualInterfaceId]
 
 instance ToPath DescribeVirtualInterfaces where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeVirtualInterfaces where
         toQuery = const mempty

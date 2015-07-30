@@ -104,7 +104,7 @@ instance ToJSON DescribeAgentVersions where
                "StackId" .= _davStackId]
 
 instance ToPath DescribeAgentVersions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAgentVersions where
         toQuery = const mempty

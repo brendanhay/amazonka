@@ -213,7 +213,7 @@ instance ToJSON CreateMountTarget where
                "SubnetId" .= _cmtSubnetId]
 
 instance ToPath CreateMountTarget where
-        toPath = const ["2015-02-01", "mount-targets"]
+        toPath = const "/2015-02-01/mount-targets"
 
 instance ToQuery CreateMountTarget where
         toQuery = const mempty

@@ -109,7 +109,7 @@ instance ToJSON DescribeDomain where
           = object ["name" .= _ddName]
 
 instance ToPath DescribeDomain where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeDomain where
         toQuery = const mempty

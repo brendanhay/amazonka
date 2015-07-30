@@ -104,7 +104,7 @@ instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty
 
 instance ToPath DescribeConversionTasks where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeConversionTasks where
         toQuery DescribeConversionTasks'{..}

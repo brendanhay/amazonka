@@ -108,7 +108,7 @@ instance ToHeaders AddSourceIdentifierToSubscription
 
 instance ToPath AddSourceIdentifierToSubscription
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddSourceIdentifierToSubscription
          where

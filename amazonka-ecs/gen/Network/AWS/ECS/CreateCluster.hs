@@ -93,7 +93,7 @@ instance ToJSON CreateCluster where
           = object ["clusterName" .= _ccClusterName]
 
 instance ToPath CreateCluster where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateCluster where
         toQuery = const mempty

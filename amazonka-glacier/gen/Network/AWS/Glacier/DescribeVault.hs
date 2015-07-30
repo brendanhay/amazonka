@@ -115,7 +115,9 @@ instance ToHeaders DescribeVault where
 
 instance ToPath DescribeVault where
         toPath DescribeVault'{..}
-          = [toBS _dvAccountId, "vaults", toBS _dvVaultName]
+          = mconcat
+              ["/", toBS _dvAccountId, "/vaults/",
+               toBS _dvVaultName]
 
 instance ToQuery DescribeVault where
         toQuery = const mempty

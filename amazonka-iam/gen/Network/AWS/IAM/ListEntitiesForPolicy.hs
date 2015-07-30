@@ -151,7 +151,7 @@ instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
 
 instance ToPath ListEntitiesForPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListEntitiesForPolicy where
         toQuery ListEntitiesForPolicy'{..}

@@ -94,7 +94,7 @@ instance ToHeaders ListSubscriptions where
         toHeaders = const mempty
 
 instance ToPath ListSubscriptions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListSubscriptions where
         toQuery ListSubscriptions'{..}

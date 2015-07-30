@@ -104,7 +104,7 @@ instance ToJSON DeleteDeploymentGroup where
                "deploymentGroupName" .= _ddgDeploymentGroupName]
 
 instance ToPath DeleteDeploymentGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteDeploymentGroup where
         toQuery = const mempty

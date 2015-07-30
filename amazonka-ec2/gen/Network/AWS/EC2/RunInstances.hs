@@ -385,7 +385,7 @@ instance ToHeaders RunInstances where
         toHeaders = const mempty
 
 instance ToPath RunInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RunInstances where
         toQuery RunInstances'{..}

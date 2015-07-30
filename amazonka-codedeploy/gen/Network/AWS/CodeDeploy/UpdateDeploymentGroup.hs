@@ -170,7 +170,7 @@ instance ToJSON UpdateDeploymentGroup where
                  _udgCurrentDeploymentGroupName]
 
 instance ToPath UpdateDeploymentGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateDeploymentGroup where
         toQuery = const mempty

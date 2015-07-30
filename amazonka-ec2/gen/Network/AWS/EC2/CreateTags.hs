@@ -100,7 +100,7 @@ instance ToHeaders CreateTags where
         toHeaders = const mempty
 
 instance ToPath CreateTags where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateTags where
         toQuery CreateTags'{..}

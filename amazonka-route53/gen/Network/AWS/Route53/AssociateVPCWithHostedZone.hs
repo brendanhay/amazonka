@@ -118,8 +118,9 @@ instance ToHeaders AssociateVPCWithHostedZone where
 
 instance ToPath AssociateVPCWithHostedZone where
         toPath AssociateVPCWithHostedZone'{..}
-          = ["2013-04-01", "hostedzone",
-             toBS _avwhzHostedZoneId, "associatevpc"]
+          = mconcat
+              ["/2013-04-01/hostedzone/", toBS _avwhzHostedZoneId,
+               "/associatevpc"]
 
 instance ToQuery AssociateVPCWithHostedZone where
         toQuery = const mempty

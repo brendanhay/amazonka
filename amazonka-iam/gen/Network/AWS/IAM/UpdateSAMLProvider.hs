@@ -95,7 +95,7 @@ instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty
 
 instance ToPath UpdateSAMLProvider where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateSAMLProvider where
         toQuery UpdateSAMLProvider'{..}

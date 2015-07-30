@@ -79,7 +79,8 @@ instance ToHeaders GetBucketLifecycle where
         toHeaders = const mempty
 
 instance ToPath GetBucketLifecycle where
-        toPath GetBucketLifecycle'{..} = [toBS _gBucket]
+        toPath GetBucketLifecycle'{..}
+          = mconcat ["/", toBS _gBucket]
 
 instance ToQuery GetBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

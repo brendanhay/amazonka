@@ -92,7 +92,7 @@ instance ToJSON DescribeTrails where
           = object ["trailNameList" .= _dtTrailNameList]
 
 instance ToPath DescribeTrails where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeTrails where
         toQuery = const mempty

@@ -129,7 +129,7 @@ instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
 
 instance ToPath ListAccessKeys where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListAccessKeys where
         toQuery ListAccessKeys'{..}

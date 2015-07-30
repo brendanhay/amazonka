@@ -109,7 +109,7 @@ instance ToJSON CreateBranch where
                "commitId" .= _cbCommitId]
 
 instance ToPath CreateBranch where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateBranch where
         toQuery = const mempty

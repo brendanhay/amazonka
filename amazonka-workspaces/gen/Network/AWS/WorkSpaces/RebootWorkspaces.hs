@@ -98,7 +98,7 @@ instance ToJSON RebootWorkspaces where
                  _rwRebootWorkspaceRequests]
 
 instance ToPath RebootWorkspaces where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RebootWorkspaces where
         toQuery = const mempty

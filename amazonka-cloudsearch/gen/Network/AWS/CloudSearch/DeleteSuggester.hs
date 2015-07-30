@@ -92,7 +92,7 @@ instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
 
 instance ToPath DeleteSuggester where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSuggester where
         toQuery DeleteSuggester'{..}

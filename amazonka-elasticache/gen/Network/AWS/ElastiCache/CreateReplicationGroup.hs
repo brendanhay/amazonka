@@ -417,7 +417,7 @@ instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
 
 instance ToPath CreateReplicationGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateReplicationGroup where
         toQuery CreateReplicationGroup'{..}

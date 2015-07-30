@@ -92,7 +92,7 @@ instance ToJSON StartConfigurationRecorder where
                  _sConfigurationRecorderName]
 
 instance ToPath StartConfigurationRecorder where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery StartConfigurationRecorder where
         toQuery = const mempty

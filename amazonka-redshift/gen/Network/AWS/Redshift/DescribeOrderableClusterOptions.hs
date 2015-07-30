@@ -154,7 +154,7 @@ instance ToHeaders DescribeOrderableClusterOptions
         toHeaders = const mempty
 
 instance ToPath DescribeOrderableClusterOptions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeOrderableClusterOptions
          where

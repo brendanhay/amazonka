@@ -141,7 +141,7 @@ instance ToJSON UpdateSnapshotSchedule where
                "RecurrenceInHours" .= _ussRecurrenceInHours]
 
 instance ToPath UpdateSnapshotSchedule where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateSnapshotSchedule where
         toQuery = const mempty

@@ -165,7 +165,7 @@ instance ToJSON RegisterInstance where
                "StackId" .= _riStackId]
 
 instance ToPath RegisterInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RegisterInstance where
         toQuery = const mempty

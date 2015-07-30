@@ -111,7 +111,7 @@ instance ToHeaders ChangeMessageVisibilityBatch where
         toHeaders = const mempty
 
 instance ToPath ChangeMessageVisibilityBatch where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ChangeMessageVisibilityBatch where
         toQuery ChangeMessageVisibilityBatch'{..}

@@ -139,7 +139,7 @@ instance ToJSON PutLogEvents where
                "logEvents" .= _pleLogEvents]
 
 instance ToPath PutLogEvents where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutLogEvents where
         toQuery = const mempty

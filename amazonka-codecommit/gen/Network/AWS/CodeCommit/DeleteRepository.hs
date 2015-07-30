@@ -95,7 +95,7 @@ instance ToJSON DeleteRepository where
           = object ["repositoryName" .= _drRepositoryName]
 
 instance ToPath DeleteRepository where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteRepository where
         toQuery = const mempty

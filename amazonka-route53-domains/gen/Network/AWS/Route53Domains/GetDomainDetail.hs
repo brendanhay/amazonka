@@ -141,7 +141,7 @@ instance ToJSON GetDomainDetail where
           = object ["DomainName" .= _gddDomainName]
 
 instance ToPath GetDomainDetail where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetDomainDetail where
         toQuery = const mempty

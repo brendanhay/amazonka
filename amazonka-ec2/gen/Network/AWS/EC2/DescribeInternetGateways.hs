@@ -126,7 +126,7 @@ instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty
 
 instance ToPath DescribeInternetGateways where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeInternetGateways where
         toQuery DescribeInternetGateways'{..}

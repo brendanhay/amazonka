@@ -113,7 +113,7 @@ instance ToJSON ShutdownGateway where
           = object ["GatewayARN" .= _sGatewayARN]
 
 instance ToPath ShutdownGateway where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ShutdownGateway where
         toQuery = const mempty

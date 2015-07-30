@@ -98,7 +98,7 @@ instance ToHeaders AddTagsToResource where
         toHeaders = const mempty
 
 instance ToPath AddTagsToResource where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddTagsToResource where
         toQuery AddTagsToResource'{..}

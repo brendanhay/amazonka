@@ -86,7 +86,7 @@ instance ToJSON DeleteLunaClient where
           = object ["ClientArn" .= _dClientARN]
 
 instance ToPath DeleteLunaClient where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteLunaClient where
         toQuery = const mempty

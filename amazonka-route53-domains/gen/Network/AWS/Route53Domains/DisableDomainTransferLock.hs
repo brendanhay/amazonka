@@ -107,7 +107,7 @@ instance ToJSON DisableDomainTransferLock where
           = object ["DomainName" .= _ddtlDomainName]
 
 instance ToPath DisableDomainTransferLock where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisableDomainTransferLock where
         toQuery = const mempty

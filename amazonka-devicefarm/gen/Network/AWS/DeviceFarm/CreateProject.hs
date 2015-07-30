@@ -89,7 +89,7 @@ instance ToJSON CreateProject where
           = object ["name" .= _cpName]
 
 instance ToPath CreateProject where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateProject where
         toQuery = const mempty

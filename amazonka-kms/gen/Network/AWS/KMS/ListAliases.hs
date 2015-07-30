@@ -106,7 +106,7 @@ instance ToJSON ListAliases where
           = object ["Marker" .= _laMarker, "Limit" .= _laLimit]
 
 instance ToPath ListAliases where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListAliases where
         toQuery = const mempty

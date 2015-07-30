@@ -99,7 +99,7 @@ instance ToJSON ListVolumeRecoveryPoints where
           = object ["GatewayARN" .= _lvrpGatewayARN]
 
 instance ToPath ListVolumeRecoveryPoints where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListVolumeRecoveryPoints where
         toQuery = const mempty

@@ -117,7 +117,7 @@ instance ToJSON GetRecords where
                "ShardIterator" .= _grShardIterator]
 
 instance ToPath GetRecords where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetRecords where
         toQuery = const mempty

@@ -98,7 +98,7 @@ instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
 
 instance ToPath DescribeEventCategories where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeEventCategories where
         toQuery DescribeEventCategories'{..}

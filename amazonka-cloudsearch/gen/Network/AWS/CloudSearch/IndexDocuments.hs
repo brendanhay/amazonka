@@ -84,7 +84,7 @@ instance ToHeaders IndexDocuments where
         toHeaders = const mempty
 
 instance ToPath IndexDocuments where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery IndexDocuments where
         toQuery IndexDocuments'{..}

@@ -98,7 +98,7 @@ instance ToJSON GetHostnameSuggestion where
           = object ["LayerId" .= _ghsLayerId]
 
 instance ToPath GetHostnameSuggestion where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetHostnameSuggestion where
         toQuery = const mempty

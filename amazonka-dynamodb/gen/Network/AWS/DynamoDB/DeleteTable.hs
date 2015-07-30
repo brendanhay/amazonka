@@ -108,7 +108,7 @@ instance ToJSON DeleteTable where
           = object ["TableName" .= _dtTableName]
 
 instance ToPath DeleteTable where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteTable where
         toQuery = const mempty

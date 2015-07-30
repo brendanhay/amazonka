@@ -123,7 +123,7 @@ instance ToJSON ListGrants where
                "KeyId" .= _lgKeyId]
 
 instance ToPath ListGrants where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListGrants where
         toQuery = const mempty

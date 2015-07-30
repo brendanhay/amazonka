@@ -97,7 +97,7 @@ instance ToJSON ListDeploymentConfigs where
           = object ["nextToken" .= _ldcNextToken]
 
 instance ToPath ListDeploymentConfigs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListDeploymentConfigs where
         toQuery = const mempty

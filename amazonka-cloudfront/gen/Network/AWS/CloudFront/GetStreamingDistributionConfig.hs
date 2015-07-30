@@ -85,8 +85,9 @@ instance ToHeaders GetStreamingDistributionConfig
 
 instance ToPath GetStreamingDistributionConfig where
         toPath GetStreamingDistributionConfig'{..}
-          = ["2015-04-17", "streaming-distribution",
-             toBS _gsdcId, "config"]
+          = mconcat
+              ["/2015-04-17/streaming-distribution/", toBS _gsdcId,
+               "/config"]
 
 instance ToQuery GetStreamingDistributionConfig where
         toQuery = const mempty

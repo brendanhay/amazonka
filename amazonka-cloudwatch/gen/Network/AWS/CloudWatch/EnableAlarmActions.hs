@@ -71,7 +71,7 @@ instance ToHeaders EnableAlarmActions where
         toHeaders = const mempty
 
 instance ToPath EnableAlarmActions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery EnableAlarmActions where
         toQuery EnableAlarmActions'{..}

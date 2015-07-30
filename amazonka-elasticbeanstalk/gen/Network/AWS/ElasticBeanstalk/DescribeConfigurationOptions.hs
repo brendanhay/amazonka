@@ -133,7 +133,7 @@ instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
 
 instance ToPath DescribeConfigurationOptions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeConfigurationOptions where
         toQuery DescribeConfigurationOptions'{..}

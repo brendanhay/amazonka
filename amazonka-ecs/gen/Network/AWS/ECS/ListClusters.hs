@@ -121,7 +121,7 @@ instance ToJSON ListClusters where
                "maxResults" .= _lcMaxResults]
 
 instance ToPath ListClusters where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListClusters where
         toQuery = const mempty

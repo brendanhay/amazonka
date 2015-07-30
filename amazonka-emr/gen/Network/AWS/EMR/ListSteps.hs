@@ -129,7 +129,7 @@ instance ToJSON ListSteps where
                "ClusterId" .= _lsClusterId]
 
 instance ToPath ListSteps where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListSteps where
         toQuery = const mempty

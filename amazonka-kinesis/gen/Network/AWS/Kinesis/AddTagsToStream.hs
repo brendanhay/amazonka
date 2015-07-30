@@ -97,7 +97,7 @@ instance ToJSON AddTagsToStream where
                "Tags" .= _attsTags]
 
 instance ToPath AddTagsToStream where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddTagsToStream where
         toQuery = const mempty

@@ -259,7 +259,7 @@ instance ToHeaders AssumeRole where
         toHeaders = const mempty
 
 instance ToPath AssumeRole where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AssumeRole where
         toQuery AssumeRole'{..}

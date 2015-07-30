@@ -73,7 +73,7 @@ instance ToHeaders GetCheckerIPRanges where
         toHeaders = const mempty
 
 instance ToPath GetCheckerIPRanges where
-        toPath = const ["2013-04-01", "checkeripranges"]
+        toPath = const "/2013-04-01/checkeripranges"
 
 instance ToQuery GetCheckerIPRanges where
         toQuery = const mempty

@@ -160,7 +160,7 @@ instance ToJSON UpdateTagsForDomain where
                "DomainName" .= _utfdDomainName]
 
 instance ToPath UpdateTagsForDomain where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateTagsForDomain where
         toQuery = const mempty

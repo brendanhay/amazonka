@@ -78,7 +78,7 @@ instance ToHeaders DescribeMetricCollectionTypes
         toHeaders = const mempty
 
 instance ToPath DescribeMetricCollectionTypes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeMetricCollectionTypes where
         toQuery

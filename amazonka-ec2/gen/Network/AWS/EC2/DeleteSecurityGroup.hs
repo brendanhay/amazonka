@@ -98,7 +98,7 @@ instance ToHeaders DeleteSecurityGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteSecurityGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSecurityGroup where
         toQuery DeleteSecurityGroup'{..}

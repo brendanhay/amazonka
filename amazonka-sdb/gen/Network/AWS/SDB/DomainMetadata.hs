@@ -92,7 +92,7 @@ instance ToHeaders DomainMetadata where
         toHeaders = const mempty
 
 instance ToPath DomainMetadata where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DomainMetadata where
         toQuery DomainMetadata'{..}

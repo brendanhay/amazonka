@@ -108,7 +108,7 @@ instance ToJSON UpdateVolume where
                "VolumeId" .= _uVolumeId]
 
 instance ToPath UpdateVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateVolume where
         toQuery = const mempty

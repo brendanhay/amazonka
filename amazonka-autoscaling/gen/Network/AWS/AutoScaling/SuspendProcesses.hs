@@ -108,7 +108,7 @@ instance ToHeaders SuspendProcesses where
         toHeaders = const mempty
 
 instance ToPath SuspendProcesses where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SuspendProcesses where
         toQuery SuspendProcesses'{..}

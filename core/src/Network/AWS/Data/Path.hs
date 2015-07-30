@@ -37,16 +37,16 @@ import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI
 
 class ToPath a where
-    toPath :: a -> [ByteString]
+    toPath :: a -> ByteString
 
 instance ToPath ByteString where
-    toPath = filter (not . BS8.null) . BS8.split sep
+    toPath = id
 
 instance ToPath Text where
-    toPath = toPath . toBS
+    toPath = toBS
 
 rawPath :: ToPath a => a -> Path 'NoEncoding
-rawPath = Raw . toPath
+rawPath = Raw . filter (not . BS8.null) . BS8.split sep . toPath
 
 data Encoding = NoEncoding | Percent
     deriving (Eq, Show)
@@ -64,9 +64,6 @@ type EscapedPath = Path 'Percent
 instance Monoid RawPath where
     mempty                    = Raw []
     mappend (Raw xs) (Raw ys) = Raw (xs ++ ys)
-
-instance ToByteString RawPath where
-    toBS = toBS . escapePath
 
 instance ToByteString EscapedPath where
     toBS (Encoded []) = slash

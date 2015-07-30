@@ -153,7 +153,7 @@ instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
 
 instance ToPath DescribeCacheClusters where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeCacheClusters where
         toQuery DescribeCacheClusters'{..}

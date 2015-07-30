@@ -115,7 +115,7 @@ instance ToJSON ListDocuments where
                "MaxResults" .= _ldMaxResults]
 
 instance ToPath ListDocuments where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListDocuments where
         toQuery = const mempty

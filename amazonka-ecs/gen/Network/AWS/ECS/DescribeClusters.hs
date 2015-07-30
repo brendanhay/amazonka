@@ -93,7 +93,7 @@ instance ToJSON DescribeClusters where
           = object ["clusters" .= _dcClusters]
 
 instance ToPath DescribeClusters where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeClusters where
         toQuery = const mempty

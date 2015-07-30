@@ -103,7 +103,7 @@ instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty
 
 instance ToPath CreateCacheSecurityGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateCacheSecurityGroup where
         toQuery CreateCacheSecurityGroup'{..}

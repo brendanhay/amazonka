@@ -100,7 +100,7 @@ instance ToHeaders CreatePlacementGroup where
         toHeaders = const mempty
 
 instance ToPath CreatePlacementGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreatePlacementGroup where
         toQuery CreatePlacementGroup'{..}

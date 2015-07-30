@@ -176,7 +176,7 @@ instance ToHeaders DescribeOrderableDBInstanceOptions
 
 instance ToPath DescribeOrderableDBInstanceOptions
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeOrderableDBInstanceOptions
          where

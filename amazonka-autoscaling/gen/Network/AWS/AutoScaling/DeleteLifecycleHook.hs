@@ -89,7 +89,7 @@ instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty
 
 instance ToPath DeleteLifecycleHook where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteLifecycleHook where
         toQuery DeleteLifecycleHook'{..}

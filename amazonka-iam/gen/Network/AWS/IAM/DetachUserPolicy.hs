@@ -85,7 +85,7 @@ instance ToHeaders DetachUserPolicy where
         toHeaders = const mempty
 
 instance ToPath DetachUserPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DetachUserPolicy where
         toQuery DetachUserPolicy'{..}

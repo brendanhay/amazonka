@@ -86,7 +86,7 @@ instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
 
 instance ToPath GetSAMLProvider where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetSAMLProvider where
         toQuery GetSAMLProvider'{..}

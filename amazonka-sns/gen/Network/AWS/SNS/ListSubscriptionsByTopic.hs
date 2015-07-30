@@ -105,7 +105,7 @@ instance ToHeaders ListSubscriptionsByTopic where
         toHeaders = const mempty
 
 instance ToPath ListSubscriptionsByTopic where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListSubscriptionsByTopic where
         toQuery ListSubscriptionsByTopic'{..}

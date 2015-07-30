@@ -80,7 +80,7 @@ instance ToHeaders DeleteClusterParameterGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteClusterParameterGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteClusterParameterGroup where
         toQuery DeleteClusterParameterGroup'{..}

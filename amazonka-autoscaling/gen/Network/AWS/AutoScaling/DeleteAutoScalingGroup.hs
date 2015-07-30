@@ -90,7 +90,7 @@ instance ToHeaders DeleteAutoScalingGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteAutoScalingGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteAutoScalingGroup where
         toQuery DeleteAutoScalingGroup'{..}

@@ -104,7 +104,7 @@ instance ToJSON DescribeConfigurationRecorderStatus
 
 instance ToPath DescribeConfigurationRecorderStatus
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeConfigurationRecorderStatus
          where

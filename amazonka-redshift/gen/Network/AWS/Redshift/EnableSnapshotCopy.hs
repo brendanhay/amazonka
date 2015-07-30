@@ -122,7 +122,7 @@ instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty
 
 instance ToPath EnableSnapshotCopy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery EnableSnapshotCopy where
         toQuery EnableSnapshotCopy'{..}

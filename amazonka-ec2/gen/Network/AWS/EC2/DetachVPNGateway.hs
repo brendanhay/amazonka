@@ -99,7 +99,7 @@ instance ToHeaders DetachVPNGateway where
         toHeaders = const mempty
 
 instance ToPath DetachVPNGateway where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DetachVPNGateway where
         toQuery DetachVPNGateway'{..}

@@ -90,7 +90,7 @@ instance ToJSON GetApplication where
           = object ["applicationName" .= _gaApplicationName]
 
 instance ToPath GetApplication where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetApplication where
         toQuery = const mempty

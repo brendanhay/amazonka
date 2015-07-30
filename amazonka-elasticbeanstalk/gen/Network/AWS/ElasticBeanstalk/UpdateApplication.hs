@@ -93,7 +93,7 @@ instance ToHeaders UpdateApplication where
         toHeaders = const mempty
 
 instance ToPath UpdateApplication where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateApplication where
         toQuery UpdateApplication'{..}

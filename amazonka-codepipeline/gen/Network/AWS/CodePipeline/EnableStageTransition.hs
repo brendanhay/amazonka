@@ -111,7 +111,7 @@ instance ToJSON EnableStageTransition where
                "transitionType" .= _estTransitionType]
 
 instance ToPath EnableStageTransition where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery EnableStageTransition where
         toQuery = const mempty

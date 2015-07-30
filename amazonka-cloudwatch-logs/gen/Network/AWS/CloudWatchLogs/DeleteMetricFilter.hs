@@ -93,7 +93,7 @@ instance ToJSON DeleteMetricFilter where
                "filterName" .= _delFilterName]
 
 instance ToPath DeleteMetricFilter where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteMetricFilter where
         toQuery = const mempty

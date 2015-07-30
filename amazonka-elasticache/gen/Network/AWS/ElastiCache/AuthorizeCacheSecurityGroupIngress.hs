@@ -112,7 +112,7 @@ instance ToHeaders AuthorizeCacheSecurityGroupIngress
 
 instance ToPath AuthorizeCacheSecurityGroupIngress
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AuthorizeCacheSecurityGroupIngress
          where

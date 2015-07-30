@@ -32,16 +32,14 @@ module Network.AWS.Request
 
     -- ** Constructors
     , defaultRequest
+
+    -- ** Hashing
     , contentSHA256
     , contentMD5
 
-    -- * Lenses
-    , method
-    , host
-    , path
-    , queryString
-    , requestBody
+    -- ** Lenses
     , requestHeaders
+    , queryString
     , requestURL
     ) where
 
@@ -55,9 +53,8 @@ import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.XML
-import           Network.AWS.Logger
 import           Network.AWS.Types
-import qualified Network.HTTP.Client.Internal as HTTP
+import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types           (StdMethod (..))
 import qualified Network.HTTP.Types           as HTTP
 
@@ -124,8 +121,8 @@ defaultRequest x = Request
     }
 
 contentSHA256 :: Request a -> Request a
-contentSHA256 rq = rq
-    & rqHeaders %~ hdr hAMZContentSHA256 (rq ^. rqBody . to bodySHA256)
+contentSHA256 rq = rq & rqHeaders %~
+    hdr hAMZContentSHA256 (rq ^. rqBody . to (toBS . bodySHA256))
 
 contentMD5 :: Request a -> Request a
 contentMD5 rq
@@ -133,40 +130,40 @@ contentMD5 rq
     | otherwise              = rq
   where
     missing = isNothing $ lookup HTTP.hContentMD5 (rq ^. rqHeaders)
-    md5     = rq ^. rqBody . to bodyCalculateMD5
+    md5     = rq ^. rqBody . to (fmap toBS . bodyCalculateMD5)
 
-method :: Lens' HTTP.Request HTTP.Method
-method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }
+-- method :: Lens' Client.Request HTTP.Method
+-- method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }
 
-host :: Lens' HTTP.Request ByteString
-host f x = f (HTTP.host x) <&> \y -> x { HTTP.host = y }
+-- host :: Lens' Client.Request ByteString
+-- host f x = f (Client.host x) <&> \y -> x { Client.host = y }
 
-path :: Lens' HTTP.Request ByteString
-path f x = f (HTTP.path x) <&> \y -> x { HTTP.path = y }
+-- path :: Lens' Client.Request ByteString
+-- path f x = f (Client.path x) <&> \y -> x { Client.path = y }
 
-queryString :: Lens' HTTP.Request ByteString
-queryString f x = f (HTTP.queryString x) <&> \y -> x { HTTP.queryString = y }
+queryString :: Lens' Client.Request ByteString
+queryString f x =
+    f (Client.queryString x) <&> \y -> x { Client.queryString = y }
 
-requestBody :: Lens' HTTP.Request HTTP.RequestBody
-requestBody f x = f (HTTP.requestBody x) <&> \y -> x { HTTP.requestBody = y }
+-- requestBody :: Lens' Client.Request Client.RequestBody
+-- requestBody f x = f (Client.requestBody x) <&> \y -> x { Client.requestBody = y }
 
-requestHeaders :: Lens' HTTP.Request HTTP.RequestHeaders
+requestHeaders :: Lens' Client.Request HTTP.RequestHeaders
 requestHeaders f x =
-    f (HTTP.requestHeaders x) <&> \y -> x { HTTP.requestHeaders = y }
+    f (Client.requestHeaders x) <&> \y -> x { Client.requestHeaders = y }
 
 requestURL :: ClientRequest -> ByteString
-requestURL = toBS . uri
+requestURL x =
+       scheme (Client.secure      x)
+    <> toBS   (Client.host        x)
+    <> port   (Client.port        x)
+    <> toBS   (Client.path        x)
+    <> toBS   (Client.queryString x)
   where
-    uri x = scheme (HTTP.secure      x)
-         <> message  (HTTP.host        x)
-         <> port   (HTTP.port        x)
-         <> message  (HTTP.path        x)
-         <> message  (HTTP.queryString x)
-
     scheme True = "https://"
     scheme _    = "http://"
 
     port = \case
         80  -> ""
         443 -> ""
-        n   -> message ':' <> message n
+        n   -> ":" <> toBS n

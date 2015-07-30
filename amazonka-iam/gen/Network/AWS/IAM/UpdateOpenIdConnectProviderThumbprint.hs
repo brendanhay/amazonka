@@ -105,7 +105,7 @@ instance ToHeaders
 
 instance ToPath UpdateOpenIdConnectProviderThumbprint
          where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery
          UpdateOpenIdConnectProviderThumbprint where

@@ -98,7 +98,8 @@ instance ToHeaders PutBucketReplication where
           = mconcat ["Content-MD5" =# _pbrContentMD5]
 
 instance ToPath PutBucketReplication where
-        toPath PutBucketReplication'{..} = [toBS _pbrBucket]
+        toPath PutBucketReplication'{..}
+          = mconcat ["/", toBS _pbrBucket]
 
 instance ToQuery PutBucketReplication where
         toQuery = const (mconcat ["replication"])

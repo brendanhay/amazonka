@@ -101,7 +101,7 @@ instance ToJSON GetBranch where
                "repositoryName" .= _gbRepositoryName]
 
 instance ToPath GetBranch where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetBranch where
         toQuery = const mempty

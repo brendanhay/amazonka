@@ -87,7 +87,7 @@ instance ToHeaders DeleteUserPolicy where
         toHeaders = const mempty
 
 instance ToPath DeleteUserPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteUserPolicy where
         toQuery DeleteUserPolicy'{..}

@@ -130,7 +130,7 @@ instance ToHeaders DescribePolicies where
         toHeaders = const mempty
 
 instance ToPath DescribePolicies where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribePolicies where
         toQuery DescribePolicies'{..}

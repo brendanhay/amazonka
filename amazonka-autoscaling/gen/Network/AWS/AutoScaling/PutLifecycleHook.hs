@@ -209,7 +209,7 @@ instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty
 
 instance ToPath PutLifecycleHook where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutLifecycleHook where
         toQuery PutLifecycleHook'{..}

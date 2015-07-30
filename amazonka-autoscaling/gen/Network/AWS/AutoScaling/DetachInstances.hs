@@ -104,7 +104,7 @@ instance ToHeaders DetachInstances where
         toHeaders = const mempty
 
 instance ToPath DetachInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DetachInstances where
         toQuery DetachInstances'{..}

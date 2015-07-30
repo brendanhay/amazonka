@@ -100,7 +100,7 @@ instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty
 
 instance ToPath DescribeAvailabilityOptions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAvailabilityOptions where
         toQuery DescribeAvailabilityOptions'{..}

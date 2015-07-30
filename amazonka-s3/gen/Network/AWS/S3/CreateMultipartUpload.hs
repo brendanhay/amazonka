@@ -337,7 +337,7 @@ instance ToHeaders CreateMultipartUpload where
 
 instance ToPath CreateMultipartUpload where
         toPath CreateMultipartUpload'{..}
-          = [toBS _cmuBucket, toBS _cmuKey]
+          = mconcat ["/", toBS _cmuBucket, "/", toBS _cmuKey]
 
 instance ToQuery CreateMultipartUpload where
         toQuery = const (mconcat ["uploads"])

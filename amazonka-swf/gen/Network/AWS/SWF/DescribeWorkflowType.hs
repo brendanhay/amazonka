@@ -127,7 +127,7 @@ instance ToJSON DescribeWorkflowType where
                "workflowType" .= _dwtWorkflowType]
 
 instance ToPath DescribeWorkflowType where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeWorkflowType where
         toQuery = const mempty

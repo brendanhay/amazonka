@@ -134,7 +134,7 @@ instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty
 
 instance ToPath DescribeMovingAddresses where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeMovingAddresses where
         toQuery DescribeMovingAddresses'{..}

@@ -156,7 +156,7 @@ instance ToHeaders CreateOpenIdConnectProvider where
         toHeaders = const mempty
 
 instance ToPath CreateOpenIdConnectProvider where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateOpenIdConnectProvider where
         toQuery CreateOpenIdConnectProvider'{..}

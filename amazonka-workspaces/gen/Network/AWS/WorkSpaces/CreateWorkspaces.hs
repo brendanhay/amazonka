@@ -95,7 +95,7 @@ instance ToJSON CreateWorkspaces where
           = object ["Workspaces" .= _cwWorkspaces]
 
 instance ToPath CreateWorkspaces where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateWorkspaces where
         toQuery = const mempty

@@ -155,7 +155,7 @@ instance ToJSON CreateDeployment where
                "Command" .= _cdCommand]
 
 instance ToPath CreateDeployment where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDeployment where
         toQuery = const mempty

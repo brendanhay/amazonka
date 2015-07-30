@@ -90,7 +90,7 @@ instance ToJSON DeleteDeploymentConfig where
               ["deploymentConfigName" .= _ddcDeploymentConfigName]
 
 instance ToPath DeleteDeploymentConfig where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteDeploymentConfig where
         toQuery = const mempty

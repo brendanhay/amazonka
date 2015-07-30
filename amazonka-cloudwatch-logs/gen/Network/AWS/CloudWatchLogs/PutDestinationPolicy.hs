@@ -97,7 +97,7 @@ instance ToJSON PutDestinationPolicy where
                "accessPolicy" .= _pdpAccessPolicy]
 
 instance ToPath PutDestinationPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutDestinationPolicy where
         toQuery = const mempty

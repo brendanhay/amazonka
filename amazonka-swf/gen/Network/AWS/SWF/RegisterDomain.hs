@@ -139,7 +139,7 @@ instance ToJSON RegisterDomain where
                  _rdWorkflowExecutionRetentionPeriodInDays]
 
 instance ToPath RegisterDomain where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RegisterDomain where
         toQuery = const mempty

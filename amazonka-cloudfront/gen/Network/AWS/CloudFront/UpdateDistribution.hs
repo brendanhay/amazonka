@@ -110,8 +110,8 @@ instance ToHeaders UpdateDistribution where
 
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
-          = ["2015-04-17", "distribution", toBS _udId,
-             "config"]
+          = mconcat
+              ["/2015-04-17/distribution/", toBS _udId, "/config"]
 
 instance ToQuery UpdateDistribution where
         toQuery = const mempty

@@ -112,7 +112,7 @@ instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
 
 instance ToPath DescribeSnapshotAttribute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeSnapshotAttribute where
         toQuery DescribeSnapshotAttribute'{..}

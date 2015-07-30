@@ -138,7 +138,7 @@ instance ToJSON GetDataSource where
                "DataSourceId" .= _gdsDataSourceId]
 
 instance ToPath GetDataSource where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetDataSource where
         toQuery = const mempty

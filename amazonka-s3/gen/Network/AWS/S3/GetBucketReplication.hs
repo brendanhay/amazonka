@@ -78,7 +78,8 @@ instance ToHeaders GetBucketReplication where
         toHeaders = const mempty
 
 instance ToPath GetBucketReplication where
-        toPath GetBucketReplication'{..} = [toBS _gbrBucket]
+        toPath GetBucketReplication'{..}
+          = mconcat ["/", toBS _gbrBucket]
 
 instance ToQuery GetBucketReplication where
         toQuery = const (mconcat ["replication"])

@@ -81,7 +81,7 @@ instance ToHeaders RemovePermission where
         toHeaders = const mempty
 
 instance ToPath RemovePermission where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RemovePermission where
         toQuery RemovePermission'{..}

@@ -112,7 +112,7 @@ instance ToHeaders GetObjectACL where
 
 instance ToPath GetObjectACL where
         toPath GetObjectACL'{..}
-          = [toBS _goaBucket, toBS _goaKey]
+          = mconcat ["/", toBS _goaBucket, "/", toBS _goaKey]
 
 instance ToQuery GetObjectACL where
         toQuery GetObjectACL'{..}

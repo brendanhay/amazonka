@@ -101,7 +101,7 @@ instance ToHeaders SetInstanceHealth where
         toHeaders = const mempty
 
 instance ToPath SetInstanceHealth where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SetInstanceHealth where
         toQuery SetInstanceHealth'{..}

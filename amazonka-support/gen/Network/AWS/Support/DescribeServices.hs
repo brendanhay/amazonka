@@ -116,7 +116,7 @@ instance ToJSON DescribeServices where
                "language" .= _dsLanguage]
 
 instance ToPath DescribeServices where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeServices where
         toQuery = const mempty

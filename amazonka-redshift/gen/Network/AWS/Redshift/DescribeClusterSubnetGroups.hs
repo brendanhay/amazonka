@@ -166,7 +166,7 @@ instance ToHeaders DescribeClusterSubnetGroups where
         toHeaders = const mempty
 
 instance ToPath DescribeClusterSubnetGroups where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeClusterSubnetGroups where
         toQuery DescribeClusterSubnetGroups'{..}

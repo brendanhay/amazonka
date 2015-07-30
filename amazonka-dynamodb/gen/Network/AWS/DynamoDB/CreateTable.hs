@@ -287,7 +287,7 @@ instance ToJSON CreateTable where
                "ProvisionedThroughput" .= _ctProvisionedThroughput]
 
 instance ToPath CreateTable where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateTable where
         toQuery = const mempty

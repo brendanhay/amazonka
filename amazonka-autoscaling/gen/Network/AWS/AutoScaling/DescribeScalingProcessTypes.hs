@@ -69,7 +69,7 @@ instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
 
 instance ToPath DescribeScalingProcessTypes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeScalingProcessTypes where
         toQuery

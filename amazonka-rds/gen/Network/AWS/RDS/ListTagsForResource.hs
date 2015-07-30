@@ -96,7 +96,7 @@ instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 
 instance ToPath ListTagsForResource where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListTagsForResource where
         toQuery ListTagsForResource'{..}

@@ -139,7 +139,7 @@ instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
 
 instance ToPath DescribeAddresses where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAddresses where
         toQuery DescribeAddresses'{..}

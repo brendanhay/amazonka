@@ -100,12 +100,7 @@ requestInsts m h r fs = do
         ++ map Left  protocolHeaders
 
     toPath :: Either Error Inst
-    toPath = ToPath . concatMap split <$> uriFields h uriPath id fs
-      where
-        split (Right f)  = [Right f]
-        split (Left "/") = [] -- drop delimiters
-        split (Left  x)  =
-            map Left . filter (not . Text.null) $ Text.split (== '/') x
+    toPath = ToPath <$> uriFields h uriPath id fs
 
     toBody :: Maybe Inst
     toBody = ToBody <$> stream

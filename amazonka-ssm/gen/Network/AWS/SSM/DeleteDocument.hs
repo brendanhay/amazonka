@@ -88,7 +88,7 @@ instance ToJSON DeleteDocument where
           = object ["Name" .= _dddName]
 
 instance ToPath DeleteDocument where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteDocument where
         toQuery = const mempty

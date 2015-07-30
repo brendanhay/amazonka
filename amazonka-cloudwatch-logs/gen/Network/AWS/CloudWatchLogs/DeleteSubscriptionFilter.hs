@@ -95,7 +95,7 @@ instance ToJSON DeleteSubscriptionFilter where
                "filterName" .= _dFilterName]
 
 instance ToPath DeleteSubscriptionFilter where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSubscriptionFilter where
         toQuery = const mempty

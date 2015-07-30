@@ -100,7 +100,7 @@ instance ToJSON StopTask where
           = object ["cluster" .= _stCluster, "task" .= _stTask]
 
 instance ToPath StopTask where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery StopTask where
         toQuery = const mempty

@@ -105,7 +105,7 @@ instance ToJSON AddUploadBuffer where
                "DiskIds" .= _aubDiskIds]
 
 instance ToPath AddUploadBuffer where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddUploadBuffer where
         toQuery = const mempty

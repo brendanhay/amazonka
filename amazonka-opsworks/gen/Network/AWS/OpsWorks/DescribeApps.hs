@@ -108,7 +108,7 @@ instance ToJSON DescribeApps where
               ["AppIds" .= _daAppIds, "StackId" .= _daStackId]
 
 instance ToPath DescribeApps where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeApps where
         toQuery = const mempty

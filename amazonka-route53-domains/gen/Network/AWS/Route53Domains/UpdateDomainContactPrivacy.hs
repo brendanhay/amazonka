@@ -176,7 +176,7 @@ instance ToJSON UpdateDomainContactPrivacy where
                "DomainName" .= _udcpDomainName]
 
 instance ToPath UpdateDomainContactPrivacy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateDomainContactPrivacy where
         toQuery = const mempty

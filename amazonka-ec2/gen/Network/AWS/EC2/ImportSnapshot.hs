@@ -131,7 +131,7 @@ instance ToHeaders ImportSnapshot where
         toHeaders = const mempty
 
 instance ToPath ImportSnapshot where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ImportSnapshot where
         toQuery ImportSnapshot'{..}

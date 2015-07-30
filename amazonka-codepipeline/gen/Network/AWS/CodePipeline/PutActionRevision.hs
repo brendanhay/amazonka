@@ -127,7 +127,7 @@ instance ToJSON PutActionRevision where
                "actionRevision" .= _parActionRevision]
 
 instance ToPath PutActionRevision where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery PutActionRevision where
         toQuery = const mempty

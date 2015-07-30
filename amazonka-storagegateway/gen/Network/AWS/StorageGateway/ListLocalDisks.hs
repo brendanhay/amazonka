@@ -101,7 +101,7 @@ instance ToJSON ListLocalDisks where
           = object ["GatewayARN" .= _lldGatewayARN]
 
 instance ToPath ListLocalDisks where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListLocalDisks where
         toQuery = const mempty

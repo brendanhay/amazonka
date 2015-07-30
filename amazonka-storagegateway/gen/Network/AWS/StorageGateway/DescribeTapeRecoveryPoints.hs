@@ -132,7 +132,7 @@ instance ToJSON DescribeTapeRecoveryPoints where
                "GatewayARN" .= _dtrpGatewayARN]
 
 instance ToPath DescribeTapeRecoveryPoints where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeTapeRecoveryPoints where
         toQuery = const mempty

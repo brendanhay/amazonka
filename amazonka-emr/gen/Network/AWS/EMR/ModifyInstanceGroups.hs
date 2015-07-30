@@ -87,7 +87,7 @@ instance ToJSON ModifyInstanceGroups where
           = object ["InstanceGroups" .= _migInstanceGroups]
 
 instance ToPath ModifyInstanceGroups where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifyInstanceGroups where
         toQuery = const mempty

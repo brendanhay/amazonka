@@ -103,7 +103,7 @@ instance ToJSON ListRuns where
               ["nextToken" .= _lrNextToken, "arn" .= _lrArn]
 
 instance ToPath ListRuns where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListRuns where
         toQuery = const mempty

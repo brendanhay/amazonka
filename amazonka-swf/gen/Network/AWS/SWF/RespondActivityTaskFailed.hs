@@ -136,7 +136,7 @@ instance ToJSON RespondActivityTaskFailed where
                "taskToken" .= _ratfTaskToken]
 
 instance ToPath RespondActivityTaskFailed where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RespondActivityTaskFailed where
         toQuery = const mempty

@@ -123,7 +123,7 @@ instance ToHeaders ValidateConfigurationSettings
         toHeaders = const mempty
 
 instance ToPath ValidateConfigurationSettings where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ValidateConfigurationSettings where
         toQuery ValidateConfigurationSettings'{..}

@@ -152,7 +152,7 @@ instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty
 
 instance ToPath CreateNetworkInterface where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateNetworkInterface where
         toQuery CreateNetworkInterface'{..}

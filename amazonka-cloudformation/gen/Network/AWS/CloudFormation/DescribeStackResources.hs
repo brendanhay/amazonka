@@ -142,7 +142,7 @@ instance ToHeaders DescribeStackResources where
         toHeaders = const mempty
 
 instance ToPath DescribeStackResources where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeStackResources where
         toQuery DescribeStackResources'{..}

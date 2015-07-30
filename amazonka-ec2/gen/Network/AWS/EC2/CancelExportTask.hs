@@ -74,7 +74,7 @@ instance ToHeaders CancelExportTask where
         toHeaders = const mempty
 
 instance ToPath CancelExportTask where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CancelExportTask where
         toQuery CancelExportTask'{..}

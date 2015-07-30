@@ -168,7 +168,7 @@ instance ToJSON CreateGrant where
                "GranteePrincipal" .= _cgGranteePrincipal]
 
 instance ToPath CreateGrant where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateGrant where
         toQuery = const mempty

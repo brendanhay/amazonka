@@ -74,7 +74,7 @@ instance ToHeaders DeleteSnapshotCopyGrant where
         toHeaders = const mempty
 
 instance ToPath DeleteSnapshotCopyGrant where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteSnapshotCopyGrant where
         toQuery DeleteSnapshotCopyGrant'{..}

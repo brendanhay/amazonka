@@ -111,7 +111,7 @@ instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
 
 instance ToPath ValidateTemplate where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ValidateTemplate where
         toQuery ValidateTemplate'{..}

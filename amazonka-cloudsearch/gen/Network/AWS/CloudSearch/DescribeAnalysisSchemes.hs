@@ -112,7 +112,7 @@ instance ToHeaders DescribeAnalysisSchemes where
         toHeaders = const mempty
 
 instance ToPath DescribeAnalysisSchemes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAnalysisSchemes where
         toQuery DescribeAnalysisSchemes'{..}

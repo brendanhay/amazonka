@@ -87,7 +87,7 @@ instance ToHeaders DeleteVPC where
         toHeaders = const mempty
 
 instance ToPath DeleteVPC where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteVPC where
         toQuery DeleteVPC'{..}

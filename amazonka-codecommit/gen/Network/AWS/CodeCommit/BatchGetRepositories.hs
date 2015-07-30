@@ -101,7 +101,7 @@ instance ToJSON BatchGetRepositories where
           = object ["repositoryNames" .= _bgrRepositoryNames]
 
 instance ToPath BatchGetRepositories where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery BatchGetRepositories where
         toQuery = const mempty

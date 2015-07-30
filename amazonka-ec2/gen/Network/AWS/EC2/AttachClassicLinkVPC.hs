@@ -122,7 +122,7 @@ instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
 
 instance ToPath AttachClassicLinkVPC where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AttachClassicLinkVPC where
         toQuery AttachClassicLinkVPC'{..}

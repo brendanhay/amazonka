@@ -177,7 +177,7 @@ instance ToJSON UpdateTrail where
                "S3BucketName" .= _utS3BucketName, "Name" .= _utName]
 
 instance ToPath UpdateTrail where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateTrail where
         toQuery = const mempty

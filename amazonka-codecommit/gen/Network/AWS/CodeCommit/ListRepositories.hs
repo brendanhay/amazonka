@@ -116,7 +116,7 @@ instance ToJSON ListRepositories where
                "sortBy" .= _lrSortBy]
 
 instance ToPath ListRepositories where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListRepositories where
         toQuery = const mempty

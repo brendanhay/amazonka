@@ -155,7 +155,7 @@ instance ToJSON CreateCachediSCSIVolume where
                "ClientToken" .= _ccscsivClientToken]
 
 instance ToPath CreateCachediSCSIVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateCachediSCSIVolume where
         toQuery = const mempty

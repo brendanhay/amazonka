@@ -79,7 +79,7 @@ instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
 
 instance ToPath GetLoginProfile where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetLoginProfile where
         toQuery GetLoginProfile'{..}

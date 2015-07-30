@@ -124,7 +124,7 @@ instance ToJSON DisableStageTransition where
                "reason" .= _dstReason]
 
 instance ToPath DisableStageTransition where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DisableStageTransition where
         toQuery = const mempty

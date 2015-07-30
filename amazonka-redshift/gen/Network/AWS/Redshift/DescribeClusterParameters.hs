@@ -148,7 +148,7 @@ instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
 
 instance ToPath DescribeClusterParameters where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeClusterParameters where
         toQuery DescribeClusterParameters'{..}

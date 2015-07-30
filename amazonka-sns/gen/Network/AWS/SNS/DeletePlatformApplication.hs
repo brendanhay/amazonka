@@ -76,7 +76,7 @@ instance ToHeaders DeletePlatformApplication where
         toHeaders = const mempty
 
 instance ToPath DeletePlatformApplication where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeletePlatformApplication where
         toQuery DeletePlatformApplication'{..}

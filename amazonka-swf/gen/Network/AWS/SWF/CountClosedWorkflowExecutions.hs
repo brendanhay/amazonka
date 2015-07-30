@@ -202,7 +202,7 @@ instance ToJSON CountClosedWorkflowExecutions where
                "domain" .= _ccweDomain]
 
 instance ToPath CountClosedWorkflowExecutions where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CountClosedWorkflowExecutions where
         toQuery = const mempty

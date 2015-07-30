@@ -116,7 +116,7 @@ instance ToJSON AddWorkingStorage where
                "DiskIds" .= _awsDiskIds]
 
 instance ToPath AddWorkingStorage where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddWorkingStorage where
         toQuery = const mempty

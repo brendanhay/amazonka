@@ -71,7 +71,7 @@ instance ToHeaders DeleteAlarms where
         toHeaders = const mempty
 
 instance ToPath DeleteAlarms where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteAlarms where
         toQuery DeleteAlarms'{..}

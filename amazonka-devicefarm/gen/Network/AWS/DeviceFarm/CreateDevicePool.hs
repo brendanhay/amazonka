@@ -120,7 +120,7 @@ instance ToJSON CreateDevicePool where
                "rules" .= _cdpRules]
 
 instance ToPath CreateDevicePool where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDevicePool where
         toQuery = const mempty

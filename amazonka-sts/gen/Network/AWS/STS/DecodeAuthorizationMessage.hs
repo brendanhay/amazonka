@@ -107,7 +107,7 @@ instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty
 
 instance ToPath DecodeAuthorizationMessage where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DecodeAuthorizationMessage where
         toQuery DecodeAuthorizationMessage'{..}

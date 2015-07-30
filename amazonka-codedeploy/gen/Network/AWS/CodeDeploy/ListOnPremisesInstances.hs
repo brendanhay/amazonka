@@ -129,7 +129,7 @@ instance ToJSON ListOnPremisesInstances where
                "registrationStatus" .= _lopiRegistrationStatus]
 
 instance ToPath ListOnPremisesInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListOnPremisesInstances where
         toQuery = const mempty

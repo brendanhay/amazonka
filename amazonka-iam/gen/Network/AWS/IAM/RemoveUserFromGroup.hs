@@ -80,7 +80,7 @@ instance ToHeaders RemoveUserFromGroup where
         toHeaders = const mempty
 
 instance ToPath RemoveUserFromGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RemoveUserFromGroup where
         toQuery RemoveUserFromGroup'{..}

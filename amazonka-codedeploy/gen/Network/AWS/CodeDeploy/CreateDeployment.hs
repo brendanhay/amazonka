@@ -159,7 +159,7 @@ instance ToJSON CreateDeployment where
                "applicationName" .= _cdApplicationName]
 
 instance ToPath CreateDeployment where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDeployment where
         toQuery = const mempty

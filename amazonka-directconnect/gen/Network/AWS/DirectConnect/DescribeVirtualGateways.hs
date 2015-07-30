@@ -82,7 +82,7 @@ instance ToJSON DescribeVirtualGateways where
         toJSON = const (Object mempty)
 
 instance ToPath DescribeVirtualGateways where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeVirtualGateways where
         toQuery = const mempty

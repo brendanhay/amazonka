@@ -71,7 +71,7 @@ instance ToHeaders GetAccountSummary where
         toHeaders = const mempty
 
 instance ToPath GetAccountSummary where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetAccountSummary where
         toQuery

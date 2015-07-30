@@ -99,7 +99,7 @@ instance ToJSON UpdateDefaultBranch where
                "defaultBranchName" .= _udbDefaultBranchName]
 
 instance ToPath UpdateDefaultBranch where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateDefaultBranch where
         toQuery = const mempty

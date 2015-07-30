@@ -73,7 +73,7 @@ instance ToHeaders DeleteTopic where
         toHeaders = const mempty
 
 instance ToPath DeleteTopic where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteTopic where
         toQuery DeleteTopic'{..}

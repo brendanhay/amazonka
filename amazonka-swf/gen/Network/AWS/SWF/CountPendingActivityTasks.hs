@@ -118,7 +118,7 @@ instance ToJSON CountPendingActivityTasks where
                "taskList" .= _cpatTaskList]
 
 instance ToPath CountPendingActivityTasks where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CountPendingActivityTasks where
         toQuery = const mempty

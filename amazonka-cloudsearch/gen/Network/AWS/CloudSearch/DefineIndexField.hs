@@ -98,7 +98,7 @@ instance ToHeaders DefineIndexField where
         toHeaders = const mempty
 
 instance ToPath DefineIndexField where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DefineIndexField where
         toQuery DefineIndexField'{..}

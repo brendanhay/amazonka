@@ -319,7 +319,7 @@ instance ToJSON CreatePipeline where
                "InputBucket" .= _cInputBucket, "Role" .= _cRole]
 
 instance ToPath CreatePipeline where
-        toPath = const ["2012-09-25", "pipelines"]
+        toPath = const "/2012-09-25/pipelines"
 
 instance ToQuery CreatePipeline where
         toQuery = const mempty

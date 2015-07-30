@@ -105,7 +105,7 @@ instance ToHeaders ModifyDBSubnetGroup where
         toHeaders = const mempty
 
 instance ToPath ModifyDBSubnetGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifyDBSubnetGroup where
         toQuery ModifyDBSubnetGroup'{..}

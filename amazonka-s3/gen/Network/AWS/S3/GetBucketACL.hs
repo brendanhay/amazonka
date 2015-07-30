@@ -81,7 +81,8 @@ instance ToHeaders GetBucketACL where
         toHeaders = const mempty
 
 instance ToPath GetBucketACL where
-        toPath GetBucketACL'{..} = [toBS _gbaBucket]
+        toPath GetBucketACL'{..}
+          = mconcat ["/", toBS _gbaBucket]
 
 instance ToQuery GetBucketACL where
         toQuery = const (mconcat ["acl"])

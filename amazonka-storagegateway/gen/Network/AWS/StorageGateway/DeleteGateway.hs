@@ -107,7 +107,7 @@ instance ToJSON DeleteGateway where
           = object ["GatewayARN" .= _dgGatewayARN]
 
 instance ToPath DeleteGateway where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteGateway where
         toQuery = const mempty

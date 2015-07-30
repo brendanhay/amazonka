@@ -132,7 +132,7 @@ instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
 
 instance ToPath DescribeBundleTasks where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeBundleTasks where
         toQuery DescribeBundleTasks'{..}

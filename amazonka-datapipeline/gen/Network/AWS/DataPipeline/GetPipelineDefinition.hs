@@ -110,7 +110,7 @@ instance ToJSON GetPipelineDefinition where
                "pipelineId" .= _gpdPipelineId]
 
 instance ToPath GetPipelineDefinition where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetPipelineDefinition where
         toQuery = const mempty

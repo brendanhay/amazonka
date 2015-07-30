@@ -69,7 +69,7 @@ instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty
 
 instance ToPath GetHealthCheckCount where
-        toPath = const ["2013-04-01", "healthcheckcount"]
+        toPath = const "/2013-04-01/healthcheckcount"
 
 instance ToQuery GetHealthCheckCount where
         toQuery = const mempty

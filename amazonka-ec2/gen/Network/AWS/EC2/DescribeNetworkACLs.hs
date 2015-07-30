@@ -162,7 +162,7 @@ instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty
 
 instance ToPath DescribeNetworkACLs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeNetworkACLs where
         toQuery DescribeNetworkACLs'{..}

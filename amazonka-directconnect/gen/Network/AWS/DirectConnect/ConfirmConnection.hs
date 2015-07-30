@@ -93,7 +93,7 @@ instance ToJSON ConfirmConnection where
           = object ["connectionId" .= _ccConnectionId]
 
 instance ToPath ConfirmConnection where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ConfirmConnection where
         toQuery = const mempty

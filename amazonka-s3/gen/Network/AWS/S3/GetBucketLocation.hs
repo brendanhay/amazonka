@@ -77,7 +77,8 @@ instance ToHeaders GetBucketLocation where
         toHeaders = const mempty
 
 instance ToPath GetBucketLocation where
-        toPath GetBucketLocation'{..} = [toBS _gblBucket]
+        toPath GetBucketLocation'{..}
+          = mconcat ["/", toBS _gblBucket]
 
 instance ToQuery GetBucketLocation where
         toQuery = const (mconcat ["location"])

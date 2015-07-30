@@ -80,7 +80,7 @@ instance ToHeaders DeleteCacheSubnetGroup where
         toHeaders = const mempty
 
 instance ToPath DeleteCacheSubnetGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteCacheSubnetGroup where
         toQuery DeleteCacheSubnetGroup'{..}

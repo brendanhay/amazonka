@@ -101,7 +101,7 @@ instance ToHeaders UpdateGroup where
         toHeaders = const mempty
 
 instance ToPath UpdateGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateGroup where
         toQuery UpdateGroup'{..}

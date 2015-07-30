@@ -172,7 +172,7 @@ instance ToJSON CreateDataSourceFromS where
                "DataSpec" .= _cdsfsDataSpec]
 
 instance ToPath CreateDataSourceFromS where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateDataSourceFromS where
         toQuery = const mempty

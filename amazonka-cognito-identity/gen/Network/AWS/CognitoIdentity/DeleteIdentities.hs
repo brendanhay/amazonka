@@ -95,7 +95,7 @@ instance ToJSON DeleteIdentities where
               ["IdentityIdsToDelete" .= _diIdentityIdsToDelete]
 
 instance ToPath DeleteIdentities where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteIdentities where
         toQuery = const mempty

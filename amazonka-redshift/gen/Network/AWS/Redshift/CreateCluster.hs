@@ -452,7 +452,7 @@ instance ToHeaders CreateCluster where
         toHeaders = const mempty
 
 instance ToPath CreateCluster where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateCluster where
         toQuery CreateCluster'{..}

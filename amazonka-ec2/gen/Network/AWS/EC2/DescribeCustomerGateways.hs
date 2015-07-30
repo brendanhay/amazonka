@@ -136,7 +136,7 @@ instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
 
 instance ToPath DescribeCustomerGateways where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeCustomerGateways where
         toQuery DescribeCustomerGateways'{..}

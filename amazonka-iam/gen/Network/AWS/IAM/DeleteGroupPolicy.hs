@@ -87,7 +87,7 @@ instance ToHeaders DeleteGroupPolicy where
         toHeaders = const mempty
 
 instance ToPath DeleteGroupPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteGroupPolicy where
         toQuery DeleteGroupPolicy'{..}

@@ -91,7 +91,7 @@ instance ToJSON GetOnPremisesInstance where
           = object ["instanceName" .= _gopiInstanceName]
 
 instance ToPath GetOnPremisesInstance where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetOnPremisesInstance where
         toQuery = const mempty

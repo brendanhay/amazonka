@@ -95,7 +95,7 @@ instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
 
 instance ToPath DefineAnalysisScheme where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DefineAnalysisScheme where
         toQuery DefineAnalysisScheme'{..}

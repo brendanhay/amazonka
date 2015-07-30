@@ -86,7 +86,7 @@ instance ToHeaders DetachGroupPolicy where
         toHeaders = const mempty
 
 instance ToPath DetachGroupPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DetachGroupPolicy where
         toQuery DetachGroupPolicy'{..}

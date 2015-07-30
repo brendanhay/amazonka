@@ -121,7 +121,7 @@ instance ToHeaders ImportVolume where
         toHeaders = const mempty
 
 instance ToPath ImportVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ImportVolume where
         toQuery ImportVolume'{..}

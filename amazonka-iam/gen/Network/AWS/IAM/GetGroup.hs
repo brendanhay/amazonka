@@ -118,7 +118,7 @@ instance ToHeaders GetGroup where
         toHeaders = const mempty
 
 instance ToPath GetGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetGroup where
         toQuery GetGroup'{..}

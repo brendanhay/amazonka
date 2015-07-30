@@ -131,7 +131,7 @@ instance ToJSON DescribeVolumes where
                "StackId" .= _dvStackId]
 
 instance ToPath DescribeVolumes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeVolumes where
         toQuery = const mempty

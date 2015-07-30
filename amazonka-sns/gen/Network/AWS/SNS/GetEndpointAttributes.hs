@@ -85,7 +85,7 @@ instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty
 
 instance ToPath GetEndpointAttributes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetEndpointAttributes where
         toQuery GetEndpointAttributes'{..}

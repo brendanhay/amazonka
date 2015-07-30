@@ -136,7 +136,7 @@ instance ToHeaders DetachVolume where
         toHeaders = const mempty
 
 instance ToPath DetachVolume where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DetachVolume where
         toQuery DetachVolume'{..}

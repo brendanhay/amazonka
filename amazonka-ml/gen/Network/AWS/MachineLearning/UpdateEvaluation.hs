@@ -102,7 +102,7 @@ instance ToJSON UpdateEvaluation where
                "EvaluationName" .= _ueEvaluationName]
 
 instance ToPath UpdateEvaluation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateEvaluation where
         toQuery = const mempty

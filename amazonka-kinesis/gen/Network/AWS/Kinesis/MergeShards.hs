@@ -143,7 +143,7 @@ instance ToJSON MergeShards where
                "AdjacentShardToMerge" .= _msAdjacentShardToMerge]
 
 instance ToPath MergeShards where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery MergeShards where
         toQuery = const mempty

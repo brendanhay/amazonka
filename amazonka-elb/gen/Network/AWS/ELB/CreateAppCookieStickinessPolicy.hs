@@ -115,7 +115,7 @@ instance ToHeaders CreateAppCookieStickinessPolicy
         toHeaders = const mempty
 
 instance ToPath CreateAppCookieStickinessPolicy where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateAppCookieStickinessPolicy
          where

@@ -87,7 +87,7 @@ instance ToHeaders DeletePlacementGroup where
         toHeaders = const mempty
 
 instance ToPath DeletePlacementGroup where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeletePlacementGroup where
         toQuery DeletePlacementGroup'{..}

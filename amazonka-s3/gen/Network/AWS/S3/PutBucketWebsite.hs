@@ -96,7 +96,8 @@ instance ToHeaders PutBucketWebsite where
           = mconcat ["Content-MD5" =# _pbwContentMD5]
 
 instance ToPath PutBucketWebsite where
-        toPath PutBucketWebsite'{..} = [toBS _pbwBucket]
+        toPath PutBucketWebsite'{..}
+          = mconcat ["/", toBS _pbwBucket]
 
 instance ToQuery PutBucketWebsite where
         toQuery = const (mconcat ["website"])

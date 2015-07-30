@@ -80,7 +80,7 @@ instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty
 
 instance ToPath DescribeExportTasks where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeExportTasks where
         toQuery DescribeExportTasks'{..}

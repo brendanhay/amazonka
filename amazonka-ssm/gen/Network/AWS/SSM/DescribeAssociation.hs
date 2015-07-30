@@ -100,7 +100,7 @@ instance ToJSON DescribeAssociation where
               ["Name" .= _daName, "InstanceId" .= _daInstanceId]
 
 instance ToPath DescribeAssociation where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeAssociation where
         toQuery = const mempty

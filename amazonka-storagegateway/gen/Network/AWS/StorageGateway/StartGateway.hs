@@ -102,7 +102,7 @@ instance ToJSON StartGateway where
           = object ["GatewayARN" .= _sgGatewayARN]
 
 instance ToPath StartGateway where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery StartGateway where
         toQuery = const mempty

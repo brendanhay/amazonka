@@ -101,7 +101,7 @@ instance ToJSON AcknowledgeJob where
           = object ["jobId" .= _ajJobId, "nonce" .= _ajNonce]
 
 instance ToPath AcknowledgeJob where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AcknowledgeJob where
         toQuery = const mempty

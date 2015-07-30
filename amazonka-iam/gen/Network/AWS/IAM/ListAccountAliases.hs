@@ -114,7 +114,7 @@ instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
 
 instance ToPath ListAccountAliases where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListAccountAliases where
         toQuery ListAccountAliases'{..}

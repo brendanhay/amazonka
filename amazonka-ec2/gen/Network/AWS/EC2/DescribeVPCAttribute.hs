@@ -105,7 +105,7 @@ instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty
 
 instance ToPath DescribeVPCAttribute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeVPCAttribute where
         toQuery DescribeVPCAttribute'{..}

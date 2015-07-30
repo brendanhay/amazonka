@@ -83,7 +83,8 @@ instance ToHeaders GetReusableDelegationSet where
 
 instance ToPath GetReusableDelegationSet where
         toPath GetReusableDelegationSet'{..}
-          = ["2013-04-01", "delegationset", toBS _grdsId]
+          = mconcat
+              ["/2013-04-01/delegationset/", toBS _grdsId]
 
 instance ToQuery GetReusableDelegationSet where
         toQuery = const mempty

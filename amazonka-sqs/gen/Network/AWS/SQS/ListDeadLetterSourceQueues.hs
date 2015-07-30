@@ -83,7 +83,7 @@ instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
 
 instance ToPath ListDeadLetterSourceQueues where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListDeadLetterSourceQueues where
         toQuery ListDeadLetterSourceQueues'{..}

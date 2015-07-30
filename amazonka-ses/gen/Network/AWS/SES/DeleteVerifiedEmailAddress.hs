@@ -81,7 +81,7 @@ instance ToHeaders DeleteVerifiedEmailAddress where
         toHeaders = const mempty
 
 instance ToPath DeleteVerifiedEmailAddress where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DeleteVerifiedEmailAddress where
         toQuery DeleteVerifiedEmailAddress'{..}

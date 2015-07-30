@@ -112,7 +112,7 @@ instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
 
 instance ToPath GetConsoleOutput where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetConsoleOutput where
         toQuery GetConsoleOutput'{..}

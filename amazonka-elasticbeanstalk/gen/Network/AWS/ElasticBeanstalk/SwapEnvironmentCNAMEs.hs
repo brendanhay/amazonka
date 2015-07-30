@@ -118,7 +118,7 @@ instance ToHeaders SwapEnvironmentCNAMEs where
         toHeaders = const mempty
 
 instance ToPath SwapEnvironmentCNAMEs where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery SwapEnvironmentCNAMEs where
         toQuery SwapEnvironmentCNAMEs'{..}

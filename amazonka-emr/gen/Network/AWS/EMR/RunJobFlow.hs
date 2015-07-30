@@ -329,7 +329,7 @@ instance ToJSON RunJobFlow where
                "Name" .= _rjfName, "Instances" .= _rjfInstances]
 
 instance ToPath RunJobFlow where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery RunJobFlow where
         toQuery = const mempty

@@ -98,7 +98,7 @@ instance ToHeaders ModifyVPCAttribute where
         toHeaders = const mempty
 
 instance ToPath ModifyVPCAttribute where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifyVPCAttribute where
         toQuery ModifyVPCAttribute'{..}

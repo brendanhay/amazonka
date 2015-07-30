@@ -100,7 +100,7 @@ instance ToJSON AddTagsToOnPremisesInstances where
                "instanceNames" .= _attopiInstanceNames]
 
 instance ToPath AddTagsToOnPremisesInstances where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery AddTagsToOnPremisesInstances where
         toQuery = const mempty

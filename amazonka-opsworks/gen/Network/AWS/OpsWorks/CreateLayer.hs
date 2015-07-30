@@ -282,7 +282,7 @@ instance ToJSON CreateLayer where
                "Name" .= _clName, "Shortname" .= _clShortname]
 
 instance ToPath CreateLayer where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery CreateLayer where
         toQuery = const mempty

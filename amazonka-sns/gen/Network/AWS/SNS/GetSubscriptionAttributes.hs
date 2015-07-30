@@ -82,7 +82,7 @@ instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
 
 instance ToPath GetSubscriptionAttributes where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetSubscriptionAttributes where
         toQuery GetSubscriptionAttributes'{..}

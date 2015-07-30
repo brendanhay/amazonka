@@ -92,7 +92,7 @@ instance ToHeaders DescribeInstanceHealth where
         toHeaders = const mempty
 
 instance ToPath DescribeInstanceHealth where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery DescribeInstanceHealth where
         toQuery DescribeInstanceHealth'{..}

@@ -96,7 +96,8 @@ instance ToHeaders PutBucketCORS where
           = mconcat ["Content-MD5" =# _pbcContentMD5]
 
 instance ToPath PutBucketCORS where
-        toPath PutBucketCORS'{..} = [toBS _pbcBucket]
+        toPath PutBucketCORS'{..}
+          = mconcat ["/", toBS _pbcBucket]
 
 instance ToQuery PutBucketCORS where
         toQuery = const (mconcat ["cors"])

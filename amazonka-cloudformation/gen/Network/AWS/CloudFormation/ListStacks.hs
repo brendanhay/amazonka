@@ -110,7 +110,7 @@ instance ToHeaders ListStacks where
         toHeaders = const mempty
 
 instance ToPath ListStacks where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ListStacks where
         toQuery ListStacks'{..}

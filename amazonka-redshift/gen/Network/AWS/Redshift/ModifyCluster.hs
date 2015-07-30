@@ -342,7 +342,7 @@ instance ToHeaders ModifyCluster where
         toHeaders = const mempty
 
 instance ToPath ModifyCluster where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery ModifyCluster where
         toQuery ModifyCluster'{..}

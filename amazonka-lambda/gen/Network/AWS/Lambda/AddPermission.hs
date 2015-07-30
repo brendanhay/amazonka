@@ -174,8 +174,9 @@ instance ToJSON AddPermission where
 
 instance ToPath AddPermission where
         toPath AddPermission'{..}
-          = ["2015-03-31", "functions", toBS _apFunctionName,
-             "versions", "HEAD", "policy"]
+          = mconcat
+              ["/2015-03-31/functions/", toBS _apFunctionName,
+               "/versions/HEAD/policy"]
 
 instance ToQuery AddPermission where
         toQuery = const mempty

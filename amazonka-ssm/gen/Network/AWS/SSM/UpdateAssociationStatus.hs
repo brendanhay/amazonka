@@ -110,7 +110,7 @@ instance ToJSON UpdateAssociationStatus where
                "AssociationStatus" .= _uasAssociationStatus]
 
 instance ToPath UpdateAssociationStatus where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery UpdateAssociationStatus where
         toQuery = const mempty

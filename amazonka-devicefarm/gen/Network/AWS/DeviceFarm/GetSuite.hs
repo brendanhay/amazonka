@@ -88,7 +88,7 @@ instance ToJSON GetSuite where
         toJSON GetSuite'{..} = object ["arn" .= _gsArn]
 
 instance ToPath GetSuite where
-        toPath = const mempty
+        toPath = const "/"
 
 instance ToQuery GetSuite where
         toQuery = const mempty

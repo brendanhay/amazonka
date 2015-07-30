@@ -38,6 +38,7 @@ import           Data.Text                   (Text)
 import qualified Data.Text                   as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Error
+import           Network.AWS.Logger
 import           Network.AWS.Types
 
 type Acceptor a = Request a -> Response a -> Maybe Accept
@@ -48,8 +49,8 @@ data Accept
     | AcceptRetry
       deriving (Eq, Show)
 
-instance ToBuilder Accept where
-    build = \case
+instance ToLog Accept where
+    message = \case
         AcceptSuccess -> "Success"
         AcceptFailure -> "Failure"
         AcceptRetry   -> "Retry"

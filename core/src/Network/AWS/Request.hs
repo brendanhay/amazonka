@@ -55,6 +55,7 @@ import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.XML
+import           Network.AWS.Logger
 import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as HTTP
 import           Network.HTTP.Types           (StdMethod (..))
@@ -157,10 +158,10 @@ requestURL :: ClientRequest -> ByteString
 requestURL = toBS . uri
   where
     uri x = scheme (HTTP.secure      x)
-         <> build  (HTTP.host        x)
+         <> message  (HTTP.host        x)
          <> port   (HTTP.port        x)
-         <> build  (HTTP.path        x)
-         <> build  (HTTP.queryString x)
+         <> message  (HTTP.path        x)
+         <> message  (HTTP.queryString x)
 
     scheme True = "https://"
     scheme _    = "http://"
@@ -168,4 +169,4 @@ requestURL = toBS . uri
     port = \case
         80  -> ""
         443 -> ""
-        n   -> build ':' <> build n
+        n   -> message ':' <> message n

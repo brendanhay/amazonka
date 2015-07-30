@@ -27,6 +27,7 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
+import           Network.AWS.Logger
 import           Network.AWS.Request
 import           Network.AWS.Types
 import           Network.HTTP.Types          hiding (toQuery)
@@ -38,11 +39,11 @@ data instance Meta V2 = Meta
     , _mTime      :: UTCTime
     }
 
-instance ToBuilder (Meta V2) where
-    build Meta{..} = mconcat $ intersperse "\n"
+instance ToLog (Meta V2) where
+    message Meta{..} = mconcat $ intersperse "\n"
         [ "[Version 2 Metadata] {"
-        , "  signature = " <> build _mSignature
-        , "  time      = " <> build _mTime
+        , "  signature = " <> message _mSignature
+        , "  time      = " <> message _mTime
         , "}"
         ]
 

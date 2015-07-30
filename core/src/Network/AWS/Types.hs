@@ -152,16 +152,16 @@ clientRequest = def
 
 -- | Abbreviated service name.
 newtype Abbrev = Abbrev Text
-    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToBuilder)
+    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
 newtype ErrorCode = ErrorCode Text
-    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToBuilder)
+    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
 newtype ErrorMessage = ErrorMessage Text
-    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToBuilder)
+    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
 newtype RequestId = RequestId Text
-    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToBuilder)
+    deriving (Eq, Ord, Show, IsString, FromXML, FromJSON, FromText, ToText, ToLog)
 
 -- | An error type representing errors that can be attributed to this library.
 data Error
@@ -172,16 +172,16 @@ data Error
 
 instance Exception Error
 
-instance ToBuilder Error where
-    build = \case
-        HTTPError           e -> build e
+instance ToLog Error where
+    message = \case
+        HTTPError           e -> message e
         SerializerError a s x -> buildLines
             [ "[SerializerError] {"
-            , "  service = " <> build a
-            , "  status  = " <> build s
-            , "  message = " <> build x
+            , "  service = " <> message a
+            , "  status  = " <> message s
+            , "  message = " <> message x
             ]
-        ServiceError        e -> build e
+        ServiceError        e -> message e
 
 data ServiceError = ServiceError'
     { _errorService   :: Abbrev
@@ -194,14 +194,14 @@ data ServiceError = ServiceError'
 
 instance Exception ServiceError
 
-instance ToBuilder ServiceError where
-    build ServiceError'{..} = buildLines
+instance ToLog ServiceError where
+    message ServiceError'{..} = buildLines
         [ "[ServiceError] {"
-        , "  service    = " <> build _errorService
-        , "  status     = " <> build _errorStatus
-        , "  code       = " <> build _errorCode
-        , "  message    = " <> build _errorMessage
-        , "  request-id = " <> build _errorRequestId
+        , "  service    = " <> message _errorService
+        , "  status     = " <> message _errorStatus
+        , "  code       = " <> message _errorCode
+        , "  message    = " <> message _errorMessage
+        , "  request-id = " <> message _errorRequestId
         ]
 
 errorService :: Lens' ServiceError Abbrev
@@ -291,16 +291,16 @@ data Request a = Request
     , _rqBody      :: !RqBody
     }
 
-instance ToBuilder (Request a) where
-    build Request{..} = buildLines
+instance ToLog (Request a) where
+    message Request{..} = buildLines
         [ "[Raw Request] {"
-        , "  method    = "  <> build _rqMethod
-        , "  path      = "  <> build (escapePath _rqPath)
-        , "  query     = "  <> build _rqQuery
-        , "  headers   = "  <> build _rqHeaders
+        , "  method    = "  <> message _rqMethod
+        , "  path      = "  <> message (escapePath _rqPath)
+        , "  query     = "  <> message _rqQuery
+        , "  headers   = "  <> message _rqHeaders
         , "  body      = {"
-        , "    hash    = "  <> build (bodySHA256  _rqBody)
-        , "    payload =\n" <> build (bodyRequest _rqBody)
+        , "    hash    = "  <> message (bodySHA256  _rqBody)
+        , "    payload =\n" <> message (bodyRequest _rqBody)
         , "  }"
         , "}"
         ]
@@ -347,13 +347,13 @@ data family Meta v :: *
 -- | A signed 'ClientRequest' and associated metadata specific to the signing
 -- algorithm that was used.
 data Signed v a where
-    Signed :: ToBuilder (Meta v)
+    Signed :: ToLog (Meta v)
            => { _sgMeta    :: Meta v
               , _sgRequest :: ClientRequest
               }
            -> Signed v a
 
-sgMeta :: ToBuilder (Meta v) => Lens' (Signed v a) (Meta v)
+sgMeta :: ToLog (Meta v) => Lens' (Signed v a) (Meta v)
 sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
 
 -- Lens' specifically since 'a' cannot be substituted.
@@ -390,7 +390,7 @@ class AWSService (Sv a) => AWSRequest a where
 
 -- | Access key credential.
 newtype AccessKey = AccessKey ByteString
-    deriving (Eq, Show, IsString, ToText, ToByteString, ToBuilder)
+    deriving (Eq, Show, IsString, ToText, ToByteString, ToLog)
 
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
@@ -409,13 +409,13 @@ data AuthEnv = AuthEnv
     , _authExpiry :: Maybe UTCTime
     }
 
-instance ToBuilder AuthEnv where
-    build AuthEnv{..} = buildLines
+instance ToLog AuthEnv where
+    message AuthEnv{..} = buildLines
         [ "[Amazonka Auth] {"
         , "  access key     = ****"
         , "  secret key     = ****"
-        , "  security token = " <> build (const "****" <$> _authToken :: Maybe Builder)
-        , "  expiry         = " <> build _authExpiry
+        , "  security token = " <> message (const "****" <$> _authToken :: Maybe Builder)
+        , "  expiry         = " <> message _authExpiry
         , "}"
         ]
 
@@ -434,9 +434,9 @@ data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
 
-instance ToBuilder Auth where
-    build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
-    build (Auth  e) = build e
+instance ToLog Auth where
+    message (Ref t _) = "[Amazonka Auth] { <thread:" <> message (show t) <> "> }"
+    message (Auth  e) = message e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
@@ -494,8 +494,8 @@ instance ToText Region where
 
 instance ToByteString Region
 
-instance ToBuilder Region where
-    build = build . toBS
+instance ToLog Region where
+    message = message . toBS
 
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
@@ -507,8 +507,8 @@ newtype Seconds = Seconds Int
 _Seconds :: Iso' Seconds Int
 _Seconds = iso (\(Seconds n) -> n) Seconds
 
-instance ToBuilder Seconds where
-    build (Seconds n) = build n <> "s"
+instance ToLog Seconds where
+    message (Seconds n) = message n <> "s"
 
 microseconds :: Seconds -> Int
 microseconds (Seconds n) = truncate (toRational n / 1000000)

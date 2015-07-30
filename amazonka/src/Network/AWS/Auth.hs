@@ -42,14 +42,15 @@ import           Control.Monad
 import           Control.Monad.Error.Class  (catchError, throwError)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Except
-import qualified Data.ByteString.Char8      as BS
-import qualified Data.ByteString.Lazy.Char8 as LBS
+import qualified Data.ByteString.Char8      as BS8
+import qualified Data.ByteString.Lazy.Char8 as LBS8
 import           Data.IORef
 import           Data.Monoid
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           Data.Time                  (diffUTCTime, getCurrentTime)
 import           Network.AWS.EC2.Metadata
+import           Network.AWS.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
@@ -101,16 +102,16 @@ data Credentials
       -- the dns lookup terminates promptly if not running on EC2.
       deriving (Eq)
 
-instance ToBuilder Credentials where
-    build = \case
-        FromKeys    a _   -> "FromKeys "    <> build a <> " ****"
-        FromSession a _ _ -> "FromSession " <> build a <> " **** ****"
-        FromProfile n     -> "FromProfile " <> build n
-        FromEnv     a s   -> "FromEnv "     <> build a <> " " <> build s
+instance ToLog Credentials where
+    message = \case
+        FromKeys    a _   -> "FromKeys "    <> message a <> " ****"
+        FromSession a _ _ -> "FromSession " <> message a <> " **** ****"
+        FromProfile n     -> "FromProfile " <> message n
+        FromEnv     a s   -> "FromEnv "     <> message a <> " " <> message s
         Discover          -> "Discover"
 
 instance Show Credentials where
-    show = BS.unpack . toBS . build
+    show = BS8.unpack . toBS . message
 
 -- | Retrieve authentication information using the specified 'Credentials' style.
 getAuth :: (Functor m, MonadIO m)
@@ -145,7 +146,7 @@ fromEnvKeys a s = runExceptT . liftM Auth $ AuthEnv
         m <- liftIO (lookupEnv k)
         return $
             maybe (Left $ "Unable to read ENV variable: " ++ k)
-                  (Right . BS.pack)
+                  (Right . BS8.pack)
                   m
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
@@ -155,7 +156,7 @@ fromEnvKeys a s = runExceptT . liftM Auth $ AuthEnv
 fromProfile :: MonadIO m => Manager -> m (Either HttpException Auth)
 fromProfile m = do
     ls <- metadata m (IAM $ SecurityCredentials Nothing)
-    case BS.lines `liftM` ls of
+    case BS8.lines `liftM` ls of
         Right (x:_) -> fromProfileName m (Text.decodeUtf8 x)
         Left  e     -> return (Left e)
         _           -> return . Left $
@@ -182,7 +183,7 @@ fromProfileName m name = auth >>= either (return . Left) start
     auth = do
         ebs <- metadata m (IAM . SecurityCredentials $ Just name)
         return $! ebs >>= either (Left . HttpParserException) Right
-            . eitherDecode' . LBS.fromStrict
+            . eitherDecode' . LBS8.fromStrict
 
     start :: MonadIO m => AuthEnv -> m (Either e Auth)
     start !a = liftIO . liftM Right $

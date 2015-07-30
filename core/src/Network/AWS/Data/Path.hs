@@ -72,9 +72,6 @@ instance ToByteString EscapedPath where
     toBS (Encoded []) = slash
     toBS (Encoded xs) = slash <> BS8.intercalate slash xs
 
-instance ToBuilder (EscapedPath) where
-    build = build . toBS
-
 escapePath :: Path a -> EscapedPath
 escapePath (Raw     xs) = Encoded (map (urlEncode True) xs)
 escapePath (Encoded xs) = Encoded xs

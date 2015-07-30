@@ -30,7 +30,6 @@ module Network.AWS.S3.Internal
 import           Control.Lens
 import           Data.String
 import qualified Data.Text            as Text
-import qualified Data.Text.Encoding   as Text
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
 
@@ -106,10 +105,8 @@ newtype ObjectKey = ObjectKey Text
         , FromXML
         , ToXML
         , ToQuery
+        , ToPath
         )
-
-instance ToPath ObjectKey where
-    toPath (ObjectKey k) = map Text.encodeUtf8 (Text.split (== '/') k)
 
 type Delimiter = Char
 

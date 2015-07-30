@@ -33,10 +33,17 @@ module Network.AWS.Data.Path
 import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI
 
 class ToPath a where
     toPath :: a -> [ByteString]
+
+instance ToPath ByteString where
+    toPath = filter (not . BS8.null) . BS8.split sep
+
+instance ToPath Text where
+    toPath = toPath . toBS
 
 rawPath :: ToPath a => a -> Path 'NoEncoding
 rawPath = Raw . toPath
@@ -63,7 +70,7 @@ instance ToByteString RawPath where
 
 instance ToByteString EscapedPath where
     toBS (Encoded []) = slash
-    toBS (Encoded xs) = BS8.intercalate slash xs
+    toBS (Encoded xs) = slash <> BS8.intercalate slash xs
 
 instance ToBuilder (EscapedPath) where
     build = build . toBS

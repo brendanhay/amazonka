@@ -134,7 +134,7 @@ newEnv :: (Functor m, MonadIO m)
        => Region
        -> Credentials
        -> m (Either String Env)
-newEnv r c = liftIO (newManager tlsManagerSettings) >>= newEnvWith r c
+newEnv r c = liftIO (newManager conduitManagerSettings) >>= newEnvWith r c
 
 -- | /See:/ 'newEnv'
 newEnvWith :: (Functor m, MonadIO m)

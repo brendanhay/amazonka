@@ -9,6 +9,8 @@
 {-# LANGUAGE TypeOperators       #-}
 {-# LANGUAGE ViewPatterns        #-}
 
+{-# OPTIONS_GHC -ddump-deriv #-}
+
 -- |
 -- Module      : Network.AWS.Data.Query
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -19,10 +21,15 @@
 --
 module Network.AWS.Data.Query where
 
-import           Control.Lens
+import           Control.Lens                hiding (coerce)
+import           Data.ByteString.Builder     (Builder)
+import qualified Data.ByteString.Builder     as Build
 import qualified Data.ByteString.Char8       as BS8
+import qualified Data.ByteString.Lazy        as LBS
+import           Data.Coerce
 import           Data.Data
 import           Data.Data.Lens
+import           Data.Function               (on)
 import           Data.List                   (sort)
 import           Data.Monoid
 import           Data.String
@@ -37,7 +44,7 @@ data QueryString
     = QList  [QueryString]
     | QPair  ByteString QueryString
     | QValue (Maybe ByteString)
-      deriving (Eq, Show, Data, Typeable)
+      deriving (Eq, Ord, Show, Data, Typeable)
 
 instance Monoid QueryString where
     mempty = QList []
@@ -57,29 +64,32 @@ instance IsString QueryString where
 
 -- FIXME: use Builder
 instance ToByteString QueryString where
-    toBS = intercalate . sort . enc Nothing
+    toBS = LBS.toStrict . Build.toLazyByteString . cat . sort . enc Nothing
       where
-        enc k = \case
-            QList xs          -> concatMap (enc k) xs
+        enc :: Maybe ByteString -> QueryString -> [ByteString]
+        enc p = \case
+            QList xs          -> concatMap (enc p) xs
 
-            QPair (urlEncode True -> k') x
-                | Just n <- k -> enc (Just $ n <> "." <> k') x -- <prev>.key <recur>
-                | otherwise   -> enc (Just k')               x -- key <recur>
+            QPair (urlEncode True -> k) x
+                | Just n <- p -> enc (Just (n <> kdelim <> k)) x -- <prev>.key <recur>
+                | otherwise   -> enc (Just k)                  x -- key <recur>
 
             QValue (Just (urlEncode True -> v))
-                | Just n <- k -> [n <> vsep <> v] -- key=value
+                | Just n <- p -> [n <> vsep <> v] -- key=value
                 | otherwise   -> [v <> vsep]      -- value= -- note: required for signing.
 
-            _   | Just n <- k -> [n <> vsep]      -- key=
+            _   | Just n <- p -> [n <> vsep]      -- key=
                                                   -- note: this case required for request signing
-                | otherwise   -> []               -- []
+                | otherwise   -> []
 
-        intercalate []     = mempty
-        intercalate [x]    = x
-        intercalate (x:xs) = x <> ksep <> intercalate xs
+        cat :: [ByteString] -> Builder
+        cat []     = mempty
+        cat [x]    = Build.byteString x
+        cat (x:xs) = Build.byteString x <> ksep <> cat xs
 
-        ksep = "&"
-        vsep = "="
+        kdelim = "."
+        ksep   = "&"
+        vsep   = "="
 
 valuesOf :: Traversal' QueryString (Maybe ByteString)
 valuesOf = deep _QValue

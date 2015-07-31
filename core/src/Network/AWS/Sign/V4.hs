@@ -155,7 +155,7 @@ finalise meta authorise = Signed meta . authorise $ clientRequest
     { Client.method         = toBS (metaMethod meta)
     , Client.host           = _endpointHost (metaEndpoint meta)
     , Client.path           = toBS (metaPath meta)
-    , Client.queryString    = toBS (metaCanonicalQuery meta)
+    , Client.queryString    = '?' `BS8.cons` toBS (metaCanonicalQuery meta)
     , Client.requestHeaders = metaHeaders meta
     , Client.requestBody    = metaBody meta
     }

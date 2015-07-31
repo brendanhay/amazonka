@@ -47,6 +47,7 @@ module Network.AWS.OpsWorks.CreateLayer
     , clLifecycleEventConfiguration
     , clCustomRecipes
     , clVolumeConfigurations
+    , clCustomJSON
     , clEnableAutoHealing
     , clPackages
     , clAttributes
@@ -88,6 +89,8 @@ import           Network.AWS.Response
 --
 -- * 'clVolumeConfigurations'
 --
+-- * 'clCustomJSON'
+--
 -- * 'clEnableAutoHealing'
 --
 -- * 'clPackages'
@@ -114,6 +117,7 @@ data CreateLayer = CreateLayer'
     , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
     , _clCustomRecipes               :: !(Maybe Recipes)
     , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _clCustomJSON                  :: !(Maybe Text)
     , _clEnableAutoHealing           :: !(Maybe Bool)
     , _clPackages                    :: !(Maybe [Text])
     , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
@@ -136,6 +140,7 @@ createLayer pStackId_ pType_ pName_ pShortname_ =
     , _clLifecycleEventConfiguration = Nothing
     , _clCustomRecipes = Nothing
     , _clVolumeConfigurations = Nothing
+    , _clCustomJSON = Nothing
     , _clEnableAutoHealing = Nothing
     , _clPackages = Nothing
     , _clAttributes = Nothing
@@ -148,8 +153,8 @@ createLayer pStackId_ pType_ pName_ pShortname_ =
     , _clShortname = pShortname_
     }
 
--- | The ARN of an IAM profile that to be used for the layer\'s EC2
--- instances. For more information about IAM ARNs, see
+-- | The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
+-- more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 clCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
 clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCustomInstanceProfileARN = a});
@@ -158,11 +163,11 @@ clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCus
 -- instance boots. The default value is @true@. To control when updates are
 -- installed, set this value to @false@. You must then update your
 -- instances manually by using CreateDeployment to run the
--- @update_dependencies@ stack command or manually running @yum@ (Amazon
+-- @update_dependencies@ stack command or by manually running @yum@ (Amazon
 -- Linux) or @apt-get@ (Ubuntu) on the instances.
 --
--- We strongly recommend using the default value of @true@, to ensure that
--- your instances have the latest security updates.
+-- To ensure that your instances have the latest security updates, we
+-- strongly recommend using the default value of @true@.
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
 
@@ -170,7 +175,7 @@ clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpda
 clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
 clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | A LifeCycleEventConfiguration object that you can use to configure the
+-- | A @LifeCycleEventConfiguration@ object that you can use to configure the
 -- Shutdown event to specify an execution timeout and enable or disable
 -- Elastic Load Balancer connection draining.
 clLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
@@ -185,16 +190,26 @@ clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
 clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default . _Coerce;
 
+-- | A JSON-formatted string containing custom stack configuration and
+-- deployment attributes to be installed on the layer\'s instances. For
+-- more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+clCustomJSON :: Lens' CreateLayer (Maybe Text)
+clCustomJSON = lens _clCustomJSON (\ s a -> s{_clCustomJSON = a});
+
 -- | Whether to disable auto healing for the layer.
 clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
 clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing = a});
 
--- | An array of @Package@ objects that describe the layer packages.
+-- | An array of @Package@ objects that describes the layer packages.
 clPackages :: Lens' CreateLayer [Text]
 clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default . _Coerce;
 
--- | One or more user-defined key\/value pairs to be added to the stack
+-- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
+--
+-- To create a cluster layer, set the @EcsClusterArn@ attribute to the
+-- cluster\'s ARN.
 clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
 clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map;
 
@@ -236,7 +251,7 @@ clName = lens _clName (\ s a -> s{_clName = a});
 --
 -- The built-in layers\' short names are defined by AWS OpsWorks. For more
 -- information, see the
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>.
 clShortname :: Lens' CreateLayer Text
 clShortname = lens _clShortname (\ s a -> s{_clShortname = a});
 
@@ -271,6 +286,7 @@ instance ToJSON CreateLayer where
                  _clLifecycleEventConfiguration,
                "CustomRecipes" .= _clCustomRecipes,
                "VolumeConfigurations" .= _clVolumeConfigurations,
+               "CustomJson" .= _clCustomJSON,
                "EnableAutoHealing" .= _clEnableAutoHealing,
                "Packages" .= _clPackages,
                "Attributes" .= _clAttributes,

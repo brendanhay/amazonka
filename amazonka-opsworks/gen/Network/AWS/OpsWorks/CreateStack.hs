@@ -285,7 +285,8 @@ csUseOpsworksSecurityGroups = lens _csUseOpsworksSecurityGroups (\ s a -> s{_csU
 -- the instance. You can specify one of the following.
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+--     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
+--     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
 -- -   @Microsoft Windows Server 2012 R2 Base@.
 -- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
 --     when you create instances. For more information, see

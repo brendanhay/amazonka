@@ -157,6 +157,14 @@ module Network.AWS.OpsWorks.Types
     , ebdVolumeType
     , ebdSnapshotId
 
+    -- * EcsCluster
+    , EcsCluster
+    , ecsCluster
+    , ecEcsClusterARN
+    , ecEcsClusterName
+    , ecRegisteredAt
+    , ecStackId
+
     -- * ElasticIP
     , ElasticIP
     , elasticIP
@@ -201,6 +209,7 @@ module Network.AWS.OpsWorks.Types
     , iInstanceProfileARN
     , iPlatform
     , iHostname
+    , iEcsClusterARN
     , iCreatedAt
     , iSSHKeyName
     , iEC2InstanceId
@@ -225,6 +234,7 @@ module Network.AWS.OpsWorks.Types
     , iStackId
     , iRegisteredBy
     , iBlockDeviceMappings
+    , iEcsContainerInstanceARN
     , iRootDeviceType
 
     -- * InstanceIdentity
@@ -268,6 +278,7 @@ module Network.AWS.OpsWorks.Types
     , lDefaultRecipes
     , lCustomRecipes
     , lVolumeConfigurations
+    , lCustomJSON
     , lEnableAutoHealing
     , lPackages
     , lName

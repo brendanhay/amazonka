@@ -930,6 +930,61 @@ instance ToJSON EBSBlockDevice where
                "VolumeType" .= _ebdVolumeType,
                "SnapshotId" .= _ebdSnapshotId]
 
+-- | Describes a registered Amazon ECS cluster.
+--
+-- /See:/ 'ecsCluster' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ecEcsClusterARN'
+--
+-- * 'ecEcsClusterName'
+--
+-- * 'ecRegisteredAt'
+--
+-- * 'ecStackId'
+data EcsCluster = EcsCluster'
+    { _ecEcsClusterARN  :: !(Maybe Text)
+    , _ecEcsClusterName :: !(Maybe Text)
+    , _ecRegisteredAt   :: !(Maybe Text)
+    , _ecStackId        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'EcsCluster' smart constructor.
+ecsCluster :: EcsCluster
+ecsCluster =
+    EcsCluster'
+    { _ecEcsClusterARN = Nothing
+    , _ecEcsClusterName = Nothing
+    , _ecRegisteredAt = Nothing
+    , _ecStackId = Nothing
+    }
+
+-- | The cluster\'s ARN.
+ecEcsClusterARN :: Lens' EcsCluster (Maybe Text)
+ecEcsClusterARN = lens _ecEcsClusterARN (\ s a -> s{_ecEcsClusterARN = a});
+
+-- | The cluster name.
+ecEcsClusterName :: Lens' EcsCluster (Maybe Text)
+ecEcsClusterName = lens _ecEcsClusterName (\ s a -> s{_ecEcsClusterName = a});
+
+-- | The time and date that the cluster was registered with the stack.
+ecRegisteredAt :: Lens' EcsCluster (Maybe Text)
+ecRegisteredAt = lens _ecRegisteredAt (\ s a -> s{_ecRegisteredAt = a});
+
+-- | The stack ID.
+ecStackId :: Lens' EcsCluster (Maybe Text)
+ecStackId = lens _ecStackId (\ s a -> s{_ecStackId = a});
+
+instance FromJSON EcsCluster where
+        parseJSON
+          = withObject "EcsCluster"
+              (\ x ->
+                 EcsCluster' <$>
+                   (x .:? "EcsClusterArn") <*> (x .:? "EcsClusterName")
+                     <*> (x .:? "RegisteredAt")
+                     <*> (x .:? "StackId"))
+
 -- | Describes an Elastic IP address.
 --
 -- /See:/ 'elasticIP' smart constructor.
@@ -1185,6 +1240,8 @@ instance ToJSON EnvironmentVariable where
 --
 -- * 'iHostname'
 --
+-- * 'iEcsClusterARN'
+--
 -- * 'iCreatedAt'
 --
 -- * 'iSSHKeyName'
@@ -1233,6 +1290,8 @@ instance ToJSON EnvironmentVariable where
 --
 -- * 'iBlockDeviceMappings'
 --
+-- * 'iEcsContainerInstanceARN'
+--
 -- * 'iRootDeviceType'
 data Instance = Instance'
     { _iInstanceId               :: !(Maybe Text)
@@ -1247,6 +1306,7 @@ data Instance = Instance'
     , _iInstanceProfileARN       :: !(Maybe Text)
     , _iPlatform                 :: !(Maybe Text)
     , _iHostname                 :: !(Maybe Text)
+    , _iEcsClusterARN            :: !(Maybe Text)
     , _iCreatedAt                :: !(Maybe Text)
     , _iSSHKeyName               :: !(Maybe Text)
     , _iEC2InstanceId            :: !(Maybe Text)
@@ -1271,6 +1331,7 @@ data Instance = Instance'
     , _iStackId                  :: !(Maybe Text)
     , _iRegisteredBy             :: !(Maybe Text)
     , _iBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
+    , _iEcsContainerInstanceARN  :: !(Maybe Text)
     , _iRootDeviceType           :: !(Maybe RootDeviceType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1290,6 +1351,7 @@ instance' =
     , _iInstanceProfileARN = Nothing
     , _iPlatform = Nothing
     , _iHostname = Nothing
+    , _iEcsClusterARN = Nothing
     , _iCreatedAt = Nothing
     , _iSSHKeyName = Nothing
     , _iEC2InstanceId = Nothing
@@ -1314,6 +1376,7 @@ instance' =
     , _iStackId = Nothing
     , _iRegisteredBy = Nothing
     , _iBlockDeviceMappings = Nothing
+    , _iEcsContainerInstanceARN = Nothing
     , _iRootDeviceType = Nothing
     }
 
@@ -1389,6 +1452,10 @@ iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 -- | The instance host name.
 iHostname :: Lens' Instance (Maybe Text)
 iHostname = lens _iHostname (\ s a -> s{_iHostname = a});
+
+-- | For container instances, the Amazon ECS cluster\'s ARN.
+iEcsClusterARN :: Lens' Instance (Maybe Text)
+iEcsClusterARN = lens _iEcsClusterARN (\ s a -> s{_iEcsClusterARN = a});
 
 -- | The time that the instance was created.
 iCreatedAt :: Lens' Instance (Maybe Text)
@@ -1496,6 +1563,10 @@ iRegisteredBy = lens _iRegisteredBy (\ s a -> s{_iRegisteredBy = a});
 iBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
 iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
 
+-- | For container instances, the instance\'s ARN.
+iEcsContainerInstanceARN :: Lens' Instance (Maybe Text)
+iEcsContainerInstanceARN = lens _iEcsContainerInstanceARN (\ s a -> s{_iEcsContainerInstanceARN = a});
+
 -- | The instance\'s root device type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
 iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
@@ -1517,6 +1588,7 @@ instance FromJSON Instance where
                      <*> (x .:? "InstanceProfileArn")
                      <*> (x .:? "Platform")
                      <*> (x .:? "Hostname")
+                     <*> (x .:? "EcsClusterArn")
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "SshKeyName")
                      <*> (x .:? "Ec2InstanceId")
@@ -1541,6 +1613,7 @@ instance FromJSON Instance where
                      <*> (x .:? "StackId")
                      <*> (x .:? "RegisteredBy")
                      <*> (x .:? "BlockDeviceMappings" .!= mempty)
+                     <*> (x .:? "EcsContainerInstanceArn")
                      <*> (x .:? "RootDeviceType"))
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2
@@ -1796,6 +1869,8 @@ instance FromJSON InstancesCount where
 --
 -- * 'lVolumeConfigurations'
 --
+-- * 'lCustomJSON'
+--
 -- * 'lEnableAutoHealing'
 --
 -- * 'lPackages'
@@ -1827,6 +1902,7 @@ data Layer = Layer'
     , _lDefaultRecipes              :: !(Maybe Recipes)
     , _lCustomRecipes               :: !(Maybe Recipes)
     , _lVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _lCustomJSON                  :: !(Maybe Text)
     , _lEnableAutoHealing           :: !(Maybe Bool)
     , _lPackages                    :: !(Maybe [Text])
     , _lName                        :: !(Maybe Text)
@@ -1853,6 +1929,7 @@ layer =
     , _lDefaultRecipes = Nothing
     , _lCustomRecipes = Nothing
     , _lVolumeConfigurations = Nothing
+    , _lCustomJSON = Nothing
     , _lEnableAutoHealing = Nothing
     , _lPackages = Nothing
     , _lName = Nothing
@@ -1915,6 +1992,11 @@ lCustomRecipes = lens _lCustomRecipes (\ s a -> s{_lCustomRecipes = a});
 lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigurations = a}) . _Default . _Coerce;
 
+-- | A JSON formatted string containing the layer\'s custom stack
+-- configuration and deployment attributes.
+lCustomJSON :: Lens' Layer (Maybe Text)
+lCustomJSON = lens _lCustomJSON (\ s a -> s{_lCustomJSON = a});
+
 -- | Whether auto healing is disabled for the layer.
 lEnableAutoHealing :: Lens' Layer (Maybe Bool)
 lEnableAutoHealing = lens _lEnableAutoHealing (\ s a -> s{_lEnableAutoHealing = a});
@@ -1932,6 +2014,9 @@ lName = lens _lName (\ s a -> s{_lName = a});
 -- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
 -- @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@
 -- instead of the actual value
+--
+-- For an ECS Cluster layer, AWS OpsWorks the @EcsClusterArn@ attribute is
+-- set to the cluster\'s ARN.
 lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map;
 
@@ -1982,6 +2067,7 @@ instance FromJSON Layer where
                      <*> (x .:? "DefaultRecipes")
                      <*> (x .:? "CustomRecipes")
                      <*> (x .:? "VolumeConfigurations" .!= mempty)
+                     <*> (x .:? "CustomJson")
                      <*> (x .:? "EnableAutoHealing")
                      <*> (x .:? "Packages" .!= mempty)
                      <*> (x .:? "Name")

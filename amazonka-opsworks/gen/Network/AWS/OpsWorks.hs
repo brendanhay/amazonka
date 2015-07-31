@@ -46,16 +46,16 @@
 -- __Chef Versions__
 --
 -- When you call CreateStack, CloneStack, or UpdateStack we recommend you
--- use the @ConfigurationManager@ parameter to specify the Chef version,
--- 0.9, 11.4, or 11.10. The default value is currently 11.10. For more
--- information, see
+-- use the @ConfigurationManager@ parameter to specify the Chef version.
+-- The recommended value for Linux stacks, which is also the default value,
+-- is currently 11.10. Windows stacks use Chef 12.2. For more information,
+-- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
 --
--- You can still specify Chef 0.9 for your stack, but new features are not
--- available for Chef 0.9 stacks, and support is scheduled to end on July
--- 24, 2014. We do not recommend using Chef 0.9 for new stacks, and we
--- recommend migrating your existing Chef 0.9 stacks to Chef 11.10 as soon
--- as possible.
+-- You can also specify Chef 11.4 or Chef 0.9 for your Linux stack.
+-- However, Chef 0.9 has been deprecated. We do not recommend using Chef
+-- 0.9 for new stacks, and we recommend migrating your existing Chef 0.9
+-- stacks to Chef 11.10 as soon as possible.
 module Network.AWS.OpsWorks
     ( module Export
     ) where
@@ -76,6 +76,7 @@ import           Network.AWS.OpsWorks.DeleteInstance                      as Exp
 import           Network.AWS.OpsWorks.DeleteLayer                         as Export
 import           Network.AWS.OpsWorks.DeleteStack                         as Export
 import           Network.AWS.OpsWorks.DeleteUserProfile                   as Export
+import           Network.AWS.OpsWorks.DeregisterEcsCluster                as Export
 import           Network.AWS.OpsWorks.DeregisterElasticIP                 as Export
 import           Network.AWS.OpsWorks.DeregisterInstance                  as Export
 import           Network.AWS.OpsWorks.DeregisterRDSDBInstance             as Export
@@ -84,6 +85,7 @@ import           Network.AWS.OpsWorks.DescribeAgentVersions               as Exp
 import           Network.AWS.OpsWorks.DescribeApps                        as Export
 import           Network.AWS.OpsWorks.DescribeCommands                    as Export
 import           Network.AWS.OpsWorks.DescribeDeployments                 as Export
+import           Network.AWS.OpsWorks.DescribeEcsClusters                 as Export
 import           Network.AWS.OpsWorks.DescribeElasticIPs                  as Export
 import           Network.AWS.OpsWorks.DescribeElasticLoadBalancers        as Export
 import           Network.AWS.OpsWorks.DescribeInstances                   as Export
@@ -105,6 +107,7 @@ import           Network.AWS.OpsWorks.DisassociateElasticIP               as Exp
 import           Network.AWS.OpsWorks.GetHostnameSuggestion               as Export
 import           Network.AWS.OpsWorks.GrantAccess                         as Export
 import           Network.AWS.OpsWorks.RebootInstance                      as Export
+import           Network.AWS.OpsWorks.RegisterEcsCluster                  as Export
 import           Network.AWS.OpsWorks.RegisterElasticIP                   as Export
 import           Network.AWS.OpsWorks.RegisterInstance                    as Export
 import           Network.AWS.OpsWorks.RegisterRDSDBInstance               as Export

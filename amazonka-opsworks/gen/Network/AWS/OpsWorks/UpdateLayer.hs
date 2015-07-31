@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.UpdateLayer
     , ulShortname
     , ulCustomRecipes
     , ulVolumeConfigurations
+    , ulCustomJSON
     , ulEnableAutoHealing
     , ulPackages
     , ulName
@@ -78,6 +79,8 @@ import           Network.AWS.Response
 --
 -- * 'ulVolumeConfigurations'
 --
+-- * 'ulCustomJSON'
+--
 -- * 'ulEnableAutoHealing'
 --
 -- * 'ulPackages'
@@ -101,6 +104,7 @@ data UpdateLayer = UpdateLayer'
     , _ulShortname                   :: !(Maybe Text)
     , _ulCustomRecipes               :: !(Maybe Recipes)
     , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _ulCustomJSON                  :: !(Maybe Text)
     , _ulEnableAutoHealing           :: !(Maybe Bool)
     , _ulPackages                    :: !(Maybe [Text])
     , _ulName                        :: !(Maybe Text)
@@ -122,6 +126,7 @@ updateLayer pLayerId_ =
     , _ulShortname = Nothing
     , _ulCustomRecipes = Nothing
     , _ulVolumeConfigurations = Nothing
+    , _ulCustomJSON = Nothing
     , _ulEnableAutoHealing = Nothing
     , _ulPackages = Nothing
     , _ulName = Nothing
@@ -179,6 +184,13 @@ ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a});
 -- volumes.
 ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
 ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default . _Coerce;
+
+-- | A JSON-formatted string containing custom stack configuration and
+-- deployment attributes to be installed on the layer\'s instances. For
+-- more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+ulCustomJSON :: Lens' UpdateLayer (Maybe Text)
+ulCustomJSON = lens _ulCustomJSON (\ s a -> s{_ulCustomJSON = a});
 
 -- | Whether to disable auto healing for the layer.
 ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
@@ -246,6 +258,7 @@ instance ToJSON UpdateLayer where
                "Shortname" .= _ulShortname,
                "CustomRecipes" .= _ulCustomRecipes,
                "VolumeConfigurations" .= _ulVolumeConfigurations,
+               "CustomJson" .= _ulCustomJSON,
                "EnableAutoHealing" .= _ulEnableAutoHealing,
                "Packages" .= _ulPackages, "Name" .= _ulName,
                "Attributes" .= _ulAttributes,

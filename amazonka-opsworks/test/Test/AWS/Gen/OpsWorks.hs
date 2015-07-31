@@ -103,6 +103,9 @@ import Test.AWS.OpsWorks.Internal
 --         , testDisassociateElasticIP $
 --             disassociateElasticIP
 --
+--         , testRegisterEcsCluster $
+--             registerEcsCluster
+--
 --         , testStopInstance $
 --             stopInstance
 --
@@ -123,6 +126,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , testDescribeStackSummary $
 --             describeStackSummary
+--
+--         , testDeregisterEcsCluster $
+--             deregisterEcsCluster
 --
 --         , testDescribeApps $
 --             describeApps
@@ -207,6 +213,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , testDescribeCommands $
 --             describeCommands
+--
+--         , testDescribeEcsClusters $
+--             describeEcsClusters
 --
 --         , testDescribeElasticLoadBalancers $
 --             describeElasticLoadBalancers
@@ -307,6 +316,9 @@ import Test.AWS.OpsWorks.Internal
 --         , testDisassociateElasticIPResponse $
 --             disassociateElasticIPResponse
 --
+--         , testRegisterEcsClusterResponse $
+--             registerEcsClusterResponse
+--
 --         , testStopInstanceResponse $
 --             stopInstanceResponse
 --
@@ -327,6 +339,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , testDescribeStackSummaryResponse $
 --             describeStackSummaryResponse
+--
+--         , testDeregisterEcsClusterResponse $
+--             deregisterEcsClusterResponse
 --
 --         , testDescribeAppsResponse $
 --             describeAppsResponse
@@ -411,6 +426,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , testDescribeCommandsResponse $
 --             describeCommandsResponse
+--
+--         , testDescribeEcsClustersResponse $
+--             describeEcsClustersResponse
 --
 --         , testDescribeElasticLoadBalancersResponse $
 --             describeElasticLoadBalancersResponse
@@ -563,6 +581,11 @@ testDisassociateElasticIP = req
     "DisassociateElasticIP"
     "fixture/DisassociateElasticIP"
 
+testRegisterEcsCluster :: RegisterEcsCluster -> TestTree
+testRegisterEcsCluster = req
+    "RegisterEcsCluster"
+    "fixture/RegisterEcsCluster"
+
 testStopInstance :: StopInstance -> TestTree
 testStopInstance = req
     "StopInstance"
@@ -597,6 +620,11 @@ testDescribeStackSummary :: DescribeStackSummary -> TestTree
 testDescribeStackSummary = req
     "DescribeStackSummary"
     "fixture/DescribeStackSummary"
+
+testDeregisterEcsCluster :: DeregisterEcsCluster -> TestTree
+testDeregisterEcsCluster = req
+    "DeregisterEcsCluster"
+    "fixture/DeregisterEcsCluster"
 
 testDescribeApps :: DescribeApps -> TestTree
 testDescribeApps = req
@@ -737,6 +765,11 @@ testDescribeCommands :: DescribeCommands -> TestTree
 testDescribeCommands = req
     "DescribeCommands"
     "fixture/DescribeCommands"
+
+testDescribeEcsClusters :: DescribeEcsClusters -> TestTree
+testDescribeEcsClusters = req
+    "DescribeEcsClusters"
+    "fixture/DescribeEcsClusters"
 
 testDescribeElasticLoadBalancers :: DescribeElasticLoadBalancers -> TestTree
 testDescribeElasticLoadBalancers = req
@@ -925,6 +958,12 @@ testDisassociateElasticIPResponse = res
     "fixture/DisassociateElasticIPResponse"
     (Proxy :: Proxy DisassociateElasticIP)
 
+testRegisterEcsClusterResponse :: RegisterEcsClusterResponse -> TestTree
+testRegisterEcsClusterResponse = res
+    "RegisterEcsClusterResponse"
+    "fixture/RegisterEcsClusterResponse"
+    (Proxy :: Proxy RegisterEcsCluster)
+
 testStopInstanceResponse :: StopInstanceResponse -> TestTree
 testStopInstanceResponse = res
     "StopInstanceResponse"
@@ -966,6 +1005,12 @@ testDescribeStackSummaryResponse = res
     "DescribeStackSummaryResponse"
     "fixture/DescribeStackSummaryResponse"
     (Proxy :: Proxy DescribeStackSummary)
+
+testDeregisterEcsClusterResponse :: DeregisterEcsClusterResponse -> TestTree
+testDeregisterEcsClusterResponse = res
+    "DeregisterEcsClusterResponse"
+    "fixture/DeregisterEcsClusterResponse"
+    (Proxy :: Proxy DeregisterEcsCluster)
 
 testDescribeAppsResponse :: DescribeAppsResponse -> TestTree
 testDescribeAppsResponse = res
@@ -1134,6 +1179,12 @@ testDescribeCommandsResponse = res
     "DescribeCommandsResponse"
     "fixture/DescribeCommandsResponse"
     (Proxy :: Proxy DescribeCommands)
+
+testDescribeEcsClustersResponse :: DescribeEcsClustersResponse -> TestTree
+testDescribeEcsClustersResponse = res
+    "DescribeEcsClustersResponse"
+    "fixture/DescribeEcsClustersResponse"
+    (Proxy :: Proxy DescribeEcsClusters)
 
 testDescribeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse -> TestTree
 testDescribeElasticLoadBalancersResponse = res

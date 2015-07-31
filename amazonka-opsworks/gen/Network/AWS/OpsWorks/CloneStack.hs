@@ -176,8 +176,9 @@ cloneStack pSourceStackId_ pServiceRoleARN_ =
 cCloneAppIds :: Lens' CloneStack [Text]
 cCloneAppIds = lens _cCloneAppIds (\ s a -> s{_cCloneAppIds = a}) . _Default . _Coerce;
 
--- | The ARN of an IAM profile that is the default profile for all of the
--- stack\'s EC2 instances. For more information about IAM ARNs, see
+-- | The Amazon Resource Name (ARN) of an IAM profile that is the default
+-- profile for all of the stack\'s EC2 instances. For more information
+-- about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 cDefaultInstanceProfileARN :: Lens' CloneStack (Maybe Text)
 cDefaultInstanceProfileARN = lens _cDefaultInstanceProfileARN (\ s a -> s{_cDefaultInstanceProfileARN = a});
@@ -303,11 +304,12 @@ cName = lens _cName (\ s a -> s{_cName = a});
 --     associate additional security groups with a layer after you create
 --     it but you cannot delete the built-in security group.
 -- -   False - AWS OpsWorks does not associate built-in security groups
---     with layers. You must create appropriate EC2 security groups and
---     associate a security group with each layer that you create. However,
---     you can still manually associate a built-in security group with a
---     layer on creation; custom security groups are required only for
---     those layers that need custom settings.
+--     with layers. You must create appropriate Amazon Elastic Compute
+--     Cloud (Amazon EC2) security groups and associate a security group
+--     with each layer that you create. However, you can still manually
+--     associate a built-in security group with a layer on creation; custom
+--     security groups are required only for those layers that need custom
+--     settings.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
@@ -318,7 +320,8 @@ cUseOpsworksSecurityGroups = lens _cUseOpsworksSecurityGroups (\ s a -> s{_cUseO
 -- following.
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+--     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
+--     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
 -- -   @Microsoft Windows Server 2012 R2 Base@.
 -- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
 --     when you create instances. For more information on how to use custom

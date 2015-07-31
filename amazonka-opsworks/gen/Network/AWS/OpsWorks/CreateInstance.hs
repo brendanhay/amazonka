@@ -199,7 +199,8 @@ ciEBSOptimized = lens _ciEBSOptimized (\ s a -> s{_ciEBSOptimized = a});
 -- following.
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+--     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
+--     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
 -- -   @Microsoft Windows Server 2012 R2 Base@.
 -- -   A custom AMI: @Custom@.
 --

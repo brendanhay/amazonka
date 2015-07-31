@@ -153,14 +153,7 @@ updateStack pStackId_ =
 usDefaultInstanceProfileARN :: Lens' UpdateStack (Maybe Text)
 usDefaultInstanceProfileARN = lens _usDefaultInstanceProfileARN (\ s a -> s{_usDefaultInstanceProfileARN = a});
 
--- | The stack IAM role, which allows AWS OpsWorks to work with AWS resources
--- on your behalf. You must set this parameter to the ARN for an existing
--- IAM role. For more information about IAM ARNs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
--- There is no default value. You must set this parameter to a valid
--- service role ARN or the action will fail. You can specify the stack\'s
--- current service role ARN, if you prefer, but you must do so explicitly.
+-- | Do not use this parameter. You cannot update a stack\'s service role.
 usServiceRoleARN :: Lens' UpdateStack (Maybe Text)
 usServiceRoleARN = lens _usServiceRoleARN (\ s a -> s{_usServiceRoleARN = a});
 
@@ -268,7 +261,8 @@ usUseOpsworksSecurityGroups = lens _usUseOpsworksSecurityGroups (\ s a -> s{_usU
 -- following:
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+--     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
+--     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
 -- -   @Microsoft Windows Server 2012 R2 Base@.
 -- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
 --     when you create instances. For more information on how to use custom

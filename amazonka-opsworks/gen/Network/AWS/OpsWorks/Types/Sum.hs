@@ -22,19 +22,22 @@ import           Network.AWS.Prelude
 data AppAttributesKeys
     = DocumentRoot
     | RailsEnv
+    | AWSFlowRubySettings
     | AutoBundleOnDeploy
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AppAttributesKeys where
     parser = takeLowerText >>= \case
+        "awsflowrubysettings" -> pure AWSFlowRubySettings
         "autobundleondeploy" -> pure AutoBundleOnDeploy
         "documentroot" -> pure DocumentRoot
         "railsenv" -> pure RailsEnv
         e -> fromTextError $ "Failure parsing AppAttributesKeys from value: '" <> e
-           <> "'. Accepted values: autobundleondeploy, documentroot, railsenv"
+           <> "'. Accepted values: awsflowrubysettings, autobundleondeploy, documentroot, railsenv"
 
 instance ToText AppAttributesKeys where
     toText = \case
+        AWSFlowRubySettings -> "awsflowrubysettings"
         AutoBundleOnDeploy -> "autobundleondeploy"
         DocumentRoot -> "documentroot"
         RailsEnv -> "railsenv"
@@ -51,33 +54,36 @@ instance FromJSON AppAttributesKeys where
     parseJSON = parseJSONText "AppAttributesKeys"
 
 data AppType
-    = Java
-    | Other
-    | Rails
-    | Static
-    | PHP
-    | Nodejs
+    = ATPHP
+    | ATStatic
+    | ATAWSFlowRuby
+    | ATJava
+    | ATNodejs
+    | ATRails
+    | ATOther
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AppType where
     parser = takeLowerText >>= \case
-        "java" -> pure Java
-        "nodejs" -> pure Nodejs
-        "other" -> pure Other
-        "php" -> pure PHP
-        "rails" -> pure Rails
-        "static" -> pure Static
+        "aws-flow-ruby" -> pure ATAWSFlowRuby
+        "java" -> pure ATJava
+        "nodejs" -> pure ATNodejs
+        "other" -> pure ATOther
+        "php" -> pure ATPHP
+        "rails" -> pure ATRails
+        "static" -> pure ATStatic
         e -> fromTextError $ "Failure parsing AppType from value: '" <> e
-           <> "'. Accepted values: java, nodejs, other, php, rails, static"
+           <> "'. Accepted values: aws-flow-ruby, java, nodejs, other, php, rails, static"
 
 instance ToText AppType where
     toText = \case
-        Java -> "java"
-        Nodejs -> "nodejs"
-        Other -> "other"
-        PHP -> "php"
-        Rails -> "rails"
-        Static -> "static"
+        ATAWSFlowRuby -> "aws-flow-ruby"
+        ATJava -> "java"
+        ATNodejs -> "nodejs"
+        ATOther -> "other"
+        ATPHP -> "php"
+        ATRails -> "rails"
+        ATStatic -> "static"
 
 instance Hashable     AppType
 instance ToByteString AppType
@@ -208,6 +214,7 @@ data LayerAttributesKeys
     = HaproxyHealthCheckURL
     | MemcachedMemory
     | GangliaPassword
+    | EcsClusterARN
     | JavaAppServerVersion
     | GangliaURL
     | HaproxyHealthCheckMethod
@@ -234,6 +241,7 @@ data LayerAttributesKeys
 instance FromText LayerAttributesKeys where
     parser = takeLowerText >>= \case
         "bundlerversion" -> pure BundlerVersion
+        "ecsclusterarn" -> pure EcsClusterARN
         "enablehaproxystats" -> pure EnableHaproxyStats
         "gangliapassword" -> pure GangliaPassword
         "gangliaurl" -> pure GangliaURL
@@ -258,11 +266,12 @@ instance FromText LayerAttributesKeys where
         "rubyversion" -> pure RubyVersion
         "rubygemsversion" -> pure RubygemsVersion
         e -> fromTextError $ "Failure parsing LayerAttributesKeys from value: '" <> e
-           <> "'. Accepted values: bundlerversion, enablehaproxystats, gangliapassword, gangliaurl, gangliauser, haproxyhealthcheckmethod, haproxyhealthcheckurl, haproxystatspassword, haproxystatsurl, haproxystatsuser, jvm, jvmoptions, jvmversion, javaappserver, javaappserverversion, managebundler, memcachedmemory, mysqlrootpassword, mysqlrootpasswordubiquitous, nodejsversion, passengerversion, railsstack, rubyversion, rubygemsversion"
+           <> "'. Accepted values: bundlerversion, ecsclusterarn, enablehaproxystats, gangliapassword, gangliaurl, gangliauser, haproxyhealthcheckmethod, haproxyhealthcheckurl, haproxystatspassword, haproxystatsurl, haproxystatsuser, jvm, jvmoptions, jvmversion, javaappserver, javaappserverversion, managebundler, memcachedmemory, mysqlrootpassword, mysqlrootpasswordubiquitous, nodejsversion, passengerversion, railsstack, rubyversion, rubygemsversion"
 
 instance ToText LayerAttributesKeys where
     toText = \case
         BundlerVersion -> "bundlerversion"
+        EcsClusterARN -> "ecsclusterarn"
         EnableHaproxyStats -> "enablehaproxystats"
         GangliaPassword -> "gangliapassword"
         GangliaURL -> "gangliaurl"
@@ -304,8 +313,10 @@ data LayerType
     | MonitoringMaster
     | NodejsApp
     | Custom
+    | AWSFlowRuby
     | LB
     | RailsApp
+    | EcsCluster
     | DBMaster
     | Web
     | PHPApp
@@ -313,8 +324,10 @@ data LayerType
 
 instance FromText LayerType where
     parser = takeLowerText >>= \case
+        "aws-flow-ruby" -> pure AWSFlowRuby
         "custom" -> pure Custom
         "db-master" -> pure DBMaster
+        "ecs-cluster" -> pure EcsCluster
         "java-app" -> pure JavaApp
         "lb" -> pure LB
         "memcached" -> pure Memcached
@@ -324,12 +337,14 @@ instance FromText LayerType where
         "rails-app" -> pure RailsApp
         "web" -> pure Web
         e -> fromTextError $ "Failure parsing LayerType from value: '" <> e
-           <> "'. Accepted values: custom, db-master, java-app, lb, memcached, monitoring-master, nodejs-app, php-app, rails-app, web"
+           <> "'. Accepted values: aws-flow-ruby, custom, db-master, ecs-cluster, java-app, lb, memcached, monitoring-master, nodejs-app, php-app, rails-app, web"
 
 instance ToText LayerType where
     toText = \case
+        AWSFlowRuby -> "aws-flow-ruby"
         Custom -> "custom"
         DBMaster -> "db-master"
+        EcsCluster -> "ecs-cluster"
         JavaApp -> "java-app"
         LB -> "lb"
         Memcached -> "memcached"

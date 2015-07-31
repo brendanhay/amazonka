@@ -125,7 +125,8 @@ instance AWSSigner V4 where
 -- the ToByteString instance.
 newtype Tag (s :: Symbol) a = Tag { unTag :: a }
 
-instance ToByteString (Tag s ByteString) where toBS = unTag
+instance ToByteString (Tag s ByteString) where toBS    = unTag
+instance ToLog        (Tag s ByteString) where message = message . unTag
 
 instance ToByteString CredentialScope where
     toBS = BS8.intercalate "/" . unTag

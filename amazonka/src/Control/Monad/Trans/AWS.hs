@@ -77,7 +77,7 @@ module Control.Monad.Trans.AWS
 
 import           Control.Applicative
 import           Control.Monad.Base
-import           Control.Monad.Catch          (MonadCatch)
+import           Control.Monad.Catch
 import           Control.Monad.Error.Class    (MonadError (..))
 import           Control.Monad.Morph
 import           Control.Monad.Reader
@@ -121,6 +121,9 @@ newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
 
 instance MonadThrow m => MonadThrow (AWST m) where
     throwM = lift . throwM
+
+instance MonadCatch m => MonadCatch (AWST m) where
+    catch (AWST m) f = AWST (m `catch` \e -> unAWST (f e))
 
 instance MonadBase b m => MonadBase b (AWST m) where
     liftBase = liftBaseDefault

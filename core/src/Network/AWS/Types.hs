@@ -145,9 +145,10 @@ type ResponseBody = ResumableSource (ResourceT IO) ByteString
 -- throwing errors when receiving erroneous status codes in respones.
 clientRequest :: ClientRequest
 clientRequest = def
-    { Client.secure      = True
-    , Client.port        = 443
-    , Client.checkStatus = \_ _ _ -> Nothing
+    { Client.secure        = True
+    , Client.port          = 443
+    , Client.redirectCount = 0
+    , Client.checkStatus   = \_ _ _ -> Nothing
     }
 
 -- | Abbreviated service name.

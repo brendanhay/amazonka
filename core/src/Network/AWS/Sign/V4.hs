@@ -121,11 +121,11 @@ instance AWSSigner V4 where
 -- the signing documentation, passing 'ByteString's everywhere, with
 -- some type guarantees.
 --
--- Data.Tagged is not used for no reason other than syntactic length.
+-- Data.Tagged is not used for no reason other than syntactic length and
+-- the ToByteString instance.
 newtype Tag (s :: Symbol) a = Tag { unTag :: a }
 
-instance ToByteString (Tag s ByteString) where toBS    = unTag
-instance ToLog        (Tag s ByteString) where message = message . unTag
+instance ToByteString (Tag s ByteString) where toBS = unTag
 
 instance ToByteString CredentialScope where
     toBS = BS8.intercalate "/" . unTag

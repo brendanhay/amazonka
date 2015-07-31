@@ -66,7 +66,7 @@ instance ToByteString QueryString where
 
             QValue (Just (urlEncode True -> v))
                 | Just n <- k -> [n <> vsep <> v] -- key=value
-                | otherwise   -> [v]              -- value
+                | otherwise   -> [v <> vsep]      -- value= -- note: required for signing.
 
             _   | Just n <- k -> [n <> vsep]      -- key=
                                                   -- note: this case required for request signing

@@ -12,18 +12,17 @@
 module Test.AWS.Sign.V4 (tests) where
 
 import           Control.Lens
-import qualified Data.ByteString.Char8 as BS8
+import qualified Data.ByteString.Char8    as BS8
+import qualified Data.Foldable            as Fold
+import           Data.List                (sort)
 import           Data.Monoid
 import           Data.String
-import qualified Data.Text             as Text
-import qualified Data.Text.Encoding    as Text
-import           Network.AWS.Logger
+import qualified Data.Text                as Text
+import qualified Data.Text.Encoding       as Text
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
-import           Network.AWS.Types
-import           Network.HTTP.Types
 import           Test.AWS.Arbitrary
-import           Test.AWS.Util
+import           Test.QuickCheck.Property
 import           Test.Tasty
 import           Test.Tasty.QuickCheck
 
@@ -40,25 +39,31 @@ import           Test.Tasty.QuickCheck
 tests :: TestTree
 tests = testGroup "v4"
     [ testGroup "canonical query"
-        [ testProperty "empty" emptyCanonicalQuery
-
+        [ testProperty "empty" $ queryEmpty
+        , testProperty "empty key values" $ queryEmptyKeyValues
         ]
     ]
 
--- testProperty "signed headers" signedHeaders
--- signedHeaders :: TestSg -> Property
--- signedHeaders (TestSg rq sg) = property $
---    (metaSignedHeaders (_sgMeta sg))
+queryEmpty :: Request () -> Signer -> Property
+queryEmpty rq sg = property $
+    mempty == toBS (metaCanonicalQuery . sign sg $ rq & rqQuery .~ mempty)
 
-emptyCanonicalQuery :: Request () -> Signer -> Property
-emptyCanonicalQuery rq =
-    meta ((== mempty) . toBS . metaCanonicalQuery)
-         (rq & rqQuery .~ mempty)
+queryEmptyKeyValues :: [NonEmptyList Char] -> Property
+queryEmptyKeyValues xs = property $ do
+    rq <- arbitrary
+    sg <- arbitrary
 
-meta :: (Meta V4 -> Bool) -> Request () -> Signer -> Property
-meta f rq sg = property . f . _sgMeta $ sign sg rq
+    let v4 = sign sg $ rq & rqQuery .~ Fold.foldMap (fromString . getNonEmpty) xs
 
-newtype Signer = Signer { sign :: Request () -> Signed V4 () }
+        e  = sort $ map ((<> "=") . urlEncode True . BS8.pack . getNonEmpty) xs
+        a  = BS8.split '&' . toBS $ metaCanonicalQuery v4
+
+        m  = "Expected: " ++ show e ++ "\n" ++
+              "Actual: "  ++ show a
+
+    return . counterexample m $ e == a
+
+newtype Signer = Signer { sign :: Request () -> Meta V4 }
 
 instance Show Signer where
     show = const "V4"
@@ -68,7 +73,7 @@ instance Arbitrary Signer where
         a   <- arbitrary
         reg <- arbitrary
         ts  <- arbitrary
-        return . Signer $ signed auth reg ts (testV4 a)
+        return $ Signer (_sgMeta . signed auth reg ts (testV4 a))
 
 auth :: AuthEnv
 auth = AuthEnv "access-key" "super-secret-key" Nothing Nothing

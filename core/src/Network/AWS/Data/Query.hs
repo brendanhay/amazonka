@@ -20,7 +20,7 @@
 module Network.AWS.Data.Query where
 
 import           Control.Lens
-import qualified Data.ByteString.Char8       as BS
+import qualified Data.ByteString.Char8       as BS8
 import           Data.Data
 import           Data.Data.Lens
 import           Data.List                   (sort)
@@ -52,8 +52,10 @@ instance Plated QueryString where
     plate = uniplate
 
 instance IsString QueryString where
-    fromString = toQuery . BS.pack
+    fromString [] = mempty
+    fromString xs = QPair (BS8.pack xs) (QValue Nothing)
 
+-- FIXME: use Builder
 instance ToByteString QueryString where
     toBS = intercalate . sort . enc Nothing
       where
@@ -118,7 +120,7 @@ instance (ToByteString k, ToQuery v) => ToQuery (k, v) where
     toQuery (k, v) = QPair (toBS k) (toQuery v)
 
 instance ToQuery Char where
-    toQuery = toQuery . BS.singleton
+    toQuery = toQuery . BS8.singleton
 
 instance ToQuery ByteString where
     toQuery "" = QValue Nothing

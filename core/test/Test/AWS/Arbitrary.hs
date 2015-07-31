@@ -98,10 +98,10 @@ instance (Arbitrary a, FoldCase a) => Arbitrary (CI a) where
     arbitrary = CI.mk <$> arbitrary
 
 instance Arbitrary Text where
-    arbitrary = Text.pack <$> Unicode.string
+    arbitrary = Text.pack <$> suchThat Unicode.string (not . null)
 
 instance Arbitrary ByteString where
-    arbitrary = BS8.pack <$> Unicode.string
+    arbitrary = BS8.pack <$> suchThat Unicode.string (not . null)
 
 instance Arbitrary DiffTime where
     arbitrary = arbitrarySizedFractional

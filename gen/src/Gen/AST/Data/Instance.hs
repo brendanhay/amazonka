@@ -24,7 +24,6 @@ import           Data.Aeson
 import           Data.List            (find, partition)
 import           Data.Monoid
 import           Data.Text            (Text)
-import qualified Data.Text            as Text
 import           Gen.AST.Data.Field
 import           Gen.Formatting
 import           Gen.Types

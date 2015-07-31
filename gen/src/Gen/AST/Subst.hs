@@ -78,6 +78,12 @@ substitute svc@Service{..} = do
             , _opOutput        = Identity out
             }
 
+    -- This ensures the Response type has a unique name
+    -- even in the presence of sharing.
+    name :: Direction -> Id -> Id
+    name Input  n = n
+    name Output n = mkId (typeId (appendId n "Response"))
+
     http :: HTTP Maybe -> HTTP Identity
     http h = h
         { _responseCode = _responseCode h .! 200
@@ -166,10 +172,6 @@ verify n msg = do
     p <- uses memo (Map.member n)
     when p . throwError $
         format (msg % " for " % iprimary) n
-
-name :: Direction -> Id -> Id
-name Input  n = mkId (typeId n)
-name Output n = mkId (typeId (appendId n "Response"))
 
 infixl 7 .!
 

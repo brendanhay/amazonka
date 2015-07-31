@@ -9,8 +9,6 @@
 {-# LANGUAGE TypeOperators       #-}
 {-# LANGUAGE ViewPatterns        #-}
 
-{-# OPTIONS_GHC -ddump-deriv #-}
-
 -- |
 -- Module      : Network.AWS.Data.Query
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +42,7 @@ data QueryString
     = QList  [QueryString]
     | QPair  ByteString QueryString
     | QValue (Maybe ByteString)
-      deriving (Eq, Ord, Show, Data, Typeable)
+      deriving (Eq, Show, Data, Typeable)
 
 instance Monoid QueryString where
     mempty = QList []
@@ -54,9 +52,6 @@ instance Monoid QueryString where
         (QList l, r)       -> QList (r : l)
         (l,       QList r) -> QList (l : r)
         (l,       r)       -> QList [l, r]
-
-instance Plated QueryString where
-    plate = uniplate
 
 instance IsString QueryString where
     fromString [] = mempty
@@ -90,15 +85,6 @@ instance ToByteString QueryString where
         kdelim = "."
         ksep   = "&"
         vsep   = "="
-
-valuesOf :: Traversal' QueryString (Maybe ByteString)
-valuesOf = deep _QValue
-  where
-    _QValue :: Prism' QueryString (Maybe ByteString)
-    _QValue = prism QValue $
-        \case
-            QValue m -> Right m
-            x        -> Left x
 
 pair :: ToQuery a => ByteString -> a -> QueryString -> QueryString
 pair k v = mappend (QPair k (toQuery v))

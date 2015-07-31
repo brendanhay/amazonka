@@ -252,7 +252,7 @@ escapedPath s r = Tag . toBS . escapePath $
         _    -> collapsePath (_rqPath r)
 
 canonicalQuery :: QueryString -> CanonicalQuery
-canonicalQuery = Tag . toBS . (valuesOf %~ Just . fromMaybe "")
+canonicalQuery = Tag . toBS
 
 -- FIXME: the following use of stripBS is too naive, should remove
 -- all internal whitespace, replacing with a single space char,

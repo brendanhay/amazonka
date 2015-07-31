@@ -112,10 +112,12 @@ test-suite tests
     ghc-options:       -Wall -threaded
 
     other-modules:
-          Test.AWS.Data.Base64
-        , Test.AWS.Data.Numeric
+          Test.AWS.Arbitrary
+        , Test.AWS.Data.Base64
         , Test.AWS.Data.List
+        , Test.AWS.Data.Numeric
         , Test.AWS.Data.Time
+        , Test.AWS.Sign.V4
         , Test.AWS.Util
 
     build-depends:
@@ -123,8 +125,14 @@ test-suite tests
         , amazonka-core
         , base
         , bytestring
+        , case-insensitive
         , http-types
+        , lens
         , tasty
         , tasty-hunit
+        , tasty-quickcheck
         , template-haskell
         , text
+        , time
+        , QuickCheck
+        , quickcheck-unicode

@@ -59,6 +59,7 @@ instance ToByteString ByteString     where toBS = id
 instance ToByteString Builder        where toBS = toBS . Build.toLazyByteString
 instance ToByteString LazyByteString where toBS = LBS.toStrict
 instance ToByteString Text           where toBS = Text.encodeUtf8
+instance ToByteString String         where toBS = BS8.pack
 instance ToByteString Int            where toBS = toBS . Build.intDec
 instance ToByteString Integer        where toBS = toBS . Build.integerDec
 instance ToByteString Natural        where toBS = toBS . toInteger

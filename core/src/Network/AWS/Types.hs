@@ -107,6 +107,8 @@ import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import           Data.ByteString.Builder      (Builder)
+import qualified Data.ByteString.Builder      as Build
+import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Coerce
 import           Data.Conduit
 import           Data.Data                    (Data, Typeable)
@@ -291,6 +293,9 @@ data Request a = Request
     , _rqHeaders   :: ![Header]
     , _rqBody      :: !RqBody
     }
+
+instance Show (Request a) where
+    show = LBS8.unpack . Build.toLazyByteString . message
 
 instance ToLog (Request a) where
     message Request{..} = buildLines

@@ -29,13 +29,16 @@ tests =
 
 fixtures :: [TestTree]
 fixtures =
-    [ testGroup "reqest"
+    [ testGroup "request"
         [ testDeleteObjects $
             deleteObjects "bucketname" $
                 delete' & dObjects .~
                     [ objectIdentifier "sample1.text"
                     , objectIdentifier "sample2.text"
                     ]
+
+        , testListMultipartUploads $
+            listMultipartUploads "foo-bucket" & lmuMaxUploads ?~ 3
         ]
 
     , testGroup "response"

@@ -80,7 +80,9 @@ copyDBParameterGroup pSourceDBParameterGroupIdentifier_ pTargetDBParameterGroupI
 cdpgTags :: Lens' CopyDBParameterGroup [Tag]
 cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default . _Coerce;
 
--- | The identifier or ARN for the source DB parameter group.
+-- | The identifier or ARN for the source DB parameter group. For information
+-- about creating an ARN, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
 --
 -- Constraints:
 --

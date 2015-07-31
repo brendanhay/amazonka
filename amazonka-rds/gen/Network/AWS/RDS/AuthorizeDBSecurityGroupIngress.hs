@@ -26,7 +26,7 @@
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId for non-VPC).
 --
--- You cannot authorize ingress from an EC2 security group in one Region to
+-- You cannot authorize ingress from an EC2 security group in one region to
 -- an Amazon RDS DB instance in another. You cannot authorize ingress from
 -- a VPC security group in one VPC to an Amazon RDS DB instance in another.
 --
@@ -95,17 +95,17 @@ authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
     , _adsgiDBSecurityGroupName = pDBSecurityGroupName_
     }
 
--- | AWS Account Number of the owner of the EC2 security group specified in
--- the EC2SecurityGroupName parameter. The AWS Access Key ID is not an
+-- | AWS account number of the owner of the EC2 security group specified in
+-- the @EC2SecurityGroupName@ parameter. The AWS Access Key ID is not an
 -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
--- be provided. Otherwise, EC2SecurityGroupOwnerId and either
+-- be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either
 -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
 adsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiEC2SecurityGroupOwnerId = lens _adsgiEC2SecurityGroupOwnerId (\ s a -> s{_adsgiEC2SecurityGroupOwnerId = a});
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
 adsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiEC2SecurityGroupName = lens _adsgiEC2SecurityGroupName (\ s a -> s{_adsgiEC2SecurityGroupName = a});
@@ -116,7 +116,7 @@ adsgiCIdRIP = lens _adsgiCIdRIP (\ s a -> s{_adsgiCIdRIP = a});
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
 adsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiEC2SecurityGroupId = lens _adsgiEC2SecurityGroupId (\ s a -> s{_adsgiEC2SecurityGroupId = a});

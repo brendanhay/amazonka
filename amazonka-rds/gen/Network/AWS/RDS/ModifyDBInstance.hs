@@ -36,6 +36,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiIOPS
     , mdiAllowMajorVersionUpgrade
     , mdiNewDBInstanceIdentifier
+    , mdiDomain
     , mdiTDECredentialPassword
     , mdiDBInstanceClass
     , mdiPreferredMaintenanceWindow
@@ -49,6 +50,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiApplyImmediately
     , mdiTDECredentialARN
     , mdiOptionGroupName
+    , mdiCopyTagsToSnapshot
     , mdiStorageType
     , mdiDBInstanceIdentifier
 
@@ -86,6 +88,8 @@ import           Network.AWS.Response
 --
 -- * 'mdiNewDBInstanceIdentifier'
 --
+-- * 'mdiDomain'
+--
 -- * 'mdiTDECredentialPassword'
 --
 -- * 'mdiDBInstanceClass'
@@ -112,6 +116,8 @@ import           Network.AWS.Response
 --
 -- * 'mdiOptionGroupName'
 --
+-- * 'mdiCopyTagsToSnapshot'
+--
 -- * 'mdiStorageType'
 --
 -- * 'mdiDBInstanceIdentifier'
@@ -123,6 +129,7 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiIOPS                       :: !(Maybe Int)
     , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
     , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
+    , _mdiDomain                     :: !(Maybe Text)
     , _mdiTDECredentialPassword      :: !(Maybe Text)
     , _mdiDBInstanceClass            :: !(Maybe Text)
     , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
@@ -136,6 +143,7 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiApplyImmediately           :: !(Maybe Bool)
     , _mdiTDECredentialARN           :: !(Maybe Text)
     , _mdiOptionGroupName            :: !(Maybe Text)
+    , _mdiCopyTagsToSnapshot         :: !(Maybe Bool)
     , _mdiStorageType                :: !(Maybe Text)
     , _mdiDBInstanceIdentifier       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -151,6 +159,7 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiIOPS = Nothing
     , _mdiAllowMajorVersionUpgrade = Nothing
     , _mdiNewDBInstanceIdentifier = Nothing
+    , _mdiDomain = Nothing
     , _mdiTDECredentialPassword = Nothing
     , _mdiDBInstanceClass = Nothing
     , _mdiPreferredMaintenanceWindow = Nothing
@@ -164,6 +173,7 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiApplyImmediately = Nothing
     , _mdiTDECredentialARN = Nothing
     , _mdiOptionGroupName = Nothing
+    , _mdiCopyTagsToSnapshot = Nothing
     , _mdiStorageType = Nothing
     , _mdiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
@@ -221,8 +231,8 @@ mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAu
 --
 -- Amazon RDS API actions never return the password, so this action
 -- provides a way to regain access to a primary instance user if the
--- password is lost. This includes restoring privileges that may have been
--- accidentally revoked.
+-- password is lost. This includes restoring privileges that might have
+-- been accidentally revoked.
 mdiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdiMasterUserPassword = lens _mdiMasterUserPassword (\ s a -> s{_mdiMasterUserPassword = a});
 
@@ -255,9 +265,9 @@ mdiMasterUserPassword = lens _mdiMasterUserPassword (\ s a -> s{_mdiMasterUserPa
 -- any), and the number of prior scale storage operations. Typical
 -- migration times are under 24 hours, but the process can take up to
 -- several days in some cases. During the migration, the DB instance will
--- be available for use, but may experience performance degradation. While
--- the migration takes place, nightly backups for the instance will be
--- suspended. No other Amazon RDS operations can take place for the
+-- be available for use, but might experience performance degradation.
+-- While the migration takes place, nightly backups for the instance will
+-- be suspended. No other Amazon RDS operations can take place for the
 -- instance, including modifying the instance, rebooting the instance,
 -- deleting the instance, creating a Read Replica for the instance, and
 -- creating a DB snapshot of the instance.
@@ -288,6 +298,13 @@ mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdi
 mdiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNewDBInstanceIdentifier = a});
 
+-- | Specify the Active Directory Domain to move the instance to.
+--
+-- The specified Active Directory Domain must be created prior to this
+-- operation. Currently only SQL Server instance can be created in a Domain
+mdiDomain :: Lens' ModifyDBInstance (Maybe Text)
+mdiDomain = lens _mdiDomain (\ s a -> s{_mdiDomain = a});
+
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
 mdiTDECredentialPassword :: Lens' ModifyDBInstance (Maybe Text)
@@ -309,7 +326,7 @@ mdiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdiDBInstanceClass = lens _mdiDBInstanceClass (\ s a -> s{_mdiDBInstanceClass = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can
--- occur, which may result in an outage. Changing this parameter does not
+-- occur, which might result in an outage. Changing this parameter does not
 -- result in an outage, except in the following situation, and the change
 -- is asynchronously applied as soon as possible. If there are pending
 -- actions that cause a reboot, and the maintenance window is changed to
@@ -328,20 +345,20 @@ mdiDBInstanceClass = lens _mdiDBInstanceClass (\ s a -> s{_mdiDBInstanceClass = 
 mdiPreferredMaintenanceWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdiPreferredMaintenanceWindow = lens _mdiPreferredMaintenanceWindow (\ s a -> s{_mdiPreferredMaintenanceWindow = a});
 
--- | Indicates the certificate which needs to be associated with the
--- instance.
+-- | Indicates the certificate that needs to be associated with the instance.
 mdiCACertificateIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiCACertificateIdentifier = lens _mdiCACertificateIdentifier (\ s a -> s{_mdiCACertificateIdentifier = a});
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, as determined by the
--- @BackupRetentionPeriod@. Changing this parameter does not result in an
--- outage and the change is asynchronously applied as soon as possible.
+-- @BackupRetentionPeriod@ parameter. Changing this parameter does not
+-- result in an outage and the change is asynchronously applied as soon as
+-- possible.
 --
 -- Constraints:
 --
 -- -   Must be in the format hh24:mi-hh24:mi
--- -   Times should be Universal Time Coordinated (UTC)
+-- -   Times should be in Universal Time Coordinated (UTC)
 -- -   Must not conflict with the preferred maintenance window
 -- -   Must be at least 30 minutes
 mdiPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
@@ -402,6 +419,9 @@ mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurit
 -- set to @true@ for this request.
 --
 -- Constraints: Cannot be specified if the DB instance is a Read Replica.
+-- This parameter cannot be used with SQL Server DB instances. Multi-AZ for
+-- SQL Server DB instances is set using the Mirroring option in an option
+-- group associated with the DB instance.
 mdiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
 mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
 
@@ -414,7 +434,7 @@ mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
 --
 -- Default: Uses existing setting
 --
--- Valid Values: 5-3072
+-- Valid Values: 5-6144
 --
 -- Constraints: Value supplied must be at least 10% greater than the
 -- current value. Values that are not at least 10% greater than the
@@ -427,7 +447,7 @@ mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
 --
 -- Default: Uses existing setting
 --
--- Valid Values: 5-3072
+-- Valid Values: 5-6144
 --
 -- Constraints: Value supplied must be at least 10% greater than the
 -- current value. Values that are not at least 10% greater than the
@@ -440,7 +460,7 @@ mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
 --
 -- Default: Uses existing setting
 --
--- Valid Values: 10-3072
+-- Valid Values: 10-6144
 --
 -- Constraints: Value supplied must be at least 10% greater than the
 -- current value. Values that are not at least 10% greater than the
@@ -459,9 +479,9 @@ mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
 -- any), and the number of prior scale storage operations. Typical
 -- migration times are under 24 hours, but the process can take up to
 -- several days in some cases. During the migration, the DB instance will
--- be available for use, but may experience performance degradation. While
--- the migration takes place, nightly backups for the instance will be
--- suspended. No other Amazon RDS operations can take place for the
+-- be available for use, but might experience performance degradation.
+-- While the migration takes place, nightly backups for the instance will
+-- be suspended. No other Amazon RDS operations can take place for the
 -- instance, including modifying the instance, rebooting the instance,
 -- deleting the instance, creating a Read Replica for the instance, and
 -- creating a DB snapshot of the instance.
@@ -506,6 +526,10 @@ mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN
 -- instance
 mdiOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdiOptionGroupName = lens _mdiOptionGroupName (\ s a -> s{_mdiOptionGroupName = a});
+
+-- | This property is not currently implemented.
+mdiCopyTagsToSnapshot :: Lens' ModifyDBInstance (Maybe Bool)
+mdiCopyTagsToSnapshot = lens _mdiCopyTagsToSnapshot (\ s a -> s{_mdiCopyTagsToSnapshot = a});
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
@@ -564,6 +588,7 @@ instance ToQuery ModifyDBInstance where
                  _mdiAllowMajorVersionUpgrade,
                "NewDBInstanceIdentifier" =:
                  _mdiNewDBInstanceIdentifier,
+               "Domain" =: _mdiDomain,
                "TdeCredentialPassword" =: _mdiTDECredentialPassword,
                "DBInstanceClass" =: _mdiDBInstanceClass,
                "PreferredMaintenanceWindow" =:
@@ -582,6 +607,7 @@ instance ToQuery ModifyDBInstance where
                "ApplyImmediately" =: _mdiApplyImmediately,
                "TdeCredentialArn" =: _mdiTDECredentialARN,
                "OptionGroupName" =: _mdiOptionGroupName,
+               "CopyTagsToSnapshot" =: _mdiCopyTagsToSnapshot,
                "StorageType" =: _mdiStorageType,
                "DBInstanceIdentifier" =: _mdiDBInstanceIdentifier]
 

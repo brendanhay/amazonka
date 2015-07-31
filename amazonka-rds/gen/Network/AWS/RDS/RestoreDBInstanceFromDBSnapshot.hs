@@ -18,9 +18,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB instance from a DB snapshot. The target database is
--- created from the source database restore point with the same
--- configuration as the original source database, except that the new RDS
--- instance is created with the default security group.
+-- created from the source database restore point with the most of original
+-- configuration, but in a system chosen availability zone with the default
+-- security group, the default subnet group, and the default DB parameter
+-- group. By default, the new DB instance is created as a single-AZ
+-- deployment except when the instance is a SQL Server instance that has an
+-- option group that is associated with mirroring; in this case, the
+-- instance becomes a mirrored AZ deployment and not a single-AZ
+-- deployment.
 --
 -- If your intent is to replace your original DB instance with the new,
 -- restored DB instance, then rename your original DB instance before you
@@ -40,18 +45,22 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     -- ** Request constructor
     , restoreDBInstanceFromDBSnapshot
     -- ** Request lenses
+    , rdifdsDBSecurityGroups
     , rdifdsAutoMinorVersionUpgrade
     , rdifdsPubliclyAccessible
     , rdifdsDBSubnetGroupName
     , rdifdsIOPS
+    , rdifdsDomain
     , rdifdsEngine
     , rdifdsTDECredentialPassword
     , rdifdsDBInstanceClass
     , rdifdsLicenseModel
     , rdifdsAvailabilityZone
+    , rdifdsVPCSecurityGroupIds
     , rdifdsMultiAZ
     , rdifdsTDECredentialARN
     , rdifdsOptionGroupName
+    , rdifdsCopyTagsToSnapshot
     , rdifdsDBName
     , rdifdsTags
     , rdifdsPort
@@ -79,6 +88,8 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'rdifdsDBSecurityGroups'
+--
 -- * 'rdifdsAutoMinorVersionUpgrade'
 --
 -- * 'rdifdsPubliclyAccessible'
@@ -86,6 +97,8 @@ import           Network.AWS.Response
 -- * 'rdifdsDBSubnetGroupName'
 --
 -- * 'rdifdsIOPS'
+--
+-- * 'rdifdsDomain'
 --
 -- * 'rdifdsEngine'
 --
@@ -97,11 +110,15 @@ import           Network.AWS.Response
 --
 -- * 'rdifdsAvailabilityZone'
 --
+-- * 'rdifdsVPCSecurityGroupIds'
+--
 -- * 'rdifdsMultiAZ'
 --
 -- * 'rdifdsTDECredentialARN'
 --
 -- * 'rdifdsOptionGroupName'
+--
+-- * 'rdifdsCopyTagsToSnapshot'
 --
 -- * 'rdifdsDBName'
 --
@@ -115,18 +132,22 @@ import           Network.AWS.Response
 --
 -- * 'rdifdsDBSnapshotIdentifier'
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
-    { _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
+    { _rdifdsDBSecurityGroups        :: !(Maybe [Text])
+    , _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
     , _rdifdsPubliclyAccessible      :: !(Maybe Bool)
     , _rdifdsDBSubnetGroupName       :: !(Maybe Text)
     , _rdifdsIOPS                    :: !(Maybe Int)
+    , _rdifdsDomain                  :: !(Maybe Text)
     , _rdifdsEngine                  :: !(Maybe Text)
     , _rdifdsTDECredentialPassword   :: !(Maybe Text)
     , _rdifdsDBInstanceClass         :: !(Maybe Text)
     , _rdifdsLicenseModel            :: !(Maybe Text)
     , _rdifdsAvailabilityZone        :: !(Maybe Text)
+    , _rdifdsVPCSecurityGroupIds     :: !(Maybe [Text])
     , _rdifdsMultiAZ                 :: !(Maybe Bool)
     , _rdifdsTDECredentialARN        :: !(Maybe Text)
     , _rdifdsOptionGroupName         :: !(Maybe Text)
+    , _rdifdsCopyTagsToSnapshot      :: !(Maybe Bool)
     , _rdifdsDBName                  :: !(Maybe Text)
     , _rdifdsTags                    :: !(Maybe [Tag])
     , _rdifdsPort                    :: !(Maybe Int)
@@ -139,18 +160,22 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 restoreDBInstanceFromDBSnapshot :: Text -> Text -> RestoreDBInstanceFromDBSnapshot
 restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     RestoreDBInstanceFromDBSnapshot'
-    { _rdifdsAutoMinorVersionUpgrade = Nothing
+    { _rdifdsDBSecurityGroups = Nothing
+    , _rdifdsAutoMinorVersionUpgrade = Nothing
     , _rdifdsPubliclyAccessible = Nothing
     , _rdifdsDBSubnetGroupName = Nothing
     , _rdifdsIOPS = Nothing
+    , _rdifdsDomain = Nothing
     , _rdifdsEngine = Nothing
     , _rdifdsTDECredentialPassword = Nothing
     , _rdifdsDBInstanceClass = Nothing
     , _rdifdsLicenseModel = Nothing
     , _rdifdsAvailabilityZone = Nothing
+    , _rdifdsVPCSecurityGroupIds = Nothing
     , _rdifdsMultiAZ = Nothing
     , _rdifdsTDECredentialARN = Nothing
     , _rdifdsOptionGroupName = Nothing
+    , _rdifdsCopyTagsToSnapshot = Nothing
     , _rdifdsDBName = Nothing
     , _rdifdsTags = Nothing
     , _rdifdsPort = Nothing
@@ -158,6 +183,12 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     , _rdifdsDBInstanceIdentifier = pDBInstanceIdentifier_
     , _rdifdsDBSnapshotIdentifier = pDBSnapshotIdentifier_
     }
+
+-- | A list of DB security groups to associate with this DB instance.
+--
+-- Default: The default DB security group for the database engine.
+rdifdsDBSecurityGroups :: Lens' RestoreDBInstanceFromDBSnapshot [Text]
+rdifdsDBSecurityGroups = lens _rdifdsDBSecurityGroups (\ s a -> s{_rdifdsDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Indicates that minor version upgrades will be applied automatically to
 -- the DB instance during the maintenance window.
@@ -205,6 +236,10 @@ rdifdsDBSubnetGroupName = lens _rdifdsDBSubnetGroupName (\ s a -> s{_rdifdsDBSub
 rdifdsIOPS :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Int)
 rdifdsIOPS = lens _rdifdsIOPS (\ s a -> s{_rdifdsIOPS = a});
 
+-- | Specify the Active Directory Domain to restore the instance in.
+rdifdsDomain :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdifdsDomain = lens _rdifdsDomain (\ s a -> s{_rdifdsDomain = a});
+
 -- | The database engine to use for the new instance.
 --
 -- Default: The same as source
@@ -249,6 +284,13 @@ rdifdsLicenseModel = lens _rdifdsLicenseModel (\ s a -> s{_rdifdsLicenseModel = 
 rdifdsAvailabilityZone :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsAvailabilityZone = lens _rdifdsAvailabilityZone (\ s a -> s{_rdifdsAvailabilityZone = a});
 
+-- | A list of EC2 VPC security groups to associate with this DB instance.
+--
+-- Default: The default EC2 VPC security group for the DB subnet group\'s
+-- VPC.
+rdifdsVPCSecurityGroupIds :: Lens' RestoreDBInstanceFromDBSnapshot [Text]
+rdifdsVPCSecurityGroupIds = lens _rdifdsVPCSecurityGroupIds (\ s a -> s{_rdifdsVPCSecurityGroupIds = a}) . _Default . _Coerce;
+
 -- | Specifies if the DB instance is a Multi-AZ deployment.
 --
 -- Constraint: You cannot specify the AvailabilityZone parameter if the
@@ -269,6 +311,10 @@ rdifdsTDECredentialARN = lens _rdifdsTDECredentialARN (\ s a -> s{_rdifdsTDECred
 -- instance
 rdifdsOptionGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsOptionGroupName = lens _rdifdsOptionGroupName (\ s a -> s{_rdifdsOptionGroupName = a});
+
+-- | This property is not currently implemented.
+rdifdsCopyTagsToSnapshot :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
+rdifdsCopyTagsToSnapshot = lens _rdifdsCopyTagsToSnapshot (\ s a -> s{_rdifdsCopyTagsToSnapshot = a});
 
 -- | The database name for the restored DB instance.
 --
@@ -301,7 +347,7 @@ rdifdsStorageType :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a});
 
 -- | Name of the DB instance to create from the DB snapshot. This parameter
--- isn\'t case sensitive.
+-- isn\'t case-sensitive.
 --
 -- Constraints:
 --
@@ -350,19 +396,29 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
               ["Action" =:
                  ("RestoreDBInstanceFromDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
+               "DBSecurityGroups" =:
+                 toQuery
+                   (toQueryList "DBSecurityGroupName" <$>
+                      _rdifdsDBSecurityGroups),
                "AutoMinorVersionUpgrade" =:
                  _rdifdsAutoMinorVersionUpgrade,
                "PubliclyAccessible" =: _rdifdsPubliclyAccessible,
                "DBSubnetGroupName" =: _rdifdsDBSubnetGroupName,
-               "Iops" =: _rdifdsIOPS, "Engine" =: _rdifdsEngine,
+               "Iops" =: _rdifdsIOPS, "Domain" =: _rdifdsDomain,
+               "Engine" =: _rdifdsEngine,
                "TdeCredentialPassword" =:
                  _rdifdsTDECredentialPassword,
                "DBInstanceClass" =: _rdifdsDBInstanceClass,
                "LicenseModel" =: _rdifdsLicenseModel,
                "AvailabilityZone" =: _rdifdsAvailabilityZone,
+               "VpcSecurityGroupIds" =:
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _rdifdsVPCSecurityGroupIds),
                "MultiAZ" =: _rdifdsMultiAZ,
                "TdeCredentialArn" =: _rdifdsTDECredentialARN,
                "OptionGroupName" =: _rdifdsOptionGroupName,
+               "CopyTagsToSnapshot" =: _rdifdsCopyTagsToSnapshot,
                "DBName" =: _rdifdsDBName,
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rdifdsTags),

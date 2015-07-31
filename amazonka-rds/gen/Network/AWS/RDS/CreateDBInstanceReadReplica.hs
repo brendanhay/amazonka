@@ -17,8 +17,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a DB instance that acts as a Read Replica of a source DB
--- instance.
+-- Creates a DB instance for a DB instance running MySQL or PostgreSQL that
+-- acts as a Read Replica of a source DB instance.
 --
 -- All Read Replica DB instances are created as Single-AZ deployments with
 -- backups disabled. All other DB instance attributes (including DB
@@ -42,6 +42,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrDBInstanceClass
     , cdirrAvailabilityZone
     , cdirrOptionGroupName
+    , cdirrCopyTagsToSnapshot
     , cdirrTags
     , cdirrPort
     , cdirrStorageType
@@ -80,6 +81,8 @@ import           Network.AWS.Response
 --
 -- * 'cdirrOptionGroupName'
 --
+-- * 'cdirrCopyTagsToSnapshot'
+--
 -- * 'cdirrTags'
 --
 -- * 'cdirrPort'
@@ -97,6 +100,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     , _cdirrDBInstanceClass            :: !(Maybe Text)
     , _cdirrAvailabilityZone           :: !(Maybe Text)
     , _cdirrOptionGroupName            :: !(Maybe Text)
+    , _cdirrCopyTagsToSnapshot         :: !(Maybe Bool)
     , _cdirrTags                       :: !(Maybe [Tag])
     , _cdirrPort                       :: !(Maybe Int)
     , _cdirrStorageType                :: !(Maybe Text)
@@ -115,6 +119,7 @@ createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ 
     , _cdirrDBInstanceClass = Nothing
     , _cdirrAvailabilityZone = Nothing
     , _cdirrOptionGroupName = Nothing
+    , _cdirrCopyTagsToSnapshot = Nothing
     , _cdirrTags = Nothing
     , _cdirrPort = Nothing
     , _cdirrStorageType = Nothing
@@ -199,6 +204,10 @@ cdirrAvailabilityZone = lens _cdirrAvailabilityZone (\ s a -> s{_cdirrAvailabili
 cdirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupName = a});
 
+-- | This property is not currently implemented.
+cdirrCopyTagsToSnapshot :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdirrCopyTagsToSnapshot = lens _cdirrCopyTagsToSnapshot (\ s a -> s{_cdirrCopyTagsToSnapshot = a});
+
 -- | FIXME: Undocumented member.
 cdirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
 cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default . _Coerce;
@@ -223,9 +232,9 @@ cdirrPort = lens _cdirrPort (\ s a -> s{_cdirrPort = a});
 cdirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrStorageType = lens _cdirrStorageType (\ s a -> s{_cdirrStorageType = a});
 
--- | The DB instance identifier of the Read Replica. This is the unique key
--- that identifies a DB instance. This parameter is stored as a lowercase
--- string.
+-- | The DB instance identifier of the Read Replica. This identifier is the
+-- unique key that identifies a DB instance. This parameter is stored as a
+-- lowercase string.
 cdirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDBInstanceIdentifier = a});
 
@@ -282,6 +291,7 @@ instance ToQuery CreateDBInstanceReadReplica where
                "DBInstanceClass" =: _cdirrDBInstanceClass,
                "AvailabilityZone" =: _cdirrAvailabilityZone,
                "OptionGroupName" =: _cdirrOptionGroupName,
+               "CopyTagsToSnapshot" =: _cdirrCopyTagsToSnapshot,
                "Tags" =: toQuery (toQueryList "Tag" <$> _cdirrTags),
                "Port" =: _cdirrPort,
                "StorageType" =: _cdirrStorageType,

@@ -125,7 +125,7 @@ dodioLicenseModel = lens _dodioLicenseModel (\ s a -> s{_dodioLicenseModel = a})
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 dodioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
 dodioMaxRecords = lens _dodioMaxRecords (\ s a -> s{_dodioMaxRecords = a});
 

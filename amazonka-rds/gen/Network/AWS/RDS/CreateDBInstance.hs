@@ -30,10 +30,14 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiDBSecurityGroups
     , cdiEngineVersion
     , cdiStorageEncrypted
+    , cdiDBClusterIdentifier
     , cdiAutoMinorVersionUpgrade
+    , cdiMasterUserPassword
+    , cdiMasterUsername
     , cdiPubliclyAccessible
     , cdiDBSubnetGroupName
     , cdiIOPS
+    , cdiDomain
     , cdiTDECredentialPassword
     , cdiLicenseModel
     , cdiPreferredMaintenanceWindow
@@ -45,18 +49,17 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiDBParameterGroupName
     , cdiVPCSecurityGroupIds
     , cdiMultiAZ
+    , cdiAllocatedStorage
     , cdiTDECredentialARN
     , cdiOptionGroupName
+    , cdiCopyTagsToSnapshot
     , cdiDBName
     , cdiTags
     , cdiPort
     , cdiStorageType
     , cdiDBInstanceIdentifier
-    , cdiAllocatedStorage
     , cdiDBInstanceClass
     , cdiEngine
-    , cdiMasterUsername
-    , cdiMasterUserPassword
 
     -- * Response
     , CreateDBInstanceResponse
@@ -84,13 +87,21 @@ import           Network.AWS.Response
 --
 -- * 'cdiStorageEncrypted'
 --
+-- * 'cdiDBClusterIdentifier'
+--
 -- * 'cdiAutoMinorVersionUpgrade'
+--
+-- * 'cdiMasterUserPassword'
+--
+-- * 'cdiMasterUsername'
 --
 -- * 'cdiPubliclyAccessible'
 --
 -- * 'cdiDBSubnetGroupName'
 --
 -- * 'cdiIOPS'
+--
+-- * 'cdiDomain'
 --
 -- * 'cdiTDECredentialPassword'
 --
@@ -114,9 +125,13 @@ import           Network.AWS.Response
 --
 -- * 'cdiMultiAZ'
 --
+-- * 'cdiAllocatedStorage'
+--
 -- * 'cdiTDECredentialARN'
 --
 -- * 'cdiOptionGroupName'
+--
+-- * 'cdiCopyTagsToSnapshot'
 --
 -- * 'cdiDBName'
 --
@@ -128,23 +143,21 @@ import           Network.AWS.Response
 --
 -- * 'cdiDBInstanceIdentifier'
 --
--- * 'cdiAllocatedStorage'
---
 -- * 'cdiDBInstanceClass'
 --
 -- * 'cdiEngine'
---
--- * 'cdiMasterUsername'
---
--- * 'cdiMasterUserPassword'
 data CreateDBInstance = CreateDBInstance'
     { _cdiDBSecurityGroups           :: !(Maybe [Text])
     , _cdiEngineVersion              :: !(Maybe Text)
     , _cdiStorageEncrypted           :: !(Maybe Bool)
+    , _cdiDBClusterIdentifier        :: !(Maybe Text)
     , _cdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdiMasterUserPassword         :: !(Maybe Text)
+    , _cdiMasterUsername             :: !(Maybe Text)
     , _cdiPubliclyAccessible         :: !(Maybe Bool)
     , _cdiDBSubnetGroupName          :: !(Maybe Text)
     , _cdiIOPS                       :: !(Maybe Int)
+    , _cdiDomain                     :: !(Maybe Text)
     , _cdiTDECredentialPassword      :: !(Maybe Text)
     , _cdiLicenseModel               :: !(Maybe Text)
     , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
@@ -156,31 +169,34 @@ data CreateDBInstance = CreateDBInstance'
     , _cdiDBParameterGroupName       :: !(Maybe Text)
     , _cdiVPCSecurityGroupIds        :: !(Maybe [Text])
     , _cdiMultiAZ                    :: !(Maybe Bool)
+    , _cdiAllocatedStorage           :: !(Maybe Int)
     , _cdiTDECredentialARN           :: !(Maybe Text)
     , _cdiOptionGroupName            :: !(Maybe Text)
+    , _cdiCopyTagsToSnapshot         :: !(Maybe Bool)
     , _cdiDBName                     :: !(Maybe Text)
     , _cdiTags                       :: !(Maybe [Tag])
     , _cdiPort                       :: !(Maybe Int)
     , _cdiStorageType                :: !(Maybe Text)
     , _cdiDBInstanceIdentifier       :: !Text
-    , _cdiAllocatedStorage           :: !Int
     , _cdiDBInstanceClass            :: !Text
     , _cdiEngine                     :: !Text
-    , _cdiMasterUsername             :: !Text
-    , _cdiMasterUserPassword         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBInstance' smart constructor.
-createDBInstance :: Text -> Int -> Text -> Text -> Text -> Text -> CreateDBInstance
-createDBInstance pDBInstanceIdentifier_ pAllocatedStorage_ pDBInstanceClass_ pEngine_ pMasterUsername_ pMasterUserPassword_ =
+createDBInstance :: Text -> Text -> Text -> CreateDBInstance
+createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     CreateDBInstance'
     { _cdiDBSecurityGroups = Nothing
     , _cdiEngineVersion = Nothing
     , _cdiStorageEncrypted = Nothing
+    , _cdiDBClusterIdentifier = Nothing
     , _cdiAutoMinorVersionUpgrade = Nothing
+    , _cdiMasterUserPassword = Nothing
+    , _cdiMasterUsername = Nothing
     , _cdiPubliclyAccessible = Nothing
     , _cdiDBSubnetGroupName = Nothing
     , _cdiIOPS = Nothing
+    , _cdiDomain = Nothing
     , _cdiTDECredentialPassword = Nothing
     , _cdiLicenseModel = Nothing
     , _cdiPreferredMaintenanceWindow = Nothing
@@ -192,18 +208,17 @@ createDBInstance pDBInstanceIdentifier_ pAllocatedStorage_ pDBInstanceClass_ pEn
     , _cdiDBParameterGroupName = Nothing
     , _cdiVPCSecurityGroupIds = Nothing
     , _cdiMultiAZ = Nothing
+    , _cdiAllocatedStorage = Nothing
     , _cdiTDECredentialARN = Nothing
     , _cdiOptionGroupName = Nothing
+    , _cdiCopyTagsToSnapshot = Nothing
     , _cdiDBName = Nothing
     , _cdiTags = Nothing
     , _cdiPort = Nothing
     , _cdiStorageType = Nothing
     , _cdiDBInstanceIdentifier = pDBInstanceIdentifier_
-    , _cdiAllocatedStorage = pAllocatedStorage_
     , _cdiDBInstanceClass = pDBInstanceClass_
     , _cdiEngine = pEngine_
-    , _cdiMasterUsername = pMasterUsername_
-    , _cdiMasterUserPassword = pMasterUserPassword_
     }
 
 -- | A list of DB security groups to associate with this DB instance.
@@ -226,9 +241,10 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
--- -   __Version 5.5 (Available in all regions):__ @ 5.5.40b | 5.5.41@
+-- -   __Version 5.5 (Available in all regions):__
+--     @ 5.5.40b | 5.5.41 | 5.5.42@
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22@
+--     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
 --
 -- __MySQL__
 --
@@ -238,9 +254,10 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
--- -   __Version 5.5 (Available in all regions):__ @ 5.5.40b | 5.5.41@
+-- -   __Version 5.5 (Available in all regions):__
+--     @ 5.5.40b | 5.5.41 | 5.5.42@
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22@
+--     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
 --
 -- __MySQL__
 --
@@ -250,9 +267,10 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
--- -   __Version 5.5 (Available in all regions):__ @ 5.5.40b | 5.5.41@
+-- -   __Version 5.5 (Available in all regions):__
+--     @ 5.5.40b | 5.5.41 | 5.5.42@
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22@
+--     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
 --
 -- __MySQL__
 --
@@ -262,9 +280,10 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
--- -   __Version 5.5 (Available in all regions):__ @ 5.5.40b | 5.5.41@
+-- -   __Version 5.5 (Available in all regions):__
+--     @ 5.5.40b | 5.5.41 | 5.5.42@
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22@
+--     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
 --
 -- __Oracle Database Enterprise Edition (oracle-ee)__
 --
@@ -274,6 +293,7 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 --     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
 -- -   __Version 11.2 (Available in all regions):__
 --     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Available in all regions):__ @ 12.1.0.1.v1@
 --
 -- __Oracle Database Enterprise Edition (oracle-ee)__
 --
@@ -283,6 +303,17 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 --     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
 -- -   __Version 11.2 (Available in all regions):__
 --     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Available in all regions):__ @ 12.1.0.1.v1@
+--
+-- __Oracle Database Enterprise Edition (oracle-ee)__
+--
+-- -   __Version 11.2 (Only available in the following regions:
+--     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
+--     sa-east-1, us-west-1, us-west-2):__
+--     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+-- -   __Version 11.2 (Available in all regions):__
+--     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Available in all regions):__ @ 12.1.0.1.v1@
 --
 -- __Oracle Database Standard Edition (oracle-se)__
 --
@@ -292,6 +323,8 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
 --     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Only available in the following regions:
+--     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
 --
 -- __Oracle Database Standard Edition (oracle-se)__
 --
@@ -301,6 +334,19 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
 --     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Only available in the following regions:
+--     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--
+-- __Oracle Database Standard Edition (oracle-se)__
+--
+-- -   __Version 11.2 (Only available in the following regions:
+--     us-west-1):__
+--     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+-- -   __Version 11.2 (Only available in the following regions:
+--     eu-central-1, us-west-1):__
+--     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Only available in the following regions:
+--     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
 --
 -- __Oracle Database Standard Edition One (oracle-se1)__
 --
@@ -310,6 +356,8 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
 --     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Only available in the following regions:
+--     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
 --
 -- __Oracle Database Standard Edition One (oracle-se1)__
 --
@@ -319,20 +367,43 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
 --     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Only available in the following regions:
+--     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--
+-- __Oracle Database Standard Edition One (oracle-se1)__
+--
+-- -   __Version 11.2 (Only available in the following regions:
+--     us-west-1):__
+--     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+-- -   __Version 11.2 (Only available in the following regions:
+--     eu-central-1, us-west-1):__
+--     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+-- -   __Version 12.1 (Only available in the following regions:
+--     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
 --
 -- __PostgreSQL__
 --
 -- -   __Version 9.3 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__ @ 9.3.1 | 9.3.2@
--- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5@
+-- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5 | 9.3.6@
+-- -   __Version 9.4 (Available in all regions):__ @ 9.4.1@
 --
 -- __PostgreSQL__
 --
 -- -   __Version 9.3 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__ @ 9.3.1 | 9.3.2@
--- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5@
+-- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5 | 9.3.6@
+-- -   __Version 9.4 (Available in all regions):__ @ 9.4.1@
+--
+-- __PostgreSQL__
+--
+-- -   __Version 9.3 (Only available in the following regions:
+--     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
+--     sa-east-1, us-west-1, us-west-2):__ @ 9.3.1 | 9.3.2@
+-- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5 | 9.3.6@
+-- -   __Version 9.4 (Available in all regions):__ @ 9.4.1@
 --
 -- __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__
 --
@@ -386,12 +457,81 @@ cdiEngineVersion = lens _cdiEngineVersion (\ s a -> s{_cdiEngineVersion = a});
 cdiStorageEncrypted :: Lens' CreateDBInstance (Maybe Bool)
 cdiStorageEncrypted = lens _cdiStorageEncrypted (\ s a -> s{_cdiStorageEncrypted = a});
 
+-- | The identifier of the DB cluster that the instance will belong to.
+--
+-- For information on creating a DB cluster, see CreateDBCluster.
+--
+-- Type: String
+cdiDBClusterIdentifier :: Lens' CreateDBInstance (Maybe Text)
+cdiDBClusterIdentifier = lens _cdiDBClusterIdentifier (\ s a -> s{_cdiDBClusterIdentifier = a});
+
 -- | Indicates that minor engine upgrades will be applied automatically to
 -- the DB instance during the maintenance window.
 --
 -- Default: @true@
 cdiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
 cdiAutoMinorVersionUpgrade = lens _cdiAutoMinorVersionUpgrade (\ s a -> s{_cdiAutoMinorVersionUpgrade = a});
+
+-- | The password for the master database user. Can be any printable ASCII
+-- character except \"\/\", \"\"\", or \"\@\".
+--
+-- Type: String
+--
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Oracle__
+--
+-- Constraints: Must contain from 8 to 30 characters.
+--
+-- __SQL Server__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+cdiMasterUserPassword :: Lens' CreateDBInstance (Maybe Text)
+cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPassword = a});
+
+-- | The name of master user for the client DB instance.
+--
+-- __MySQL__
+--
+-- Constraints:
+--
+-- -   Must be 1 to 16 alphanumeric characters.
+-- -   First character must be a letter.
+-- -   Cannot be a reserved word for the chosen database engine.
+--
+-- Type: String
+--
+-- __Oracle__
+--
+-- Constraints:
+--
+-- -   Must be 1 to 30 alphanumeric characters.
+-- -   First character must be a letter.
+-- -   Cannot be a reserved word for the chosen database engine.
+--
+-- __SQL Server__
+--
+-- Constraints:
+--
+-- -   Must be 1 to 128 alphanumeric characters.
+-- -   First character must be a letter.
+-- -   Cannot be a reserved word for the chosen database engine.
+--
+-- __PostgreSQL__
+--
+-- Constraints:
+--
+-- -   Must be 1 to 63 alphanumeric characters.
+-- -   First character must be a letter.
+-- -   Cannot be a reserved word for the chosen database engine.
+cdiMasterUsername :: Lens' CreateDBInstance (Maybe Text)
+cdiMasterUsername = lens _cdiMasterUsername (\ s a -> s{_cdiMasterUsername = a});
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS
@@ -428,6 +568,10 @@ cdiDBSubnetGroupName = lens _cdiDBSubnetGroupName (\ s a -> s{_cdiDBSubnetGroupN
 cdiIOPS :: Lens' CreateDBInstance (Maybe Int)
 cdiIOPS = lens _cdiIOPS (\ s a -> s{_cdiIOPS = a});
 
+-- | Specify the Active Directory Domain to create the instance in.
+cdiDomain :: Lens' CreateDBInstance (Maybe Text)
+cdiDomain = lens _cdiDomain (\ s a -> s{_cdiDomain = a});
+
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
 cdiTDECredentialPassword :: Lens' CreateDBInstance (Maybe Text)
@@ -440,8 +584,8 @@ cdiTDECredentialPassword = lens _cdiTDECredentialPassword (\ s a -> s{_cdiTDECre
 cdiLicenseModel :: Lens' CreateDBInstance (Maybe Text)
 cdiLicenseModel = lens _cdiLicenseModel (\ s a -> s{_cdiLicenseModel = a});
 
--- | The weekly time range (in UTC) during which system maintenance can
--- occur. For more information, see
+-- | The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC). For more information, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance>.
 --
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
@@ -450,7 +594,7 @@ cdiLicenseModel = lens _cdiLicenseModel (\ s a -> s{_cdiLicenseModel = a});
 -- time per region, occurring on a random day of the week. To see the time
 -- blocks available, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
--- in the Amazon RDS User Guide.
+-- in the /Amazon RDS User Guide./
 --
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -469,12 +613,16 @@ cdiCharacterSetName = lens _cdiCharacterSetName (\ s a -> s{_cdiCharacterSetName
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups>.
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
--- time per region. See the Amazon RDS User Guide for the time blocks for
--- each region from which the default backup windows are assigned.
+-- time per region. To see the time blocks available, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
+-- in the /Amazon RDS User Guide./
 --
--- Constraints: Must be in the format @hh24:mi-hh24:mi@. Times should be
--- Universal Time Coordinated (UTC). Must not conflict with the preferred
--- maintenance window. Must be at least 30 minutes.
+-- Constraints:
+--
+-- -   Must be in the format @hh24:mi-hh24:mi@.
+-- -   Times should be in Universal Coordinated Time (UTC).
+-- -   Must not conflict with the preferred maintenance window.
+-- -   Must be at least 30 minutes.
 cdiPreferredBackupWindow :: Lens' CreateDBInstance (Maybe Text)
 cdiPreferredBackupWindow = lens _cdiPreferredBackupWindow (\ s a -> s{_cdiPreferredBackupWindow = a});
 
@@ -543,8 +691,35 @@ cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurit
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. You cannot set
 -- the AvailabilityZone parameter if the MultiAZ parameter is set to true.
+-- Do not set this value if you want a Multi-AZ deployment for a SQL Server
+-- DB instance. Multi-AZ for SQL Server is set using the Mirroring option
+-- in an option group.
 cdiMultiAZ :: Lens' CreateDBInstance (Maybe Bool)
 cdiMultiAZ = lens _cdiMultiAZ (\ s a -> s{_cdiMultiAZ = a});
+
+-- | The amount of storage (in gigabytes) to be initially allocated for the
+-- database instance.
+--
+-- Type: Integer
+--
+-- __MySQL__
+--
+-- Constraints: Must be an integer from 5 to 6144.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must be an integer from 5 to 6144.
+--
+-- __Oracle__
+--
+-- Constraints: Must be an integer from 10 to 6144.
+--
+-- __SQL Server__
+--
+-- Constraints: Must be an integer from 200 to 4096 (Standard Edition and
+-- Enterprise Edition) or from 20 to 4096 (Express Edition and Web Edition)
+cdiAllocatedStorage :: Lens' CreateDBInstance (Maybe Int)
+cdiAllocatedStorage = lens _cdiAllocatedStorage (\ s a -> s{_cdiAllocatedStorage = a});
 
 -- | The ARN from the Key Store with which to associate the instance for TDE
 -- encryption.
@@ -560,6 +735,10 @@ cdiTDECredentialARN = lens _cdiTDECredentialARN (\ s a -> s{_cdiTDECredentialARN
 -- instance
 cdiOptionGroupName :: Lens' CreateDBInstance (Maybe Text)
 cdiOptionGroupName = lens _cdiOptionGroupName (\ s a -> s{_cdiOptionGroupName = a});
+
+-- | This property is not currently implemented.
+cdiCopyTagsToSnapshot :: Lens' CreateDBInstance (Maybe Bool)
+cdiCopyTagsToSnapshot = lens _cdiCopyTagsToSnapshot (\ s a -> s{_cdiCopyTagsToSnapshot = a});
 
 -- | The meaning of this parameter differs according to the database engine
 -- you use.
@@ -580,8 +759,8 @@ cdiOptionGroupName = lens _cdiOptionGroupName (\ s a -> s{_cdiOptionGroupName = 
 -- __PostgreSQL__
 --
 -- The name of the database to create when the DB instance is created. If
--- this parameter is not specified, no database is created in the DB
--- instance.
+-- this parameter is not specified, the default \"postgres\" database is
+-- created in the DB instance.
 --
 -- Constraints:
 --
@@ -669,30 +848,6 @@ cdiStorageType = lens _cdiStorageType (\ s a -> s{_cdiStorageType = a});
 cdiDBInstanceIdentifier :: Lens' CreateDBInstance Text
 cdiDBInstanceIdentifier = lens _cdiDBInstanceIdentifier (\ s a -> s{_cdiDBInstanceIdentifier = a});
 
--- | The amount of storage (in gigabytes) to be initially allocated for the
--- database instance.
---
--- Type: Integer
---
--- __MySQL__
---
--- Constraints: Must be an integer from 5 to 3072.
---
--- __PostgreSQL__
---
--- Constraints: Must be an integer from 5 to 3072.
---
--- __Oracle__
---
--- Constraints: Must be an integer from 10 to 3072.
---
--- __SQL Server__
---
--- Constraints: Must be an integer from 200 to 1024 (Standard Edition and
--- Enterprise Edition) or from 20 to 1024 (Express Edition and Web Edition)
-cdiAllocatedStorage :: Lens' CreateDBInstance Int
-cdiAllocatedStorage = lens _cdiAllocatedStorage (\ s a -> s{_cdiAllocatedStorage = a});
-
 -- | The compute and memory capacity of the DB instance.
 --
 -- Valid Values:
@@ -709,67 +864,6 @@ cdiDBInstanceClass = lens _cdiDBInstanceClass (\ s a -> s{_cdiDBInstanceClass = 
 -- Not every database engine is available for every AWS region.
 cdiEngine :: Lens' CreateDBInstance Text
 cdiEngine = lens _cdiEngine (\ s a -> s{_cdiEngine = a});
-
--- | The name of master user for the client DB instance.
---
--- __MySQL__
---
--- Constraints:
---
--- -   Must be 1 to 16 alphanumeric characters.
--- -   First character must be a letter.
--- -   Cannot be a reserved word for the chosen database engine.
---
--- Type: String
---
--- __Oracle__
---
--- Constraints:
---
--- -   Must be 1 to 30 alphanumeric characters.
--- -   First character must be a letter.
--- -   Cannot be a reserved word for the chosen database engine.
---
--- __SQL Server__
---
--- Constraints:
---
--- -   Must be 1 to 128 alphanumeric characters.
--- -   First character must be a letter.
--- -   Cannot be a reserved word for the chosen database engine.
---
--- __PostgreSQL__
---
--- Constraints:
---
--- -   Must be 1 to 63 alphanumeric characters.
--- -   First character must be a letter.
--- -   Cannot be a reserved word for the chosen database engine.
-cdiMasterUsername :: Lens' CreateDBInstance Text
-cdiMasterUsername = lens _cdiMasterUsername (\ s a -> s{_cdiMasterUsername = a});
-
--- | The password for the master database user. Can be any printable ASCII
--- character except \"\/\", \"\"\", or \"\@\".
---
--- Type: String
---
--- __MySQL__
---
--- Constraints: Must contain from 8 to 41 characters.
---
--- __Oracle__
---
--- Constraints: Must contain from 8 to 30 characters.
---
--- __SQL Server__
---
--- Constraints: Must contain from 8 to 128 characters.
---
--- __PostgreSQL__
---
--- Constraints: Must contain from 8 to 128 characters.
-cdiMasterUserPassword :: Lens' CreateDBInstance Text
-cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPassword = a});
 
 instance AWSRequest CreateDBInstance where
         type Sv CreateDBInstance = RDS
@@ -798,11 +892,14 @@ instance ToQuery CreateDBInstance where
                       _cdiDBSecurityGroups),
                "EngineVersion" =: _cdiEngineVersion,
                "StorageEncrypted" =: _cdiStorageEncrypted,
+               "DBClusterIdentifier" =: _cdiDBClusterIdentifier,
                "AutoMinorVersionUpgrade" =:
                  _cdiAutoMinorVersionUpgrade,
+               "MasterUserPassword" =: _cdiMasterUserPassword,
+               "MasterUsername" =: _cdiMasterUsername,
                "PubliclyAccessible" =: _cdiPubliclyAccessible,
                "DBSubnetGroupName" =: _cdiDBSubnetGroupName,
-               "Iops" =: _cdiIOPS,
+               "Iops" =: _cdiIOPS, "Domain" =: _cdiDomain,
                "TdeCredentialPassword" =: _cdiTDECredentialPassword,
                "LicenseModel" =: _cdiLicenseModel,
                "PreferredMaintenanceWindow" =:
@@ -818,17 +915,16 @@ instance ToQuery CreateDBInstance where
                    (toQueryList "VpcSecurityGroupId" <$>
                       _cdiVPCSecurityGroupIds),
                "MultiAZ" =: _cdiMultiAZ,
+               "AllocatedStorage" =: _cdiAllocatedStorage,
                "TdeCredentialArn" =: _cdiTDECredentialARN,
                "OptionGroupName" =: _cdiOptionGroupName,
+               "CopyTagsToSnapshot" =: _cdiCopyTagsToSnapshot,
                "DBName" =: _cdiDBName,
                "Tags" =: toQuery (toQueryList "Tag" <$> _cdiTags),
                "Port" =: _cdiPort, "StorageType" =: _cdiStorageType,
                "DBInstanceIdentifier" =: _cdiDBInstanceIdentifier,
-               "AllocatedStorage" =: _cdiAllocatedStorage,
                "DBInstanceClass" =: _cdiDBInstanceClass,
-               "Engine" =: _cdiEngine,
-               "MasterUsername" =: _cdiMasterUsername,
-               "MasterUserPassword" =: _cdiMasterUserPassword]
+               "Engine" =: _cdiEngine]
 
 -- | /See:/ 'createDBInstanceResponse' smart constructor.
 --

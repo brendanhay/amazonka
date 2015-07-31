@@ -81,12 +81,16 @@ promoteReadReplica pDBInstanceIdentifier_ =
 -- parameter.
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
--- time per region. See the Amazon RDS User Guide for the time blocks for
--- each region from which the default backup windows are assigned.
+-- time per region. To see the time blocks available, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
+-- in the /Amazon RDS User Guide./
 --
--- Constraints: Must be in the format @hh24:mi-hh24:mi@. Times should be
--- Universal Time Coordinated (UTC). Must not conflict with the preferred
--- maintenance window. Must be at least 30 minutes.
+-- Constraints:
+--
+-- -   Must be in the format @hh24:mi-hh24:mi@.
+-- -   Times should be in Universal Coordinated Time (UTC).
+-- -   Must not conflict with the preferred maintenance window.
+-- -   Must be at least 30 minutes.
 prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPreferredBackupWindow = a});
 

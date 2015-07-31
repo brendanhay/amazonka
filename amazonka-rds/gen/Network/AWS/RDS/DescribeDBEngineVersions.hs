@@ -138,7 +138,7 @@ ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> 
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 ddevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
 ddevMaxRecords = lens _ddevMaxRecords (\ s a -> s{_ddevMaxRecords = a});
 

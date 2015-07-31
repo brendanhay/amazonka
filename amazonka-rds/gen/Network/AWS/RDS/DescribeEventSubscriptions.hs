@@ -99,7 +99,7 @@ dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 dMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 

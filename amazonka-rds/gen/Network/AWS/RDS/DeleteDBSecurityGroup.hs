@@ -71,7 +71,7 @@ deleteDBSecurityGroup pDBSecurityGroupName_ =
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 -- -   Must not be \"Default\"
--- -   May not contain spaces
+-- -   Cannot contain spaces
 ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
 ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecurityGroupName = a});
 

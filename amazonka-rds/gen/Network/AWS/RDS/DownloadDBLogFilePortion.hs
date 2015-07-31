@@ -17,7 +17,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Downloads all or a portion of the specified log file.
+-- Downloads all or a portion of the specified log file, up to 1 MB in
+-- size.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html>
 module Network.AWS.RDS.DownloadDBLogFilePortion
@@ -79,7 +80,9 @@ downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
     , _ddlfpLogFileName = pLogFileName_
     }
 
--- | The number of lines to download.
+-- | The number of lines to download. If the number of lines specified
+-- results in a file over 1 MB in size, the file will be truncated at 1 MB
+-- in size.
 --
 -- If the NumberOfLines parameter is specified, then the block of lines
 -- returned can be from the beginning or the end of the log file, depending

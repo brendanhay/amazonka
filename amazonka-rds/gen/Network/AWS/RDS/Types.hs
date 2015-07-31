@@ -19,6 +19,7 @@ module Network.AWS.RDS.Types
     -- * Errors
     , _CertificateNotFoundFault
     , _ReservedDBInstanceQuotaExceededFault
+    , _DBClusterSnapshotAlreadyExistsFault
     , _AuthorizationQuotaExceededFault
     , _SourceNotFoundFault
     , _InvalidDBParameterGroupStateFault
@@ -27,13 +28,17 @@ module Network.AWS.RDS.Types
     , _DBParameterGroupQuotaExceededFault
     , _ProvisionedIOPSNotAvailableInAZFault
     , _AuthorizationAlreadyExistsFault
+    , _InsufficientDBClusterCapacityFault
     , _ReservedDBInstanceAlreadyExistsFault
     , _SubscriptionCategoryNotFoundFault
     , _DBSubnetQuotaExceededFault
     , _SubscriptionNotFoundFault
     , _InvalidSubnet
+    , _DBClusterNotFoundFault
     , _OptionGroupNotFoundFault
+    , _DBLogFileNotFoundFault
     , _OptionGroupAlreadyExistsFault
+    , _DBClusterAlreadyExistsFault
     , _StorageTypeNotSupportedFault
     , _DBSecurityGroupQuotaExceededFault
     , _DBSnapshotNotFoundFault
@@ -43,17 +48,22 @@ module Network.AWS.RDS.Types
     , _DBSecurityGroupAlreadyExistsFault
     , _SnapshotQuotaExceededFault
     , _SNSTopicARNNotFoundFault
+    , _DBClusterQuotaExceededFault
+    , _DBClusterParameterGroupNotFoundFault
     , _DBSubnetGroupAlreadyExistsFault
     , _InstanceQuotaExceededFault
     , _SNSNoAuthorizationFault
     , _DBSecurityGroupNotFoundFault
     , _DBSecurityGroupNotSupportedFault
+    , _DomainNotFoundFault
+    , _DBClusterSnapshotNotFoundFault
     , _ReservedDBInstancesOfferingNotFoundFault
     , _InvalidDBSubnetGroupFault
     , _InvalidDBSubnetStateFault
     , _DBParameterGroupNotFoundFault
     , _SNSInvalidTopicFault
     , _SubscriptionAlreadyExistFault
+    , _InvalidDBClusterSnapshotStateFault
     , _InsufficientDBInstanceCapacityFault
     , _InvalidVPCNetworkStateFault
     , _AuthorizationNotFoundFault
@@ -62,10 +72,13 @@ module Network.AWS.RDS.Types
     , _DBSubnetGroupNotAllowedFault
     , _EventSubscriptionQuotaExceededFault
     , _InvalidOptionGroupStateFault
+    , _InvalidDBClusterStateFault
+    , _InsufficientStorageClusterCapacityFault
     , _DBInstanceAlreadyExistsFault
     , _ResourceNotFoundFault
     , _DBUpgradeDependencyFailureFault
     , _InvalidDBSecurityGroupStateFault
+    , _InsufficientDomainCapacityFault
     , _DBSubnetGroupNotFoundFault
     , _InvalidRestoreFault
     , _InvalidDBInstanceStateFault
@@ -110,6 +123,76 @@ module Network.AWS.RDS.Types
     , csCharacterSetName
     , csCharacterSetDescription
 
+    -- * DBCluster
+    , DBCluster
+    , dbCluster
+    , dcEngineVersion
+    , dcStatus
+    , dcDBClusterIdentifier
+    , dcDBClusterMembers
+    , dcDBClusterParameterGroup
+    , dcMasterUsername
+    , dcEarliestRestorableTime
+    , dcEngine
+    , dcLatestRestorableTime
+    , dcPreferredMaintenanceWindow
+    , dcCharacterSetName
+    , dcAvailabilityZones
+    , dcPreferredBackupWindow
+    , dcVPCSecurityGroups
+    , dcBackupRetentionPeriod
+    , dcDatabaseName
+    , dcDBSubnetGroup
+    , dcAllocatedStorage
+    , dcEndpoint
+    , dcPercentProgress
+    , dcPort
+    , dcDBClusterOptionGroupMemberships
+
+    -- * DBClusterMember
+    , DBClusterMember
+    , dbClusterMember
+    , dcmDBInstanceIdentifier
+    , dcmIsClusterWriter
+    , dcmDBClusterParameterGroupStatus
+
+    -- * DBClusterOptionGroupStatus
+    , DBClusterOptionGroupStatus
+    , dbClusterOptionGroupStatus
+    , dcogsStatus
+    , dcogsDBClusterOptionGroupName
+
+    -- * DBClusterParameterGroup
+    , DBClusterParameterGroup
+    , dbClusterParameterGroup
+    , dcpgDBParameterGroupFamily
+    , dcpgDBClusterParameterGroupName
+    , dcpgDescription
+
+    -- * DBClusterParameterGroupNameMessage
+    , DBClusterParameterGroupNameMessage
+    , dbClusterParameterGroupNameMessage
+    , dcpgnmDBClusterParameterGroupName
+
+    -- * DBClusterSnapshot
+    , DBClusterSnapshot
+    , dbClusterSnapshot
+    , dcsEngineVersion
+    , dcsStatus
+    , dcsDBClusterIdentifier
+    , dcsMasterUsername
+    , dcsVPCId
+    , dcsDBClusterSnapshotIdentifier
+    , dcsEngine
+    , dcsLicenseModel
+    , dcsSnapshotType
+    , dcsAvailabilityZones
+    , dcsSnapshotCreateTime
+    , dcsAllocatedStorage
+    , dcsClusterCreateTime
+    , dcsPercentProgress
+    , dcsPort
+
     -- * DBEngineVersion
     , DBEngineVersion
     , dbEngineVersion
@@ -127,6 +210,7 @@ module Network.AWS.RDS.Types
     , diDBSecurityGroups
     , diEngineVersion
     , diStorageEncrypted
+    , diDBClusterIdentifier
     , diAutoMinorVersionUpgrade
     , diMasterUsername
     , diPubliclyAccessible
@@ -156,10 +240,13 @@ module Network.AWS.RDS.Types
     , diEndpoint
     , diDBParameterGroups
     , diTDECredentialARN
+    , diCopyTagsToSnapshot
     , diDBInstanceStatus
+    , diDBInstancePort
     , diPendingModifiedValues
     , diStatusInfos
     , diDBName
+    , diDomainMemberships
     , diStorageType
 
     -- * DBInstanceStatusInfo
@@ -220,6 +307,7 @@ module Network.AWS.RDS.Types
     , dsLicenseModel
     , dsSnapshotType
     , dsDBInstanceIdentifier
+    , dsSourceDBSnapshotIdentifier
     , dsAvailabilityZone
     , dsKMSKeyId
     , dsSnapshotCreateTime
@@ -245,6 +333,13 @@ module Network.AWS.RDS.Types
     , ddlfdLastWritten
     , ddlfdSize
     , ddlfdLogFileName
+
+    -- * DomainMembership
+    , DomainMembership
+    , domainMembership
+    , dmStatus
+    , dmDomain
+    , dmConnectivity
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
@@ -543,12 +638,18 @@ instance AWSService RDS where
 -- | /CertificateIdentifier/ does not refer to an existing certificate.
 _CertificateNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _CertificateNotFoundFault =
-    _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"
+    _ServiceError . hasStatus 404 . hasCode "CertificateNotFound"
 
 -- | Request would exceed the user\'s DB Instance quota.
 _ReservedDBInstanceQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _ReservedDBInstanceQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "ReservedDBInstanceQuotaExceeded"
+
+-- | User already has a DB cluster snapshot with the given identifier.
+_DBClusterSnapshotAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBClusterSnapshotAlreadyExistsFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "DBClusterSnapshotAlreadyExistsFault"
 
 -- | DB security group authorization quota has been reached.
 _AuthorizationQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -593,6 +694,12 @@ _AuthorizationAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a
 _AuthorizationAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
 
+-- | The DB cluster does not have enough capacity for the current operation.
+_InsufficientDBClusterCapacityFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientDBClusterCapacityFault =
+    _ServiceError .
+    hasStatus 403 . hasCode "InsufficientDBClusterCapacityFault"
+
 -- | User already has a reservation with the given identifier.
 _ReservedDBInstanceAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _ReservedDBInstanceAlreadyExistsFault =
@@ -619,15 +726,30 @@ _SubscriptionNotFoundFault =
 _InvalidSubnet :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
+-- | /DBClusterIdentifier/ does not refer to an existing DB cluster.
+_DBClusterNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBClusterNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBClusterNotFoundFault"
+
 -- | The specified option group could not be found.
 _OptionGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _OptionGroupNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "OptionGroupNotFoundFault"
 
+-- | /LogFileName/ does not refer to an existing DB log file.
+_DBLogFileNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBLogFileNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBLogFileNotFoundFault"
+
 -- | The option group you are trying to create already exists.
 _OptionGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _OptionGroupAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "OptionGroupAlreadyExistsFault"
+
+-- | User already has a DB cluster with the given identifier.
+_DBClusterAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBClusterAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "DBClusterAlreadyExistsFault"
 
 -- | /StorageType/ specified cannot be associated with the DB Instance.
 _StorageTypeNotSupportedFault :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -678,6 +800,18 @@ _SNSTopicARNNotFoundFault :: AWSError a => Getting (First ServiceError) a Servic
 _SNSTopicARNNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound"
 
+-- | User attempted to create a new DB cluster and the user has already
+-- reached the maximum allowed DB cluster quota.
+_DBClusterQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBClusterQuotaExceededFault =
+    _ServiceError . hasStatus 403 . hasCode "DBClusterQuotaExceededFault"
+
+-- | /DBClusterParameterGroupName/ does not refer to an existing DB Cluster
+-- parameter group.
+_DBClusterParameterGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBClusterParameterGroupNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBClusterParameterGroupNotFound"
+
 -- | /DBSubnetGroupName/ is already used by an existing DB subnet group.
 _DBSubnetGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupAlreadyExistsFault =
@@ -703,6 +837,17 @@ _DBSecurityGroupNotFoundFault =
 _DBSecurityGroupNotSupportedFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _DBSecurityGroupNotSupportedFault =
     _ServiceError . hasStatus 400 . hasCode "DBSecurityGroupNotSupported"
+
+-- | /Domain/ does not refer to an existing Active Directory Domain.
+_DomainNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DomainNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DomainNotFoundFault"
+
+-- | /DBClusterSnapshotIdentifier/ does not refer to an existing DB cluster
+-- snapshot.
+_DBClusterSnapshotNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_DBClusterSnapshotNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBClusterSnapshotNotFoundFault"
 
 -- | Specified offering does not exist.
 _ReservedDBInstancesOfferingNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -735,6 +880,12 @@ _SNSInvalidTopicFault =
 _SubscriptionAlreadyExistFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _SubscriptionAlreadyExistFault =
     _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist"
+
+-- | The supplied value is not a valid DB cluster snapshot state.
+_InvalidDBClusterSnapshotStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBClusterSnapshotStateFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidDBClusterSnapshotStateFault"
 
 -- | Specified DB instance class is not available in the specified
 -- Availability Zone.
@@ -784,6 +935,19 @@ _InvalidOptionGroupStateFault :: AWSError a => Getting (First ServiceError) a Se
 _InvalidOptionGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidOptionGroupStateFault"
 
+-- | The supplied value is not a valid DB cluster state.
+_InvalidDBClusterStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDBClusterStateFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidDBClusterStateFault"
+
+-- | There is insufficient storage available for the current action. You may
+-- be able to resolve this error by updating your subnet group to use
+-- different Availability Zones that have more storage available.
+_InsufficientStorageClusterCapacityFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientStorageClusterCapacityFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "InsufficientStorageClusterCapacity"
+
 -- | User already has a DB instance with the given identifier.
 _DBInstanceAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _DBInstanceAlreadyExistsFault =
@@ -804,6 +968,12 @@ _DBUpgradeDependencyFailureFault =
 _InvalidDBSecurityGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSecurityGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidDBSecurityGroupState"
+
+-- | Requested Active Directory Domain has reached maximum number of
+-- instances.
+_InsufficientDomainCapacityFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientDomainCapacityFault =
+    _ServiceError . hasStatus 400 . hasCode "InsufficientDomainCapacityFault"
 
 -- | /DBSubnetGroupName/ does not refer to an existing DB subnet group.
 _DBSubnetGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError

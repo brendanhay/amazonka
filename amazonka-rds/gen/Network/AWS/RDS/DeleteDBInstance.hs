@@ -28,6 +28,11 @@
 -- @DescribeDBInstance@ is used to monitor the status of this operation.
 -- The action cannot be canceled or reverted once submitted.
 --
+-- Note that when a DB instance is in a failure state and has a status of
+-- \'failed\', \'incompatible-restore\', or \'incompatible-network\', it
+-- can only be deleted when the SkipFinalSnapshot parameter is set to
+-- \"true\".
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html>
 module Network.AWS.RDS.DeleteDBInstance
     (
@@ -100,6 +105,11 @@ ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_d
 -- is specified, a DB snapshot is created before the DB instance is
 -- deleted.
 --
+-- Note that when a DB instance is in a failure state and has a status of
+-- \'failed\', \'incompatible-restore\', or \'incompatible-network\', it
+-- can only be deleted when the SkipFinalSnapshot parameter is set to
+-- \"true\".
+--
 -- Specify @true@ when deleting a Read Replica.
 --
 -- The FinalDBSnapshotIdentifier parameter must be specified if
@@ -110,7 +120,7 @@ ddiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a});
 
 -- | The DB instance identifier for the DB instance to be deleted. This
--- parameter isn\'t case sensitive.
+-- parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --

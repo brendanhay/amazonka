@@ -110,7 +110,7 @@ cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default . _Coerce;
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- This value is stored as a lower-case string.
+-- This value is stored as a lowercase string.
 cdbpgDBParameterGroupName :: Lens' CreateDBParameterGroup Text
 cdbpgDBParameterGroupName = lens _cdbpgDBParameterGroupName (\ s a -> s{_cdbpgDBParameterGroupName = a});
 

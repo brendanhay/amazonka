@@ -21,7 +21,7 @@
 -- specified, for a specified source type. You can see a list of the event
 -- categories and source types in the
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
--- topic in the Amazon RDS User Guide.
+-- topic in the /Amazon RDS User Guide./
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html>
 module Network.AWS.RDS.DescribeEventCategories

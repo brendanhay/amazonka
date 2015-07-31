@@ -99,7 +99,7 @@ dogoMajorEngineVersion = lens _dogoMajorEngineVersion (\ s a -> s{_dogoMajorEngi
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
 dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a});
 
@@ -109,7 +109,7 @@ dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a});
 dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
 
--- | A required parameter. Options available for the given Engine name will
+-- | A required parameter. Options available for the given engine name will
 -- be described.
 dogoEngineName :: Lens' DescribeOptionGroupOptions Text
 dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});

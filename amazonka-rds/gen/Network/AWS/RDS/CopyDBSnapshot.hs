@@ -28,6 +28,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- ** Request constructor
     , copyDBSnapshot
     -- ** Request lenses
+    , cdsCopyTags
     , cdsTags
     , cdsSourceDBSnapshotIdentifier
     , cdsTargetDBSnapshotIdentifier
@@ -52,13 +53,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'cdsCopyTags'
+--
 -- * 'cdsTags'
 --
 -- * 'cdsSourceDBSnapshotIdentifier'
 --
 -- * 'cdsTargetDBSnapshotIdentifier'
 data CopyDBSnapshot = CopyDBSnapshot'
-    { _cdsTags                       :: !(Maybe [Tag])
+    { _cdsCopyTags                   :: !(Maybe Bool)
+    , _cdsTags                       :: !(Maybe [Tag])
     , _cdsSourceDBSnapshotIdentifier :: !Text
     , _cdsTargetDBSnapshotIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -67,10 +71,15 @@ data CopyDBSnapshot = CopyDBSnapshot'
 copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
 copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
-    { _cdsTags = Nothing
+    { _cdsCopyTags = Nothing
+    , _cdsTags = Nothing
     , _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier_
     , _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
     }
+
+-- | This property is not currently implemented.
+cdsCopyTags :: Lens' CopyDBSnapshot (Maybe Bool)
+cdsCopyTags = lens _cdsCopyTags (\ s a -> s{_cdsCopyTags = a});
 
 -- | FIXME: Undocumented member.
 cdsTags :: Lens' CopyDBSnapshot [Tag]
@@ -128,6 +137,7 @@ instance ToQuery CopyDBSnapshot where
           = mconcat
               ["Action" =: ("CopyDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
+               "CopyTags" =: _cdsCopyTags,
                "Tags" =: toQuery (toQueryList "Tag" <$> _cdsTags),
                "SourceDBSnapshotIdentifier" =:
                  _cdsSourceDBSnapshotIdentifier,

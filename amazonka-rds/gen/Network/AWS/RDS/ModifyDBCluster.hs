@@ -1,0 +1,306 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.RDS.ModifyDBCluster
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Modify a setting for an Amazon Aurora DB cluster. You can change one or
+-- more database configuration parameters by specifying these parameters
+-- and the new values in the request. For more information on Amazon
+-- Aurora, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
+-- in the /Amazon RDS User Guide./
+--
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html>
+module Network.AWS.RDS.ModifyDBCluster
+    (
+    -- * Request
+      ModifyDBCluster
+    -- ** Request constructor
+    , modifyDBCluster
+    -- ** Request lenses
+    , mdcDBClusterIdentifier
+    , mdcMasterUserPassword
+    , mdcPreferredMaintenanceWindow
+    , mdcPreferredBackupWindow
+    , mdcBackupRetentionPeriod
+    , mdcVPCSecurityGroupIds
+    , mdcDBClusterParameterGroupName
+    , mdcApplyImmediately
+    , mdcOptionGroupName
+    , mdcNewDBClusterIdentifier
+    , mdcPort
+
+    -- * Response
+    , ModifyDBClusterResponse
+    -- ** Response constructor
+    , modifyDBClusterResponse
+    -- ** Response lenses
+    , mdcrsDBCluster
+    , mdcrsStatus
+    ) where
+
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- |
+--
+-- /See:/ 'modifyDBCluster' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'mdcDBClusterIdentifier'
+--
+-- * 'mdcMasterUserPassword'
+--
+-- * 'mdcPreferredMaintenanceWindow'
+--
+-- * 'mdcPreferredBackupWindow'
+--
+-- * 'mdcBackupRetentionPeriod'
+--
+-- * 'mdcVPCSecurityGroupIds'
+--
+-- * 'mdcDBClusterParameterGroupName'
+--
+-- * 'mdcApplyImmediately'
+--
+-- * 'mdcOptionGroupName'
+--
+-- * 'mdcNewDBClusterIdentifier'
+--
+-- * 'mdcPort'
+data ModifyDBCluster = ModifyDBCluster'
+    { _mdcDBClusterIdentifier         :: !(Maybe Text)
+    , _mdcMasterUserPassword          :: !(Maybe Text)
+    , _mdcPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _mdcPreferredBackupWindow       :: !(Maybe Text)
+    , _mdcBackupRetentionPeriod       :: !(Maybe Int)
+    , _mdcVPCSecurityGroupIds         :: !(Maybe [Text])
+    , _mdcDBClusterParameterGroupName :: !(Maybe Text)
+    , _mdcApplyImmediately            :: !(Maybe Bool)
+    , _mdcOptionGroupName             :: !(Maybe Text)
+    , _mdcNewDBClusterIdentifier      :: !(Maybe Text)
+    , _mdcPort                        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyDBCluster' smart constructor.
+modifyDBCluster :: ModifyDBCluster
+modifyDBCluster =
+    ModifyDBCluster'
+    { _mdcDBClusterIdentifier = Nothing
+    , _mdcMasterUserPassword = Nothing
+    , _mdcPreferredMaintenanceWindow = Nothing
+    , _mdcPreferredBackupWindow = Nothing
+    , _mdcBackupRetentionPeriod = Nothing
+    , _mdcVPCSecurityGroupIds = Nothing
+    , _mdcDBClusterParameterGroupName = Nothing
+    , _mdcApplyImmediately = Nothing
+    , _mdcOptionGroupName = Nothing
+    , _mdcNewDBClusterIdentifier = Nothing
+    , _mdcPort = Nothing
+    }
+
+-- | The DB cluster identifier for the cluster being modified. This parameter
+-- is not case-sensitive.
+--
+-- Constraints:
+--
+-- -   Must be the identifier for an existing DB cluster.
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+-- -   First character must be a letter.
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+mdcDBClusterIdentifier :: Lens' ModifyDBCluster (Maybe Text)
+mdcDBClusterIdentifier = lens _mdcDBClusterIdentifier (\ s a -> s{_mdcDBClusterIdentifier = a});
+
+-- | The new password for the master database user. This password can contain
+-- any printable ASCII character except \"\/\", \"\"\", or \"\@\".
+--
+-- Constraints: Must contain from 8 to 41 characters.
+mdcMasterUserPassword :: Lens' ModifyDBCluster (Maybe Text)
+mdcMasterUserPassword = lens _mdcMasterUserPassword (\ s a -> s{_mdcMasterUserPassword = a});
+
+-- | The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- Default: A 30-minute window selected at random from an 8-hour block of
+-- time per region, occurring on a random day of the week. To see the time
+-- blocks available, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
+-- in the /Amazon RDS User Guide./
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+--
+-- Constraints: Minimum 30-minute window.
+mdcPreferredMaintenanceWindow :: Lens' ModifyDBCluster (Maybe Text)
+mdcPreferredMaintenanceWindow = lens _mdcPreferredMaintenanceWindow (\ s a -> s{_mdcPreferredMaintenanceWindow = a});
+
+-- | The daily time range during which automated backups are created if
+-- automated backups are enabled, using the @BackupRetentionPeriod@
+-- parameter.
+--
+-- Default: A 30-minute window selected at random from an 8-hour block of
+-- time per region. To see the time blocks available, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
+-- in the /Amazon RDS User Guide./
+--
+-- Constraints:
+--
+-- -   Must be in the format @hh24:mi-hh24:mi@.
+-- -   Times should be in Universal Coordinated Time (UTC).
+-- -   Must not conflict with the preferred maintenance window.
+-- -   Must be at least 30 minutes.
+mdcPreferredBackupWindow :: Lens' ModifyDBCluster (Maybe Text)
+mdcPreferredBackupWindow = lens _mdcPreferredBackupWindow (\ s a -> s{_mdcPreferredBackupWindow = a});
+
+-- | The number of days for which automated backups are retained. Setting
+-- this parameter to a positive number enables backups. Setting this
+-- parameter to 0 disables automated backups.
+--
+-- Default: 1
+--
+-- Constraints:
+--
+-- -   Must be a value from 0 to 35
+mdcBackupRetentionPeriod :: Lens' ModifyDBCluster (Maybe Int)
+mdcBackupRetentionPeriod = lens _mdcBackupRetentionPeriod (\ s a -> s{_mdcBackupRetentionPeriod = a});
+
+-- | A lst of VPC security groups that the DB cluster will belong to.
+mdcVPCSecurityGroupIds :: Lens' ModifyDBCluster [Text]
+mdcVPCSecurityGroupIds = lens _mdcVPCSecurityGroupIds (\ s a -> s{_mdcVPCSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | The name of the DB cluster parameter group to use for the DB cluster.
+mdcDBClusterParameterGroupName :: Lens' ModifyDBCluster (Maybe Text)
+mdcDBClusterParameterGroupName = lens _mdcDBClusterParameterGroupName (\ s a -> s{_mdcDBClusterParameterGroupName = a});
+
+-- | A value that specifies whether the modifications in this request and any
+-- pending modifications are asynchronously applied as soon as possible,
+-- regardless of the @PreferredMaintenanceWindow@ setting for the DB
+-- cluster.
+--
+-- If this parameter is set to @false@, changes to the DB cluster are
+-- applied during the next maintenance window.
+--
+-- Default: @false@
+mdcApplyImmediately :: Lens' ModifyDBCluster (Maybe Bool)
+mdcApplyImmediately = lens _mdcApplyImmediately (\ s a -> s{_mdcApplyImmediately = a});
+
+-- | A value that indicates that the DB cluster should be associated with the
+-- specified option group. Changing this parameter does not result in an
+-- outage except in the following case, and the change is applied during
+-- the next maintenance window unless the @ApplyImmediately@ parameter is
+-- set to @true@ for this request. If the parameter change results in an
+-- option group that enables OEM, this change can cause a brief
+-- (sub-second) period during which new connections are rejected but
+-- existing connections are not interrupted.
+--
+-- Permanent options cannot be removed from an option group. The option
+-- group cannot be removed from a DB cluster once it is associated with a
+-- DB cluster.
+mdcOptionGroupName :: Lens' ModifyDBCluster (Maybe Text)
+mdcOptionGroupName = lens _mdcOptionGroupName (\ s a -> s{_mdcOptionGroupName = a});
+
+-- | The new DB cluster identifier for the DB cluster when renaming a DB
+-- cluster. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
+-- Example: @my-cluster2@
+mdcNewDBClusterIdentifier :: Lens' ModifyDBCluster (Maybe Text)
+mdcNewDBClusterIdentifier = lens _mdcNewDBClusterIdentifier (\ s a -> s{_mdcNewDBClusterIdentifier = a});
+
+-- | The port number on which the DB cluster accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+--
+-- Default: The same port as the original DB cluster.
+mdcPort :: Lens' ModifyDBCluster (Maybe Int)
+mdcPort = lens _mdcPort (\ s a -> s{_mdcPort = a});
+
+instance AWSRequest ModifyDBCluster where
+        type Sv ModifyDBCluster = RDS
+        type Rs ModifyDBCluster = ModifyDBClusterResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ModifyDBClusterResult"
+              (\ s h x ->
+                 ModifyDBClusterResponse' <$>
+                   (x .@? "DBCluster") <*> (pure (fromEnum s)))
+
+instance ToHeaders ModifyDBCluster where
+        toHeaders = const mempty
+
+instance ToPath ModifyDBCluster where
+        toPath = const "/"
+
+instance ToQuery ModifyDBCluster where
+        toQuery ModifyDBCluster'{..}
+          = mconcat
+              ["Action" =: ("ModifyDBCluster" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "DBClusterIdentifier" =: _mdcDBClusterIdentifier,
+               "MasterUserPassword" =: _mdcMasterUserPassword,
+               "PreferredMaintenanceWindow" =:
+                 _mdcPreferredMaintenanceWindow,
+               "PreferredBackupWindow" =: _mdcPreferredBackupWindow,
+               "BackupRetentionPeriod" =: _mdcBackupRetentionPeriod,
+               "VpcSecurityGroupIds" =:
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _mdcVPCSecurityGroupIds),
+               "DBClusterParameterGroupName" =:
+                 _mdcDBClusterParameterGroupName,
+               "ApplyImmediately" =: _mdcApplyImmediately,
+               "OptionGroupName" =: _mdcOptionGroupName,
+               "NewDBClusterIdentifier" =:
+                 _mdcNewDBClusterIdentifier,
+               "Port" =: _mdcPort]
+
+-- | /See:/ 'modifyDBClusterResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'mdcrsDBCluster'
+--
+-- * 'mdcrsStatus'
+data ModifyDBClusterResponse = ModifyDBClusterResponse'
+    { _mdcrsDBCluster :: !(Maybe DBCluster)
+    , _mdcrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyDBClusterResponse' smart constructor.
+modifyDBClusterResponse :: Int -> ModifyDBClusterResponse
+modifyDBClusterResponse pStatus_ =
+    ModifyDBClusterResponse'
+    { _mdcrsDBCluster = Nothing
+    , _mdcrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+mdcrsDBCluster :: Lens' ModifyDBClusterResponse (Maybe DBCluster)
+mdcrsDBCluster = lens _mdcrsDBCluster (\ s a -> s{_mdcrsDBCluster = a});
+
+-- | FIXME: Undocumented member.
+mdcrsStatus :: Lens' ModifyDBClusterResponse Int
+mdcrsStatus = lens _mdcrsStatus (\ s a -> s{_mdcrsStatus = a});

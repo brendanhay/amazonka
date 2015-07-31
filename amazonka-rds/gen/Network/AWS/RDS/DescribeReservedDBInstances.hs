@@ -135,7 +135,7 @@ drdiDBInstanceClass = lens _drdiDBInstanceClass (\ s a -> s{_drdiDBInstanceClass
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 drdiMaxRecords :: Lens' DescribeReservedDBInstances (Maybe Int)
 drdiMaxRecords = lens _drdiMaxRecords (\ s a -> s{_drdiMaxRecords = a});
 
@@ -158,8 +158,7 @@ drdiReservedDBInstancesOfferingId = lens _drdiReservedDBInstancesOfferingId (\ s
 -- | The offering type filter value. Specify this parameter to show only the
 -- available offerings matching the specified offering type.
 --
--- Valid Values:
--- @\"Light Utilization\" | \"Medium Utilization\" | \"Heavy Utilization\" @
+-- Valid Values: @\"Partial Upfront\" | \"All Upfront\" | \"No Upfront\" @
 drdiOfferingType :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiOfferingType = lens _drdiOfferingType (\ s a -> s{_drdiOfferingType = a});
 

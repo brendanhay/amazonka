@@ -14,7 +14,7 @@
 --
 -- Amazon Relational Database Service (Amazon RDS) is a web service that
 -- makes it easier to set up, operate, and scale a relational database in
--- the cloud. It provides cost-efficient, resizable capacity for an
+-- the cloud. It provides cost-efficient, resizeable capacity for an
 -- industry-standard relational database and manages common database
 -- administration tasks, freeing up developers to focus on what makes their
 -- applications and businesses unique.
@@ -32,11 +32,11 @@
 -- This is an interface reference for Amazon RDS. It contains documentation
 -- for a programming or command line interface you can use to manage Amazon
 -- RDS. Note that Amazon RDS is asynchronous, which means that some
--- interfaces may require techniques such as polling or callback functions
--- to determine when a command has been applied. In this reference, the
--- parameter descriptions indicate whether a command is applied
--- immediately, on the next instance reboot, or during the maintenance
--- window. For a summary of the Amazon RDS interfaces, go to
+-- interfaces might require techniques such as polling or callback
+-- functions to determine when a command has been applied. In this
+-- reference, the parameter descriptions indicate whether a command is
+-- applied immediately, on the next instance reboot, or during the
+-- maintenance window. For a summary of the Amazon RDS interfaces, go to
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
 module Network.AWS.RDS
     ( module Export
@@ -46,9 +46,13 @@ import           Network.AWS.RDS.AddSourceIdentifierToSubscription      as Expor
 import           Network.AWS.RDS.AddTagsToResource                      as Export
 import           Network.AWS.RDS.ApplyPendingMaintenanceAction          as Export
 import           Network.AWS.RDS.AuthorizeDBSecurityGroupIngress        as Export
+import           Network.AWS.RDS.CopyDBClusterSnapshot                  as Export
 import           Network.AWS.RDS.CopyDBParameterGroup                   as Export
 import           Network.AWS.RDS.CopyDBSnapshot                         as Export
 import           Network.AWS.RDS.CopyOptionGroup                        as Export
+import           Network.AWS.RDS.CreateDBCluster                        as Export
+import           Network.AWS.RDS.CreateDBClusterParameterGroup          as Export
+import           Network.AWS.RDS.CreateDBClusterSnapshot                as Export
 import           Network.AWS.RDS.CreateDBInstance                       as Export
 import           Network.AWS.RDS.CreateDBInstanceReadReplica            as Export
 import           Network.AWS.RDS.CreateDBParameterGroup                 as Export
@@ -57,6 +61,9 @@ import           Network.AWS.RDS.CreateDBSnapshot                       as Expor
 import           Network.AWS.RDS.CreateDBSubnetGroup                    as Export
 import           Network.AWS.RDS.CreateEventSubscription                as Export
 import           Network.AWS.RDS.CreateOptionGroup                      as Export
+import           Network.AWS.RDS.DeleteDBCluster                        as Export
+import           Network.AWS.RDS.DeleteDBClusterParameterGroup          as Export
+import           Network.AWS.RDS.DeleteDBClusterSnapshot                as Export
 import           Network.AWS.RDS.DeleteDBInstance                       as Export
 import           Network.AWS.RDS.DeleteDBParameterGroup                 as Export
 import           Network.AWS.RDS.DeleteDBSecurityGroup                  as Export
@@ -66,6 +73,10 @@ import           Network.AWS.RDS.DeleteEventSubscription                as Expor
 import           Network.AWS.RDS.DeleteOptionGroup                      as Export
 import           Network.AWS.RDS.DescribeAccountAttributes              as Export
 import           Network.AWS.RDS.DescribeCertificates                   as Export
+import           Network.AWS.RDS.DescribeDBClusterParameterGroups       as Export
+import           Network.AWS.RDS.DescribeDBClusterParameters            as Export
+import           Network.AWS.RDS.DescribeDBClusters                     as Export
+import           Network.AWS.RDS.DescribeDBClusterSnapshots             as Export
 import           Network.AWS.RDS.DescribeDBEngineVersions               as Export
 import           Network.AWS.RDS.DescribeDBInstances                    as Export
 import           Network.AWS.RDS.DescribeDBLogFiles                     as Export
@@ -74,6 +85,7 @@ import           Network.AWS.RDS.DescribeDBParameters                   as Expor
 import           Network.AWS.RDS.DescribeDBSecurityGroups               as Export
 import           Network.AWS.RDS.DescribeDBSnapshots                    as Export
 import           Network.AWS.RDS.DescribeDBSubnetGroups                 as Export
+import           Network.AWS.RDS.DescribeEngineDefaultClusterParameters as Export
 import           Network.AWS.RDS.DescribeEngineDefaultParameters        as Export
 import           Network.AWS.RDS.DescribeEventCategories                as Export
 import           Network.AWS.RDS.DescribeEvents                         as Export
@@ -85,7 +97,10 @@ import           Network.AWS.RDS.DescribePendingMaintenanceActions      as Expor
 import           Network.AWS.RDS.DescribeReservedDBInstances            as Export
 import           Network.AWS.RDS.DescribeReservedDBInstancesOfferings   as Export
 import           Network.AWS.RDS.DownloadDBLogFilePortion               as Export
+import           Network.AWS.RDS.FailoverDBCluster                      as Export
 import           Network.AWS.RDS.ListTagsForResource                    as Export
+import           Network.AWS.RDS.ModifyDBCluster                        as Export
+import           Network.AWS.RDS.ModifyDBClusterParameterGroup          as Export
 import           Network.AWS.RDS.ModifyDBInstance                       as Export
 import           Network.AWS.RDS.ModifyDBParameterGroup                 as Export
 import           Network.AWS.RDS.ModifyDBSubnetGroup                    as Export
@@ -96,7 +111,10 @@ import           Network.AWS.RDS.PurchaseReservedDBInstancesOffering    as Expor
 import           Network.AWS.RDS.RebootDBInstance                       as Export
 import           Network.AWS.RDS.RemoveSourceIdentifierFromSubscription as Export
 import           Network.AWS.RDS.RemoveTagsFromResource                 as Export
+import           Network.AWS.RDS.ResetDBClusterParameterGroup           as Export
 import           Network.AWS.RDS.ResetDBParameterGroup                  as Export
+import           Network.AWS.RDS.RestoreDBClusterFromSnapshot           as Export
+import           Network.AWS.RDS.RestoreDBClusterToPointInTime          as Export
 import           Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot        as Export
 import           Network.AWS.RDS.RestoreDBInstanceToPointInTime         as Export
 import           Network.AWS.RDS.RevokeDBSecurityGroupIngress           as Export

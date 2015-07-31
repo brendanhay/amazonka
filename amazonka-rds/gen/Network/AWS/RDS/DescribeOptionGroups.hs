@@ -110,7 +110,7 @@ dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineV
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
 dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a});
 

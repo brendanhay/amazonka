@@ -124,7 +124,7 @@ drdioDBInstanceClass = lens _drdioDBInstanceClass (\ s a -> s{_drdioDBInstanceCl
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 drdioMaxRecords :: Lens' DescribeReservedDBInstancesOfferings (Maybe Int)
 drdioMaxRecords = lens _drdioMaxRecords (\ s a -> s{_drdioMaxRecords = a});
 
@@ -150,8 +150,7 @@ drdioReservedDBInstancesOfferingId = lens _drdioReservedDBInstancesOfferingId (\
 -- | The offering type filter value. Specify this parameter to show only the
 -- available offerings matching the specified offering type.
 --
--- Valid Values:
--- @\"Light Utilization\" | \"Medium Utilization\" | \"Heavy Utilization\" @
+-- Valid Values: @\"Partial Upfront\" | \"All Upfront\" | \"No Upfront\" @
 drdioOfferingType :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdioOfferingType = lens _drdioOfferingType (\ s a -> s{_drdioOfferingType = a});
 

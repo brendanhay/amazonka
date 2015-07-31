@@ -104,7 +104,7 @@ ddlfFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddlfFileSize = lens _ddlfFileSize (\ s a -> s{_ddlfFileSize = a});
 
 -- | Filters the available log files for files written since the specified
--- date, in POSIX timestamp format.
+-- date, in POSIX timestamp format with milliseconds.
 ddlfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a});
 

@@ -101,7 +101,7 @@ dcCertificateIdentifier = lens _dcCertificateIdentifier (\ s a -> s{_dcCertifica
 --
 -- Default: 100
 --
--- Constraints: Minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 dcMaxRecords :: Lens' DescribeCertificates (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 

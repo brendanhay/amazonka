@@ -17,7 +17,7 @@ Amazon Relational Database Service
 
 Amazon Relational Database Service (Amazon RDS) is a web service that
 makes it easier to set up, operate, and scale a relational database in
-the cloud. It provides cost-efficient, resizable capacity for an
+the cloud. It provides cost-efficient, resizeable capacity for an
 industry-standard relational database and manages common database
 administration tasks, freeing up developers to focus on what makes their
 applications and businesses unique.
@@ -35,11 +35,11 @@ up-front investments, and you pay only for the resources you use.
 This is an interface reference for Amazon RDS. It contains documentation
 for a programming or command line interface you can use to manage Amazon
 RDS. Note that Amazon RDS is asynchronous, which means that some
-interfaces may require techniques such as polling or callback functions
-to determine when a command has been applied. In this reference, the
-parameter descriptions indicate whether a command is applied
-immediately, on the next instance reboot, or during the maintenance
-window. For a summary of the Amazon RDS interfaces, go to
+interfaces might require techniques such as polling or callback
+functions to determine when a command has been applied. In this
+reference, the parameter descriptions indicate whether a command is
+applied immediately, on the next instance reboot, or during the
+maintenance window. For a summary of the Amazon RDS interfaces, go to
 <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-rds)

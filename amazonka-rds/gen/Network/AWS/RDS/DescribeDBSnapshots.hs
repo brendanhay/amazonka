@@ -92,15 +92,15 @@ describeDBSnapshots =
 ddsFilters :: Lens' DescribeDBSnapshots [Filter]
 ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce;
 
--- | A specific DB snapshot identifier to describe. Cannot be used in
--- conjunction with @DBInstanceIdentifier@. This value is stored as a
--- lowercase string.
+-- | A specific DB snapshot identifier to describe. This parameter cannot be
+-- used in conjunction with @DBInstanceIdentifier@. This value is stored as
+-- a lowercase string.
 --
 -- Constraints:
 --
--- -   Must be 1 to 255 alphanumeric characters
--- -   First character must be a letter
--- -   Cannot end with a hyphen or contain two consecutive hyphens
+-- -   Must be 1 to 255 alphanumeric characters.
+-- -   First character must be a letter.
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
 -- -   If this is the identifier of an automated snapshot, the
 --     @SnapshotType@ parameter must also be specified.
 ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
@@ -112,9 +112,9 @@ ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapsh
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 
--- | A DB instance identifier to retrieve the list of DB snapshots for.
--- Cannot be used in conjunction with @DBSnapshotIdentifier@. This
--- parameter is not case sensitive.
+-- | A DB instance identifier to retrieve the list of DB snapshots for. This
+-- parameter cannot be used in conjunction with @DBSnapshotIdentifier@.
+-- This parameter is not case-sensitive.
 --
 -- Constraints:
 --
@@ -127,11 +127,11 @@ ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstan
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
--- results may be retrieved.
+-- results can be retrieved.
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
+-- Constraints: Minimum 20, maximum 100.
 ddsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
 ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 

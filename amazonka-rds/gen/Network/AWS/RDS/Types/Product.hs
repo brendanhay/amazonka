@@ -194,6 +194,590 @@ instance FromXML CharacterSet where
               (x .@? "CharacterSetName") <*>
                 (x .@? "CharacterSetDescription")
 
+-- | Contains the result of a successful invocation of the following actions:
+--
+-- -   CreateDBCluster
+-- -   DeleteDBCluster
+-- -   FailoverDBCluster
+-- -   ModifyDBCluster
+-- -   RestoreDBClusterFromSnapshot
+--
+-- This data type is used as a response element in the DescribeDBClusters
+-- action.
+--
+-- /See:/ 'dbCluster' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcEngineVersion'
+--
+-- * 'dcStatus'
+--
+-- * 'dcDBClusterIdentifier'
+--
+-- * 'dcDBClusterMembers'
+--
+-- * 'dcDBClusterParameterGroup'
+--
+-- * 'dcMasterUsername'
+--
+-- * 'dcEarliestRestorableTime'
+--
+-- * 'dcEngine'
+--
+-- * 'dcLatestRestorableTime'
+--
+-- * 'dcPreferredMaintenanceWindow'
+--
+-- * 'dcCharacterSetName'
+--
+-- * 'dcAvailabilityZones'
+--
+-- * 'dcPreferredBackupWindow'
+--
+-- * 'dcVPCSecurityGroups'
+--
+-- * 'dcBackupRetentionPeriod'
+--
+-- * 'dcDatabaseName'
+--
+-- * 'dcDBSubnetGroup'
+--
+-- * 'dcAllocatedStorage'
+--
+-- * 'dcEndpoint'
+--
+-- * 'dcPercentProgress'
+--
+-- * 'dcPort'
+--
+-- * 'dcDBClusterOptionGroupMemberships'
+data DBCluster = DBCluster'
+    { _dcEngineVersion                   :: !(Maybe Text)
+    , _dcStatus                          :: !(Maybe Text)
+    , _dcDBClusterIdentifier             :: !(Maybe Text)
+    , _dcDBClusterMembers                :: !(Maybe [DBClusterMember])
+    , _dcDBClusterParameterGroup         :: !(Maybe Text)
+    , _dcMasterUsername                  :: !(Maybe Text)
+    , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
+    , _dcEngine                          :: !(Maybe Text)
+    , _dcLatestRestorableTime            :: !(Maybe ISO8601)
+    , _dcPreferredMaintenanceWindow      :: !(Maybe Text)
+    , _dcCharacterSetName                :: !(Maybe Text)
+    , _dcAvailabilityZones               :: !(Maybe [Text])
+    , _dcPreferredBackupWindow           :: !(Maybe Text)
+    , _dcVPCSecurityGroups               :: !(Maybe [VPCSecurityGroupMembership])
+    , _dcBackupRetentionPeriod           :: !(Maybe Int)
+    , _dcDatabaseName                    :: !(Maybe Text)
+    , _dcDBSubnetGroup                   :: !(Maybe Text)
+    , _dcAllocatedStorage                :: !(Maybe Int)
+    , _dcEndpoint                        :: !(Maybe Text)
+    , _dcPercentProgress                 :: !(Maybe Text)
+    , _dcPort                            :: !(Maybe Int)
+    , _dcDBClusterOptionGroupMemberships :: !(Maybe [DBClusterOptionGroupStatus])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DBCluster' smart constructor.
+dbCluster :: DBCluster
+dbCluster =
+    DBCluster'
+    { _dcEngineVersion = Nothing
+    , _dcStatus = Nothing
+    , _dcDBClusterIdentifier = Nothing
+    , _dcDBClusterMembers = Nothing
+    , _dcDBClusterParameterGroup = Nothing
+    , _dcMasterUsername = Nothing
+    , _dcEarliestRestorableTime = Nothing
+    , _dcEngine = Nothing
+    , _dcLatestRestorableTime = Nothing
+    , _dcPreferredMaintenanceWindow = Nothing
+    , _dcCharacterSetName = Nothing
+    , _dcAvailabilityZones = Nothing
+    , _dcPreferredBackupWindow = Nothing
+    , _dcVPCSecurityGroups = Nothing
+    , _dcBackupRetentionPeriod = Nothing
+    , _dcDatabaseName = Nothing
+    , _dcDBSubnetGroup = Nothing
+    , _dcAllocatedStorage = Nothing
+    , _dcEndpoint = Nothing
+    , _dcPercentProgress = Nothing
+    , _dcPort = Nothing
+    , _dcDBClusterOptionGroupMemberships = Nothing
+    }
+
+-- | Indicates the database engine version.
+dcEngineVersion :: Lens' DBCluster (Maybe Text)
+dcEngineVersion = lens _dcEngineVersion (\ s a -> s{_dcEngineVersion = a});
+
+-- | Specifies the current state of this DB cluster.
+dcStatus :: Lens' DBCluster (Maybe Text)
+dcStatus = lens _dcStatus (\ s a -> s{_dcStatus = a});
+
+-- | Contains a user-supplied DB cluster identifier. This identifier is the
+-- unique key that identifies a DB cluster.
+dcDBClusterIdentifier :: Lens' DBCluster (Maybe Text)
+dcDBClusterIdentifier = lens _dcDBClusterIdentifier (\ s a -> s{_dcDBClusterIdentifier = a});
+
+-- | Provides the list of instances that make up the DB cluster.
+dcDBClusterMembers :: Lens' DBCluster [DBClusterMember]
+dcDBClusterMembers = lens _dcDBClusterMembers (\ s a -> s{_dcDBClusterMembers = a}) . _Default . _Coerce;
+
+-- | Specifies the name of the DB cluster parameter group for the DB cluster.
+dcDBClusterParameterGroup :: Lens' DBCluster (Maybe Text)
+dcDBClusterParameterGroup = lens _dcDBClusterParameterGroup (\ s a -> s{_dcDBClusterParameterGroup = a});
+
+-- | Contains the master username for the DB cluster.
+dcMasterUsername :: Lens' DBCluster (Maybe Text)
+dcMasterUsername = lens _dcMasterUsername (\ s a -> s{_dcMasterUsername = a});
+
+-- | Specifies the earliest time to which a database can be restored with
+-- point-in-time restore.
+dcEarliestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
+dcEarliestRestorableTime = lens _dcEarliestRestorableTime (\ s a -> s{_dcEarliestRestorableTime = a}) . mapping _Time;
+
+-- | Provides the name of the database engine to be used for this DB cluster.
+dcEngine :: Lens' DBCluster (Maybe Text)
+dcEngine = lens _dcEngine (\ s a -> s{_dcEngine = a});
+
+-- | Specifies the latest time to which a database can be restored with
+-- point-in-time restore.
+dcLatestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
+dcLatestRestorableTime = lens _dcLatestRestorableTime (\ s a -> s{_dcLatestRestorableTime = a}) . mapping _Time;
+
+-- | Specifies the weekly time range during which system maintenance can
+-- occur, in Universal Coordinated Time (UTC).
+dcPreferredMaintenanceWindow :: Lens' DBCluster (Maybe Text)
+dcPreferredMaintenanceWindow = lens _dcPreferredMaintenanceWindow (\ s a -> s{_dcPreferredMaintenanceWindow = a});
+
+-- | If present, specifies the name of the character set that this cluster is
+-- associated with.
+dcCharacterSetName :: Lens' DBCluster (Maybe Text)
+dcCharacterSetName = lens _dcCharacterSetName (\ s a -> s{_dcCharacterSetName = a});
+
+-- | Provides the list of EC2 Availability Zones that instances in the DB
+-- cluster can be created in.
+dcAvailabilityZones :: Lens' DBCluster [Text]
+dcAvailabilityZones = lens _dcAvailabilityZones (\ s a -> s{_dcAvailabilityZones = a}) . _Default . _Coerce;
+
+-- | Specifies the daily time range during which automated backups are
+-- created if automated backups are enabled, as determined by the
+-- @BackupRetentionPeriod@.
+dcPreferredBackupWindow :: Lens' DBCluster (Maybe Text)
+dcPreferredBackupWindow = lens _dcPreferredBackupWindow (\ s a -> s{_dcPreferredBackupWindow = a});
+
+-- | Provides a list of VPC security groups that the DB cluster belongs to.
+dcVPCSecurityGroups :: Lens' DBCluster [VPCSecurityGroupMembership]
+dcVPCSecurityGroups = lens _dcVPCSecurityGroups (\ s a -> s{_dcVPCSecurityGroups = a}) . _Default . _Coerce;
+
+-- | Specifies the number of days for which automatic DB snapshots are
+-- retained.
+dcBackupRetentionPeriod :: Lens' DBCluster (Maybe Int)
+dcBackupRetentionPeriod = lens _dcBackupRetentionPeriod (\ s a -> s{_dcBackupRetentionPeriod = a});
+
+-- | Contains the name of the initial database of this DB cluster that was
+-- provided at create time, if one was specified when the DB cluster was
+-- created. This same name is returned for the life of the DB cluster.
+dcDatabaseName :: Lens' DBCluster (Maybe Text)
+dcDatabaseName = lens _dcDatabaseName (\ s a -> s{_dcDatabaseName = a});
+
+-- | Specifies information on the subnet group associated with the DB
+-- cluster, including the name, description, and subnets in the subnet
+-- group.
+dcDBSubnetGroup :: Lens' DBCluster (Maybe Text)
+dcDBSubnetGroup = lens _dcDBSubnetGroup (\ s a -> s{_dcDBSubnetGroup = a});
+
+-- | Specifies the allocated storage size in gigabytes (GB).
+dcAllocatedStorage :: Lens' DBCluster (Maybe Int)
+dcAllocatedStorage = lens _dcAllocatedStorage (\ s a -> s{_dcAllocatedStorage = a});
+
+-- | Specifies the connection endpoint for the primary instance of the DB
+-- cluster.
+dcEndpoint :: Lens' DBCluster (Maybe Text)
+dcEndpoint = lens _dcEndpoint (\ s a -> s{_dcEndpoint = a});
+
+-- | Specifies the progress of the operation as a percentage.
+dcPercentProgress :: Lens' DBCluster (Maybe Text)
+dcPercentProgress = lens _dcPercentProgress (\ s a -> s{_dcPercentProgress = a});
+
+-- | Specifies the port that the database engine is listening on.
+dcPort :: Lens' DBCluster (Maybe Int)
+dcPort = lens _dcPort (\ s a -> s{_dcPort = a});
+
+-- | Provides the list of option group memberships for this DB cluster.
+dcDBClusterOptionGroupMemberships :: Lens' DBCluster [DBClusterOptionGroupStatus]
+dcDBClusterOptionGroupMemberships = lens _dcDBClusterOptionGroupMemberships (\ s a -> s{_dcDBClusterOptionGroupMemberships = a}) . _Default . _Coerce;
+
+instance FromXML DBCluster where
+        parseXML x
+          = DBCluster' <$>
+              (x .@? "EngineVersion") <*> (x .@? "Status") <*>
+                (x .@? "DBClusterIdentifier")
+                <*>
+                (x .@? "DBClusterMembers" .!@ mempty >>=
+                   may (parseXMLList "DBClusterMember"))
+                <*> (x .@? "DBClusterParameterGroup")
+                <*> (x .@? "MasterUsername")
+                <*> (x .@? "EarliestRestorableTime")
+                <*> (x .@? "Engine")
+                <*> (x .@? "LatestRestorableTime")
+                <*> (x .@? "PreferredMaintenanceWindow")
+                <*> (x .@? "CharacterSetName")
+                <*>
+                (x .@? "AvailabilityZones" .!@ mempty >>=
+                   may (parseXMLList "AvailabilityZone"))
+                <*> (x .@? "PreferredBackupWindow")
+                <*>
+                (x .@? "VpcSecurityGroups" .!@ mempty >>=
+                   may (parseXMLList "VpcSecurityGroupMembership"))
+                <*> (x .@? "BackupRetentionPeriod")
+                <*> (x .@? "DatabaseName")
+                <*> (x .@? "DBSubnetGroup")
+                <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "Endpoint")
+                <*> (x .@? "PercentProgress")
+                <*> (x .@? "Port")
+                <*>
+                (x .@? "DBClusterOptionGroupMemberships" .!@ mempty
+                   >>= may (parseXMLList "DBClusterOptionGroup"))
+
+-- | Contains information about an instance that is part of a DB cluster.
+--
+-- /See:/ 'dbClusterMember' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcmDBInstanceIdentifier'
+--
+-- * 'dcmIsClusterWriter'
+--
+-- * 'dcmDBClusterParameterGroupStatus'
+data DBClusterMember = DBClusterMember'
+    { _dcmDBInstanceIdentifier          :: !(Maybe Text)
+    , _dcmIsClusterWriter               :: !(Maybe Bool)
+    , _dcmDBClusterParameterGroupStatus :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DBClusterMember' smart constructor.
+dbClusterMember :: DBClusterMember
+dbClusterMember =
+    DBClusterMember'
+    { _dcmDBInstanceIdentifier = Nothing
+    , _dcmIsClusterWriter = Nothing
+    , _dcmDBClusterParameterGroupStatus = Nothing
+    }
+
+-- | Specifies the instance identifier for this member of the DB cluster.
+dcmDBInstanceIdentifier :: Lens' DBClusterMember (Maybe Text)
+dcmDBInstanceIdentifier = lens _dcmDBInstanceIdentifier (\ s a -> s{_dcmDBInstanceIdentifier = a});
+
+-- | Value that is @true@ if the cluster member is the primary instance for
+-- the DB cluster and @false@ otherwise.
+dcmIsClusterWriter :: Lens' DBClusterMember (Maybe Bool)
+dcmIsClusterWriter = lens _dcmIsClusterWriter (\ s a -> s{_dcmIsClusterWriter = a});
+
+-- | Specifies the status of the DB cluster parameter group for this member
+-- of the DB cluster.
+dcmDBClusterParameterGroupStatus :: Lens' DBClusterMember (Maybe Text)
+dcmDBClusterParameterGroupStatus = lens _dcmDBClusterParameterGroupStatus (\ s a -> s{_dcmDBClusterParameterGroupStatus = a});
+
+instance FromXML DBClusterMember where
+        parseXML x
+          = DBClusterMember' <$>
+              (x .@? "DBInstanceIdentifier") <*>
+                (x .@? "IsClusterWriter")
+                <*> (x .@? "DBClusterParameterGroupStatus")
+
+-- | Contains status information for a DB cluster option group.
+--
+-- /See:/ 'dbClusterOptionGroupStatus' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcogsStatus'
+--
+-- * 'dcogsDBClusterOptionGroupName'
+data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
+    { _dcogsStatus                   :: !(Maybe Text)
+    , _dcogsDBClusterOptionGroupName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DBClusterOptionGroupStatus' smart constructor.
+dbClusterOptionGroupStatus :: DBClusterOptionGroupStatus
+dbClusterOptionGroupStatus =
+    DBClusterOptionGroupStatus'
+    { _dcogsStatus = Nothing
+    , _dcogsDBClusterOptionGroupName = Nothing
+    }
+
+-- | Specifies the status of the DB cluster option group.
+dcogsStatus :: Lens' DBClusterOptionGroupStatus (Maybe Text)
+dcogsStatus = lens _dcogsStatus (\ s a -> s{_dcogsStatus = a});
+
+-- | Specifies the name of the DB cluster option group.
+dcogsDBClusterOptionGroupName :: Lens' DBClusterOptionGroupStatus (Maybe Text)
+dcogsDBClusterOptionGroupName = lens _dcogsDBClusterOptionGroupName (\ s a -> s{_dcogsDBClusterOptionGroupName = a});
+
+instance FromXML DBClusterOptionGroupStatus where
+        parseXML x
+          = DBClusterOptionGroupStatus' <$>
+              (x .@? "Status") <*>
+                (x .@? "DBClusterOptionGroupName")
+
+-- | Contains the result of a successful invocation of the
+-- CreateDBClusterParameterGroup action.
+--
+-- This data type is used as a request parameter in the
+-- DeleteDBClusterParameterGroup action, and as a response element in the
+-- DescribeDBClusterParameterGroups action.
+--
+-- /See:/ 'dbClusterParameterGroup' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcpgDBParameterGroupFamily'
+--
+-- * 'dcpgDBClusterParameterGroupName'
+--
+-- * 'dcpgDescription'
+data DBClusterParameterGroup = DBClusterParameterGroup'
+    { _dcpgDBParameterGroupFamily      :: !(Maybe Text)
+    , _dcpgDBClusterParameterGroupName :: !(Maybe Text)
+    , _dcpgDescription                 :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DBClusterParameterGroup' smart constructor.
+dbClusterParameterGroup :: DBClusterParameterGroup
+dbClusterParameterGroup =
+    DBClusterParameterGroup'
+    { _dcpgDBParameterGroupFamily = Nothing
+    , _dcpgDBClusterParameterGroupName = Nothing
+    , _dcpgDescription = Nothing
+    }
+
+-- | Provides the name of the DB parameter group family that this DB cluster
+-- parameter group is compatible with.
+dcpgDBParameterGroupFamily :: Lens' DBClusterParameterGroup (Maybe Text)
+dcpgDBParameterGroupFamily = lens _dcpgDBParameterGroupFamily (\ s a -> s{_dcpgDBParameterGroupFamily = a});
+
+-- | Provides the name of the DB cluster parameter group.
+dcpgDBClusterParameterGroupName :: Lens' DBClusterParameterGroup (Maybe Text)
+dcpgDBClusterParameterGroupName = lens _dcpgDBClusterParameterGroupName (\ s a -> s{_dcpgDBClusterParameterGroupName = a});
+
+-- | Provides the customer-specified description for this DB cluster
+-- parameter group.
+dcpgDescription :: Lens' DBClusterParameterGroup (Maybe Text)
+dcpgDescription = lens _dcpgDescription (\ s a -> s{_dcpgDescription = a});
+
+instance FromXML DBClusterParameterGroup where
+        parseXML x
+          = DBClusterParameterGroup' <$>
+              (x .@? "DBParameterGroupFamily") <*>
+                (x .@? "DBClusterParameterGroupName")
+                <*> (x .@? "Description")
+
+-- |
+--
+-- /See:/ 'dbClusterParameterGroupNameMessage' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcpgnmDBClusterParameterGroupName'
+newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
+    { _dcpgnmDBClusterParameterGroupName :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DBClusterParameterGroupNameMessage' smart constructor.
+dbClusterParameterGroupNameMessage :: DBClusterParameterGroupNameMessage
+dbClusterParameterGroupNameMessage =
+    DBClusterParameterGroupNameMessage'
+    { _dcpgnmDBClusterParameterGroupName = Nothing
+    }
+
+-- | The name of the DB cluster parameter group.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
+-- This value is stored as a lowercase string.
+dcpgnmDBClusterParameterGroupName :: Lens' DBClusterParameterGroupNameMessage (Maybe Text)
+dcpgnmDBClusterParameterGroupName = lens _dcpgnmDBClusterParameterGroupName (\ s a -> s{_dcpgnmDBClusterParameterGroupName = a});
+
+instance FromXML DBClusterParameterGroupNameMessage
+         where
+        parseXML x
+          = DBClusterParameterGroupNameMessage' <$>
+              (x .@? "DBClusterParameterGroupName")
+
+-- | Contains the result of a successful invocation of the following actions:
+--
+-- -   CreateDBClusterSnapshot
+-- -   DeleteDBClusterSnapshot
+--
+-- This data type is used as a response element in the
+-- DescribeDBClusterSnapshots action.
+--
+-- /See:/ 'dbClusterSnapshot' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcsEngineVersion'
+--
+-- * 'dcsStatus'
+--
+-- * 'dcsDBClusterIdentifier'
+--
+-- * 'dcsMasterUsername'
+--
+-- * 'dcsVPCId'
+--
+-- * 'dcsDBClusterSnapshotIdentifier'
+--
+-- * 'dcsEngine'
+--
+-- * 'dcsLicenseModel'
+--
+-- * 'dcsSnapshotType'
+--
+-- * 'dcsAvailabilityZones'
+--
+-- * 'dcsSnapshotCreateTime'
+--
+-- * 'dcsAllocatedStorage'
+--
+-- * 'dcsClusterCreateTime'
+--
+-- * 'dcsPercentProgress'
+--
+-- * 'dcsPort'
+data DBClusterSnapshot = DBClusterSnapshot'
+    { _dcsEngineVersion               :: !(Maybe Text)
+    , _dcsStatus                      :: !(Maybe Text)
+    , _dcsDBClusterIdentifier         :: !(Maybe Text)
+    , _dcsMasterUsername              :: !(Maybe Text)
+    , _dcsVPCId                       :: !(Maybe Text)
+    , _dcsDBClusterSnapshotIdentifier :: !(Maybe Text)
+    , _dcsEngine                      :: !(Maybe Text)
+    , _dcsLicenseModel                :: !(Maybe Text)
+    , _dcsSnapshotType                :: !(Maybe Text)
+    , _dcsAvailabilityZones           :: !(Maybe [Text])
+    , _dcsSnapshotCreateTime          :: !(Maybe ISO8601)
+    , _dcsAllocatedStorage            :: !(Maybe Int)
+    , _dcsClusterCreateTime           :: !(Maybe ISO8601)
+    , _dcsPercentProgress             :: !(Maybe Int)
+    , _dcsPort                        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DBClusterSnapshot' smart constructor.
+dbClusterSnapshot :: DBClusterSnapshot
+dbClusterSnapshot =
+    DBClusterSnapshot'
+    { _dcsEngineVersion = Nothing
+    , _dcsStatus = Nothing
+    , _dcsDBClusterIdentifier = Nothing
+    , _dcsMasterUsername = Nothing
+    , _dcsVPCId = Nothing
+    , _dcsDBClusterSnapshotIdentifier = Nothing
+    , _dcsEngine = Nothing
+    , _dcsLicenseModel = Nothing
+    , _dcsSnapshotType = Nothing
+    , _dcsAvailabilityZones = Nothing
+    , _dcsSnapshotCreateTime = Nothing
+    , _dcsAllocatedStorage = Nothing
+    , _dcsClusterCreateTime = Nothing
+    , _dcsPercentProgress = Nothing
+    , _dcsPort = Nothing
+    }
+
+-- | Provides the version of the database engine for this DB cluster
+-- snapshot.
+dcsEngineVersion :: Lens' DBClusterSnapshot (Maybe Text)
+dcsEngineVersion = lens _dcsEngineVersion (\ s a -> s{_dcsEngineVersion = a});
+
+-- | Specifies the status of this DB cluster snapshot.
+dcsStatus :: Lens' DBClusterSnapshot (Maybe Text)
+dcsStatus = lens _dcsStatus (\ s a -> s{_dcsStatus = a});
+
+-- | Specifies the DB cluster identifier of the DB cluster that this DB
+-- cluster snapshot was created from.
+dcsDBClusterIdentifier :: Lens' DBClusterSnapshot (Maybe Text)
+dcsDBClusterIdentifier = lens _dcsDBClusterIdentifier (\ s a -> s{_dcsDBClusterIdentifier = a});
+
+-- | Provides the master username for the DB cluster snapshot.
+dcsMasterUsername :: Lens' DBClusterSnapshot (Maybe Text)
+dcsMasterUsername = lens _dcsMasterUsername (\ s a -> s{_dcsMasterUsername = a});
+
+-- | Provides the VPC ID associated with the DB cluster snapshot.
+dcsVPCId :: Lens' DBClusterSnapshot (Maybe Text)
+dcsVPCId = lens _dcsVPCId (\ s a -> s{_dcsVPCId = a});
+
+-- | Specifies the identifier for the DB cluster snapshot.
+dcsDBClusterSnapshotIdentifier :: Lens' DBClusterSnapshot (Maybe Text)
+dcsDBClusterSnapshotIdentifier = lens _dcsDBClusterSnapshotIdentifier (\ s a -> s{_dcsDBClusterSnapshotIdentifier = a});
+
+-- | Specifies the name of the database engine.
+dcsEngine :: Lens' DBClusterSnapshot (Maybe Text)
+dcsEngine = lens _dcsEngine (\ s a -> s{_dcsEngine = a});
+
+-- | Provides the license model information for this DB cluster snapshot.
+dcsLicenseModel :: Lens' DBClusterSnapshot (Maybe Text)
+dcsLicenseModel = lens _dcsLicenseModel (\ s a -> s{_dcsLicenseModel = a});
+
+-- | Provides the type of the DB cluster snapshot.
+dcsSnapshotType :: Lens' DBClusterSnapshot (Maybe Text)
+dcsSnapshotType = lens _dcsSnapshotType (\ s a -> s{_dcsSnapshotType = a});
+
+-- | Provides the list of EC2 Availability Zones that instances in the DB
+-- cluster snapshot can be restored in.
+dcsAvailabilityZones :: Lens' DBClusterSnapshot [Text]
+dcsAvailabilityZones = lens _dcsAvailabilityZones (\ s a -> s{_dcsAvailabilityZones = a}) . _Default . _Coerce;
+
+-- | Provides the time when the snapshot was taken, in Universal Coordinated
+-- Time (UTC).
+dcsSnapshotCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
+dcsSnapshotCreateTime = lens _dcsSnapshotCreateTime (\ s a -> s{_dcsSnapshotCreateTime = a}) . mapping _Time;
+
+-- | Specifies the allocated storage size in gigabytes (GB).
+dcsAllocatedStorage :: Lens' DBClusterSnapshot (Maybe Int)
+dcsAllocatedStorage = lens _dcsAllocatedStorage (\ s a -> s{_dcsAllocatedStorage = a});
+
+-- | Specifies the time when the DB cluster was created, in Universal
+-- Coordinated Time (UTC).
+dcsClusterCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
+dcsClusterCreateTime = lens _dcsClusterCreateTime (\ s a -> s{_dcsClusterCreateTime = a}) . mapping _Time;
+
+-- | Specifies the percentage of the estimated data that has been
+-- transferred.
+dcsPercentProgress :: Lens' DBClusterSnapshot (Maybe Int)
+dcsPercentProgress = lens _dcsPercentProgress (\ s a -> s{_dcsPercentProgress = a});
+
+-- | Specifies the port that the DB cluster was listening on at the time of
+-- the snapshot.
+dcsPort :: Lens' DBClusterSnapshot (Maybe Int)
+dcsPort = lens _dcsPort (\ s a -> s{_dcsPort = a});
+
+instance FromXML DBClusterSnapshot where
+        parseXML x
+          = DBClusterSnapshot' <$>
+              (x .@? "EngineVersion") <*> (x .@? "Status") <*>
+                (x .@? "DBClusterIdentifier")
+                <*> (x .@? "MasterUsername")
+                <*> (x .@? "VpcId")
+                <*> (x .@? "DBClusterSnapshotIdentifier")
+                <*> (x .@? "Engine")
+                <*> (x .@? "LicenseModel")
+                <*> (x .@? "SnapshotType")
+                <*>
+                (x .@? "AvailabilityZones" .!@ mempty >>=
+                   may (parseXMLList "AvailabilityZone"))
+                <*> (x .@? "SnapshotCreateTime")
+                <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "ClusterCreateTime")
+                <*> (x .@? "PercentProgress")
+                <*> (x .@? "Port")
+
 -- | This data type is used as a response element in the action
 -- DescribeDBEngineVersions.
 --
@@ -300,6 +884,8 @@ instance FromXML DBEngineVersion where
 --
 -- * 'diStorageEncrypted'
 --
+-- * 'diDBClusterIdentifier'
+--
 -- * 'diAutoMinorVersionUpgrade'
 --
 -- * 'diMasterUsername'
@@ -358,7 +944,11 @@ instance FromXML DBEngineVersion where
 --
 -- * 'diTDECredentialARN'
 --
+-- * 'diCopyTagsToSnapshot'
+--
 -- * 'diDBInstanceStatus'
+--
+-- * 'diDBInstancePort'
 --
 -- * 'diPendingModifiedValues'
 --
@@ -366,11 +956,14 @@ instance FromXML DBEngineVersion where
 --
 -- * 'diDBName'
 --
+-- * 'diDomainMemberships'
+--
 -- * 'diStorageType'
 data DBInstance = DBInstance'
     { _diDBSecurityGroups                      :: !(Maybe [DBSecurityGroupMembership])
     , _diEngineVersion                         :: !(Maybe Text)
     , _diStorageEncrypted                      :: !(Maybe Bool)
+    , _diDBClusterIdentifier                   :: !(Maybe Text)
     , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
     , _diMasterUsername                        :: !(Maybe Text)
     , _diPubliclyAccessible                    :: !(Maybe Bool)
@@ -400,10 +993,13 @@ data DBInstance = DBInstance'
     , _diEndpoint                              :: !(Maybe Endpoint)
     , _diDBParameterGroups                     :: !(Maybe [DBParameterGroupStatus])
     , _diTDECredentialARN                      :: !(Maybe Text)
+    , _diCopyTagsToSnapshot                    :: !(Maybe Bool)
     , _diDBInstanceStatus                      :: !(Maybe Text)
+    , _diDBInstancePort                        :: !(Maybe Int)
     , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
     , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
     , _diDBName                                :: !(Maybe Text)
+    , _diDomainMemberships                     :: !(Maybe [DomainMembership])
     , _diStorageType                           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -414,6 +1010,7 @@ dbInstance =
     { _diDBSecurityGroups = Nothing
     , _diEngineVersion = Nothing
     , _diStorageEncrypted = Nothing
+    , _diDBClusterIdentifier = Nothing
     , _diAutoMinorVersionUpgrade = Nothing
     , _diMasterUsername = Nothing
     , _diPubliclyAccessible = Nothing
@@ -443,10 +1040,13 @@ dbInstance =
     , _diEndpoint = Nothing
     , _diDBParameterGroups = Nothing
     , _diTDECredentialARN = Nothing
+    , _diCopyTagsToSnapshot = Nothing
     , _diDBInstanceStatus = Nothing
+    , _diDBInstancePort = Nothing
     , _diPendingModifiedValues = Nothing
     , _diStatusInfos = Nothing
     , _diDBName = Nothing
+    , _diDomainMemberships = Nothing
     , _diStorageType = Nothing
     }
 
@@ -462,6 +1062,11 @@ diEngineVersion = lens _diEngineVersion (\ s a -> s{_diEngineVersion = a});
 -- | Specifies whether the DB instance is encrypted.
 diStorageEncrypted :: Lens' DBInstance (Maybe Bool)
 diStorageEncrypted = lens _diStorageEncrypted (\ s a -> s{_diStorageEncrypted = a});
+
+-- | If the DB instance is a member of a DB cluster, contains the name of the
+-- DB cluster that the DB instance is a member of.
+diDBClusterIdentifier :: Lens' DBInstance (Maybe Text)
+diDBClusterIdentifier = lens _diDBClusterIdentifier (\ s a -> s{_diDBClusterIdentifier = a});
 
 -- | Indicates that minor version patches are applied automatically.
 diAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe Bool)
@@ -529,8 +1134,8 @@ diDBInstanceClass = lens _diDBInstanceClass (\ s a -> s{_diDBInstanceClass = a})
 diLicenseModel :: Lens' DBInstance (Maybe Text)
 diLicenseModel = lens _diLicenseModel (\ s a -> s{_diLicenseModel = a});
 
--- | Specifies the weekly time range (in UTC) during which system maintenance
--- can occur.
+-- | Specifies the weekly time range during which system maintenance can
+-- occur, in Universal Coordinated Time (UTC).
 diPreferredMaintenanceWindow :: Lens' DBInstance (Maybe Text)
 diPreferredMaintenanceWindow = lens _diPreferredMaintenanceWindow (\ s a -> s{_diPreferredMaintenanceWindow = a});
 
@@ -539,8 +1144,8 @@ diPreferredMaintenanceWindow = lens _diPreferredMaintenanceWindow (\ s a -> s{_d
 diCharacterSetName :: Lens' DBInstance (Maybe Text)
 diCharacterSetName = lens _diCharacterSetName (\ s a -> s{_diCharacterSetName = a});
 
--- | Contains a user-supplied database identifier. This is the unique key
--- that identifies a DB instance.
+-- | Contains a user-supplied database identifier. This identifier is the
+-- unique key that identifies a DB instance.
 diDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
 diDBInstanceIdentifier = lens _diDBInstanceIdentifier (\ s a -> s{_diDBInstanceIdentifier = a});
 
@@ -617,9 +1222,19 @@ diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups
 diTDECredentialARN :: Lens' DBInstance (Maybe Text)
 diTDECredentialARN = lens _diTDECredentialARN (\ s a -> s{_diTDECredentialARN = a});
 
+-- | This property is not currently implemented.
+diCopyTagsToSnapshot :: Lens' DBInstance (Maybe Bool)
+diCopyTagsToSnapshot = lens _diCopyTagsToSnapshot (\ s a -> s{_diCopyTagsToSnapshot = a});
+
 -- | Specifies the current state of this database.
 diDBInstanceStatus :: Lens' DBInstance (Maybe Text)
 diDBInstanceStatus = lens _diDBInstanceStatus (\ s a -> s{_diDBInstanceStatus = a});
+
+-- | Specifies the port that the DB instance listens on. If the DB instance
+-- is part of a DB cluster, this can be a different port than the DB
+-- cluster port.
+diDBInstancePort :: Lens' DBInstance (Maybe Int)
+diDBInstancePort = lens _diDBInstancePort (\ s a -> s{_diDBInstancePort = a});
 
 -- | Specifies that changes to the DB instance are pending. This element is
 -- only included when changes are pending. Specific changes are identified
@@ -653,6 +1268,11 @@ diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default 
 diDBName :: Lens' DBInstance (Maybe Text)
 diDBName = lens _diDBName (\ s a -> s{_diDBName = a});
 
+-- | The Active Directory Domain membership records associated with the DB
+-- instance.
+diDomainMemberships :: Lens' DBInstance [DomainMembership]
+diDomainMemberships = lens _diDomainMemberships (\ s a -> s{_diDomainMemberships = a}) . _Default . _Coerce;
+
 -- | Specifies the storage type associated with DB instance.
 diStorageType :: Lens' DBInstance (Maybe Text)
 diStorageType = lens _diStorageType (\ s a -> s{_diStorageType = a});
@@ -664,6 +1284,7 @@ instance FromXML DBInstance where
                  may (parseXMLList "DBSecurityGroup"))
                 <*> (x .@? "EngineVersion")
                 <*> (x .@? "StorageEncrypted")
+                <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "AutoMinorVersionUpgrade")
                 <*> (x .@? "MasterUsername")
                 <*> (x .@? "PubliclyAccessible")
@@ -702,12 +1323,17 @@ instance FromXML DBInstance where
                 (x .@? "DBParameterGroups" .!@ mempty >>=
                    may (parseXMLList "DBParameterGroup"))
                 <*> (x .@? "TdeCredentialArn")
+                <*> (x .@? "CopyTagsToSnapshot")
                 <*> (x .@? "DBInstanceStatus")
+                <*> (x .@? "DbInstancePort")
                 <*> (x .@? "PendingModifiedValues")
                 <*>
                 (x .@? "StatusInfos" .!@ mempty >>=
                    may (parseXMLList "DBInstanceStatusInfo"))
                 <*> (x .@? "DBName")
+                <*>
+                (x .@? "DomainMemberships" .!@ mempty >>=
+                   may (parseXMLList "DomainMembership"))
                 <*> (x .@? "StorageType")
 
 -- | Provides a list of status information for a DB instance.
@@ -836,7 +1462,7 @@ dbParameterGroupNameMessage =
     { _dpgnmDBParameterGroupName = Nothing
     }
 
--- | The name of the DB parameter group.
+-- | Provides the name of the DB parameter group.
 dpgnmDBParameterGroupName :: Lens' DBParameterGroupNameMessage (Maybe Text)
 dpgnmDBParameterGroupName = lens _dpgnmDBParameterGroupName (\ s a -> s{_dpgnmDBParameterGroupName = a});
 
@@ -1050,6 +1676,8 @@ instance FromXML DBSecurityGroupMembership where
 --
 -- * 'dsDBInstanceIdentifier'
 --
+-- * 'dsSourceDBSnapshotIdentifier'
+--
 -- * 'dsAvailabilityZone'
 --
 -- * 'dsKMSKeyId'
@@ -1068,28 +1696,29 @@ instance FromXML DBSecurityGroupMembership where
 --
 -- * 'dsStorageType'
 data DBSnapshot = DBSnapshot'
-    { _dsEngineVersion        :: !(Maybe Text)
-    , _dsStatus               :: !(Maybe Text)
-    , _dsMasterUsername       :: !(Maybe Text)
-    , _dsSourceRegion         :: !(Maybe Text)
-    , _dsIOPS                 :: !(Maybe Int)
-    , _dsInstanceCreateTime   :: !(Maybe ISO8601)
-    , _dsVPCId                :: !(Maybe Text)
-    , _dsEngine               :: !(Maybe Text)
-    , _dsEncrypted            :: !(Maybe Bool)
-    , _dsDBSnapshotIdentifier :: !(Maybe Text)
-    , _dsLicenseModel         :: !(Maybe Text)
-    , _dsSnapshotType         :: !(Maybe Text)
-    , _dsDBInstanceIdentifier :: !(Maybe Text)
-    , _dsAvailabilityZone     :: !(Maybe Text)
-    , _dsKMSKeyId             :: !(Maybe Text)
-    , _dsSnapshotCreateTime   :: !(Maybe ISO8601)
-    , _dsAllocatedStorage     :: !(Maybe Int)
-    , _dsTDECredentialARN     :: !(Maybe Text)
-    , _dsOptionGroupName      :: !(Maybe Text)
-    , _dsPercentProgress      :: !(Maybe Int)
-    , _dsPort                 :: !(Maybe Int)
-    , _dsStorageType          :: !(Maybe Text)
+    { _dsEngineVersion              :: !(Maybe Text)
+    , _dsStatus                     :: !(Maybe Text)
+    , _dsMasterUsername             :: !(Maybe Text)
+    , _dsSourceRegion               :: !(Maybe Text)
+    , _dsIOPS                       :: !(Maybe Int)
+    , _dsInstanceCreateTime         :: !(Maybe ISO8601)
+    , _dsVPCId                      :: !(Maybe Text)
+    , _dsEngine                     :: !(Maybe Text)
+    , _dsEncrypted                  :: !(Maybe Bool)
+    , _dsDBSnapshotIdentifier       :: !(Maybe Text)
+    , _dsLicenseModel               :: !(Maybe Text)
+    , _dsSnapshotType               :: !(Maybe Text)
+    , _dsDBInstanceIdentifier       :: !(Maybe Text)
+    , _dsSourceDBSnapshotIdentifier :: !(Maybe Text)
+    , _dsAvailabilityZone           :: !(Maybe Text)
+    , _dsKMSKeyId                   :: !(Maybe Text)
+    , _dsSnapshotCreateTime         :: !(Maybe ISO8601)
+    , _dsAllocatedStorage           :: !(Maybe Int)
+    , _dsTDECredentialARN           :: !(Maybe Text)
+    , _dsOptionGroupName            :: !(Maybe Text)
+    , _dsPercentProgress            :: !(Maybe Int)
+    , _dsPort                       :: !(Maybe Int)
+    , _dsStorageType                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBSnapshot' smart constructor.
@@ -1109,6 +1738,7 @@ dbSnapshot =
     , _dsLicenseModel = Nothing
     , _dsSnapshotType = Nothing
     , _dsDBInstanceIdentifier = Nothing
+    , _dsSourceDBSnapshotIdentifier = Nothing
     , _dsAvailabilityZone = Nothing
     , _dsKMSKeyId = Nothing
     , _dsSnapshotCreateTime = Nothing
@@ -1141,11 +1771,12 @@ dsSourceRegion = lens _dsSourceRegion (\ s a -> s{_dsSourceRegion = a});
 dsIOPS :: Lens' DBSnapshot (Maybe Int)
 dsIOPS = lens _dsIOPS (\ s a -> s{_dsIOPS = a});
 
--- | Specifies the time (UTC) when the snapshot was taken.
+-- | Specifies the time when the snapshot was taken, in Universal Coordinated
+-- Time (UTC).
 dsInstanceCreateTime :: Lens' DBSnapshot (Maybe UTCTime)
 dsInstanceCreateTime = lens _dsInstanceCreateTime (\ s a -> s{_dsInstanceCreateTime = a}) . mapping _Time;
 
--- | Provides the Vpc Id associated with the DB snapshot.
+-- | Provides the VPC ID associated with the DB snapshot.
 dsVPCId :: Lens' DBSnapshot (Maybe Text)
 dsVPCId = lens _dsVPCId (\ s a -> s{_dsVPCId = a});
 
@@ -1174,6 +1805,11 @@ dsSnapshotType = lens _dsSnapshotType (\ s a -> s{_dsSnapshotType = a});
 dsDBInstanceIdentifier :: Lens' DBSnapshot (Maybe Text)
 dsDBInstanceIdentifier = lens _dsDBInstanceIdentifier (\ s a -> s{_dsDBInstanceIdentifier = a});
 
+-- | The DB snapshot Arn that the DB snapshot was copied from. It only has
+-- value in case of cross customer or cross region copy.
+dsSourceDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
+dsSourceDBSnapshotIdentifier = lens _dsSourceDBSnapshotIdentifier (\ s a -> s{_dsSourceDBSnapshotIdentifier = a});
+
 -- | Specifies the name of the Availability Zone the DB instance was located
 -- in at the time of the DB snapshot.
 dsAvailabilityZone :: Lens' DBSnapshot (Maybe Text)
@@ -1184,7 +1820,8 @@ dsAvailabilityZone = lens _dsAvailabilityZone (\ s a -> s{_dsAvailabilityZone = 
 dsKMSKeyId :: Lens' DBSnapshot (Maybe Text)
 dsKMSKeyId = lens _dsKMSKeyId (\ s a -> s{_dsKMSKeyId = a});
 
--- | Provides the time (UTC) when the snapshot was taken.
+-- | Provides the time when the snapshot was taken, in Universal Coordinated
+-- Time (UTC).
 dsSnapshotCreateTime :: Lens' DBSnapshot (Maybe UTCTime)
 dsSnapshotCreateTime = lens _dsSnapshotCreateTime (\ s a -> s{_dsSnapshotCreateTime = a}) . mapping _Time;
 
@@ -1229,6 +1866,7 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "LicenseModel")
                 <*> (x .@? "SnapshotType")
                 <*> (x .@? "DBInstanceIdentifier")
+                <*> (x .@? "SourceDBSnapshotIdentifier")
                 <*> (x .@? "AvailabilityZone")
                 <*> (x .@? "KmsKeyId")
                 <*> (x .@? "SnapshotCreateTime")
@@ -1353,6 +1991,52 @@ instance FromXML DescribeDBLogFilesDetails where
           = DescribeDBLogFilesDetails' <$>
               (x .@? "LastWritten") <*> (x .@? "Size") <*>
                 (x .@? "LogFileName")
+
+-- | An Active Directory Domain membership record associated with the DB
+-- instance.
+--
+-- /See:/ 'domainMembership' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dmStatus'
+--
+-- * 'dmDomain'
+--
+-- * 'dmConnectivity'
+data DomainMembership = DomainMembership'
+    { _dmStatus       :: !(Maybe Text)
+    , _dmDomain       :: !(Maybe Text)
+    , _dmConnectivity :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DomainMembership' smart constructor.
+domainMembership :: DomainMembership
+domainMembership =
+    DomainMembership'
+    { _dmStatus = Nothing
+    , _dmDomain = Nothing
+    , _dmConnectivity = Nothing
+    }
+
+-- | The status of the DB instance\'s Active Directory Domain membership
+-- (e.g. joined, pending-join, failed etc).
+dmStatus :: Lens' DomainMembership (Maybe Text)
+dmStatus = lens _dmStatus (\ s a -> s{_dmStatus = a});
+
+-- | The identifier of the Active Directory Domain.
+dmDomain :: Lens' DomainMembership (Maybe Text)
+dmDomain = lens _dmDomain (\ s a -> s{_dmDomain = a});
+
+-- | The observed connectivity of the Active Directory Domain.
+dmConnectivity :: Lens' DomainMembership (Maybe Text)
+dmConnectivity = lens _dmConnectivity (\ s a -> s{_dmConnectivity = a});
+
+instance FromXML DomainMembership where
+        parseXML x
+          = DomainMembership' <$>
+              (x .@? "Status") <*> (x .@? "Domain") <*>
+                (x .@? "Connectivity")
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -1479,7 +2163,7 @@ engineDefaults =
     , _edMarker = Nothing
     }
 
--- | Specifies the name of the DB parameter group family which the engine
+-- | Specifies the name of the DB parameter group family that the engine
 -- default parameters apply to.
 edDBParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edDBParameterGroupFamily = lens _edDBParameterGroupFamily (\ s a -> s{_edDBParameterGroupFamily = a});
@@ -2017,7 +2701,8 @@ ogVPCId = lens _ogVPCId (\ s a -> s{_ogVPCId = a});
 ogAllowsVPCAndNonVPCInstanceMemberships :: Lens' OptionGroup (Maybe Bool)
 ogAllowsVPCAndNonVPCInstanceMemberships = lens _ogAllowsVPCAndNonVPCInstanceMemberships (\ s a -> s{_ogAllowsVPCAndNonVPCInstanceMemberships = a});
 
--- | Engine name that this option group can be applied to.
+-- | Indicates the name of the engine that this option group can be applied
+-- to.
 ogEngineName :: Lens' OptionGroup (Maybe Text)
 ogEngineName = lens _ogEngineName (\ s a -> s{_ogEngineName = a});
 
@@ -2475,7 +3160,7 @@ odioEngine = lens _odioEngine (\ s a -> s{_odioEngine = a});
 odioSupportsIOPS :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioSupportsIOPS = lens _odioSupportsIOPS (\ s a -> s{_odioSupportsIOPS = a});
 
--- | The DB instance Class for the orderable DB instance
+-- | The DB instance class for the orderable DB instance.
 odioDBInstanceClass :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioDBInstanceClass = lens _odioDBInstanceClass (\ s a -> s{_odioDBInstanceClass = a});
 
@@ -2483,7 +3168,7 @@ odioDBInstanceClass = lens _odioDBInstanceClass (\ s a -> s{_odioDBInstanceClass
 odioLicenseModel :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioLicenseModel = lens _odioLicenseModel (\ s a -> s{_odioLicenseModel = a});
 
--- | A list of availability zones for the orderable DB instance.
+-- | A list of Availability Zones for the orderable DB instance.
 odioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
 odioAvailabilityZones = lens _odioAvailabilityZones (\ s a -> s{_odioAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -2499,7 +3184,7 @@ odioSupportsStorageEncryption = lens _odioSupportsStorageEncryption (\ s a -> s{
 odioVPC :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioVPC = lens _odioVPC (\ s a -> s{_odioVPC = a});
 
--- | The storage type for this orderable DB instance.
+-- | Indicates the storage type for this orderable DB instance.
 odioStorageType :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioStorageType = lens _odioStorageType (\ s a -> s{_odioStorageType = a});
 
@@ -3260,7 +3945,7 @@ tag =
 
 -- | A value is the optional value of the tag. The string value can be from 1
 -- to 256 Unicode characters in length and cannot be prefixed with \"aws:\"
--- or \"rds:\". The string may only contain only the set of Unicode
+-- or \"rds:\". The string can only contain only the set of Unicode
 -- letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\'
 -- (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 tagValue :: Lens' Tag (Maybe Text)
@@ -3268,7 +3953,7 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 -- | A key is the required name of the tag. The string value can be from 1 to
 -- 128 Unicode characters in length and cannot be prefixed with \"aws:\" or
--- \"rds:\". The string may only contain only the set of Unicode letters,
+-- \"rds:\". The string can only contain only the set of Unicode letters,
 -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
 -- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 tagKey :: Lens' Tag (Maybe Text)

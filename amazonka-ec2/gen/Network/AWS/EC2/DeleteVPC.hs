@@ -92,7 +92,7 @@ instance ToPath DeleteVPC where
 instance ToQuery DeleteVPC where
         toQuery DeleteVPC'{..}
           = mconcat
-              ["Action" =: ("DeleteVPC" :: ByteString),
+              ["Action" =: ("DeleteVpc" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _delDryRun, "VpcId" =: _delVPCId]
 

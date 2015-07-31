@@ -135,7 +135,7 @@ instance ToPath DescribeVPCs where
 instance ToQuery DescribeVPCs where
         toQuery DescribeVPCs'{..}
           = mconcat
-              ["Action" =: ("DescribeVPCs" :: ByteString),
+              ["Action" =: ("DescribeVpcs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvsFilters),
                toQuery (toQueryList "VpcId" <$> _dvsVPCIds),

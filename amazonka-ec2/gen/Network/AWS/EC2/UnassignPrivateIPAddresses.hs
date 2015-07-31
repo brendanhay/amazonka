@@ -90,7 +90,7 @@ instance ToQuery UnassignPrivateIPAddresses where
         toQuery UnassignPrivateIPAddresses'{..}
           = mconcat
               ["Action" =:
-                 ("UnassignPrivateIPAddresses" :: ByteString),
+                 ("UnassignPrivateIpAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "NetworkInterfaceId" =: _upiaNetworkInterfaceId,
                toQueryList "PrivateIpAddress"

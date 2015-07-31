@@ -79,7 +79,7 @@ instance ToHeaders DeleteHSM where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("CloudHsmFrontendService.DeleteHSM" :: ByteString),
+                    ("CloudHsmFrontendService.DeleteHsm" :: ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])
 

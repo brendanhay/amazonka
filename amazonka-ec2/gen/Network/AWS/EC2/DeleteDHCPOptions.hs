@@ -90,7 +90,7 @@ instance ToPath DeleteDHCPOptions where
 instance ToQuery DeleteDHCPOptions where
         toQuery DeleteDHCPOptions'{..}
           = mconcat
-              ["Action" =: ("DeleteDHCPOptions" :: ByteString),
+              ["Action" =: ("DeleteDhcpOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _ddhcpoDryRun,
                "DhcpOptionsId" =: _ddhcpoDHCPOptionsId]

@@ -103,7 +103,7 @@ instance ToPath ModifyVPCAttribute where
 instance ToQuery ModifyVPCAttribute where
         toQuery ModifyVPCAttribute'{..}
           = mconcat
-              ["Action" =: ("ModifyVPCAttribute" :: ByteString),
+              ["Action" =: ("ModifyVpcAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "EnableDnsHostnames" =: _mvaEnableDNSHostnames,
                "EnableDnsSupport" =: _mvaEnableDNSSupport,

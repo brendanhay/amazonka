@@ -114,7 +114,7 @@ instance ToHeaders DescribeElasticIPs where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DescribeElasticIPs" ::
+                    ("OpsWorks_20130218.DescribeElasticIps" ::
                        ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])

@@ -97,7 +97,7 @@ instance ToHeaders RegisterElasticIP where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.RegisterElasticIP" ::
+                    ("OpsWorks_20130218.RegisterElasticIp" ::
                        ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])

@@ -105,7 +105,7 @@ instance ToPath AttachVPNGateway where
 instance ToQuery AttachVPNGateway where
         toQuery AttachVPNGateway'{..}
           = mconcat
-              ["Action" =: ("AttachVPNGateway" :: ByteString),
+              ["Action" =: ("AttachVpnGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _avgDryRun,
                "VpnGatewayId" =: _avgVPNGatewayId,

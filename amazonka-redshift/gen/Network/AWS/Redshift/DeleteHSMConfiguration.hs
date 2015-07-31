@@ -80,7 +80,7 @@ instance ToQuery DeleteHSMConfiguration where
         toQuery DeleteHSMConfiguration'{..}
           = mconcat
               ["Action" =:
-                 ("DeleteHSMConfiguration" :: ByteString),
+                 ("DeleteHsmConfiguration" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "HsmConfigurationIdentifier" =:
                  _dhcHSMConfigurationIdentifier]

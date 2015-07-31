@@ -100,7 +100,7 @@ instance ToPath MoveAddressToVPC where
 instance ToQuery MoveAddressToVPC where
         toQuery MoveAddressToVPC'{..}
           = mconcat
-              ["Action" =: ("MoveAddressToVPC" :: ByteString),
+              ["Action" =: ("MoveAddressToVpc" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _matvDryRun, "PublicIp" =: _matvPublicIP]
 

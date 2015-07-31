@@ -80,7 +80,7 @@ instance ToQuery DeleteHSMClientCertificate where
         toQuery DeleteHSMClientCertificate'{..}
           = mconcat
               ["Action" =:
-                 ("DeleteHSMClientCertificate" :: ByteString),
+                 ("DeleteHsmClientCertificate" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "HsmClientCertificateIdentifier" =:
                  _dhsmccHSMClientCertificateIdentifier]

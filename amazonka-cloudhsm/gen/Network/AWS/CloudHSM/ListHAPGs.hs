@@ -86,7 +86,7 @@ instance ToHeaders ListHAPGs where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("CloudHsmFrontendService.ListHAPGs" :: ByteString),
+                    ("CloudHsmFrontendService.ListHapgs" :: ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])
 

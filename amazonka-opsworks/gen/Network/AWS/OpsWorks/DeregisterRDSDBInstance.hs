@@ -79,7 +79,7 @@ instance ToHeaders DeregisterRDSDBInstance where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DeregisterRDSDBInstance" ::
+                    ("OpsWorks_20130218.DeregisterRdsDbInstance" ::
                        ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])

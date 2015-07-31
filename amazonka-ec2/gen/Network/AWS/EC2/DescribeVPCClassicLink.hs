@@ -125,7 +125,7 @@ instance ToQuery DescribeVPCClassicLink where
         toQuery DescribeVPCClassicLink'{..}
           = mconcat
               ["Action" =:
-                 ("DescribeVPCClassicLink" :: ByteString),
+                 ("DescribeVpcClassicLink" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvclFilters),
                toQuery (toQueryList "VpcId" <$> _dvclVPCIds),

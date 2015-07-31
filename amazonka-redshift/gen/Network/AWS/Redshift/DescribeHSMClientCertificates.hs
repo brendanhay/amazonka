@@ -177,7 +177,7 @@ instance ToQuery DescribeHSMClientCertificates where
         toQuery DescribeHSMClientCertificates'{..}
           = mconcat
               ["Action" =:
-                 ("DescribeHSMClientCertificates" :: ByteString),
+                 ("DescribeHsmClientCertificates" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
                  toQuery (toQueryList "TagValue" <$> _dhccTagValues),

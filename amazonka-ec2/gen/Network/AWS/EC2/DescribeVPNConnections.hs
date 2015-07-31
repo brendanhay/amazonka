@@ -155,7 +155,7 @@ instance ToQuery DescribeVPNConnections where
         toQuery DescribeVPNConnections'{..}
           = mconcat
               ["Action" =:
-                 ("DescribeVPNConnections" :: ByteString),
+                 ("DescribeVpnConnections" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvpncFilters),
                toQuery

@@ -126,7 +126,7 @@ instance ToQuery AssignPrivateIPAddresses where
         toQuery AssignPrivateIPAddresses'{..}
           = mconcat
               ["Action" =:
-                 ("AssignPrivateIPAddresses" :: ByteString),
+                 ("AssignPrivateIpAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
                  (toQueryList "PrivateIpAddress" <$>

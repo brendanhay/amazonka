@@ -109,7 +109,7 @@ instance ToHeaders DescribeRAIdArrays where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DescribeRAIdArrays" ::
+                    ("OpsWorks_20130218.DescribeRaidArrays" ::
                        ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])

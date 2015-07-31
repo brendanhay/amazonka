@@ -96,7 +96,7 @@ instance ToHeaders UpdateRDSDBInstance where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.UpdateRDSDBInstance" ::
+                    ("OpsWorks_20130218.UpdateRdsDbInstance" ::
                        ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])

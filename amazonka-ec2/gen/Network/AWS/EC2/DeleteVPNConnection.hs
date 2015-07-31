@@ -98,7 +98,7 @@ instance ToPath DeleteVPNConnection where
 instance ToQuery DeleteVPNConnection where
         toQuery DeleteVPNConnection'{..}
           = mconcat
-              ["Action" =: ("DeleteVPNConnection" :: ByteString),
+              ["Action" =: ("DeleteVpnConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _dvcDryRun,
                "VpnConnectionId" =: _dvcVPNConnectionId]

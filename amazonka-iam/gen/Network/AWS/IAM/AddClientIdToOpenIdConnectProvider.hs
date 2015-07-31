@@ -99,7 +99,7 @@ instance ToQuery AddClientIdToOpenIdConnectProvider
         toQuery AddClientIdToOpenIdConnectProvider'{..}
           = mconcat
               ["Action" =:
-                 ("AddClientIdToOpenIdConnectProvider" :: ByteString),
+                 ("AddClientIDToOpenIDConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
                  _acitoicpOpenIdConnectProviderARN,

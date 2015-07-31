@@ -147,7 +147,7 @@ instance ToHeaders CreateHSM where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("CloudHsmFrontendService.CreateHSM" :: ByteString),
+                    ("CloudHsmFrontendService.CreateHsm" :: ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])
 

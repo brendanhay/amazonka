@@ -101,7 +101,7 @@ instance ToPath GetQueueURL where
 instance ToQuery GetQueueURL where
         toQuery GetQueueURL'{..}
           = mconcat
-              ["Action" =: ("GetQueueURL" :: ByteString),
+              ["Action" =: ("GetQueueUrl" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                "QueueOwnerAWSAccountId" =:
                  _gquQueueOwnerAWSAccountId,

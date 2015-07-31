@@ -88,7 +88,7 @@ instance ToPath DeleteNetworkACL where
 instance ToQuery DeleteNetworkACL where
         toQuery DeleteNetworkACL'{..}
           = mconcat
-              ["Action" =: ("DeleteNetworkACL" :: ByteString),
+              ["Action" =: ("DeleteNetworkAcl" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _dnaDryRun,
                "NetworkAclId" =: _dnaNetworkACLId]

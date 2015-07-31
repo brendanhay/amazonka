@@ -153,7 +153,7 @@ instance ToQuery DescribeVPCPeeringConnections where
         toQuery DescribeVPCPeeringConnections'{..}
           = mconcat
               ["Action" =:
-                 ("DescribeVPCPeeringConnections" :: ByteString),
+                 ("DescribeVpcPeeringConnections" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvpcpcFilters),
                toQuery

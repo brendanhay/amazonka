@@ -87,7 +87,7 @@ instance ToQuery DeleteOpenIdConnectProvider where
         toQuery DeleteOpenIdConnectProvider'{..}
           = mconcat
               ["Action" =:
-                 ("DeleteOpenIdConnectProvider" :: ByteString),
+                 ("DeleteOpenIDConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
                  _doicpOpenIdConnectProviderARN]

@@ -162,7 +162,7 @@ instance ToQuery CreateOpenIdConnectProvider where
         toQuery CreateOpenIdConnectProvider'{..}
           = mconcat
               ["Action" =:
-                 ("CreateOpenIdConnectProvider" :: ByteString),
+                 ("CreateOpenIDConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "ClientIDList" =:
                  toQuery

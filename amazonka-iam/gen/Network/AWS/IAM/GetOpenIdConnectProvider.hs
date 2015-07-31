@@ -95,7 +95,7 @@ instance ToQuery GetOpenIdConnectProvider where
         toQuery GetOpenIdConnectProvider'{..}
           = mconcat
               ["Action" =:
-                 ("GetOpenIdConnectProvider" :: ByteString),
+                 ("GetOpenIDConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
                  _goicpOpenIdConnectProviderARN]

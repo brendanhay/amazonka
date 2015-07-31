@@ -127,7 +127,7 @@ instance ToPath AttachClassicLinkVPC where
 instance ToQuery AttachClassicLinkVPC where
         toQuery AttachClassicLinkVPC'{..}
           = mconcat
-              ["Action" =: ("AttachClassicLinkVPC" :: ByteString),
+              ["Action" =: ("AttachClassicLinkVpc" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _aclvDryRun,
                "InstanceId" =: _aclvInstanceId,

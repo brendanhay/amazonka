@@ -144,7 +144,7 @@ instance ToPath DescribeVPNGateways where
 instance ToQuery DescribeVPNGateways where
         toQuery DescribeVPNGateways'{..}
           = mconcat
-              ["Action" =: ("DescribeVPNGateways" :: ByteString),
+              ["Action" =: ("DescribeVpnGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvgsFilters),
                "DryRun" =: _dvgsDryRun,

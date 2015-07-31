@@ -116,7 +116,7 @@ instance ToQuery DescribeVPCEndpointServices where
         toQuery DescribeVPCEndpointServices'{..}
           = mconcat
               ["Action" =:
-                 ("DescribeVPCEndpointServices" :: ByteString),
+                 ("DescribeVpcEndpointServices" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "NextToken" =: _dvesNextToken,
                "DryRun" =: _dvesDryRun,

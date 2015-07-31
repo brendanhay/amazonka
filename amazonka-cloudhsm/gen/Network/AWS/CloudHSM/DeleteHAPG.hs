@@ -78,7 +78,7 @@ instance ToHeaders DeleteHAPG where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("CloudHsmFrontendService.DeleteHAPG" :: ByteString),
+                    ("CloudHsmFrontendService.DeleteHapg" :: ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])
 

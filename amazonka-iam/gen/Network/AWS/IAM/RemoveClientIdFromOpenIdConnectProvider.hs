@@ -100,7 +100,7 @@ instance ToQuery
         toQuery RemoveClientIdFromOpenIdConnectProvider'{..}
           = mconcat
               ["Action" =:
-                 ("RemoveClientIdFromOpenIdConnectProvider" ::
+                 ("RemoveClientIDFromOpenIDConnectProvider" ::
                     ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:

@@ -153,7 +153,7 @@ instance ToQuery CreateHSMConfiguration where
         toQuery CreateHSMConfiguration'{..}
           = mconcat
               ["Action" =:
-                 ("CreateHSMConfiguration" :: ByteString),
+                 ("CreateHsmConfiguration" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "Tags" =: toQuery (toQueryList "Tag" <$> _chcTags),
                "HsmConfigurationIdentifier" =:

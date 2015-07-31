@@ -173,7 +173,7 @@ instance ToQuery DescribeHSMConfigurations where
         toQuery DescribeHSMConfigurations'{..}
           = mconcat
               ["Action" =:
-                 ("DescribeHSMConfigurations" :: ByteString),
+                 ("DescribeHsmConfigurations" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
                  toQuery (toQueryList "TagValue" <$> _dhsmcTagValues),

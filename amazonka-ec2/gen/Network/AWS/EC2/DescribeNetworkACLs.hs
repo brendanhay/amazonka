@@ -167,7 +167,7 @@ instance ToPath DescribeNetworkACLs where
 instance ToQuery DescribeNetworkACLs where
         toQuery DescribeNetworkACLs'{..}
           = mconcat
-              ["Action" =: ("DescribeNetworkACLs" :: ByteString),
+              ["Action" =: ("DescribeNetworkAcls" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dnaclFilters),
                "DryRun" =: _dnaclDryRun,

@@ -133,7 +133,7 @@ instance ToPath DescribeDHCPOptions where
 instance ToQuery DescribeDHCPOptions where
         toQuery DescribeDHCPOptions'{..}
           = mconcat
-              ["Action" =: ("DescribeDHCPOptions" :: ByteString),
+              ["Action" =: ("DescribeDhcpOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _ddoFilters),
                toQuery

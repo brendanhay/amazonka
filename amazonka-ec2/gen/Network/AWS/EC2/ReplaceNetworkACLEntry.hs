@@ -160,7 +160,7 @@ instance ToQuery ReplaceNetworkACLEntry where
         toQuery ReplaceNetworkACLEntry'{..}
           = mconcat
               ["Action" =:
-                 ("ReplaceNetworkACLEntry" :: ByteString),
+                 ("ReplaceNetworkAclEntry" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Icmp" =: _rnaeICMPTypeCode,
                "PortRange" =: _rnaePortRange,

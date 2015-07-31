@@ -109,7 +109,7 @@ instance ToQuery CreateHSMClientCertificate where
         toQuery CreateHSMClientCertificate'{..}
           = mconcat
               ["Action" =:
-                 ("CreateHSMClientCertificate" :: ByteString),
+                 ("CreateHsmClientCertificate" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "Tags" =: toQuery (toQueryList "Tag" <$> _chccTags),
                "HsmClientCertificateIdentifier" =:

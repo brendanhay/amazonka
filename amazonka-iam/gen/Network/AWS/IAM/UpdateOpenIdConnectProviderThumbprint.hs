@@ -112,7 +112,7 @@ instance ToQuery
         toQuery UpdateOpenIdConnectProviderThumbprint'{..}
           = mconcat
               ["Action" =:
-                 ("UpdateOpenIdConnectProviderThumbprint" ::
+                 ("UpdateOpenIDConnectProviderThumbprint" ::
                     ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:

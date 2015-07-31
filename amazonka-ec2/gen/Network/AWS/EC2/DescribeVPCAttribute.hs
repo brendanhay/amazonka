@@ -110,7 +110,7 @@ instance ToPath DescribeVPCAttribute where
 instance ToQuery DescribeVPCAttribute where
         toQuery DescribeVPCAttribute'{..}
           = mconcat
-              ["Action" =: ("DescribeVPCAttribute" :: ByteString),
+              ["Action" =: ("DescribeVpcAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Attribute" =: _dvpcaAttribute,
                "DryRun" =: _dvpcaDryRun, "VpcId" =: _dvpcaVPCId]

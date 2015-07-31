@@ -134,7 +134,7 @@ instance ToPath ModifyVPCEndpoint where
 instance ToQuery ModifyVPCEndpoint where
         toQuery ModifyVPCEndpoint'{..}
           = mconcat
-              ["Action" =: ("ModifyVPCEndpoint" :: ByteString),
+              ["Action" =: ("ModifyVpcEndpoint" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "PolicyDocument" =: _mvePolicyDocument,
                toQuery

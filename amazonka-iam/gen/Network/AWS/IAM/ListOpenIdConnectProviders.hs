@@ -75,7 +75,7 @@ instance ToQuery ListOpenIdConnectProviders where
           = const
               (mconcat
                  ["Action" =:
-                    ("ListOpenIdConnectProviders" :: ByteString),
+                    ("ListOpenIDConnectProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
 -- | Contains the response to a successful ListOpenIDConnectProviders

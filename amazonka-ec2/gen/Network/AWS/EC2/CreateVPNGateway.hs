@@ -109,7 +109,7 @@ instance ToPath CreateVPNGateway where
 instance ToQuery CreateVPNGateway where
         toQuery CreateVPNGateway'{..}
           = mconcat
-              ["Action" =: ("CreateVPNGateway" :: ByteString),
+              ["Action" =: ("CreateVpnGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "AvailabilityZone" =: _cvgAvailabilityZone,
                "DryRun" =: _cvgDryRun, "Type" =: _cvgType]

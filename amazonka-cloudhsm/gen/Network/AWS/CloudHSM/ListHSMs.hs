@@ -87,7 +87,7 @@ instance ToHeaders ListHSMs where
           = const
               (mconcat
                  ["X-Amz-Target" =#
-                    ("CloudHsmFrontendService.ListHSMs" :: ByteString),
+                    ("CloudHsmFrontendService.ListHsms" :: ByteString),
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])
 

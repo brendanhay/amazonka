@@ -257,7 +257,7 @@ canonicalQuery = Tag . toBS . (valuesOf %~ Just . fromMaybe "")
 -- all internal whitespace, replacing with a single space char,
 -- unless quoted with \"...\"
 canonicalHeaders :: NormalisedHeaders -> CanonicalHeaders
-canonicalHeaders = Tag . foldMap (uncurry f) . unTag
+canonicalHeaders = Tag . Fold.foldMap (uncurry f) . unTag
   where
     f k v = k <> ":" <> stripBS v <> "\n"
 

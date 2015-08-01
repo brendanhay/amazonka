@@ -57,6 +57,9 @@ type ProgramT = FreeT Command
 
 #if MIN_VERSION_free(4,12,0)
 #else
+instance MonadThrow m => MonadThrow (ProgramT m) where
+    throwM = lift . throwM
+
 instance MonadCatch m => MonadCatch (ProgramT m) where
     catch (FreeT m) f = FreeT $
         liftM (fmap (`catch` f)) m `catch` (runFreeT . f)

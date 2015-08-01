@@ -28,6 +28,7 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
+import           Network.AWS.Free       (serviceFor)
 import           Network.AWS.Prelude
 import           Network.AWS.Request    (requestURL)
 

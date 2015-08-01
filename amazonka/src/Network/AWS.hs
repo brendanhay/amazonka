@@ -15,6 +15,9 @@
 -- with lifted 'send', 'paginate' and 'await' functions to make it suitable for
 -- embedding as a layer into your own application monad.
 --
+-- You can use 'catching' to catch specific or general errors using the
+-- 'AWSError' 'Prism's.
+--
 -- For a more flexible interface see "Control.Monad.Trans.AWS".
 module Network.AWS
     (
@@ -49,6 +52,8 @@ module Network.AWS
     , paginateWith
     -- ** Asynchronous
     -- $async
+    -- ** Exceptions
+    , catching
 
     , module Network.AWS.Presign
 
@@ -69,23 +74,32 @@ module Network.AWS
     ) where
 
 import           Control.Applicative
-import           Control.Monad.Catch          (MonadCatch)
-import           Control.Monad.Morph
-import           Control.Monad.Reader
-import qualified Control.Monad.State.Lazy     as LS
-import qualified Control.Monad.State.Strict   as S
-import           Control.Monad.Trans.AWS      (AWST)
-import qualified Control.Monad.Trans.AWS      as AWST
-import           Control.Monad.Trans.Except
-import           Control.Monad.Trans.Identity
-import           Control.Monad.Trans.Maybe
+import           Control.Exception.Lens          (catching)
+import           Control.Monad.Catch             (MonadCatch)
+import           Control.Monad.Morph             (hoist)
+import qualified Control.Monad.RWS.Lazy          as LRW
+import qualified Control.Monad.RWS.Strict        as RW
+import qualified Control.Monad.State.Lazy        as LS
+import qualified Control.Monad.State.Strict      as S
+import           Control.Monad.Trans.AWS         (AWST)
+import qualified Control.Monad.Trans.AWS         as AWST
+import           Control.Monad.Trans.Class       (lift)
+import           Control.Monad.Trans.Cont        (ContT)
+import           Control.Monad.Trans.Except      (ExceptT)
+import           Control.Monad.Trans.Free        (FreeT)
+import           Control.Monad.Trans.Free.Church (FT)
+import           Control.Monad.Trans.Identity    (IdentityT)
+import           Control.Monad.Trans.Iter        (IterT)
+import           Control.Monad.Trans.List        (ListT)
+import           Control.Monad.Trans.Maybe       (MaybeT)
+import           Control.Monad.Trans.Reader      (ReaderT)
 import           Control.Monad.Trans.Resource
-import qualified Control.Monad.Writer.Lazy    as LW
-import qualified Control.Monad.Writer.Strict  as W
-import           Data.Conduit                 (Source)
+import qualified Control.Monad.Writer.Lazy       as LW
+import qualified Control.Monad.Writer.Strict     as W
+import           Data.Conduit                    (Source)
 import           Data.Monoid
 import           Network.AWS.Auth
-import           Network.AWS.Env              (AWSEnv (..), Env, newEnv)
+import           Network.AWS.Env                 (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
@@ -105,16 +119,29 @@ instance MonadAWS AWS where
     liftAWS = id
 
 instance MonadAWS m => MonadAWS (IdentityT   m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (ListT       m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (MaybeT      m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ExceptT   e m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (ContT     r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ReaderT   r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (S.StateT  s m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (LS.StateT s m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (IterT       m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (FT        f m) where liftAWS = lift . liftAWS
 
 instance (Monoid w, MonadAWS m) => MonadAWS (W.WriterT w m) where
     liftAWS = lift . liftAWS
 
 instance (Monoid w, MonadAWS m) => MonadAWS (LW.WriterT w m) where
+    liftAWS = lift . liftAWS
+
+instance (Monoid w, MonadAWS m) => MonadAWS (RW.RWST r w s m) where
+    liftAWS = lift . liftAWS
+
+instance (Monoid w, MonadAWS m) => MonadAWS (LRW.RWST r w s m) where
+    liftAWS = lift . liftAWS
+
+instance (Functor f, MonadAWS m) => MonadAWS (FreeT f m) where
     liftAWS = lift . liftAWS
 
 -- FIXME: verify the use of withInternalState to create a ResourceT here
@@ -147,7 +174,7 @@ timeout s = liftAWS . AWST.timeout s
 -- errors returned by the AWS service.
 --
 -- /See:/ 'sendWith'
-send :: (MonadAWS m, AWSRequest a) => a -> m (Either Error (Rs a))
+send :: (MonadAWS m, AWSRequest a) => a -> m (Rs a)
 send = liftAWS . AWST.send
 
 -- | A variant of 'send' that allows specifying the 'Service' definition
@@ -155,14 +182,14 @@ send = liftAWS . AWST.send
 sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
          => Service s
          -> a
-         -> m (Either Error (Rs a))
+         -> m (Rs a)
 sendWith s = liftAWS . AWST.sendWith s
 
 -- | Transparently paginate over multiple responses for supported requests
 -- while results are available.
 --
 -- /See:/ 'paginateWith'
-paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Either Error (Rs a))
+paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
 paginate = hoist liftAWS . AWST.paginate
 
 -- | A variant of 'paginate' that allows specifying the 'Service' definition
@@ -170,7 +197,7 @@ paginate = hoist liftAWS . AWST.paginate
 paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
-             -> Source m (Either Error (Rs a))
+             -> Source m (Rs a)
 paginateWith s = hoist liftAWS . AWST.paginateWith s
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
@@ -184,7 +211,7 @@ paginateWith s = hoist liftAWS . AWST.paginateWith s
 -- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
 --
 -- /See:/ 'awaitWith'
-await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Either Error (Rs a))
+await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Rs a)
 await w = liftAWS . AWST.await w
 
 -- | A variant of 'await' that allows specifying the 'Service' definition
@@ -193,7 +220,7 @@ awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a
           -> a
-          -> m (Either Error (Rs a))
+          -> m (Rs a)
 awaitWith s w = liftAWS . AWST.awaitWith s w
 
 {- $usage

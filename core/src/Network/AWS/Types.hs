@@ -34,10 +34,9 @@ module Network.AWS.Types
     , withAuth
 
     -- * Services
-    , AWSService    (..)
     , Abbrev
+    , AWSService    (..)
     , Service       (..)
-    , serviceFor
     , serviceOf
 
     -- * Retries
@@ -100,6 +99,7 @@ module Network.AWS.Types
     ) where
 
 import           Control.Exception
+import           Control.Exception.Lens       (exception)
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Lens                 hiding (coerce)
@@ -234,6 +234,9 @@ class AWSError a where
     _HTTPError       = _Error . _HTTPError
     _SerializerError = _Error . _SerializerError
     _ServiceError    = _Error . _ServiceError
+
+instance AWSError SomeException where
+    _Error = exception
 
 instance AWSError Error where
     _Error = id
@@ -371,9 +374,6 @@ class AWSSigner (Sg a) => AWSService a where
     type Sg a :: *
 
     service :: Sv p ~ a => Proxy p -> Service a
-
-serviceFor :: AWSService (Sv a) => (Service (Sv a) -> a -> b) -> a -> b
-serviceFor f x = f (serviceOf x) x
 
 serviceOf :: forall a. AWSService (Sv a) => a -> Service (Sv a)
 serviceOf = const $ service (Proxy :: Proxy a)

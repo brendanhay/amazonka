@@ -86,37 +86,12 @@ pureProgramT f g = iterT go . toFT
     go (Send  s   x k) = k (f s   x)
     go (Await s w x k) = k (g s w x)
 
--- | Send a request, returning the associated response if successful,
--- otherwise an 'Error'.
---
--- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
--- errors returned by the AWS service.
---
--- /See:/ 'sendWith'
-send :: (MonadFree Command m, AWSRequest a)
-     => a
-     -> m (Either Error (Rs a))
-send = serviceFor sendWith
-
--- | A variant of 'send' that allows specifying the 'Service' definition
--- used to configure the request.
 sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          => Service s
          -> a
          -> m (Either Error (Rs a))
 sendWith s x = liftF $ Send s x id
 
--- | Transparently paginate over multiple responses for supported requests
--- while results are available.
---
--- /See:/ 'paginateWith'
-paginate :: (MonadFree Command m, AWSPager a)
-         => a
-         -> Source m (Either Error (Rs a))
-paginate = serviceFor paginateWith
-
--- | A variant of 'paginate' that allows specifying the 'Service' definition
--- used to configure the request.
 paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
@@ -131,28 +106,12 @@ paginateWith s x = do
                 Nothing -> pure ()
                 Just !r -> paginateWith s r
 
--- | Poll the API with the supplied request until a specific 'Wait' condition
--- is fulfilled.
---
--- The response will be either the first error returned that is not handled
--- by the specification, or any subsequent successful response from the await
--- request(s).
---
--- /Note:/ You can find any available 'Wait' specifications under then
--- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
---
--- /See:/ 'awaitWith'
-await :: (MonadFree Command m, AWSRequest a)
-      => Wait a
-      -> a
-      -> m (Either Error (Rs a))
-await w = serviceFor (`awaitWith` w)
-
--- | A variant of 'await' that allows specifying the 'Service' definition
--- used to configure the request.
 awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a
           -> a
           -> m (Either Error (Rs a))
 awaitWith s w x = liftF $ Await s w x id
+
+serviceFor :: AWSService (Sv a) => (Service (Sv a) -> a -> b) -> a -> b
+serviceFor f x = f (serviceOf x) x

@@ -19,10 +19,13 @@
 -- This module offers the 'AWST' transformer which is used as the core for
 -- other modules such as "Network.AWS" and "Control.Monad.Error.AWS".
 -- The function signatures use the minimum satisfiable constraints in order to
--- stay as general as possible, at the possible cost of readability.
+-- stay as general as possible, at a possible cost to readability.
 --
--- For a simpler interface see "Network.AWS", or, for the pre-@1.0@
--- behaviour of implicitly lifting errors, see "Control.Monad.Error.AWS".
+-- You can use 'catching' to catch specific or general errors using the
+-- 'AWSError' 'Prism's.
+--
+-- For a simpler interface see "Network.AWS", or, for the pre-@1.0@ behaviour
+-- of lifting error to a 'MonadErorr' constraint, see "Control.Monad.Error.AWS".
 module Control.Monad.Trans.AWS
     (
     -- * Monad constraints
@@ -56,6 +59,8 @@ module Control.Monad.Trans.AWS
     , paginateWith
     -- ** Asynchronous
     -- $async
+    -- ** Exceptions
+    , catching
 
     , module Network.AWS.Presign
 
@@ -76,6 +81,8 @@ module Control.Monad.Trans.AWS
     ) where
 
 import           Control.Applicative
+import           Control.Exception.Lens       (catching)
+import           Control.Exception.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.Error.Class    (MonadError (..))
@@ -86,11 +93,15 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
+import           Data.Conduit                 (Source, (=$=))
+import qualified Data.Conduit.List            as Conduit
 import           Network.AWS.Auth
 import           Network.AWS.Env
-import           Network.AWS.Free
+import           Network.AWS.Free             (Command, serviceFor)
+import qualified Network.AWS.Free             as Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Presign
 import           Network.AWS.Types
@@ -163,7 +174,7 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
     pass   = AWST . pass   . unAWST
 
 runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
-runAWST e (AWST m) = runReaderT (evalProgramT m) (e ^. env)
+runAWST e (AWST m) = runReaderT (Free.evalProgramT m) (e ^. env)
 
 pureAWST :: Monad m
          => (forall s a. Service s ->           a -> Either Error (Rs a))
@@ -171,7 +182,73 @@ pureAWST :: Monad m
          -> Env
          -> AWST m b
          -> m b
-pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) e
+pureAWST f g e (AWST m) = runReaderT (Free.pureProgramT f g m) e
+
+-- | Send a request, returning the associated response if successful,
+-- otherwise an 'Error'.
+--
+-- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
+-- errors returned by the AWS service.
+--
+-- /See:/ 'sendWith'
+send :: (MonadThrow m, MonadFree Command m, AWSRequest a)
+     => a
+     -> m (Rs a)
+send = serviceFor sendWith
+
+-- | A variant of 'send' that allows specifying the 'Service' definition
+-- used to configure the request.
+sendWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
+         => Service s
+         -> a
+         -> m (Rs a)
+sendWith s = Free.sendWith s >=> hoistError
+
+-- | Transparently paginate over multiple responses for supported requests
+-- while results are available.
+--
+-- /See:/ 'paginateWith'
+paginate :: (MonadThrow m, MonadFree Command m, AWSPager a)
+         => a
+         -> Source m (Rs a)
+paginate = serviceFor paginateWith
+
+-- | A variant of 'paginate' that allows specifying the 'Service' definition
+-- used to configure the request.
+paginateWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSPager a)
+             => Service s
+             -> a
+             -> Source m (Rs a)
+paginateWith s x = Free.paginateWith s x =$= Conduit.mapM hoistError
+
+-- | Poll the API with the supplied request until a specific 'Wait' condition
+-- is fulfilled.
+--
+-- The response will be either the first error returned that is not handled
+-- by the specification, or any subsequent successful response from the await
+-- request(s).
+--
+-- /Note:/ You can find any available 'Wait' specifications under then
+-- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
+--
+-- /See:/ 'awaitWith'
+await :: (MonadThrow m, MonadFree Command m, AWSRequest a)
+      => Wait a
+      -> a
+      -> m (Rs a)
+await w = serviceFor (`awaitWith` w)
+
+-- | A variant of 'await' that allows specifying the 'Service' definition
+-- used to configure the request.
+awaitWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
+          => Service s
+          -> Wait a
+          -> a
+          -> m (Rs a)
+awaitWith s w = Free.awaitWith s w >=> hoistError
+
+hoistError :: MonadThrow m => Either Error a -> m a
+hoistError = either (throwingM exception) return
 
 {- $embedding
 The following is a more advanced example, of how you might embed Amazonka actions

@@ -25,34 +25,34 @@ module Network.AWS.Types
     (
     -- * Authentication
     -- ** Credentials
-      AccessKey     (..)
-    , SecretKey     (..)
-    , SecurityToken (..)
+      AccessKey       (..)
+    , SecretKey       (..)
+    , SecurityToken   (..)
     -- ** Environment
-    , AuthEnv       (..)
-    , Auth          (..)
+    , AuthEnv         (..)
+    , Auth            (..)
     , withAuth
 
     -- * Services
     , Abbrev
-    , AWSService    (..)
-    , Service       (..)
+    , AWSService      (..)
+    , Service         (..)
     , serviceOf
 
     -- * Retries
-    , Retry         (..)
+    , Retry           (..)
 
     -- * Signing
-    , AWSSigner     (..)
-    , AWSPresigner  (..)
+    , AWSSigner       (..)
+    , AWSPresigner    (..)
     , Meta
-    , Signed        (..)
+    , Signed          (..)
     , sgMeta
     , sgRequest
 
     -- * Requests
-    , AWSRequest    (..)
-    , Request       (..)
+    , AWSRequest      (..)
+    , Request         (..)
     , rqMethod
     , rqHeaders
     , rqPath
@@ -63,10 +63,12 @@ module Network.AWS.Types
     , Response
 
     -- * Errors
-    , AWSError      (..)
-    , Error         (..)
+    , AWSError        (..)
+    , Error           (..)
+    -- ** Serializer Errors
+    , SerializerError (..)
     -- ** Service Errors
-    , ServiceError  (..)
+    , ServiceError    (..)
     , errorService
     , errorStatus
     , errorHeaders
@@ -74,13 +76,13 @@ module Network.AWS.Types
     , errorMessage
     , errorRequestId
     -- ** Error Types
-    , ErrorCode     (..)
-    , ErrorMessage  (..)
-    , RequestId     (..)
+    , ErrorCode       (..)
+    , ErrorMessage    (..)
+    , RequestId       (..)
 
     -- * Regions
-    , Endpoint      (..)
-    , Region        (..)
+    , Endpoint        (..)
+    , Region          (..)
 
     -- * HTTP
     , ClientRequest
@@ -89,7 +91,7 @@ module Network.AWS.Types
     , clientRequest
 
     -- ** Seconds
-    , Seconds       (..)
+    , Seconds         (..)
     , _Seconds
     , microseconds
 
@@ -169,7 +171,7 @@ newtype RequestId = RequestId Text
 -- | An error type representing errors that can be attributed to this library.
 data Error
     = HTTPError       HttpException
-    | SerializerError Abbrev Status String
+    | SerializerError SerializerError
     | ServiceError    ServiceError
       deriving (Show, Typeable)
 
@@ -177,14 +179,23 @@ instance Exception Error
 
 instance ToLog Error where
     message = \case
-        HTTPError           e -> message e
-        SerializerError a s x -> buildLines
-            [ "[SerializerError] {"
-            , "  service = " <> message a
-            , "  status  = " <> message s
-            , "  message = " <> message x
-            ]
-        ServiceError        e -> message e
+        HTTPError       e -> message e
+        SerializerError e -> message e
+        ServiceError    e -> message e
+
+data SerializerError = SerializerError' Abbrev Status String
+    deriving (Eq, Show, Typeable)
+
+instance Exception SerializerError
+
+instance ToLog SerializerError where
+    message (SerializerError' a s x) = buildLines
+        [ "[SerializerError] {"
+        , "  service = " <> message a
+        , "  status  = " <> message s
+        , "  message = " <> message x
+        , "}"
+        ]
 
 data ServiceError = ServiceError'
     { _errorService   :: Abbrev
@@ -205,6 +216,7 @@ instance ToLog ServiceError where
         , "  code       = " <> message _errorCode
         , "  message    = " <> message _errorMessage
         , "  request-id = " <> message _errorRequestId
+        , "}"
         ]
 
 errorService :: Lens' ServiceError Abbrev
@@ -228,7 +240,7 @@ errorRequestId = lens _errorRequestId (\s a -> s { _errorRequestId = a })
 class AWSError a where
     _Error           :: Prism' a Error
     _HTTPError       :: Prism' a HttpException
-    _SerializerError :: Prism' a (Abbrev, Status, String)
+    _SerializerError :: Prism' a SerializerError
     _ServiceError    :: Prism' a ServiceError
 
     _HTTPError       = _Error . _HTTPError
@@ -241,23 +253,17 @@ instance AWSError SomeException where
 instance AWSError Error where
     _Error = id
 
-    _HTTPError = prism
-        HTTPError
-        (\case
-            HTTPError e -> Right e
-            x           -> Left x)
+    _HTTPError = prism HTTPError $ \case
+        HTTPError e -> Right e
+        x           -> Left x
 
-    _SerializerError = prism
-        (\(a, s, e) -> SerializerError a s e)
-        (\case
-            SerializerError a s e -> Right (a, s, e)
-            x -> Left x)
+    _SerializerError = prism SerializerError $ \case
+        SerializerError e -> Right e
+        x                 -> Left  x
 
-    _ServiceError = prism
-        ServiceError
-        (\case
-            ServiceError e -> Right e
-            x              -> Left x)
+    _ServiceError = prism ServiceError $ \case
+        ServiceError e -> Right e
+        x              -> Left  x
 
 data Endpoint = Endpoint
     { _endpointHost  :: ByteString

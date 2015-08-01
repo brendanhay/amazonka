@@ -110,7 +110,8 @@ receive f Service{..} _ = either (return . Left . HTTPError) go
                     Left  e -> serialiserError s e
                     Right z -> Right (s, z)
 
-    serialiserError s e = Left (SerializerError _svcAbbrev s e)
+    serialiserError s e = Left $
+        SerializerError (SerializerError' _svcAbbrev s e)
 
 sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
 sinkLBS bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)

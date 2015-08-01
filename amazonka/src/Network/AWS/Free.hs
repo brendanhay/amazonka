@@ -1,9 +1,11 @@
-{-# LANGUAGE BangPatterns     #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE GADTs            #-}
-{-# LANGUAGE LambdaCase       #-}
-{-# LANGUAGE RankNTypes       #-}
-{-# LANGUAGE ViewPatterns     #-}
+{-# LANGUAGE BangPatterns      #-}
+{-# LANGUAGE CPP               #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GADTs             #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE RankNTypes        #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 {-# OPTIONS_HADDOCK show-extensions #-}
 
@@ -22,7 +24,7 @@ import           Control.Applicative
 import           Control.Lens
 import           Control.Monad.Catch             (MonadCatch (..))
 import           Control.Monad.Reader
-import           Control.Monad.Trans.Free        (FreeT)
+import           Control.Monad.Trans.Free        (FreeT (..))
 import           Control.Monad.Trans.Free.Church
 import           Control.Monad.Trans.Resource
 import           Data.Conduit                    (Source, yield)
@@ -52,6 +54,13 @@ instance Functor Command where
         Await s w x k -> Await s w x (fmap f k)
 
 type ProgramT = FreeT Command
+
+#if MIN_VERSION_free(4,12,0)
+#else
+instance MonadCatch m => MonadCatch (ProgramT m) where
+    catch (FreeT m) f = FreeT $
+        liftM (fmap (`catch` f)) m `catch` (runFreeT . f)
+#endif
 
 -- | Interpret the 'Command' instruct set by performing HTTP calls to
 -- retrieve the associated response type for a request.

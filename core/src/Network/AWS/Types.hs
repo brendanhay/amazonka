@@ -98,6 +98,7 @@ module Network.AWS.Types
     -- ** Seconds
     , Seconds         (..)
     , _Seconds
+    , seconds
     , microseconds
 
     -- * Isomorphisms
@@ -360,7 +361,7 @@ class AWSPresigner v where
               => AuthEnv
               -> Region
               -> UTCTime
-              -> Integer
+              -> Seconds
               -> Service s
               -> Request a
               -> Signed  v a
@@ -527,13 +528,32 @@ instance ToXML   Region where toXML    = toXMLText
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int
-    deriving (Eq, Ord, Read, Show, Enum, Num, Bounded, Integral, Real, Data, Typeable, Generic)
+    deriving
+        ( Eq
+        , Ord
+        , Read
+        , Show
+        , Enum
+        , Num
+        , Bounded
+        , Integral
+        , Real
+        , Data
+        , Typeable
+        , Generic
+        , ToQuery
+        , ToByteString
+        , ToText
+        )
 
 _Seconds :: Iso' Seconds Int
-_Seconds = iso (\(Seconds n) -> n) Seconds
+_Seconds = iso seconds Seconds
 
 instance ToLog Seconds where
     message (Seconds n) = message n <> "s"
+
+seconds :: Seconds -> Int
+seconds (Seconds n) = n
 
 microseconds :: Seconds -> Int
 microseconds (Seconds n) = n * 1000000

@@ -11,14 +11,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- This module contains a specalised version of the 'ProgramT' transformer
--- with lifted 'send', 'paginate' and 'await' functions to make it suitable for
--- embedding as a layer into your own application monad.
+-- This module provides a simple 'AWS' monad and a set of operations which
+-- can be performed against remote Amazon Web Services APIs, for use with the types
+-- supplied by the various @amazonka-*@ libraries.
 --
--- You can use 'catching' to catch specific or general errors using the
--- 'AWSError' 'Prism's.
+-- A 'MonadAWS' typeclass is used as a function constraint to provide automatic
+-- lifting of functions when embedding 'AWS' as a layer inside your own
+-- application stack.
 --
--- For a more flexible interface see "Control.Monad.Trans.AWS".
+-- /See:/ "Control.Monad.Trans.AWS".
 module Network.AWS
     (
     -- * Usage
@@ -30,45 +31,71 @@ module Network.AWS
     -- $embed
     , runAWS
 
-    -- * Runtime Configuration
-    , within
-    , once
-    , timeout
-
     -- * Environment Setup
     , Credentials (..)
     , AWSEnv      (..)
     , Env
     , newEnv
 
+    -- * Runtime Configuration
+    , within
+    , once
+    , timeout
+
     -- * Sending Requests
-    -- ** Synchronous
     , send
     , await
     , paginate
+
+    -- ** Presigning
+    , presignURL
+    , presign
+
     -- ** Overriding Service Configuration
     , sendWith
     , awaitWith
     , paginateWith
-    -- ** Asynchronous
+    , presignWith
+
+    -- ** Asynchronous Actions
     -- $async
-    -- ** Catching Errors
+
+    -- ** Streaming
+    -- $streaming
+
+    , ToBody      (..)
+    , RqBody
+    , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
+    , getFileSize
+    , sinkHash
+
+    , RsBody
+    , sinkBody
+
+    -- * Handling Errors
+    -- $errors
+    , AWSError (..)
     , AWST.trying
     , AWST.catching
 
-    , module Network.AWS.Presign
-
-    , module Network.AWS.Internal.Body
-
     -- * Logging
+    -- $logging
     , Logger
+
+    -- ** Constructing a Logger
     , newLogger
-    -- ** Levels
-    , LogLevel    (..)
+
+    -- ** Logging Functions
     , logError
     , logInfo
     , logDebug
     , logTrace
+
+    -- ** Log Messages
+    , ToLog       (..)
 
     -- * Types
     , module Network.AWS.Types
@@ -103,6 +130,7 @@ import           Network.AWS.Env                 (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
+import           Network.AWS.Prelude
 import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
@@ -168,7 +196,7 @@ timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . AWST.timeout s
 
 -- | Send a request, returning the associated response if successful,
--- otherwise an 'Error'.
+-- otherwise an 'Error' will be thrown.
 --
 -- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
 -- errors returned by the AWS service.
@@ -224,10 +252,6 @@ awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
 awaitWith s w = liftAWS . AWST.awaitWith s w
 
 {- $usage
-This module provides a simple 'AWS' monad and a set of common operations which
-can be performed against remote Amazon Web Services APIs, for use with the types
-supplied by the various @amazonka-*@ libraries.
-
 The key functions dealing with the request/response lifecycle are:
 
 * 'send'
@@ -271,24 +295,6 @@ example = do
 @
 -}
 
-{- $embed
-'MonadAWS' can be used to embed 'AWS' actions inside your own transformer stack.
-
-For a trivial base monad:
-
-> newtype MyApp a = MyApp (ReaderT MyEnv AWS a)
->     deriving (Functor, Applicative, Monad)
-
-You can define a 'MonadAWS' instance as follows:
-
-> instance MonadAWS MyApp where
->     liftAWS = MyApp . lift
-
-This instance allows all of the functions in this module to operate within your
-own monad without having to manually write successive lift calls for AWS operations.
-
--}
-
 {- $async
 Requests can be sent asynchronously, but due to guarantees about resource closure
 require the use of <http://hackage.haskell.org/package/lifted-async lifted-async>.
@@ -297,7 +303,7 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 
 > import Control.Concurrent.Async.Lifted
 > import Control.Lens
-> import Network.AWS
+> import Control.Monad.Trans.AWS
 > import Network.AWS.S3
 >
 > do x   <- async . send $ getObject "bucket" "prefix/object-foo"
@@ -307,4 +313,37 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 >    ...
 
 /See:/ <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+-}
+
+{- $errors
+Errors are thrown by the library using 'MonadThrow' (unless "Control.Monad.Error.AWS" is used).
+Sub-errors of the canonical 'Error' type can be caught using 'trying' or
+'catching' and the appropriate 'AWSError' 'Prism':
+
+> trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
+> trying '_HTTPError'      (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
+> trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
+> trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
+-}
+
+{- $streaming
+Streaming request bodies (such as 'PutObject') require a precomputed
+'SHA256' for signing purposes.
+
+The 'ToBody' typeclass has instances available to construct a 'RqBody',
+automatically calculating the hash as needed for types such as 'Text' and 'ByteString'.
+
+For reading files and handles, functions such 'sourceFileIO' or 'sourceHandle'
+can be used.
+-}
+
+{- $logging
+The exposed logging interface is a primitive 'Logger' function which gets
+threaded through service calls and serialisation routines.
+
+The 'newLogger' function can be used to construct a simple logger which writes
+output to a 'Handle', but in most production code you should probably consider
+using a more robust logging library such as
+<http://hackage.haskell.org/package/tiny-log tiny-log> or
+<http://hackage.haskell.org/package/fast-logger fast-logger>.
 -}

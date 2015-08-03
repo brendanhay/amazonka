@@ -17,26 +17,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- This module offers the 'AWST' transformer which is used as the core for
--- other modules such as "Network.AWS" and "Control.Monad.Error.AWS".
--- The function signatures use the minimum satisfiable constraints in order to
--- stay as general as possible, at a possible cost to readability.
+-- The 'AWST' transformer can be used directly or to embed AWS actions within
+-- your own stack.
 --
--- You can use 'catching' to catch specific or general errors using the
--- 'AWSError' 'Prism's.
---
--- For a simpler interface see "Network.AWS", or, for the pre-@1.0@ behaviour
--- of lifting error to a 'MonadErorr' constraint, see "Control.Monad.Error.AWS".
+-- /See:/ "Network.AWS".
 module Control.Monad.Trans.AWS
     (
-    -- * Monad constraints
-    -- $constraints
-
     -- * Running AWS Actions
       AWST
     , runAWST
     , execAWST
-    -- ** Mocking
     , pureAWST
 
     -- * Environment Setup
@@ -51,34 +41,59 @@ module Control.Monad.Trans.AWS
     , timeout
 
     -- * Sending Requests
-    -- ** Synchronous
-    , Free.send
-    , Free.await
-    , Free.paginate
+    , send
+    , await
+    , paginate
+
+    -- ** Presigning
+    , presignURL
+    , presign
+
     -- ** Overriding Service Configuration
-    , Free.sendWith
-    , Free.awaitWith
-    , Free.paginateWith
-    -- ** Asynchronous
+    , sendWith
+    , awaitWith
+    , paginateWith
+    , presignWith
+
+    -- ** Asynchronous Actions
     -- $async
-    -- ** Errors
-    , hoistError
+
+    -- ** Streaming
+    -- $streaming
+
+    , ToBody      (..)
+    , RqBody
+    , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
+    , getFileSize
+    , sinkHash
+
+    , RsBody
+    , sinkBody
+
+    -- * Handling Errors
+    -- $errors
+    , AWSError (..)
     , trying
     , catching
 
-    , module Network.AWS.Presign
-
-    , module Network.AWS.Internal.Body
-
     -- * Logging
+    -- $logging
     , Logger
+
+    -- ** Constructing a Logger
     , newLogger
-    -- ** Levels
-    , LogLevel    (..)
+
+    -- ** Logging Functions
     , logError
     , logInfo
     , logDebug
     , logTrace
+
+    -- ** Log Messages
+    , ToLog       (..)
 
     -- * Types
     , module Network.AWS.Types
@@ -97,34 +112,16 @@ import           Control.Monad.Trans.Free
 import qualified Control.Monad.Trans.Free.Church as Free
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
-import           Data.Conduit                    (Source, (=$=))
-import qualified Data.Conduit.List               as Conduit
 import           Network.AWS.Auth
 import           Network.AWS.Env
-import           Network.AWS.Free                (Command (..))
-import qualified Network.AWS.Free                as Free
+import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
 import           Network.AWS.Logger
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
-
-import           Network.AWS.Request             (defaultRequest)
-import           Network.AWS.Sign.V4
-
--- FIXME: Add notes about specialising the constraints.
--- FIXME: Add note about *With variants.
--- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms
--- FIXME: Philosophical notes on the use of lenses, and notes about template-haskell usage.
--- FIXME: Notes about associated response types, signers, service configuration.
--- FIXME: Note/example about mocking.
-
--- Base64
--- Blob
--- ObjectKey
 
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
     deriving
@@ -181,11 +178,17 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
     listen = AWST . listen . unAWST
     pass   = AWST . pass   . unAWST
 
+-- | Run an 'AWST' action with the specified 'AWSEnv' environment.
+--
+-- This does not finalise any 'ResourceT' actions and needs to be wrapped
+-- with 'runResourceT'.
 runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
 runAWST = execAWST hoistError
 
+-- | Run an 'AWST' action with configurable 'Error' handling.
 execAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
          => (forall a. Either Error a -> m a)
+            -- ^ A function which can lift an 'Error' into the base Monad.
          -> r
          -> AWST m b
          -> m b
@@ -199,9 +202,13 @@ execAWST f = innerAWST go
         e <- view env
         waiter e w x (perform e s x) >>= lift . f >>= k . snd
 
+-- | Run an 'AWST' action with configurable response construction. This allows
+-- mocking of responses and does not perform any external API calls.
 pureAWST :: (MonadThrow m, AWSEnv r)
          => (forall s a. Service s ->           a -> Either Error (Rs a))
+            -- ^ A function to construct a response for any 'send' command.
          -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+            -- ^ A function to construct a response for any 'await' command.
          -> r
          -> AWST m b
          -> m b
@@ -219,68 +226,6 @@ innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return
-
-{- $embedding
-The following is a more advanced example, of how you might embed Amazonka actions
-within an application specific Monad transformer stack. This demonstrates using
-a custom application environment and application specific error type.
-
-The base application Monad could be defined as:
-
-> newtype MyApp a = MyApp (ExceptT MyErr (ReaderT MyEnv (ResourceT IO)) a)
->     deriving ( Functor
->              , Applicative
->              , Monad
->              , MonadIO
->              , MonadThrow
->              , MonadCatch
->              , MonadError  MyErr
->              , MonadReader MyEnv
->              , MonadResource
->              )
-
-The environment contains whatever environment the application might need, as
-well as a field for the AWS 'Env':
-
-> data MyEnv = MyEnv
->     { _config :: Config
->     , _env    :: Env -- ^ Here the AWS environment is embedded.
->     }
-
-Adding a class instance for 'AWSEnv' to the above environment requires defining
-a lens pointing to where the AWS 'Env' is located:
-
-> instance AWSEnv MyEnv where
->     env = lens _env (\s a -> s { _env = a })
-
-The custom error for the application, contains whatever errors the application
-might return, as well a single constructor that wraps any AWS errors:
-
-> data MyErr
->     = GeneralError
->     | SpecificError  Text
->     | ElaborateError Text String
->     | AmazonError    Error -- ^ Here the AWS error is embedded.
-
-Adding a class instances requires defining a prism to wrap/unwrap AWS 'Error'
-in the application's custom @MyErr@ type:
-
-> instance AWSError MyErr where
->     _Error = prism AmazonError $
->         case e of
->             AmazonError x -> Right x
->             _             -> Left  e
-
-Running the application can return the application's @MyErr@ in the error case:
-
-> runApp :: MyEnv -> MyApp a -> IO (Either MyErr a)
-> runApp e (MyApp k) = runResourceT $ runReaderT (runExceptT k) e
-
-Functions from "Control.Monad.Error.Lens" such as 'catching' can be used to
-handle AWS specific errors:
-
-> catching _ServiceError $ MyApp (send Bar) :: (ServiceError -> MyApp Bar) -> MyApp Bar
--}
 
 {- $async
 Requests can be sent asynchronously, but due to guarantees about resource closure
@@ -300,4 +245,37 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 >    ...
 
 /See:/ <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+-}
+
+{- $errors
+Errors are thrown by the library using 'MonadThrow' (unless "Control.Monad.Error.AWS" is used).
+Sub-errors of the canonical 'Error' type can be caught using 'trying' or
+'catching' and the appropriate 'AWSError' 'Prism':
+
+> trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
+> trying '_HTTPError'      (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
+> trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
+> trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
+-}
+
+{- $streaming
+Streaming request bodies (such as 'PutObject') require a precomputed
+'SHA256' for signing purposes.
+
+The 'ToBody' typeclass has instances available to construct a 'RqBody',
+automatically calculating the hash as needed for types such as 'Text' and 'ByteString'.
+
+For reading files and handles, functions such 'sourceFileIO' or 'sourceHandle'
+can be used.
+-}
+
+{- $logging
+The exposed logging interface is a primitive 'Logger' function which gets
+threaded through service calls and serialisation routines.
+
+The 'newLogger' function can be used to construct a simple logger which writes
+output to a 'Handle', but in most production code you should probably consider
+using a more robust logging library such as
+<http://hackage.haskell.org/package/tiny-log tiny-log> or
+<http://hackage.haskell.org/package/fast-logger fast-logger>.
 -}

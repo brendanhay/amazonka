@@ -21,7 +21,6 @@ module Network.AWS.Free where
 
 import           Control.Applicative
 import           Control.Monad.Reader
-import           Control.Monad.Trans.Free        (FreeT (..))
 import           Control.Monad.Trans.Free.Church
 import           Data.Conduit                    (Source, yield)
 import           Network.AWS.Pager
@@ -52,23 +51,17 @@ instance Functor Command where
         Send  s   x k -> Send  s   x (fmap f k)
         Await s w x k -> Await s w x (fmap f k)
 
-type ProgramT = FreeT Command
-
 #if MIN_VERSION_free(4,12,0)
 #else
-instance MonadThrow m => MonadThrow (ProgramT m) where
+instance MonadThrow m => MonadThrow (FreeT Command m) where
     throwM = lift . throwM
 
-instance MonadCatch m => MonadCatch (ProgramT m) where
+instance MonadCatch m => MonadCatch (FreeT Command m) where
     catch (FreeT m) f = FreeT $
         liftM (fmap (`catch` f)) m `catch` (runFreeT . f)
 #endif
 
--- | Send a request, returning the associated response if successful,
--- otherwise an 'Error'.
---
--- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
--- errors returned by the AWS service.
+-- | Send a request, returning the associated response if successful.
 --
 -- /See:/ 'sendWith'
 send :: (MonadFree Command m, AWSRequest a)

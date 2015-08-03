@@ -27,13 +27,12 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Control.Monad.Error.AWS
-        , Control.Monad.Trans.AWS
+          Control.Monad.Trans.AWS
         , Network.AWS
         , Network.AWS.Auth
+        , Network.AWS.EC2.Metadata
         , Network.AWS.Env
         , Network.AWS.Free
-        , Network.AWS.EC2.Metadata
         , Network.AWS.Presign
 
     other-modules:

@@ -37,9 +37,8 @@ perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
         => Env
         -> Service s
         -> Request a
-        -> m (Response a)
-perform e@Env{..} svc x =
-    catch go err >>= response _envLogger svc x
+        -> m (Either Error (Response a))
+perform e@Env{..} svc x = catches go handlers
   where
     go = do
         t          <- liftIO getCurrentTime
@@ -55,18 +54,22 @@ perform e@Env{..} svc x =
 
         logDebug _envLogger rs -- debug:ClientResponse
 
-        return (Right rs)
+        Right <$>
+            response _envLogger svc x rs
 
-    err er = do
-        logError _envLogger er  -- error:HttpException
-        return (Left er)
+    handlers =
+        [ Handler $ return . Left
+        , Handler $ \er -> do
+            logError _envLogger er
+            return (Left (HTTPError er))
+        ]
 
 retrier :: MonadIO m
         => Env
         -> Service s
         -> Request a
-        -> m (Response a)
-        -> m (Response a)
+        -> m (Either Error (Response a))
+        -> m (Either Error (Response a))
 retrier Env{..} Service{..} rq =
     retrying (fromMaybe policy _envRetryPolicy) check
   where
@@ -107,11 +110,12 @@ waiter :: MonadIO m
        => Env
        -> Wait a
        -> Request a
-       -> m (Response a)
-       -> m (Response a)
+       -> m (Either Error (Response a))
+       -> m (Either Error (Response a))
 waiter Env{..} w@Wait{..} rq = retrying policy check
   where
-    policy = limitRetries _waitAttempts <> constantDelay (_waitDelay * 1000000)
+    policy = limitRetries _waitAttempts
+          <> constantDelay (microseconds _waitDelay)
 
     check n rs = do
         let a = fromMaybe AcceptRetry (accept w rq rs)

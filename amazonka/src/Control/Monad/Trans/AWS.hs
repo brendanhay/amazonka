@@ -5,6 +5,7 @@
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE UndecidableInstances       #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_HADDOCK show-extensions #-}
 
@@ -34,6 +35,7 @@ module Control.Monad.Trans.AWS
     -- * Running AWS Actions
       AWST
     , runAWST
+    , execAWST
     -- ** Mocking
     , pureAWST
 
@@ -50,16 +52,18 @@ module Control.Monad.Trans.AWS
 
     -- * Sending Requests
     -- ** Synchronous
-    , send
-    , await
-    , paginate
-    -- ** Overriding Defaults
-    , sendWith
-    , awaitWith
-    , paginateWith
+    , Free.send
+    , Free.await
+    , Free.paginate
+    -- ** Overriding Service Configuration
+    , Free.sendWith
+    , Free.awaitWith
+    , Free.paginateWith
     -- ** Asynchronous
     -- $async
-    -- ** Exceptions
+    -- ** Errors
+    , hoistError
+    , trying
     , catching
 
     , module Network.AWS.Presign
@@ -81,31 +85,35 @@ module Control.Monad.Trans.AWS
     ) where
 
 import           Control.Applicative
-import           Control.Exception.Lens       (catching)
 import           Control.Exception.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
-import           Control.Monad.Error.Class    (MonadError (..))
+import           Control.Monad.Error.Class       (MonadError (..))
 import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.State.Class
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free
+import qualified Control.Monad.Trans.Free.Church as Free
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
-import           Data.Conduit                 (Source, (=$=))
-import qualified Data.Conduit.List            as Conduit
+import           Data.Conduit                    (Source, (=$=))
+import qualified Data.Conduit.List               as Conduit
 import           Network.AWS.Auth
 import           Network.AWS.Env
-import           Network.AWS.Free             (Command, serviceFor)
-import qualified Network.AWS.Free             as Free
+import           Network.AWS.Free                (Command (..))
+import qualified Network.AWS.Free                as Free
 import           Network.AWS.Internal.Body
+import           Network.AWS.Internal.HTTP
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
+
+import           Network.AWS.Request             (defaultRequest)
+import           Network.AWS.Sign.V4
 
 -- FIXME: Add notes about specialising the constraints.
 -- FIXME: Add note about *With variants.
@@ -174,78 +182,40 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
     pass   = AWST . pass   . unAWST
 
 runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
-runAWST e (AWST m) = runReaderT (Free.evalProgramT m) (e ^. env)
+runAWST = execAWST hoistError
 
-pureAWST :: Monad m
-         => (forall s a. Service s ->           a -> Either Error (Rs a))
-         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-         -> Env
+execAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
+         => (forall a. Either Error a -> m a)
+         -> r
          -> AWST m b
          -> m b
-pureAWST f g e (AWST m) = runReaderT (Free.pureProgramT f g m) e
+execAWST f = innerAWST go
+  where
+    go (Send s (request -> x) k) = do
+        e <- view env
+        retrier e s x (perform e s x) >>= lift . f >>= k . snd
 
--- | Send a request, returning the associated response if successful,
--- otherwise an 'Error'.
---
--- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
--- errors returned by the AWS service.
---
--- /See:/ 'sendWith'
-send :: (MonadThrow m, MonadFree Command m, AWSRequest a)
-     => a
-     -> m (Rs a)
-send = serviceFor sendWith
+    go (Await s w (request -> x) k) = do
+        e <- view env
+        waiter e w x (perform e s x) >>= lift . f >>= k . snd
 
--- | A variant of 'send' that allows specifying the 'Service' definition
--- used to configure the request.
-sendWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
-         => Service s
-         -> a
-         -> m (Rs a)
-sendWith s = Free.sendWith s >=> hoistError
+pureAWST :: (MonadThrow m, AWSEnv r)
+         => (forall s a. Service s ->           a -> Either Error (Rs a))
+         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+         -> r
+         -> AWST m b
+         -> m b
+pureAWST f g = innerAWST go
+  where
+    go (Send  s   x k) = hoistError (f s   x) >>= k
+    go (Await s w x k) = hoistError (g s w x) >>= k
 
--- | Transparently paginate over multiple responses for supported requests
--- while results are available.
---
--- /See:/ 'paginateWith'
-paginate :: (MonadThrow m, MonadFree Command m, AWSPager a)
-         => a
-         -> Source m (Rs a)
-paginate = serviceFor paginateWith
-
--- | A variant of 'paginate' that allows specifying the 'Service' definition
--- used to configure the request.
-paginateWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSPager a)
-             => Service s
-             -> a
-             -> Source m (Rs a)
-paginateWith s x = Free.paginateWith s x =$= Conduit.mapM hoistError
-
--- | Poll the API with the supplied request until a specific 'Wait' condition
--- is fulfilled.
---
--- The response will be either the first error returned that is not handled
--- by the specification, or any subsequent successful response from the await
--- request(s).
---
--- /Note:/ You can find any available 'Wait' specifications under then
--- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
---
--- /See:/ 'awaitWith'
-await :: (MonadThrow m, MonadFree Command m, AWSRequest a)
-      => Wait a
-      -> a
-      -> m (Rs a)
-await w = serviceFor (`awaitWith` w)
-
--- | A variant of 'await' that allows specifying the 'Service' definition
--- used to configure the request.
-awaitWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
-          => Service s
-          -> Wait a
-          -> a
-          -> m (Rs a)
-awaitWith s w = Free.awaitWith s w >=> hoistError
+innerAWST :: (Monad m, AWSEnv r)
+          => (Command (ReaderT Env m a) -> ReaderT Env m a)
+          -> r
+          -> AWST m a
+          -> m a
+innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM exception) return

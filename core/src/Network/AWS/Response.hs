@@ -15,6 +15,7 @@
 module Network.AWS.Response where
 
 import           Control.Applicative
+import           Control.Monad.Catch
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Conduit
@@ -35,7 +36,7 @@ receiveNull :: MonadResource m
             -> Logger
             -> Service s
             -> Request a
-            -> Either HttpException ClientResponse
+            -> ClientResponse
             -> m (Response a)
 receiveNull rs _ = receive $ \_ _ x ->
     liftResourceT (x $$+- return (Right rs))
@@ -46,7 +47,7 @@ receiveXMLWrapper :: MonadResource m
                   -> Logger
                   -> Service s
                   -> Request a
-                  -> Either HttpException ClientResponse
+                  -> ClientResponse
                   -> m (Response a)
 receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
@@ -55,7 +56,7 @@ receiveXML :: MonadResource m
            -> Logger
            -> Service s
            -> Request a
-           -> Either HttpException ClientResponse
+           -> ClientResponse
            -> m (Response a)
 receiveXML = deserialise decodeXML
 
@@ -64,7 +65,7 @@ receiveJSON :: MonadResource m
             -> Logger
             -> Service s
             -> Request a
-            -> Either HttpException ClientResponse
+            -> ClientResponse
             -> m (Response a)
 receiveJSON = deserialise eitherDecode'
 
@@ -73,7 +74,7 @@ receiveBody :: MonadResource m
             -> Logger
             -> Service s
             -> Request a
-            -> Either HttpException ClientResponse
+            -> ClientResponse
             -> m (Response a)
 receiveBody f _ = receive $ \s h x -> return (f s h (RsBody x))
 
@@ -83,7 +84,7 @@ deserialise :: MonadResource m
             -> Logger
             -> Service s
             -> Request a
-            -> Either HttpException ClientResponse
+            -> ClientResponse
             -> m (Response a)
 deserialise g f l = receive $ \s h x -> do
     lbs <- sinkLBS x
@@ -94,24 +95,25 @@ receive :: MonadResource m
         => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
         -> Service s
         -> Request a
-        -> Either HttpException ClientResponse
+        -> ClientResponse
         -> m (Response a)
-receive f Service{..} _ = either (return . Left . HTTPError) go
+receive f Service{..} _ rs
+    | not (_svcStatus s) = sinkLBS x >>= serviceErr
+    | otherwise          = do
+        p <- f (fromEnum s) h x
+        either serializeErr
+               (return . (s,))
+               p
   where
-    go rs = do
-        let s = responseStatus  rs
-            h = responseHeaders rs
-            x = responseBody    rs
-        if not (_svcStatus s)
-            then Left . _svcError _svcAbbrev s h <$> sinkLBS x
-            else do
-                y <- f (fromEnum s) h x
-                return $! case y of
-                    Left  e -> serialiserError s e
-                    Right z -> Right (s, z)
+    s = responseStatus  rs
+    h = responseHeaders rs
+    x = responseBody    rs
 
-    serialiserError s e = Left $
-        SerializerError (SerializerError' _svcAbbrev s e)
+    serviceErr :: MonadThrow m => LazyByteString -> m a
+    serviceErr = throwM . _svcError _svcAbbrev s h
+
+    serializeErr :: MonadThrow m => String -> m a
+    serializeErr e = throwM (SerializeError (SerializeError' _svcAbbrev s e))
 
 sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
 sinkLBS bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)

@@ -46,14 +46,15 @@ module Network.AWS
     , send
     , await
     , paginate
-    -- ** Overriding Defaults
+    -- ** Overriding Service Configuration
     , sendWith
     , awaitWith
     , paginateWith
     -- ** Asynchronous
     -- $async
-    -- ** Exceptions
-    , catching
+    -- ** Catching Errors
+    , AWST.trying
+    , AWST.catching
 
     , module Network.AWS.Presign
 
@@ -74,7 +75,6 @@ module Network.AWS
     ) where
 
 import           Control.Applicative
-import           Control.Exception.Lens          (catching)
 import           Control.Monad.Catch             (MonadCatch)
 import           Control.Monad.Morph             (hoist)
 import qualified Control.Monad.RWS.Lazy          as LRW

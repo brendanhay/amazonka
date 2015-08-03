@@ -20,80 +20,44 @@
 -- @*Catch@ function behaviour.
 module Control.Monad.Error.AWS
     (
-    -- * Backwards Compatibility
+    -- * Running AWS Actions
       AWST
     , runAWST
 
-    -- * Lifted Requests
-    , send
-    , await
-    , paginate
-
-    -- * Throwing and Catching Errors
+    -- * Sending Requests
+    -- ** Synchronous
+    , Free.send
+    , Free.await
+    , Free.paginate
+    -- ** Overriding Service Configuration
+    , Free.sendWith
+    , Free.awaitWith
+    , Free.paginateWith
+    -- ** Asynchronous
+    -- $async
+    -- ** Errors
     , hoistError
+    , trying
     , catching
-    , throwing
     ) where
 
-import           Control.Monad
 import           Control.Monad.Catch          (MonadCatch)
 import           Control.Monad.Error.Class    (MonadError)
-import           Control.Monad.Error.Lens     (catching, throwing)
+import           Control.Monad.Error.Lens     (catching, throwing, trying)
 import qualified Control.Monad.Trans.AWS      as AWST
 import           Control.Monad.Trans.Except   (ExceptT, runExceptT)
-import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
-import           Data.Conduit                 (Source, (=$=))
-import qualified Data.Conduit.List            as Conduit
 import           Network.AWS.Env
-import           Network.AWS.Free             (Command, serviceFor)
 import qualified Network.AWS.Free             as Free
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Waiter
 
--- | Type alias to ease transition for consumers of pre-@1.0@ amazonka.
 type AWST m = AWST.AWST (ExceptT Error m)
-{-# DEPRECATED AWST "Exists for backwards compatibility with pre-@1.0@." #-}
 
--- | Convenience function to ease transition for consumers of pre-@1.0@ amazonka.
 runAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
         => r
         -> AWST m a
         -> m (Either Error a)
-runAWST e = runExceptT . AWST.runAWST e
-{-# DEPRECATED runAWST "Exists for backwards compatibility with pre-@1.0@." #-}
-
--- | /See:/ 'AWST.send'
-send :: ( MonadFree Command m
-        , MonadError e m
-        , AWSError e
-        , AWSRequest a
-        )
-     => a
-     -> m (Rs a)
-send = serviceFor Free.sendWith >=> hoistError
-
--- | /See:/ 'AWST.paginate'
-paginate :: ( MonadFree Command m
-            , MonadError e m
-            , AWSError e
-            , AWSPager a
-            )
-         => a
-         -> Source m (Rs a)
-paginate x = serviceFor Free.paginateWith x =$= Conduit.mapM hoistError
-
--- | /See:/ 'AWST.await'
-await :: ( MonadFree Command m
-         , MonadError e m
-         , AWSError e
-         , AWSRequest a
-         )
-      => Wait a
-      -> a
-      -> m (Rs a)
-await w = serviceFor (`Free.awaitWith` w) >=> hoistError
+runAWST e = runExceptT . AWST.execAWST hoistError e
 
 hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
 hoistError = either (throwing _Error) return

@@ -94,7 +94,7 @@ paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
              -> Source m (Rs a)
-paginateWith s !x = do
+paginateWith s x = do
     !y <- lift (sendWith s x)
     yield y
     case page x y of

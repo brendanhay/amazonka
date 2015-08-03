@@ -19,6 +19,7 @@
 --
 module Test.AWS.Fixture where
 
+import           Control.Exception.Lens       (trying)
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
@@ -96,7 +97,7 @@ testResponse :: forall a. (AWSService (Sv a), AWSRequest a)
              -> LazyByteString
              -> IO (Either String (Rs a))
 testResponse x lbs = do
-    y <- runResourceT $ response l (service x) rq (Right rs)
+    y <- trying _Error $ runResourceT (response l (service x) rq rs)
     return $! first show (snd <$> y)
   where
     l _ _ = return ()

@@ -218,7 +218,7 @@ innerAWST :: (Monad m, AWSEnv r)
 innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
 
 hoistError :: MonadThrow m => Either Error a -> m a
-hoistError = either (throwingM exception) return
+hoistError = either (throwingM _Error) return
 
 {- $embedding
 The following is a more advanced example, of how you might embed Amazonka actions

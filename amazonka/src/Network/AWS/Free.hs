@@ -27,6 +27,11 @@ import           Data.Conduit                    (Source, yield)
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
+#if MIN_VERSION_free(4,12,0)
+#else
+import           Control.Monad.Catch
+import           Control.Monad.Trans.Free        (FreeT (..))
+#endif
 
 data Command r where
     Send  :: (AWSSigner (Sg s), AWSRequest a)

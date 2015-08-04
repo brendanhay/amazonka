@@ -17,8 +17,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- The 'AWST' transformer can be used directly or to embed AWS actions within
--- your own stack.
+-- The 'AWST' transformer provides interpretations for the 'FreeT' 'Command'
+-- DSL. It can be used directly or embedded as a layer within a transformer DSL.
 --
 -- /See:/ "Network.AWS".
 module Control.Monad.Trans.AWS

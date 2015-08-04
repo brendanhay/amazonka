@@ -277,7 +277,7 @@ import Network.AWS
 import Network.AWS.S3
 import System.IO
 
-example :: IO (Either Error PutObjectResponse)
+example :: IO PutObjectResponse
 example = do
     -- To specify configuration preferences, 'newEnv' is used to create a new 'Env'. The 'Region' denotes the AWS region requests will be performed against,
     -- and 'Credentials' is used to specify the desired mechanism for supplying or retrieving AuthN/AuthZ information.

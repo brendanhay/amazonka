@@ -118,9 +118,9 @@ import           Network.AWS.Env
 import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
+import           Network.AWS.Internal.Presign
 import           Network.AWS.Logger
 import           Network.AWS.Prelude
-import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 

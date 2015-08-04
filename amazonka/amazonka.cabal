@@ -33,11 +33,11 @@ library
         , Network.AWS.EC2.Metadata
         , Network.AWS.Env
         , Network.AWS.Free
-        , Network.AWS.Presign
 
     other-modules:
-          Network.AWS.Internal.HTTP
-        , Network.AWS.Internal.Body
+          Network.AWS.Internal.Body
+        , Network.AWS.Internal.HTTP
+        , Network.AWS.Internal.Presign
 
     build-depends:
           amazonka-core       == 1.0.0.*
@@ -46,11 +46,11 @@ library
         , conduit             >= 1.1
         , conduit-extra       >= 1.1
         , exceptions          >= 0.6
-        , free
+        , free                >= 4.5
         , http-client         >= 0.4.9
         , http-conduit        >= 2.1.4
         , lens                >= 4.4
-        , mmorph
+        , mmorph              >= 1
         , monad-control       >= 1
         , mtl                 >= 2.1.3.1
         , resourcet           >= 1.1

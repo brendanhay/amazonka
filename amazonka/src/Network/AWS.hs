@@ -129,10 +129,10 @@ import           Data.Monoid
 import           Network.AWS.Auth
 import           Network.AWS.Env                 (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
+import           Network.AWS.Internal.Presign
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 

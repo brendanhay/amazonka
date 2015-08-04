@@ -3,24 +3,14 @@
 {-# OPTIONS_HADDOCK show-extensions #-}
 
 -- |
--- Module      : Network.AWS.Presign
+-- Module      : Network.AWS.Internal.Presign
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- The core module for making requests to the various AWS services.
-module Network.AWS.Presign
-    (
-    -- * Presigning
-    -- ** URLs
-      presignURL
-    -- ** HTTP Requests
-    , presign
-    -- ** Overriding Defaults
-    , presignWith
-    ) where
+module Network.AWS.Internal.Presign where
 
 import           Control.Applicative
 import           Control.Lens

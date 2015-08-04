@@ -189,7 +189,7 @@ runAWST = execAWST hoistError
 -- | Run an 'AWST' action with configurable 'Error' handling.
 execAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
          => (forall a. Either Error a -> m a)
-            -- ^ A function which can lift an 'Error' into the base Monad.
+            -- ^ Lift an 'Error' into the base Monad.
          -> r
          -> AWST m b
          -> m b
@@ -207,9 +207,9 @@ execAWST f = innerAWST go
 -- mocking of responses and does not perform any external API calls.
 pureAWST :: (MonadThrow m, AWSEnv r)
          => (forall s a. Service s ->           a -> Either Error (Rs a))
-            -- ^ A function to construct a response for any 'send' command.
+            -- ^ Construct a response for any 'send' command.
          -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-            -- ^ A function to construct a response for any 'await' command.
+            -- ^ Construct a response for any 'await' command.
          -> r
          -> AWST m b
          -> m b

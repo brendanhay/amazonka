@@ -330,10 +330,12 @@ Errors are thrown by the library using 'MonadThrow' (unless "Control.Monad.Error
 Sub-errors of the canonical 'Error' type can be caught using 'trying' or
 'catching' and the appropriate 'AWSError' 'Prism':
 
-> trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
-> trying '_HTTPError'      (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
-> trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
-> trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
+@
+trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
+trying '_HTTPError'      (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
+trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
+trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
+@
 -}
 
 {- $streaming

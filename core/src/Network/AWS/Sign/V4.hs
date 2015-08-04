@@ -28,7 +28,6 @@ import qualified Data.CaseInsensitive         as CI
 import qualified Data.Foldable                as Fold
 import           Data.Function                (on)
 import           Data.List                    (nubBy, sortBy)
-import           Data.Maybe
 import           Data.Monoid
 import           GHC.TypeLits
 import           Network.AWS.Data.Body

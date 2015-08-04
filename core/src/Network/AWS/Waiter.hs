@@ -41,7 +41,7 @@ import           Network.AWS.Error
 import           Network.AWS.Logger
 import           Network.AWS.Types
 
-type Acceptor a = Request a -> Response a -> Maybe Accept
+type Acceptor a = Request a -> Either Error (Response a) -> Maybe Accept
 
 data Accept
     = AcceptSuccess
@@ -59,7 +59,7 @@ instance ToLog Accept where
 data Wait a = Wait
     { _waitName      :: ByteString
     , _waitAttempts  :: !Int
-    , _waitDelay     :: !Int
+    , _waitDelay     :: !Seconds
     , _waitAcceptors :: [Acceptor a]
     }
 
@@ -80,8 +80,8 @@ matchStatus x a _ = \case
 
 matchError :: ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case
-    Left e | Just c == e ^? _ServiceError . errorCode -> Just a
-    _                                                 -> Nothing
+    Left e | Just c == e ^? _ServiceError . serviceCode -> Just a
+    _                                                   -> Nothing
 
 match :: (Rs a -> Bool) -> Accept -> Acceptor a
 match f a _ = \case

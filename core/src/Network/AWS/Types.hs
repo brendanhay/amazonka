@@ -25,35 +25,34 @@ module Network.AWS.Types
     (
     -- * Authentication
     -- ** Credentials
-      AccessKey     (..)
-    , SecretKey     (..)
-    , SecurityToken (..)
+      AccessKey       (..)
+    , SecretKey       (..)
+    , SecurityToken   (..)
     -- ** Environment
-    , AuthEnv       (..)
-    , Auth          (..)
+    , AuthEnv         (..)
+    , Auth            (..)
     , withAuth
 
     -- * Services
-    , AWSService    (..)
     , Abbrev
-    , Service       (..)
-    , serviceFor
+    , AWSService      (..)
+    , Service         (..)
     , serviceOf
 
     -- * Retries
-    , Retry         (..)
+    , Retry           (..)
 
     -- * Signing
-    , AWSSigner     (..)
-    , AWSPresigner  (..)
+    , AWSSigner       (..)
+    , AWSPresigner    (..)
     , Meta
-    , Signed        (..)
+    , Signed          (..)
     , sgMeta
     , sgRequest
 
     -- * Requests
-    , AWSRequest    (..)
-    , Request       (..)
+    , AWSRequest      (..)
+    , Request         (..)
     , rqMethod
     , rqHeaders
     , rqPath
@@ -64,24 +63,31 @@ module Network.AWS.Types
     , Response
 
     -- * Errors
-    , AWSError      (..)
-    , Error         (..)
+    , AWSError        (..)
+    , Error           (..)
+    -- ** HTTP Errors
+    , HttpException
+    -- ** Serialize Errors
+    , SerializeError  (..)
+    , serializeAbbrev
+    , serializeStatus
+    , serializeMessage
     -- ** Service Errors
-    , ServiceError  (..)
-    , errorService
-    , errorStatus
-    , errorHeaders
-    , errorCode
-    , errorMessage
-    , errorRequestId
+    , ServiceError    (..)
+    , serviceAbbrev
+    , serviceStatus
+    , serviceHeaders
+    , serviceCode
+    , serviceMessage
+    , serviceRequestId
     -- ** Error Types
-    , ErrorCode     (..)
-    , ErrorMessage  (..)
-    , RequestId     (..)
+    , ErrorCode       (..)
+    , ErrorMessage    (..)
+    , RequestId       (..)
 
     -- * Regions
-    , Endpoint      (..)
-    , Region        (..)
+    , Endpoint        (..)
+    , Region          (..)
 
     -- * HTTP
     , ClientRequest
@@ -90,8 +96,9 @@ module Network.AWS.Types
     , clientRequest
 
     -- ** Seconds
-    , Seconds       (..)
+    , Seconds         (..)
     , _Seconds
+    , seconds
     , microseconds
 
     -- * Isomorphisms
@@ -100,6 +107,7 @@ module Network.AWS.Types
     ) where
 
 import           Control.Exception
+import           Control.Exception.Lens       (exception)
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Lens                 hiding (coerce)
@@ -168,93 +176,108 @@ newtype RequestId = RequestId Text
 
 -- | An error type representing errors that can be attributed to this library.
 data Error
-    = HTTPError       HttpException
-    | SerializerError Abbrev Status String
-    | ServiceError    ServiceError
+    = HTTPError      HttpException
+    | SerializeError SerializeError
+    | ServiceError   ServiceError
       deriving (Show, Typeable)
 
 instance Exception Error
 
 instance ToLog Error where
     message = \case
-        HTTPError           e -> message e
-        SerializerError a s x -> buildLines
-            [ "[SerializerError] {"
-            , "  service = " <> message a
-            , "  status  = " <> message s
-            , "  message = " <> message x
-            ]
-        ServiceError        e -> message e
+        HTTPError      e -> message e
+        SerializeError e -> message e
+        ServiceError   e -> message e
 
-data ServiceError = ServiceError'
-    { _errorService   :: Abbrev
-    , _errorStatus    :: Status
-    , _errorHeaders   :: [Header]
-    , _errorCode      :: ErrorCode
-    , _errorMessage   :: Maybe ErrorMessage
-    , _errorRequestId :: Maybe RequestId
+data SerializeError = SerializeError'
+    { _serializeAbbrev  :: !Abbrev
+    , _serializeStatus  :: !Status
+    , _serializeMessage :: String
     } deriving (Eq, Show, Typeable)
 
-instance Exception ServiceError
+instance ToLog SerializeError where
+    message SerializeError'{..} = buildLines
+        [ "[SerializeError] {"
+        , "  service = " <> message _serializeAbbrev
+        , "  status  = " <> message _serializeStatus
+        , "  message = " <> message _serializeMessage
+        , "}"
+        ]
+
+serializeAbbrev :: Lens' SerializeError Abbrev
+serializeAbbrev = lens _serializeAbbrev (\s a -> s { _serializeAbbrev = a })
+
+serializeStatus :: Lens' SerializeError Status
+serializeStatus = lens _serializeStatus (\s a -> s { _serializeStatus = a })
+
+serializeMessage :: Lens' SerializeError String
+serializeMessage = lens _serializeMessage (\s a -> s { _serializeMessage = a })
+
+data ServiceError = ServiceError'
+    { _serviceAbbrev    :: !Abbrev
+    , _serviceStatus    :: !Status
+    , _serviceHeaders   :: [Header]
+    , _serviceCode      :: !ErrorCode
+    , _serviceMessage   :: Maybe ErrorMessage
+    , _serviceRequestId :: Maybe RequestId
+    } deriving (Eq, Show, Typeable)
 
 instance ToLog ServiceError where
     message ServiceError'{..} = buildLines
         [ "[ServiceError] {"
-        , "  service    = " <> message _errorService
-        , "  status     = " <> message _errorStatus
-        , "  code       = " <> message _errorCode
-        , "  message    = " <> message _errorMessage
-        , "  request-id = " <> message _errorRequestId
+        , "  service    = " <> message _serviceAbbrev
+        , "  status     = " <> message _serviceStatus
+        , "  code       = " <> message _serviceCode
+        , "  message    = " <> message _serviceMessage
+        , "  request-id = " <> message _serviceRequestId
+        , "}"
         ]
 
-errorService :: Lens' ServiceError Abbrev
-errorService = lens _errorService (\s a -> s { _errorService = a })
+serviceAbbrev :: Lens' ServiceError Abbrev
+serviceAbbrev = lens _serviceAbbrev (\s a -> s { _serviceAbbrev = a })
 
-errorStatus :: Lens' ServiceError Status
-errorStatus = lens _errorStatus (\s a -> s { _errorStatus = a })
+serviceStatus :: Lens' ServiceError Status
+serviceStatus = lens _serviceStatus (\s a -> s { _serviceStatus = a })
 
-errorHeaders :: Lens' ServiceError [Header]
-errorHeaders = lens _errorHeaders (\s a -> s { _errorHeaders = a })
+serviceHeaders :: Lens' ServiceError [Header]
+serviceHeaders = lens _serviceHeaders (\s a -> s { _serviceHeaders = a })
 
-errorCode :: Lens' ServiceError ErrorCode
-errorCode = lens _errorCode (\s a -> s { _errorCode = a })
+serviceCode :: Lens' ServiceError ErrorCode
+serviceCode = lens _serviceCode (\s a -> s { _serviceCode = a })
 
-errorMessage :: Lens' ServiceError (Maybe ErrorMessage)
-errorMessage = lens _errorMessage (\s a -> s { _errorMessage = a })
+serviceMessage :: Lens' ServiceError (Maybe ErrorMessage)
+serviceMessage = lens _serviceMessage (\s a -> s { _serviceMessage = a })
 
-errorRequestId :: Lens' ServiceError (Maybe RequestId)
-errorRequestId = lens _errorRequestId (\s a -> s { _errorRequestId = a })
+serviceRequestId :: Lens' ServiceError (Maybe RequestId)
+serviceRequestId = lens _serviceRequestId (\s a -> s { _serviceRequestId = a })
 
 class AWSError a where
-    _Error           :: Prism' a Error
-    _HTTPError       :: Prism' a HttpException
-    _SerializerError :: Prism' a (Abbrev, Status, String)
-    _ServiceError    :: Prism' a ServiceError
+    _Error          :: Prism' a Error
+    _HTTPError      :: Prism' a HttpException
+    _SerializeError :: Prism' a SerializeError
+    _ServiceError   :: Prism' a ServiceError
 
-    _HTTPError       = _Error . _HTTPError
-    _SerializerError = _Error . _SerializerError
-    _ServiceError    = _Error . _ServiceError
+    _HTTPError      = _Error . _HTTPError
+    _SerializeError = _Error . _SerializeError
+    _ServiceError   = _Error . _ServiceError
+
+instance AWSError SomeException where
+    _Error = exception
 
 instance AWSError Error where
     _Error = id
 
-    _HTTPError = prism
-        HTTPError
-        (\case
-            HTTPError e -> Right e
-            x           -> Left x)
+    _HTTPError = prism HTTPError $ \case
+        HTTPError e -> Right e
+        x           -> Left x
 
-    _SerializerError = prism
-        (\(a, s, e) -> SerializerError a s e)
-        (\case
-            SerializerError a s e -> Right (a, s, e)
-            x -> Left x)
+    _SerializeError = prism SerializeError $ \case
+        SerializeError e -> Right e
+        x                -> Left  x
 
-    _ServiceError = prism
-        ServiceError
-        (\case
-            ServiceError e -> Right e
-            x              -> Left x)
+    _ServiceError = prism ServiceError $ \case
+        ServiceError e -> Right e
+        x              -> Left  x
 
 data Endpoint = Endpoint
     { _endpointHost  :: ByteString
@@ -282,8 +305,6 @@ data Service s = Service
     , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
     , _svcRetry    :: Retry
     }
-
-type Response a = Either Error (Status, Rs a)
 
 -- | An unsigned request.
 data Request a = Request
@@ -340,7 +361,7 @@ class AWSPresigner v where
               => AuthEnv
               -> Region
               -> UTCTime
-              -> Integer
+              -> Seconds
               -> Service s
               -> Request a
               -> Signed  v a
@@ -372,11 +393,10 @@ class AWSSigner (Sg a) => AWSService a where
 
     service :: Sv p ~ a => Proxy p -> Service a
 
-serviceFor :: AWSService (Sv a) => (Service (Sv a) -> a -> b) -> a -> b
-serviceFor f x = f (serviceOf x) x
-
 serviceOf :: forall a. AWSService (Sv a) => a -> Service (Sv a)
 serviceOf = const $ service (Proxy :: Proxy a)
+
+type Response a = (Status, Rs a)
 
 -- | Specify how a request can be de/serialised.
 class AWSService (Sv a) => AWSRequest a where
@@ -391,7 +411,7 @@ class AWSService (Sv a) => AWSRequest a where
              => Logger
              -> Service s
              -> Request a
-             -> Either HttpException ClientResponse
+             -> ClientResponse
              -> m (Response a)
 
 -- | Access key credential.
@@ -508,13 +528,32 @@ instance ToXML   Region where toXML    = toXMLText
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int
-    deriving (Eq, Ord, Read, Show, Enum, Num, Bounded, Integral, Real, Data, Typeable, Generic)
+    deriving
+        ( Eq
+        , Ord
+        , Read
+        , Show
+        , Enum
+        , Num
+        , Bounded
+        , Integral
+        , Real
+        , Data
+        , Typeable
+        , Generic
+        , ToQuery
+        , ToByteString
+        , ToText
+        )
 
 _Seconds :: Iso' Seconds Int
-_Seconds = iso (\(Seconds n) -> n) Seconds
+_Seconds = iso seconds Seconds
 
 instance ToLog Seconds where
     message (Seconds n) = message n <> "s"
+
+seconds :: Seconds -> Int
+seconds (Seconds n) = n
 
 microseconds :: Seconds -> Int
 microseconds (Seconds n) = n * 1000000

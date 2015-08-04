@@ -19,15 +19,11 @@
 --
 module Network.AWS.Data.Query where
 
-import           Control.Lens                hiding (coerce)
 import           Data.ByteString.Builder     (Builder)
 import qualified Data.ByteString.Builder     as Build
 import qualified Data.ByteString.Char8       as BS8
 import qualified Data.ByteString.Lazy        as LBS
-import           Data.Coerce
 import           Data.Data
-import           Data.Data.Lens
-import           Data.Function               (on)
 import           Data.List                   (sort)
 import           Data.Monoid
 import           Data.String

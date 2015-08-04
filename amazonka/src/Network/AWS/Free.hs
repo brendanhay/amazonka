@@ -1,9 +1,10 @@
-{-# LANGUAGE BangPatterns     #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE GADTs            #-}
-{-# LANGUAGE LambdaCase       #-}
-{-# LANGUAGE RankNTypes       #-}
-{-# LANGUAGE ViewPatterns     #-}
+{-# LANGUAGE BangPatterns      #-}
+{-# LANGUAGE CPP               #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GADTs             #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE RankNTypes        #-}
 
 {-# OPTIONS_HADDOCK show-extensions #-}
 
@@ -19,31 +20,30 @@
 module Network.AWS.Free where
 
 import           Control.Applicative
-import           Control.Lens
-import           Control.Monad.Catch             (MonadCatch (..))
 import           Control.Monad.Reader
-import           Control.Monad.Trans.Free        (FreeT)
 import           Control.Monad.Trans.Free.Church
-import           Control.Monad.Trans.Resource
 import           Data.Conduit                    (Source, yield)
-import           Network.AWS.Env
-import           Network.AWS.Internal.HTTP
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
+#if MIN_VERSION_free(4,12,0)
+#else
+import           Control.Monad.Catch
+import           Control.Monad.Trans.Free        (FreeT (..))
+#endif
 
 data Command r where
     Send  :: (AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> a
-          -> (Either Error (Rs a) -> r)
+          -> (Rs a -> r)
           -> Command r
 
     Await :: (AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a
           -> a
-          -> (Either Error (Rs a) -> r)
+          -> (Rs a -> r)
           -> Command r
 
 instance Functor Command where
@@ -51,51 +51,22 @@ instance Functor Command where
         Send  s   x k -> Send  s   x (fmap f k)
         Await s w x k -> Await s w x (fmap f k)
 
-type ProgramT = FreeT Command
+#if MIN_VERSION_free(4,12,0)
+#else
+instance MonadThrow m => MonadThrow (FreeT Command m) where
+    throwM = lift . throwM
 
--- | Interpret the 'Command' instruct set by performing HTTP calls to
--- retrieve the associated response type for a request.
---
--- Requests will be retried depending upon each service's respective retry
--- strategy. This can be overriden using 'envRetry'. Requests which contain
--- streaming request bodies (such as S3's 'PutObject') are never retried.
-evalProgramT :: ( MonadCatch m
-                , MonadResource m
-                , MonadReader r m
-                , AWSEnv r
-                )
-             => ProgramT m a
-             -> m a
-evalProgramT = iterT go . toFT
-  where
-    go (Send s (request -> x) k) = do
-        e <- view env
-        retrier e s x (perform e s x) >>= k . fmap snd
+instance MonadCatch m => MonadCatch (FreeT Command m) where
+    catch (FreeT m) f = FreeT $
+        liftM (fmap (`catch` f)) m `catch` (runFreeT . f)
+#endif
 
-    go (Await s w (request -> x) k) = do
-        e <- view env
-        waiter e w x (perform e s x) >>= k . fmap snd
-
-pureProgramT :: Monad m
-             => (forall s a. Service s ->           a -> Either Error (Rs a))
-             -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-             -> ProgramT m b
-             -> m b
-pureProgramT f g = iterT go . toFT
-  where
-    go (Send  s   x k) = k (f s   x)
-    go (Await s w x k) = k (g s w x)
-
--- | Send a request, returning the associated response if successful,
--- otherwise an 'Error'.
---
--- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
--- errors returned by the AWS service.
+-- | Send a request, returning the associated response if successful.
 --
 -- /See:/ 'sendWith'
 send :: (MonadFree Command m, AWSRequest a)
      => a
-     -> m (Either Error (Rs a))
+     -> m (Rs a)
 send = serviceFor sendWith
 
 -- | A variant of 'send' that allows specifying the 'Service' definition
@@ -103,8 +74,8 @@ send = serviceFor sendWith
 sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          => Service s
          -> a
-         -> m (Either Error (Rs a))
-sendWith s x = liftF $ Send s x id
+         -> m (Rs a)
+sendWith s x = liftF (Send s x id)
 
 -- | Transparently paginate over multiple responses for supported requests
 -- while results are available.
@@ -112,7 +83,7 @@ sendWith s x = liftF $ Send s x id
 -- /See:/ 'paginateWith'
 paginate :: (MonadFree Command m, AWSPager a)
          => a
-         -> Source m (Either Error (Rs a))
+         -> Source m (Rs a)
 paginate = serviceFor paginateWith
 
 -- | A variant of 'paginate' that allows specifying the 'Service' definition
@@ -120,16 +91,13 @@ paginate = serviceFor paginateWith
 paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
-             -> Source m (Either Error (Rs a))
+             -> Source m (Rs a)
 paginateWith s x = do
     !y <- lift (sendWith s x)
     yield y
-    case y of
-        Left  _ -> pure ()
-        Right z ->
-            case page x z of
-                Nothing -> pure ()
-                Just !r -> paginateWith s r
+    case page x y of
+        Nothing -> pure ()
+        Just !z -> paginateWith s z
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
@@ -145,7 +113,7 @@ paginateWith s x = do
 await :: (MonadFree Command m, AWSRequest a)
       => Wait a
       -> a
-      -> m (Either Error (Rs a))
+      -> m (Rs a)
 await w = serviceFor (`awaitWith` w)
 
 -- | A variant of 'await' that allows specifying the 'Service' definition
@@ -154,5 +122,8 @@ awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a
           -> a
-          -> m (Either Error (Rs a))
-awaitWith s w x = liftF $ Await s w x id
+          -> m (Rs a)
+awaitWith s w x = liftF (Await s w x id)
+
+serviceFor :: AWSService (Sv a) => (Service (Sv a) -> a -> b) -> a -> b
+serviceFor f x = f (serviceOf x) x

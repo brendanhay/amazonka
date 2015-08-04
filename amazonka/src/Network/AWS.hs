@@ -11,11 +11,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- This module contains a specalised version of the 'ProgramT' transformer
--- with lifted 'send', 'paginate' and 'await' functions to make it suitable for
--- embedding as a layer into your own application monad.
+-- This module provides a simple 'AWS' monad and a set of operations which
+-- can be performed against remote Amazon Web Services APIs, for use with the types
+-- supplied by the various @amazonka-*@ libraries.
 --
--- For a more flexible interface see "Control.Monad.Trans.AWS".
+-- A 'MonadAWS' typeclass is used as a function constraint to provide automatic
+-- lifting of functions when embedding 'AWS' as a layer inside your own
+-- application stack.
+--
+-- /See:/ "Control.Monad.Trans.AWS".
 module Network.AWS
     (
     -- * Usage
@@ -27,68 +31,106 @@ module Network.AWS
     -- $embed
     , runAWS
 
-    -- * Runtime Configuration
-    , within
-    , once
-    , timeout
-
     -- * Environment Setup
     , Credentials (..)
     , AWSEnv      (..)
     , Env
     , newEnv
 
+    -- * Runtime Configuration
+    , within
+    , once
+    , timeout
+
     -- * Sending Requests
-    -- ** Synchronous
     , send
     , await
     , paginate
-    -- ** Overriding Defaults
+
+    -- ** Presigning
+    , presignURL
+    , presign
+
+    -- ** Overriding Service Configuration
     , sendWith
     , awaitWith
     , paginateWith
-    -- ** Asynchronous
+    , presignWith
+
+    -- ** Asynchronous Actions
     -- $async
 
-    , module Network.AWS.Presign
+    -- ** Streaming
+    -- $streaming
 
-    , module Network.AWS.Internal.Body
+    , ToBody      (..)
+    , RqBody
+    , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
+    , getFileSize
+    , sinkHash
+
+    , RsBody
+    , sinkBody
+
+    -- * Handling Errors
+    -- $errors
+    , AWSError (..)
+    , AWST.trying
+    , AWST.catching
 
     -- * Logging
+    -- $logging
     , Logger
+
+    -- ** Constructing a Logger
     , newLogger
-    -- ** Levels
-    , LogLevel    (..)
+
+    -- ** Logging Functions
     , logError
     , logInfo
     , logDebug
     , logTrace
+
+    -- ** Log Messages
+    , ToLog       (..)
 
     -- * Types
     , module Network.AWS.Types
     ) where
 
 import           Control.Applicative
-import           Control.Monad.Catch          (MonadCatch)
-import           Control.Monad.Morph
-import           Control.Monad.Reader
-import qualified Control.Monad.State.Lazy     as LS
-import qualified Control.Monad.State.Strict   as S
-import           Control.Monad.Trans.AWS      (AWST)
-import qualified Control.Monad.Trans.AWS      as AWST
-import           Control.Monad.Trans.Except
-import           Control.Monad.Trans.Identity
-import           Control.Monad.Trans.Maybe
+import           Control.Monad.Catch             (MonadCatch)
+import           Control.Monad.Morph             (hoist)
+import qualified Control.Monad.RWS.Lazy          as LRW
+import qualified Control.Monad.RWS.Strict        as RW
+import qualified Control.Monad.State.Lazy        as LS
+import qualified Control.Monad.State.Strict      as S
+import           Control.Monad.Trans.AWS         (AWST)
+import qualified Control.Monad.Trans.AWS         as AWST
+import           Control.Monad.Trans.Class       (lift)
+import           Control.Monad.Trans.Cont        (ContT)
+import           Control.Monad.Trans.Except      (ExceptT)
+import           Control.Monad.Trans.Free        (FreeT)
+import           Control.Monad.Trans.Free.Church (FT)
+import           Control.Monad.Trans.Identity    (IdentityT)
+import           Control.Monad.Trans.Iter        (IterT)
+import           Control.Monad.Trans.List        (ListT)
+import           Control.Monad.Trans.Maybe       (MaybeT)
+import           Control.Monad.Trans.Reader      (ReaderT)
 import           Control.Monad.Trans.Resource
-import qualified Control.Monad.Writer.Lazy    as LW
-import qualified Control.Monad.Writer.Strict  as W
-import           Data.Conduit                 (Source)
+import qualified Control.Monad.Writer.Lazy       as LW
+import qualified Control.Monad.Writer.Strict     as W
+import           Data.Conduit                    (Source)
 import           Data.Monoid
 import           Network.AWS.Auth
-import           Network.AWS.Env              (AWSEnv (..), Env, newEnv)
+import           Network.AWS.Env                 (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
+import           Network.AWS.Prelude
 import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
@@ -105,16 +147,29 @@ instance MonadAWS AWS where
     liftAWS = id
 
 instance MonadAWS m => MonadAWS (IdentityT   m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (ListT       m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (MaybeT      m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ExceptT   e m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (ContT     r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ReaderT   r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (S.StateT  s m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (LS.StateT s m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (IterT       m) where liftAWS = lift . liftAWS
+instance MonadAWS m => MonadAWS (FT        f m) where liftAWS = lift . liftAWS
 
 instance (Monoid w, MonadAWS m) => MonadAWS (W.WriterT w m) where
     liftAWS = lift . liftAWS
 
 instance (Monoid w, MonadAWS m) => MonadAWS (LW.WriterT w m) where
+    liftAWS = lift . liftAWS
+
+instance (Monoid w, MonadAWS m) => MonadAWS (RW.RWST r w s m) where
+    liftAWS = lift . liftAWS
+
+instance (Monoid w, MonadAWS m) => MonadAWS (LRW.RWST r w s m) where
+    liftAWS = lift . liftAWS
+
+instance (Functor f, MonadAWS m) => MonadAWS (FreeT f m) where
     liftAWS = lift . liftAWS
 
 -- FIXME: verify the use of withInternalState to create a ResourceT here
@@ -141,13 +196,13 @@ timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . AWST.timeout s
 
 -- | Send a request, returning the associated response if successful,
--- otherwise an 'Error'.
+-- otherwise an 'Error' will be thrown.
 --
 -- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
 -- errors returned by the AWS service.
 --
 -- /See:/ 'sendWith'
-send :: (MonadAWS m, AWSRequest a) => a -> m (Either Error (Rs a))
+send :: (MonadAWS m, AWSRequest a) => a -> m (Rs a)
 send = liftAWS . AWST.send
 
 -- | A variant of 'send' that allows specifying the 'Service' definition
@@ -155,14 +210,14 @@ send = liftAWS . AWST.send
 sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
          => Service s
          -> a
-         -> m (Either Error (Rs a))
+         -> m (Rs a)
 sendWith s = liftAWS . AWST.sendWith s
 
 -- | Transparently paginate over multiple responses for supported requests
 -- while results are available.
 --
 -- /See:/ 'paginateWith'
-paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Either Error (Rs a))
+paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
 paginate = hoist liftAWS . AWST.paginate
 
 -- | A variant of 'paginate' that allows specifying the 'Service' definition
@@ -170,7 +225,7 @@ paginate = hoist liftAWS . AWST.paginate
 paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
-             -> Source m (Either Error (Rs a))
+             -> Source m (Rs a)
 paginateWith s = hoist liftAWS . AWST.paginateWith s
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
@@ -184,7 +239,7 @@ paginateWith s = hoist liftAWS . AWST.paginateWith s
 -- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
 --
 -- /See:/ 'awaitWith'
-await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Either Error (Rs a))
+await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Rs a)
 await w = liftAWS . AWST.await w
 
 -- | A variant of 'await' that allows specifying the 'Service' definition
@@ -193,14 +248,10 @@ awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a
           -> a
-          -> m (Either Error (Rs a))
+          -> m (Rs a)
 awaitWith s w = liftAWS . AWST.awaitWith s w
 
 {- $usage
-This module provides a simple 'AWS' monad and a set of common operations which
-can be performed against remote Amazon Web Services APIs, for use with the types
-supplied by the various @amazonka-*@ libraries.
-
 The key functions dealing with the request/response lifecycle are:
 
 * 'send'
@@ -244,24 +295,6 @@ example = do
 @
 -}
 
-{- $embed
-'MonadAWS' can be used to embed 'AWS' actions inside your own transformer stack.
-
-For a trivial base monad:
-
-> newtype MyApp a = MyApp (ReaderT MyEnv AWS a)
->     deriving (Functor, Applicative, Monad)
-
-You can define a 'MonadAWS' instance as follows:
-
-> instance MonadAWS MyApp where
->     liftAWS = MyApp . lift
-
-This instance allows all of the functions in this module to operate within your
-own monad without having to manually write successive lift calls for AWS operations.
-
--}
-
 {- $async
 Requests can be sent asynchronously, but due to guarantees about resource closure
 require the use of <http://hackage.haskell.org/package/lifted-async lifted-async>.
@@ -270,7 +303,7 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 
 > import Control.Concurrent.Async.Lifted
 > import Control.Lens
-> import Network.AWS
+> import Control.Monad.Trans.AWS
 > import Network.AWS.S3
 >
 > do x   <- async . send $ getObject "bucket" "prefix/object-foo"
@@ -280,4 +313,37 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 >    ...
 
 /See:/ <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+-}
+
+{- $errors
+Errors are thrown by the library using 'MonadThrow' (unless "Control.Monad.Error.AWS" is used).
+Sub-errors of the canonical 'Error' type can be caught using 'trying' or
+'catching' and the appropriate 'AWSError' 'Prism':
+
+> trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
+> trying '_HTTPError'      (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
+> trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
+> trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
+-}
+
+{- $streaming
+Streaming request bodies (such as 'PutObject') require a precomputed
+'SHA256' for signing purposes.
+
+The 'ToBody' typeclass has instances available to construct a 'RqBody',
+automatically calculating the hash as needed for types such as 'Text' and 'ByteString'.
+
+For reading files and handles, functions such 'sourceFileIO' or 'sourceHandle'
+can be used.
+-}
+
+{- $logging
+The exposed logging interface is a primitive 'Logger' function which gets
+threaded through service calls and serialisation routines.
+
+The 'newLogger' function can be used to construct a simple logger which writes
+output to a 'Handle', but in most production code you should probably consider
+using a more robust logging library such as
+<http://hackage.haskell.org/package/tiny-log tiny-log> or
+<http://hackage.haskell.org/package/fast-logger fast-logger>.
 -}

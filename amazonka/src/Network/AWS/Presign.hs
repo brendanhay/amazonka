@@ -28,14 +28,16 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
+import           Network.AWS.Free       (serviceFor)
 import           Network.AWS.Prelude
 import           Network.AWS.Request    (requestURL)
+import           Network.AWS.Types
 
 -- /See:/ 'presign', 'presignWith'
 presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
            => Env
            -> UTCTime     -- ^ Signing time.
-           -> Integer     -- ^ Expiry time in seconds.
+           -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.
            -> m ByteString
 presignURL e t ex = liftM requestURL . presign e t ex
@@ -50,18 +52,18 @@ presignURL e t ex = liftM requestURL . presign e t ex
 presign :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
         => Env
         -> UTCTime     -- ^ Signing time.
-        -> Integer     -- ^ Expiry time in seconds.
+        -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
 presign e t ex = serviceFor (\s -> presignWith e s t ex)
 
--- /Note:/ You can used "Network.AWS.Request.requestURL" to extract a fully
--- signed URL from the request.
+-- | A variant of 'presign' that allows specifying the 'Service' definition
+-- used to configure the request.
 presignWith :: (MonadIO m, AWSPresigner (Sg s), AWSRequest a)
             => Env
             -> Service s -- ^ Service configuration.
             -> UTCTime   -- ^ Signing time.
-            -> Integer   -- ^ Expiry time in seconds.
+            -> Seconds   -- ^ Expiry time.
             -> a         -- ^ Request to presign.
             -> m ClientRequest
 presignWith e s t ex x =

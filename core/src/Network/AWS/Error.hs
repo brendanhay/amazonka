@@ -40,20 +40,20 @@ httpStatus = _Error . f
             -> HTTPError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
         HTTPError e
             -> pure (HTTPError e)
-        SerializerError a s e
-            -> SerializerError a <$> g s <*> pure e
+        SerializeError (SerializeError' a s e)
+            -> g s <&> \x -> SerializeError (SerializeError' a x e)
         ServiceError e
-            -> g (_errorStatus e) <&> \x -> ServiceError (e { _errorStatus = x })
+            -> g (_serviceStatus e) <&> \x -> ServiceError (e { _serviceStatus = x })
 
 hasStatus :: (Applicative f, Choice p)
           => Int
           -> Optic' p f ServiceError ServiceError
-hasStatus n = filtered ((n ==) . fromEnum . _errorStatus)
+hasStatus n = filtered ((n ==) . fromEnum . _serviceStatus)
 
 hasCode :: (Applicative f, Choice p)
         => ErrorCode
         -> Optic' p f ServiceError ServiceError
-hasCode c = filtered ((c ==) . _errorCode)
+hasCode c = filtered ((c ==) . _serviceCode)
 
 serviceError :: Abbrev
              -> Status
@@ -131,4 +131,7 @@ decodeError :: Abbrev
             -> Error
 decodeError a s h bs e
     | LBS.null bs = parseRESTError a s h bs
-    | otherwise   = either (SerializerError a s) ServiceError e
+    | otherwise   =
+        either (SerializeError . SerializeError' a s)
+               ServiceError
+               e

@@ -10,6 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
+-- Environment and AWS specific configuration.
 module Network.AWS.Env
     (
     -- * Environment

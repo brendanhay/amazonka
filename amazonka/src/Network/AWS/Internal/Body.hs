@@ -6,22 +6,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Internal.Body
-    (
-    -- * Streaming Files
-    -- ** Request Bodies
-      ToBody (..)
-    , RqBody
-    , sourceBody
-    , sourceHandle
-    , sourceFile
-    , sourceFileIO
-    , getFileSize
-    -- ** Response Bodies
-    , RsBody
-    , sinkBody
-    , sinkHash
-    ) where
+module Network.AWS.Internal.Body where
 
 import           Control.Applicative
 import           Control.Monad

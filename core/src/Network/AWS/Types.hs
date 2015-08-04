@@ -253,6 +253,8 @@ serviceRequestId = lens _serviceRequestId (\s a -> s { _serviceRequestId = a })
 
 class AWSError a where
     _Error          :: Prism' a Error
+    {-# MINIMAL _Error #-}
+
     _HTTPError      :: Prism' a HttpException
     _SerializeError :: Prism' a SerializeError
     _ServiceError   :: Prism' a ServiceError

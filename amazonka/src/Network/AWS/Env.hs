@@ -52,7 +52,7 @@ data Env = Env
     }
 
 class AWSEnv a where
-    env :: Lens' a Env
+    env            :: Lens' a Env
     {-# MINIMAL env #-}
 
     -- | The current region.

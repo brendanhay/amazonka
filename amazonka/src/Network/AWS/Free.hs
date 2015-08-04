@@ -67,15 +67,15 @@ instance MonadCatch m => MonadCatch (FreeT Command m) where
 send :: (MonadFree Command m, AWSRequest a)
      => a
      -> m (Rs a)
-send = serviceFor sendWith
+send = sendWith id
 
--- | A variant of 'send' that allows specifying the 'Service' definition
+-- | A variant of 'send' that allows modifying the default 'Service' definition
 -- used to configure the request.
 sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
-         => Service s
+         => (Service (Sv a) -> Service s)
          -> a
          -> m (Rs a)
-sendWith s x = liftF (Send s x id)
+sendWith f x = liftF $ Send (f (serviceOf x)) x id
 
 -- | Transparently paginate over multiple responses for supported requests
 -- while results are available.
@@ -84,20 +84,24 @@ sendWith s x = liftF (Send s x id)
 paginate :: (MonadFree Command m, AWSPager a)
          => a
          -> Source m (Rs a)
-paginate = serviceFor paginateWith
+paginate = paginateWith id
 
--- | A variant of 'paginate' that allows specifying the 'Service' definition
+-- | A variant of 'paginate' that allows modifying the default 'Service' definition
 -- used to configure the request.
 paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
-             => Service s
+             => (Service (Sv a) -> Service s)
              -> a
              -> Source m (Rs a)
-paginateWith s x = do
-    !y <- lift (sendWith s x)
-    yield y
-    case page x y of
-        Nothing -> pure ()
-        Just !z -> paginateWith s z
+paginateWith f rq = go rq
+  where
+    go !x = do
+        !y <- lift $ liftF (Send s x id)
+        yield y
+        maybe (pure ())
+              go
+              (page x y)
+
+    !s = f (serviceOf rq)
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
@@ -114,16 +118,13 @@ await :: (MonadFree Command m, AWSRequest a)
       => Wait a
       -> a
       -> m (Rs a)
-await w = serviceFor (`awaitWith` w)
+await = awaitWith id
 
--- | A variant of 'await' that allows specifying the 'Service' definition
+-- | A variant of 'await' that allows modifying the default 'Service' definition
 -- used to configure the request.
 awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
-          => Service s
+          => (Service (Sv a) -> Service s)
           -> Wait a
           -> a
           -> m (Rs a)
-awaitWith s w x = liftF (Await s w x id)
-
-serviceFor :: AWSService (Sv a) => (Service (Sv a) -> a -> b) -> a -> b
-serviceFor f x = f (serviceOf x) x
+awaitWith f w x = liftF $ Await (f (serviceOf x)) w x id

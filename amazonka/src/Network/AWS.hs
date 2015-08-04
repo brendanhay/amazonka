@@ -52,6 +52,7 @@ module Network.AWS
     , presign
 
     -- ** Overriding Service Configuration
+    -- $service
     , sendWith
     , awaitWith
     , paginateWith
@@ -208,10 +209,10 @@ send = liftAWS . AWST.send
 -- | A variant of 'send' that allows specifying the 'Service' definition
 -- used to configure the request.
 sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
-         => Service s
+         => (Service (Sv a) -> Service s)
          -> a
          -> m (Rs a)
-sendWith s = liftAWS . AWST.sendWith s
+sendWith f = liftAWS . AWST.sendWith f
 
 -- | Transparently paginate over multiple responses for supported requests
 -- while results are available.
@@ -223,10 +224,10 @@ paginate = hoist liftAWS . AWST.paginate
 -- | A variant of 'paginate' that allows specifying the 'Service' definition
 -- used to configure the request.
 paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
-             => Service s
+             => (Service (Sv a) -> Service s)
              -> a
              -> Source m (Rs a)
-paginateWith s = hoist liftAWS . AWST.paginateWith s
+paginateWith f = hoist liftAWS . AWST.paginateWith f
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
@@ -245,11 +246,11 @@ await w = liftAWS . AWST.await w
 -- | A variant of 'await' that allows specifying the 'Service' definition
 -- used to configure the request.
 awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
-          => Service s
+          => (Service (Sv a) -> Service s)
           -> Wait a
           -> a
           -> m (Rs a)
-awaitWith s w = liftAWS . AWST.awaitWith s w
+awaitWith f w = liftAWS . AWST.awaitWith f w
 
 {- $usage
 The key functions dealing with the request/response lifecycle are:
@@ -293,6 +294,15 @@ example = do
     runAWS (e & envLogger .~ l) $
         send (putObject "bucket-name" "object-key" b)
 @
+-}
+
+{- $service
+When a request is sent, various configuration values such as the endpoint,
+retry strategy, timeout and error handlers are taken from the associated 'Service'
+configuration.
+
+You can override the default configuration by using the following @*With@
+function variants.
 -}
 
 {- $async

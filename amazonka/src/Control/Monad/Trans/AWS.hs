@@ -50,6 +50,7 @@ module Control.Monad.Trans.AWS
     , presign
 
     -- ** Overriding Service Configuration
+    -- $service
     , sendWith
     , awaitWith
     , paginateWith
@@ -226,6 +227,15 @@ innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return
+
+{- $service
+When a request is sent, various configuration values such as the endpoint,
+retry strategy, timeout and error handlers are taken from the associated 'Service'
+configuration.
+
+You can override the default configuration by using the following @*With@
+function variants.
+-}
 
 {- $async
 Requests can be sent asynchronously, but due to guarantees about resource closure

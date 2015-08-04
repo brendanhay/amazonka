@@ -28,7 +28,6 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
-import           Network.AWS.Free       (serviceFor)
 import           Network.AWS.Prelude
 import           Network.AWS.Request    (requestURL)
 import           Network.AWS.Types
@@ -55,18 +54,18 @@ presign :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign e t ex = serviceFor (\s -> presignWith e s t ex)
+presign e t ex = presignWith e id t ex
 
 -- | A variant of 'presign' that allows specifying the 'Service' definition
 -- used to configure the request.
 presignWith :: (MonadIO m, AWSPresigner (Sg s), AWSRequest a)
             => Env
-            -> Service s -- ^ Service configuration.
-            -> UTCTime   -- ^ Signing time.
-            -> Seconds   -- ^ Expiry time.
-            -> a         -- ^ Request to presign.
+            -> (Service (Sv a) -> Service s) -- ^ Service configuration.
+            -> UTCTime                       -- ^ Signing time.
+            -> Seconds                       -- ^ Expiry time.
+            -> a                             -- ^ Request to presign.
             -> m ClientRequest
-presignWith e s t ex x =
+presignWith e f t ex x =
     withAuth (e ^. envAuth) $ \a ->
         return . view sgRequest $
-            presigned a (e ^. envRegion) t ex s (request x)
+            presigned a (e ^. envRegion) t ex (f (serviceOf x)) (request x)

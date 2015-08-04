@@ -60,7 +60,7 @@ presign e t ex = presignWith e id t ex
 -- used to configure the request.
 presignWith :: (MonadIO m, AWSPresigner (Sg s), AWSRequest a)
             => Env
-            -> (Service (Sv a) -> Service s) -- ^ Service configuration.
+            -> (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
             -> UTCTime                       -- ^ Signing time.
             -> Seconds                       -- ^ Expiry time.
             -> a                             -- ^ Request to presign.

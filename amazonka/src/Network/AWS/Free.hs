@@ -72,8 +72,8 @@ send = sendWith id
 -- | A variant of 'send' that allows modifying the default 'Service' definition
 -- used to configure the request.
 sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
-         => (Service (Sv a) -> Service s)
-         -> a
+         => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
+         -> a                             -- ^ Request.
          -> m (Rs a)
 sendWith f x = liftF $ Send (f (serviceOf x)) x id
 
@@ -89,8 +89,8 @@ paginate = paginateWith id
 -- | A variant of 'paginate' that allows modifying the default 'Service' definition
 -- used to configure the request.
 paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
-             => (Service (Sv a) -> Service s)
-             -> a
+             => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
+             -> a                             -- ^ Initial request.
              -> Source m (Rs a)
 paginateWith f rq = go rq
   where
@@ -123,8 +123,8 @@ await = awaitWith id
 -- | A variant of 'await' that allows modifying the default 'Service' definition
 -- used to configure the request.
 awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
-          => (Service (Sv a) -> Service s)
-          -> Wait a
-          -> a
+          => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
+          -> Wait a                        -- ^ Polling, error and acceptance criteria.
+          -> a                             -- ^ Request to poll with.
           -> m (Rs a)
 awaitWith f w x = liftF $ Await (f (serviceOf x)) w x id

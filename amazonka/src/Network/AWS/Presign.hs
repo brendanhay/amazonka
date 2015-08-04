@@ -32,6 +32,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request    (requestURL)
 import           Network.AWS.Types
 
+-- | Presign an URL that is valid from the specified time until the
+-- number of seconds expiry has elapsed.
+--
 -- /See:/ 'presign', 'presignWith'
 presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
            => Env
@@ -41,10 +44,10 @@ presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
            -> m ByteString
 presignURL e t ex = liftM requestURL . presign e t ex
 
--- | Presign an HTTP request that expires after the specified amount of time
--- in the future.
+-- | Presign an HTTP request that is valid from the specified time until the
+-- number of seconds expiry has elapsed.
 --
--- /Note:/ Requires the 'Service' signer to be an instance of 'AWSPresigner'.
+-- This requires the 'Service' signer to be an instance of 'AWSPresigner'.
 -- Not all signing algorithms support this.
 --
 -- /See:/ 'presignWith'

@@ -251,34 +251,34 @@ instance AWSService Route53 where
           | otherwise = Nothing
 
 -- | Prism for HealthCheckVersionMismatch' errors.
-_HealthCheckVersionMismatch :: AWSError a => Getting (First ServiceError) a ServiceError
+_HealthCheckVersionMismatch :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckVersionMismatch =
     _ServiceError . hasStatus 409 . hasCode "HealthCheckVersionMismatch"
 
 -- | Some value specified in the request is invalid or the XML document is
 -- malformed.
-_InvalidInput :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 
 -- | The hosted zone contains resource record sets in addition to the default
 -- NS and SOA resource record sets. Before you can delete the hosted zone,
 -- you must delete the additional resource record sets.
-_HostedZoneNotEmpty :: AWSError a => Getting (First ServiceError) a ServiceError
+_HostedZoneNotEmpty :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneNotEmpty =
     _ServiceError . hasStatus 400 . hasCode "HostedZoneNotEmpty"
 
 -- | At least one of the specified arguments is invalid.
-_InvalidArgument :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgument = _ServiceError . hasCode "InvalidArgument"
 
 -- | The specified delegation set has already been marked as reusable.
-_DelegationSetAlreadyReusable :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetAlreadyReusable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetAlreadyReusable =
     _ServiceError . hasCode "DelegationSetAlreadyReusable"
 
 -- | The request was rejected because Route 53 was still processing a prior
 -- request.
-_PriorRequestNotComplete :: AWSError a => Getting (First ServiceError) a ServiceError
+_PriorRequestNotComplete :: AsError a => Getting (First ServiceError) a ServiceError
 _PriorRequestNotComplete =
     _ServiceError . hasStatus 400 . hasCode "PriorRequestNotComplete"
 
@@ -286,40 +286,40 @@ _PriorRequestNotComplete =
 -- message indicates one error in the change batch. For more information,
 -- see
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html#example_Errors Example InvalidChangeBatch Errors>.
-_InvalidChangeBatch :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidChangeBatch :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch"
 
 -- | This error indicates that the specified domain name is not valid.
-_InvalidDomainName :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDomainName :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDomainName =
     _ServiceError . hasStatus 400 . hasCode "InvalidDomainName"
 
 -- | The specified delegation set has not been marked as reusable.
-_DelegationSetNotReusable :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetNotReusable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable"
 
 -- | The health check you are trying to create already exists. Route 53
 -- returns this error when a health check has already been created with the
 -- specified @CallerReference@.
-_HealthCheckAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists"
 
 -- | The specified HostedZone cannot be found.
-_HostedZoneNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_HostedZoneNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneNotFound = _ServiceError . hasCode "HostedZoneNotFound"
 
 -- | The specified delegation contains associated hosted zones which must be
 -- deleted before the reusable delegation set can be deleted.
-_DelegationSetInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetInUse = _ServiceError . hasCode "DelegationSetInUse"
 
 -- | The specified delegation set does not exist.
-_NoSuchDelegationSet :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchDelegationSet :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet"
 
 -- | The geo location you are trying to get does not exist.
-_NoSuchGeoLocation :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchGeoLocation :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchGeoLocation =
     _ServiceError . hasStatus 404 . hasCode "NoSuchGeoLocation"
 
@@ -329,94 +329,94 @@ _NoSuchGeoLocation =
 -- name and Route 53 generates this error, you can request an increase to
 -- the limit on the <http://aws.amazon.com/route53-request/ Contact Us>
 -- page.
-_DelegationSetNotAvailable :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetNotAvailable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetNotAvailable =
     _ServiceError . hasCode "DelegationSetNotAvailable"
 
 -- | The VPC you specified is not currently associated with the hosted zone.
-_VPCAssociationNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_VPCAssociationNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _VPCAssociationNotFound =
     _ServiceError . hasStatus 404 . hasCode "VPCAssociationNotFound"
 
 -- | Prism for ThrottlingException' errors.
-_ThrottlingException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException =
     _ServiceError . hasStatus 400 . hasCode "ThrottlingException"
 
 -- | Prism for NoSuchChange' errors.
-_NoSuchChange :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchChange :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchChange = _ServiceError . hasStatus 404 . hasCode "NoSuchChange"
 
 -- | The limits specified for a resource have been exceeded.
-_LimitsExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitsExceeded = _ServiceError . hasCode "LimitsExceeded"
 
 -- | The resource you are trying to access is unsupported on this Route 53
 -- endpoint. Please consider using a newer endpoint or a tool that does so.
-_IncompatibleVersion :: AWSError a => Getting (First ServiceError) a ServiceError
+_IncompatibleVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleVersion =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleVersion"
 
 -- | Prism for NoSuchHostedZone' errors.
-_NoSuchHostedZone :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchHostedZone :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone"
 
 -- | This error indicates that you\'ve reached the maximum number of hosted
 -- zones that can be created for the current AWS account. You can request
 -- an increase to the limit on the
 -- <http://aws.amazon.com/route53-request/ Contact Us> page.
-_TooManyHostedZones :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyHostedZones :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHostedZones =
     _ServiceError . hasStatus 400 . hasCode "TooManyHostedZones"
 
 -- | The hosted zone you are trying to associate VPC with doesn\'t have any
 -- VPC association. Route 53 currently doesn\'t support associate a VPC
 -- with a public hosted zone.
-_PublicZoneVPCAssociation :: AWSError a => Getting (First ServiceError) a ServiceError
+_PublicZoneVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
 _PublicZoneVPCAssociation =
     _ServiceError . hasStatus 400 . hasCode "PublicZoneVPCAssociation"
 
 -- | Prism for ConflictingDomainExists' errors.
-_ConflictingDomainExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_ConflictingDomainExists :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists"
 
 -- | The VPC you are trying to disassociate from the hosted zone is the last
 -- the VPC that is associated with the hosted zone. Route 53 currently
 -- doesn\'t support disassociate the last VPC from the hosted zone.
-_LastVPCAssociation :: AWSError a => Getting (First ServiceError) a ServiceError
+_LastVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
 _LastVPCAssociation =
     _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation"
 
 -- | There are resource records associated with this health check. Before you
 -- can delete the health check, you must disassociate it from the resource
 -- record sets.
-_HealthCheckInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_HealthCheckInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckInUse = _ServiceError . hasStatus 400 . hasCode "HealthCheckInUse"
 
 -- | A delegation set with the same owner and caller reference combination
 -- has already been created.
-_DelegationSetAlreadyCreated :: AWSError a => Getting (First ServiceError) a ServiceError
+_DelegationSetAlreadyCreated :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetAlreadyCreated =
     _ServiceError . hasCode "DelegationSetAlreadyCreated"
 
 -- | Prism for TooManyHealthChecks' errors.
-_TooManyHealthChecks :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyHealthChecks :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks"
 
 -- | The health check you are trying to get or delete does not exist.
-_NoSuchHealthCheck :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchHealthCheck :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHealthCheck =
     _ServiceError . hasStatus 404 . hasCode "NoSuchHealthCheck"
 
 -- | The hosted zone you are trying to create already exists. Route 53
 -- returns this error when a hosted zone has already been created with the
 -- specified @CallerReference@.
-_HostedZoneAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_HostedZoneAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "HostedZoneAlreadyExists"
 
 -- | The hosted zone you are trying to create for your VPC_ID does not belong
 -- to you. Route 53 returns this error when the VPC specified by @VPCId@
 -- does not belong to you.
-_InvalidVPCId :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidVPCId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidVPCId = _ServiceError . hasStatus 400 . hasCode "InvalidVPCId"

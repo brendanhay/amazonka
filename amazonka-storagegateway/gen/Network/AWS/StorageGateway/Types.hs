@@ -189,12 +189,12 @@ instance AWSService StorageGateway where
 
 -- | An exception occurred because an invalid gateway request was issued to
 -- the service. See the error and message fields for more information.
-_InvalidGatewayRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidGatewayRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGatewayRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidGatewayRequestException"
 
 -- | An internal server error has occurred during the request. See the error
 -- and message fields for more information.
-_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError =
     _ServiceError . hasStatus 500 . hasCode "InternalServerError"

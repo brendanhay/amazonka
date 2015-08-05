@@ -138,30 +138,30 @@ instance AWSService Route53Domains where
 -- may refer to the ID of an operation that is already completed. For a
 -- domain name, it may not be a valid domain name or belong to the
 -- requester account.
-_InvalidInput :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 
 -- | The number of operations or jobs running exceeded the allowed threshold
 -- for the account.
-_OperationLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_OperationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationLimitExceeded =
     _ServiceError . hasStatus 400 . hasCode "OperationLimitExceeded"
 
 -- | The number of domains has exceeded the allowed threshold for the
 -- account.
-_DomainLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_DomainLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainLimitExceeded =
     _ServiceError . hasStatus 400 . hasCode "DomainLimitExceeded"
 
 -- | Amazon Route 53 does not support this top-level domain.
-_UnsupportedTLD :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedTLD :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedTLD = _ServiceError . hasStatus 400 . hasCode "UnsupportedTLD"
 
 -- | The top-level domain does not support this operation.
-_TLDRulesViolation :: AWSError a => Getting (First ServiceError) a ServiceError
+_TLDRulesViolation :: AsError a => Getting (First ServiceError) a ServiceError
 _TLDRulesViolation =
     _ServiceError . hasStatus 400 . hasCode "TLDRulesViolation"
 
 -- | The request is already in progress for the domain.
-_DuplicateRequest :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateRequest :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateRequest = _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"

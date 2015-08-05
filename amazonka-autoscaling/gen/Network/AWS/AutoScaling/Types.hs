@@ -307,31 +307,31 @@ instance AWSService AutoScaling where
 -- | You have already reached a limit for your Auto Scaling resources (for
 -- example, groups, launch configurations, or lifecycle hooks). For more
 -- information, see DescribeAccountLimits.
-_LimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
 -- | You already have an Auto Scaling group or launch configuration with this
 -- name.
-_AlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
 -- | The Auto Scaling group or launch configuration can\'t be deleted because
 -- it is in use.
-_ResourceInUseFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 
 -- | The @NextToken@ value is not valid.
-_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | The Auto Scaling group can\'t be deleted because there are scaling
 -- activities in progress.
-_ScalingActivityInProgressFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ScalingActivityInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ScalingActivityInProgressFault =
     _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress"
 
 -- | You already have a pending update to an Auto Scaling resource (for
 -- example, a group, instance, or load balancer).
-_ResourceContentionFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceContentionFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceContentionFault =
     _ServiceError . hasStatus 500 . hasCode "ResourceContention"

@@ -316,35 +316,35 @@ instance AWSService DynamoDB where
 -- go to
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff>
 -- in the /Amazon DynamoDB Developer Guide/.
-_ProvisionedThroughputExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ProvisionedThroughputExceededException =
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
 -- | A condition specified in the operation could not be evaluated.
-_ConditionalCheckFailedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ConditionalCheckFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConditionalCheckFailedException =
     _ServiceError . hasCode "ConditionalCheckFailedException"
 
 -- | An item collection is too large. This exception is only returned for
 -- tables that have one or more local secondary indexes.
-_ItemCollectionSizeLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ItemCollectionSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ItemCollectionSizeLimitExceededException =
     _ServiceError . hasCode "ItemCollectionSizeLimitExceededException"
 
 -- | An error occurred on the server side.
-_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _ServiceError . hasCode "InternalServerError"
 
 -- | The operation tried to access a nonexistent table or index. The resource
 -- might not be specified correctly, or its status might not be @ACTIVE@.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | The operation conflicts with the resource\'s availability. For example,
 -- you attempted to recreate an existing table, or tried to delete a table
 -- currently in the @CREATING@ state.
-_ResourceInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
 
 -- | The number of concurrent table requests (cumulative number of tables in
@@ -356,5 +356,5 @@ _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
 -- more than one such table simultaneously.
 --
 -- The total limit of tables in the @ACTIVE@ state is 250.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

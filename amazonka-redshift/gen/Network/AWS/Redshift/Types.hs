@@ -511,7 +511,7 @@ instance AWSService Redshift where
           | otherwise = Nothing
 
 -- | The encryption key has exceeded its grant limit in AWS KMS.
-_LimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault =
     _ServiceError . hasStatus 400 . hasCode "LimitExceededFault"
 
@@ -520,79 +520,79 @@ _LimitExceededFault =
 -- to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSecurityGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSecurityGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSecurityGroupQuotaExceededFault =
     _ServiceError .
     hasStatus 400 . hasCode "QuotaExceeded.ClusterSecurityGroup"
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request
 -- again.
-_CopyToRegionDisabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_CopyToRegionDisabledFault :: AsError a => Getting (First ServiceError) a ServiceError
 _CopyToRegionDisabledFault =
     _ServiceError . hasStatus 400 . hasCode "CopyToRegionDisabledFault"
 
 -- | The authorization quota for the cluster security group has been reached.
-_AuthorizationQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "AuthorizationQuotaExceeded"
 
 -- | The specified Amazon Redshift event source could not be found.
-_SourceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SourceNotFoundFault = _ServiceError . hasStatus 404 . hasCode "SourceNotFound"
 
 -- | The string specified for the logging S3 key prefix does not comply with
 -- the documented constraints.
-_InvalidS3KeyPrefixFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3KeyPrefixFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3KeyPrefixFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidS3KeyPrefixFault"
 
 -- | The specified CIDR block or EC2 security group is already authorized for
 -- the specified cluster security group.
-_AuthorizationAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
 
 -- | The state of the cluster security group is not @available@.
-_InvalidClusterSecurityGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSecurityGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterSecurityGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterSecurityGroupState"
 
 -- | A cluster security group with the same name already exists.
-_ClusterSecurityGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSecurityGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSecurityGroupAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSecurityGroupAlreadyExists"
 
 -- | The Elastic IP (EIP) is invalid or cannot be found.
-_InvalidElasticIPFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidElasticIPFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidElasticIPFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidElasticIpFault"
 
 -- | The snapshot identifier does not refer to an existing cluster snapshot.
-_ClusterSnapshotNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSnapshotNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSnapshotNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ClusterSnapshotNotFound"
 
 -- | There is no Amazon Redshift HSM configuration with the specified
 -- identifier.
-_HSMConfigurationNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMConfigurationNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _HSMConfigurationNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "HsmConfigurationNotFoundFault"
 
 -- | The specified HSM configuration is not in the @available@ state, or it
 -- is still in use by one or more Amazon Redshift clusters.
-_InvalidHSMConfigurationStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidHSMConfigurationStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidHSMConfigurationStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidHsmConfigurationStateFault"
 
 -- | The value specified as a snapshot identifier is already used by an
 -- existing snapshot.
-_ClusterSnapshotAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSnapshotAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSnapshotAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSnapshotAlreadyExists"
 
 -- | There is already an existing Amazon Redshift HSM configuration with the
 -- specified identifier.
-_HSMConfigurationAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMConfigurationAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _HSMConfigurationAlreadyExistsFault =
     _ServiceError .
     hasStatus 400 . hasCode "HsmConfigurationAlreadyExistsFault"
@@ -601,26 +601,26 @@ _HSMConfigurationAlreadyExistsFault =
 -- values, or it specified a category that does not apply to the specified
 -- source type. The allowed values are Configuration, Management,
 -- Monitoring, and Security.
-_SubscriptionCategoryNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionCategoryNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionCategoryNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SubscriptionCategoryNotFound"
 
 -- | An Amazon Redshift event notification subscription with the specified
 -- name does not exist.
-_SubscriptionNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SubscriptionNotFound"
 
 -- | The requested subnet is not valid, or not all of the subnets are in the
 -- same VPC.
-_InvalidSubnet :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
 -- | The S3 bucket name is invalid. For more information about naming rules,
 -- go to
 -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
 -- in the Amazon Simple Storage Service (S3) Developer Guide.
-_InvalidS3BucketNameFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3BucketNameFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3BucketNameFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidS3BucketNameFault"
 
@@ -628,17 +628,17 @@ _InvalidS3BucketNameFault =
 -- this account. For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterQuotaExceeded"
 
 -- | The cluster already has cross-region snapshot copy disabled.
-_SnapshotCopyAlreadyDisabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyAlreadyDisabledFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotCopyAlreadyDisabledFault =
     _ServiceError . hasStatus 400 . hasCode "SnapshotCopyAlreadyDisabledFault"
 
 -- | The parameter group name does not refer to an existing parameter group.
-_ClusterParameterGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterParameterGroupNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ClusterParameterGroupNotFound"
 
@@ -646,43 +646,43 @@ _ClusterParameterGroupNotFoundFault =
 -- about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_HSMClientCertificateQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMClientCertificateQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _HSMClientCertificateQuotaExceededFault =
     _ServiceError .
     hasStatus 400 . hasCode "HsmClientCertificateQuotaExceededFault"
 
 -- | The AWS account has exceeded the maximum number of snapshot copy grants
 -- in this region.
-_SnapshotCopyGrantQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyGrantQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotCopyGrantQuotaExceededFault =
     _ServiceError .
     hasStatus 400 . hasCode "SnapshotCopyGrantQuotaExceededFault"
 
 -- | The cluster already has cross-region snapshot copy enabled.
-_SnapshotCopyAlreadyEnabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyAlreadyEnabledFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotCopyAlreadyEnabledFault =
     _ServiceError . hasStatus 400 . hasCode "SnapshotCopyAlreadyEnabledFault"
 
 -- | A cluster parameter group with the same name already exists.
-_ClusterParameterGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterParameterGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterParameterGroupAlreadyExistsFault =
     _ServiceError .
     hasStatus 400 . hasCode "ClusterParameterGroupAlreadyExists"
 
 -- | The operation would exceed the number of nodes allowed for a cluster.
-_NumberOfNodesPerClusterLimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberOfNodesPerClusterLimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _NumberOfNodesPerClusterLimitExceededFault =
     _ServiceError .
     hasStatus 400 . hasCode "NumberOfNodesPerClusterLimitExceeded"
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request
 -- again.
-_SnapshotCopyDisabledFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyDisabledFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotCopyDisabledFault =
     _ServiceError . hasStatus 400 . hasCode "SnapshotCopyDisabledFault"
 
 -- | A resize operation for the specified cluster is not found.
-_ResizeNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResizeNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResizeNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ResizeNotFound"
 
 -- | The request would result in the user exceeding the allowed number of
@@ -690,55 +690,55 @@ _ResizeNotFoundFault = _ServiceError . hasStatus 404 . hasCode "ResizeNotFound"
 -- go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterParameterGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterParameterGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterParameterGroupQuotaExceededFault =
     _ServiceError .
     hasStatus 400 . hasCode "ClusterParameterGroupQuotaExceeded"
 
 -- | An Amazon SNS topic with the specified Amazon Resource Name (ARN) does
 -- not exist.
-_SNSTopicARNNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSTopicARNNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SNSTopicARNNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound"
 
 -- | There is no Amazon Redshift HSM client certificate with the specified
 -- identifier.
-_HSMClientCertificateNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMClientCertificateNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _HSMClientCertificateNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "HsmClientCertificateNotFoundFault"
 
 -- | The snapshot copy grant can\'t be created because a grant with the same
 -- name already exists.
-_SnapshotCopyGrantAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyGrantAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotCopyGrantAlreadyExistsFault =
     _ServiceError .
     hasStatus 400 . hasCode "SnapshotCopyGrantAlreadyExistsFault"
 
 -- | The /ClusterIdentifier/ parameter does not refer to an existing cluster.
-_ClusterNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ClusterNotFound"
 
 -- | You do not have permission to publish to the specified Amazon SNS topic.
-_SNSNoAuthorizationFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSNoAuthorizationFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SNSNoAuthorizationFault =
     _ServiceError . hasStatus 400 . hasCode "SNSNoAuthorization"
 
 -- | The specified snapshot copy grant can\'t be found. Make sure that the
 -- name is typed correctly and that the grant exists in the destination
 -- region.
-_SnapshotCopyGrantNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotCopyGrantNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotCopyGrantNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "SnapshotCopyGrantNotFoundFault"
 
 -- | The specified cluster is not in the @available@ state.
-_InvalidClusterStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterState"
 
 -- | The number of nodes specified exceeds the allotted capacity of the
 -- cluster.
-_InsufficientClusterCapacityFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientClusterCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientClusterCapacityFault =
     _ServiceError . hasStatus 400 . hasCode "InsufficientClusterCapacity"
 
@@ -746,108 +746,108 @@ _InsufficientClusterCapacityFault =
 -- increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_HSMConfigurationQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMConfigurationQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _HSMConfigurationQuotaExceededFault =
     _ServiceError .
     hasStatus 400 . hasCode "HsmConfigurationQuotaExceededFault"
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster snapshots.
-_ClusterSnapshotQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSnapshotQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSnapshotQuotaExceeded"
 
 -- | Amazon SNS has responded that there is a problem with the specified
 -- Amazon SNS topic.
-_SNSInvalidTopicFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SNSInvalidTopicFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SNSInvalidTopicFault =
     _ServiceError . hasStatus 400 . hasCode "SNSInvalidTopic"
 
 -- | A request option was specified that is not supported.
-_UnsupportedOptionFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOptionFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOptionFault =
     _ServiceError . hasStatus 400 . hasCode "UnsupportedOptionFault"
 
 -- | There is already an existing event notification subscription with the
 -- specified name.
-_SubscriptionAlreadyExistFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionAlreadyExistFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionAlreadyExistFault =
     _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist"
 
 -- | The cluster subnet group does not cover all Availability Zones.
-_InvalidVPCNetworkStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidVPCNetworkStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidVPCNetworkStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault"
 
 -- | The cluster subnet group name does not refer to an existing cluster
 -- subnet group.
-_ClusterSubnetGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSubnetGroupNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupNotFoundFault"
 
 -- | Could not find the specified S3 bucket.
-_BucketNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_BucketNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _BucketNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "BucketNotFoundFault"
 
 -- | The subscription request is invalid because it is a duplicate request.
 -- This subscription request is already in progress.
-_InvalidSubscriptionStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSubscriptionStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubscriptionStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidSubscriptionStateFault"
 
 -- | The requested operation isn\'t supported.
-_UnsupportedOperationFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperationFault =
     _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
 
 -- | The specified CIDR IP range or EC2 security group is not authorized for
 -- the specified cluster security group.
-_AuthorizationNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthorizationNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound"
 
 -- | The cluster subnet group cannot be deleted because it is in use.
-_InvalidClusterSubnetGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSubnetGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterSubnetGroupStateFault =
     _ServiceError .
     hasStatus 400 . hasCode "InvalidClusterSubnetGroupStateFault"
 
 -- | The state of the cluster snapshot is not @available@, or other accounts
 -- are authorized to access the snapshot.
-_InvalidClusterSnapshotStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSnapshotStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterSnapshotStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterSnapshotState"
 
 -- | A /ClusterSubnetGroupName/ is already used by an existing cluster subnet
 -- group.
-_ClusterSubnetGroupAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSubnetGroupAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupAlreadyExists"
 
 -- | The cluster security group name does not refer to an existing cluster
 -- security group.
-_ClusterSecurityGroupNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSecurityGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSecurityGroupNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ClusterSecurityGroupNotFound"
 
 -- | The specified options are incompatible.
-_IncompatibleOrderableOptions :: AWSError a => Getting (First ServiceError) a ServiceError
+_IncompatibleOrderableOptions :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleOrderableOptions =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleOrderableOptions"
 
 -- | Specified offering does not exist.
-_ReservedNodeOfferingNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeOfferingNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedNodeOfferingNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ReservedNodeOfferingNotFound"
 
 -- | The state of the subnet is invalid.
-_InvalidClusterSubnetStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSubnetStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterSubnetStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterSubnetStateFault"
 
 -- | The specified reserved compute node not found.
-_ReservedNodeNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedNodeNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ReservedNodeNotFound"
 
@@ -855,19 +855,19 @@ _ReservedNodeNotFoundFault =
 -- this account. For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_EventSubscriptionQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_EventSubscriptionQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _EventSubscriptionQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "EventSubscriptionQuotaExceeded"
 
 -- | The cluster parameter group action can not be completed because another
 -- task is in progress that involves the parameter group. Wait a few
 -- moments and try the operation again.
-_InvalidClusterParameterGroupStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterParameterGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterParameterGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterParameterGroupState"
 
 -- | User already has a reservation with the given identifier.
-_ReservedNodeAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedNodeAlreadyExistsFault =
     _ServiceError . hasStatus 404 . hasCode "ReservedNodeAlreadyExists"
 
@@ -875,57 +875,57 @@ _ReservedNodeAlreadyExistsFault =
 -- about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ReservedNodeQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedNodeQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "ReservedNodeQuotaExceeded"
 
 -- | An Amazon Redshift event with the specified event ID does not exist.
-_SubscriptionEventIdNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionEventIdNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionEventIdNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SubscriptionEventIdNotFound"
 
 -- | The resource could not be found.
-_ResourceNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundFault"
 
 -- | The snapshot copy grant can\'t be deleted because it is used by one or
 -- more clusters.
-_InvalidSnapshotCopyGrantStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSnapshotCopyGrantStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSnapshotCopyGrantStateFault =
     _ServiceError .
     hasStatus 400 . hasCode "InvalidSnapshotCopyGrantStateFault"
 
 -- | The restore is invalid.
-_InvalidRestoreFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRestoreFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRestoreFault = _ServiceError . hasStatus 406 . hasCode "InvalidRestore"
 
 -- | The specified region is incorrect or does not exist.
-_UnknownSnapshotCopyRegionFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnknownSnapshotCopyRegionFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UnknownSnapshotCopyRegionFault =
     _ServiceError . hasStatus 404 . hasCode "UnknownSnapshotCopyRegionFault"
 
 -- | The owner of the specified snapshot has not authorized your account to
 -- access the snapshot.
-_AccessToSnapshotDeniedFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_AccessToSnapshotDeniedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessToSnapshotDeniedFault =
     _ServiceError . hasStatus 400 . hasCode "AccessToSnapshotDenied"
 
 -- | The account already has a cluster with the given identifier.
-_ClusterAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterAlreadyExists"
 
 -- | There is already an existing Amazon Redshift HSM client certificate with
 -- the specified identifier.
-_HSMClientCertificateAlreadyExistsFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_HSMClientCertificateAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _HSMClientCertificateAlreadyExistsFault =
     _ServiceError .
     hasStatus 400 . hasCode "HsmClientCertificateAlreadyExistsFault"
 
 -- | The specified HSM client certificate is not in the @available@ state, or
 -- it is still in use by one or more Amazon Redshift clusters.
-_InvalidHSMClientCertificateStateFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidHSMClientCertificateStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidHSMClientCertificateStateFault =
     _ServiceError .
     hasStatus 400 . hasCode "InvalidHsmClientCertificateStateFault"
@@ -934,12 +934,12 @@ _InvalidHSMClientCertificateStateFault =
 -- For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_NumberOfNodesQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberOfNodesQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _NumberOfNodesQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "NumberOfNodesQuotaExceeded"
 
 -- | The request exceeds the limit of 10 tags for the resource.
-_TagLimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_TagLimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _TagLimitExceededFault =
     _ServiceError . hasStatus 400 . hasCode "TagLimitExceededFault"
 
@@ -948,22 +948,22 @@ _TagLimitExceededFault =
 -- go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSubnetQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSubnetQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSubnetQuotaExceededFault"
 
 -- | A specified subnet is already in use by another cluster.
-_SubnetAlreadyInUse :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubnetAlreadyInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetAlreadyInUse =
     _ServiceError . hasStatus 400 . hasCode "SubnetAlreadyInUse"
 
 -- | The tag is invalid.
-_InvalidTagFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTagFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagFault = _ServiceError . hasStatus 400 . hasCode "InvalidTagFault"
 
 -- | The cluster does not have read bucket or put object permissions on the
 -- S3 bucket specified when enabling logging.
-_InsufficientS3BucketPolicyFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientS3BucketPolicyFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientS3BucketPolicyFault =
     _ServiceError . hasStatus 400 . hasCode "InsufficientS3BucketPolicyFault"
 
@@ -971,18 +971,18 @@ _InsufficientS3BucketPolicyFault =
 -- subnet groups. For information about increasing your quota, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSubnetGroupQuotaExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterSubnetGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterSubnetGroupQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupQuotaExceeded"
 
 -- | The value specified for the event severity was not one of the allowed
 -- values, or it specified a severity that does not apply to the specified
 -- source type. The allowed values are ERROR and INFO.
-_SubscriptionSeverityNotFoundFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_SubscriptionSeverityNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionSeverityNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SubscriptionSeverityNotFound"
 
 -- | Your account is not authorized to perform the requested operation.
-_UnauthorizedOperation :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnauthorizedOperation :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedOperation =
     _ServiceError . hasStatus 400 . hasCode "UnauthorizedOperation"

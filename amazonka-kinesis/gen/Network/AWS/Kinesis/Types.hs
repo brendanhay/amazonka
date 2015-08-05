@@ -129,12 +129,12 @@ instance AWSService Kinesis where
           | otherwise = Nothing
 
 -- | The provided iterator exceeds the maximum age allowed.
-_ExpiredIteratorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException"
 
 -- | A specified parameter exceeds its restrictions, is not supported, or
 -- can\'t be used. For more information, see the returned message.
-_InvalidArgumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 
 -- | The request rate is too high, or the requested data is too large for the
@@ -142,22 +142,22 @@ _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 -- more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS>
 -- in the /AWS General Reference/.
-_ProvisionedThroughputExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ProvisionedThroughputExceededException =
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
 -- | The requested resource could not be found. It might not be specified
 -- correctly, or it might not be in the @ACTIVE@ state.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | The resource is not available for this operation. For example, you
 -- attempted to split a shard but the stream is not in the @ACTIVE@ state.
-_ResourceInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
 
 -- | The requested resource exceeds the maximum number allowed, or the number
 -- of concurrent stream requests exceeds the maximum number allowed (5).
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

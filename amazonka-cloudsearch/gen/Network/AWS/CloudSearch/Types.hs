@@ -328,34 +328,34 @@ instance AWSService CloudSearch where
           | otherwise = Nothing
 
 -- | An error occurred while processing the request.
-_BaseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_BaseException :: AsError a => Getting (First ServiceError) a ServiceError
 _BaseException = _ServiceError . hasCode "BaseException"
 
 -- | The request was rejected because it attempted an operation which is not
 -- enabled.
-_DisabledOperationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DisabledOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _DisabledOperationException =
     _ServiceError . hasStatus 409 . hasCode "DisabledAction"
 
 -- | An internal error occurred while processing the request. If this problem
 -- persists, report an issue from the
 -- <http://status.aws.amazon.com/ Service Health Dashboard>.
-_InternalException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException =
     _ServiceError . hasStatus 500 . hasCode "InternalException"
 
 -- | The request was rejected because it specified an invalid type
 -- definition.
-_InvalidTypeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTypeException = _ServiceError . hasStatus 409 . hasCode "InvalidType"
 
 -- | The request was rejected because it attempted to reference a resource
 -- that does not exist.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 409 . hasCode "ResourceNotFound"
 
 -- | The request was rejected because a resource limit has already been met.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 409 . hasCode "LimitExceeded"

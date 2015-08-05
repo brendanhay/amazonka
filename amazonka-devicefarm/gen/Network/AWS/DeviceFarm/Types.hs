@@ -325,21 +325,21 @@ instance AWSService DeviceFarm where
           | otherwise = Nothing
 
 -- | An entity with the same name already exists.
-_IdempotencyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IdempotencyException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdempotencyException = _ServiceError . hasCode "IdempotencyException"
 
 -- | The specified entity was not found.
-_NotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _ServiceError . hasCode "NotFoundException"
 
 -- | An invalid argument was specified.
-_ArgumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _ArgumentException = _ServiceError . hasCode "ArgumentException"
 
 -- | There was a problem with the service account.
-_ServiceAccountException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceAccountException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceAccountException = _ServiceError . hasCode "ServiceAccountException"
 
 -- | A limit was exceeded.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

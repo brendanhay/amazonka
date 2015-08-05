@@ -164,39 +164,39 @@ instance AWSService CloudWatch where
           | otherwise = Nothing
 
 -- | The quota for alarms for this customer has already been reached.
-_LimitExceededFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
 -- | The next token specified is invalid.
-_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | Indicates that the request processing has failed due to some unknown
 -- error, exception, or failure.
-_InternalServiceFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceFault =
     _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
 
 -- | Bad or out-of-range value was supplied for the input parameter.
-_InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
 -- | Data was not syntactically valid JSON.
-_InvalidFormatFault :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidFormatFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
 
 -- | An input parameter that is mandatory for processing the request is not
 -- supplied.
-_MissingRequiredParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
     _ServiceError . hasStatus 400 . hasCode "MissingParameter"
 
 -- | Parameters that must not be used together were used together.
-_InvalidParameterCombinationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterCombinationException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
 
 -- | The named resource does not exist.
-_ResourceNotFound :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFound = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"

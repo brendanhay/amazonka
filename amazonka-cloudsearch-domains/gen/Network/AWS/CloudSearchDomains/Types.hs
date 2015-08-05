@@ -126,10 +126,10 @@ instance AWSService CloudSearchDomains where
 
 -- | Information about any problems encountered while processing an upload
 -- request.
-_DocumentServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentServiceException = _ServiceError . hasCode "DocumentServiceException"
 
 -- | Information about any problems encountered while processing a search
 -- request.
-_SearchException :: AWSError a => Getting (First ServiceError) a ServiceError
+_SearchException :: AsError a => Getting (First ServiceError) a ServiceError
 _SearchException = _ServiceError . hasCode "SearchException"

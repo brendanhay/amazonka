@@ -372,88 +372,88 @@ instance AWSService CodePipeline where
           | otherwise = Nothing
 
 -- | The validation was specified in an invalid format.
-_ValidationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | The client token was specified in an invalid format
-_InvalidClientTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidClientTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClientTokenException =
     _ServiceError . hasCode "InvalidClientTokenException"
 
 -- | The specified nonce was specified in an invalid format.
-_InvalidNonceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNonceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNonceException = _ServiceError . hasCode "InvalidNonceException"
 
 -- | The specified action cannot be found.
-_ActionNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ActionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ActionNotFoundException = _ServiceError . hasCode "ActionNotFoundException"
 
 -- | The specified gate declaration was specified in an invalid format.
-_InvalidBlockerDeclarationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidBlockerDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBlockerDeclarationException =
     _ServiceError . hasCode "InvalidBlockerDeclarationException"
 
 -- | The specified job state was specified in an invalid format.
-_InvalidJobStateException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidJobStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidJobStateException = _ServiceError . hasCode "InvalidJobStateException"
 
 -- | The specified job was specified in an invalid format or cannot be found.
-_InvalidJobException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidJobException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidJobException = _ServiceError . hasCode "InvalidJobException"
 
 -- | The specified pipeline version was specified in an invalid format or
 -- cannot be found.
-_PipelineVersionNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PipelineVersionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineVersionNotFoundException =
     _ServiceError . hasCode "PipelineVersionNotFoundException"
 
 -- | The specified action type cannot be found.
-_ActionTypeNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ActionTypeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ActionTypeNotFoundException =
     _ServiceError . hasCode "ActionTypeNotFoundException"
 
 -- | The next token was specified in an invalid format. Make sure that the
 -- next token you provided is the token returned by a previous call.
-_InvalidNextTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | The specified stage declaration was specified in an invalid format.
-_InvalidStageDeclarationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidStageDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidStageDeclarationException =
     _ServiceError . hasCode "InvalidStageDeclarationException"
 
 -- | The specified action declaration was specified in an invalid format.
-_InvalidActionDeclarationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidActionDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidActionDeclarationException =
     _ServiceError . hasCode "InvalidActionDeclarationException"
 
 -- | The specified stage was specified in an invalid format or cannot be
 -- found.
-_StageNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_StageNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _StageNotFoundException = _ServiceError . hasCode "StageNotFoundException"
 
 -- | The specified job was specified in an invalid format or cannot be found.
-_JobNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_JobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _JobNotFoundException = _ServiceError . hasCode "JobNotFoundException"
 
 -- | The specified structure was specified in an invalid format.
-_InvalidStructureException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidStructureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidStructureException =
     _ServiceError . hasCode "InvalidStructureException"
 
 -- | The specified pipeline was specified in an invalid format or cannot be
 -- found.
-_PipelineNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNotFoundException =
     _ServiceError . hasCode "PipelineNotFoundException"
 
 -- | The specified pipeline name is already in use.
-_PipelineNameInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PipelineNameInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNameInUseException =
     _ServiceError . hasCode "PipelineNameInUseException"
 
 -- | The number of pipelines associated with the AWS account has exceeded the
 -- limit allowed for the account.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

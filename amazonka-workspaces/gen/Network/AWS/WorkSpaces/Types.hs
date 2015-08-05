@@ -168,16 +168,16 @@ instance AWSService WorkSpaces where
           | otherwise = Nothing
 
 -- | One or more parameter values are not valid.
-_InvalidParameterValuesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValuesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValuesException =
     _ServiceError . hasCode "InvalidParameterValuesException"
 
 -- | The specified resource is not available.
-_ResourceUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceUnavailableException =
     _ServiceError . hasCode "ResourceUnavailableException"
 
 -- | Your resource limits have been exceeded.
-_ResourceLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceLimitExceededException =
     _ServiceError . hasCode "ResourceLimitExceededException"

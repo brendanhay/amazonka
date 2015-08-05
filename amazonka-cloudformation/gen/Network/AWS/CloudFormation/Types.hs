@@ -202,16 +202,16 @@ instance AWSService CloudFormation where
 
 -- | The template contains resources with capabilities that were not
 -- specified in the Capabilities parameter.
-_InsufficientCapabilitiesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientCapabilitiesException =
     _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"
 
 -- | Quota for the resource has already been reached.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
 
 -- | Resource with the name requested already exists.
-_AlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException"

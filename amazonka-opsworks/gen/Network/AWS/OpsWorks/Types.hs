@@ -544,10 +544,10 @@ instance AWSService OpsWorks where
           | otherwise = Nothing
 
 -- | Indicates that a request was invalid.
-_ValidationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | Indicates that a resource was not found.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"

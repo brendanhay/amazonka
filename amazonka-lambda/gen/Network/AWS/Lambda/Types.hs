@@ -121,17 +121,17 @@ instance AWSService Lambda where
           | otherwise = Nothing
 
 -- | Lambda function access policy is limited to 20 KB.
-_PolicyLengthExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyLengthExceededException =
     _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException"
 
 -- | Prism for UnsupportedMediaTypeException' errors.
-_UnsupportedMediaTypeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedMediaTypeException =
     _ServiceError . hasStatus 415 . hasCode "UnsupportedMediaTypeException"
 
 -- | The request body could not be parsed as JSON.
-_InvalidRequestContentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestContentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestContentException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException"
 
@@ -139,36 +139,36 @@ _InvalidRequestContentException =
 -- provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or
 -- the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to
 -- assume you will get this exception.
-_InvalidParameterValueException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
 -- | Prism for RequestTooLargeException' errors.
-_RequestTooLargeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_RequestTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTooLargeException =
     _ServiceError . hasStatus 413 . hasCode "RequestTooLargeException"
 
 -- | Prism for TooManyRequestsException' errors.
-_TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
 
 -- | The AWS Lambda service encountered an internal error.
-_ServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException"
 
 -- | Prism for CodeStorageExceededException' errors.
-_CodeStorageExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CodeStorageExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeStorageExceededException =
     _ServiceError . hasStatus 400 . hasCode "CodeStorageExceededException"
 
 -- | The resource already exists.
-_ResourceConflictException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceConflictException =
     _ServiceError . hasStatus 409 . hasCode "ResourceConflictException"
 
 -- | The resource (for example, a Lambda function or access policy statement)
 -- specified in the request does not exist.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"

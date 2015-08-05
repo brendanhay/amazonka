@@ -179,110 +179,110 @@ instance AWSService Config where
           | otherwise = Nothing
 
 -- | The requested action is not valid.
-_ValidationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | The specified time range is not valid. The earlier time is not
 -- chronologically before the later time.
-_InvalidTimeRangeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidTimeRangeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTimeRangeException =
     _ServiceError . hasCode "InvalidTimeRangeException"
 
 -- | AWS Config throws an exception if the recording group does not contain a
 -- valid list of resource types. Invalid values could also be incorrectly
 -- formatted.
-_InvalidRecordingGroupException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRecordingGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRecordingGroupException =
     _ServiceError . hasCode "InvalidRecordingGroupException"
 
 -- | The specified Amazon SNS topic does not exist.
-_InvalidSNSTopicARNException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidSNSTopicARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSNSTopicARNException =
     _ServiceError . hasCode "InvalidSNSTopicARNException"
 
 -- | You have provided a null or empty role ARN.
-_InvalidRoleException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRoleException = _ServiceError . hasCode "InvalidRoleException"
 
 -- | You cannot delete the delivery channel you specified because the
 -- configuration recorder is running.
-_LastDeliveryChannelDeleteFailedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LastDeliveryChannelDeleteFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _LastDeliveryChannelDeleteFailedException =
     _ServiceError . hasCode "LastDeliveryChannelDeleteFailedException"
 
 -- | You have reached the limit on the pagination.
-_InvalidLimitException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidLimitException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLimitException = _ServiceError . hasCode "InvalidLimitException"
 
 -- | The specified delivery channel name is not valid.
-_InvalidDeliveryChannelNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDeliveryChannelNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeliveryChannelNameException =
     _ServiceError . hasCode "InvalidDeliveryChannelNameException"
 
 -- | You have specified a delivery channel that does not exist.
-_NoSuchDeliveryChannelException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchDeliveryChannelException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDeliveryChannelException =
     _ServiceError . hasCode "NoSuchDeliveryChannelException"
 
 -- | You have specified a resource that is either unknown or has not been
 -- discovered.
-_ResourceNotDiscoveredException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotDiscoveredException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotDiscoveredException =
     _ServiceError . hasCode "ResourceNotDiscoveredException"
 
 -- | The specified nextToken for pagination is not valid.
-_InvalidNextTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | The specified Amazon S3 bucket does not exist.
-_NoSuchBucketException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchBucketException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
 
 -- | There are no configuration recorders available to provide the role
 -- needed to describe your resources.
-_NoAvailableConfigurationRecorderException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoAvailableConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoAvailableConfigurationRecorderException =
     _ServiceError . hasCode "NoAvailableConfigurationRecorderException"
 
 -- | There is no delivery channel available to record configurations.
-_NoAvailableDeliveryChannelException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoAvailableDeliveryChannelException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoAvailableDeliveryChannelException =
     _ServiceError . hasCode "NoAvailableDeliveryChannelException"
 
 -- | There is no configuration recorder running.
-_NoRunningConfigurationRecorderException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoRunningConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoRunningConfigurationRecorderException =
     _ServiceError . hasCode "NoRunningConfigurationRecorderException"
 
 -- | You have reached the limit on the number of recorders you can create.
-_MaxNumberOfConfigurationRecordersExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MaxNumberOfConfigurationRecordersExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxNumberOfConfigurationRecordersExceededException =
     _ServiceError .
     hasCode "MaxNumberOfConfigurationRecordersExceededException"
 
 -- | You have provided a configuration recorder name that is not valid.
-_InvalidConfigurationRecorderNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidConfigurationRecorderNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationRecorderNameException =
     _ServiceError . hasCode "InvalidConfigurationRecorderNameException"
 
 -- | Your Amazon S3 bucket policy does not permit AWS Config to write to it.
-_InsufficientDeliveryPolicyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientDeliveryPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientDeliveryPolicyException =
     _ServiceError . hasCode "InsufficientDeliveryPolicyException"
 
 -- | You have reached the limit on the number of delivery channels you can
 -- create.
-_MaxNumberOfDeliveryChannelsExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MaxNumberOfDeliveryChannelsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxNumberOfDeliveryChannelsExceededException =
     _ServiceError . hasCode "MaxNumberOfDeliveryChannelsExceededException"
 
 -- | You have specified a configuration recorder that does not exist.
-_NoSuchConfigurationRecorderException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchConfigurationRecorderException =
     _ServiceError . hasCode "NoSuchConfigurationRecorderException"
 
 -- | The specified Amazon S3 key prefix is not valid.
-_InvalidS3KeyPrefixException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidS3KeyPrefixException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3KeyPrefixException =
     _ServiceError . hasCode "InvalidS3KeyPrefixException"

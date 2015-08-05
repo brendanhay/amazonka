@@ -131,11 +131,11 @@ instance AWSService SES where
 
 -- | Indicates that the action failed, and the message could not be sent.
 -- Check the error stack for more information about what caused the error.
-_MessageRejected :: AWSError a => Getting (First ServiceError) a ServiceError
+_MessageRejected :: AsError a => Getting (First ServiceError) a ServiceError
 _MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
 
 -- | Indicates that the provided policy is invalid. Check the error stack for
 -- more information about what caused the error.
-_InvalidPolicyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPolicyException =
     _ServiceError . hasStatus 400 . hasCode "InvalidPolicy"

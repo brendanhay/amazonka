@@ -145,70 +145,70 @@ instance AWSService CognitoSync where
 
 -- | Thrown when a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
 
 -- | Thrown when a user is not authorized to access the requested resource.
-_NotAuthorizedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotAuthorizedException =
     _ServiceError . hasStatus 403 . hasCode "NotAuthorizedError"
 
 -- | Indicates an internal service error.
-_InternalErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException =
     _ServiceError . hasStatus 500 . hasCode "InternalError"
 
 -- | Prism for InvalidConfigurationException' errors.
-_InvalidConfigurationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationException =
     _ServiceError . hasStatus 400 . hasCode "InvalidConfiguration"
 
 -- | An exception thrown when there is an IN_PROGRESS bulk publish operation
 -- for the given identity pool.
-_DuplicateRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateRequestException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"
 
 -- | AWS Lambda throttled your account, please contact AWS Support
-_LambdaThrottledException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LambdaThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _LambdaThrottledException =
     _ServiceError . hasStatus 429 . hasCode "LambdaThrottled"
 
 -- | An exception thrown when a bulk publish operation is requested less than
 -- 24 hours after a previous bulk publish operation completed successfully.
-_AlreadyStreamedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyStreamedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyStreamedException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyStreamed"
 
 -- | The AWS Lambda function returned invalid output or an exception.
-_InvalidLambdaFunctionOutputException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidLambdaFunctionOutputException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaFunctionOutputException =
     _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput"
 
 -- | Thrown if there are parallel requests to modify a resource.
-_ConcurrentModificationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
 
 -- | Thrown if the request is throttled.
-_TooManyRequestsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _ServiceError . hasStatus 429 . hasCode "TooManyRequests"
 
 -- | Thrown if an update can\'t be applied because the resource was changed
 -- by another call and this would result in a conflict.
-_ResourceConflictException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceConflictException =
     _ServiceError . hasStatus 409 . hasCode "ResourceConflict"
 
 -- | Thrown if the resource doesn\'t exist.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"
 
 -- | Thrown when the limit on the number of objects or operations has been
 -- exceeded.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceeded"

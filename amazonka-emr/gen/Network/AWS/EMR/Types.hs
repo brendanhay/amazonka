@@ -378,16 +378,16 @@ instance AWSService EMR where
           | otherwise = Nothing
 
 -- | This exception occurs when there is something wrong with user input.
-_InvalidRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
-_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError =
     _ServiceError . hasStatus 500 . hasCode "InternalFailure"
 
 -- | This exception occurs when there is an internal failure in the EMR
 -- service.
-_InternalServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerException = _ServiceError . hasCode "InternalServerException"

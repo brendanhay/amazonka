@@ -178,12 +178,12 @@ instance AWSService DirectConnect where
 
 -- | The API was called with invalid parameters. The error message will
 -- contain additional details about the cause.
-_DirectConnectClientException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectClientException =
     _ServiceError . hasCode "DirectConnectClientException"
 
 -- | A server-side error occurred during the API call. The error message will
 -- contain additional details about the cause.
-_DirectConnectServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectConnectServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectServerException =
     _ServiceError . hasCode "DirectConnectServerException"

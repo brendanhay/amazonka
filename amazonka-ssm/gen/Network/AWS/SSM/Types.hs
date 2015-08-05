@@ -150,73 +150,73 @@ instance AWSService SSM where
 
 -- | You must disassociate a configuration document from all instances before
 -- you can delete it.
-_AssociatedInstances :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociatedInstances :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociatedInstances =
     _ServiceError . hasStatus 400 . hasCode "AssociatedInstances"
 
 -- | The specified token is not valid.
-_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | You must specify the ID of a running instance.
-_InvalidInstanceId :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceId =
     _ServiceError . hasStatus 404 . hasCode "InvalidInstanceId"
 
 -- | The updated status is the same as the current status.
-_StatusUnchanged :: AWSError a => Getting (First ServiceError) a ServiceError
+_StatusUnchanged :: AsError a => Getting (First ServiceError) a ServiceError
 _StatusUnchanged = _ServiceError . hasStatus 400 . hasCode "StatusUnchanged"
 
 -- | You cannot specify an instance ID in more than one association.
-_DuplicateInstanceId :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateInstanceId =
     _ServiceError . hasStatus 404 . hasCode "DuplicateInstanceId"
 
 -- | The configuration document is not valid.
-_InvalidDocument :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDocument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocument = _ServiceError . hasStatus 404 . hasCode "InvalidDocument"
 
 -- | You can have at most 2,000 active associations.
-_AssociationLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociationLimitExceeded =
     _ServiceError . hasStatus 400 . hasCode "AssociationLimitExceeded"
 
 -- | The content for the configuration document is not valid.
-_InvalidDocumentContent :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocumentContent =
     _ServiceError . hasStatus 400 . hasCode "InvalidDocumentContent"
 
 -- | The specified association already exists.
-_AssociationAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociationAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociationAlreadyExists =
     _ServiceError . hasStatus 400 . hasCode "AssociationAlreadyExists"
 
 -- | The specified association does not exist.
-_AssociationDoesNotExist :: AWSError a => Getting (First ServiceError) a ServiceError
+_AssociationDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
 _AssociationDoesNotExist =
     _ServiceError . hasStatus 404 . hasCode "AssociationDoesNotExist"
 
 -- | An error occurred on the server side.
-_InternalServerError :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError =
     _ServiceError . hasStatus 500 . hasCode "InternalServerError"
 
 -- | The size limit of a configuration document is 64 KB.
-_MaxDocumentSizeExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxDocumentSizeExceeded =
     _ServiceError . hasStatus 400 . hasCode "MaxDocumentSizeExceeded"
 
 -- | There are concurrent updates for a resource that supports one update at
 -- a time.
-_TooManyUpdates :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyUpdates :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyUpdates = _ServiceError . hasStatus 429 . hasCode "TooManyUpdates"
 
 -- | The specified configuration document already exists.
-_DocumentAlreadyExists :: AWSError a => Getting (First ServiceError) a ServiceError
+_DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentAlreadyExists =
     _ServiceError . hasStatus 400 . hasCode "DocumentAlreadyExists"
 
 -- | You can have at most 100 active configuration documents.
-_DocumentLimitExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_DocumentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentLimitExceeded =
     _ServiceError . hasStatus 400 . hasCode "DocumentLimitExceeded"

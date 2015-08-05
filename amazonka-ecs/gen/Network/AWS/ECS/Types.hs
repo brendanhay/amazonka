@@ -283,51 +283,51 @@ instance AWSService ECS where
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
 -- | These errors are usually caused by a server-side issue.
-_ServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerException = _ServiceError . hasCode "ServerException"
 
 -- | You cannot delete a cluster that contains services. You must first
 -- update the service to reduce its desired task count to 0 and then delete
 -- the service. For more information, see UpdateService and DeleteService.
-_ClusterContainsServicesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterContainsServicesException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterContainsServicesException =
     _ServiceError . hasCode "ClusterContainsServicesException"
 
 -- | You cannot delete a cluster that has registered container instances. You
 -- must first deregister the container instances before you can delete the
 -- cluster. For more information, see DeregisterContainerInstance.
-_ClusterContainsContainerInstancesException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterContainsContainerInstancesException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterContainsContainerInstancesException =
     _ServiceError . hasCode "ClusterContainsContainerInstancesException"
 
 -- | The specified service is not active. You cannot update a service that is
 -- not active. If you have previously deleted a service, you can recreate
 -- it with CreateService.
-_ServiceNotActiveException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceNotActiveException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceNotActiveException =
     _ServiceError . hasCode "ServiceNotActiveException"
 
 -- | There is no update available for this Amazon ECS container agent. This
 -- could be because the agent is already running the latest version, or it
 -- is so old that there is no update path to the current version.
-_NoUpdateAvailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoUpdateAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoUpdateAvailableException =
     _ServiceError . hasCode "NoUpdateAvailableException"
 
 -- | The specified cluster could not be found. You can view your available
 -- clusters with ListClusters. Amazon ECS clusters are region-specific.
-_ClusterNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClusterNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException"
 
 -- | The specified service could not be found. You can view your available
 -- services with ListServices. Amazon ECS services are cluster-specific and
 -- region-specific.
-_ServiceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceNotFoundException = _ServiceError . hasCode "ServiceNotFoundException"
 
 -- | Amazon ECS is unable to determine the current version of the Amazon ECS
@@ -335,7 +335,7 @@ _ServiceNotFoundException = _ServiceError . hasCode "ServiceNotFoundException"
 -- information to proceed with an update. This could be because the agent
 -- running on the container instance is an older or custom version that
 -- does not use our version information.
-_MissingVersionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingVersionException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingVersionException = _ServiceError . hasCode "MissingVersionException"
 
 -- | There is already a current Amazon ECS container agent update in progress
@@ -343,7 +343,7 @@ _MissingVersionException = _ServiceError . hasCode "MissingVersionException"
 -- disconnected while it is in a transitional stage, such as @PENDING@ or
 -- @STAGING@, the update process can get stuck in that state. However, when
 -- the agent reconnects, it will resume where it stopped previously.
-_UpdateInProgressException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UpdateInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _UpdateInProgressException =
     _ServiceError . hasCode "UpdateInProgressException"
 
@@ -351,5 +351,5 @@ _UpdateInProgressException =
 -- an action or resource on behalf of a user that doesn\'t have permission
 -- to use the action or resource, or specify an identifier that is not
 -- valid.
-_ClientException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClientException = _ServiceError . hasCode "ClientException"

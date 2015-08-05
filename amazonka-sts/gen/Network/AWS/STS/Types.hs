@@ -87,21 +87,21 @@ instance AWSService STS where
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
-_MalformedPolicyDocumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyDocumentException =
     _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
 -- | The request was rejected because the policy document was too large. The
 -- error message describes how big the policy document is, in packed form,
 -- as a percentage of what the API allows.
-_PackedPolicyTooLargeException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PackedPolicyTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _PackedPolicyTooLargeException =
     _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
 
 -- | The error returned if the message passed to @DecodeAuthorizationMessage@
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
-_InvalidAuthorizationMessageException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAuthorizationMessageException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAuthorizationMessageException =
     _ServiceError .
     hasStatus 400 . hasCode "InvalidAuthorizationMessageException"
@@ -112,21 +112,21 @@ _InvalidAuthorizationMessageException =
 -- Retry the request a limited number of times so that you don\'t exceed
 -- the request rate. If the error persists, the non-AWS identity provider
 -- might be down or not responding.
-_IdPCommunicationErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IdPCommunicationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdPCommunicationErrorException =
     _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError"
 
 -- | The web identity token that was passed is expired or is not valid. Get a
 -- new identity token from the identity provider and then retry the
 -- request.
-_ExpiredTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredTokenException =
     _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException"
 
 -- | The web identity token that was passed could not be validated by AWS.
 -- Get a new identity token from the identity provider and then retry the
 -- request.
-_InvalidIdentityTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidIdentityTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIdentityTokenException =
     _ServiceError . hasStatus 400 . hasCode "InvalidIdentityToken"
 
@@ -136,6 +136,6 @@ _InvalidIdentityTokenException =
 -- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
-_IdPRejectedClaimException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IdPRejectedClaimException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdPRejectedClaimException =
     _ServiceError . hasStatus 403 . hasCode "IDPRejectedClaim"

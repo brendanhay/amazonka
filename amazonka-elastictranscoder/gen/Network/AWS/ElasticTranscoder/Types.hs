@@ -374,40 +374,40 @@ instance AWSService ElasticTranscoder where
           | otherwise = Nothing
 
 -- | One or more required parameter values were not provided in the request.
-_ValidationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException =
     _ServiceError . hasStatus 400 . hasCode "ValidationException"
 
 -- | Prism for IncompatibleVersionException' errors.
-_IncompatibleVersionException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IncompatibleVersionException :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleVersionException =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleVersionException"
 
 -- | General authentication failure. The request was not signed correctly.
-_AccessDeniedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessDeniedException =
     _ServiceError . hasStatus 403 . hasCode "AccessDeniedException"
 
 -- | Elastic Transcoder encountered an unexpected exception while trying to
 -- fulfill the request.
-_InternalServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 
 -- | The requested resource does not exist or is not available. For example,
 -- the pipeline to which you\'re trying to add a job doesn\'t exist or is
 -- still being created.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The resource you are attempting to change is in use. For example, you
 -- are attempting to delete a pipeline that is currently in use.
-_ResourceInUseException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException =
     _ServiceError . hasStatus 409 . hasCode "ResourceInUseException"
 
 -- | Too many operations for a given AWS account. For example, the number of
 -- pipelines exceeds the maximum allowed.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 429 . hasCode "LimitExceededException"

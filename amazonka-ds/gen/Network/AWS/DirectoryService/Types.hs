@@ -198,64 +198,64 @@ instance AWSService DirectoryService where
           | otherwise = Nothing
 
 -- | An authentication error occurred.
-_AuthenticationFailedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AuthenticationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthenticationFailedException =
     _ServiceError . hasCode "AuthenticationFailedException"
 
 -- | The specified directory is unavailable or could not be found.
-_DirectoryUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectoryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectoryUnavailableException =
     _ServiceError . hasCode "DirectoryUnavailableException"
 
 -- | One or more parameters are not valid.
-_InvalidParameterException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
 -- | The operation is not supported.
-_UnsupportedOperationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperationException =
     _ServiceError . hasCode "UnsupportedOperationException"
 
 -- | The specified entity already exists.
-_EntityAlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_EntityAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityAlreadyExistsException =
     _ServiceError . hasCode "EntityAlreadyExistsException"
 
 -- | The maximum number of directories in the region has been reached. You
 -- can use the GetDirectoryLimits operation to determine your directory
 -- limits in the region.
-_DirectoryLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DirectoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectoryLimitExceededException =
     _ServiceError . hasCode "DirectoryLimitExceededException"
 
 -- | The specified entity could not be found.
-_EntityDoesNotExistException :: AWSError a => Getting (First ServiceError) a ServiceError
+_EntityDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityDoesNotExistException =
     _ServiceError . hasCode "EntityDoesNotExistException"
 
 -- | The account does not have sufficient permission to perform the
 -- operation.
-_InsufficientPermissionsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPermissionsException =
     _ServiceError . hasCode "InsufficientPermissionsException"
 
 -- | The /NextToken/ value is not valid.
-_InvalidNextTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | An exception has occurred in AWS Directory Service.
-_ServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _ServiceError . hasCode "ServiceException"
 
 -- | The maximum number of manual snapshots for the directory has been
 -- reached. You can use the GetSnapshotLimits operation to determine the
 -- snapshot limits for a directory.
-_SnapshotLimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_SnapshotLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotLimitExceededException =
     _ServiceError . hasCode "SnapshotLimitExceededException"
 
 -- | A client exception has occurred.
-_ClientException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClientException = _ServiceError . hasCode "ClientException"

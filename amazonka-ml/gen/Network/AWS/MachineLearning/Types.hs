@@ -260,37 +260,37 @@ instance AWSService MachineLearning where
           | otherwise = Nothing
 
 -- | An error on the server occurred when trying to process a request.
-_InternalServerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerException =
     _ServiceError . hasStatus 500 . hasCode "InternalServerException"
 
 -- | An error on the client occurred. Typically, the cause is an invalid
 -- input value.
-_InvalidInputException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInputException =
     _ServiceError . hasStatus 400 . hasCode "InvalidInputException"
 
 -- | A second request to use or change an object was not allowed. This can
 -- result from retrying a request using a parameter that was not present in
 -- the original request.
-_IdempotentParameterMismatchException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IdempotentParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdempotentParameterMismatchException =
     _ServiceError .
     hasStatus 400 . hasCode "IdempotentParameterMismatchException"
 
 -- | The exception is thrown when a predict request is made to an unmounted
 -- @MLModel@.
-_PredictorNotMountedException :: AWSError a => Getting (First ServiceError) a ServiceError
+_PredictorNotMountedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PredictorNotMountedException =
     _ServiceError . hasStatus 400 . hasCode "PredictorNotMountedException"
 
 -- | A specified resource cannot be located.
-_ResourceNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The subscriber exceeded the maximum number of operations. This exception
 -- can occur when listing objects such as @DataSource@.
-_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 417 . hasCode "LimitExceededException"

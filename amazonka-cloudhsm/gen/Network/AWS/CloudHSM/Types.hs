@@ -74,14 +74,14 @@ instance AWSService CloudHSM where
           | otherwise = Nothing
 
 -- | Indicates that one or more of the request parameters are not valid.
-_InvalidRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | Indicates that an exception occurred in the AWS CloudHSM service.
-_CloudHSMServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CloudHSMServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudHSMServiceException = _ServiceError . hasCode "CloudHsmServiceException"
 
 -- | Indicates that an internal error occurred.
-_CloudHSMInternalException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CloudHSMInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudHSMInternalException =
     _ServiceError . hasCode "CloudHsmInternalException"

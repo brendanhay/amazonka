@@ -23,7 +23,7 @@ module Network.AWS.Env
     , within
     , once
     , timeout
-    -- ** Response configuration
+    -- ** Response Configuration
     , timeoutFor
     ) where
 

@@ -78,7 +78,9 @@ module Network.AWS
 
     -- * Handling Errors
     -- $errors
-    , AsError (..)
+    , AsError     (..)
+    , AsAuthError (..)
+
     , AWST.trying
     , AWST.catching
 

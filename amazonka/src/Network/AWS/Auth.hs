@@ -22,17 +22,24 @@ module Network.AWS.Auth
     , SecurityToken (..)
     , accessKey
     , secretKey
+
     -- ** Retrieving authentication
     , Credentials   (..)
     , Auth
     , getAuth
+
     -- $credentials
+
     , fromKeys
     , fromSession
     , fromEnv
     , fromEnvKeys
     , fromProfile
     , fromProfileName
+
+    -- ** Handling Errors
+    , AsAuthError (..)
+    , AuthError   (..)
     ) where
 
 import           Control.Applicative

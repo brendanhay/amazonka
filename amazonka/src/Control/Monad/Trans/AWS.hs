@@ -82,7 +82,9 @@ module Control.Monad.Trans.AWS
 
     -- * Handling Errors
     -- $errors
-    , AsError (..)
+    , AsError     (..)
+    , AsAuthError (..)
+
     , trying
     , catching
 
@@ -100,7 +102,7 @@ module Control.Monad.Trans.AWS
     , logTrace
 
     -- ** Constructing Log Messages
-    , ToLog (..)
+    , ToLog       (..)
 
     -- * Re-exported Types
     , module Network.AWS.Types

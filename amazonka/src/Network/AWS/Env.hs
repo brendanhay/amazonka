@@ -40,6 +40,8 @@ import           Network.AWS.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 
+import           Prelude
+
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
     { _envRegion      :: !Region

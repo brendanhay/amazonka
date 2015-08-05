@@ -30,6 +30,8 @@ import           Control.Monad.Catch
 import           Control.Monad.Trans.Free        (FreeT (..))
 #endif
 
+import           Prelude
+
 data Command r where
     Send  :: (AWSSigner (Sg s), AWSRequest a)
           => Service s

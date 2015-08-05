@@ -10,7 +10,6 @@
 --
 module Network.AWS.Internal.Presign where
 
-import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
@@ -19,6 +18,8 @@ import           Network.AWS.Env
 import           Network.AWS.Prelude
 import           Network.AWS.Request    (requestURL)
 import           Network.AWS.Types
+
+import           Prelude
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

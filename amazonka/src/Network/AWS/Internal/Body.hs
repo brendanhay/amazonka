@@ -21,6 +21,8 @@ import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Conduit
 import           System.IO
 
+import           Prelude
+
 -- | Construct a 'RqBody' from a source, manually specifying the
 -- SHA256 hash and file size.
 sourceBody :: Digest SHA256

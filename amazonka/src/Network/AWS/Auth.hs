@@ -64,6 +64,8 @@ import           Network.HTTP.Conduit
 import           System.Environment
 import           System.Mem.Weak
 
+import           Prelude
+
 -- | Default access key environment variable.
 accessKey :: Text -- ^ 'AWS_ACCESS_KEY'
 accessKey = "AWS_ACCESS_KEY"

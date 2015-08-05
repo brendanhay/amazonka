@@ -33,6 +33,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Request, Response)
 
+import           Prelude
+
 perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
         => Env
         -> Service s

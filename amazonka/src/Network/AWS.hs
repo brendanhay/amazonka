@@ -17,7 +17,7 @@
 -- lifting of functions when embedding 'AWS' as a layer inside your own
 -- application stack.
 --
--- /See:/ "Control.Monad.Trans.AWS".
+-- "Control.Monad.Trans.AWS" contains the underlying 'AWST' transformer.
 module Network.AWS
     (
     -- * Usage

@@ -18,9 +18,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The 'AWST' transformer provides interpretations for the 'FreeT' 'Command'
--- DSL. It can be used directly or embedded as a layer within a transformer DSL.
+-- DSL which is later interpreted by 'runAWST' or 'pureAWST'. It can be used
+-- directly or embedded as a layer within a transformer stack.
 --
--- /See:/ "Network.AWS".
+-- "Network.AWS" contains a 'IO' specialised version of 'AWST' with a typeclass
+-- to assist in automatically lifting operations.
 module Control.Monad.Trans.AWS
     (
     -- * Running AWS Actions

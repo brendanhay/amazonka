@@ -94,6 +94,10 @@ cuName = lens _cuName (\ s a -> s{_cuName = a});
 --
 -- -   ANDROID_APP: An Android upload.
 --
+-- -   IOS_APP: An iOS upload.
+--
+-- -   EXTERNAL_DATA: An external data upload.
+--
 -- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package
 --     upload.
 --
@@ -102,11 +106,11 @@ cuName = lens _cuName (\ s a -> s{_cuName = a});
 --
 -- -   CALABASH_TEST_PACKAGE: A Calabash test package upload.
 --
--- -   EXTERNAL_DATA: An external data upload.
---
 -- -   INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.
 --
 -- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
+--
+-- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
 --
 cuType :: Lens' CreateUpload UploadType
 cuType = lens _cuType (\ s a -> s{_cuType = a});

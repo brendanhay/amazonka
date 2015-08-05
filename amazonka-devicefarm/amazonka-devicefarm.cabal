@@ -14,8 +14,8 @@ cabal-version:         >= 1.10
 
 description:
     AWS Device Farm is a service that enables mobile app developers to test
-    Android and Fire OS apps on physical phones, tablets, and other devices
-    in the cloud.
+    Android, iOS, and Fire OS apps on physical phones, tablets, and other
+    devices in the cloud.
     .
     /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/Welcome.html AWS API Reference>
 
@@ -34,6 +34,7 @@ library
         , Network.AWS.DeviceFarm.CreateDevicePool
         , Network.AWS.DeviceFarm.CreateProject
         , Network.AWS.DeviceFarm.CreateUpload
+        , Network.AWS.DeviceFarm.GetAccountSettings
         , Network.AWS.DeviceFarm.GetDevice
         , Network.AWS.DeviceFarm.GetDevicePool
         , Network.AWS.DeviceFarm.GetDevicePoolCompatibility

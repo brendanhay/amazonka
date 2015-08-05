@@ -114,6 +114,34 @@ instance ToHeader     ArtifactType
 instance FromJSON ArtifactType where
     parseJSON = parseJSONText "ArtifactType"
 
+data BillingMethod
+    = Metered
+    | Unmetered
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText BillingMethod where
+    parser = takeLowerText >>= \case
+        "metered" -> pure Metered
+        "unmetered" -> pure Unmetered
+        e -> fromTextError $ "Failure parsing BillingMethod from value: '" <> e
+           <> "'. Accepted values: metered, unmetered"
+
+instance ToText BillingMethod where
+    toText = \case
+        Metered -> "metered"
+        Unmetered -> "unmetered"
+
+instance Hashable     BillingMethod
+instance ToByteString BillingMethod
+instance ToQuery      BillingMethod
+instance ToHeader     BillingMethod
+
+instance ToJSON BillingMethod where
+    toJSON = toJSONText
+
+instance FromJSON BillingMethod where
+    parseJSON = parseJSONText "BillingMethod"
+
 data DeviceAttribute
     = Platform
     | Manufacturer
@@ -173,19 +201,22 @@ instance ToHeader     DeviceFormFactor
 instance FromJSON DeviceFormFactor where
     parseJSON = parseJSONText "DeviceFormFactor"
 
-data DevicePlatform =
-    Android
+data DevicePlatform
+    = Ios
+    | Android
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DevicePlatform where
     parser = takeLowerText >>= \case
         "android" -> pure Android
+        "ios" -> pure Ios
         e -> fromTextError $ "Failure parsing DevicePlatform from value: '" <> e
-           <> "'. Accepted values: android"
+           <> "'. Accepted values: android, ios"
 
 instance ToText DevicePlatform where
     toText = \case
         Android -> "android"
+        Ios -> "ios"
 
 instance Hashable     DevicePlatform
 instance ToByteString DevicePlatform
@@ -412,6 +443,8 @@ data TestType
     | Uiautomator
     | BuiltinExplorer
     | BuiltinFuzz
+    | Xctest
+    | Uiautomation
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TestType where
@@ -422,9 +455,11 @@ instance FromText TestType where
         "builtin_fuzz" -> pure BuiltinFuzz
         "calabash" -> pure Calabash
         "instrumentation" -> pure Instrumentation
+        "uiautomation" -> pure Uiautomation
         "uiautomator" -> pure Uiautomator
+        "xctest" -> pure Xctest
         e -> fromTextError $ "Failure parsing TestType from value: '" <> e
-           <> "'. Accepted values: appium_java_junit, appium_java_testng, builtin_explorer, builtin_fuzz, calabash, instrumentation, uiautomator"
+           <> "'. Accepted values: appium_java_junit, appium_java_testng, builtin_explorer, builtin_fuzz, calabash, instrumentation, uiautomation, uiautomator, xctest"
 
 instance ToText TestType where
     toText = \case
@@ -434,7 +469,9 @@ instance ToText TestType where
         BuiltinFuzz -> "builtin_fuzz"
         Calabash -> "calabash"
         Instrumentation -> "instrumentation"
+        Uiautomation -> "uiautomation"
         Uiautomator -> "uiautomator"
+        Xctest -> "xctest"
 
 instance Hashable     TestType
 instance ToByteString TestType
@@ -481,8 +518,11 @@ instance FromJSON UploadStatus where
 data UploadType
     = AppiumJavaJunitTestPackage
     | InstrumentationTestPackage
+    | UiautomationTestPackage
     | AndroidApp
     | ExternalData
+    | XctestTestPackage
+    | IosApp
     | AppiumJavaTestngTestPackage
     | UiautomatorTestPackage
     | CalabashTestPackage
@@ -496,9 +536,12 @@ instance FromText UploadType where
         "calabash_test_package" -> pure CalabashTestPackage
         "external_data" -> pure ExternalData
         "instrumentation_test_package" -> pure InstrumentationTestPackage
+        "ios_app" -> pure IosApp
+        "uiautomation_test_package" -> pure UiautomationTestPackage
         "uiautomator_test_package" -> pure UiautomatorTestPackage
+        "xctest_test_package" -> pure XctestTestPackage
         e -> fromTextError $ "Failure parsing UploadType from value: '" <> e
-           <> "'. Accepted values: android_app, appium_java_junit_test_package, appium_java_testng_test_package, calabash_test_package, external_data, instrumentation_test_package, uiautomator_test_package"
+           <> "'. Accepted values: android_app, appium_java_junit_test_package, appium_java_testng_test_package, calabash_test_package, external_data, instrumentation_test_package, ios_app, uiautomation_test_package, uiautomator_test_package, xctest_test_package"
 
 instance ToText UploadType where
     toText = \case
@@ -508,7 +551,10 @@ instance ToText UploadType where
         CalabashTestPackage -> "calabash_test_package"
         ExternalData -> "external_data"
         InstrumentationTestPackage -> "instrumentation_test_package"
+        IosApp -> "ios_app"
+        UiautomationTestPackage -> "uiautomation_test_package"
         UiautomatorTestPackage -> "uiautomator_test_package"
+        XctestTestPackage -> "xctest_test_package"
 
 instance Hashable     UploadType
 instance ToByteString UploadType

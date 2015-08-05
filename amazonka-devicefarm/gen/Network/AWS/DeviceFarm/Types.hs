@@ -29,6 +29,9 @@ module Network.AWS.DeviceFarm.Types
     -- * ArtifactType
     , ArtifactType (..)
 
+    -- * BillingMethod
+    , BillingMethod (..)
+
     -- * DeviceAttribute
     , DeviceAttribute (..)
 
@@ -61,6 +64,12 @@ module Network.AWS.DeviceFarm.Types
 
     -- * UploadType
     , UploadType (..)
+
+    -- * AccountSettings
+    , AccountSettings
+    , accountSettings
+    , asAwsAccountNumber
+    , asUnmeteredDevices
 
     -- * Artifact
     , Artifact
@@ -199,6 +208,7 @@ module Network.AWS.DeviceFarm.Types
     , Run
     , run
     , runStatus
+    , runBillingMethod
     , runCounters
     , runPlatform
     , runArn
@@ -222,6 +232,7 @@ module Network.AWS.DeviceFarm.Types
     -- * ScheduleRunConfiguration
     , ScheduleRunConfiguration
     , scheduleRunConfiguration
+    , srcBillingMethod
     , srcRadios
     , srcLocation
     , srcLocale

@@ -11,8 +11,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- AWS Device Farm is a service that enables mobile app developers to test
--- Android and Fire OS apps on physical phones, tablets, and other devices
--- in the cloud.
+-- Android, iOS, and Fire OS apps on physical phones, tablets, and other
+-- devices in the cloud.
 module Network.AWS.DeviceFarm
     ( module Export
     ) where
@@ -20,6 +20,7 @@ module Network.AWS.DeviceFarm
 import           Network.AWS.DeviceFarm.CreateDevicePool           as Export
 import           Network.AWS.DeviceFarm.CreateProject              as Export
 import           Network.AWS.DeviceFarm.CreateUpload               as Export
+import           Network.AWS.DeviceFarm.GetAccountSettings         as Export
 import           Network.AWS.DeviceFarm.GetDevice                  as Export
 import           Network.AWS.DeviceFarm.GetDevicePool              as Export
 import           Network.AWS.DeviceFarm.GetDevicePoolCompatibility as Export

@@ -82,6 +82,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , testListSuites $
 --             listSuites
 --
+--         , testGetAccountSettings $
+--             getAccountSettings
+--
 --         , testListUploads $
 --             listUploads
 --
@@ -156,6 +159,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , testListSuitesResponse $
 --             listSuitesResponse
+--
+--         , testGetAccountSettingsResponse $
+--             getAccountSettingsResponse
 --
 --         , testListUploadsResponse $
 --             listUploadsResponse
@@ -269,6 +275,11 @@ testListSuites :: ListSuites -> TestTree
 testListSuites = req
     "ListSuites"
     "fixture/ListSuites"
+
+testGetAccountSettings :: GetAccountSettings -> TestTree
+testGetAccountSettings = req
+    "GetAccountSettings"
+    "fixture/GetAccountSettings"
 
 testListUploads :: ListUploads -> TestTree
 testListUploads = req
@@ -409,6 +420,12 @@ testListSuitesResponse = res
     "ListSuitesResponse"
     "fixture/ListSuitesResponse"
     (Proxy :: Proxy ListSuites)
+
+testGetAccountSettingsResponse :: GetAccountSettingsResponse -> TestTree
+testGetAccountSettingsResponse = res
+    "GetAccountSettingsResponse"
+    "fixture/GetAccountSettingsResponse"
+    (Proxy :: Proxy GetAccountSettings)
 
 testListUploadsResponse :: ListUploadsResponse -> TestTree
 testListUploadsResponse = res

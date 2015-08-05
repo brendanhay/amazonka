@@ -76,20 +76,25 @@ getDevicePoolCompatibility pDevicePoolARN_ pAppARN_ =
 --
 -- Allowed values include the following:
 --
+-- -   BUILTIN_FUZZ: The built-in fuzz type.
+--
+-- -   BUILTIN_EXPLORER: For Android, an app explorer that will traverse an
+--     Android app, interacting with it and capturing screenshots at the
+--     same time.
+--
 -- -   APPIUM_JAVA_JUNIT: The Appium Java JUnit type.
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
---
--- -   BUILTIN_EXPLORER: An app explorer that will traverse an app,
---     interacting with it and capturing screenshots at the same time.
---
--- -   BUILTIN_FUZZ: The built-in fuzz type.
 --
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
 --
+-- -   UIAUTOMATION: The uiautomation type.
+--
 -- -   UIAUTOMATOR: The uiautomator type.
+--
+-- -   XCTEST: The XCode test type.
 --
 gdpcTestType :: Lens' GetDevicePoolCompatibility (Maybe TestType)
 gdpcTestType = lens _gdpcTestType (\ s a -> s{_gdpcTestType = a});

@@ -169,7 +169,7 @@ instance AsAuthError AuthError where
 -- | Retrieve authentication information via the specified 'Credentials' mechanism.
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-getAuth :: (Functor m, MonadIO m, MonadCatch m)
+getAuth :: (Applicative m, MonadIO m, MonadCatch m)
         => Manager
         -> Credentials
         -> m Auth
@@ -190,14 +190,14 @@ getAuth m = \case
 -- cannot be read.
 --
 -- /See:/ 'accessKey' and 'secretKey'
-fromEnv :: (Functor m, MonadIO m, MonadThrow m) => m Auth
+fromEnv :: (Applicative m, MonadIO m, MonadThrow m) => m Auth
 fromEnv = fromEnvKeys accessKey secretKey
 
 -- | Retrieve 'Access' and 'Secret' keys from specific environment variables.
 --
 -- Throws 'MissingEnvError' if either of the specified environment variables
 -- cannot be read.
-fromEnvKeys :: (Functor m, MonadIO m, MonadThrow m) => Text -> Text -> m Auth
+fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m) => Text -> Text -> m Auth
 fromEnvKeys a s = fmap Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)

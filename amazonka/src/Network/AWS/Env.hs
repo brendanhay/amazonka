@@ -133,7 +133,7 @@ timeout s = local (envTimeout ?~ s)
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
 -- /See:/ 'newEnvWith'.
-newEnv :: (Functor m, MonadIO m, MonadCatch m)
+newEnv :: (Applicative m, MonadIO m, MonadCatch m)
        => Region
        -> Credentials
        -> m Env
@@ -142,7 +142,7 @@ newEnv r c = liftIO (newManager conduitManagerSettings) >>= newEnvWith r c
 -- | /See:/ 'newEnv'
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-newEnvWith :: (Functor m, MonadIO m, MonadCatch m)
+newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
            => Region
            -> Credentials
            -> Manager

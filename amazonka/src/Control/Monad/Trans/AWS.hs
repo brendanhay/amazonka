@@ -187,13 +187,12 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
     pass   = AWST . pass   . unAWST
 
 -- | Run an 'AWST' action with the specified 'HasEnv' environment.
---
--- This does not finalise any 'ResourceT' actions and needs to be wrapped
--- with 'runResourceT'.
+-- Any outstanding HTTP responses' 'ResumableSource' will
+-- be closed when the 'ResourceT' computation is unwrapped with 'runResourceT'.
 --
 -- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
 --
--- /See:/ 'runAWST', 'runResourceT'.
+-- /See:/ 'runResourceT'.
 runAWST :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWST m a -> m a
 runAWST = execAWST hoistError
 

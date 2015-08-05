@@ -175,12 +175,11 @@ instance (Functor f, MonadAWS m) => MonadAWS (FreeT f m) where
 
 -- FIXME: verify the use of withInternalState to create a ResourceT here
 
--- | Run the 'AWS' monad.
+-- | Run the 'AWS' monad. Any outstanding HTTP responses' 'ResumableSource' will
+-- be closed when the 'ResourceT' computation is unwrapped with 'runResourceT'.
 --
--- /Note:/ Any outstanding HTTP responses' 'ResumableSource' will be closed when
--- the 'ResourceT' computation is unwrapped.
---
--- Throws 'Error'.
+-- Throws 'Error', which will include 'HTTPExceptions', serialisation errors,
+-- or any particular errors returned by the respective AWS service.
 --
 -- /See:/ 'runAWST', 'runResourceT'.
 runAWS :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWS a -> m a
@@ -200,9 +199,6 @@ timeout s = liftAWS . AWST.timeout s
 
 -- | Send a request, returning the associated response if successful,
 -- otherwise an 'Error' will be thrown.
---
--- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
--- errors returned by the AWS service.
 --
 -- /See:/ 'sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Rs a)

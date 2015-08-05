@@ -33,7 +33,7 @@ module Network.AWS
 
     -- * Environment Setup
     , Credentials (..)
-    , AWSEnv      (..)
+    , HasEnv      (..)
     , Env
     , newEnv
 
@@ -78,7 +78,7 @@ module Network.AWS
 
     -- * Handling Errors
     -- $errors
-    , AWSError (..)
+    , AsError (..)
     , AWST.trying
     , AWST.catching
 
@@ -127,7 +127,7 @@ import qualified Control.Monad.Writer.Strict     as W
 import           Data.Conduit                    (Source)
 import           Data.Monoid
 import           Network.AWS.Auth
-import           Network.AWS.Env                 (AWSEnv (..), Env, newEnv)
+import           Network.AWS.Env                 (Env, HasEnv (..), newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.Presign
 import           Network.AWS.Logger
@@ -180,8 +180,10 @@ instance (Functor f, MonadAWS m) => MonadAWS (FreeT f m) where
 -- /Note:/ Any outstanding HTTP responses' 'ResumableSource' will be closed when
 -- the 'ResourceT' computation is unwrapped.
 --
--- /See:/ 'runResourceT' for more information.
-runAWS :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWS a -> m a
+-- Throws 'Error'.
+--
+-- /See:/ 'runAWST', 'runResourceT'.
+runAWS :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWS a -> m a
 runAWS e = liftResourceT . AWST.runAWST e . hoist (withInternalState . const)
 
 -- | Run any remote requests against the specified 'Region'.
@@ -328,11 +330,11 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 {- $errors
 Errors are thrown by the library using 'MonadThrow' (unless "Control.Monad.Error.AWS" is used).
 Sub-errors of the canonical 'Error' type can be caught using 'trying' or
-'catching' and the appropriate 'AWSError' 'Prism':
+'catching' and the appropriate 'AsError' 'Prism':
 
 @
 trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
-trying '_HTTPError'      (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
+trying '_TransportError' (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
 trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
 trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
 @

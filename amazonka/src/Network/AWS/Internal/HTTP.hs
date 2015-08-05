@@ -61,7 +61,7 @@ perform e@Env{..} svc x = catches go handlers
         [ Handler $ return . Left
         , Handler $ \er -> do
             logError _envLogger er
-            return (Left (HTTPError er))
+            return (Left (TransportError er))
         ]
 
 retrier :: MonadIO m
@@ -86,7 +86,7 @@ retrier Env{..} Service{..} rq =
             grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
 
     check n = \case
-        Left (HTTPError e) -> do
+        Left (TransportError e) -> do
             p <- liftIO (_envRetryCheck n e)
             when p (msg "http_error" n) >> return p
 

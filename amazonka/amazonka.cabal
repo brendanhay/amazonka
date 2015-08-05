@@ -58,7 +58,7 @@ library
         , text                >= 1.1
         , time                >= 1.2
         , transformers        >= 0.2
-        , transformers-base
+        , transformers-base   >= 0.4
         , transformers-compat >= 0.3
 
 test-suite tests

@@ -2,7 +2,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Auth
@@ -38,10 +37,10 @@ module Network.AWS.Auth
 
 import           Control.Applicative
 import           Control.Concurrent
+import           Control.Exception.Lens
 import           Control.Monad
-import           Control.Monad.Error.Class  (catchError, throwError)
+import           Control.Monad.Catch
 import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Except
 import qualified Data.ByteString.Char8      as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
 import           Data.IORef
@@ -97,9 +96,10 @@ data Credentials
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
       --
-      -- /Note:/ This attempts to resolve <http://instance-data> rather than directly
-      -- retrieving <http://169.254.169.254> for IAM profile information to ensure
-      -- the dns lookup terminates promptly if not running on EC2.
+      -- Attempts to resolve <http://instance-data> rather than directly
+      -- retrieving <http://169.254.169.254> for IAM profile information.
+      -- This assists in ensuring the DNS lookup terminates promptly if not
+      -- running on EC2.
       deriving (Eq)
 
 instance ToLog Credentials where
@@ -113,54 +113,111 @@ instance ToLog Credentials where
 instance Show Credentials where
     show = BS8.unpack . toBS . message
 
--- | Retrieve authentication information using the specified 'Credentials' style.
-getAuth :: (Functor m, MonadIO m)
+-- | An error thrown when attempting to read AuthN/AuthZ information.
+data AuthError
+    = RetrievalError  HttpException
+    | MissingEnvError Text
+    | InvalidIAMError Text
+      deriving (Show, Typeable)
+
+instance Exception AuthError
+
+instance ToLog AuthError where
+    message = \case
+        RetrievalError  e -> message e
+        MissingEnvError e -> "[MissingEnvError] { message = " <> message e <> "}"
+        InvalidIAMError e -> "[InvalidIAMError] { message = " <> message e <> "}"
+
+class AsAuthError a where
+    _AuthError       :: Prism' a AuthError
+    {-# MINIMAL _AuthError #-}
+
+    _RetrievalError  :: Prism' a HttpException
+    _MissingEnvError :: Prism' a Text
+    _InvalidIAMError :: Prism' a Text
+
+    _RetrievalError  = _AuthError . _RetrievalError
+    _MissingEnvError = _AuthError . _MissingEnvError
+    _InvalidIAMError = _AuthError . _InvalidIAMError
+
+instance AsAuthError SomeException where
+    _AuthError = exception
+
+instance AsAuthError AuthError where
+    _AuthError = id
+
+    _RetrievalError = prism RetrievalError $ \case
+        RetrievalError e -> Right e
+        x                -> Left x
+
+    _MissingEnvError = prism MissingEnvError $ \case
+        MissingEnvError e -> Right e
+        x               -> Left x
+
+    _InvalidIAMError = prism InvalidIAMError $ \case
+        InvalidIAMError e -> Right e
+        x               -> Left x
+
+-- | Retrieve authentication information via the specified 'Credentials' mechanism.
+--
+-- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
+getAuth :: (Functor m, MonadIO m, MonadCatch m)
         => Manager
         -> Credentials
-        -> m (Either String Auth)
-getAuth m = runExceptT . \case
+        -> m Auth
+getAuth m = \case
     FromKeys    a s   -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
-    FromProfile n     -> show `withExceptT` ExceptT (fromProfileName m n)
-    FromEnv     a s   -> ExceptT (fromEnvKeys a s)
-    Discover          -> ExceptT fromEnv `catchError` const (iam `catchError` const err)
-      where
-        iam = show `withExceptT` ExceptT (fromProfile m)
-        err = throwError "Unable to read environment variables or IAM profile."
+    FromProfile n     -> fromProfileName m n
+    FromEnv     a s   -> fromEnvKeys a s
+    Discover          ->
+        catching _MissingEnvError fromEnv $ \e -> do
+            p <- isEC2 m
+            unless p $ throwingM _MissingEnvError e
+            fromProfile m
 
 -- | Retrieve access and secret keys from the default environment variables.
 --
+-- Throws 'MissingEnvError' if either of the default environment variables
+-- cannot be read.
+--
 -- /See:/ 'accessKey' and 'secretKey'
-fromEnv :: (Functor m, MonadIO m) => m (Either String Auth)
+fromEnv :: (Functor m, MonadIO m, MonadThrow m) => m Auth
 fromEnv = fromEnvKeys accessKey secretKey
 
 -- | Retrieve 'Access' and 'Secret' keys from specific environment variables.
-fromEnvKeys :: (Functor m, MonadIO m) => Text -> Text -> m (Either String Auth)
-fromEnvKeys a s = runExceptT . liftM Auth $ AuthEnv
+--
+-- Throws 'MissingEnvError' if either of the specified environment variables
+-- cannot be read.
+fromEnvKeys :: (Functor m, MonadIO m, MonadThrow m) => Text -> Text -> m Auth
+fromEnvKeys a s = fmap Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)
     <*> pure Nothing
     <*> pure Nothing
   where
-    key (Text.unpack -> k) = ExceptT $ do
-        m <- liftIO (lookupEnv k)
-        return $
-            maybe (Left $ "Unable to read ENV variable: " ++ k)
-                  (Right . BS8.pack)
-                  m
+    key k = do
+        m <- liftIO $ lookupEnv (Text.unpack k)
+        maybe (throwM . MissingEnvError $ "Unable to read ENV variable: " <> k)
+              (return . BS8.pack)
+              m
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --
--- This determined by Amazon as the first IAM profile found in the response from:
+-- The default IAM profile is determined by Amazon as the first profile found
+-- in the response from:
 -- @http://169.254.169.254/latest/meta-data/iam/security-credentials/@
-fromProfile :: MonadIO m => Manager -> m (Either HttpException Auth)
+--
+-- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
+-- the default IAM profile cannot be read.
+fromProfile :: (MonadIO m, MonadCatch m) => Manager -> m Auth
 fromProfile m = do
-    ls <- metadata m (IAM $ SecurityCredentials Nothing)
+    ls <- try $ metadata m (IAM (SecurityCredentials Nothing))
     case BS8.lines `liftM` ls of
         Right (x:_) -> fromProfileName m (Text.decodeUtf8 x)
-        Left  e     -> return (Left e)
-        _           -> return . Left $
-           HttpParserException "Unable to get default IAM Profile from EC2 metadata"
+        Left  e     -> throwM (RetrievalError e)
+        _           -> throwM $
+            InvalidIAMError "Unable to get default IAM Profile from EC2 metadata"
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
 --
@@ -173,20 +230,28 @@ fromProfile m = do
 --
 -- A weak reference is used to ensure that the forked thread will eventually
 -- terminate when 'Auth' is no longer referenced.
-fromProfileName :: MonadIO m
-                => Manager
-                -> Text
-                -> m (Either HttpException Auth)
-fromProfileName m name = auth >>= either (return . Left) start
+--
+-- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
+-- the specified IAM profile cannot be read.
+fromProfileName :: (MonadIO m, MonadCatch m) => Manager -> Text -> m Auth
+fromProfileName m name = auth >>= start
   where
-    auth :: MonadIO m => m (Either HttpException AuthEnv)
+    auth :: (MonadIO m, MonadCatch m) => m AuthEnv
     auth = do
-        ebs <- metadata m (IAM . SecurityCredentials $ Just name)
-        return $! ebs >>= either (Left . HttpParserException) Right
-            . eitherDecode' . LBS8.fromStrict
+        bs <- try $ metadata m (IAM . SecurityCredentials $ Just name)
+        case bs of
+            Left  e -> throwM (RetrievalError e)
+            Right x ->
+                either (throwM . invalidErr)
+                       return
+                       (eitherDecode' (LBS8.fromStrict x))
 
-    start :: MonadIO m => AuthEnv -> m (Either e Auth)
-    start !a = liftIO . liftM Right $
+    invalidErr = InvalidIAMError
+        . mappend ("Error parsing IAM profile '" <> name <> "' ")
+        . Text.pack
+
+    start :: MonadIO m => AuthEnv -> m Auth
+    start !a = liftIO $
         case _authExpiry a of
             Nothing -> return (Auth a)
             Just x  -> do
@@ -204,9 +269,9 @@ fromProfileName m name = auth >>= either (return . Left) start
     loop :: Weak (IORef AuthEnv) -> ThreadId -> UTCTime -> IO ()
     loop w !p !x = do
         diff x <$> getCurrentTime >>= threadDelay
-        ea <- auth
+        ea <- try auth
         case ea of
-            Left   e -> throwTo p e
+            Left   e -> throwTo p (RetrievalError e)
             Right !a -> do
                  mr <- deRefWeak w
                  case mr of

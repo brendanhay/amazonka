@@ -14,7 +14,7 @@
 module Network.AWS.Env
     (
     -- * Environment
-      AWSEnv (..)
+      HasEnv (..)
     , Env    (..)
     -- ** Creating the environment
     , newEnv
@@ -30,9 +30,9 @@ module Network.AWS.Env
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
+import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
-import           Control.Monad.Trans.Except
 import           Control.Retry
 import           Data.Monoid
 import           Network.AWS.Auth
@@ -51,7 +51,7 @@ data Env = Env
     , _envAuth        :: Auth
     }
 
-class AWSEnv a where
+class HasEnv a where
     env            :: Lens' a Env
     {-# MINIMAL env #-}
 
@@ -96,7 +96,7 @@ class AWSEnv a where
     envManager     = env . lens _envManager     (\s a -> s { _envManager     = a })
     envAuth        = env . lens _envAuth        (\s a -> s { _envAuth        = a })
 
-instance AWSEnv Env where
+instance HasEnv Env where
     env = id
 
 instance ToLog Env where
@@ -111,18 +111,18 @@ instance ToLog Env where
             ]
 
 -- | Scope an action within the specific 'Region'.
-within :: (MonadReader r m, AWSEnv r) => Region -> m a -> m a
+within :: (MonadReader r m, HasEnv r) => Region -> m a -> m a
 within r = local (envRegion .~ r)
 
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
-once :: (MonadReader r m, AWSEnv r) => m a -> m a
+once :: (MonadReader r m, HasEnv r) => m a -> m a
 once = local $ \e -> e
     & envRetryPolicy ?~ limitRetries 0
     & envRetryCheck  .~ (\_ _ -> return False)
 
 -- | Scope an action such that any HTTP response use this timeout value.
-timeout :: (MonadReader r m, AWSEnv r) => Seconds -> m a -> m a
+timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
 timeout s = local (envTimeout ?~ s)
 
 -- | This creates a new environment with a new 'Manager' without debug logging
@@ -130,28 +130,30 @@ timeout s = local (envTimeout ?~ s)
 --
 -- Lenses such as 'envLogger' can be used to configure the resulting 'Env'.
 --
--- /See:/ 'newEnvWith' to supply an existing HTTP 'Manager'.
-newEnv :: (Functor m, MonadIO m)
+-- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
+--
+-- /See:/ 'newEnvWith'.
+newEnv :: (Functor m, MonadIO m, MonadCatch m)
        => Region
        -> Credentials
-       -> m (Either String Env)
+       -> m Env
 newEnv r c = liftIO (newManager conduitManagerSettings) >>= newEnvWith r c
 
 -- | /See:/ 'newEnv'
-newEnvWith :: (Functor m, MonadIO m)
+--
+-- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
+newEnvWith :: (Functor m, MonadIO m, MonadCatch m)
            => Region
            -> Credentials
            -> Manager
-           -> m (Either String Env)
-newEnvWith r c m = runExceptT $ env' `liftM` ExceptT (getAuth m c)
+           -> m Env
+newEnvWith r c m = Env r logger check Nothing Nothing m <$> getAuth m c
   where
-    env' = Env r logger check Nothing Nothing m
-
     logger _ _ = return ()
     -- FIXME: verify the usage of check.
     check  _ _ = return True
 
 -- | Returns the possible HTTP response timeout value in microseconds
 -- given the timeout configuration sources.
-timeoutFor :: AWSEnv a => a -> Service s -> Maybe Int
+timeoutFor :: HasEnv a => a -> Service s -> Maybe Int
 timeoutFor e s = microseconds <$> (e ^. envTimeout <|> _svcTimeout s)

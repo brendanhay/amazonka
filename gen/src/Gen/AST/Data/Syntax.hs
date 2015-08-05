@@ -125,7 +125,7 @@ lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
 
 errorS :: Text -> Decl
 errorS n = TypeSig noLoc [ident n] $
-    TyForall Nothing [ClassA (unqual "AWSError") [tyvar "a"]] $
+    TyForall Nothing [ClassA (unqual "AsError") [tyvar "a"]] $
         TyApp (TyApp (TyApp (tycon "Getting")
                             (TyApp (tycon "First") (tycon "ServiceError")))
                      (tyvar "a"))

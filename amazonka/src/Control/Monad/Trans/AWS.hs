@@ -7,6 +7,7 @@
 {-# LANGUAGE UndecidableInstances       #-}
 {-# LANGUAGE ViewPatterns               #-}
 
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_HADDOCK show-extensions #-}
 
 -- |
@@ -30,10 +31,15 @@ module Control.Monad.Trans.AWS
     , pureAWST
 
     -- * Environment Setup
-    , Credentials (..)
-    , AWSEnv      (..)
+    , HasEnv      (..)
     , Env
     , newEnv
+
+    -- ** Credentials
+    , Credentials (..)
+
+    -- ** Region
+    , Region      (..)
 
     -- * Runtime Configuration
     , within
@@ -76,7 +82,7 @@ module Control.Monad.Trans.AWS
 
     -- * Handling Errors
     -- $errors
-    , AWSError (..)
+    , AsError (..)
     , trying
     , catching
 
@@ -93,10 +99,10 @@ module Control.Monad.Trans.AWS
     , logDebug
     , logTrace
 
-    -- ** Log Messages
-    , ToLog       (..)
+    -- ** Constructing Log Messages
+    , ToLog (..)
 
-    -- * Types
+    -- * Re-exported Types
     , module Network.AWS.Types
     ) where
 
@@ -179,15 +185,21 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
     listen = AWST . listen . unAWST
     pass   = AWST . pass   . unAWST
 
--- | Run an 'AWST' action with the specified 'AWSEnv' environment.
+-- | Run an 'AWST' action with the specified 'HasEnv' environment.
 --
 -- This does not finalise any 'ResourceT' actions and needs to be wrapped
 -- with 'runResourceT'.
-runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
+--
+-- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
+--
+-- /See:/ 'runAWST', 'runResourceT'.
+runAWST :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWST m a -> m a
 runAWST = execAWST hoistError
 
 -- | Run an 'AWST' action with configurable 'Error' handling.
-execAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
+--
+-- Does not explictly throw 'Error's and instead uses the supplied lift function.
+execAWST :: (MonadCatch m, MonadResource m, HasEnv r)
          => (forall a. Either Error a -> m a)
             -- ^ Lift an 'Error' into the base Monad.
          -> r
@@ -205,7 +217,9 @@ execAWST f = innerAWST go
 
 -- | Run an 'AWST' action with configurable response construction. This allows
 -- mocking of responses and does not perform any external API calls.
-pureAWST :: (MonadThrow m, AWSEnv r)
+--
+-- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
+pureAWST :: (MonadThrow m, HasEnv r)
          => (forall s a. Service s ->           a -> Either Error (Rs a))
             -- ^ Construct a response for any 'send' command.
          -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
@@ -218,7 +232,7 @@ pureAWST f g = innerAWST go
     go (Send  s   x k) = hoistError (f s   x) >>= k
     go (Await s w x k) = hoistError (g s w x) >>= k
 
-innerAWST :: (Monad m, AWSEnv r)
+innerAWST :: (Monad m, HasEnv r)
           => (Command (ReaderT Env m a) -> ReaderT Env m a)
           -> r
           -> AWST m a
@@ -260,11 +274,11 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 {- $errors
 Errors are thrown by the library using 'MonadThrow' (unless "Control.Monad.Error.AWS" is used).
 Sub-errors of the canonical 'Error' type can be caught using 'trying' or
-'catching' and the appropriate 'AWSError' 'Prism':
+'catching' and the appropriate 'AsError' 'Prism':
 
 @
 trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
-trying '_HTTPError'      (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
+trying '_TransportError' (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
 trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
 trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
 @

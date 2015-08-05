@@ -32,14 +32,14 @@ import           Network.HTTP.Types.Status   (Status (..))
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 300
 
-httpStatus :: AWSError a => Getting (First Status) a Status
+httpStatus :: AsError a => Getting (First Status) a Status
 httpStatus = _Error . f
   where
     f g = \case
-        HTTPError (StatusCodeException s h c)
-            -> HTTPError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
-        HTTPError e
-            -> pure (HTTPError e)
+        TransportError (StatusCodeException s h c)
+            -> TransportError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
+        TransportError e
+            -> pure (TransportError e)
         SerializeError (SerializeError' a s e)
             -> g s <&> \x -> SerializeError (SerializeError' a x e)
         ServiceError e

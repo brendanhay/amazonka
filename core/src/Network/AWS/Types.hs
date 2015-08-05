@@ -63,8 +63,8 @@ module Network.AWS.Types
     , Response
 
     -- * Errors
-    , AWSError        (..)
-    , Error           (..)
+    , AsError      (..)
+    , Error        (..)
     -- ** HTTP Errors
     , HttpException
     -- ** Serialize Errors
@@ -176,7 +176,7 @@ newtype RequestId = RequestId Text
 
 -- | An error type representing errors that can be attributed to this library.
 data Error
-    = HTTPError      HttpException
+    = TransportError HttpException
     | SerializeError SerializeError
     | ServiceError   ServiceError
       deriving (Show, Typeable)
@@ -185,7 +185,7 @@ instance Exception Error
 
 instance ToLog Error where
     message = \case
-        HTTPError      e -> message e
+        TransportError e -> message e
         SerializeError e -> message e
         ServiceError   e -> message e
 
@@ -251,27 +251,27 @@ serviceMessage = lens _serviceMessage (\s a -> s { _serviceMessage = a })
 serviceRequestId :: Lens' ServiceError (Maybe RequestId)
 serviceRequestId = lens _serviceRequestId (\s a -> s { _serviceRequestId = a })
 
-class AWSError a where
+class AsError a where
     _Error          :: Prism' a Error
     {-# MINIMAL _Error #-}
 
-    _HTTPError      :: Prism' a HttpException
+    _TransportError :: Prism' a HttpException
     _SerializeError :: Prism' a SerializeError
     _ServiceError   :: Prism' a ServiceError
 
-    _HTTPError      = _Error . _HTTPError
+    _TransportError = _Error . _TransportError
     _SerializeError = _Error . _SerializeError
     _ServiceError   = _Error . _ServiceError
 
-instance AWSError SomeException where
+instance AsError SomeException where
     _Error = exception
 
-instance AWSError Error where
+instance AsError Error where
     _Error = id
 
-    _HTTPError = prism HTTPError $ \case
-        HTTPError e -> Right e
-        x           -> Left x
+    _TransportError = prism TransportError $ \case
+        TransportError e -> Right e
+        x                -> Left x
 
     _SerializeError = prism SerializeError $ \case
         SerializeError e -> Right e

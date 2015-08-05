@@ -34,7 +34,7 @@ module Network.AWS.EC2.Metadata
     ) where
 
 import           Control.Applicative
-import           Control.Exception
+import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import qualified Data.ByteString.Char8  as BS8
 import qualified Data.ByteString.Lazy   as LBS
@@ -59,10 +59,10 @@ data Dynamic
 
 instance ToText Dynamic where
     toText = \case
-       FWS       -> "fws/instance-monitoring"
-       Document  -> "instance-identity/document"
-       PKCS7     -> "instance-identity/pkcs7"
-       Signature -> "instance-identity/signature"
+       FWS       -> "dynamic/fws/instance-monitoring"
+       Document  -> "dynamic/instance-identity/document"
+       PKCS7     -> "dynamic/instance-identity/pkcs7"
+       Signature -> "dynamic/instance-identity/signature"
 
 data Metadata
     = AMIId
@@ -135,29 +135,29 @@ data Metadata
 
 instance ToText Metadata where
     toText = \case
-        AMIId            -> "ami-id"
-        AMILaunchIndex   -> "ami-launch-index"
-        AMIManifestPath  -> "ami-manifest-path"
-        AncestorAMIIds   -> "ancestor-ami-ids"
-        BlockDevice m    -> "block-device-mapping/" <> toText m
-        Hostname         -> "hostname"
-        IAM m            -> "iam/" <> toText m
-        InstanceAction   -> "instance-action"
-        InstanceId       -> "instance-id"
-        InstanceType     -> "instance-type"
-        KernelId         -> "kernel-id"
-        LocalHostname    -> "local-hostname"
-        LocalIPV4        -> "local-ipv4"
-        MAC              -> "mac"
-        Network n m      -> "network/interfaces/macs/" <> toText n <> "/" <> toText m
-        AvailabilityZone -> "placement/availability-zone"
-        ProductCodes     -> "product-codes"
-        PublicHostname   -> "public-hostname"
-        PublicIPV4       -> "public-ipv4"
-        OpenSSHKey       -> "public-keys/0/openssh-key"
-        RAMDiskId        -> "ramdisk-id"
-        ReservationId    -> "reservation-id"
-        SecurityGroups   -> "security-groups"
+        AMIId            -> "meta-data/ami-id"
+        AMILaunchIndex   -> "meta-data/ami-launch-index"
+        AMIManifestPath  -> "meta-data/ami-manifest-path"
+        AncestorAMIIds   -> "meta-data/ancestor-ami-ids"
+        BlockDevice m    -> "meta-data/block-device-mapping/" <> toText m
+        Hostname         -> "meta-data/hostname"
+        IAM m            -> "meta-data/iam/" <> toText m
+        InstanceAction   -> "meta-data/instance-action"
+        InstanceId       -> "meta-data/instance-id"
+        InstanceType     -> "meta-data/instance-type"
+        KernelId         -> "meta-data/kernel-id"
+        LocalHostname    -> "meta-data/local-hostname"
+        LocalIPV4        -> "meta-data/local-ipv4"
+        MAC              -> "meta-data/mac"
+        Network n m      -> "meta-data/network/interfaces/macs/" <> toText n <> "/" <> toText m
+        AvailabilityZone -> "meta-data/placement/availability-zone"
+        ProductCodes     -> "meta-data/product-codes"
+        PublicHostname   -> "meta-data/public-hostname"
+        PublicIPV4       -> "meta-data/public-ipv4"
+        OpenSSHKey       -> "meta-data/public-keys/0/openssh-key"
+        RAMDiskId        -> "meta-data/ramdisk-id"
+        ReservationId    -> "meta-data/reservation-id"
+        SecurityGroups   -> "meta-data/security-groups"
 
 data Mapping
     = AMI
@@ -266,8 +266,12 @@ instance ToText Info where
         Info'                 -> "info"
         SecurityCredentials r -> "security-credentials/" <> maybe mempty toText r
 
--- | Test whether the host is running on EC2 by requesting the instance-data.
-isEC2 :: Manager -> IO Bool
+latest :: Text
+latest = "http://169.254.169.254/latest/"
+
+-- | Test whether the host is running on EC2 by
+-- making an HTTP request to @http://instance-data/latest@.
+isEC2 :: MonadIO m => Manager -> m Bool
 isEC2 m = liftIO (req `catch` err)
   where
     req = do
@@ -277,39 +281,37 @@ isEC2 m = liftIO (req `catch` err)
     err :: HttpException -> IO Bool
     err = const (return False)
 
-dynamic :: MonadIO m
-        => Manager
-        -> Dynamic
-        -> m (Either HttpException ByteString)
-dynamic m = get m . mappend "http://169.254.169.254/latest/dynamic/" . toText
+-- | Retrieve the specified 'Dynamic' data.
+--
+-- Throws 'HttpException' if HTTP communication fails.
+dynamic :: (MonadIO m, MonadThrow m) => Manager -> Dynamic -> m ByteString
+dynamic m = get m . mappend latest . toText
 
-metadata :: MonadIO m
-         => Manager
-         -> Metadata
-         -> m (Either HttpException ByteString)
-metadata m = get m . mappend "http://169.254.169.254/latest/meta-data/" . toText
+-- | Retrieve the specified  'Metadata'.
+--
+-- Throws 'HttpException' if HTTP communication fails.
+metadata :: (MonadIO m, MonadThrow m) => Manager -> Metadata -> m ByteString
+metadata m = get m . mappend latest . toText
 
-userdata :: MonadIO m => Manager -> m (Either HttpException (Maybe ByteString))
+-- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
+-- to the instance.
+--
+-- Throws 'HttpException' if HTTP communication fails.
+userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
 userdata m = do
-    x <- get m "http://169.254.169.254/latest/user-data"
-    return $!
-        case x of
-            Right b                 -> Right (Just b)
-            Left (StatusCodeException s _ _)
-                | fromEnum s == 404 -> Right Nothing
-            Left e                  -> Left  e
+    x <- try $ get m (latest <> "user-data")
+    case x of
+        Right b                 -> return (Just b)
+        Left (StatusCodeException s _ _)
+            | fromEnum s == 404 -> return Nothing
+        Left e                  -> throwM e
 
-get :: MonadIO m => Manager -> Text -> m (Either HttpException ByteString)
-get m url = liftIO (req `catch` err)
+get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
+get m url = liftIO (strip <$> request m url)
   where
-    req = Right . strip <$> request m url
-
     strip bs
         | BS8.isSuffixOf "\n" bs = BS8.init bs
         | otherwise              = bs
-
-    err :: HttpException -> IO (Either HttpException a)
-    err = return . Left
 
 request :: Manager -> Text -> IO ByteString
 request m url = do

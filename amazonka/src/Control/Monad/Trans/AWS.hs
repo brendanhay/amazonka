@@ -29,26 +29,22 @@ module Control.Monad.Trans.AWS
     , execAWST
     , pureAWST
 
-    -- * Environment Setup
-    , HasEnv      (..)
-    , Env
+    -- * Authentication and Environment
     , newEnv
+    , Env
+    , HasEnv      (..)
 
-    -- ** Credentials
+    -- ** Credential Discovery
     , Credentials (..)
 
-    -- ** Region
+    -- ** Supported Regions
     , Region      (..)
 
-    -- * Runtime Configuration
-    , within
-    , once
-    , timeout
-
     -- * Sending Requests
+    -- ** Send, Paginate and Await
     , send
-    , await
     , paginate
+    , await
 
     -- ** Presigning
     , presignURL
@@ -56,31 +52,41 @@ module Control.Monad.Trans.AWS
 
     -- ** Overriding Service Configuration
     -- $service
+
+    -- *** Scoped Actions
+    , within
+    , once
+    , timeout
+
+    -- *** Per Request
     , sendWith
-    , awaitWith
     , paginateWith
+    , awaitWith
     , presignWith
 
-    -- ** Asynchronous Actions
+    -- ** Running Asynchronous Actions
     -- $async
 
     -- ** Streaming
     -- $streaming
 
+    -- *** Request Bodies
     , ToBody      (..)
-    , RqBody
     , sourceBody
     , sourceHandle
     , sourceFile
     , sourceFileIO
+
+    -- *** Response Bodies
+    , sinkBody
+
+    -- *** Calculating File Size and SHA256
     , getFileSize
     , sinkHash
 
-    , RsBody
-    , sinkBody
-
     -- * Handling Errors
     -- $errors
+
     , AsError     (..)
     , AsAuthError (..)
 
@@ -89,22 +95,24 @@ module Control.Monad.Trans.AWS
 
     -- * Logging
     -- $logging
+
     , Logger
 
     -- ** Constructing a Logger
     , newLogger
 
-    -- ** Logging Functions
+    -- ** Emitting Log Messages
     , logError
     , logInfo
     , logDebug
     , logTrace
 
-    -- ** Constructing Log Messages
     , ToLog       (..)
 
     -- * Re-exported Types
     , module Network.AWS.Types
+    , AWS.RqBody
+    , AWS.RsBody
     ) where
 
 import           Control.Applicative
@@ -127,10 +135,12 @@ import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
 import           Network.AWS.Internal.Presign
 import           Network.AWS.Logger
-import           Network.AWS.Prelude
+import           Network.AWS.Prelude             as AWS
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 
+-- | The 'AWST' transformer which wraps the environment required to make
+-- requests and the 'FreeT' 'Command' DSL.
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
     deriving
         ( Functor
@@ -247,8 +257,9 @@ When a request is sent, various configuration values such as the endpoint,
 retry strategy, timeout and error handlers are taken from the associated 'Service'
 configuration.
 
-You can override the default configuration by using the following @*With@
-function variants.
+You can override the default configuration for a series of one or more actions
+by using 'within', 'once' and 'timeout', or by using the @*With@ suffixed
+functions on an individual request basis below.
 -}
 
 {- $async

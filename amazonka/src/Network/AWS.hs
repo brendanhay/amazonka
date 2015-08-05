@@ -26,24 +26,24 @@ module Network.AWS
     -- * Running AWS Actions
       AWS
     , MonadAWS    (..)
-    -- $embed
     , runAWS
 
-    -- * Environment Setup
-    , Credentials (..)
-    , HasEnv      (..)
-    , Env
+    -- * Authentication and Environment
     , newEnv
+    , Env
+    , HasEnv      (..)
 
-    -- * Runtime Configuration
-    , within
-    , once
-    , timeout
+    -- ** Credential Discovery
+    , Credentials (..)
+
+    -- ** Supported Regions
+    , Region      (..)
 
     -- * Sending Requests
+    -- ** Send, Paginate and Await
     , send
-    , await
     , paginate
+    , await
 
     -- ** Presigning
     , presignURL
@@ -51,31 +51,41 @@ module Network.AWS
 
     -- ** Overriding Service Configuration
     -- $service
+
+    -- *** Scoped Actions
+    , within
+    , once
+    , timeout
+
+    -- *** Per Request
     , sendWith
-    , awaitWith
     , paginateWith
+    , awaitWith
     , presignWith
 
-    -- ** Asynchronous Actions
+    -- ** Running Asynchronous Actions
     -- $async
 
     -- ** Streaming
     -- $streaming
 
+    -- *** Request Bodies
     , ToBody      (..)
-    , RqBody
     , sourceBody
     , sourceHandle
     , sourceFile
     , sourceFileIO
+
+    -- *** Response Bodies
+    , sinkBody
+
+    -- *** Calculating File Size and SHA256
     , getFileSize
     , sinkHash
 
-    , RsBody
-    , sinkBody
-
     -- * Handling Errors
     -- $errors
+
     , AsError     (..)
     , AsAuthError (..)
 
@@ -84,22 +94,24 @@ module Network.AWS
 
     -- * Logging
     -- $logging
+
     , Logger
 
     -- ** Constructing a Logger
     , newLogger
 
-    -- ** Logging Functions
+    -- ** Emitting Log Messages
     , logError
     , logInfo
     , logDebug
     , logTrace
 
-    -- ** Log Messages
     , ToLog       (..)
 
-    -- * Types
+    -- * Re-exported Types
     , module Network.AWS.Types
+    , AWST.RqBody
+    , AWST.RsBody
     ) where
 
 import           Control.Applicative
@@ -135,6 +147,8 @@ import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.AWS.Waiter
+
+import           Prelude
 
 -- | A specialisation of the 'AWST' transformer.
 type AWS = AWST IO
@@ -212,8 +226,11 @@ sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
          -> m (Rs a)
 sendWith f = liftAWS . AWST.sendWith f
 
--- | Transparently paginate over multiple responses for supported requests
--- while results are available.
+-- | Repeatedly send a request, automatically setting markers and
+-- paginating over multiple responses while available.
+--
+-- Requests that can potentially return multiple pages of results are instances
+-- of 'AWSPager',
 --
 -- /See:/ 'paginateWith'
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
@@ -299,8 +316,9 @@ When a request is sent, various configuration values such as the endpoint,
 retry strategy, timeout and error handlers are taken from the associated 'Service'
 configuration.
 
-You can override the default configuration by using the following @*With@
-function variants.
+You can override the default configuration for a series of one or more actions
+by using 'within', 'once' and 'timeout', or by using the @*With@ suffixed
+functions on an individual request basis below.
 -}
 
 {- $async

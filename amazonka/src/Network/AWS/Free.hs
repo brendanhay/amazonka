@@ -77,8 +77,11 @@ sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          -> m (Rs a)
 sendWith f x = liftF $ Send (f (serviceOf x)) x id
 
--- | Transparently paginate over multiple responses for supported requests
--- while results are available.
+-- | Repeatedly send a request, automatically setting markers and
+-- paginating over multiple responses while available.
+--
+-- Requests that can potentially return multiple pages of results are instances
+-- of 'AWSPager',
 --
 -- /See:/ 'paginateWith'
 paginate :: (MonadFree Command m, AWSPager a)
@@ -110,8 +113,8 @@ paginateWith f rq = go rq
 -- by the specification, or any subsequent successful response from the await
 -- request(s).
 --
--- /Note:/ You can find any available 'Wait' specifications under then
--- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
+-- 'Wait' specifications can be found under the @Network.AWS.<ServiceName>.Waiters@
+-- namespace for services which support 'await'.
 --
 -- /See:/ 'awaitWith'
 await :: (MonadFree Command m, AWSRequest a)

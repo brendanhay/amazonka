@@ -127,10 +127,9 @@ once = local $ \e -> e
 timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
 timeout s = local (envTimeout ?~ s)
 
--- | This creates a new environment with a new 'Manager' without debug logging
+-- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
---
--- Lenses such as 'envLogger' can be used to configure the resulting 'Env'.
+-- Lenses from 'HasEnv' can be used to further configure the resulting 'Env'.
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --

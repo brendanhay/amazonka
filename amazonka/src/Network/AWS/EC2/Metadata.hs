@@ -1,7 +1,8 @@
-{-# LANGUAGE BangPatterns      #-}
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE BangPatterns       #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE FlexibleContexts   #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata
@@ -11,29 +12,26 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve an EC2 instance's local metadata.
+-- Retrieve various EC2 metadata from an instance's local metadata endpoint.
 module Network.AWS.EC2.Metadata
     (
-    -- * Requests
-    -- ** Running on EC2
+    -- * EC2 Instance Check
       isEC2
 
-    -- ** Dynamic
-    , Dynamic   (..)
+    -- * Retrieving Instance Data
     , dynamic
+    , metadata
+    , userdata
 
-    -- ** Metadata
+    -- ** Path Constructors
+    , Dynamic   (..)
     , Metadata  (..)
     , Mapping   (..)
     , Info      (..)
     , Interface (..)
-    , metadata
-
-    -- ** User data
-    , userdata
     ) where
 
-import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import qualified Data.ByteString.Char8  as BS8
@@ -42,6 +40,8 @@ import           Data.Monoid
 import qualified Data.Text              as Text
 import           Network.AWS.Prelude    hiding (request)
 import           Network.HTTP.Conduit
+
+import           Prelude
 
 data Dynamic
     = FWS
@@ -56,6 +56,7 @@ data Dynamic
     -- ^ Used to verify the document's authenticity and content against the
     -- signature.
     | Signature
+      deriving (Eq, Ord, Show, Typeable)
 
 instance ToText Dynamic where
     toText = \case
@@ -131,7 +132,7 @@ data Metadata
     -- ^ ID of the reservation.
     | SecurityGroups
     -- ^ The names of the security groups applied to the instance.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Typeable)
 
 instance ToText Metadata where
     toText = \case
@@ -175,7 +176,7 @@ data Mapping
     -- is associated with the given instance.
     | Swap
     -- ^ The virtual devices associated with swap. Not always present.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Typeable)
 
 instance ToText Mapping where
     toText = \case
@@ -230,7 +231,7 @@ data Interface
     | IVPCIPV4_CIDRBlock
     -- ^ The CIDR block of the VPC in which the interface resides. Returned only
     -- for instances launched into a VPC.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Typeable)
 
 instance ToText Interface where
     toText = \case
@@ -259,7 +260,7 @@ data Info
     -- Returns the temporary security credentials.
     --
     -- See: 'Auth' for JSON deserialisation.
-      deriving (Eq, Ord, Show)
+      deriving (Eq, Ord, Show, Typeable)
 
 instance ToText Info where
     toText = \case
@@ -307,7 +308,7 @@ userdata m = do
         Left e                  -> throwM e
 
 get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
-get m url = liftIO (strip <$> request m url)
+get m url = liftIO (strip `liftM` request m url)
   where
     strip bs
         | BS8.isSuffixOf "\n" bs = BS8.init bs

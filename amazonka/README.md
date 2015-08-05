@@ -6,8 +6,9 @@
 
 ## Description
 
-Client library containing request and response primitives to be used alongside
-the types from all `amazonka-*` libraries.
+Client library containing request and response logic to communicate
+with Amazon Web Service compatible APIs. Intended to be used alongside
+the types supplied by the various `amazonka-*` service libraries.
 
 
 ## Contribute

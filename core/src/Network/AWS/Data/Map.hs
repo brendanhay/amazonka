@@ -31,12 +31,14 @@ import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
 import           Data.Data                   (Data,Typeable)
+import           Data.Foldable               hiding (toList)
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map
 import           Data.Maybe
 import           Data.Semigroup
 import qualified Data.Text.Encoding          as Text
+import           Data.Traversable
 import           GHC.Exts
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString

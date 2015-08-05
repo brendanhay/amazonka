@@ -24,6 +24,8 @@ import           Data.Text             (Text)
 import           Network.AWS.Data.Text (ToText (..))
 import           Network.AWS.Types
 
+import           Prelude
+
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
 -- generate a subsequent request, if available.
 class AWSRequest a => AWSPager a where

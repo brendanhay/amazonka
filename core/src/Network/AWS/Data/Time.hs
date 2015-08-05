@@ -57,6 +57,8 @@ import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 
+import           Prelude
+
 data Format
     = RFC822Format
     | ISO8601Format

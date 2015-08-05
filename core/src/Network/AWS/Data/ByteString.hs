@@ -33,13 +33,14 @@ import           Data.CaseInsensitive              (CI)
 import qualified Data.CaseInsensitive              as CI
 import           Data.Char
 import           Data.Double.Conversion.ByteString (toShortest)
-import           Data.Monoid
 import qualified Data.Text.Encoding                as Text
 import           Data.Time                         (UTCTime)
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types
 import           Numeric.Natural
+
+import           Prelude
 
 type LazyByteString = LBS.ByteString
 

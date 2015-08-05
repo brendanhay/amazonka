@@ -20,12 +20,13 @@ module Network.AWS.Data.Headers
 
 import qualified Data.ByteString.Char8       as BS8
 import qualified Data.CaseInsensitive        as CI
-import           Data.Foldable               as Fold
 import           Data.Monoid
 import qualified Data.Text.Encoding          as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types
+
+import           Prelude
 
 infixl 7 .#, .#?
 

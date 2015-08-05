@@ -57,6 +57,8 @@ import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           System.IO
 
+import           Prelude
+
 data LogLevel
     = Error -- ^ Error messages only.
     | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.

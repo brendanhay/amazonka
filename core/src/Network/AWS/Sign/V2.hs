@@ -34,6 +34,8 @@ import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types           hiding (toQuery)
 
+import           Prelude
+
 data V2
 
 data instance Meta V2 = Meta

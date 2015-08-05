@@ -41,6 +41,8 @@ import           Network.AWS.Error
 import           Network.AWS.Logger
 import           Network.AWS.Types
 
+import           Prelude
+
 type Acceptor a = Request a -> Either Error (Response a) -> Maybe Accept
 
 data Accept

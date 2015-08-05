@@ -18,6 +18,8 @@ import           Data.Monoid
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Types
 
+import           Prelude
+
 -- | Determine the full host address and credential scope for a 'Service'
 -- within the specified 'Region'.
 defaultEndpoint :: Service s -> Region -> Endpoint

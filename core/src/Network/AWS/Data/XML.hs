@@ -26,6 +26,8 @@ import           Network.AWS.Data.Text
 import           Numeric.Natural
 import           Text.XML
 
+import           Prelude
+
 infixl 7 .@, .@?
 
 (.@) :: FromXML a => [Node] -> Text -> Either String a

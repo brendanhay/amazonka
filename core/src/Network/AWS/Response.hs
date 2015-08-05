@@ -14,7 +14,6 @@
 --
 module Network.AWS.Response where
 
-import           Control.Applicative
 import           Control.Monad.Catch
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
@@ -30,6 +29,8 @@ import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
+
+import           Prelude
 
 receiveNull :: MonadResource m
             => Rs a
@@ -68,6 +69,7 @@ receiveJSON :: MonadResource m
             -> ClientResponse
             -> m (Response a)
 receiveJSON = deserialise eitherDecode'
+
 
 receiveBody :: MonadResource m
             => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))

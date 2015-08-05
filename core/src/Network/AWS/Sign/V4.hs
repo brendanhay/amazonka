@@ -43,6 +43,8 @@ import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types.Header
 
+import           Prelude
+
 data V4
 
 data instance Meta V4 = Meta

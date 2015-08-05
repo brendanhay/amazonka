@@ -32,6 +32,8 @@ import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML
 import           Text.XML             (Node)
 
+import           Prelude
+
 newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
     deriving
         ( Functor

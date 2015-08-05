@@ -34,6 +34,8 @@ import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI      (urlEncode)
 import           Numeric.Natural
 
+import           Prelude
+
 data QueryString
     = QList  [QueryString]
     | QPair  ByteString QueryString

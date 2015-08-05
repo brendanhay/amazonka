@@ -31,6 +31,8 @@ import           Network.AWS.Data.XML         (encodeXML)
 import           Network.HTTP.Client
 import           Text.XML                     (Element)
 
+import           Prelude
+
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
     { bodyResponse :: ResumableSource (ResourceT IO) ByteString

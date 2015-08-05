@@ -17,7 +17,6 @@ import           Control.Lens
 import           Control.Monad
 import           Data.Aeson.Types
 import           Data.Data                   (Data, Typeable)
-import           Data.Monoid                 (mappend)
 import           Data.Scientific
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString
@@ -25,6 +24,8 @@ import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 import           Numeric.Natural
+
+import           Prelude
 
 newtype Nat = Nat { unNat :: Natural }
     deriving

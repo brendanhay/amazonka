@@ -31,14 +31,12 @@ import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
 import           Data.Data                   (Data,Typeable)
-import           Data.Foldable               (Foldable)
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map
 import           Data.Maybe
 import           Data.Semigroup
 import qualified Data.Text.Encoding          as Text
-import           Data.Traversable            (Traversable, traverse)
 import           GHC.Exts
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString
@@ -48,6 +46,8 @@ import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 import           Network.HTTP.Types          (ResponseHeaders)
 import           Text.XML                    (Node)
+
+import           Prelude
 
 newtype Map k v = Map { toMap :: HashMap k v }
     deriving

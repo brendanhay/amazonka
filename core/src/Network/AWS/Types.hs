@@ -142,6 +142,8 @@ import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
 import           Text.XML                     (def)
 
+import           Prelude
+
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
 

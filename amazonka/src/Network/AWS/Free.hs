@@ -6,8 +6,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE RankNTypes        #-}
 
-{-# OPTIONS_HADDOCK show-extensions #-}
-
 -- |
 -- Module      : Network.AWS.Free
 -- Copyright   : (c) 2013-2015 Brendan Hay

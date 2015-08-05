@@ -1,8 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 
-{-# OPTIONS_HADDOCK show-extensions #-}
-
 -- |
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2015 Brendan Hay

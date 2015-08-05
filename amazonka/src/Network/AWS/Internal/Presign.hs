@@ -1,7 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-{-# OPTIONS_HADDOCK show-extensions #-}
-
 -- |
 -- Module      : Network.AWS.Internal.Presign
 -- Copyright   : (c) 2013-2015 Brendan Hay

@@ -8,7 +8,6 @@
 {-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-{-# OPTIONS_HADDOCK show-extensions #-}
 
 -- |
 -- Module      : Control.Monad.Trans.AWS

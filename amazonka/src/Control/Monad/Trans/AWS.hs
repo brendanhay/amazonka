@@ -17,9 +17,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- The 'AWST' transformer provides interpretations for the 'FreeT' 'Command'
--- DSL which is later interpreted by 'runAWST' or 'pureAWST'. It can be used
--- directly or embedded as a layer within a transformer stack.
+-- The 'AWST' transformer provides the environment required to perform AWS
+-- operations and constructs a 'Command' DSL using 'FreeT' which can then be
+-- interpreted using 'runAWST' or 'pureAWST'. The transformer is intended
+-- to be used directly or embedded as a layer within a transformer stack.
 --
 -- "Network.AWS" contains a 'IO' specialised version of 'AWST' with a typeclass
 -- to assist in automatically lifting operations.
@@ -141,8 +142,7 @@ import           Network.AWS.Prelude             as AWS
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 
--- | The 'AWST' transformer which wraps the environment required to make
--- requests and the 'FreeT' 'Command' DSL.
+-- | The 'AWST' transformer.
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
     deriving
         ( Functor
@@ -253,6 +253,13 @@ innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return
+
+-- presignf :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+--         -> UTCTime     -- ^ Signing time.
+--         -> Seconds     -- ^ Expiry time.
+--         -> a           -- ^ Request to presign.
+--         -> m ClientRequest
+-- presignf e t ex = presignWith e id t ex
 
 {- $service
 When a request is sent, various configuration values such as the endpoint,

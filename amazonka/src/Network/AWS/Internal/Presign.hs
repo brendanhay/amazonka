@@ -25,8 +25,8 @@ import           Prelude
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presign', 'presignWith'
-presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
-           => Env
+presignURL :: (MonadIO m, HasEnv r, AWSPresigner (Sg (Sv a)), AWSRequest a)
+           => r
            -> UTCTime     -- ^ Signing time.
            -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.
@@ -40,8 +40,8 @@ presignURL e t ex = liftM requestURL . presign e t ex
 -- Not all signing algorithms support this.
 --
 -- /See:/ 'presignWith'
-presign :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
-        => Env
+presign :: (MonadIO m, HasEnv r, AWSPresigner (Sg (Sv a)), AWSRequest a)
+        => r
         -> UTCTime     -- ^ Signing time.
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
@@ -50,8 +50,8 @@ presign e t ex = presignWith e id t ex
 
 -- | A variant of 'presign' that allows specifying the 'Service' definition
 -- used to configure the request.
-presignWith :: (MonadIO m, AWSPresigner (Sg s), AWSRequest a)
-            => Env
+presignWith :: (MonadIO m, HasEnv r, AWSPresigner (Sg s), AWSRequest a)
+            => r
             -> (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
             -> UTCTime                       -- ^ Signing time.
             -> Seconds                       -- ^ Expiry time.

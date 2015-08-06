@@ -74,7 +74,6 @@ library
         , conduit              >= 1.1
         , conduit-extra        >= 1.1
         , cryptonite           >= 0.4
-        , double-conversion    >= 0.2
         , exceptions           >= 0.6
         , hashable             >= 1.2
         , http-client          >= 0.4.9

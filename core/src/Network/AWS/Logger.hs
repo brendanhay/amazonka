@@ -32,21 +32,20 @@ module Network.AWS.Logger
 
 import           Control.Monad
 import           Control.Monad.IO.Class
-import qualified Data.ByteString                   as BS
-import           Data.ByteString.Builder           (Builder)
-import qualified Data.ByteString.Lazy              as LBS
-import qualified Data.ByteString.Lazy.Builder      as Build
-import           Data.CaseInsensitive              (CI)
-import qualified Data.CaseInsensitive              as CI
-import           Data.Double.Conversion.ByteString (toShortest)
+import qualified Data.ByteString              as BS
+import           Data.ByteString.Builder      (Builder)
+import qualified Data.ByteString.Lazy         as LBS
+import qualified Data.ByteString.Lazy.Builder as Build
+import           Data.CaseInsensitive         (CI)
+import qualified Data.CaseInsensitive         as CI
 import           Data.Int
-import           Data.List                         (intersperse)
+import           Data.List                    (intersperse)
 import           Data.Monoid
-import qualified Data.Text                         as Text
-import qualified Data.Text.Encoding                as Text
-import qualified Data.Text.Lazy                    as LText
-import qualified Data.Text.Lazy.Encoding           as LText
-import           Data.Time                         (UTCTime)
+import qualified Data.Text                    as Text
+import qualified Data.Text.Encoding           as Text
+import qualified Data.Text.Lazy               as LText
+import qualified Data.Text.Lazy.Encoding      as LText
+import           Data.Time                    (UTCTime)
 import           Data.Word
 import           GHC.Float
 import           Network.AWS.Data.ByteString
@@ -55,6 +54,7 @@ import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.HTTP.Client
 import           Network.HTTP.Types
+import           Numeric
 import           System.IO
 
 import           Prelude
@@ -105,8 +105,8 @@ instance ToLog Word16         where message = Build.word16Dec
 instance ToLog Word32         where message = Build.word32Dec
 instance ToLog Word64         where message = Build.word64Dec
 instance ToLog UTCTime        where message = Build.stringUtf8 . show
-instance ToLog Float          where message = message . toShortest . float2Double
-instance ToLog Double         where message = message . toShortest
+instance ToLog Float          where message = message . ($ "") . showFFloat Nothing
+instance ToLog Double         where message = message . ($ "") . showFFloat Nothing
 instance ToLog Text           where message = message . Text.encodeUtf8
 instance ToLog LText.Text     where message = message . LText.encodeUtf8
 instance ToLog Char           where message = message . Text.singleton

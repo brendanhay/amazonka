@@ -233,9 +233,9 @@ execAWST f = innerAWST go
 --
 -- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
 pureAWST :: (MonadThrow m, HasEnv r)
-         => (forall s a. Service s           -> a -> Either Error (Rs a))
+         => (forall s a. (AWSSigner (Sg s), AWSRequest a) => Service s -> a -> Either Error (Rs a))
             -- ^ Construct a response for any 'send' command.
-         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+         -> (forall s a. (AWSSigner (Sg s), AWSRequest a) => Service s -> Wait a -> a -> Either Error (Rs a))
             -- ^ Construct a response for any 'await' command.
          -> r
          -> AWST m b

@@ -20,8 +20,8 @@
 --
 -- The 'AWST' transformer provides the environment required to perform AWS
 -- operations and constructs a 'Command' DSL using 'FreeT' which can then be
--- interpreted using 'runAWST' or 'pureAWST'. The transformer is intended
--- to be used directly or embedded as a layer within a transformer stack.
+-- interpreted using 'runAWST'. The transformer is intended to be used directly
+-- or embedded as a layer within a transformer stack.
 --
 -- "Network.AWS" contains a 'IO' specialised version of 'AWST' with a typeclass
 -- to assist in automatically lifting operations.
@@ -31,18 +31,17 @@ module Control.Monad.Trans.AWS
       AWST
     , runAWST
     , execAWST
-    , pureAWST
 
     -- * Authentication and Environment
     , newEnv
     , Env
-    , HasEnv      (..)
+    , HasEnv       (..)
 
     -- ** Credential Discovery
-    , Credentials (..)
+    , Credentials  (..)
 
     -- ** Supported Regions
-    , Region      (..)
+    , Region       (..)
 
     -- * Sending Requests
     -- ** Send, Paginate and Await
@@ -53,6 +52,14 @@ module Control.Monad.Trans.AWS
     -- ** Presigning
     , presignURL
     , presign
+
+    -- ** EC2 Instance Metadata
+    , dynamic
+    , metadata
+    , userdata
+
+    , EC2.Dynamic  (..)
+    , EC2.Metadata (..)
 
     -- ** Overriding Service Configuration
     -- $service
@@ -75,7 +82,7 @@ module Control.Monad.Trans.AWS
     -- $streaming
 
     -- *** Request Bodies
-    , ToBody      (..)
+    , ToBody       (..)
     , sourceBody
     , sourceHandle
     , sourceFile
@@ -91,8 +98,8 @@ module Control.Monad.Trans.AWS
     -- * Handling Errors
     -- $errors
 
-    , AsError     (..)
-    , AsAuthError (..)
+    , AsError      (..)
+    , AsAuthError  (..)
 
     , trying
     , catching
@@ -111,7 +118,7 @@ module Control.Monad.Trans.AWS
     , logDebug
     , logTrace
 
-    , ToLog       (..)
+    , ToLog        (..)
 
     -- * Re-exported Types
     , module Network.AWS.Types
@@ -132,16 +139,20 @@ import           Control.Monad.Trans.Free
 import qualified Control.Monad.Trans.Free.Church as Free
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
+import           Data.Bifunctor
 import           Network.AWS.Auth
+import qualified Network.AWS.EC2.Metadata        as EC2
 import           Network.AWS.Env
 import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
-import           Network.AWS.Internal.Presign
 import           Network.AWS.Logger
 import           Network.AWS.Prelude             as AWS
+import qualified Network.AWS.Presign             as Sign
 import           Network.AWS.Types
-import           Network.AWS.Waiter
+
+-- FIXME: add notes to .Presign and .EC2.Metadata noting that they
+-- don't use the underlying 'FreeT' DSL.
 
 -- | The 'AWST' transformer.
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
@@ -220,30 +231,37 @@ execAWST :: (MonadCatch m, MonadResource m, HasEnv r)
          -> m b
 execAWST f = innerAWST go
   where
-    go (Send s (request -> x) k) = do
-        e <- view env
-        retrier e s x (perform e s x) >>= lift . f >>= k . snd
+    go (DynF x k) = do
+        m <- view envManager
+        r <- lift . f =<< tryT (EC2.dynamic m x)
+        k r
 
-    go (Await s w (request -> x) k) = do
-        e <- view env
-        waiter e w x (perform e s x) >>= lift . f >>= k . snd
+    go (MetaF x k) = do
+        m <- view envManager
+        r <- lift . f =<< tryT (EC2.metadata m x)
+        k r
 
--- | Run an 'AWST' action with configurable response construction. This allows
--- mocking of responses and does not perform any external API calls.
---
--- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
-pureAWST :: (MonadThrow m, HasEnv r)
-         => (forall s a. (AWSSigner (Sg s), AWSRequest a) => Service s -> a -> Either Error (Rs a))
-            -- ^ Construct a response for any 'send' command.
-         -> (forall s a. (AWSSigner (Sg s), AWSRequest a) => Service s -> Wait a -> a -> Either Error (Rs a))
-            -- ^ Construct a response for any 'await' command.
-         -> r
-         -> AWST m b
-         -> m b
-pureAWST f g = innerAWST go
-  where
-    go (Send  s   x k) = hoistError (f s   x) >>= k
-    go (Await s w x k) = hoistError (g s w x) >>= k
+    go (UserF k) = do
+        m <- view envManager
+        r <- lift . f =<< tryT (EC2.userdata m)
+        k r
+
+    go (SignF s ts ex x k) = do
+        e <- view env
+        r <- Sign.presignWith e (const s) ts ex x
+        k r
+
+    go (SendF s (request -> x) k) = do
+        e <- view env
+        r <- lift . f =<< retrier e s x (perform e s x)
+        k (snd r)
+
+    go (AwaitF s w (request -> x) k) = do
+        e <- view env
+        r <- lift . f =<< waiter e w x (perform e s x)
+        k (snd r)
+
+    tryT m = first TransportError <$> try m
 
 innerAWST :: (Monad m, HasEnv r)
           => (Command (ReaderT Env m a) -> ReaderT Env m a)

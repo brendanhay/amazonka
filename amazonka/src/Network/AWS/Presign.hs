@@ -1,19 +1,18 @@
 {-# LANGUAGE FlexibleContexts #-}
 
 -- |
--- Module      : Network.AWS.Internal.Presign
+-- Module      : Network.AWS.Presign
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Internal.Presign where
+module Network.AWS.Presign where
 
 import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
-import           Control.Monad.Reader
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Prelude
@@ -27,16 +26,16 @@ import           Prelude
 --
 -- /See:/ 'presign', 'presignWith'
 presignURL :: ( MonadIO m
-              , MonadReader r m
               , HasEnv r
               , AWSPresigner (Sg (Sv a))
               , AWSRequest a
               )
-           => UTCTime     -- ^ Signing time.
+           => r
+           -> UTCTime     -- ^ Signing time.
            -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.
            -> m ByteString
-presignURL t ex = liftM requestURL . presign t ex
+presignURL e t ex = liftM requestURL . presign e t ex
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -46,27 +45,27 @@ presignURL t ex = liftM requestURL . presign t ex
 --
 -- /See:/ 'presignWith'
 presign :: ( MonadIO m
-           , MonadReader r m
            , HasEnv r
            , AWSPresigner (Sg (Sv a))
            , AWSRequest a
            )
-        => UTCTime     -- ^ Signing time.
+        => r
+        -> UTCTime     -- ^ Signing time.
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign t ex = presignWith id t ex
+presign e t ex = presignWith e id t ex
 
 -- | A variant of 'presign' that allows specifying the 'Service' definition
 -- used to configure the request.
-presignWith :: (MonadIO m, MonadReader r m, HasEnv r, AWSPresigner (Sg s), AWSRequest a)
-            => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
+presignWith :: (MonadIO m, HasEnv r, AWSPresigner (Sg s), AWSRequest a)
+            => r
+            -> (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
             -> UTCTime                       -- ^ Signing time.
             -> Seconds                       -- ^ Expiry time.
             -> a                             -- ^ Request to presign.
             -> m ClientRequest
-presignWith f t ex x = do
-    e <- view env
+presignWith e f t ex x =
     withAuth (e ^. envAuth) $ \a ->
         return . view sgRequest $
             presigned a (e ^. envRegion) t ex (f (serviceOf x)) (request x)

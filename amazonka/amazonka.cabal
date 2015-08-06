@@ -34,11 +34,11 @@ library
         , Network.AWS.EC2.Metadata
         , Network.AWS.Env
         , Network.AWS.Free
+        , Network.AWS.Presign
 
     other-modules:
           Network.AWS.Internal.Body
         , Network.AWS.Internal.HTTP
-        , Network.AWS.Internal.Presign
 
     build-depends:
           amazonka-core       == 1.0.0.*

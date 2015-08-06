@@ -48,6 +48,14 @@ module Network.AWS
     -- ** Presigning
     , presignURL
 
+    -- ** EC2 Instance Metadata
+    , dynamic
+    , metadata
+    , userdata
+
+    , EC2.Dynamic  (..)
+    , EC2.Metadata (..)
+
     -- ** Overriding Service Configuration
     -- $service
 
@@ -55,11 +63,6 @@ module Network.AWS
     , within
     , once
     , timeout
-
-    -- *** Per Request
-    , sendWith
-    , paginateWith
-    , awaitWith
 
     -- ** Running Asynchronous Actions
     -- $async
@@ -137,6 +140,7 @@ import qualified Control.Monad.Writer.Strict     as W
 import           Data.Conduit                    (Source)
 import           Data.Monoid
 import           Network.AWS.Auth
+import qualified Network.AWS.EC2.Metadata        as EC2
 import           Network.AWS.Env                 (Env, HasEnv (..), newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
@@ -211,17 +215,9 @@ timeout s = liftAWS . AWST.timeout s
 -- | Send a request, returning the associated response if successful,
 -- otherwise an 'Error' will be thrown.
 --
--- /See:/ 'sendWith'
+-- /See:/ 'AWST.sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Rs a)
 send = liftAWS . AWST.send
-
--- | A variant of 'send' that allows specifying the 'Service' definition
--- used to configure the request.
-sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
-         => (Service (Sv a) -> Service s)
-         -> a
-         -> m (Rs a)
-sendWith f = liftAWS . AWST.sendWith f
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
@@ -229,17 +225,9 @@ sendWith f = liftAWS . AWST.sendWith f
 -- Requests that can potentially return multiple pages of results are instances
 -- of 'AWSPager',
 --
--- /See:/ 'paginateWith'
+-- /See:/ 'AWST.paginateWith'
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
 paginate = hoist liftAWS . AWST.paginate
-
--- | A variant of 'paginate' that allows specifying the 'Service' definition
--- used to configure the request.
-paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
-             => (Service (Sv a) -> Service s)
-             -> a
-             -> Source m (Rs a)
-paginateWith f = hoist liftAWS . AWST.paginateWith f
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
@@ -251,18 +239,9 @@ paginateWith f = hoist liftAWS . AWST.paginateWith f
 -- /Note:/ You can find any available 'Wait' specifications under then
 -- @Network.AWS.{ServiceName}.Waiters@ namespace for supported services.
 --
--- /See:/ 'awaitWith'
+-- /See:/ 'AWST.awaitWith'
 await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Rs a)
 await w = liftAWS . AWST.await w
-
--- | A variant of 'await' that allows specifying the 'Service' definition
--- used to configure the request.
-awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
-          => (Service (Sv a) -> Service s)
-          -> Wait a
-          -> a
-          -> m (Rs a)
-awaitWith f w = liftAWS . AWST.awaitWith f w
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -274,6 +253,15 @@ presignURL :: (MonadAWS m, AWSPresigner (Sg (Sv a)), AWSRequest a)
            -> a           -- ^ Request to presign.
            -> m ByteString
 presignURL t ex = liftAWS . AWST.presignURL t ex
+
+dynamic :: MonadAWS m => EC2.Dynamic -> m ByteString
+dynamic = liftAWS . AWST.dynamic
+
+metadata :: MonadAWS m => EC2.Metadata -> m ByteString
+metadata = liftAWS . AWST.metadata
+
+userdata :: MonadAWS m => m (Maybe ByteString)
+userdata = liftAWS AWST.userdata
 
 {- $usage
 The key functions dealing with the request/response lifecycle are:

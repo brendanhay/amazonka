@@ -21,9 +21,13 @@ import           Control.Applicative
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Free.Church
 import           Data.Conduit                    (Source, yield)
+import           Network.AWS.EC2.Metadata        (Dynamic, Metadata)
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
+import           Network.AWS.Request             (requestURL)
+import           Network.AWS.Types
 import           Network.AWS.Waiter
+
 #if MIN_VERSION_free(4,12,0)
 #else
 import           Control.Monad.Catch
@@ -33,23 +37,39 @@ import           Control.Monad.Trans.Free        (FreeT (..))
 import           Prelude
 
 data Command r where
-    Send  :: (AWSSigner (Sg s), AWSRequest a)
-          => Service s
-          -> a
-          -> (Rs a -> r)
-          -> Command r
+    DynF   :: Dynamic  -> (ByteString -> r)       -> Command r
+    MetaF  :: Metadata -> (ByteString -> r)       -> Command r
+    UserF  ::             (Maybe ByteString -> r) -> Command r
 
-    Await :: (AWSSigner (Sg s), AWSRequest a)
-          => Service s
-          -> Wait a
-          -> a
-          -> (Rs a -> r)
-          -> Command r
+    SignF  :: (AWSPresigner (Sg s), AWSRequest a)
+           => Service s
+           -> UTCTime
+           -> Seconds
+           -> a
+           -> (ClientRequest -> r)
+           -> Command r
+
+    SendF  :: (AWSSigner (Sg s), AWSRequest a)
+           => Service s
+           -> a
+           -> (Rs a -> r)
+           -> Command r
+
+    AwaitF :: (AWSSigner (Sg s), AWSRequest a)
+           => Service s
+           -> Wait a
+           -> a
+           -> (Rs a -> r)
+           -> Command r
 
 instance Functor Command where
     fmap f = \case
-        Send  s   x k -> Send  s   x (fmap f k)
-        Await s w x k -> Await s w x (fmap f k)
+        DynF         x k -> DynF         x (fmap f k)
+        MetaF        x k -> MetaF        x (fmap f k)
+        UserF        k   -> UserF          (fmap f k)
+        SignF  s t e x k -> SignF  s t e x (fmap f k)
+        SendF  s     x k -> SendF  s     x (fmap f k)
+        AwaitF s w   x k -> AwaitF s w   x (fmap f k)
 
 #if MIN_VERSION_free(4,12,0)
 #else
@@ -75,7 +95,7 @@ sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
          -> a                             -- ^ Request.
          -> m (Rs a)
-sendWith f x = liftF $ Send (f (serviceOf x)) x id
+sendWith f x = liftF (SendF (f (serviceOf x)) x id)
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
@@ -98,7 +118,7 @@ paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
 paginateWith f rq = go rq
   where
     go !x = do
-        !y <- lift $ liftF (Send s x id)
+        !y <- lift $ liftF (SendF s x id)
         yield y
         maybe (pure ())
               go
@@ -130,4 +150,48 @@ awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           -> Wait a                        -- ^ Polling, error and acceptance criteria.
           -> a                             -- ^ Request to poll with.
           -> m (Rs a)
-awaitWith f w x = liftF $ Await (f (serviceOf x)) w x id
+awaitWith f w x = liftF (AwaitF (f (serviceOf x)) w x id)
+
+-- | Presign an URL that is valid from the specified time until the
+-- number of seconds expiry has elapsed.
+--
+-- /See:/ 'presign', 'presignWith'
+presignURL :: (MonadFree Command m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+           => UTCTime     -- ^ Signing time.
+           -> Seconds     -- ^ Expiry time.
+           -> a           -- ^ Request to presign.
+           -> m ByteString
+presignURL ts ex = liftM requestURL . presign ts ex
+
+-- | Presign an HTTP request that is valid from the specified time until the
+-- number of seconds expiry has elapsed.
+--
+-- This requires the 'Service' signer to be an instance of 'AWSPresigner'.
+-- Not all signing algorithms support this.
+--
+-- /See:/ 'presignWith'
+presign :: (MonadFree Command m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+        => UTCTime     -- ^ Signing time.
+        -> Seconds     -- ^ Expiry time.
+        -> a           -- ^ Request to presign.
+        -> m ClientRequest
+presign = presignWith id
+
+-- | A variant of 'presign' that allows specifying the 'Service' definition
+-- used to configure the request.
+presignWith :: (MonadFree Command m, AWSPresigner (Sg s), AWSRequest a)
+            => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
+            -> UTCTime                       -- ^ Signing time.
+            -> Seconds                       -- ^ Expiry time.
+            -> a                             -- ^ Request to presign.
+            -> m ClientRequest
+presignWith f ts ex x = liftF (SignF (f (serviceOf x)) ts ex x id)
+
+dynamic :: MonadFree Command m => Dynamic -> m ByteString
+dynamic d = liftF (DynF d id)
+
+metadata :: MonadFree Command m => Metadata -> m ByteString
+metadata m = liftF (MetaF m id)
+
+userdata :: MonadFree Command m => m (Maybe ByteString)
+userdata = liftF (UserF id)

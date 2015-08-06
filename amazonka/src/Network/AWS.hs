@@ -56,6 +56,11 @@ module Network.AWS
     , once
     , timeout
 
+    -- *** Per Request
+    , sendWith
+    , paginateWith
+    , awaitWith
+
     -- ** Running Asynchronous Actions
     -- $async
 
@@ -187,7 +192,7 @@ instance (Functor f, MonadAWS m) => MonadAWS (FreeT f m) where
 -- Throws 'Error', which will include 'HTTPExceptions', serialisation errors,
 -- or any particular errors returned by the respective AWS service.
 --
--- /See:/ 'AWST.runAWST', 'runResourceT'.
+-- /See:/ 'runAWST', 'runResourceT'.
 runAWS :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWS a -> m a
 runAWS e = liftResourceT . AWST.runAWST e . hoist (withInternalState . const)
 
@@ -206,9 +211,17 @@ timeout s = liftAWS . AWST.timeout s
 -- | Send a request, returning the associated response if successful,
 -- otherwise an 'Error' will be thrown.
 --
--- /See:/ 'AWST.sendWith'
+-- /See:/ 'sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Rs a)
 send = liftAWS . AWST.send
+
+-- | A variant of 'send' that allows specifying the 'Service' definition
+-- used to configure the request.
+sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
+         => (Service (Sv a) -> Service s)
+         -> a
+         -> m (Rs a)
+sendWith f = liftAWS . AWST.sendWith f
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
@@ -216,9 +229,17 @@ send = liftAWS . AWST.send
 -- Requests that can potentially return multiple pages of results are instances
 -- of 'AWSPager',
 --
--- /See:/ 'AWST.paginateWith'
+-- /See:/ 'paginateWith'
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
 paginate = hoist liftAWS . AWST.paginate
+
+-- | A variant of 'paginate' that allows specifying the 'Service' definition
+-- used to configure the request.
+paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
+             => (Service (Sv a) -> Service s)
+             -> a
+             -> Source m (Rs a)
+paginateWith f = hoist liftAWS . AWST.paginateWith f
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
@@ -230,9 +251,18 @@ paginate = hoist liftAWS . AWST.paginate
 -- /Note:/ You can find any available 'Wait' specifications under then
 -- @Network.AWS.{ServiceName}.Waiters@ namespace for supported services.
 --
--- /See:/ 'AWST.awaitWith'
+-- /See:/ 'awaitWith'
 await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Rs a)
 await w = liftAWS . AWST.await w
+
+-- | A variant of 'await' that allows specifying the 'Service' definition
+-- used to configure the request.
+awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
+          => (Service (Sv a) -> Service s)
+          -> Wait a
+          -> a
+          -> m (Rs a)
+awaitWith f w = liftAWS . AWST.awaitWith f w
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

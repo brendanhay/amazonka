@@ -1,6 +1,7 @@
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE TypeFamilies               #-}
@@ -136,7 +137,6 @@ import           Network.AWS.Env
 import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
-import           Network.AWS.Internal.Presign
 import           Network.AWS.Logger
 import           Network.AWS.Prelude             as AWS
 import           Network.AWS.Types
@@ -219,6 +219,12 @@ execAWST :: (MonadCatch m, MonadResource m, HasEnv r)
          -> m b
 execAWST f = innerAWST go
   where
+    go (Presign s t ex (request -> x) k) = do
+        e <- view env
+        r <- withAuth (e ^. envAuth) $ \a ->
+            return (presigned a (e ^. envRegion) t ex s x)
+        k (_sgRequest r)
+
     go (Send s (request -> x) k) = do
         e <- view env
         retrier e s x (perform e s x) >>= lift . f >>= k . snd
@@ -227,22 +233,28 @@ execAWST f = innerAWST go
         e <- view env
         waiter e w x (perform e s x) >>= lift . f >>= k . snd
 
--- | Run an 'AWST' action with configurable response construction. This allows
--- mocking of responses and does not perform any external API calls.
---
--- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
-pureAWST :: (MonadThrow m, HasEnv r)
-         => (forall s a. Service s ->           a -> Either Error (Rs a))
-            -- ^ Construct a response for any 'send' command.
-         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-            -- ^ Construct a response for any 'await' command.
-         -> r
-         -> AWST m b
-         -> m b
-pureAWST f g = innerAWST go
-  where
-    go (Send  s   x k) = hoistError (f s   x) >>= k
-    go (Await s w x k) = hoistError (g s w x) >>= k
+pureAWST = undefined
+
+-- -- | Run an 'AWST' action with configurable response construction. This allows
+-- -- mocking of responses and does not perform any external API calls.
+-- --
+-- -- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
+-- pureAWST :: (MonadThrow m, HasEnv r)
+--          => (forall s a. AWSRequest a => Service s -> UTCTime -> Seconds -> a -> Either Error ClientRequest)
+--             -- ^ Construct a client response for any 'presign' command.
+--          -> (forall s a. Service s -> a -> Either Error (Rs a))
+--             -- ^ Construct a response for any 'send' command.
+--          -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+--             -- ^ Construct a response for any 'await' command.
+--          -> r
+--          -> AWST m b
+--          -> m b
+-- pureAWST f g h = innerAWST go
+--   where
+--     go = \case
+--         Presign s t e x k -> hoistError (f s t e x) >>= k
+--         Send    s     x k -> hoistError (g s     x) >>= k
+--         Await   s w   x k -> hoistError (h s   w x) >>= k
 
 innerAWST :: (Monad m, HasEnv r)
           => (Command (ReaderT Env m a) -> ReaderT Env m a)
@@ -253,13 +265,6 @@ innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return
-
--- presignf :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
---         -> UTCTime     -- ^ Signing time.
---         -> Seconds     -- ^ Expiry time.
---         -> a           -- ^ Request to presign.
---         -> m ClientRequest
--- presignf e t ex = presignWith e id t ex
 
 {- $service
 When a request is sent, various configuration values such as the endpoint,

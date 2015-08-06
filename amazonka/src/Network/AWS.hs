@@ -47,7 +47,6 @@ module Network.AWS
 
     -- ** Presigning
     , presignURL
-    , presign
 
     -- ** Overriding Service Configuration
     -- $service
@@ -61,7 +60,6 @@ module Network.AWS
     , sendWith
     , paginateWith
     , awaitWith
-    , presignWith
 
     -- ** Running Asynchronous Actions
     -- $async
@@ -141,7 +139,6 @@ import           Data.Monoid
 import           Network.AWS.Auth
 import           Network.AWS.Env                 (Env, HasEnv (..), newEnv)
 import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.Presign
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
@@ -244,6 +241,17 @@ paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
              -> Source m (Rs a)
 paginateWith f = hoist liftAWS . AWST.paginateWith f
 
+-- | Presign an URL that is valid from the specified time until the
+-- number of seconds expiry has elapsed.
+--
+-- /See:/ 'AWST.presign', 'AWST.presignWith'
+presignURL :: (MonadAWS m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+           => UTCTime     -- ^ Signing time.
+           -> Seconds     -- ^ Expiry time.
+           -> a           -- ^ Request to presign.
+           -> m ByteString
+presignURL t ex = liftAWS . AWST.presignURL t ex
+
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
 --
@@ -266,6 +274,8 @@ awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
           -> a
           -> m (Rs a)
 awaitWith f w = liftAWS . AWST.awaitWith f w
+
+
 
 {- $usage
 The key functions dealing with the request/response lifecycle are:

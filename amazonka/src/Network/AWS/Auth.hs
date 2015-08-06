@@ -17,17 +17,17 @@
 module Network.AWS.Auth
     (
     -- * Authentication
+    -- ** Retrieving authentication
+      getAuth
+    , Credentials   (..)
+    , Auth
+
     -- ** Keys
-      AccessKey     (..)
+    , AccessKey     (..)
     , SecretKey     (..)
     , SecurityToken (..)
     , accessKey
     , secretKey
-
-    -- ** Retrieving authentication
-    , Credentials   (..)
-    , Auth
-    , getAuth
 
     -- $credentials
 

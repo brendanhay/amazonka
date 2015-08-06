@@ -13,17 +13,19 @@
 -- Environment and AWS specific configuration.
 module Network.AWS.Env
     (
-    -- * Environment
-      HasEnv (..)
-    , Env    (..)
     -- ** Creating the environment
-    , newEnv
+      newEnv
     , newEnvWith
+
+    , HasEnv (..)
+    , Env    (..)
+
     -- * Runtime Configuration
     , within
     , once
     , timeout
-    -- ** Response Configuration
+
+    -- * Utilities
     , timeoutFor
     ) where
 

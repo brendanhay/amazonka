@@ -111,12 +111,6 @@ showText = Text.unpack . toText
 class ToText a where
     toText :: a -> Text
 
-instance (ToText a, ToText b) => ToText (a, b) where
-    toText (a, b) = "(" <> toText a <> ", " <> toText b <> ")"
-
-instance ToText a => ToText [a] where
-    toText xs = "[" <> Text.intercalate ", " (map toText xs) <> "]"
-
 instance ToText a => ToText (CI a) where
     toText = toText . CI.original
 
@@ -126,6 +120,7 @@ instance ToText (Response a) where
 instance ToText Text       where toText = id
 instance ToText ByteString where toText = Text.decodeUtf8
 instance ToText Char       where toText = Text.singleton
+instance ToText String     where toText = Text.pack
 instance ToText Int        where toText = shortText . Build.decimal
 instance ToText Int64      where toText = shortText . Build.decimal
 instance ToText Integer    where toText = shortText . Build.decimal

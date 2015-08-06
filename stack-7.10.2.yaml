@@ -1,4 +1,4 @@
-resolver:   nightly-2015-07-25
+resolver:   nightly-2015-08-06
 flags:      {}
 extra-deps:
   - groom-0.1.2

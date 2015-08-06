@@ -113,7 +113,7 @@ paginateWith f rq = go rq
 -- by the specification, or any subsequent successful response from the await
 -- request(s).
 --
--- 'Wait' specifications can be found under the @Network.AWS.<ServiceName>.Waiters@
+-- 'Wait' specifications can be found under the @Network.AWS.{ServiceName}.Waiters@
 -- namespace for services which support 'await'.
 --
 -- /See:/ 'awaitWith'

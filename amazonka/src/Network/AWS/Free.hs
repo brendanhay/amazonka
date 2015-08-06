@@ -23,8 +23,6 @@ import           Control.Monad.Trans.Free.Church
 import           Data.Conduit                    (Source, yield)
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Request             (requestURL)
-import           Network.AWS.Types
 import           Network.AWS.Waiter
 #if MIN_VERSION_free(4,12,0)
 #else
@@ -35,32 +33,23 @@ import           Control.Monad.Trans.Free        (FreeT (..))
 import           Prelude
 
 data Command r where
-    Presign :: (AWSPresigner (Sg s), AWSRequest a)
-            => Service s
-            -> UTCTime
-            -> Seconds
-            -> a
-            -> (ClientRequest -> r)
-            -> Command r
+    Send  :: (AWSSigner (Sg s), AWSRequest a)
+          => Service s
+          -> a
+          -> (Rs a -> r)
+          -> Command r
 
-    Send    :: (AWSSigner (Sg s), AWSRequest a)
-            => Service s
-            -> a
-            -> (Rs a -> r)
-            -> Command r
-
-    Await   :: (AWSSigner (Sg s), AWSRequest a)
-            => Service s
-            -> Wait a
-            -> a
-            -> (Rs a -> r)
-            -> Command r
+    Await :: (AWSSigner (Sg s), AWSRequest a)
+          => Service s
+          -> Wait a
+          -> a
+          -> (Rs a -> r)
+          -> Command r
 
 instance Functor Command where
     fmap f = \case
-        Presign s t e x k -> Presign s t e x (fmap f k)
-        Send    s     x k -> Send    s     x (fmap f k)
-        Await   s w   x k -> Await   s w   x (fmap f k)
+        Send  s   x k -> Send  s   x (fmap f k)
+        Await s w x k -> Await s w x (fmap f k)
 
 #if MIN_VERSION_free(4,12,0)
 #else
@@ -142,38 +131,3 @@ awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           -> a                             -- ^ Request to poll with.
           -> m (Rs a)
 awaitWith f w x = liftF $ Await (f (serviceOf x)) w x id
-
--- | Presign an URL that is valid from the specified time until the
--- number of seconds expiry has elapsed.
---
--- /See:/ 'presign', 'presignWith'
-presignURL :: (MonadFree Command m, AWSPresigner (Sg (Sv a)), AWSRequest a)
-           => UTCTime     -- ^ Signing time.
-           -> Seconds     -- ^ Expiry time.
-           -> a           -- ^ Request to presign.
-           -> m ByteString
-presignURL t ex = liftM requestURL . presign t ex
-
--- | Presign an HTTP request that is valid from the specified time until the
--- number of seconds expiry has elapsed.
---
--- This requires the 'Service' signer to be an instance of 'AWSPresigner'.
--- Not all signing algorithms support this.
---
--- /See:/ 'presignWith'
-presign :: (MonadFree Command m, AWSPresigner (Sg (Sv a)), AWSRequest a)
-        => UTCTime     -- ^ Signing time.
-        -> Seconds     -- ^ Expiry time.
-        -> a           -- ^ Request to presign.
-        -> m ClientRequest
-presign t ex = presignWith id t ex
-
--- | A variant of 'presign' that allows specifying the 'Service' definition
--- used to configure the request.
-presignWith :: (MonadFree Command m, AWSPresigner (Sg s), AWSRequest a)
-            => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
-            -> UTCTime                       -- ^ Signing time.
-            -> Seconds                       -- ^ Expiry time.
-            -> a                             -- ^ Request to presign.
-            -> m ClientRequest
-presignWith f t ex x = liftF $ Presign (f (serviceOf x)) t ex x id

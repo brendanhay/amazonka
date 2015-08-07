@@ -122,10 +122,16 @@ module Control.Monad.Trans.AWS
 
     , ToLog        (..)
 
+    -- * Supported Signing Algorithms
+    , V2
+    , V4
+
     -- * Re-exported Types
+    , RqBody
+    , RsBody
     , module Network.AWS.Types
-    , AWS.RqBody
-    , AWS.RsBody
+    , module Network.AWS.Pager
+    , module Network.AWS.Waiter
     ) where
 
 import           Control.Applicative
@@ -149,12 +155,13 @@ import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
 import           Network.AWS.Logger
+import           Network.AWS.Pager               (AWSPager)
 import           Network.AWS.Prelude             as AWS
 import qualified Network.AWS.Presign             as Sign
+import           Network.AWS.Sign.V2             (V2)
+import           Network.AWS.Sign.V4             (V4)
 import           Network.AWS.Types
-
--- FIXME: add notes to .Presign and .EC2.Metadata noting that they
--- don't use the underlying 'FreeT' DSL.
+import           Network.AWS.Waiter              (Wait)
 
 -- | The 'AWST' transformer.
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }

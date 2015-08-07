@@ -36,7 +36,8 @@ $path/travis-timeout \
     core amazonka*
 
 $path/travis-timeout \
-    standalone-haddock --hyperlink-source -o $output ${databases[*]} \
+    standalone-haddock --hyperlink-source -o $output \
+    ${databases[*]} \
     core amazonka*
 
 {

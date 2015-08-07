@@ -122,10 +122,6 @@ module Control.Monad.Trans.AWS
 
     , ToLog        (..)
 
-    -- * Supported Signing Algorithms
-    , V2
-    , V4
-
     -- * Re-exported Types
     , RqBody
     , RsBody
@@ -158,8 +154,6 @@ import           Network.AWS.Logger
 import           Network.AWS.Pager               (AWSPager)
 import           Network.AWS.Prelude             as AWS
 import qualified Network.AWS.Presign             as Sign
-import           Network.AWS.Sign.V2             (V2)
-import           Network.AWS.Sign.V4             (V4)
 import           Network.AWS.Types
 import           Network.AWS.Waiter              (Wait)
 

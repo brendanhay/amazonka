@@ -110,10 +110,6 @@ module Network.AWS
 
     , ToLog       (..)
 
-    -- * Supported Signing Algorithms
-    , AWST.V2
-    , AWST.V4
-
     -- * Re-exported Types
     , AWST.RqBody
     , AWST.RsBody

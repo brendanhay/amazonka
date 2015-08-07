@@ -254,6 +254,7 @@ serviceRequestId :: Lens' ServiceError (Maybe RequestId)
 serviceRequestId = lens _serviceRequestId (\s a -> s { _serviceRequestId = a })
 
 class AsError a where
+    -- | A general Amazonka error.
     _Error          :: Prism' a Error
     {-# MINIMAL _Error #-}
 

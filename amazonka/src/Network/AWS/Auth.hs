@@ -139,6 +139,7 @@ instance ToLog AuthError where
         InvalidIAMError e -> "[InvalidIAMError] { message = " <> message e <> "}"
 
 class AsAuthError a where
+    -- | A general authentication error.
     _AuthError       :: Prism' a AuthError
     {-# MINIMAL _AuthError #-}
 

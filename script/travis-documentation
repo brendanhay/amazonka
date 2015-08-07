@@ -23,8 +23,13 @@ output=doc
 platform=x86_64-linux
 resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack-$GHCVER.yaml)
 
+echo "Using resolver ${resolver}"
+
 databases=( $(stack path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
 databases=( "${databases[@]/#/--package-db }" )
+
+echo "Using resolver ${resolver}"
+echo "Using databases ${databases[*]}"
 
 $path/travis-timeout \
     stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml install \

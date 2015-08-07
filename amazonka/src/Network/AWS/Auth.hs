@@ -142,8 +142,14 @@ class AsAuthError a where
     _AuthError       :: Prism' a AuthError
     {-# MINIMAL _AuthError #-}
 
+    -- | An error occured while communicating over HTTP with
+    -- the local metadata endpoint.
     _RetrievalError  :: Prism' a HttpException
+
+    -- | An error occured looking up a named environment variable.
     _MissingEnvError :: Prism' a Text
+
+    -- | The specified IAM profile could not be found or deserialised.
     _InvalidIAMError :: Prism' a Text
 
     _RetrievalError  = _AuthError . _RetrievalError
@@ -184,7 +190,7 @@ getAuth m = \case
         catching _MissingEnvError fromEnv $ \e -> do
             p <- isEC2 m
             unless p $ throwingM _MissingEnvError e
-            fromProfile m
+             fromProfile m
 
 -- | Retrieve access and secret keys from the default environment variables.
 --

@@ -257,8 +257,13 @@ class AsError a where
     _Error          :: Prism' a Error
     {-# MINIMAL _Error #-}
 
+    -- | An error occured while communicating over HTTP with a remote service.
     _TransportError :: Prism' a HttpException
+
+    -- | A serialisation error occured when attempting to deserialise a response.
     _SerializeError :: Prism' a SerializeError
+
+    -- | A service specific error returned by the remote service.
     _ServiceError   :: Prism' a ServiceError
 
     _TransportError = _Error . _TransportError

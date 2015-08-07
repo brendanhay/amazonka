@@ -190,6 +190,8 @@ presignWith :: (MonadFree Command m, AWSPresigner (Sg s), AWSRequest a)
 presignWith f ts ex x = liftF (SignF (f (serviceOf x)) ts ex x id)
 
 -- | Test whether the underlying host is running on EC2.
+-- For 'IO' based interpretations of 'FreeT' 'Command', this is memoised and
+-- any external check occurs at most once.
 isEC2 :: MonadFree Command m => m Bool
 isEC2 = liftF (CheckF id)
 

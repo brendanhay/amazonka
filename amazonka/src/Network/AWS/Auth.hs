@@ -190,7 +190,7 @@ getAuth m = \case
         catching _MissingEnvError fromEnv $ \e -> do
             p <- isEC2 m
             unless p $ throwingM _MissingEnvError e
-             fromProfile m
+            fromProfile m
 
 -- | Retrieve access and secret keys from the default environment variables.
 --

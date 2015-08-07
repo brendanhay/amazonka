@@ -5,7 +5,7 @@ env:
 
   matrix:
     # Documentation
-    - GHCVER=7.8.4 LIBRARY=documentation
+    - GHCVER=7.10.1 LIBRARY=documentation
     # High Priority
     ## 7.10.1 + 7.8.4
     - GHCVER=7.10.1 LIBRARY=amazonka

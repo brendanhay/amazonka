@@ -305,6 +305,8 @@ data LogLevel
     | Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
       deriving (Eq, Ord, Enum, Show)
 
+-- | A function threaded through various request and serialisation routines
+-- to log informational and debug messages.
 type Logger = LogLevel -> Builder -> IO ()
 
 -- | Constants and predicates used to create a 'RetryPolicy'.

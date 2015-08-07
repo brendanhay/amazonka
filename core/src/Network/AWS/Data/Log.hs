@@ -40,6 +40,7 @@ import           Numeric
 import           Prelude
 
 class ToLog a where
+    -- | Convert a value to a loggable builder.
     message :: a -> Builder
 
 instance ToLog Builder        where message = id
@@ -67,6 +68,7 @@ instance ToLog StdMethod      where message = message . renderStdMethod
 instance ToLog QueryString    where message = message . toBS
 instance ToLog EscapedPath    where message = message . toBS
 
+-- | Intercalate a list of 'Builder's with newlines.
 buildLines :: [Builder] -> Builder
 buildLines = mconcat . intersperse "\n"
 

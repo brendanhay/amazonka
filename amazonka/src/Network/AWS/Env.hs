@@ -94,7 +94,7 @@ class HasEnv a where
     -- | The credentials used to sign requests for authentication with AWS.
     envAuth        :: Lens' a Auth
 
-    -- | A memoised predicate for whether the underlying host an EC2 instance.
+    -- | A memoised predicate for whether the underlying host is an EC2 instance.
     envEC2         :: Getter a (IORef (Maybe Bool))
 
     envRegion      = env . lens _envRegion      (\s a -> s { _envRegion      = a })

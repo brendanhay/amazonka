@@ -26,10 +26,10 @@ import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
+import           Network.AWS.Data.Log
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
-import           Network.AWS.Logger
 import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types           hiding (toQuery)

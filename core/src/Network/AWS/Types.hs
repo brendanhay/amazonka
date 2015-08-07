@@ -33,6 +33,10 @@ module Network.AWS.Types
     , Auth            (..)
     , withAuth
 
+    -- * Logging
+    , LogLevel        (..)
+    , Logger
+
     -- * Services
     , Abbrev
     , AWSService      (..)
@@ -129,12 +133,12 @@ import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
+import           Network.AWS.Data.Log
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Network.AWS.Logger
 import           Network.HTTP.Client          hiding (Request, Response, Proxy)
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
@@ -293,6 +297,15 @@ data Endpoint = Endpoint
     { _endpointHost  :: ByteString
     , _endpointScope :: ByteString
     } deriving (Eq, Show, Data, Typeable)
+
+data LogLevel
+    = Error -- ^ Error messages only.
+    | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
+    | Debug -- ^ Useful debug information + info + error levels.
+    | Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
+      deriving (Eq, Ord, Enum, Show)
+
+type Logger = LogLevel -> Builder -> IO ()
 
 -- | Constants and predicates used to create a 'RetryPolicy'.
 data Retry = Exponential

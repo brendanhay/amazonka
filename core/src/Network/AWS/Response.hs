@@ -15,6 +15,7 @@
 module Network.AWS.Response where
 
 import           Control.Monad.Catch
+import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Conduit
@@ -23,8 +24,8 @@ import           Data.Monoid
 import           Data.Text                    (Text)
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Log
 import           Network.AWS.Data.XML
-import           Network.AWS.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
@@ -90,7 +91,7 @@ deserialise :: MonadResource m
             -> m (Response a)
 deserialise g f l = receive $ \s h x -> do
     lbs <- sinkLBS x
-    logDebug l $ "[Raw Response Body] {\n" <> lbs <> "\n}"
+    liftIO . l Debug . message $ "[Raw Response Body] {\n" <> lbs <> "\n}"
     return $! g lbs >>= f s h
 
 receive :: MonadResource m

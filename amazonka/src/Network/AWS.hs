@@ -1,6 +1,8 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+
 -- |
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2015 Brendan Hay

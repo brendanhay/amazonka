@@ -37,8 +37,8 @@ import           Data.Maybe
 import           Data.Text                   (Text)
 import qualified Data.Text                   as Text
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Log
 import           Network.AWS.Error
-import           Network.AWS.Logger
 import           Network.AWS.Types
 
 import           Prelude

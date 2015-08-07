@@ -46,7 +46,6 @@ import qualified Data.Text.Lazy.Builder            as Build
 import qualified Data.Text.Lazy.Builder.Int        as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
 import           Network.AWS.Data.Crypto
-import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Numeric
 import           Numeric.Natural

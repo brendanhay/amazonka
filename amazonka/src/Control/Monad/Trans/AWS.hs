@@ -146,7 +146,7 @@ import           Network.AWS.Logger
 import           Network.AWS.Pager               (AWSPager)
 import           Network.AWS.Prelude             as AWS
 import qualified Network.AWS.Presign             as Sign
-import           Network.AWS.Types
+import           Network.AWS.Types               hiding (LogLevel (..))
 import           Network.AWS.Waiter              (Wait)
 
 -- | The 'AWST' transformer.
@@ -336,7 +336,8 @@ can be used.
 
 {- $logging
 The exposed logging interface is a primitive 'Logger' function which gets
-threaded through service calls and serialisation routines.
+threaded through service calls and serialisation routines. This allows the
+library to output useful information and diagnostics.
 
 The 'newLogger' function can be used to construct a simple logger which writes
 output to a 'Handle', but in most production code you should probably consider

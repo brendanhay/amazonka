@@ -44,6 +44,7 @@ library
         , Network.AWS.Data.Headers
         , Network.AWS.Data.JSON
         , Network.AWS.Data.List1
+        , Network.AWS.Data.Log
         , Network.AWS.Data.Map
         , Network.AWS.Data.Numeric
         , Network.AWS.Data.Path
@@ -54,7 +55,6 @@ library
         , Network.AWS.Data.XML
         , Network.AWS.Endpoint
         , Network.AWS.Error
-        , Network.AWS.Logger
         , Network.AWS.Pager
         , Network.AWS.Prelude
         , Network.AWS.Request

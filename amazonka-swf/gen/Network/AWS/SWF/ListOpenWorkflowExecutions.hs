@@ -136,7 +136,7 @@ listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
 loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
 loweNextPageToken = lens _loweNextPageToken (\ s a -> s{_loweNextPageToken = a});
 
--- | If specified, only workflow executions matching the workflow id
+-- | If specified, only workflow executions matching the workflow ID
 -- specified in the filter are returned.
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
@@ -167,8 +167,8 @@ loweTagFilter = lens _loweTagFilter (\ s a -> s{_loweTagFilter = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
--- default is 100, which is the maximum allowed page size. You can,
--- however, specify a page size /smaller/ than 100.
+-- default is 1000, which is the maximum allowed page size. You can,
+-- however, specify a page size /smaller/ than the maximum.
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.

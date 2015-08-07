@@ -43,7 +43,7 @@ activityTaskCancelRequestedEventAttributes pDecisionTaskCompletedEventId_ pActiv
     , _atcreaActivityId = pActivityId_
     }
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @RequestCancelActivityTask@ decision
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -95,7 +95,7 @@ activityTaskCanceledEventAttributes pScheduledEventId_ pStartedEventId_ =
     , _aStartedEventId = pStartedEventId_
     }
 
--- | If set, contains the Id of the last @ActivityTaskCancelRequested@ event
+-- | If set, contains the ID of the last @ActivityTaskCancelRequested@ event
 -- recorded for this activity task. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -106,14 +106,14 @@ aLatestCancelRequestedEventId = lens _aLatestCancelRequestedEventId (\ s a -> s{
 aDetails :: Lens' ActivityTaskCanceledEventAttributes (Maybe Text)
 aDetails = lens _aDetails (\ s a -> s{_aDetails = a});
 
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
 aScheduledEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
 aScheduledEventId = lens _aScheduledEventId (\ s a -> s{_aScheduledEventId = a});
 
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
 aStartedEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
@@ -160,14 +160,14 @@ activityTaskCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
 atceaResult :: Lens' ActivityTaskCompletedEventAttributes (Maybe Text)
 atceaResult = lens _atceaResult (\ s a -> s{_atceaResult = a});
 
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
 atceaScheduledEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
 atceaScheduledEventId = lens _atceaScheduledEventId (\ s a -> s{_atceaScheduledEventId = a});
 
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
 atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
@@ -220,14 +220,14 @@ atfeaReason = lens _atfeaReason (\ s a -> s{_atfeaReason = a});
 atfeaDetails :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
 atfeaDetails = lens _atfeaDetails (\ s a -> s{_atfeaDetails = a});
 
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
 atfeaScheduledEventId :: Lens' ActivityTaskFailedEventAttributes Integer
 atfeaScheduledEventId = lens _atfeaScheduledEventId (\ s a -> s{_atfeaScheduledEventId = a});
 
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
 atfeaStartedEventId :: Lens' ActivityTaskFailedEventAttributes Integer
@@ -322,10 +322,9 @@ atseaHeartbeatTimeout = lens _atseaHeartbeatTimeout (\ s a -> s{_atseaHeartbeatT
 atseaInput :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaInput = lens _atseaInput (\ s a -> s{_atseaInput = a});
 
--- | /Optional./ The priority to assign to the scheduled activity task. This
--- will override any default priority that was assigned when the activity
--- type was registered. If not set, then the priority set on the activity
--- type is used as the task priority.
+-- | /Optional./ The priority to assign to the scheduled activity task. If
+-- set, this will override any default priority value that was assigned
+-- when the activity type was registered.
 --
 -- Valid values are integers that range from Java\'s @Integer.MIN_VALUE@
 -- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
@@ -351,7 +350,7 @@ atseaStartToCloseTimeout = lens _atseaStartToCloseTimeout (\ s a -> s{_atseaStar
 atseaActivityType :: Lens' ActivityTaskScheduledEventAttributes ActivityType
 atseaActivityType = lens _atseaActivityType (\ s a -> s{_atseaActivityType = a});
 
--- | The unique id of the activity task.
+-- | The unique ID of the activity task.
 atseaActivityId :: Lens' ActivityTaskScheduledEventAttributes Text
 atseaActivityId = lens _atseaActivityId (\ s a -> s{_atseaActivityId = a});
 
@@ -359,7 +358,7 @@ atseaActivityId = lens _atseaActivityId (\ s a -> s{_atseaActivityId = a});
 atseaTaskList :: Lens' ActivityTaskScheduledEventAttributes TaskList
 atseaTaskList = lens _atseaTaskList (\ s a -> s{_atseaTaskList = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision that resulted in the scheduling of this activity task. This
 -- information can be useful for diagnosing problems by tracing back the
 -- chain of events leading up to this event.
@@ -412,7 +411,7 @@ activityTaskStartedEventAttributes pScheduledEventId_ =
 atseaIdentity :: Lens' ActivityTaskStartedEventAttributes (Maybe Text)
 atseaIdentity = lens _atseaIdentity (\ s a -> s{_atseaIdentity = a});
 
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -466,14 +465,14 @@ attoeaDetails = lens _attoeaDetails (\ s a -> s{_attoeaDetails = a});
 attoeaTimeoutType :: Lens' ActivityTaskTimedOutEventAttributes ActivityTaskTimeoutType
 attoeaTimeoutType = lens _attoeaTimeoutType (\ s a -> s{_attoeaTimeoutType = a});
 
--- | The id of the @ActivityTaskScheduled@ event that was recorded when this
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
 attoeaScheduledEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
 attoeaScheduledEventId = lens _attoeaScheduledEventId (\ s a -> s{_attoeaScheduledEventId = a});
 
--- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- | The ID of the @ActivityTaskStarted@ event recorded when this activity
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
 attoeaStartedEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
@@ -576,7 +575,7 @@ activityTypeConfiguration =
 -- | /Optional./ The default maximum duration, specified when registering the
 -- activity type, that a task of an activity type can wait before being
 -- assigned to a worker. You can override this default when scheduling a
--- task through the @ScheduleActivityTask@ Decision.
+-- task through the @ScheduleActivityTask@ decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -585,9 +584,9 @@ atcDefaultTaskScheduleToStartTimeout = lens _atcDefaultTaskScheduleToStartTimeou
 
 -- | /Optional./ The default task list specified for this activity type at
 -- registration. This default is used if a task list is not provided when a
--- task is scheduled through the @ScheduleActivityTask@ Decision. You can
+-- task is scheduled through the @ScheduleActivityTask@ decision. You can
 -- override the default registered task list when scheduling a task through
--- the @ScheduleActivityTask@ Decision.
+-- the @ScheduleActivityTask@ decision.
 atcDefaultTaskList :: Lens' ActivityTypeConfiguration (Maybe TaskList)
 atcDefaultTaskList = lens _atcDefaultTaskList (\ s a -> s{_atcDefaultTaskList = a});
 
@@ -612,7 +611,7 @@ atcDefaultTaskPriority = lens _atcDefaultTaskPriority (\ s a -> s{_atcDefaultTas
 --
 -- You can specify this value only when /registering/ an activity type. The
 -- registered default value can be overridden when you schedule a task
--- through the @ScheduleActivityTask@ Decision. If the activity worker
+-- through the @ScheduleActivityTask@ decision. If the activity worker
 -- subsequently attempts to record a heartbeat or returns a result, the
 -- activity worker receives an @UnknownResource@ fault. In this case,
 -- Amazon SWF no longer considers the activity task to be valid; the
@@ -626,7 +625,7 @@ atcDefaultTaskHeartbeatTimeout = lens _atcDefaultTaskHeartbeatTimeout (\ s a -> 
 -- | /Optional./ The default maximum duration, specified when registering the
 -- activity type, for tasks of this activity type. You can override this
 -- default when scheduling a task through the @ScheduleActivityTask@
--- Decision.
+-- decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -636,7 +635,7 @@ atcDefaultTaskScheduleToCloseTimeout = lens _atcDefaultTaskScheduleToCloseTimeou
 -- | /Optional./ The default maximum duration for tasks of an activity type
 -- specified when registering the activity type. You can override this
 -- default when scheduling a task through the @ScheduleActivityTask@
--- Decision.
+-- decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -756,7 +755,7 @@ cancelTimerDecisionAttributes pTimerId_ =
     { _ctdaTimerId = pTimerId_
     }
 
--- | __Required.__ The unique Id of the timer to cancel.
+-- | __Required.__ The unique ID of the timer to cancel.
 ctdaTimerId :: Lens' CancelTimerDecisionAttributes Text
 ctdaTimerId = lens _ctdaTimerId (\ s a -> s{_ctdaTimerId = a});
 
@@ -804,7 +803,7 @@ ctfeaTimerId = lens _ctfeaTimerId (\ s a -> s{_ctfeaTimerId = a});
 ctfeaCause :: Lens' CancelTimerFailedEventAttributes CancelTimerFailedCause
 ctfeaCause = lens _ctfeaCause (\ s a -> s{_ctfeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @CancelTimer@ decision to cancel this
 -- timer. This information can be useful for diagnosing problems by tracing
 -- back the chain of events leading up to this event.
@@ -897,7 +896,7 @@ cancelWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEvent
 cCause :: Lens' CancelWorkflowExecutionFailedEventAttributes CancelWorkflowExecutionFailedCause
 cCause = lens _cCause (\ s a -> s{_cCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @CancelWorkflowExecution@ decision
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -961,14 +960,14 @@ cWorkflowExecution = lens _cWorkflowExecution (\ s a -> s{_cWorkflowExecution = 
 cWorkflowType :: Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowType
 cWorkflowType = lens _cWorkflowType (\ s a -> s{_cWorkflowType = a});
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 cInitiatedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
 cInitiatedEventId = lens _cInitiatedEventId (\ s a -> s{_cInitiatedEventId = a});
 
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -1033,14 +1032,14 @@ cweceaWorkflowExecution = lens _cweceaWorkflowExecution (\ s a -> s{_cweceaWorkf
 cweceaWorkflowType :: Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowType
 cweceaWorkflowType = lens _cweceaWorkflowType (\ s a -> s{_cweceaWorkflowType = a});
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 cweceaInitiatedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
 cweceaInitiatedEventId = lens _cweceaInitiatedEventId (\ s a -> s{_cweceaInitiatedEventId = a});
 
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -1113,14 +1112,14 @@ cwefeaWorkflowExecution = lens _cwefeaWorkflowExecution (\ s a -> s{_cwefeaWorkf
 cwefeaWorkflowType :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowType
 cwefeaWorkflowType = lens _cwefeaWorkflowType (\ s a -> s{_cwefeaWorkflowType = a});
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 cwefeaInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
 cwefeaInitiatedEventId = lens _cwefeaInitiatedEventId (\ s a -> s{_cwefeaInitiatedEventId = a});
 
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -1174,8 +1173,8 @@ cweseaWorkflowExecution = lens _cweseaWorkflowExecution (\ s a -> s{_cweseaWorkf
 cweseaWorkflowType :: Lens' ChildWorkflowExecutionStartedEventAttributes WorkflowType
 cweseaWorkflowType = lens _cweseaWorkflowType (\ s a -> s{_cweseaWorkflowType = a});
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 cweseaInitiatedEventId :: Lens' ChildWorkflowExecutionStartedEventAttributes Integer
@@ -1229,14 +1228,14 @@ cweteaWorkflowExecution = lens _cweteaWorkflowExecution (\ s a -> s{_cweteaWorkf
 cweteaWorkflowType :: Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowType
 cweteaWorkflowType = lens _cweteaWorkflowType (\ s a -> s{_cweteaWorkflowType = a});
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 cweteaInitiatedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
 cweteaInitiatedEventId = lens _cweteaInitiatedEventId (\ s a -> s{_cweteaInitiatedEventId = a});
 
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -1301,14 +1300,14 @@ cwetoeaWorkflowType = lens _cwetoeaWorkflowType (\ s a -> s{_cwetoeaWorkflowType
 cwetoeaTimeoutType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
 cwetoeaTimeoutType = lens _cwetoeaTimeoutType (\ s a -> s{_cwetoeaTimeoutType = a});
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
 cwetoeaInitiatedEventId = lens _cwetoeaInitiatedEventId (\ s a -> s{_cwetoeaInitiatedEventId = a});
 
--- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -1434,7 +1433,7 @@ completeWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEve
 cwefeaCause :: Lens' CompleteWorkflowExecutionFailedEventAttributes CompleteWorkflowExecutionFailedCause
 cwefeaCause = lens _cwefeaCause (\ s a -> s{_cwefeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @CompleteWorkflowExecution@ decision
 -- to complete this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -1486,6 +1485,8 @@ instance FromJSON
 --
 -- * 'canwedaTaskStartToCloseTimeout'
 --
+-- * 'canwedaLambdaRole'
+--
 -- * 'canwedaInput'
 --
 -- * 'canwedaWorkflowTypeVersion'
@@ -1500,6 +1501,7 @@ instance FromJSON
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'
     { _canwedaTagList                      :: !(Maybe [Text])
     , _canwedaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _canwedaLambdaRole                   :: !(Maybe Text)
     , _canwedaInput                        :: !(Maybe Text)
     , _canwedaWorkflowTypeVersion          :: !(Maybe Text)
     , _canwedaExecutionStartToCloseTimeout :: !(Maybe Text)
@@ -1514,6 +1516,7 @@ continueAsNewWorkflowExecutionDecisionAttributes =
     ContinueAsNewWorkflowExecutionDecisionAttributes'
     { _canwedaTagList = Nothing
     , _canwedaTaskStartToCloseTimeout = Nothing
+    , _canwedaLambdaRole = Nothing
     , _canwedaInput = Nothing
     , _canwedaWorkflowTypeVersion = Nothing
     , _canwedaExecutionStartToCloseTimeout = Nothing
@@ -1543,6 +1546,15 @@ canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Defau
 -- will be returned.
 canwedaTaskStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaTaskStartToCloseTimeout = lens _canwedaTaskStartToCloseTimeout (\ s a -> s{_canwedaTaskStartToCloseTimeout = a});
+
+-- | The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda
+-- functions.
+--
+-- In order for this workflow execution to invoke AWS Lambda functions, an
+-- appropriate IAM role must be specified either as a default for the
+-- workflow type or through this field.
+canwedaLambdaRole :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaLambdaRole = lens _canwedaLambdaRole (\ s a -> s{_canwedaLambdaRole = a});
 
 -- | The input provided to the new workflow execution.
 canwedaInput :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
@@ -1616,6 +1628,7 @@ instance ToJSON
               ["tagList" .= _canwedaTagList,
                "taskStartToCloseTimeout" .=
                  _canwedaTaskStartToCloseTimeout,
+               "lambdaRole" .= _canwedaLambdaRole,
                "input" .= _canwedaInput,
                "workflowTypeVersion" .= _canwedaWorkflowTypeVersion,
                "executionStartToCloseTimeout" .=
@@ -1656,7 +1669,7 @@ continueAsNewWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskComplet
 canwefeaCause :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes ContinueAsNewWorkflowExecutionFailedCause
 canwefeaCause = lens _canwefeaCause (\ s a -> s{_canwefeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @ContinueAsNewWorkflowExecution@
 -- decision that started this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -1687,7 +1700,7 @@ instance FromJSON
 --     records a @WorkflowExecutionCompleted@ event in the history .
 -- -   __ContinueAsNewWorkflowExecution__: closes the workflow execution
 --     and starts a new workflow execution of the same type using the same
---     workflow id and a unique run Id. A @WorkflowExecutionContinuedAsNew@
+--     workflow ID and a unique run ID. A @WorkflowExecutionContinuedAsNew@
 --     event is recorded in the history.
 -- -   __FailWorkflowExecution__: closes the workflow execution and records
 --     a @WorkflowExecutionFailed@ event in the history.
@@ -1706,6 +1719,7 @@ instance FromJSON
 --     records a @RequestCancelExternalWorkflowExecutionInitiated@ event in
 --     the history.
 -- -   __ScheduleActivityTask__: schedules an activity task.
+-- -   __ScheduleLambdaFunction__: schedules a AWS Lambda function.
 -- -   __SignalExternalWorkflowExecution__: requests a signal to be
 --     delivered to the specified external workflow execution and records a
 --     @SignalExternalWorkflowExecutionInitiated@ event in the history.
@@ -1748,6 +1762,10 @@ instance FromJSON
 --     failed. This could happen if the activity type specified in the
 --     decision is not registered, is in a deprecated state, or the
 --     decision is not properly configured.
+-- -   __ScheduleLambdaFunctionFailed__: a ScheduleLambdaFunctionFailed
+--     decision failed. This could happen if the AWS Lambda function
+--     specified in the decision does not exist, or the AWS Lambda
+--     service\'s limits are exceeded.
 -- -   __RequestCancelActivityTaskFailed__: a RequestCancelActivityTask
 --     decision failed. This could happen if there is no open activity task
 --     with the specified activityId.
@@ -1799,13 +1817,14 @@ instance FromJSON
 -- events included in the history. The decider should handle the new events
 -- and may decide to close the workflow execution.
 --
--- __How to Code a Decision__
+-- __How to code a decision__
 --
 -- You code a decision by first setting the decision type field to one of
 -- the above decision values, and then set the corresponding attributes
 -- field shown below:
 --
 -- -   ScheduleActivityTaskDecisionAttributes
+-- -   ScheduleLambdaFunctionDecisionAttributes
 -- -   RequestCancelActivityTaskDecisionAttributes
 -- -   CompleteWorkflowExecutionDecisionAttributes
 -- -   FailWorkflowExecutionDecisionAttributes
@@ -1836,6 +1855,8 @@ instance FromJSON
 --
 -- * 'dStartChildWorkflowExecutionDecisionAttributes'
 --
+-- * 'dScheduleLambdaFunctionDecisionAttributes'
+--
 -- * 'dCompleteWorkflowExecutionDecisionAttributes'
 --
 -- * 'dRequestCancelActivityTaskDecisionAttributes'
@@ -1855,6 +1876,7 @@ data Decision = Decision'
     , _dRecordMarkerDecisionAttributes                           :: !(Maybe RecordMarkerDecisionAttributes)
     , _dFailWorkflowExecutionDecisionAttributes                  :: !(Maybe FailWorkflowExecutionDecisionAttributes)
     , _dStartChildWorkflowExecutionDecisionAttributes            :: !(Maybe StartChildWorkflowExecutionDecisionAttributes)
+    , _dScheduleLambdaFunctionDecisionAttributes                 :: !(Maybe ScheduleLambdaFunctionDecisionAttributes)
     , _dCompleteWorkflowExecutionDecisionAttributes              :: !(Maybe CompleteWorkflowExecutionDecisionAttributes)
     , _dRequestCancelActivityTaskDecisionAttributes              :: !(Maybe RequestCancelActivityTaskDecisionAttributes)
     , _dCancelWorkflowExecutionDecisionAttributes                :: !(Maybe CancelWorkflowExecutionDecisionAttributes)
@@ -1874,6 +1896,7 @@ decision pDecisionType_ =
     , _dRecordMarkerDecisionAttributes = Nothing
     , _dFailWorkflowExecutionDecisionAttributes = Nothing
     , _dStartChildWorkflowExecutionDecisionAttributes = Nothing
+    , _dScheduleLambdaFunctionDecisionAttributes = Nothing
     , _dCompleteWorkflowExecutionDecisionAttributes = Nothing
     , _dRequestCancelActivityTaskDecisionAttributes = Nothing
     , _dCancelWorkflowExecutionDecisionAttributes = Nothing
@@ -1916,6 +1939,10 @@ dFailWorkflowExecutionDecisionAttributes = lens _dFailWorkflowExecutionDecisionA
 -- not set for other decision types.
 dStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
 dStartChildWorkflowExecutionDecisionAttributes = lens _dStartChildWorkflowExecutionDecisionAttributes (\ s a -> s{_dStartChildWorkflowExecutionDecisionAttributes = a});
+
+-- | FIXME: Undocumented member.
+dScheduleLambdaFunctionDecisionAttributes :: Lens' Decision (Maybe ScheduleLambdaFunctionDecisionAttributes)
+dScheduleLambdaFunctionDecisionAttributes = lens _dScheduleLambdaFunctionDecisionAttributes (\ s a -> s{_dScheduleLambdaFunctionDecisionAttributes = a});
 
 -- | Provides details of the @CompleteWorkflowExecution@ decision. It is not
 -- set for other decision types.
@@ -1965,6 +1992,8 @@ instance ToJSON Decision where
                  _dFailWorkflowExecutionDecisionAttributes,
                "startChildWorkflowExecutionDecisionAttributes" .=
                  _dStartChildWorkflowExecutionDecisionAttributes,
+               "scheduleLambdaFunctionDecisionAttributes" .=
+                 _dScheduleLambdaFunctionDecisionAttributes,
                "completeWorkflowExecutionDecisionAttributes" .=
                  _dCompleteWorkflowExecutionDecisionAttributes,
                "requestCancelActivityTaskDecisionAttributes" .=
@@ -2007,14 +2036,14 @@ decisionTaskCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
 dtceaExecutionContext :: Lens' DecisionTaskCompletedEventAttributes (Maybe Text)
 dtceaExecutionContext = lens _dtceaExecutionContext (\ s a -> s{_dtceaExecutionContext = a});
 
--- | The id of the @DecisionTaskScheduled@ event that was recorded when this
+-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
 dtceaScheduledEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
 dtceaScheduledEventId = lens _dtceaScheduledEventId (\ s a -> s{_dtceaScheduledEventId = a});
 
--- | The Id of the @DecisionTaskStarted@ event recorded when this decision
+-- | The ID of the @DecisionTaskStarted@ event recorded when this decision
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
 dtceaStartedEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
@@ -2116,7 +2145,7 @@ decisionTaskStartedEventAttributes pScheduledEventId_ =
 dtseaIdentity :: Lens' DecisionTaskStartedEventAttributes (Maybe Text)
 dtseaIdentity = lens _dtseaIdentity (\ s a -> s{_dtseaIdentity = a});
 
--- | The id of the @DecisionTaskScheduled@ event that was recorded when this
+-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -2162,14 +2191,14 @@ decisionTaskTimedOutEventAttributes pTimeoutType_ pScheduledEventId_ pStartedEve
 dttoeaTimeoutType :: Lens' DecisionTaskTimedOutEventAttributes DecisionTaskTimeoutType
 dttoeaTimeoutType = lens _dttoeaTimeoutType (\ s a -> s{_dttoeaTimeoutType = a});
 
--- | The id of the @DecisionTaskScheduled@ event that was recorded when this
+-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
 dttoeaScheduledEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
 dttoeaScheduledEventId = lens _dttoeaScheduledEventId (\ s a -> s{_dttoeaScheduledEventId = a});
 
--- | The Id of the @DecisionTaskStarted@ event recorded when this decision
+-- | The ID of the @DecisionTaskStarted@ event recorded when this decision
 -- task was started. This information can be useful for diagnosing problems
 -- by tracing back the chain of events leading up to this event.
 dttoeaStartedEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
@@ -2334,7 +2363,7 @@ externalWorkflowExecutionCancelRequestedEventAttributes pWorkflowExecution_ pIni
 ewecreaWorkflowExecution :: Lens' ExternalWorkflowExecutionCancelRequestedEventAttributes WorkflowExecution
 ewecreaWorkflowExecution = lens _ewecreaWorkflowExecution (\ s a -> s{_ewecreaWorkflowExecution = a});
 
--- | The id of the @RequestCancelExternalWorkflowExecutionInitiated@ event
+-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @RequestCancelExternalWorkflowExecution@ decision
 -- to cancel this external workflow execution. This information can be
 -- useful for diagnosing problems by tracing back the chain of events
@@ -2380,7 +2409,7 @@ externalWorkflowExecutionSignaledEventAttributes pWorkflowExecution_ pInitiatedE
 eweseaWorkflowExecution :: Lens' ExternalWorkflowExecutionSignaledEventAttributes WorkflowExecution
 eweseaWorkflowExecution = lens _eweseaWorkflowExecution (\ s a -> s{_eweseaWorkflowExecution = a});
 
--- | The id of the @SignalExternalWorkflowExecutionInitiated@ event
+-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @SignalExternalWorkflowExecution@ decision to
 -- request this signal. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
@@ -2485,7 +2514,7 @@ failWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEventId
 fwefeaCause :: Lens' FailWorkflowExecutionFailedEventAttributes FailWorkflowExecutionFailedCause
 fwefeaCause = lens _fwefeaCause (\ s a -> s{_fwefeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @FailWorkflowExecution@ decision to
 -- fail this execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
@@ -2556,14 +2585,14 @@ instance FromJSON
 --     to a @StartTimer@ decision.
 -- -   __StartTimerFailed__: Failed to process StartTimer decision. This
 --     happens when the decision is not configured properly, for example a
---     timer already exists with the specified timer Id.
+--     timer already exists with the specified timer ID.
 -- -   __TimerFired__: A timer, previously started for this workflow
 --     execution, fired.
 -- -   __TimerCanceled__: A timer, previously started for this workflow
 --     execution, was successfully canceled.
 -- -   __CancelTimerFailed__: Failed to process CancelTimer decision. This
 --     happens when the decision is not configured properly, for example no
---     timer exists with the specified timer Id.
+--     timer exists with the specified timer ID.
 -- -   __StartChildWorkflowExecutionInitiated__: A request was made to
 --     start a child workflow execution.
 -- -   __StartChildWorkflowExecutionFailed__: Failed to process
@@ -2598,6 +2627,23 @@ instance FromJSON
 --     execution.
 -- -   __RequestCancelExternalWorkflowExecutionFailed__: Request to cancel
 --     an external workflow execution failed.
+-- -   __LambdaFunctionScheduled__: An AWS Lambda function was scheduled
+--     for execution.
+-- -   __LambdaFunctionStarted__: The scheduled function was invoked in the
+--     AWS Lambda service.
+-- -   __LambdaFunctionCompleted__: The AWS Lambda function successfully
+--     completed.
+-- -   __LambdaFunctionFailed__: The AWS Lambda function execution failed.
+-- -   __LambdaFunctionTimedOut__: The AWS Lambda function execution timed
+--     out.
+-- -   __ScheduleLambdaFunctionFailed__: Failed to process
+--     ScheduleLambdaFunction decision. This happens when the workflow
+--     execution does not have the proper IAM role attached to invoke AWS
+--     Lambda functions.
+-- -   __StartLambdaFunctionFailed__: Failed to invoke the scheduled
+--     function in the AWS Lambda service. This happens when the AWS Lambda
+--     service is not available in the current region, or received too many
+--     requests.
 --
 -- /See:/ 'historyEvent' smart constructor.
 --
@@ -2608,6 +2654,8 @@ instance FromJSON
 -- * 'heDecisionTaskScheduledEventAttributes'
 --
 -- * 'heStartTimerFailedEventAttributes'
+--
+-- * 'heLambdaFunctionStartedEventAttributes'
 --
 -- * 'heRecordMarkerFailedEventAttributes'
 --
@@ -2623,9 +2671,13 @@ instance FromJSON
 --
 -- * 'heMarkerRecordedEventAttributes'
 --
+-- * 'heScheduleLambdaFunctionFailedEventAttributes'
+--
 -- * 'heCompleteWorkflowExecutionFailedEventAttributes'
 --
 -- * 'heRequestCancelExternalWorkflowExecutionFailedEventAttributes'
+--
+-- * 'heLambdaFunctionCompletedEventAttributes'
 --
 -- * 'heTimerCanceledEventAttributes'
 --
@@ -2649,6 +2701,8 @@ instance FromJSON
 --
 -- * 'heCancelWorkflowExecutionFailedEventAttributes'
 --
+-- * 'heLambdaFunctionScheduledEventAttributes'
+--
 -- * 'heChildWorkflowExecutionTimedOutEventAttributes'
 --
 -- * 'heRequestCancelActivityTaskFailedEventAttributes'
@@ -2667,7 +2721,11 @@ instance FromJSON
 --
 -- * 'heActivityTaskCancelRequestedEventAttributes'
 --
+-- * 'heStartLambdaFunctionFailedEventAttributes'
+--
 -- * 'heChildWorkflowExecutionTerminatedEventAttributes'
+--
+-- * 'heLambdaFunctionFailedEventAttributes'
 --
 -- * 'heWorkflowExecutionCanceledEventAttributes'
 --
@@ -2697,6 +2755,8 @@ instance FromJSON
 --
 -- * 'heExternalWorkflowExecutionCancelRequestedEventAttributes'
 --
+-- * 'heLambdaFunctionTimedOutEventAttributes'
+--
 -- * 'heEventTimestamp'
 --
 -- * 'heEventType'
@@ -2706,6 +2766,7 @@ data HistoryEvent = HistoryEvent'
     { _heWorkflowExecutionCancelRequestedEventAttributes                :: !(Maybe WorkflowExecutionCancelRequestedEventAttributes)
     , _heDecisionTaskScheduledEventAttributes                           :: !(Maybe DecisionTaskScheduledEventAttributes)
     , _heStartTimerFailedEventAttributes                                :: !(Maybe StartTimerFailedEventAttributes)
+    , _heLambdaFunctionStartedEventAttributes                           :: !(Maybe LambdaFunctionStartedEventAttributes)
     , _heRecordMarkerFailedEventAttributes                              :: !(Maybe RecordMarkerFailedEventAttributes)
     , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: !(Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
     , _heWorkflowExecutionCompletedEventAttributes                      :: !(Maybe WorkflowExecutionCompletedEventAttributes)
@@ -2713,8 +2774,10 @@ data HistoryEvent = HistoryEvent'
     , _heChildWorkflowExecutionCompletedEventAttributes                 :: !(Maybe ChildWorkflowExecutionCompletedEventAttributes)
     , _heScheduleActivityTaskFailedEventAttributes                      :: !(Maybe ScheduleActivityTaskFailedEventAttributes)
     , _heMarkerRecordedEventAttributes                                  :: !(Maybe MarkerRecordedEventAttributes)
+    , _heScheduleLambdaFunctionFailedEventAttributes                    :: !(Maybe ScheduleLambdaFunctionFailedEventAttributes)
     , _heCompleteWorkflowExecutionFailedEventAttributes                 :: !(Maybe CompleteWorkflowExecutionFailedEventAttributes)
     , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes    :: !(Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
+    , _heLambdaFunctionCompletedEventAttributes                         :: !(Maybe LambdaFunctionCompletedEventAttributes)
     , _heTimerCanceledEventAttributes                                   :: !(Maybe TimerCanceledEventAttributes)
     , _heWorkflowExecutionStartedEventAttributes                        :: !(Maybe WorkflowExecutionStartedEventAttributes)
     , _heActivityTaskCompletedEventAttributes                           :: !(Maybe ActivityTaskCompletedEventAttributes)
@@ -2726,6 +2789,7 @@ data HistoryEvent = HistoryEvent'
     , _heChildWorkflowExecutionCanceledEventAttributes                  :: !(Maybe ChildWorkflowExecutionCanceledEventAttributes)
     , _heDecisionTaskStartedEventAttributes                             :: !(Maybe DecisionTaskStartedEventAttributes)
     , _heCancelWorkflowExecutionFailedEventAttributes                   :: !(Maybe CancelWorkflowExecutionFailedEventAttributes)
+    , _heLambdaFunctionScheduledEventAttributes                         :: !(Maybe LambdaFunctionScheduledEventAttributes)
     , _heChildWorkflowExecutionTimedOutEventAttributes                  :: !(Maybe ChildWorkflowExecutionTimedOutEventAttributes)
     , _heRequestCancelActivityTaskFailedEventAttributes                 :: !(Maybe RequestCancelActivityTaskFailedEventAttributes)
     , _heWorkflowExecutionTerminatedEventAttributes                     :: !(Maybe WorkflowExecutionTerminatedEventAttributes)
@@ -2735,7 +2799,9 @@ data HistoryEvent = HistoryEvent'
     , _heTimerStartedEventAttributes                                    :: !(Maybe TimerStartedEventAttributes)
     , _heWorkflowExecutionTimedOutEventAttributes                       :: !(Maybe WorkflowExecutionTimedOutEventAttributes)
     , _heActivityTaskCancelRequestedEventAttributes                     :: !(Maybe ActivityTaskCancelRequestedEventAttributes)
+    , _heStartLambdaFunctionFailedEventAttributes                       :: !(Maybe StartLambdaFunctionFailedEventAttributes)
     , _heChildWorkflowExecutionTerminatedEventAttributes                :: !(Maybe ChildWorkflowExecutionTerminatedEventAttributes)
+    , _heLambdaFunctionFailedEventAttributes                            :: !(Maybe LambdaFunctionFailedEventAttributes)
     , _heWorkflowExecutionCanceledEventAttributes                       :: !(Maybe WorkflowExecutionCanceledEventAttributes)
     , _heWorkflowExecutionSignaledEventAttributes                       :: !(Maybe WorkflowExecutionSignaledEventAttributes)
     , _heActivityTaskFailedEventAttributes                              :: !(Maybe ActivityTaskFailedEventAttributes)
@@ -2750,6 +2816,7 @@ data HistoryEvent = HistoryEvent'
     , _heWorkflowExecutionFailedEventAttributes                         :: !(Maybe WorkflowExecutionFailedEventAttributes)
     , _heWorkflowExecutionContinuedAsNewEventAttributes                 :: !(Maybe WorkflowExecutionContinuedAsNewEventAttributes)
     , _heExternalWorkflowExecutionCancelRequestedEventAttributes        :: !(Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
+    , _heLambdaFunctionTimedOutEventAttributes                          :: !(Maybe LambdaFunctionTimedOutEventAttributes)
     , _heEventTimestamp                                                 :: !POSIX
     , _heEventType                                                      :: !EventType
     , _heEventId                                                        :: !Integer
@@ -2762,6 +2829,7 @@ historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     { _heWorkflowExecutionCancelRequestedEventAttributes = Nothing
     , _heDecisionTaskScheduledEventAttributes = Nothing
     , _heStartTimerFailedEventAttributes = Nothing
+    , _heLambdaFunctionStartedEventAttributes = Nothing
     , _heRecordMarkerFailedEventAttributes = Nothing
     , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = Nothing
     , _heWorkflowExecutionCompletedEventAttributes = Nothing
@@ -2769,8 +2837,10 @@ historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     , _heChildWorkflowExecutionCompletedEventAttributes = Nothing
     , _heScheduleActivityTaskFailedEventAttributes = Nothing
     , _heMarkerRecordedEventAttributes = Nothing
+    , _heScheduleLambdaFunctionFailedEventAttributes = Nothing
     , _heCompleteWorkflowExecutionFailedEventAttributes = Nothing
     , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes = Nothing
+    , _heLambdaFunctionCompletedEventAttributes = Nothing
     , _heTimerCanceledEventAttributes = Nothing
     , _heWorkflowExecutionStartedEventAttributes = Nothing
     , _heActivityTaskCompletedEventAttributes = Nothing
@@ -2782,6 +2852,7 @@ historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     , _heChildWorkflowExecutionCanceledEventAttributes = Nothing
     , _heDecisionTaskStartedEventAttributes = Nothing
     , _heCancelWorkflowExecutionFailedEventAttributes = Nothing
+    , _heLambdaFunctionScheduledEventAttributes = Nothing
     , _heChildWorkflowExecutionTimedOutEventAttributes = Nothing
     , _heRequestCancelActivityTaskFailedEventAttributes = Nothing
     , _heWorkflowExecutionTerminatedEventAttributes = Nothing
@@ -2791,7 +2862,9 @@ historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     , _heTimerStartedEventAttributes = Nothing
     , _heWorkflowExecutionTimedOutEventAttributes = Nothing
     , _heActivityTaskCancelRequestedEventAttributes = Nothing
+    , _heStartLambdaFunctionFailedEventAttributes = Nothing
     , _heChildWorkflowExecutionTerminatedEventAttributes = Nothing
+    , _heLambdaFunctionFailedEventAttributes = Nothing
     , _heWorkflowExecutionCanceledEventAttributes = Nothing
     , _heWorkflowExecutionSignaledEventAttributes = Nothing
     , _heActivityTaskFailedEventAttributes = Nothing
@@ -2806,6 +2879,7 @@ historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     , _heWorkflowExecutionFailedEventAttributes = Nothing
     , _heWorkflowExecutionContinuedAsNewEventAttributes = Nothing
     , _heExternalWorkflowExecutionCancelRequestedEventAttributes = Nothing
+    , _heLambdaFunctionTimedOutEventAttributes = Nothing
     , _heEventTimestamp = _Time # pEventTimestamp_
     , _heEventType = pEventType_
     , _heEventId = pEventId_
@@ -2828,6 +2902,10 @@ heDecisionTaskScheduledEventAttributes = lens _heDecisionTaskScheduledEventAttri
 -- event types.
 heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
 heStartTimerFailedEventAttributes = lens _heStartTimerFailedEventAttributes (\ s a -> s{_heStartTimerFailedEventAttributes = a});
+
+-- | FIXME: Undocumented member.
+heLambdaFunctionStartedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionStartedEventAttributes)
+heLambdaFunctionStartedEventAttributes = lens _heLambdaFunctionStartedEventAttributes (\ s a -> s{_heLambdaFunctionStartedEventAttributes = a});
 
 -- | If the event is of type @DecisionTaskFailed@ then this member is set and
 -- provides detailed information about the event. It is not set for other
@@ -2872,6 +2950,10 @@ heScheduleActivityTaskFailedEventAttributes = lens _heScheduleActivityTaskFailed
 heMarkerRecordedEventAttributes :: Lens' HistoryEvent (Maybe MarkerRecordedEventAttributes)
 heMarkerRecordedEventAttributes = lens _heMarkerRecordedEventAttributes (\ s a -> s{_heMarkerRecordedEventAttributes = a});
 
+-- | FIXME: Undocumented member.
+heScheduleLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe ScheduleLambdaFunctionFailedEventAttributes)
+heScheduleLambdaFunctionFailedEventAttributes = lens _heScheduleLambdaFunctionFailedEventAttributes (\ s a -> s{_heScheduleLambdaFunctionFailedEventAttributes = a});
+
 -- | If the event is of type @CompleteWorkflowExecutionFailed@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
@@ -2883,6 +2965,10 @@ heCompleteWorkflowExecutionFailedEventAttributes = lens _heCompleteWorkflowExecu
 -- event. It is not set for other event types.
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes = lens _heRequestCancelExternalWorkflowExecutionFailedEventAttributes (\ s a -> s{_heRequestCancelExternalWorkflowExecutionFailedEventAttributes = a});
+
+-- | FIXME: Undocumented member.
+heLambdaFunctionCompletedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionCompletedEventAttributes)
+heLambdaFunctionCompletedEventAttributes = lens _heLambdaFunctionCompletedEventAttributes (\ s a -> s{_heLambdaFunctionCompletedEventAttributes = a});
 
 -- | If the event is of type @TimerCanceled@ then this member is set and
 -- provides detailed information about the event. It is not set for other
@@ -2950,6 +3036,10 @@ heDecisionTaskStartedEventAttributes = lens _heDecisionTaskStartedEventAttribute
 heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
 heCancelWorkflowExecutionFailedEventAttributes = lens _heCancelWorkflowExecutionFailedEventAttributes (\ s a -> s{_heCancelWorkflowExecutionFailedEventAttributes = a});
 
+-- | FIXME: Undocumented member.
+heLambdaFunctionScheduledEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionScheduledEventAttributes)
+heLambdaFunctionScheduledEventAttributes = lens _heLambdaFunctionScheduledEventAttributes (\ s a -> s{_heLambdaFunctionScheduledEventAttributes = a});
+
 -- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
@@ -3004,11 +3094,19 @@ heWorkflowExecutionTimedOutEventAttributes = lens _heWorkflowExecutionTimedOutEv
 heActivityTaskCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCancelRequestedEventAttributes)
 heActivityTaskCancelRequestedEventAttributes = lens _heActivityTaskCancelRequestedEventAttributes (\ s a -> s{_heActivityTaskCancelRequestedEventAttributes = a});
 
+-- | FIXME: Undocumented member.
+heStartLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartLambdaFunctionFailedEventAttributes)
+heStartLambdaFunctionFailedEventAttributes = lens _heStartLambdaFunctionFailedEventAttributes (\ s a -> s{_heStartLambdaFunctionFailedEventAttributes = a});
+
 -- | If the event is of type @ChildWorkflowExecutionTerminated@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
 heChildWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTerminatedEventAttributes)
 heChildWorkflowExecutionTerminatedEventAttributes = lens _heChildWorkflowExecutionTerminatedEventAttributes (\ s a -> s{_heChildWorkflowExecutionTerminatedEventAttributes = a});
+
+-- | FIXME: Undocumented member.
+heLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionFailedEventAttributes)
+heLambdaFunctionFailedEventAttributes = lens _heLambdaFunctionFailedEventAttributes (\ s a -> s{_heLambdaFunctionFailedEventAttributes = a});
 
 -- | If the event is of type @WorkflowExecutionCanceled@ then this member is
 -- set and provides detailed information about the event. It is not set for
@@ -3094,6 +3192,10 @@ heWorkflowExecutionContinuedAsNewEventAttributes = lens _heWorkflowExecutionCont
 heExternalWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
 heExternalWorkflowExecutionCancelRequestedEventAttributes = lens _heExternalWorkflowExecutionCancelRequestedEventAttributes (\ s a -> s{_heExternalWorkflowExecutionCancelRequestedEventAttributes = a});
 
+-- | FIXME: Undocumented member.
+heLambdaFunctionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionTimedOutEventAttributes)
+heLambdaFunctionTimedOutEventAttributes = lens _heLambdaFunctionTimedOutEventAttributes (\ s a -> s{_heLambdaFunctionTimedOutEventAttributes = a});
+
 -- | The date and time when the event occurred.
 heEventTimestamp :: Lens' HistoryEvent UTCTime
 heEventTimestamp = lens _heEventTimestamp (\ s a -> s{_heEventTimestamp = a}) . _Time;
@@ -3102,7 +3204,7 @@ heEventTimestamp = lens _heEventTimestamp (\ s a -> s{_heEventTimestamp = a}) . 
 heEventType :: Lens' HistoryEvent EventType
 heEventType = lens _heEventType (\ s a -> s{_heEventType = a});
 
--- | The system generated id of the event. This id uniquely identifies the
+-- | The system generated ID of the event. This ID uniquely identifies the
 -- event with in the workflow execution history.
 heEventId :: Lens' HistoryEvent Integer
 heEventId = lens _heEventId (\ s a -> s{_heEventId = a});
@@ -3116,6 +3218,7 @@ instance FromJSON HistoryEvent where
                       "workflowExecutionCancelRequestedEventAttributes")
                      <*> (x .:? "decisionTaskScheduledEventAttributes")
                      <*> (x .:? "startTimerFailedEventAttributes")
+                     <*> (x .:? "lambdaFunctionStartedEventAttributes")
                      <*> (x .:? "recordMarkerFailedEventAttributes")
                      <*>
                      (x .:?
@@ -3130,11 +3233,14 @@ instance FromJSON HistoryEvent where
                      (x .:? "scheduleActivityTaskFailedEventAttributes")
                      <*> (x .:? "markerRecordedEventAttributes")
                      <*>
+                     (x .:? "scheduleLambdaFunctionFailedEventAttributes")
+                     <*>
                      (x .:?
                         "completeWorkflowExecutionFailedEventAttributes")
                      <*>
                      (x .:?
                         "requestCancelExternalWorkflowExecutionFailedEventAttributes")
+                     <*> (x .:? "lambdaFunctionCompletedEventAttributes")
                      <*> (x .:? "timerCanceledEventAttributes")
                      <*> (x .:? "workflowExecutionStartedEventAttributes")
                      <*> (x .:? "activityTaskCompletedEventAttributes")
@@ -3152,6 +3258,7 @@ instance FromJSON HistoryEvent where
                      <*>
                      (x .:?
                         "cancelWorkflowExecutionFailedEventAttributes")
+                     <*> (x .:? "lambdaFunctionScheduledEventAttributes")
                      <*>
                      (x .:?
                         "childWorkflowExecutionTimedOutEventAttributes")
@@ -3173,8 +3280,11 @@ instance FromJSON HistoryEvent where
                      <*>
                      (x .:? "activityTaskCancelRequestedEventAttributes")
                      <*>
+                     (x .:? "startLambdaFunctionFailedEventAttributes")
+                     <*>
                      (x .:?
                         "childWorkflowExecutionTerminatedEventAttributes")
+                     <*> (x .:? "lambdaFunctionFailedEventAttributes")
                      <*>
                      (x .:? "workflowExecutionCanceledEventAttributes")
                      <*>
@@ -3205,9 +3315,271 @@ instance FromJSON HistoryEvent where
                      <*>
                      (x .:?
                         "externalWorkflowExecutionCancelRequestedEventAttributes")
+                     <*> (x .:? "lambdaFunctionTimedOutEventAttributes")
                      <*> (x .: "eventTimestamp")
                      <*> (x .: "eventType")
                      <*> (x .: "eventId"))
+
+-- | Provides details for the @LambdaFunctionCompleted@ event.
+--
+-- /See:/ 'lambdaFunctionCompletedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lfceaResult'
+--
+-- * 'lfceaScheduledEventId'
+--
+-- * 'lfceaStartedEventId'
+data LambdaFunctionCompletedEventAttributes = LambdaFunctionCompletedEventAttributes'
+    { _lfceaResult           :: !(Maybe Text)
+    , _lfceaScheduledEventId :: !Integer
+    , _lfceaStartedEventId   :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'LambdaFunctionCompletedEventAttributes' smart constructor.
+lambdaFunctionCompletedEventAttributes :: Integer -> Integer -> LambdaFunctionCompletedEventAttributes
+lambdaFunctionCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
+    LambdaFunctionCompletedEventAttributes'
+    { _lfceaResult = Nothing
+    , _lfceaScheduledEventId = pScheduledEventId_
+    , _lfceaStartedEventId = pStartedEventId_
+    }
+
+-- | The result of the function execution (if any).
+lfceaResult :: Lens' LambdaFunctionCompletedEventAttributes (Maybe Text)
+lfceaResult = lens _lfceaResult (\ s a -> s{_lfceaResult = a});
+
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
+-- this AWS Lambda function was scheduled. This information can be useful
+-- for diagnosing problems by tracing back the chain of events leading up
+-- to this event.
+lfceaScheduledEventId :: Lens' LambdaFunctionCompletedEventAttributes Integer
+lfceaScheduledEventId = lens _lfceaScheduledEventId (\ s a -> s{_lfceaScheduledEventId = a});
+
+-- | The ID of the @LambdaFunctionStarted@ event recorded in the history.
+lfceaStartedEventId :: Lens' LambdaFunctionCompletedEventAttributes Integer
+lfceaStartedEventId = lens _lfceaStartedEventId (\ s a -> s{_lfceaStartedEventId = a});
+
+instance FromJSON
+         LambdaFunctionCompletedEventAttributes where
+        parseJSON
+          = withObject "LambdaFunctionCompletedEventAttributes"
+              (\ x ->
+                 LambdaFunctionCompletedEventAttributes' <$>
+                   (x .:? "result") <*> (x .: "scheduledEventId") <*>
+                     (x .: "startedEventId"))
+
+-- | Provides details for the @LambdaFunctionFailed@ event.
+--
+-- /See:/ 'lambdaFunctionFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lffeaReason'
+--
+-- * 'lffeaDetails'
+--
+-- * 'lffeaScheduledEventId'
+--
+-- * 'lffeaStartedEventId'
+data LambdaFunctionFailedEventAttributes = LambdaFunctionFailedEventAttributes'
+    { _lffeaReason           :: !(Maybe Text)
+    , _lffeaDetails          :: !(Maybe Text)
+    , _lffeaScheduledEventId :: !Integer
+    , _lffeaStartedEventId   :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'LambdaFunctionFailedEventAttributes' smart constructor.
+lambdaFunctionFailedEventAttributes :: Integer -> Integer -> LambdaFunctionFailedEventAttributes
+lambdaFunctionFailedEventAttributes pScheduledEventId_ pStartedEventId_ =
+    LambdaFunctionFailedEventAttributes'
+    { _lffeaReason = Nothing
+    , _lffeaDetails = Nothing
+    , _lffeaScheduledEventId = pScheduledEventId_
+    , _lffeaStartedEventId = pStartedEventId_
+    }
+
+-- | The reason provided for the failure (if any).
+lffeaReason :: Lens' LambdaFunctionFailedEventAttributes (Maybe Text)
+lffeaReason = lens _lffeaReason (\ s a -> s{_lffeaReason = a});
+
+-- | The details of the failure (if any).
+lffeaDetails :: Lens' LambdaFunctionFailedEventAttributes (Maybe Text)
+lffeaDetails = lens _lffeaDetails (\ s a -> s{_lffeaDetails = a});
+
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
+-- this AWS Lambda function was scheduled. This information can be useful
+-- for diagnosing problems by tracing back the chain of events leading up
+-- to this event.
+lffeaScheduledEventId :: Lens' LambdaFunctionFailedEventAttributes Integer
+lffeaScheduledEventId = lens _lffeaScheduledEventId (\ s a -> s{_lffeaScheduledEventId = a});
+
+-- | The ID of the @LambdaFunctionStarted@ event recorded in the history.
+lffeaStartedEventId :: Lens' LambdaFunctionFailedEventAttributes Integer
+lffeaStartedEventId = lens _lffeaStartedEventId (\ s a -> s{_lffeaStartedEventId = a});
+
+instance FromJSON LambdaFunctionFailedEventAttributes
+         where
+        parseJSON
+          = withObject "LambdaFunctionFailedEventAttributes"
+              (\ x ->
+                 LambdaFunctionFailedEventAttributes' <$>
+                   (x .:? "reason") <*> (x .:? "details") <*>
+                     (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
+
+-- | Provides details for the @LambdaFunctionScheduled@ event.
+--
+-- /See:/ 'lambdaFunctionScheduledEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lfseaInput'
+--
+-- * 'lfseaStartToCloseTimeout'
+--
+-- * 'lfseaId'
+--
+-- * 'lfseaName'
+--
+-- * 'lfseaDecisionTaskCompletedEventId'
+data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttributes'
+    { _lfseaInput                        :: !(Maybe Text)
+    , _lfseaStartToCloseTimeout          :: !(Maybe Text)
+    , _lfseaId                           :: !Text
+    , _lfseaName                         :: !Text
+    , _lfseaDecisionTaskCompletedEventId :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'LambdaFunctionScheduledEventAttributes' smart constructor.
+lambdaFunctionScheduledEventAttributes :: Text -> Text -> Integer -> LambdaFunctionScheduledEventAttributes
+lambdaFunctionScheduledEventAttributes pId_ pName_ pDecisionTaskCompletedEventId_ =
+    LambdaFunctionScheduledEventAttributes'
+    { _lfseaInput = Nothing
+    , _lfseaStartToCloseTimeout = Nothing
+    , _lfseaId = pId_
+    , _lfseaName = pName_
+    , _lfseaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
+    }
+
+-- | Input provided to the AWS Lambda function.
+lfseaInput :: Lens' LambdaFunctionScheduledEventAttributes (Maybe Text)
+lfseaInput = lens _lfseaInput (\ s a -> s{_lfseaInput = a});
+
+-- | The maximum time, in seconds, that the AWS Lambda function can take to
+-- execute from start to close before it is marked as failed.
+lfseaStartToCloseTimeout :: Lens' LambdaFunctionScheduledEventAttributes (Maybe Text)
+lfseaStartToCloseTimeout = lens _lfseaStartToCloseTimeout (\ s a -> s{_lfseaStartToCloseTimeout = a});
+
+-- | The unique Amazon SWF ID for the AWS Lambda task.
+lfseaId :: Lens' LambdaFunctionScheduledEventAttributes Text
+lfseaId = lens _lfseaId (\ s a -> s{_lfseaId = a});
+
+-- | The name of the scheduled AWS Lambda function.
+lfseaName :: Lens' LambdaFunctionScheduledEventAttributes Text
+lfseaName = lens _lfseaName (\ s a -> s{_lfseaName = a});
+
+-- | The ID of the @DecisionTaskCompleted@ event for the decision that
+-- resulted in the scheduling of this AWS Lambda function. This information
+-- can be useful for diagnosing problems by tracing back the chain of
+-- events leading up to this event.
+lfseaDecisionTaskCompletedEventId :: Lens' LambdaFunctionScheduledEventAttributes Integer
+lfseaDecisionTaskCompletedEventId = lens _lfseaDecisionTaskCompletedEventId (\ s a -> s{_lfseaDecisionTaskCompletedEventId = a});
+
+instance FromJSON
+         LambdaFunctionScheduledEventAttributes where
+        parseJSON
+          = withObject "LambdaFunctionScheduledEventAttributes"
+              (\ x ->
+                 LambdaFunctionScheduledEventAttributes' <$>
+                   (x .:? "input") <*> (x .:? "startToCloseTimeout") <*>
+                     (x .: "id")
+                     <*> (x .: "name")
+                     <*> (x .: "decisionTaskCompletedEventId"))
+
+-- | Provides details for the @LambdaFunctionStarted@ event.
+--
+-- /See:/ 'lambdaFunctionStartedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lfseaScheduledEventId'
+newtype LambdaFunctionStartedEventAttributes = LambdaFunctionStartedEventAttributes'
+    { _lfseaScheduledEventId :: Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'LambdaFunctionStartedEventAttributes' smart constructor.
+lambdaFunctionStartedEventAttributes :: Integer -> LambdaFunctionStartedEventAttributes
+lambdaFunctionStartedEventAttributes pScheduledEventId_ =
+    LambdaFunctionStartedEventAttributes'
+    { _lfseaScheduledEventId = pScheduledEventId_
+    }
+
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
+-- this AWS Lambda function was scheduled. This information can be useful
+-- for diagnosing problems by tracing back the chain of events leading up
+-- to this event.
+lfseaScheduledEventId :: Lens' LambdaFunctionStartedEventAttributes Integer
+lfseaScheduledEventId = lens _lfseaScheduledEventId (\ s a -> s{_lfseaScheduledEventId = a});
+
+instance FromJSON
+         LambdaFunctionStartedEventAttributes where
+        parseJSON
+          = withObject "LambdaFunctionStartedEventAttributes"
+              (\ x ->
+                 LambdaFunctionStartedEventAttributes' <$>
+                   (x .: "scheduledEventId"))
+
+-- | Provides details for the @LambdaFunctionTimedOut@ event.
+--
+-- /See:/ 'lambdaFunctionTimedOutEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lftoeaTimeoutType'
+--
+-- * 'lftoeaScheduledEventId'
+--
+-- * 'lftoeaStartedEventId'
+data LambdaFunctionTimedOutEventAttributes = LambdaFunctionTimedOutEventAttributes'
+    { _lftoeaTimeoutType      :: !(Maybe LambdaFunctionTimeoutType)
+    , _lftoeaScheduledEventId :: !Integer
+    , _lftoeaStartedEventId   :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'LambdaFunctionTimedOutEventAttributes' smart constructor.
+lambdaFunctionTimedOutEventAttributes :: Integer -> Integer -> LambdaFunctionTimedOutEventAttributes
+lambdaFunctionTimedOutEventAttributes pScheduledEventId_ pStartedEventId_ =
+    LambdaFunctionTimedOutEventAttributes'
+    { _lftoeaTimeoutType = Nothing
+    , _lftoeaScheduledEventId = pScheduledEventId_
+    , _lftoeaStartedEventId = pStartedEventId_
+    }
+
+-- | The type of the timeout that caused this event.
+lftoeaTimeoutType :: Lens' LambdaFunctionTimedOutEventAttributes (Maybe LambdaFunctionTimeoutType)
+lftoeaTimeoutType = lens _lftoeaTimeoutType (\ s a -> s{_lftoeaTimeoutType = a});
+
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
+-- this AWS Lambda function was scheduled. This information can be useful
+-- for diagnosing problems by tracing back the chain of events leading up
+-- to this event.
+lftoeaScheduledEventId :: Lens' LambdaFunctionTimedOutEventAttributes Integer
+lftoeaScheduledEventId = lens _lftoeaScheduledEventId (\ s a -> s{_lftoeaScheduledEventId = a});
+
+-- | The ID of the @LambdaFunctionStarted@ event recorded in the history.
+lftoeaStartedEventId :: Lens' LambdaFunctionTimedOutEventAttributes Integer
+lftoeaStartedEventId = lens _lftoeaStartedEventId (\ s a -> s{_lftoeaStartedEventId = a});
+
+instance FromJSON
+         LambdaFunctionTimedOutEventAttributes where
+        parseJSON
+          = withObject "LambdaFunctionTimedOutEventAttributes"
+              (\ x ->
+                 LambdaFunctionTimedOutEventAttributes' <$>
+                   (x .:? "timeoutType") <*> (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | Provides details of the @MarkerRecorded@ event.
 --
@@ -3243,7 +3615,7 @@ mreaDetails = lens _mreaDetails (\ s a -> s{_mreaDetails = a});
 mreaMarkerName :: Lens' MarkerRecordedEventAttributes Text
 mreaMarkerName = lens _mreaMarkerName (\ s a -> s{_mreaMarkerName = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @RecordMarker@ decision that
 -- requested this marker. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
@@ -3391,7 +3763,7 @@ rmfeaMarkerName = lens _rmfeaMarkerName (\ s a -> s{_rmfeaMarkerName = a});
 rmfeaCause :: Lens' RecordMarkerFailedEventAttributes RecordMarkerFailedCause
 rmfeaCause = lens _rmfeaCause (\ s a -> s{_rmfeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @RecordMarkerFailed@ decision for
 -- this cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
@@ -3494,7 +3866,7 @@ rcatfeaActivityId = lens _rcatfeaActivityId (\ s a -> s{_rcatfeaActivityId = a})
 rcatfeaCause :: Lens' RequestCancelActivityTaskFailedEventAttributes RequestCancelActivityTaskFailedCause
 rcatfeaCause = lens _rcatfeaCause (\ s a -> s{_rcatfeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @RequestCancelActivityTask@ decision
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -3643,7 +4015,7 @@ rcewefeaWorkflowId = lens _rcewefeaWorkflowId (\ s a -> s{_rcewefeaWorkflowId = 
 rcewefeaCause :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes RequestCancelExternalWorkflowExecutionFailedCause
 rcewefeaCause = lens _rcewefeaCause (\ s a -> s{_rcewefeaCause = a});
 
--- | The id of the @RequestCancelExternalWorkflowExecutionInitiated@ event
+-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @RequestCancelExternalWorkflowExecution@ decision
 -- to cancel this external workflow execution. This information can be
 -- useful for diagnosing problems by tracing back the chain of events
@@ -3651,7 +4023,7 @@ rcewefeaCause = lens _rcewefeaCause (\ s a -> s{_rcewefeaCause = a});
 rcewefeaInitiatedEventId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Integer
 rcewefeaInitiatedEventId = lens _rcewefeaInitiatedEventId (\ s a -> s{_rcewefeaInitiatedEventId = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the
 -- @RequestCancelExternalWorkflowExecution@ decision for this cancellation
 -- request. This information can be useful for diagnosing problems by
@@ -3718,7 +4090,7 @@ rceweieaRunId = lens _rceweieaRunId (\ s a -> s{_rceweieaRunId = a});
 rceweieaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Text
 rceweieaWorkflowId = lens _rceweieaWorkflowId (\ s a -> s{_rceweieaWorkflowId = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the
 -- @RequestCancelExternalWorkflowExecution@ decision for this cancellation
 -- request. This information can be useful for diagnosing problems by
@@ -3988,7 +4360,7 @@ satfeaActivityId = lens _satfeaActivityId (\ s a -> s{_satfeaActivityId = a});
 satfeaCause :: Lens' ScheduleActivityTaskFailedEventAttributes ScheduleActivityTaskFailedCause
 satfeaCause = lens _satfeaCause (\ s a -> s{_satfeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision that resulted in the scheduling of this activity task. This
 -- information can be useful for diagnosing problems by tracing back the
 -- chain of events leading up to this event.
@@ -4005,6 +4377,154 @@ instance FromJSON
                    (x .: "activityType") <*> (x .: "activityId") <*>
                      (x .: "cause")
                      <*> (x .: "decisionTaskCompletedEventId"))
+
+-- | Provides details of the @ScheduleLambdaFunction@ decision.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this decision\'s access to Amazon
+-- SWF resources as follows:
+--
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
+-- -   Constrain the following parameters by using a @Condition@ element
+--     with the appropriate keys.
+--     -   @activityType.name@: String constraint. The key is
+--         @swf:activityType.name@.
+--     -   @activityType.version@: String constraint. The key is
+--         @swf:activityType.version@.
+--     -   @taskList@: String constraint. The key is @swf:taskList.name@.
+--
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ 'scheduleLambdaFunctionDecisionAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slfdaInput'
+--
+-- * 'slfdaStartToCloseTimeout'
+--
+-- * 'slfdaId'
+--
+-- * 'slfdaName'
+data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAttributes'
+    { _slfdaInput               :: !(Maybe Text)
+    , _slfdaStartToCloseTimeout :: !(Maybe Text)
+    , _slfdaId                  :: !Text
+    , _slfdaName                :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ScheduleLambdaFunctionDecisionAttributes' smart constructor.
+scheduleLambdaFunctionDecisionAttributes :: Text -> Text -> ScheduleLambdaFunctionDecisionAttributes
+scheduleLambdaFunctionDecisionAttributes pId_ pName_ =
+    ScheduleLambdaFunctionDecisionAttributes'
+    { _slfdaInput = Nothing
+    , _slfdaStartToCloseTimeout = Nothing
+    , _slfdaId = pId_
+    , _slfdaName = pName_
+    }
+
+-- | The input provided to the AWS Lambda function.
+slfdaInput :: Lens' ScheduleLambdaFunctionDecisionAttributes (Maybe Text)
+slfdaInput = lens _slfdaInput (\ s a -> s{_slfdaInput = a});
+
+-- | If set, specifies the maximum duration the function may take to execute.
+slfdaStartToCloseTimeout :: Lens' ScheduleLambdaFunctionDecisionAttributes (Maybe Text)
+slfdaStartToCloseTimeout = lens _slfdaStartToCloseTimeout (\ s a -> s{_slfdaStartToCloseTimeout = a});
+
+-- | __Required.__ The SWF @id@ of the AWS Lambda task.
+--
+-- The specified string must not start or end with whitespace. It must not
+-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
+-- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
+-- contain the literal string quotarnquot.
+slfdaId :: Lens' ScheduleLambdaFunctionDecisionAttributes Text
+slfdaId = lens _slfdaId (\ s a -> s{_slfdaId = a});
+
+-- | __Required.__ The name of the AWS Lambda function to invoke.
+slfdaName :: Lens' ScheduleLambdaFunctionDecisionAttributes Text
+slfdaName = lens _slfdaName (\ s a -> s{_slfdaName = a});
+
+instance ToJSON
+         ScheduleLambdaFunctionDecisionAttributes where
+        toJSON ScheduleLambdaFunctionDecisionAttributes'{..}
+          = object
+              ["input" .= _slfdaInput,
+               "startToCloseTimeout" .= _slfdaStartToCloseTimeout,
+               "id" .= _slfdaId, "name" .= _slfdaName]
+
+-- | Provides details for the @ScheduleLambdaFunctionFailed@ event.
+--
+-- /See:/ 'scheduleLambdaFunctionFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slffeaId'
+--
+-- * 'slffeaName'
+--
+-- * 'slffeaCause'
+--
+-- * 'slffeaDecisionTaskCompletedEventId'
+data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedEventAttributes'
+    { _slffeaId                           :: !Text
+    , _slffeaName                         :: !Text
+    , _slffeaCause                        :: !ScheduleLambdaFunctionFailedCause
+    , _slffeaDecisionTaskCompletedEventId :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ScheduleLambdaFunctionFailedEventAttributes' smart constructor.
+scheduleLambdaFunctionFailedEventAttributes :: Text -> Text -> ScheduleLambdaFunctionFailedCause -> Integer -> ScheduleLambdaFunctionFailedEventAttributes
+scheduleLambdaFunctionFailedEventAttributes pId_ pName_ pCause_ pDecisionTaskCompletedEventId_ =
+    ScheduleLambdaFunctionFailedEventAttributes'
+    { _slffeaId = pId_
+    , _slffeaName = pName_
+    , _slffeaCause = pCause_
+    , _slffeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
+    }
+
+-- | The unique Amazon SWF ID of the AWS Lambda task.
+slffeaId :: Lens' ScheduleLambdaFunctionFailedEventAttributes Text
+slffeaId = lens _slffeaId (\ s a -> s{_slffeaId = a});
+
+-- | The name of the scheduled AWS Lambda function.
+slffeaName :: Lens' ScheduleLambdaFunctionFailedEventAttributes Text
+slffeaName = lens _slffeaName (\ s a -> s{_slffeaName = a});
+
+-- | The cause of the failure. This information is generated by the system
+-- and can be useful for diagnostic purposes.
+--
+-- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
+-- because it lacked sufficient permissions. For details and example IAM
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+slffeaCause :: Lens' ScheduleLambdaFunctionFailedEventAttributes ScheduleLambdaFunctionFailedCause
+slffeaCause = lens _slffeaCause (\ s a -> s{_slffeaCause = a});
+
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
+-- decision that resulted in the scheduling of this AWS Lambda function.
+-- This information can be useful for diagnosing problems by tracing back
+-- the chain of events leading up to this event.
+slffeaDecisionTaskCompletedEventId :: Lens' ScheduleLambdaFunctionFailedEventAttributes Integer
+slffeaDecisionTaskCompletedEventId = lens _slffeaDecisionTaskCompletedEventId (\ s a -> s{_slffeaDecisionTaskCompletedEventId = a});
+
+instance FromJSON
+         ScheduleLambdaFunctionFailedEventAttributes where
+        parseJSON
+          = withObject
+              "ScheduleLambdaFunctionFailedEventAttributes"
+              (\ x ->
+                 ScheduleLambdaFunctionFailedEventAttributes' <$>
+                   (x .: "id") <*> (x .: "name") <*> (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | Provides details of the @SignalExternalWorkflowExecution@ decision.
 --
@@ -4155,14 +4675,14 @@ sewefeaWorkflowId = lens _sewefeaWorkflowId (\ s a -> s{_sewefeaWorkflowId = a})
 sewefeaCause :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes SignalExternalWorkflowExecutionFailedCause
 sewefeaCause = lens _sewefeaCause (\ s a -> s{_sewefeaCause = a});
 
--- | The id of the @SignalExternalWorkflowExecutionInitiated@ event
+-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @SignalExternalWorkflowExecution@ decision to
 -- request this signal. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 sewefeaInitiatedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Integer
 sewefeaInitiatedEventId = lens _sewefeaInitiatedEventId (\ s a -> s{_sewefeaInitiatedEventId = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @SignalExternalWorkflowExecution@
 -- decision for this signal. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
@@ -4244,7 +4764,7 @@ seweieaWorkflowId = lens _seweieaWorkflowId (\ s a -> s{_seweieaWorkflowId = a})
 seweieaSignalName :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Text
 seweieaSignalName = lens _seweieaSignalName (\ s a -> s{_seweieaSignalName = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @SignalExternalWorkflowExecution@
 -- decision for this signal. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
@@ -4304,6 +4824,8 @@ instance FromJSON
 --
 -- * 'scwedaTaskStartToCloseTimeout'
 --
+-- * 'scwedaLambdaRole'
+--
 -- * 'scwedaInput'
 --
 -- * 'scwedaExecutionStartToCloseTimeout'
@@ -4321,6 +4843,7 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     { _scwedaControl                      :: !(Maybe Text)
     , _scwedaTagList                      :: !(Maybe [Text])
     , _scwedaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _scwedaLambdaRole                   :: !(Maybe Text)
     , _scwedaInput                        :: !(Maybe Text)
     , _scwedaExecutionStartToCloseTimeout :: !(Maybe Text)
     , _scwedaTaskList                     :: !(Maybe TaskList)
@@ -4337,6 +4860,7 @@ startChildWorkflowExecutionDecisionAttributes pWorkflowType_ pWorkflowId_ =
     { _scwedaControl = Nothing
     , _scwedaTagList = Nothing
     , _scwedaTaskStartToCloseTimeout = Nothing
+    , _scwedaLambdaRole = Nothing
     , _scwedaInput = Nothing
     , _scwedaExecutionStartToCloseTimeout = Nothing
     , _scwedaTaskList = Nothing
@@ -4373,6 +4897,15 @@ scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a}) . _Default 
 -- will be returned.
 scwedaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaTaskStartToCloseTimeout = lens _scwedaTaskStartToCloseTimeout (\ s a -> s{_scwedaTaskStartToCloseTimeout = a});
+
+-- | The ARN of an IAM role that authorizes Amazon SWF to invoke AWS Lambda
+-- functions.
+--
+-- In order for this workflow execution to invoke AWS Lambda functions, an
+-- appropriate IAM role must be specified either as a default for the
+-- workflow type or through this field.
+scwedaLambdaRole :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
+scwedaLambdaRole = lens _scwedaLambdaRole (\ s a -> s{_scwedaLambdaRole = a});
 
 -- | The input to be provided to the workflow execution.
 scwedaInput :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
@@ -4466,6 +4999,7 @@ instance ToJSON
                "tagList" .= _scwedaTagList,
                "taskStartToCloseTimeout" .=
                  _scwedaTaskStartToCloseTimeout,
+               "lambdaRole" .= _scwedaLambdaRole,
                "input" .= _scwedaInput,
                "executionStartToCloseTimeout" .=
                  _scwedaExecutionStartToCloseTimeout,
@@ -4517,7 +5051,7 @@ startChildWorkflowExecutionFailedEventAttributes pWorkflowType_ pCause_ pWorkflo
 scwefeaControl :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 scwefeaControl = lens _scwefeaControl (\ s a -> s{_scwefeaControl = a});
 
--- | The workflow type provided in the @StartChildWorkflowExecution@ Decision
+-- | The workflow type provided in the @StartChildWorkflowExecution@ decision
 -- that failed.
 scwefeaWorkflowType :: Lens' StartChildWorkflowExecutionFailedEventAttributes WorkflowType
 scwefeaWorkflowType = lens _scwefeaWorkflowType (\ s a -> s{_scwefeaWorkflowType = a});
@@ -4536,16 +5070,16 @@ scwefeaCause = lens _scwefeaCause (\ s a -> s{_scwefeaCause = a});
 scwefeaWorkflowId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Text
 scwefeaWorkflowId = lens _scwefeaWorkflowId (\ s a -> s{_scwefeaWorkflowId = a});
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this child
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
 scwefeaInitiatedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Integer
 scwefeaInitiatedEventId = lens _scwefeaInitiatedEventId (\ s a -> s{_scwefeaInitiatedEventId = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @StartChildWorkflowExecution@
--- Decision to request this child workflow execution. This information can
+-- decision to request this child workflow execution. This information can
 -- be useful for diagnosing problems by tracing back the cause of events.
 scwefeaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Integer
 scwefeaDecisionTaskCompletedEventId = lens _scwefeaDecisionTaskCompletedEventId (\ s a -> s{_scwefeaDecisionTaskCompletedEventId = a});
@@ -4576,6 +5110,8 @@ instance FromJSON
 --
 -- * 'scweieaTaskStartToCloseTimeout'
 --
+-- * 'scweieaLambdaRole'
+--
 -- * 'scweieaInput'
 --
 -- * 'scweieaExecutionStartToCloseTimeout'
@@ -4595,6 +5131,7 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
     { _scweieaControl                      :: !(Maybe Text)
     , _scweieaTagList                      :: !(Maybe [Text])
     , _scweieaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _scweieaLambdaRole                   :: !(Maybe Text)
     , _scweieaInput                        :: !(Maybe Text)
     , _scweieaExecutionStartToCloseTimeout :: !(Maybe Text)
     , _scweieaTaskPriority                 :: !(Maybe Text)
@@ -4612,6 +5149,7 @@ startChildWorkflowExecutionInitiatedEventAttributes pWorkflowId_ pWorkflowType_ 
     { _scweieaControl = Nothing
     , _scweieaTagList = Nothing
     , _scweieaTaskStartToCloseTimeout = Nothing
+    , _scweieaLambdaRole = Nothing
     , _scweieaInput = Nothing
     , _scweieaExecutionStartToCloseTimeout = Nothing
     , _scweieaTaskPriority = Nothing
@@ -4638,6 +5176,11 @@ scweieaTagList = lens _scweieaTagList (\ s a -> s{_scweieaTagList = a}) . _Defau
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
 scweieaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaTaskStartToCloseTimeout = lens _scweieaTaskStartToCloseTimeout (\ s a -> s{_scweieaTaskStartToCloseTimeout = a});
+
+-- | The IAM role attached to this workflow execution to use when invoking
+-- AWS Lambda functions.
+scweieaLambdaRole :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
+scweieaLambdaRole = lens _scweieaLambdaRole (\ s a -> s{_scweieaLambdaRole = a});
 
 -- | The inputs provided to the child workflow execution (if any).
 scweieaInput :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
@@ -4676,9 +5219,9 @@ scweieaWorkflowType = lens _scweieaWorkflowType (\ s a -> s{_scweieaWorkflowType
 scweieaTaskList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes TaskList
 scweieaTaskList = lens _scweieaTaskList (\ s a -> s{_scweieaTaskList = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @StartChildWorkflowExecution@
--- Decision to request this child workflow execution. This information can
+-- decision to request this child workflow execution. This information can
 -- be useful for diagnosing problems by tracing back the cause of events.
 scweieaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Integer
 scweieaDecisionTaskCompletedEventId = lens _scweieaDecisionTaskCompletedEventId (\ s a -> s{_scweieaDecisionTaskCompletedEventId = a});
@@ -4710,6 +5253,7 @@ instance FromJSON
                    <$>
                    (x .:? "control") <*> (x .:? "tagList" .!= mempty)
                      <*> (x .:? "taskStartToCloseTimeout")
+                     <*> (x .:? "lambdaRole")
                      <*> (x .:? "input")
                      <*> (x .:? "executionStartToCloseTimeout")
                      <*> (x .:? "taskPriority")
@@ -4718,6 +5262,63 @@ instance FromJSON
                      <*> (x .: "taskList")
                      <*> (x .: "decisionTaskCompletedEventId")
                      <*> (x .: "childPolicy"))
+
+-- | Provides details for the @StartLambdaFunctionFailed@ event.
+--
+-- /See:/ 'startLambdaFunctionFailedEventAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sScheduledEventId'
+--
+-- * 'sCause'
+--
+-- * 'sMessage'
+data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAttributes'
+    { _sScheduledEventId :: !(Maybe Integer)
+    , _sCause            :: !(Maybe StartLambdaFunctionFailedCause)
+    , _sMessage          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'StartLambdaFunctionFailedEventAttributes' smart constructor.
+startLambdaFunctionFailedEventAttributes :: StartLambdaFunctionFailedEventAttributes
+startLambdaFunctionFailedEventAttributes =
+    StartLambdaFunctionFailedEventAttributes'
+    { _sScheduledEventId = Nothing
+    , _sCause = Nothing
+    , _sMessage = Nothing
+    }
+
+-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when
+-- this AWS Lambda function was scheduled. This information can be useful
+-- for diagnosing problems by tracing back the chain of events leading up
+-- to this event.
+sScheduledEventId :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe Integer)
+sScheduledEventId = lens _sScheduledEventId (\ s a -> s{_sScheduledEventId = a});
+
+-- | The cause of the failure. This information is generated by the system
+-- and can be useful for diagnostic purposes.
+--
+-- If __cause__ is set to OPERATION_NOT_PERMITTED, the decision failed
+-- because it lacked sufficient permissions. For details and example IAM
+-- policies, see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+sCause :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe StartLambdaFunctionFailedCause)
+sCause = lens _sCause (\ s a -> s{_sCause = a});
+
+-- | The error message (if any).
+sMessage :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe Text)
+sMessage = lens _sMessage (\ s a -> s{_sMessage = a});
+
+instance FromJSON
+         StartLambdaFunctionFailedEventAttributes where
+        parseJSON
+          = withObject
+              "StartLambdaFunctionFailedEventAttributes"
+              (\ x ->
+                 StartLambdaFunctionFailedEventAttributes' <$>
+                   (x .:? "scheduledEventId") <*> (x .:? "cause") <*>
+                     (x .:? "message"))
 
 -- | Provides details of the @StartTimer@ decision.
 --
@@ -4768,7 +5369,7 @@ startTimerDecisionAttributes pTimerId_ pStartToFireTimeout_ =
 stdaControl :: Lens' StartTimerDecisionAttributes (Maybe Text)
 stdaControl = lens _stdaControl (\ s a -> s{_stdaControl = a});
 
--- | __Required.__ The unique Id of the timer.
+-- | __Required.__ The unique ID of the timer.
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
@@ -4831,7 +5432,7 @@ stfeaTimerId = lens _stfeaTimerId (\ s a -> s{_stfeaTimerId = a});
 stfeaCause :: Lens' StartTimerFailedEventAttributes StartTimerFailedCause
 stfeaCause = lens _stfeaCause (\ s a -> s{_stfeaCause = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @StartTimer@ decision for this
 -- activity task. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
@@ -4930,17 +5531,17 @@ timerCanceledEventAttributes pTimerId_ pStartedEventId_ pDecisionTaskCompletedEv
     , _tceaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | The unique Id of the timer that was canceled.
+-- | The unique ID of the timer that was canceled.
 tceaTimerId :: Lens' TimerCanceledEventAttributes Text
 tceaTimerId = lens _tceaTimerId (\ s a -> s{_tceaTimerId = a});
 
--- | The id of the @TimerStarted@ event that was recorded when this timer was
+-- | The ID of the @TimerStarted@ event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
 tceaStartedEventId :: Lens' TimerCanceledEventAttributes Integer
 tceaStartedEventId = lens _tceaStartedEventId (\ s a -> s{_tceaStartedEventId = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @CancelTimer@ decision to cancel this
 -- timer. This information can be useful for diagnosing problems by tracing
 -- back the chain of events leading up to this event.
@@ -4977,11 +5578,11 @@ timerFiredEventAttributes pTimerId_ pStartedEventId_ =
     , _tfeaStartedEventId = pStartedEventId_
     }
 
--- | The unique Id of the timer that fired.
+-- | The unique ID of the timer that fired.
 tfeaTimerId :: Lens' TimerFiredEventAttributes Text
 tfeaTimerId = lens _tfeaTimerId (\ s a -> s{_tfeaTimerId = a});
 
--- | The id of the @TimerStarted@ event that was recorded when this timer was
+-- | The ID of the @TimerStarted@ event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
 tfeaStartedEventId :: Lens' TimerFiredEventAttributes Integer
@@ -5029,7 +5630,7 @@ timerStartedEventAttributes pTimerId_ pStartToFireTimeout_ pDecisionTaskComplete
 tseaControl :: Lens' TimerStartedEventAttributes (Maybe Text)
 tseaControl = lens _tseaControl (\ s a -> s{_tseaControl = a});
 
--- | The unique Id of the timer that was started.
+-- | The unique ID of the timer that was started.
 tseaTimerId :: Lens' TimerStartedEventAttributes Text
 tseaTimerId = lens _tseaTimerId (\ s a -> s{_tseaTimerId = a});
 
@@ -5040,7 +5641,7 @@ tseaTimerId = lens _tseaTimerId (\ s a -> s{_tseaTimerId = a});
 tseaStartToFireTimeout :: Lens' TimerStartedEventAttributes Text
 tseaStartToFireTimeout = lens _tseaStartToFireTimeout (\ s a -> s{_tseaStartToFireTimeout = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @StartTimer@ decision for this
 -- activity task. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
@@ -5129,9 +5730,9 @@ workflowExecutionCancelRequestedEventAttributes =
 wecreaExternalWorkflowExecution :: Lens' WorkflowExecutionCancelRequestedEventAttributes (Maybe WorkflowExecution)
 wecreaExternalWorkflowExecution = lens _wecreaExternalWorkflowExecution (\ s a -> s{_wecreaExternalWorkflowExecution = a});
 
--- | The id of the @RequestCancelExternalWorkflowExecutionInitiated@ event
+-- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @RequestCancelExternalWorkflowExecution@ decision
--- to cancel this workflow execution.The source event with this Id can be
+-- to cancel this workflow execution.The source event with this ID can be
 -- found in the history of the source workflow execution. This information
 -- can be useful for diagnosing problems by tracing back the chain of
 -- events leading up to this event.
@@ -5182,7 +5783,7 @@ workflowExecutionCanceledEventAttributes pDecisionTaskCompletedEventId_ =
 wDetails :: Lens' WorkflowExecutionCanceledEventAttributes (Maybe Text)
 wDetails = lens _wDetails (\ s a -> s{_wDetails = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @CancelWorkflowExecution@ decision
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -5227,7 +5828,7 @@ workflowExecutionCompletedEventAttributes pDecisionTaskCompletedEventId_ =
 weceaResult :: Lens' WorkflowExecutionCompletedEventAttributes (Maybe Text)
 weceaResult = lens _weceaResult (\ s a -> s{_weceaResult = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @CompleteWorkflowExecution@ decision
 -- to complete this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -5254,6 +5855,8 @@ instance FromJSON
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'wecLambdaRole'
+--
 -- * 'wecTaskPriority'
 --
 -- * 'wecTaskStartToCloseTimeout'
@@ -5264,7 +5867,8 @@ instance FromJSON
 --
 -- * 'wecChildPolicy'
 data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
-    { _wecTaskPriority                 :: !(Maybe Text)
+    { _wecLambdaRole                   :: !(Maybe Text)
+    , _wecTaskPriority                 :: !(Maybe Text)
     , _wecTaskStartToCloseTimeout      :: !Text
     , _wecExecutionStartToCloseTimeout :: !Text
     , _wecTaskList                     :: !TaskList
@@ -5275,12 +5879,18 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
 workflowExecutionConfiguration :: Text -> Text -> TaskList -> ChildPolicy -> WorkflowExecutionConfiguration
 workflowExecutionConfiguration pTaskStartToCloseTimeout_ pExecutionStartToCloseTimeout_ pTaskList_ pChildPolicy_ =
     WorkflowExecutionConfiguration'
-    { _wecTaskPriority = Nothing
+    { _wecLambdaRole = Nothing
+    , _wecTaskPriority = Nothing
     , _wecTaskStartToCloseTimeout = pTaskStartToCloseTimeout_
     , _wecExecutionStartToCloseTimeout = pExecutionStartToCloseTimeout_
     , _wecTaskList = pTaskList_
     , _wecChildPolicy = pChildPolicy_
     }
+
+-- | The IAM role used by this workflow execution when invoking AWS Lambda
+-- functions.
+wecLambdaRole :: Lens' WorkflowExecutionConfiguration (Maybe Text)
+wecLambdaRole = lens _wecLambdaRole (\ s a -> s{_wecLambdaRole = a});
 
 -- | The priority assigned to decision tasks for this workflow execution.
 -- Valid values are integers that range from Java\'s @Integer.MIN_VALUE@
@@ -5335,7 +5945,7 @@ instance FromJSON WorkflowExecutionConfiguration
           = withObject "WorkflowExecutionConfiguration"
               (\ x ->
                  WorkflowExecutionConfiguration' <$>
-                   (x .:? "taskPriority") <*>
+                   (x .:? "lambdaRole") <*> (x .:? "taskPriority") <*>
                      (x .: "taskStartToCloseTimeout")
                      <*> (x .: "executionStartToCloseTimeout")
                      <*> (x .: "taskList")
@@ -5350,6 +5960,8 @@ instance FromJSON WorkflowExecutionConfiguration
 -- * 'wecaneaTagList'
 --
 -- * 'wecaneaTaskStartToCloseTimeout'
+--
+-- * 'wecaneaLambdaRole'
 --
 -- * 'wecaneaInput'
 --
@@ -5369,6 +5981,7 @@ instance FromJSON WorkflowExecutionConfiguration
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'
     { _wecaneaTagList                      :: !(Maybe [Text])
     , _wecaneaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _wecaneaLambdaRole                   :: !(Maybe Text)
     , _wecaneaInput                        :: !(Maybe Text)
     , _wecaneaExecutionStartToCloseTimeout :: !(Maybe Text)
     , _wecaneaTaskPriority                 :: !(Maybe Text)
@@ -5385,6 +5998,7 @@ workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId_ pN
     WorkflowExecutionContinuedAsNewEventAttributes'
     { _wecaneaTagList = Nothing
     , _wecaneaTaskStartToCloseTimeout = Nothing
+    , _wecaneaLambdaRole = Nothing
     , _wecaneaInput = Nothing
     , _wecaneaExecutionStartToCloseTimeout = Nothing
     , _wecaneaTaskPriority = Nothing
@@ -5406,6 +6020,11 @@ wecaneaTagList = lens _wecaneaTagList (\ s a -> s{_wecaneaTagList = a}) . _Defau
 wecaneaTaskStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskStartToCloseTimeout = lens _wecaneaTaskStartToCloseTimeout (\ s a -> s{_wecaneaTaskStartToCloseTimeout = a});
 
+-- | The IAM role attached to this workflow execution to use when invoking
+-- AWS Lambda functions.
+wecaneaLambdaRole :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
+wecaneaLambdaRole = lens _wecaneaLambdaRole (\ s a -> s{_wecaneaLambdaRole = a});
+
 -- | The input provided to the new workflow execution.
 wecaneaInput :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaInput = lens _wecaneaInput (\ s a -> s{_wecaneaInput = a});
@@ -5421,7 +6040,7 @@ wecaneaExecutionStartToCloseTimeout = lens _wecaneaExecutionStartToCloseTimeout 
 wecaneaTaskPriority :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskPriority = lens _wecaneaTaskPriority (\ s a -> s{_wecaneaTaskPriority = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @ContinueAsNewWorkflowExecution@
 -- decision that started this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -5466,6 +6085,7 @@ instance FromJSON
                  WorkflowExecutionContinuedAsNewEventAttributes' <$>
                    (x .:? "tagList" .!= mempty) <*>
                      (x .:? "taskStartToCloseTimeout")
+                     <*> (x .:? "lambdaRole")
                      <*> (x .:? "input")
                      <*> (x .:? "executionStartToCloseTimeout")
                      <*> (x .:? "taskPriority")
@@ -5549,7 +6169,7 @@ wefeaReason = lens _wefeaReason (\ s a -> s{_wefeaReason = a});
 wefeaDetails :: Lens' WorkflowExecutionFailedEventAttributes (Maybe Text)
 wefeaDetails = lens _wefeaDetails (\ s a -> s{_wefeaDetails = a});
 
--- | The id of the @DecisionTaskCompleted@ event corresponding to the
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @FailWorkflowExecution@ decision to
 -- fail this execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
@@ -5760,6 +6380,8 @@ instance FromJSON WorkflowExecutionInfos where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'weocOpenLambdaFunctions'
+--
 -- * 'weocOpenActivityTasks'
 --
 -- * 'weocOpenDecisionTasks'
@@ -5768,7 +6390,8 @@ instance FromJSON WorkflowExecutionInfos where
 --
 -- * 'weocOpenChildWorkflowExecutions'
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
-    { _weocOpenActivityTasks           :: !Nat
+    { _weocOpenLambdaFunctions         :: !(Maybe Nat)
+    , _weocOpenActivityTasks           :: !Nat
     , _weocOpenDecisionTasks           :: !Nat
     , _weocOpenTimers                  :: !Nat
     , _weocOpenChildWorkflowExecutions :: !Nat
@@ -5778,11 +6401,16 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
 workflowExecutionOpenCounts :: Natural -> Natural -> Natural -> Natural -> WorkflowExecutionOpenCounts
 workflowExecutionOpenCounts pOpenActivityTasks_ pOpenDecisionTasks_ pOpenTimers_ pOpenChildWorkflowExecutions_ =
     WorkflowExecutionOpenCounts'
-    { _weocOpenActivityTasks = _Nat # pOpenActivityTasks_
+    { _weocOpenLambdaFunctions = Nothing
+    , _weocOpenActivityTasks = _Nat # pOpenActivityTasks_
     , _weocOpenDecisionTasks = _Nat # pOpenDecisionTasks_
     , _weocOpenTimers = _Nat # pOpenTimers_
     , _weocOpenChildWorkflowExecutions = _Nat # pOpenChildWorkflowExecutions_
     }
+
+-- | The count of AWS Lambda functions that are currently executing.
+weocOpenLambdaFunctions :: Lens' WorkflowExecutionOpenCounts (Maybe Natural)
+weocOpenLambdaFunctions = lens _weocOpenLambdaFunctions (\ s a -> s{_weocOpenLambdaFunctions = a}) . mapping _Nat;
 
 -- | The count of activity tasks whose status is OPEN.
 weocOpenActivityTasks :: Lens' WorkflowExecutionOpenCounts Natural
@@ -5807,8 +6435,9 @@ instance FromJSON WorkflowExecutionOpenCounts where
           = withObject "WorkflowExecutionOpenCounts"
               (\ x ->
                  WorkflowExecutionOpenCounts' <$>
-                   (x .: "openActivityTasks") <*>
-                     (x .: "openDecisionTasks")
+                   (x .:? "openLambdaFunctions") <*>
+                     (x .: "openActivityTasks")
+                     <*> (x .: "openDecisionTasks")
                      <*> (x .: "openTimers")
                      <*> (x .: "openChildWorkflowExecutions"))
 
@@ -5847,9 +6476,9 @@ workflowExecutionSignaledEventAttributes pSignalName_ =
 wExternalWorkflowExecution :: Lens' WorkflowExecutionSignaledEventAttributes (Maybe WorkflowExecution)
 wExternalWorkflowExecution = lens _wExternalWorkflowExecution (\ s a -> s{_wExternalWorkflowExecution = a});
 
--- | The id of the @SignalExternalWorkflowExecutionInitiated@ event
+-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event
 -- corresponding to the @SignalExternalWorkflow@ decision to signal this
--- workflow execution.The source event with this Id can be found in the
+-- workflow execution.The source event with this ID can be found in the
 -- history of the source workflow execution. This information can be useful
 -- for diagnosing problems by tracing back the chain of events leading up
 -- to this event. This field is set only if the signal was initiated by
@@ -5891,6 +6520,8 @@ instance FromJSON
 --
 -- * 'weseaTaskStartToCloseTimeout'
 --
+-- * 'weseaLambdaRole'
+--
 -- * 'weseaInput'
 --
 -- * 'weseaExecutionStartToCloseTimeout'
@@ -5910,6 +6541,7 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
     { _weseaParentInitiatedEventId       :: !(Maybe Integer)
     , _weseaTagList                      :: !(Maybe [Text])
     , _weseaTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _weseaLambdaRole                   :: !(Maybe Text)
     , _weseaInput                        :: !(Maybe Text)
     , _weseaExecutionStartToCloseTimeout :: !(Maybe Text)
     , _weseaTaskPriority                 :: !(Maybe Text)
@@ -5927,6 +6559,7 @@ workflowExecutionStartedEventAttributes pChildPolicy_ pTaskList_ pWorkflowType_ 
     { _weseaParentInitiatedEventId = Nothing
     , _weseaTagList = Nothing
     , _weseaTaskStartToCloseTimeout = Nothing
+    , _weseaLambdaRole = Nothing
     , _weseaInput = Nothing
     , _weseaExecutionStartToCloseTimeout = Nothing
     , _weseaTaskPriority = Nothing
@@ -5937,9 +6570,9 @@ workflowExecutionStartedEventAttributes pChildPolicy_ pTaskList_ pWorkflowType_ 
     , _weseaWorkflowType = pWorkflowType_
     }
 
--- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
--- to the @StartChildWorkflowExecution@ Decision to start this workflow
--- execution. The source event with this Id can be found in the history of
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ decision to start this workflow
+-- execution. The source event with this ID can be found in the history of
 -- the source workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -5957,6 +6590,11 @@ weseaTagList = lens _weseaTagList (\ s a -> s{_weseaTagList = a}) . _Default . _
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
 weseaTaskStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaTaskStartToCloseTimeout = lens _weseaTaskStartToCloseTimeout (\ s a -> s{_weseaTaskStartToCloseTimeout = a});
+
+-- | The IAM role attached to this workflow execution to use when invoking
+-- AWS Lambda functions.
+weseaLambdaRole :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
+weseaLambdaRole = lens _weseaLambdaRole (\ s a -> s{_weseaLambdaRole = a});
 
 -- | The input provided to the workflow execution (if any).
 weseaInput :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
@@ -6021,6 +6659,7 @@ instance FromJSON
                    (x .:? "parentInitiatedEventId") <*>
                      (x .:? "tagList" .!= mempty)
                      <*> (x .:? "taskStartToCloseTimeout")
+                     <*> (x .:? "lambdaRole")
                      <*> (x .:? "input")
                      <*> (x .:? "executionStartToCloseTimeout")
                      <*> (x .:? "taskPriority")
@@ -6203,6 +6842,8 @@ instance ToJSON WorkflowType where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'wtcDefaultLambdaRole'
+--
 -- * 'wtcDefaultChildPolicy'
 --
 -- * 'wtcDefaultTaskList'
@@ -6213,7 +6854,8 @@ instance ToJSON WorkflowType where
 --
 -- * 'wtcDefaultTaskStartToCloseTimeout'
 data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
-    { _wtcDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+    { _wtcDefaultLambdaRole                   :: !(Maybe Text)
+    , _wtcDefaultChildPolicy                  :: !(Maybe ChildPolicy)
     , _wtcDefaultTaskList                     :: !(Maybe TaskList)
     , _wtcDefaultTaskPriority                 :: !(Maybe Text)
     , _wtcDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
@@ -6224,19 +6866,25 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
 workflowTypeConfiguration :: WorkflowTypeConfiguration
 workflowTypeConfiguration =
     WorkflowTypeConfiguration'
-    { _wtcDefaultChildPolicy = Nothing
+    { _wtcDefaultLambdaRole = Nothing
+    , _wtcDefaultChildPolicy = Nothing
     , _wtcDefaultTaskList = Nothing
     , _wtcDefaultTaskPriority = Nothing
     , _wtcDefaultExecutionStartToCloseTimeout = Nothing
     , _wtcDefaultTaskStartToCloseTimeout = Nothing
     }
 
+-- | The default IAM role to use when a workflow execution invokes a AWS
+-- Lambda function.
+wtcDefaultLambdaRole :: Lens' WorkflowTypeConfiguration (Maybe Text)
+wtcDefaultLambdaRole = lens _wtcDefaultLambdaRole (\ s a -> s{_wtcDefaultLambdaRole = a});
+
 -- | /Optional./ The default policy to use for the child workflow executions
 -- when a workflow execution of this type is terminated, by calling the
 -- TerminateWorkflowExecution action explicitly or due to an expired
 -- timeout. This default can be overridden when starting a workflow
 -- execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ Decision.
+-- @StartChildWorkflowExecution@ decision.
 --
 -- The supported child policies are:
 --
@@ -6254,7 +6902,7 @@ wtcDefaultChildPolicy = lens _wtcDefaultChildPolicy (\ s a -> s{_wtcDefaultChild
 -- workflow type, for decisions tasks scheduled for workflow executions of
 -- this type. This default can be overridden when starting a workflow
 -- execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ Decision.
+-- @StartChildWorkflowExecution@ decision.
 wtcDefaultTaskList :: Lens' WorkflowTypeConfiguration (Maybe TaskList)
 wtcDefaultTaskList = lens _wtcDefaultTaskList (\ s a -> s{_wtcDefaultTaskList = a});
 
@@ -6278,7 +6926,7 @@ wtcDefaultTaskPriority = lens _wtcDefaultTaskPriority (\ s a -> s{_wtcDefaultTas
 -- workflow type, for executions of this workflow type. This default can be
 -- overridden when starting a workflow execution using the
 -- StartWorkflowExecution action or the @StartChildWorkflowExecution@
--- Decision.
+-- decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -6292,7 +6940,7 @@ wtcDefaultExecutionStartToCloseTimeout = lens _wtcDefaultExecutionStartToCloseTi
 -- rescheduled. If the decider eventually reports a completion or failure,
 -- it is ignored. This default can be overridden when starting a workflow
 -- execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ Decision.
+-- @StartChildWorkflowExecution@ decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -6304,8 +6952,9 @@ instance FromJSON WorkflowTypeConfiguration where
           = withObject "WorkflowTypeConfiguration"
               (\ x ->
                  WorkflowTypeConfiguration' <$>
-                   (x .:? "defaultChildPolicy") <*>
-                     (x .:? "defaultTaskList")
+                   (x .:? "defaultLambdaRole") <*>
+                     (x .:? "defaultChildPolicy")
+                     <*> (x .:? "defaultTaskList")
                      <*> (x .:? "defaultTaskPriority")
                      <*> (x .:? "defaultExecutionStartToCloseTimeout")
                      <*> (x .:? "defaultTaskStartToCloseTimeout"))

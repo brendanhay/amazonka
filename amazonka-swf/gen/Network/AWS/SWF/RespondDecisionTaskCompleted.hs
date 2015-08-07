@@ -84,7 +84,7 @@ respondDecisionTaskCompleted pTaskToken_ =
     }
 
 -- | The list of decisions (possibly empty) made by the decider while
--- processing this decision task. See the docs for the Decision structure
+-- processing this decision task. See the docs for the decision structure
 -- for details.
 rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
 rdtcDecisions = lens _rdtcDecisions (\ s a -> s{_rdtcDecisions = a}) . _Default . _Coerce;

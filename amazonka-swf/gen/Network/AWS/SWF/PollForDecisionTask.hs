@@ -29,9 +29,9 @@
 -- decision task is available in the specified task list before the timeout
 -- of 60 seconds expires, an empty result is returned. An empty result, in
 -- this context, means that a DecisionTask is returned, but that the value
--- of taskToken is an empty string.
+-- of @taskToken@ is an empty string.
 --
--- Deciders should set their client side socket timeout to at least 70
+-- Deciders should set their client-side socket timeout to at least 70
 -- seconds (10 seconds higher than the timeout).
 --
 -- Because the number of workflow history events for a single workflow
@@ -167,8 +167,8 @@ pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
--- default is 100, which is the maximum allowed page size. You can,
--- however, specify a page size /smaller/ than 100.
+-- default is 1000, which is the maximum allowed page size. You can,
+-- however, specify a page size /smaller/ than the maximum.
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
@@ -296,7 +296,7 @@ pollForDecisionTaskResponse pStatus_ pTaskToken_ pStartedEventId_ pWorkflowExecu
 pfdtrsNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
 pfdtrsNextPageToken = lens _pfdtrsNextPageToken (\ s a -> s{_pfdtrsNextPageToken = a});
 
--- | The id of the DecisionTaskStarted event of the previous decision task of
+-- | The ID of the DecisionTaskStarted event of the previous decision task of
 -- this workflow execution that was processed by the decider. This can be
 -- used to determine the events in the history new since the last decision
 -- task received by the decider.
@@ -313,7 +313,7 @@ pfdtrsStatus = lens _pfdtrsStatus (\ s a -> s{_pfdtrsStatus = a});
 pfdtrsTaskToken :: Lens' PollForDecisionTaskResponse Text
 pfdtrsTaskToken = lens _pfdtrsTaskToken (\ s a -> s{_pfdtrsTaskToken = a});
 
--- | The id of the @DecisionTaskStarted@ event recorded in the history.
+-- | The ID of the @DecisionTaskStarted@ event recorded in the history.
 pfdtrsStartedEventId :: Lens' PollForDecisionTaskResponse Integer
 pfdtrsStartedEventId = lens _pfdtrsStartedEventId (\ s a -> s{_pfdtrsStartedEventId = a});
 

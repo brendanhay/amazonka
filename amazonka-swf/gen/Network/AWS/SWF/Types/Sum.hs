@@ -274,6 +274,7 @@ data DecisionType
     | CancelTimer
     | RequestCancelActivityTask
     | CancelWorkflowExecution
+    | ScheduleLambdaFunction
     | CompleteWorkflowExecution
     | StartChildWorkflowExecution
     | FailWorkflowExecution
@@ -290,11 +291,12 @@ instance FromText DecisionType where
         "requestcancelactivitytask" -> pure RequestCancelActivityTask
         "requestcancelexternalworkflowexecution" -> pure RequestCancelExternalWorkflowExecution
         "scheduleactivitytask" -> pure ScheduleActivityTask
+        "schedulelambdafunction" -> pure ScheduleLambdaFunction
         "signalexternalworkflowexecution" -> pure SignalExternalWorkflowExecution
         "startchildworkflowexecution" -> pure StartChildWorkflowExecution
         "starttimer" -> pure StartTimer
         e -> fromTextError $ "Failure parsing DecisionType from value: '" <> e
-           <> "'. Accepted values: canceltimer, cancelworkflowexecution, completeworkflowexecution, continueasnewworkflowexecution, failworkflowexecution, recordmarker, requestcancelactivitytask, requestcancelexternalworkflowexecution, scheduleactivitytask, signalexternalworkflowexecution, startchildworkflowexecution, starttimer"
+           <> "'. Accepted values: canceltimer, cancelworkflowexecution, completeworkflowexecution, continueasnewworkflowexecution, failworkflowexecution, recordmarker, requestcancelactivitytask, requestcancelexternalworkflowexecution, scheduleactivitytask, schedulelambdafunction, signalexternalworkflowexecution, startchildworkflowexecution, starttimer"
 
 instance ToText DecisionType where
     toText = \case
@@ -307,6 +309,7 @@ instance ToText DecisionType where
         RequestCancelActivityTask -> "requestcancelactivitytask"
         RequestCancelExternalWorkflowExecution -> "requestcancelexternalworkflowexecution"
         ScheduleActivityTask -> "scheduleactivitytask"
+        ScheduleLambdaFunction -> "schedulelambdafunction"
         SignalExternalWorkflowExecution -> "signalexternalworkflowexecution"
         StartChildWorkflowExecution -> "startchildworkflowexecution"
         StartTimer -> "starttimer"
@@ -326,9 +329,11 @@ data EventType
     | WorkflowExecutionTerminated
     | CancelWorkflowExecutionFailed
     | DecisionTaskStarted
+    | LambdaFunctionScheduled
     | RequestCancelActivityTaskFailed
     | WorkflowExecutionCancelRequested
     | WorkflowExecutionContinuedAsNew
+    | LambdaFunctionTimedOut
     | ExternalWorkflowExecutionCancelRequested
     | WorkflowExecutionFailed
     | ContinueAsNewWorkflowExecutionFailed
@@ -338,10 +343,12 @@ data EventType
     | ChildWorkflowExecutionFailed
     | DecisionTaskCompleted
     | CompleteWorkflowExecutionFailed
+    | ScheduleLambdaFunctionFailed
     | ChildWorkflowExecutionCompleted
     | ScheduleActivityTaskFailed
     | MarkerRecorded
     | ActivityTaskScheduled
+    | LambdaFunctionStarted
     | RecordMarkerFailed
     | StartTimerFailed
     | RequestCancelExternalWorkflowExecutionInitiated
@@ -356,15 +363,18 @@ data EventType
     | TimerCanceled
     | WorkflowExecutionStarted
     | RequestCancelExternalWorkflowExecutionFailed
+    | LambdaFunctionCompleted
     | TimerFired
     | ExternalWorkflowExecutionSignaled
     | ActivityTaskFailed
     | WorkflowExecutionSignaled
     | WorkflowExecutionCanceled
+    | StartLambdaFunctionFailed
     | WorkflowExecutionTimedOut
     | ChildWorkflowExecutionTerminated
     | ActivityTaskCancelRequested
     | TimerStarted
+    | LambdaFunctionFailed
     | ActivityTaskStarted
     | SignalExternalWorkflowExecutionFailed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
@@ -395,16 +405,23 @@ instance FromText EventType where
         "externalworkflowexecutioncancelrequested" -> pure ExternalWorkflowExecutionCancelRequested
         "externalworkflowexecutionsignaled" -> pure ExternalWorkflowExecutionSignaled
         "failworkflowexecutionfailed" -> pure FailWorkflowExecutionFailed
+        "lambdafunctioncompleted" -> pure LambdaFunctionCompleted
+        "lambdafunctionfailed" -> pure LambdaFunctionFailed
+        "lambdafunctionscheduled" -> pure LambdaFunctionScheduled
+        "lambdafunctionstarted" -> pure LambdaFunctionStarted
+        "lambdafunctiontimedout" -> pure LambdaFunctionTimedOut
         "markerrecorded" -> pure MarkerRecorded
         "recordmarkerfailed" -> pure RecordMarkerFailed
         "requestcancelactivitytaskfailed" -> pure RequestCancelActivityTaskFailed
         "requestcancelexternalworkflowexecutionfailed" -> pure RequestCancelExternalWorkflowExecutionFailed
         "requestcancelexternalworkflowexecutioninitiated" -> pure RequestCancelExternalWorkflowExecutionInitiated
         "scheduleactivitytaskfailed" -> pure ScheduleActivityTaskFailed
+        "schedulelambdafunctionfailed" -> pure ScheduleLambdaFunctionFailed
         "signalexternalworkflowexecutionfailed" -> pure SignalExternalWorkflowExecutionFailed
         "signalexternalworkflowexecutioninitiated" -> pure SignalExternalWorkflowExecutionInitiated
         "startchildworkflowexecutionfailed" -> pure StartChildWorkflowExecutionFailed
         "startchildworkflowexecutioninitiated" -> pure StartChildWorkflowExecutionInitiated
+        "startlambdafunctionfailed" -> pure StartLambdaFunctionFailed
         "starttimerfailed" -> pure StartTimerFailed
         "timercanceled" -> pure TimerCanceled
         "timerfired" -> pure TimerFired
@@ -419,7 +436,7 @@ instance FromText EventType where
         "workflowexecutionterminated" -> pure WorkflowExecutionTerminated
         "workflowexecutiontimedout" -> pure WorkflowExecutionTimedOut
         e -> fromTextError $ "Failure parsing EventType from value: '" <> e
-           <> "'. Accepted values: activitytaskcancelrequested, activitytaskcanceled, activitytaskcompleted, activitytaskfailed, activitytaskscheduled, activitytaskstarted, activitytasktimedout, canceltimerfailed, cancelworkflowexecutionfailed, childworkflowexecutioncanceled, childworkflowexecutioncompleted, childworkflowexecutionfailed, childworkflowexecutionstarted, childworkflowexecutionterminated, childworkflowexecutiontimedout, completeworkflowexecutionfailed, continueasnewworkflowexecutionfailed, decisiontaskcompleted, decisiontaskscheduled, decisiontaskstarted, decisiontasktimedout, externalworkflowexecutioncancelrequested, externalworkflowexecutionsignaled, failworkflowexecutionfailed, markerrecorded, recordmarkerfailed, requestcancelactivitytaskfailed, requestcancelexternalworkflowexecutionfailed, requestcancelexternalworkflowexecutioninitiated, scheduleactivitytaskfailed, signalexternalworkflowexecutionfailed, signalexternalworkflowexecutioninitiated, startchildworkflowexecutionfailed, startchildworkflowexecutioninitiated, starttimerfailed, timercanceled, timerfired, timerstarted, workflowexecutioncancelrequested, workflowexecutioncanceled, workflowexecutioncompleted, workflowexecutioncontinuedasnew, workflowexecutionfailed, workflowexecutionsignaled, workflowexecutionstarted, workflowexecutionterminated, workflowexecutiontimedout"
+           <> "'. Accepted values: activitytaskcancelrequested, activitytaskcanceled, activitytaskcompleted, activitytaskfailed, activitytaskscheduled, activitytaskstarted, activitytasktimedout, canceltimerfailed, cancelworkflowexecutionfailed, childworkflowexecutioncanceled, childworkflowexecutioncompleted, childworkflowexecutionfailed, childworkflowexecutionstarted, childworkflowexecutionterminated, childworkflowexecutiontimedout, completeworkflowexecutionfailed, continueasnewworkflowexecutionfailed, decisiontaskcompleted, decisiontaskscheduled, decisiontaskstarted, decisiontasktimedout, externalworkflowexecutioncancelrequested, externalworkflowexecutionsignaled, failworkflowexecutionfailed, lambdafunctioncompleted, lambdafunctionfailed, lambdafunctionscheduled, lambdafunctionstarted, lambdafunctiontimedout, markerrecorded, recordmarkerfailed, requestcancelactivitytaskfailed, requestcancelexternalworkflowexecutionfailed, requestcancelexternalworkflowexecutioninitiated, scheduleactivitytaskfailed, schedulelambdafunctionfailed, signalexternalworkflowexecutionfailed, signalexternalworkflowexecutioninitiated, startchildworkflowexecutionfailed, startchildworkflowexecutioninitiated, startlambdafunctionfailed, starttimerfailed, timercanceled, timerfired, timerstarted, workflowexecutioncancelrequested, workflowexecutioncanceled, workflowexecutioncompleted, workflowexecutioncontinuedasnew, workflowexecutionfailed, workflowexecutionsignaled, workflowexecutionstarted, workflowexecutionterminated, workflowexecutiontimedout"
 
 instance ToText EventType where
     toText = \case
@@ -447,16 +464,23 @@ instance ToText EventType where
         ExternalWorkflowExecutionCancelRequested -> "externalworkflowexecutioncancelrequested"
         ExternalWorkflowExecutionSignaled -> "externalworkflowexecutionsignaled"
         FailWorkflowExecutionFailed -> "failworkflowexecutionfailed"
+        LambdaFunctionCompleted -> "lambdafunctioncompleted"
+        LambdaFunctionFailed -> "lambdafunctionfailed"
+        LambdaFunctionScheduled -> "lambdafunctionscheduled"
+        LambdaFunctionStarted -> "lambdafunctionstarted"
+        LambdaFunctionTimedOut -> "lambdafunctiontimedout"
         MarkerRecorded -> "markerrecorded"
         RecordMarkerFailed -> "recordmarkerfailed"
         RequestCancelActivityTaskFailed -> "requestcancelactivitytaskfailed"
         RequestCancelExternalWorkflowExecutionFailed -> "requestcancelexternalworkflowexecutionfailed"
         RequestCancelExternalWorkflowExecutionInitiated -> "requestcancelexternalworkflowexecutioninitiated"
         ScheduleActivityTaskFailed -> "scheduleactivitytaskfailed"
+        ScheduleLambdaFunctionFailed -> "schedulelambdafunctionfailed"
         SignalExternalWorkflowExecutionFailed -> "signalexternalworkflowexecutionfailed"
         SignalExternalWorkflowExecutionInitiated -> "signalexternalworkflowexecutioninitiated"
         StartChildWorkflowExecutionFailed -> "startchildworkflowexecutionfailed"
         StartChildWorkflowExecutionInitiated -> "startchildworkflowexecutioninitiated"
+        StartLambdaFunctionFailed -> "startlambdafunctionfailed"
         StartTimerFailed -> "starttimerfailed"
         TimerCanceled -> "timercanceled"
         TimerFired -> "timerfired"
@@ -528,6 +552,28 @@ instance ToHeader     FailWorkflowExecutionFailedCause
 
 instance FromJSON FailWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "FailWorkflowExecutionFailedCause"
+
+data LambdaFunctionTimeoutType =
+    LFTTStartToClose
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText LambdaFunctionTimeoutType where
+    parser = takeLowerText >>= \case
+        "start_to_close" -> pure LFTTStartToClose
+        e -> fromTextError $ "Failure parsing LambdaFunctionTimeoutType from value: '" <> e
+           <> "'. Accepted values: start_to_close"
+
+instance ToText LambdaFunctionTimeoutType where
+    toText = \case
+        LFTTStartToClose -> "start_to_close"
+
+instance Hashable     LambdaFunctionTimeoutType
+instance ToByteString LambdaFunctionTimeoutType
+instance ToQuery      LambdaFunctionTimeoutType
+instance ToHeader     LambdaFunctionTimeoutType
+
+instance FromJSON LambdaFunctionTimeoutType where
+    parseJSON = parseJSONText "LambdaFunctionTimeoutType"
 
 data RecordMarkerFailedCause =
     RMFCOperationNotPermitted
@@ -684,6 +730,37 @@ instance ToHeader     ScheduleActivityTaskFailedCause
 instance FromJSON ScheduleActivityTaskFailedCause where
     parseJSON = parseJSONText "ScheduleActivityTaskFailedCause"
 
+data ScheduleLambdaFunctionFailedCause
+    = IdAlreadyInUse
+    | LambdaFunctionCreationRateExceeded
+    | LambdaServiceNotAvailableInRegion
+    | OpenLambdaFunctionsLimitExceeded
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText ScheduleLambdaFunctionFailedCause where
+    parser = takeLowerText >>= \case
+        "id_already_in_use" -> pure IdAlreadyInUse
+        "lambda_function_creation_rate_exceeded" -> pure LambdaFunctionCreationRateExceeded
+        "lambda_service_not_available_in_region" -> pure LambdaServiceNotAvailableInRegion
+        "open_lambda_functions_limit_exceeded" -> pure OpenLambdaFunctionsLimitExceeded
+        e -> fromTextError $ "Failure parsing ScheduleLambdaFunctionFailedCause from value: '" <> e
+           <> "'. Accepted values: id_already_in_use, lambda_function_creation_rate_exceeded, lambda_service_not_available_in_region, open_lambda_functions_limit_exceeded"
+
+instance ToText ScheduleLambdaFunctionFailedCause where
+    toText = \case
+        IdAlreadyInUse -> "id_already_in_use"
+        LambdaFunctionCreationRateExceeded -> "lambda_function_creation_rate_exceeded"
+        LambdaServiceNotAvailableInRegion -> "lambda_service_not_available_in_region"
+        OpenLambdaFunctionsLimitExceeded -> "open_lambda_functions_limit_exceeded"
+
+instance Hashable     ScheduleLambdaFunctionFailedCause
+instance ToByteString ScheduleLambdaFunctionFailedCause
+instance ToQuery      ScheduleLambdaFunctionFailedCause
+instance ToHeader     ScheduleLambdaFunctionFailedCause
+
+instance FromJSON ScheduleLambdaFunctionFailedCause where
+    parseJSON = parseJSONText "ScheduleLambdaFunctionFailedCause"
+
 data SignalExternalWorkflowExecutionFailedCause
     = SEWEFCSignalExternalWorkflowExecutionRateExceeded
     | SEWEFCUnknownExternalWorkflowExecution
@@ -763,6 +840,28 @@ instance ToHeader     StartChildWorkflowExecutionFailedCause
 
 instance FromJSON StartChildWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "StartChildWorkflowExecutionFailedCause"
+
+data StartLambdaFunctionFailedCause =
+    AssumeRoleFailed
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText StartLambdaFunctionFailedCause where
+    parser = takeLowerText >>= \case
+        "assume_role_failed" -> pure AssumeRoleFailed
+        e -> fromTextError $ "Failure parsing StartLambdaFunctionFailedCause from value: '" <> e
+           <> "'. Accepted values: assume_role_failed"
+
+instance ToText StartLambdaFunctionFailedCause where
+    toText = \case
+        AssumeRoleFailed -> "assume_role_failed"
+
+instance Hashable     StartLambdaFunctionFailedCause
+instance ToByteString StartLambdaFunctionFailedCause
+instance ToQuery      StartLambdaFunctionFailedCause
+instance ToHeader     StartLambdaFunctionFailedCause
+
+instance FromJSON StartLambdaFunctionFailedCause where
+    parseJSON = parseJSONText "StartLambdaFunctionFailedCause"
 
 data StartTimerFailedCause
     = TimerIdAlreadyInUse

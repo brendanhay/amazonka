@@ -226,7 +226,7 @@ pfatrsTaskToken = lens _pfatrsTaskToken (\ s a -> s{_pfatrsTaskToken = a});
 pfatrsActivityId :: Lens' PollForActivityTaskResponse Text
 pfatrsActivityId = lens _pfatrsActivityId (\ s a -> s{_pfatrsActivityId = a});
 
--- | The id of the @ActivityTaskStarted@ event recorded in the history.
+-- | The ID of the @ActivityTaskStarted@ event recorded in the history.
 pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
 pfatrsStartedEventId = lens _pfatrsStartedEventId (\ s a -> s{_pfatrsStartedEventId = a});
 

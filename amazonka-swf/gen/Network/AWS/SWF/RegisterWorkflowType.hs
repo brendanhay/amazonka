@@ -58,6 +58,7 @@ module Network.AWS.SWF.RegisterWorkflowType
     -- ** Request constructor
     , registerWorkflowType
     -- ** Request lenses
+    , rwtDefaultLambdaRole
     , rwtDefaultChildPolicy
     , rwtDefaultTaskList
     , rwtDefaultTaskPriority
@@ -83,6 +84,8 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'rwtDefaultLambdaRole'
+--
 -- * 'rwtDefaultChildPolicy'
 --
 -- * 'rwtDefaultTaskList'
@@ -101,7 +104,8 @@ import           Network.AWS.SWF.Types
 --
 -- * 'rwtVersion'
 data RegisterWorkflowType = RegisterWorkflowType'
-    { _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+    { _rwtDefaultLambdaRole                   :: !(Maybe Text)
+    , _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
     , _rwtDefaultTaskList                     :: !(Maybe TaskList)
     , _rwtDefaultTaskPriority                 :: !(Maybe Text)
     , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
@@ -116,7 +120,8 @@ data RegisterWorkflowType = RegisterWorkflowType'
 registerWorkflowType :: Text -> Text -> Text -> RegisterWorkflowType
 registerWorkflowType pDomain_ pName_ pVersion_ =
     RegisterWorkflowType'
-    { _rwtDefaultChildPolicy = Nothing
+    { _rwtDefaultLambdaRole = Nothing
+    , _rwtDefaultChildPolicy = Nothing
     , _rwtDefaultTaskList = Nothing
     , _rwtDefaultTaskPriority = Nothing
     , _rwtDefaultExecutionStartToCloseTimeout = Nothing
@@ -127,12 +132,21 @@ registerWorkflowType pDomain_ pName_ pVersion_ =
     , _rwtVersion = pVersion_
     }
 
+-- | The ARN of the default IAM role to use when a workflow execution of this
+-- type invokes AWS Lambda functions.
+--
+-- This default can be overridden when starting a workflow execution using
+-- the StartWorkflowExecution action or the @StartChildWorkflowExecution@
+-- and @ContinueAsNewWorkflowExecution@ decision.
+rwtDefaultLambdaRole :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDefaultLambdaRole = lens _rwtDefaultLambdaRole (\ s a -> s{_rwtDefaultLambdaRole = a});
+
 -- | If set, specifies the default policy to use for the child workflow
 -- executions when a workflow execution of this type is terminated, by
 -- calling the TerminateWorkflowExecution action explicitly or due to an
 -- expired timeout. This default can be overridden when starting a workflow
 -- execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ Decision.
+-- @StartChildWorkflowExecution@ decision.
 --
 -- The supported child policies are:
 --
@@ -149,7 +163,7 @@ rwtDefaultChildPolicy = lens _rwtDefaultChildPolicy (\ s a -> s{_rwtDefaultChild
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if
 -- a task list is not provided when starting the execution through the
--- StartWorkflowExecution Action or @StartChildWorkflowExecution@ Decision.
+-- StartWorkflowExecution action or @StartChildWorkflowExecution@ decision.
 rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
 rwtDefaultTaskList = lens _rwtDefaultTaskList (\ s a -> s{_rwtDefaultTaskList = a});
 
@@ -166,8 +180,8 @@ rwtDefaultTaskPriority = lens _rwtDefaultTaskPriority (\ s a -> s{_rwtDefaultTas
 
 -- | If set, specifies the default maximum duration for executions of this
 -- workflow type. You can override this default when starting an execution
--- through the StartWorkflowExecution Action or
--- @StartChildWorkflowExecution@ Decision.
+-- through the StartWorkflowExecution action or
+-- @StartChildWorkflowExecution@ decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. Unlike some of the other timeout parameters in Amazon SWF, you
@@ -181,7 +195,7 @@ rwtDefaultExecutionStartToCloseTimeout = lens _rwtDefaultExecutionStartToCloseTi
 -- | If set, specifies the default maximum duration of decision tasks for
 -- this workflow type. This default can be overridden when starting a
 -- workflow execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ Decision.
+-- @StartChildWorkflowExecution@ decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -238,7 +252,8 @@ instance ToHeaders RegisterWorkflowType where
 instance ToJSON RegisterWorkflowType where
         toJSON RegisterWorkflowType'{..}
           = object
-              ["defaultChildPolicy" .= _rwtDefaultChildPolicy,
+              ["defaultLambdaRole" .= _rwtDefaultLambdaRole,
+               "defaultChildPolicy" .= _rwtDefaultChildPolicy,
                "defaultTaskList" .= _rwtDefaultTaskList,
                "defaultTaskPriority" .= _rwtDefaultTaskPriority,
                "defaultExecutionStartToCloseTimeout" .=

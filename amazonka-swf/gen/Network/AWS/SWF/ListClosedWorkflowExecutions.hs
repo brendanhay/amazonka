@@ -155,7 +155,7 @@ lcweNextPageToken = lens _lcweNextPageToken (\ s a -> s{_lcweNextPageToken = a})
 lcweCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
 lcweCloseStatusFilter = lens _lcweCloseStatusFilter (\ s a -> s{_lcweCloseStatusFilter = a});
 
--- | If specified, only workflow executions matching the workflow id
+-- | If specified, only workflow executions matching the workflow ID
 -- specified in the filter are returned.
 --
 -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
@@ -206,8 +206,8 @@ lcweStartTimeFilter = lens _lcweStartTimeFilter (\ s a -> s{_lcweStartTimeFilter
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
--- default is 100, which is the maximum allowed page size. You can,
--- however, specify a page size /smaller/ than 100.
+-- default is 1000, which is the maximum allowed page size. You can,
+-- however, specify a page size /smaller/ than the maximum.
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.

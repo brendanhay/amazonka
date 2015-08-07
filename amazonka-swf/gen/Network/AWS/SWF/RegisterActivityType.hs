@@ -132,7 +132,7 @@ registerActivityType pDomain_ pName_ pVersion_ =
 -- | If set, specifies the default maximum duration that a task of this
 -- activity type can wait before being assigned to a worker. This default
 -- can be overridden when scheduling an activity task using the
--- @ScheduleActivityTask@ Decision.
+-- @ScheduleActivityTask@ decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -142,7 +142,7 @@ ratDefaultTaskScheduleToStartTimeout = lens _ratDefaultTaskScheduleToStartTimeou
 -- | If set, specifies the default task list to use for scheduling tasks of
 -- this activity type. This default task list is used if a task list is not
 -- provided when a task is scheduled through the @ScheduleActivityTask@
--- Decision.
+-- decision.
 ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
 ratDefaultTaskList = lens _ratDefaultTaskList (\ s a -> s{_ratDefaultTaskList = a});
 
@@ -161,7 +161,7 @@ ratDefaultTaskPriority = lens _ratDefaultTaskPriority (\ s a -> s{_ratDefaultTas
 -- processing a task of this type must report progress by calling
 -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
 -- task is automatically timed out. This default can be overridden when
--- scheduling an activity task using the @ScheduleActivityTask@ Decision.
+-- scheduling an activity task using the @ScheduleActivityTask@ decision.
 -- If the activity worker subsequently attempts to record a heartbeat or
 -- returns a result, the activity worker receives an @UnknownResource@
 -- fault. In this case, Amazon SWF no longer considers the activity task to
@@ -174,7 +174,7 @@ ratDefaultTaskHeartbeatTimeout = lens _ratDefaultTaskHeartbeatTimeout (\ s a -> 
 
 -- | If set, specifies the default maximum duration for a task of this
 -- activity type. This default can be overridden when scheduling an
--- activity task using the @ScheduleActivityTask@ Decision.
+-- activity task using the @ScheduleActivityTask@ decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -183,7 +183,7 @@ ratDefaultTaskScheduleToCloseTimeout = lens _ratDefaultTaskScheduleToCloseTimeou
 
 -- | If set, specifies the default maximum duration that a worker can take to
 -- process tasks of this activity type. This default can be overridden when
--- scheduling an activity task using the @ScheduleActivityTask@ Decision.
+-- scheduling an activity task using the @ScheduleActivityTask@ decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.

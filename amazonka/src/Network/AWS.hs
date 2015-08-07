@@ -256,8 +256,8 @@ presignURL :: (MonadAWS m, AWSPresigner (Sg (Sv a)), AWSRequest a)
 presignURL t ex = liftAWS . AWST.presignURL t ex
 
 -- | Test whether the underlying host is running on EC2.
--- This is memoised and an HTTP call is made to the host's metadata endpoint
--- for the first call only.
+-- This is memoised and an HTTP request is made to the host's metadata
+-- endpoint for the first call only.
 isEC2 :: MonadAWS m => m Bool
 isEC2 = liftAWS AWST.isEC2
 

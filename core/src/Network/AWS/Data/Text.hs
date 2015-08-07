@@ -114,9 +114,6 @@ class ToText a where
 instance ToText a => ToText (CI a) where
     toText = toText . CI.original
 
-instance ToText (Response a) where
-    toText rs = Text.pack . show $ rs { responseBody = () }
-
 instance ToText Text       where toText = id
 instance ToText ByteString where toText = Text.decodeUtf8
 instance ToText Char       where toText = Text.singleton

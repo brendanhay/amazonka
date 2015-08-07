@@ -355,6 +355,10 @@ trying '_TransportError' (send $ ListObjects "bucket-name") :: Either 'HttpExcep
 trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
 trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
 @
+
+Many of the individual @amazonka-*@ libraries export 'Prism's for matching
+service specific error codes and messages. See the @Errors@ heading in the
+@Types@ module of each respective library for details.
 -}
 
 {- $streaming

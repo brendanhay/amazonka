@@ -49,6 +49,7 @@ module Network.AWS
     , presignURL
 
     -- ** EC2 Instance Metadata
+    , isEC2
     , dynamic
     , metadata
     , userdata
@@ -254,12 +255,22 @@ presignURL :: (MonadAWS m, AWSPresigner (Sg (Sv a)), AWSRequest a)
            -> m ByteString
 presignURL t ex = liftAWS . AWST.presignURL t ex
 
+-- | Test whether the underlying host is running on EC2.
+--
+-- This function is memoised.
+isEC2 :: MonadAWS m => m Bool
+isEC2 = liftAWS AWST.isEC2
+
+-- | Retrieve the specified 'Dynamic' data.
 dynamic :: MonadAWS m => EC2.Dynamic -> m ByteString
 dynamic = liftAWS . AWST.dynamic
 
+-- | Retrieve the specified 'Metadata'.
 metadata :: MonadAWS m => EC2.Metadata -> m ByteString
 metadata = liftAWS . AWST.metadata
 
+-- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
+-- to the instance.
 userdata :: MonadAWS m => m (Maybe ByteString)
 userdata = liftAWS AWST.userdata
 

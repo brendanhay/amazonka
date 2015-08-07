@@ -8,13 +8,21 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
+-- This module contains functions for presigning requests using 'MonadIO' and
+-- not one of the AWS specific transformers.
+--
+-- It is intended for use directly with "Network.AWS.Auth" when only presigning
+-- is required and you wish to avoid using the 'Network.AWS.AWS' monad, since it
+-- does not use the underlying 'FreeT' 'Network.AWS.Free.Command' DSL.
+-- If you wish to presign requests and are using either 'Network.AWS.AWS' or
+-- 'Control.Monad.Trans.AWS.AWST', then prefer one of the relevant
+-- 'Control.Monad.Trans.AWS.presign'ing functions available there.
 module Network.AWS.Presign where
 
 import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Network.AWS.Data.Time
-import           Network.AWS.Env
 import           Network.AWS.Prelude
 import           Network.AWS.Request    (requestURL)
 import           Network.AWS.Types
@@ -25,17 +33,14 @@ import           Prelude
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presign', 'presignWith'
-presignURL :: ( MonadIO m
-              , HasEnv r
-              , AWSPresigner (Sg (Sv a))
-              , AWSRequest a
-              )
-           => r
+presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+           => Auth
+           -> Region
            -> UTCTime     -- ^ Signing time.
            -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.
            -> m ByteString
-presignURL e t ex = liftM requestURL . presign e t ex
+presignURL a r e ts = liftM requestURL . presign a r e ts
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -44,28 +49,26 @@ presignURL e t ex = liftM requestURL . presign e t ex
 -- Not all signing algorithms support this.
 --
 -- /See:/ 'presignWith'
-presign :: ( MonadIO m
-           , HasEnv r
-           , AWSPresigner (Sg (Sv a))
-           , AWSRequest a
-           )
-        => r
+presign :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+        => Auth
+        -> Region
         -> UTCTime     -- ^ Signing time.
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign e t ex = presignWith e id t ex
+presign a r ts ex = presignWith id a r ts ex
 
 -- | A variant of 'presign' that allows specifying the 'Service' definition
 -- used to configure the request.
-presignWith :: (MonadIO m, HasEnv r, AWSPresigner (Sg s), AWSRequest a)
-            => r
-            -> (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
+presignWith :: (MonadIO m, AWSPresigner (Sg s), AWSRequest a)
+            => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
+            -> Auth
+            -> Region
             -> UTCTime                       -- ^ Signing time.
             -> Seconds                       -- ^ Expiry time.
             -> a                             -- ^ Request to presign.
             -> m ClientRequest
-presignWith e f t ex x =
-    withAuth (e ^. envAuth) $ \a ->
+presignWith s a r ts ex x =
+    withAuth a $ \ae ->
         return . view sgRequest $
-            presigned a (e ^. envRegion) t ex (f (serviceOf x)) (request x)
+            presigned ae r ts ex (s (serviceOf x)) (request x)

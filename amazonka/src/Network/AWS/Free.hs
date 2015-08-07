@@ -37,8 +37,9 @@ import           Control.Monad.Trans.Free        (FreeT (..))
 import           Prelude
 
 data Command r where
-    DynF   :: Dynamic  -> (ByteString -> r)       -> Command r
-    MetaF  :: Metadata -> (ByteString -> r)       -> Command r
+    CheckF ::             (Bool             -> r) -> Command r
+    DynF   :: Dynamic  -> (ByteString       -> r) -> Command r
+    MetaF  :: Metadata -> (ByteString       -> r) -> Command r
     UserF  ::             (Maybe ByteString -> r) -> Command r
 
     SignF  :: (AWSPresigner (Sg s), AWSRequest a)
@@ -64,9 +65,10 @@ data Command r where
 
 instance Functor Command where
     fmap f = \case
+        CheckF         k -> CheckF         (fmap f k)
         DynF         x k -> DynF         x (fmap f k)
         MetaF        x k -> MetaF        x (fmap f k)
-        UserF        k   -> UserF          (fmap f k)
+        UserF          k -> UserF          (fmap f k)
         SignF  s t e x k -> SignF  s t e x (fmap f k)
         SendF  s     x k -> SendF  s     x (fmap f k)
         AwaitF s w   x k -> AwaitF s w   x (fmap f k)
@@ -187,11 +189,19 @@ presignWith :: (MonadFree Command m, AWSPresigner (Sg s), AWSRequest a)
             -> m ClientRequest
 presignWith f ts ex x = liftF (SignF (f (serviceOf x)) ts ex x id)
 
+-- | Test whether the underlying host is running on EC2.
+isEC2 :: MonadFree Command m => m Bool
+isEC2 = liftF (CheckF id)
+
+-- | Retrieve the specified 'Dynamic' data.
 dynamic :: MonadFree Command m => Dynamic -> m ByteString
 dynamic d = liftF (DynF d id)
 
+-- | Retrieve the specified 'Metadata'.
 metadata :: MonadFree Command m => Metadata -> m ByteString
 metadata m = liftF (MetaF m id)
 
+-- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
+-- to the instance.
 userdata :: MonadFree Command m => m (Maybe ByteString)
 userdata = liftF (UserF id)

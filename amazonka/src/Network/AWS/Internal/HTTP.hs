@@ -136,3 +136,8 @@ waiter Env{..} w@Wait{..} rq = retrying policy check
           , message (n + 1)
           , "attempts."
           ]
+
+-- | Returns the possible HTTP response timeout value in microseconds
+-- given the timeout configuration sources.
+timeoutFor :: HasEnv a => a -> Service s -> Maybe Int
+timeoutFor e s = microseconds <$> (e ^. envTimeout <|> _svcTimeout s)

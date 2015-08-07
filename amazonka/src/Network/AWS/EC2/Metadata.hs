@@ -12,7 +12,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve various EC2 metadata from an instance's local metadata endpoint.
+-- This module contains functions for retrieving various EC2 metadata from an
+-- instance's local metadata endpoint using 'MonadIO' and not one of the AWS
+-- specific transformers.
+--
+-- It is intended to be used when you need to make metadata calls prior to
+-- initialisation of the 'Network.AWS.Env.Env' and does not use the underlying
+-- 'FreeT' 'Network.AWS.Free.Command' DSL.
+-- If you wish to retrieve instance metadata during normal operations
+-- and are using either 'Network.AWS.AWS' or 'Control.Monad.Trans.AWS.AWST',
+-- then prefer one of the 'Control.Monad.Trans.AWS.metadata' related functions
+-- available there.
 module Network.AWS.EC2.Metadata
     (
     -- * EC2 Instance Check
@@ -270,7 +280,7 @@ instance ToText Info where
 latest :: Text
 latest = "http://169.254.169.254/latest/"
 
--- | Test whether the host is running on EC2 by
+-- | Test whether the underlying host is running on EC2 by
 -- making an HTTP request to @http://instance-data/latest@.
 isEC2 :: MonadIO m => Manager -> m Bool
 isEC2 m = liftIO (req `catch` err)
@@ -288,7 +298,7 @@ isEC2 m = liftIO (req `catch` err)
 dynamic :: (MonadIO m, MonadThrow m) => Manager -> Dynamic -> m ByteString
 dynamic m = get m . mappend latest . toText
 
--- | Retrieve the specified  'Metadata'.
+-- | Retrieve the specified 'Metadata'.
 --
 -- Throws 'HttpException' if HTTP communication fails.
 metadata :: (MonadIO m, MonadThrow m) => Manager -> Metadata -> m ByteString

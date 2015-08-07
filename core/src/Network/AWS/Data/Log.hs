@@ -3,8 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
-{-# OPTIONS_GHC -fsimpl-tick-factor=200 #-}
-
 -- |
 -- Module      : Network.AWS.Data.Log
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -122,16 +120,14 @@ instance ToLog HttpException where
 instance ToLog Request where
     message x = buildLines
         [ "[Client Request] {"
-        , "  host              = " <> message (host            x)
-        , "  port              = " <> message (port            x)
-        , "  secure            = " <> message (secure          x)
-        , "  headers           = " <> message (requestHeaders  x)
-        , "  path              = " <> message (path            x)
-        , "  query             = " <> message (queryString     x)
-        , "  method            = " <> message (method          x)
-        , "  redirect count    = " <> message (redirectCount   x)
-        , "  response timeout  = " <> message (responseTimeout x)
-        , "  request version   = " <> message (requestVersion  x)
+        , "  host    = " <> message (host            x)
+        , "  port    = " <> message (port            x)
+        , "  secure  = " <> message (secure          x)
+        , "  headers = " <> message (requestHeaders  x)
+        , "  path    = " <> message (path            x)
+        , "  query   = " <> message (queryString     x)
+        , "  method  = " <> message (method          x)
+        , "  timeout = " <> message (responseTimeout x)
         , "}"
         ]
 

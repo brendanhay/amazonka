@@ -114,14 +114,6 @@ module Control.Monad.Trans.AWS
     -- ** Constructing a Logger
     , newLogger
 
-    -- ** Emitting Log Messages
-    , logError
-    , logInfo
-    , logDebug
-    , logTrace
-
-    , ToLog        (..)
-
     -- * Re-exported Types
     , RqBody
     , RsBody

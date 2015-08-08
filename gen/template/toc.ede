@@ -29,6 +29,8 @@ module {{ moduleName }}
     -- * Waiters
     -- $waiters
     {% endif %}
+
+    -- ** {{ wait.value.name }}
     , {{ wait.value.constructor.name }}
   {% endfor %}
 

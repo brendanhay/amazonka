@@ -77,9 +77,10 @@ import {{ module.value }}
 {% endfor %}
 
 {- $errors
-Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
-library functions provided by the "Control.Exception.Lens" module. This allows
-the user to catch (and rethrow) service specific errors returned by '{{ serviceAbbrev }}'.
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by '{{ serviceAbbrev }}'.
 -}
 
 {- $operations

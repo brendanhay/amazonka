@@ -115,6 +115,7 @@ test-suite tests
           Test.AWS.Arbitrary
         , Test.AWS.Data.Base64
         , Test.AWS.Data.List
+        , Test.AWS.Data.Maybe
         , Test.AWS.Data.Numeric
         , Test.AWS.Data.Time
         , Test.AWS.Sign.V4

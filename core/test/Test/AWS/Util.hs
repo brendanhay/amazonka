@@ -72,15 +72,14 @@ testFromXML :: (FromXML a, Show a, Eq a)
             -> a
             -> TestTree
 testFromXML n bs x = testCase n $
-     Right (X x) @?= (decodeXML ("<x>" <> bs <> "</x>") >>= parseXML)
+     Right (X x) @?= (decodeXML (wrapXML bs) >>= parseXML)
 
 testToXML :: (ToXML a, Show a, Eq a)
           => TestName
           -> LazyByteString
           -> a
           -> TestTree
-testToXML n bs x = testCase n $
-    (declXML <> "<x>" <> bs <> "</x>") @?= encodeXML (X x)
+testToXML n bs x = testCase n $ wrapXML bs @?= encodeXML (X x)
 
 testFromJSON :: (FromJSON a, Show a, Eq a)
              => TestName
@@ -100,8 +99,9 @@ testToJSON n bs x = testCase n (bs @?= encode x)
 str :: LazyByteString -> LazyByteString
 str bs = "\"" <> bs <> "\""
 
-declXML :: LazyByteString
-declXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+wrapXML :: LazyByteString -> LazyByteString
+wrapXML bs =
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" <> "<x>" <> bs <> "</x>"
 
 maxInt :: Int
 maxInt = maxBound

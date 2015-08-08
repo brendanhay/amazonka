@@ -97,7 +97,7 @@ description:
     This is due to the amount of nesting of AWS types and transparency regarding
     de/serialisation into more palatable Haskell values.
     The provided lenses should be compatible with any of the major lens libraries
-    such as<http://hackage.haskell.org/package/lens lens> or
+    such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
 
 source-repository head

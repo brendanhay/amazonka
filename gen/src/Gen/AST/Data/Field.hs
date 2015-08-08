@@ -137,6 +137,13 @@ fieldHelp = fromMaybe "Undocumented member."
 fieldLocation :: Field -> Maybe Location
 fieldLocation = view (fieldRef . refLocation)
 
+fieldBody :: Field -> Bool
+fieldBody x =
+    case fieldLocation x of
+        Just Body -> True
+        Nothing   -> True
+        _         -> fieldStream x
+
 fieldMaybe :: Field -> Bool
 fieldMaybe f =
     case typeOf f of

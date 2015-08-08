@@ -225,8 +225,7 @@ once = liftAWS . AWST.once
 timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . AWST.timeout s
 
--- | Send a request, returning the associated response if successful,
--- otherwise an 'Error' will be thrown.
+-- | Send a request, returning the associated response if successful.
 --
 -- /See:/ 'AWST.sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Rs a)
@@ -235,22 +234,12 @@ send = liftAWS . AWST.send
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
 --
--- Requests that can potentially return multiple pages of results are instances
--- of 'AWSPager',
---
 -- /See:/ 'AWST.paginateWith'
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Rs a)
 paginate = hoist liftAWS . AWST.paginate
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
---
--- The response will be either the first error returned that is not handled
--- by the specification, or any subsequent successful response from the await
--- request(s).
---
--- /Note:/ You can find any available 'Wait' specifications under then
--- @Network.AWS.{ServiceName}.Waiters@ namespace for supported services.
 --
 -- /See:/ 'AWST.awaitWith'
 await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Rs a)
@@ -370,9 +359,9 @@ individual operation parameters for details.
 -}
 
 {- $waiters
-Waiters poll by repeatedly send a request until some remote success condition
-specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
-specifies how many attempts should be made, in addition to delay and retry strategies.
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
 Error conditions that are not handled by the 'Wait' configuration will be thrown,
 or the first successful response that fulfills the success condition will be
 returned.

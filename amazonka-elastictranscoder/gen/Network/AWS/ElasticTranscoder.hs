@@ -23,12 +23,26 @@ module Network.AWS.ElasticTranscoder
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ValidationException
     , _ValidationException
+
+    -- ** IncompatibleVersionException
     , _IncompatibleVersionException
+
+    -- ** AccessDeniedException
     , _AccessDeniedException
+
+    -- ** InternalServiceException
     , _InternalServiceException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** ResourceInUseException
     , _ResourceInUseException
+
+    -- ** LimitExceededException
     , _LimitExceededException
 
     -- * Waiters

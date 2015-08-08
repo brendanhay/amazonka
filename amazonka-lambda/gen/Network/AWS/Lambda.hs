@@ -30,16 +30,39 @@ module Network.AWS.Lambda
 
     -- * Error Matchers
     -- $errors
+
+    -- ** PolicyLengthExceededException
     , _PolicyLengthExceededException
+
+    -- ** UnsupportedMediaTypeException
     , _UnsupportedMediaTypeException
+
+    -- ** InvalidRequestContentException
     , _InvalidRequestContentException
+
+    -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** RequestTooLargeException
     , _RequestTooLargeException
+
+    -- ** TooManyRequestsException
     , _TooManyRequestsException
+
+    -- ** ServiceException
     , _ServiceException
+
+    -- ** CodeStorageExceededException
     , _CodeStorageExceededException
+
+    -- ** ResourceConflictException
     , _ResourceConflictException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

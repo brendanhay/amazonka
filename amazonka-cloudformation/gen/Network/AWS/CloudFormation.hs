@@ -42,9 +42,18 @@ module Network.AWS.CloudFormation
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InsufficientCapabilitiesException
     , _InsufficientCapabilitiesException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** AlreadyExistsException
     , _AlreadyExistsException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

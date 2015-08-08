@@ -23,11 +23,24 @@ module Network.AWS.DeviceFarm
 
     -- * Error Matchers
     -- $errors
+
+    -- ** IdempotencyException
     , _IdempotencyException
+
+    -- ** NotFoundException
     , _NotFoundException
+
+    -- ** ArgumentException
     , _ArgumentException
+
+    -- ** ServiceAccountException
     , _ServiceAccountException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

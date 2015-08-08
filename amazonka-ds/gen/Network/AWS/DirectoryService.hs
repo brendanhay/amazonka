@@ -25,18 +25,45 @@ module Network.AWS.DirectoryService
 
     -- * Error Matchers
     -- $errors
+
+    -- ** AuthenticationFailedException
     , _AuthenticationFailedException
+
+    -- ** DirectoryUnavailableException
     , _DirectoryUnavailableException
+
+    -- ** InvalidParameterException
     , _InvalidParameterException
+
+    -- ** UnsupportedOperationException
     , _UnsupportedOperationException
+
+    -- ** EntityAlreadyExistsException
     , _EntityAlreadyExistsException
+
+    -- ** DirectoryLimitExceededException
     , _DirectoryLimitExceededException
+
+    -- ** EntityDoesNotExistException
     , _EntityDoesNotExistException
+
+    -- ** InsufficientPermissionsException
     , _InsufficientPermissionsException
+
+    -- ** InvalidNextTokenException
     , _InvalidNextTokenException
+
+    -- ** ServiceException
     , _ServiceException
+
+    -- ** SnapshotLimitExceededException
     , _SnapshotLimitExceededException
+
+    -- ** ClientException
     , _ClientException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

@@ -66,8 +66,15 @@ module Network.AWS.OpsWorks
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ValidationException
     , _ValidationException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

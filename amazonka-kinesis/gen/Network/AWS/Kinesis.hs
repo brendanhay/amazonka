@@ -24,11 +24,23 @@ module Network.AWS.Kinesis
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ExpiredIteratorException
     , _ExpiredIteratorException
+
+    -- ** InvalidArgumentException
     , _InvalidArgumentException
+
+    -- ** ProvisionedThroughputExceededException
     , _ProvisionedThroughputExceededException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** ResourceInUseException
     , _ResourceInUseException
+
+    -- ** LimitExceededException
     , _LimitExceededException
 
     -- * Waiters

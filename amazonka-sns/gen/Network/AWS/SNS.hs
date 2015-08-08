@@ -38,15 +38,36 @@ module Network.AWS.SNS
 
     -- * Error Matchers
     -- $errors
+
+    -- ** EndpointDisabledException
     , _EndpointDisabledException
+
+    -- ** AuthorizationErrorException
     , _AuthorizationErrorException
+
+    -- ** InvalidParameterException
     , _InvalidParameterException
+
+    -- ** SubscriptionLimitExceededException
     , _SubscriptionLimitExceededException
+
+    -- ** PlatformApplicationDisabledException
     , _PlatformApplicationDisabledException
+
+    -- ** InternalErrorException
     , _InternalErrorException
+
+    -- ** NotFoundException
     , _NotFoundException
+
+    -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** TopicLimitExceededException
     , _TopicLimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

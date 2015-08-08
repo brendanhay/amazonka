@@ -34,16 +34,38 @@ module Network.AWS.ECS
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidParameterException
     , _InvalidParameterException
+
+    -- ** ServerException
     , _ServerException
+
+    -- ** ClusterContainsServicesException
     , _ClusterContainsServicesException
+
+    -- ** ClusterContainsContainerInstancesException
     , _ClusterContainsContainerInstancesException
+
+    -- ** ServiceNotActiveException
     , _ServiceNotActiveException
+
+    -- ** NoUpdateAvailableException
     , _NoUpdateAvailableException
+
+    -- ** ClusterNotFoundException
     , _ClusterNotFoundException
+
+    -- ** ServiceNotFoundException
     , _ServiceNotFoundException
+
+    -- ** MissingVersionException
     , _MissingVersionException
+
+    -- ** UpdateInProgressException
     , _UpdateInProgressException
+
+    -- ** ClientException
     , _ClientException
 
     -- * Waiters

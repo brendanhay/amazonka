@@ -31,54 +31,153 @@ module Network.AWS.CloudFront
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidErrorCode
     , _InvalidErrorCode
+
+    -- ** TooManyCacheBehaviors
     , _TooManyCacheBehaviors
+
+    -- ** DistributionNotDisabled
     , _DistributionNotDisabled
+
+    -- ** InvalidOriginAccessIdentity
     , _InvalidOriginAccessIdentity
+
+    -- ** TooManyCloudFrontOriginAccessIdentities
     , _TooManyCloudFrontOriginAccessIdentities
+
+    -- ** TooManyStreamingDistributions
     , _TooManyStreamingDistributions
+
+    -- ** InvalidArgument
     , _InvalidArgument
+
+    -- ** NoSuchCloudFrontOriginAccessIdentity
     , _NoSuchCloudFrontOriginAccessIdentity
+
+    -- ** NoSuchStreamingDistribution
     , _NoSuchStreamingDistribution
+
+    -- ** CloudFrontOriginAccessIdentityInUse
     , _CloudFrontOriginAccessIdentityInUse
+
+    -- ** InconsistentQuantities
     , _InconsistentQuantities
+
+    -- ** TooManyInvalidationsInProgress
     , _TooManyInvalidationsInProgress
+
+    -- ** TooManyDistributionCNAMEs
     , _TooManyDistributionCNAMEs
+
+    -- ** InvalidForwardCookies
     , _InvalidForwardCookies
+
+    -- ** TooManyCookieNamesInWhiteList
     , _TooManyCookieNamesInWhiteList
+
+    -- ** BatchTooLarge
     , _BatchTooLarge
+
+    -- ** InvalidOrigin
     , _InvalidOrigin
+
+    -- ** TooManyTrustedSigners
     , _TooManyTrustedSigners
+
+    -- ** NoSuchOrigin
     , _NoSuchOrigin
+
+    -- ** NoSuchInvalidation
     , _NoSuchInvalidation
+
+    -- ** StreamingDistributionNotDisabled
     , _StreamingDistributionNotDisabled
+
+    -- ** InvalidTTLOrder
     , _InvalidTTLOrder
+
+    -- ** TooManyStreamingDistributionCNAMEs
     , _TooManyStreamingDistributionCNAMEs
+
+    -- ** TooManyDistributions
     , _TooManyDistributions
+
+    -- ** InvalidRequiredProtocol
     , _InvalidRequiredProtocol
+
+    -- ** TooManyHeadersInForwardedValues
     , _TooManyHeadersInForwardedValues
+
+    -- ** TooManyCertificates
     , _TooManyCertificates
+
+    -- ** MissingBody
     , _MissingBody
+
+    -- ** DistributionAlreadyExists
     , _DistributionAlreadyExists
+
+    -- ** IllegalUpdate
     , _IllegalUpdate
+
+    -- ** InvalidResponseCode
     , _InvalidResponseCode
+
+    -- ** InvalidIfMatchVersion
     , _InvalidIfMatchVersion
+
+    -- ** PreconditionFailed
     , _PreconditionFailed
+
+    -- ** InvalidProtocolSettings
     , _InvalidProtocolSettings
+
+    -- ** TrustedSignerDoesNotExist
     , _TrustedSignerDoesNotExist
+
+    -- ** InvalidHeadersForS3Origin
     , _InvalidHeadersForS3Origin
+
+    -- ** CNAMEAlreadyExists
     , _CNAMEAlreadyExists
+
+    -- ** StreamingDistributionAlreadyExists
     , _StreamingDistributionAlreadyExists
+
+    -- ** TooManyOrigins
     , _TooManyOrigins
+
+    -- ** CloudFrontOriginAccessIdentityAlreadyExists
     , _CloudFrontOriginAccessIdentityAlreadyExists
+
+    -- ** InvalidRelativePath
     , _InvalidRelativePath
+
+    -- ** InvalidMinimumProtocolVersion
     , _InvalidMinimumProtocolVersion
+
+    -- ** AccessDenied
     , _AccessDenied
+
+    -- ** NoSuchDistribution
     , _NoSuchDistribution
+
+    -- ** InvalidViewerCertificate
     , _InvalidViewerCertificate
+
+    -- ** InvalidDefaultRootObject
     , _InvalidDefaultRootObject
+
+    -- ** InvalidLocationCode
     , _InvalidLocationCode
+
+    -- ** InvalidGeoRestrictionParameter
     , _InvalidGeoRestrictionParameter
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

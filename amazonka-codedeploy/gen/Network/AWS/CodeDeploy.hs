@@ -81,63 +81,180 @@ module Network.AWS.CodeDeploy
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidTimeRangeException
     , _InvalidTimeRangeException
+
+    -- ** InvalidTagException
     , _InvalidTagException
+
+    -- ** InstanceNameAlreadyRegisteredException
     , _InstanceNameAlreadyRegisteredException
+
+    -- ** InvalidIAMUserARNException
     , _InvalidIAMUserARNException
+
+    -- ** IAMUserARNRequiredException
     , _IAMUserARNRequiredException
+
+    -- ** InvalidDeploymentGroupNameException
     , _InvalidDeploymentGroupNameException
+
+    -- ** DescriptionTooLongException
     , _DescriptionTooLongException
+
+    -- ** DeploymentConfigAlreadyExistsException
     , _DeploymentConfigAlreadyExistsException
+
+    -- ** DeploymentConfigLimitExceededException
     , _DeploymentConfigLimitExceededException
+
+    -- ** InvalidRoleException
     , _InvalidRoleException
+
+    -- ** DeploymentNotStartedException
     , _DeploymentNotStartedException
+
+    -- ** RoleRequiredException
     , _RoleRequiredException
+
+    -- ** IAMUserARNAlreadyRegisteredException
     , _IAMUserARNAlreadyRegisteredException
+
+    -- ** DeploymentLimitExceededException
     , _DeploymentLimitExceededException
+
+    -- ** InstanceLimitExceededException
     , _InstanceLimitExceededException
+
+    -- ** InvalidAutoScalingGroupException
     , _InvalidAutoScalingGroupException
+
+    -- ** InvalidApplicationNameException
     , _InvalidApplicationNameException
+
+    -- ** InvalidDeployedStateFilterException
     , _InvalidDeployedStateFilterException
+
+    -- ** InvalidMinimumHealthyHostValueException
     , _InvalidMinimumHealthyHostValueException
+
+    -- ** ApplicationDoesNotExistException
     , _ApplicationDoesNotExistException
+
+    -- ** InvalidTagFilterException
     , _InvalidTagFilterException
+
+    -- ** TagRequiredException
     , _TagRequiredException
+
+    -- ** RevisionDoesNotExistException
     , _RevisionDoesNotExistException
+
+    -- ** DeploymentGroupNameRequiredException
     , _DeploymentGroupNameRequiredException
+
+    -- ** InvalidBucketNameFilterException
     , _InvalidBucketNameFilterException
+
+    -- ** DeploymentConfigDoesNotExistException
     , _DeploymentConfigDoesNotExistException
+
+    -- ** InvalidSortByException
     , _InvalidSortByException
+
+    -- ** BucketNameFilterRequiredException
     , _BucketNameFilterRequiredException
+
+    -- ** DeploymentGroupLimitExceededException
     , _DeploymentGroupLimitExceededException
+
+    -- ** DeploymentGroupAlreadyExistsException
     , _DeploymentGroupAlreadyExistsException
+
+    -- ** InvalidDeploymentIdException
     , _InvalidDeploymentIdException
+
+    -- ** DeploymentGroupDoesNotExistException
     , _DeploymentGroupDoesNotExistException
+
+    -- ** DeploymentIdRequiredException
     , _DeploymentIdRequiredException
+
+    -- ** InstanceIdRequiredException
     , _InstanceIdRequiredException
+
+    -- ** DeploymentConfigNameRequiredException
     , _DeploymentConfigNameRequiredException
+
+    -- ** InvalidDeploymentConfigNameException
     , _InvalidDeploymentConfigNameException
+
+    -- ** InvalidSortOrderException
     , _InvalidSortOrderException
+
+    -- ** InvalidNextTokenException
     , _InvalidNextTokenException
+
+    -- ** InvalidRevisionException
     , _InvalidRevisionException
+
+    -- ** DeploymentAlreadyCompletedException
     , _DeploymentAlreadyCompletedException
+
+    -- ** RevisionRequiredException
     , _RevisionRequiredException
+
+    -- ** InstanceDoesNotExistException
     , _InstanceDoesNotExistException
+
+    -- ** DeploymentDoesNotExistException
     , _DeploymentDoesNotExistException
+
+    -- ** InstanceNameRequiredException
     , _InstanceNameRequiredException
+
+    -- ** DeploymentConfigInUseException
     , _DeploymentConfigInUseException
+
+    -- ** InvalidEC2TagException
     , _InvalidEC2TagException
+
+    -- ** InvalidInstanceNameException
     , _InvalidInstanceNameException
+
+    -- ** InvalidDeploymentStatusException
     , _InvalidDeploymentStatusException
+
+    -- ** InvalidRegistrationStatusException
     , _InvalidRegistrationStatusException
+
+    -- ** TagLimitExceededException
     , _TagLimitExceededException
+
+    -- ** InstanceNotRegisteredException
     , _InstanceNotRegisteredException
+
+    -- ** ApplicationLimitExceededException
     , _ApplicationLimitExceededException
+
+    -- ** InvalidOperationException
     , _InvalidOperationException
+
+    -- ** ApplicationAlreadyExistsException
     , _ApplicationAlreadyExistsException
+
+    -- ** InvalidInstanceStatusException
     , _InvalidInstanceStatusException
+
+    -- ** ApplicationNameRequiredException
     , _ApplicationNameRequiredException
+
+    -- ** InvalidKeyPrefixFilterException
     , _InvalidKeyPrefixFilterException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

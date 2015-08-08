@@ -55,13 +55,30 @@ module Network.AWS.Glacier
 
     -- * Error Matchers
     -- $errors
+
+    -- ** PolicyEnforcedException
     , _PolicyEnforcedException
+
+    -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** RequestTimeoutException
     , _RequestTimeoutException
+
+    -- ** ServiceUnavailableException
     , _ServiceUnavailableException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** MissingParameterValueException
     , _MissingParameterValueException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

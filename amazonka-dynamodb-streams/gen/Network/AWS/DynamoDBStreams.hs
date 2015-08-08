@@ -49,11 +49,24 @@ module Network.AWS.DynamoDBStreams
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ExpiredIteratorException
     , _ExpiredIteratorException
+
+    -- ** InternalServerError
     , _InternalServerError
+
+    -- ** TrimmedDataAccessException
     , _TrimmedDataAccessException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

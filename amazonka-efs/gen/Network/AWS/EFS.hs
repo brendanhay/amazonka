@@ -21,24 +21,63 @@ module Network.AWS.EFS
 
     -- * Error Matchers
     -- $errors
+
+    -- ** MountTargetNotFound
     , _MountTargetNotFound
+
+    -- ** SecurityGroupLimitExceeded
     , _SecurityGroupLimitExceeded
+
+    -- ** MountTargetConflict
     , _MountTargetConflict
+
+    -- ** UnsupportedAvailabilityZone
     , _UnsupportedAvailabilityZone
+
+    -- ** SecurityGroupNotFound
     , _SecurityGroupNotFound
+
+    -- ** FileSystemAlreadyExists
     , _FileSystemAlreadyExists
+
+    -- ** FileSystemLimitExceeded
     , _FileSystemLimitExceeded
+
+    -- ** NetworkInterfaceLimitExceeded
     , _NetworkInterfaceLimitExceeded
+
+    -- ** FileSystemNotFound
     , _FileSystemNotFound
+
+    -- ** SubnetNotFound
     , _SubnetNotFound
+
+    -- ** IncorrectFileSystemLifeCycleState
     , _IncorrectFileSystemLifeCycleState
+
+    -- ** BadRequest
     , _BadRequest
+
+    -- ** NoFreeAddressesInSubnet
     , _NoFreeAddressesInSubnet
+
+    -- ** DependencyTimeout
     , _DependencyTimeout
+
+    -- ** FileSystemInUse
     , _FileSystemInUse
+
+    -- ** IncorrectMountTargetState
     , _IncorrectMountTargetState
+
+    -- ** InternalServerError
     , _InternalServerError
+
+    -- ** IPAddressInUse
     , _IPAddressInUse
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

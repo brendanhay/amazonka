@@ -33,29 +33,78 @@ module Network.AWS.CodeCommit
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidContinuationTokenException
     , _InvalidContinuationTokenException
+
+    -- ** EncryptionKeyNotFoundException
     , _EncryptionKeyNotFoundException
+
+    -- ** RepositoryNameExistsException
     , _RepositoryNameExistsException
+
+    -- ** MaximumRepositoryNamesExceededException
     , _MaximumRepositoryNamesExceededException
+
+    -- ** InvalidRepositoryDescriptionException
     , _InvalidRepositoryDescriptionException
+
+    -- ** BranchNameRequiredException
     , _BranchNameRequiredException
+
+    -- ** InvalidBranchNameException
     , _InvalidBranchNameException
+
+    -- ** EncryptionKeyUnavailableException
     , _EncryptionKeyUnavailableException
+
+    -- ** InvalidOrderException
     , _InvalidOrderException
+
+    -- ** BranchDoesNotExistException
     , _BranchDoesNotExistException
+
+    -- ** RepositoryNamesRequiredException
     , _RepositoryNamesRequiredException
+
+    -- ** RepositoryDoesNotExistException
     , _RepositoryDoesNotExistException
+
+    -- ** EncryptionIntegrityChecksFailedException
     , _EncryptionIntegrityChecksFailedException
+
+    -- ** EncryptionKeyAccessDeniedException
     , _EncryptionKeyAccessDeniedException
+
+    -- ** BranchNameExistsException
     , _BranchNameExistsException
+
+    -- ** EncryptionKeyDisabledException
     , _EncryptionKeyDisabledException
+
+    -- ** InvalidSortByException
     , _InvalidSortByException
+
+    -- ** CommitIdRequiredException
     , _CommitIdRequiredException
+
+    -- ** InvalidCommitIdException
     , _InvalidCommitIdException
+
+    -- ** CommitDoesNotExistException
     , _CommitDoesNotExistException
+
+    -- ** RepositoryLimitExceededException
     , _RepositoryLimitExceededException
+
+    -- ** InvalidRepositoryNameException
     , _InvalidRepositoryNameException
+
+    -- ** RepositoryNameRequiredException
     , _RepositoryNameRequiredException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

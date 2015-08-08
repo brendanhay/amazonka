@@ -57,17 +57,42 @@ module Network.AWS.CognitoIdentity
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidIdentityPoolConfigurationException
     , _InvalidIdentityPoolConfigurationException
+
+    -- ** InvalidParameterException
     , _InvalidParameterException
+
+    -- ** NotAuthorizedException
     , _NotAuthorizedException
+
+    -- ** InternalErrorException
     , _InternalErrorException
+
+    -- ** ExternalServiceException
     , _ExternalServiceException
+
+    -- ** ConcurrentModificationException
     , _ConcurrentModificationException
+
+    -- ** TooManyRequestsException
     , _TooManyRequestsException
+
+    -- ** ResourceConflictException
     , _ResourceConflictException
+
+    -- ** DeveloperUserAlreadyRegisteredException
     , _DeveloperUserAlreadyRegisteredException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

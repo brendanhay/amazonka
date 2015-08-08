@@ -76,13 +76,30 @@ module Network.AWS.STS
 
     -- * Error Matchers
     -- $errors
+
+    -- ** MalformedPolicyDocumentException
     , _MalformedPolicyDocumentException
+
+    -- ** PackedPolicyTooLargeException
     , _PackedPolicyTooLargeException
+
+    -- ** InvalidAuthorizationMessageException
     , _InvalidAuthorizationMessageException
+
+    -- ** IdPCommunicationErrorException
     , _IdPCommunicationErrorException
+
+    -- ** ExpiredTokenException
     , _ExpiredTokenException
+
+    -- ** InvalidIdentityTokenException
     , _InvalidIdentityTokenException
+
+    -- ** IdPRejectedClaimException
     , _IdPRejectedClaimException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

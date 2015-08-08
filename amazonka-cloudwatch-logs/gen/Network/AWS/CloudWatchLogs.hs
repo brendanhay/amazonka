@@ -61,14 +61,33 @@ module Network.AWS.CloudWatchLogs
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidParameterException
     , _InvalidParameterException
+
+    -- ** InvalidSequenceTokenException
     , _InvalidSequenceTokenException
+
+    -- ** ResourceAlreadyExistsException
     , _ResourceAlreadyExistsException
+
+    -- ** OperationAbortedException
     , _OperationAbortedException
+
+    -- ** DataAlreadyAcceptedException
     , _DataAlreadyAcceptedException
+
+    -- ** ServiceUnavailableException
     , _ServiceUnavailableException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

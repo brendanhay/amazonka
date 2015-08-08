@@ -19,7 +19,7 @@ module {{ moduleName }}
     {% case shape.value.type %}
     {% when "function" %}
 
-    -- ** {{ shape.value.name }}
+    -- ** {{ shape.value.name | stripPrefix("_") }}
     , {{ shape.value.name }}
     {% endcase %}
   {% endfor %}

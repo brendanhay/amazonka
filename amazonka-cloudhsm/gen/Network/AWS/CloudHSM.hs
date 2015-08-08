@@ -21,9 +21,18 @@ module Network.AWS.CloudHSM
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidRequestException
     , _InvalidRequestException
+
+    -- ** CloudHSMServiceException
     , _CloudHSMServiceException
+
+    -- ** CloudHSMInternalException
     , _CloudHSMInternalException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

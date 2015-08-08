@@ -135,12 +135,26 @@ module Network.AWS.DynamoDB
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ProvisionedThroughputExceededException
     , _ProvisionedThroughputExceededException
+
+    -- ** ConditionalCheckFailedException
     , _ConditionalCheckFailedException
+
+    -- ** ItemCollectionSizeLimitExceededException
     , _ItemCollectionSizeLimitExceededException
+
+    -- ** InternalServerError
     , _InternalServerError
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** ResourceInUseException
     , _ResourceInUseException
+
+    -- ** LimitExceededException
     , _LimitExceededException
 
     -- * Waiters

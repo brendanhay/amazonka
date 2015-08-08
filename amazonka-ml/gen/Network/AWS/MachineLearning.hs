@@ -21,11 +21,23 @@ module Network.AWS.MachineLearning
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InternalServerException
     , _InternalServerException
+
+    -- ** InvalidInputException
     , _InvalidInputException
+
+    -- ** IdempotentParameterMismatchException
     , _IdempotentParameterMismatchException
+
+    -- ** PredictorNotMountedException
     , _PredictorNotMountedException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** LimitExceededException
     , _LimitExceededException
 
     -- * Waiters

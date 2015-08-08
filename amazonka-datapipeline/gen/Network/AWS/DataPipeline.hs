@@ -43,11 +43,24 @@ module Network.AWS.DataPipeline
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidRequestException
     , _InvalidRequestException
+
+    -- ** InternalServiceError
     , _InternalServiceError
+
+    -- ** PipelineDeletedException
     , _PipelineDeletedException
+
+    -- ** PipelineNotFoundException
     , _PipelineNotFoundException
+
+    -- ** TaskNotFoundException
     , _TaskNotFoundException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

@@ -37,23 +37,60 @@ module Network.AWS.SDB
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidNumberValueTests
     , _InvalidNumberValueTests
+
+    -- ** NoSuchDomain
     , _NoSuchDomain
+
+    -- ** NumberDomainAttributesExceeded
     , _NumberDomainAttributesExceeded
+
+    -- ** NumberSubmittedItemsExceeded
     , _NumberSubmittedItemsExceeded
+
+    -- ** AttributeDoesNotExist
     , _AttributeDoesNotExist
+
+    -- ** InvalidNextToken
     , _InvalidNextToken
+
+    -- ** MissingParameter
     , _MissingParameter
+
+    -- ** DuplicateItemName
     , _DuplicateItemName
+
+    -- ** InvalidParameterValue
     , _InvalidParameterValue
+
+    -- ** NumberItemAttributesExceeded
     , _NumberItemAttributesExceeded
+
+    -- ** RequestTimeout
     , _RequestTimeout
+
+    -- ** TooManyRequestedAttributes
     , _TooManyRequestedAttributes
+
+    -- ** InvalidNumberPredicates
     , _InvalidNumberPredicates
+
+    -- ** NumberDomainsExceeded
     , _NumberDomainsExceeded
+
+    -- ** NumberSubmittedAttributesExceeded
     , _NumberSubmittedAttributesExceeded
+
+    -- ** InvalidQueryExpression
     , _InvalidQueryExpression
+
+    -- ** NumberDomainBytesExceeded
     , _NumberDomainBytesExceeded
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

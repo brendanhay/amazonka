@@ -21,23 +21,21 @@
 -- cache security group. Use this action to disallow access from an Amazon
 -- EC2 security group that had been previously authorized.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RevokeCacheSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RevokeCacheSecurityGroupIngress.html AWS API Reference> for RevokeCacheSecurityGroupIngress.
 module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     (
-    -- * Request
+    -- * Creating a Request
       RevokeCacheSecurityGroupIngress
-    -- ** Request constructor
     , revokeCacheSecurityGroupIngress
-    -- ** Request lenses
+    -- * Request Lenses
     , rcsgiCacheSecurityGroupName
     , rcsgiEC2SecurityGroupName
     , rcsgiEC2SecurityGroupOwnerId
 
-    -- * Response
+    -- * Destructuring the Response
     , RevokeCacheSecurityGroupIngressResponse
-    -- ** Response constructor
     , revokeCacheSecurityGroupIngressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rcsgirsCacheSecurityGroup
     , rcsgirsStatus
     ) where
@@ -140,10 +138,10 @@ revokeCacheSecurityGroupIngressResponse pStatus_ =
     , _rcsgirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 rcsgirsCacheSecurityGroup = lens _rcsgirsCacheSecurityGroup (\ s a -> s{_rcsgirsCacheSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcsgirsStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
 rcsgirsStatus = lens _rcsgirsStatus (\ s a -> s{_rcsgirsStatus = a});

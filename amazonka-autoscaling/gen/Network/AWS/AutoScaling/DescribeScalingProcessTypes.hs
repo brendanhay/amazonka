@@ -20,19 +20,17 @@
 -- Describes the scaling process types for use with ResumeProcesses and
 -- SuspendProcesses.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypes.html AWS API Reference> for DescribeScalingProcessTypes.
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeScalingProcessTypes
-    -- ** Request constructor
     , describeScalingProcessTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeScalingProcessTypesResponse
-    -- ** Response constructor
     , describeScalingProcessTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsptrsProcesses
     , dsptrsStatus
     ) where
@@ -103,6 +101,6 @@ describeScalingProcessTypesResponse pStatus_ =
 dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsptrsStatus :: Lens' DescribeScalingProcessTypesResponse Int
 dsptrsStatus = lens _dsptrsStatus (\ s a -> s{_dsptrsStatus = a});

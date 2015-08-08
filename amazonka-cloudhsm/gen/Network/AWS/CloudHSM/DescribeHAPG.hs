@@ -19,21 +19,19 @@
 --
 -- Retrieves information about a high-availability partition group.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHAPG.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHAPG.html AWS API Reference> for DescribeHAPG.
 module Network.AWS.CloudHSM.DescribeHAPG
     (
-    -- * Request
+    -- * Creating a Request
       DescribeHAPG
-    -- ** Request constructor
     , describeHAPG
-    -- ** Request lenses
+    -- * Request Lenses
     , dhapgHAPGARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeHAPGResponse
-    -- ** Response constructor
     , describeHAPGResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dhapgrsState
     , dhapgrsLastModifiedTimestamp
     , dhapgrsHSMsPendingRegistration
@@ -174,7 +172,7 @@ dhapgrsState = lens _dhapgrsState (\ s a -> s{_dhapgrsState = a});
 dhapgrsLastModifiedTimestamp :: Lens' DescribeHAPGResponse (Maybe Text)
 dhapgrsLastModifiedTimestamp = lens _dhapgrsLastModifiedTimestamp (\ s a -> s{_dhapgrsLastModifiedTimestamp = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhapgrsHSMsPendingRegistration :: Lens' DescribeHAPGResponse [Text]
 dhapgrsHSMsPendingRegistration = lens _dhapgrsHSMsPendingRegistration (\ s a -> s{_dhapgrsHSMsPendingRegistration = a}) . _Default . _Coerce;
 
@@ -182,11 +180,11 @@ dhapgrsHSMsPendingRegistration = lens _dhapgrsHSMsPendingRegistration (\ s a -> 
 dhapgrsHAPGSerial :: Lens' DescribeHAPGResponse (Maybe Text)
 dhapgrsHAPGSerial = lens _dhapgrsHAPGSerial (\ s a -> s{_dhapgrsHAPGSerial = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhapgrsHSMsPendingDeletion :: Lens' DescribeHAPGResponse [Text]
 dhapgrsHSMsPendingDeletion = lens _dhapgrsHSMsPendingDeletion (\ s a -> s{_dhapgrsHSMsPendingDeletion = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhapgrsHSMsLastActionFailed :: Lens' DescribeHAPGResponse [Text]
 dhapgrsHSMsLastActionFailed = lens _dhapgrsHSMsLastActionFailed (\ s a -> s{_dhapgrsHSMsLastActionFailed = a}) . _Default . _Coerce;
 
@@ -203,6 +201,6 @@ dhapgrsHAPGARN = lens _dhapgrsHAPGARN (\ s a -> s{_dhapgrsHAPGARN = a});
 dhapgrsLabel :: Lens' DescribeHAPGResponse (Maybe Text)
 dhapgrsLabel = lens _dhapgrsLabel (\ s a -> s{_dhapgrsLabel = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhapgrsStatus :: Lens' DescribeHAPGResponse Int
 dhapgrsStatus = lens _dhapgrsStatus (\ s a -> s{_dhapgrsStatus = a});

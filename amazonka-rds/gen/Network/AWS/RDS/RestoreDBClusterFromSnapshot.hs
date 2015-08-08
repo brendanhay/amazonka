@@ -26,14 +26,13 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterFromSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterFromSnapshot.html AWS API Reference> for RestoreDBClusterFromSnapshot.
 module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       RestoreDBClusterFromSnapshot
-    -- ** Request constructor
     , restoreDBClusterFromSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , rdcfsEngineVersion
     , rdcfsDBSubnetGroupName
     , rdcfsAvailabilityZones
@@ -46,11 +45,10 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , rdcfsSnapshotIdentifier
     , rdcfsEngine
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreDBClusterFromSnapshotResponse
-    -- ** Response constructor
     , restoreDBClusterFromSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdcfsrsDBCluster
     , rdcfsrsStatus
     ) where
@@ -249,10 +247,10 @@ restoreDBClusterFromSnapshotResponse pStatus_ =
     , _rdcfsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdcfsrsDBCluster :: Lens' RestoreDBClusterFromSnapshotResponse (Maybe DBCluster)
 rdcfsrsDBCluster = lens _rdcfsrsDBCluster (\ s a -> s{_rdcfsrsDBCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdcfsrsStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
 rdcfsrsStatus = lens _rdcfsrsStatus (\ s a -> s{_rdcfsrsStatus = a});

@@ -21,21 +21,19 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetIdentityPoolRoles.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetIdentityPoolRoles.html AWS API Reference> for GetIdentityPoolRoles.
 module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     (
-    -- * Request
+    -- * Creating a Request
       GetIdentityPoolRoles
-    -- ** Request constructor
     , getIdentityPoolRoles
-    -- ** Request lenses
+    -- * Request Lenses
     , giprIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetIdentityPoolRolesResponse
-    -- ** Response constructor
     , getIdentityPoolRolesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , giprrsRoles
     , giprrsIdentityPoolId
     , giprrsStatus
@@ -136,6 +134,6 @@ giprrsRoles = lens _giprrsRoles (\ s a -> s{_giprrsRoles = a}) . _Default . _Map
 giprrsIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
 giprrsIdentityPoolId = lens _giprrsIdentityPoolId (\ s a -> s{_giprrsIdentityPoolId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 giprrsStatus :: Lens' GetIdentityPoolRolesResponse Int
 giprrsStatus = lens _giprrsStatus (\ s a -> s{_giprrsStatus = a});

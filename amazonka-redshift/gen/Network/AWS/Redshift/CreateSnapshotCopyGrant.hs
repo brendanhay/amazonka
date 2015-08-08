@@ -25,23 +25,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateSnapshotCopyGrant.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateSnapshotCopyGrant.html AWS API Reference> for CreateSnapshotCopyGrant.
 module Network.AWS.Redshift.CreateSnapshotCopyGrant
     (
-    -- * Request
+    -- * Creating a Request
       CreateSnapshotCopyGrant
-    -- ** Request constructor
     , createSnapshotCopyGrant
-    -- ** Request lenses
+    -- * Request Lenses
     , cscgKMSKeyId
     , cscgTags
     , cscgSnapshotCopyGrantName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSnapshotCopyGrantResponse
-    -- ** Response constructor
     , createSnapshotCopyGrantResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cscgrsSnapshotCopyGrant
     , cscgrsStatus
     ) where
@@ -148,10 +146,10 @@ createSnapshotCopyGrantResponse pStatus_ =
     , _cscgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscgrsSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotCopyGrant)
 cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnapshotCopyGrant = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscgrsStatus :: Lens' CreateSnapshotCopyGrantResponse Int
 cscgrsStatus = lens _cscgrsStatus (\ s a -> s{_cscgrsStatus = a});

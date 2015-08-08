@@ -25,23 +25,21 @@
 -- Not all response parameters will be populated because this is dependent
 -- on the type of requested model.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html AWS API Reference> for Predict.
 module Network.AWS.MachineLearning.Predict
     (
-    -- * Request
+    -- * Creating a Request
       Predict
-    -- ** Request constructor
     , predict
-    -- ** Request lenses
+    -- * Request Lenses
     , pMLModelId
     , pRecord
     , pPredictEndpoint
 
-    -- * Response
+    -- * Destructuring the Response
     , PredictResponse
-    -- ** Response constructor
     , predictResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , prsPrediction
     , prsStatus
     ) where
@@ -79,11 +77,11 @@ predict pMLModelId_ pPredictEndpoint_ =
 pMLModelId :: Lens' Predict Text
 pMLModelId = lens _pMLModelId (\ s a -> s{_pMLModelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pRecord :: Lens' Predict (HashMap Text Text)
 pRecord = lens _pRecord (\ s a -> s{_pRecord = a}) . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pPredictEndpoint :: Lens' Predict Text
 pPredictEndpoint = lens _pPredictEndpoint (\ s a -> s{_pPredictEndpoint = a});
 
@@ -138,10 +136,10 @@ predictResponse pStatus_ =
     , _prsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prsPrediction :: Lens' PredictResponse (Maybe Prediction)
 prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prsStatus :: Lens' PredictResponse Int
 prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});

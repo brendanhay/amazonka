@@ -44,21 +44,19 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html AWS API Reference> for PutRolePolicy.
 module Network.AWS.IAM.PutRolePolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutRolePolicy
-    -- ** Request constructor
     , putRolePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , prpRoleName
     , prpPolicyName
     , prpPolicyDocument
 
-    -- * Response
+    -- * Destructuring the Response
     , PutRolePolicyResponse
-    -- ** Response constructor
     , putRolePolicyResponse
     ) where
 

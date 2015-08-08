@@ -24,23 +24,21 @@
 -- @rootDeviceName@ | @blockDeviceMapping@ | @productCodes@ |
 -- @sourceDestCheck@ | @groupSet@ | @ebsOptimized@ | @sriovNetSupport@
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html AWS API Reference> for DescribeInstanceAttribute.
 module Network.AWS.EC2.DescribeInstanceAttribute
     (
-    -- * Request
+    -- * Creating a Request
       DescribeInstanceAttribute
-    -- ** Request constructor
     , describeInstanceAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , diaDryRun
     , diaInstanceId
     , diaAttribute
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeInstanceAttributeResponse
-    -- ** Response constructor
     , describeInstanceAttributeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsInstanceId
     , drsGroups
     , drsSourceDestCheck
@@ -266,7 +264,7 @@ drsEBSOptimized = lens _drsEBSOptimized (\ s a -> s{_drsEBSOptimized = a});
 drsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsUserData = lens _drsUserData (\ s a -> s{_drsUserData = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsSRIOVNetSupport = lens _drsSRIOVNetSupport (\ s a -> s{_drsSRIOVNetSupport = a});
 
@@ -284,6 +282,6 @@ drsProductCodes = lens _drsProductCodes (\ s a -> s{_drsProductCodes = a}) . _De
 drsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
 drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeInstanceAttributeResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

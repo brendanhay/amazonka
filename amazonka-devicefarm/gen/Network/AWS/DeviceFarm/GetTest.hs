@@ -19,21 +19,19 @@
 --
 -- Gets information about a test.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetTest.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetTest.html AWS API Reference> for GetTest.
 module Network.AWS.DeviceFarm.GetTest
     (
-    -- * Request
+    -- * Creating a Request
       GetTest
-    -- ** Request constructor
     , getTest
-    -- ** Request lenses
+    -- * Request Lenses
     , gtArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetTestResponse
-    -- ** Response constructor
     , getTestResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gtrsTest
     , gtrsStatus
     ) where
@@ -115,10 +113,10 @@ getTestResponse pStatus_ =
     , _gtrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gtrsTest :: Lens' GetTestResponse (Maybe Test)
 gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gtrsStatus :: Lens' GetTestResponse Int
 gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});

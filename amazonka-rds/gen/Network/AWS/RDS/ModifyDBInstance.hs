@@ -21,14 +21,13 @@
 -- configuration parameters by specifying these parameters and the new
 -- values in the request.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html AWS API Reference> for ModifyDBInstance.
 module Network.AWS.RDS.ModifyDBInstance
     (
-    -- * Request
+    -- * Creating a Request
       ModifyDBInstance
-    -- ** Request constructor
     , modifyDBInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , mdiDBSecurityGroups
     , mdiEngineVersion
     , mdiAutoMinorVersionUpgrade
@@ -54,11 +53,10 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiStorageType
     , mdiDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyDBInstanceResponse
-    -- ** Response constructor
     , modifyDBInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mdirsDBInstance
     , mdirsStatus
     ) where
@@ -631,10 +629,10 @@ modifyDBInstanceResponse pStatus_ =
     , _mdirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mdirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdirsDBInstance = lens _mdirsDBInstance (\ s a -> s{_mdirsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mdirsStatus :: Lens' ModifyDBInstanceResponse Int
 mdirsStatus = lens _mdirsStatus (\ s a -> s{_mdirsStatus = a});

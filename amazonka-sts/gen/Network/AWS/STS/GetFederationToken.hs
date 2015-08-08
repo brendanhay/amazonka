@@ -89,23 +89,21 @@
 -- security credentials, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingFedTokens.html Creating Temporary Credentials to Enable Access for Federated Users>.
 --
--- <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html>
+-- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html AWS API Reference> for GetFederationToken.
 module Network.AWS.STS.GetFederationToken
     (
-    -- * Request
+    -- * Creating a Request
       GetFederationToken
-    -- ** Request constructor
     , getFederationToken
-    -- ** Request lenses
+    -- * Request Lenses
     , gftDurationSeconds
     , gftPolicy
     , gftName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetFederationTokenResponse
-    -- ** Response constructor
     , getFederationTokenResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gftrsPackedPolicySize
     , gftrsCredentials
     , gftrsFederatedUser
@@ -262,6 +260,6 @@ gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a});
 gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gftrsStatus :: Lens' GetFederationTokenResponse Int
 gftrsStatus = lens _gftrsStatus (\ s a -> s{_gftrsStatus = a});

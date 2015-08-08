@@ -30,25 +30,23 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_LookupDeveloperIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_LookupDeveloperIdentity.html AWS API Reference> for LookupDeveloperIdentity.
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     (
-    -- * Request
+    -- * Creating a Request
       LookupDeveloperIdentity
-    -- ** Request constructor
     , lookupDeveloperIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , ldiDeveloperUserIdentifier
     , ldiNextToken
     , ldiIdentityId
     , ldiMaxResults
     , ldiIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , LookupDeveloperIdentityResponse
-    -- ** Response constructor
     , lookupDeveloperIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldirsNextToken
     , ldirsIdentityId
     , ldirsDeveloperUserIdentifierList
@@ -209,6 +207,6 @@ ldirsIdentityId = lens _ldirsIdentityId (\ s a -> s{_ldirsIdentityId = a});
 ldirsDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a -> s{_ldirsDeveloperUserIdentifierList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldirsStatus :: Lens' LookupDeveloperIdentityResponse Int
 ldirsStatus = lens _ldirsStatus (\ s a -> s{_ldirsStatus = a});

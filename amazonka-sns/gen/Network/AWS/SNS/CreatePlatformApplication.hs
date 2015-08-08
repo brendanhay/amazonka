@@ -33,23 +33,21 @@
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html AWS API Reference> for CreatePlatformApplication.
 module Network.AWS.SNS.CreatePlatformApplication
     (
-    -- * Request
+    -- * Creating a Request
       CreatePlatformApplication
-    -- ** Request constructor
     , createPlatformApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , cpaName
     , cpaPlatform
     , cpaAttributes
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePlatformApplicationResponse
-    -- ** Response constructor
     , createPlatformApplicationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cparsPlatformApplicationARN
     , cparsStatus
     ) where
@@ -156,6 +154,6 @@ createPlatformApplicationResponse pStatus_ =
 cparsPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cparsPlatformApplicationARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cparsStatus :: Lens' CreatePlatformApplicationResponse Int
 cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a});

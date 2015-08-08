@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -32,26 +33,268 @@
 -- additional technical information about a specific AWS product, you can
 -- find the product\'s technical documentation at
 -- <http://aws.amazon.com/documentation/>.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudFormation
-    ( module Export
+    (
+    -- * Service Description
+      CloudFormation
+
+    -- * Error Matchers
+    -- $errors
+    , _InsufficientCapabilitiesException
+    , _LimitExceededException
+    , _AlreadyExistsException
+
+    -- * Operations
+    -- $operations
+
+    -- ** DeleteStack
+    , module Network.AWS.CloudFormation.DeleteStack
+
+    -- ** UpdateStack
+    , module Network.AWS.CloudFormation.UpdateStack
+
+    -- ** GetTemplateSummary
+    , module Network.AWS.CloudFormation.GetTemplateSummary
+
+    -- ** ListStackResources (Paginated)
+    , module Network.AWS.CloudFormation.ListStackResources
+    -- $pager
+
+    -- ** DescribeStacks (Paginated)
+    , module Network.AWS.CloudFormation.DescribeStacks
+    -- $pager
+
+    -- ** GetStackPolicy
+    , module Network.AWS.CloudFormation.GetStackPolicy
+
+    -- ** ValidateTemplate
+    , module Network.AWS.CloudFormation.ValidateTemplate
+
+    -- ** CancelUpdateStack
+    , module Network.AWS.CloudFormation.CancelUpdateStack
+
+    -- ** SetStackPolicy
+    , module Network.AWS.CloudFormation.SetStackPolicy
+
+    -- ** DescribeStackEvents (Paginated)
+    , module Network.AWS.CloudFormation.DescribeStackEvents
+    -- $pager
+
+    -- ** SignalResource
+    , module Network.AWS.CloudFormation.SignalResource
+
+    -- ** ListStacks (Paginated)
+    , module Network.AWS.CloudFormation.ListStacks
+    -- $pager
+
+    -- ** CreateStack
+    , module Network.AWS.CloudFormation.CreateStack
+
+    -- ** DescribeStackResources
+    , module Network.AWS.CloudFormation.DescribeStackResources
+
+    -- ** EstimateTemplateCost
+    , module Network.AWS.CloudFormation.EstimateTemplateCost
+
+    -- ** GetTemplate
+    , module Network.AWS.CloudFormation.GetTemplate
+
+    -- ** DescribeStackResource
+    , module Network.AWS.CloudFormation.DescribeStackResource
+
+    -- * Types
+
+    -- ** Capability
+    , Capability (..)
+
+    -- ** OnFailure
+    , OnFailure (..)
+
+    -- ** ResourceSignalStatus
+    , ResourceSignalStatus (..)
+
+    -- ** ResourceStatus
+    , ResourceStatus (..)
+
+    -- ** StackStatus
+    , StackStatus (..)
+
+    -- ** Output
+    , Output
+    , output
+    , oOutputValue
+    , oOutputKey
+    , oDescription
+
+    -- ** Parameter
+    , Parameter
+    , parameter
+    , pParameterValue
+    , pParameterKey
+    , pUsePreviousValue
+
+    -- ** ParameterConstraints
+    , ParameterConstraints
+    , parameterConstraints
+    , pcAllowedValues
+
+    -- ** ParameterDeclaration
+    , ParameterDeclaration
+    , parameterDeclaration
+    , pdParameterKey
+    , pdParameterType
+    , pdParameterConstraints
+    , pdDefaultValue
+    , pdNoEcho
+    , pdDescription
+
+    -- ** Stack
+    , Stack
+    , stack
+    , sDisableRollback
+    , sLastUpdatedTime
+    , sNotificationARNs
+    , sStackStatusReason
+    , sOutputs
+    , sParameters
+    , sStackId
+    , sCapabilities
+    , sDescription
+    , sTags
+    , sTimeoutInMinutes
+    , sStackName
+    , sCreationTime
+    , sStackStatus
+
+    -- ** StackEvent
+    , StackEvent
+    , stackEvent
+    , seLogicalResourceId
+    , seResourceStatusReason
+    , seResourceType
+    , sePhysicalResourceId
+    , seResourceProperties
+    , seResourceStatus
+    , seStackId
+    , seEventId
+    , seStackName
+    , seTimestamp
+
+    -- ** StackResource
+    , StackResource
+    , stackResource
+    , srResourceStatusReason
+    , srPhysicalResourceId
+    , srStackId
+    , srDescription
+    , srStackName
+    , srLogicalResourceId
+    , srResourceType
+    , srTimestamp
+    , srResourceStatus
+
+    -- ** StackResourceDetail
+    , StackResourceDetail
+    , stackResourceDetail
+    , srdResourceStatusReason
+    , srdPhysicalResourceId
+    , srdMetadata
+    , srdStackId
+    , srdDescription
+    , srdStackName
+    , srdLogicalResourceId
+    , srdResourceType
+    , srdLastUpdatedTimestamp
+    , srdResourceStatus
+
+    -- ** StackResourceSummary
+    , StackResourceSummary
+    , stackResourceSummary
+    , srsResourceStatusReason
+    , srsPhysicalResourceId
+    , srsLogicalResourceId
+    , srsResourceType
+    , srsLastUpdatedTimestamp
+    , srsResourceStatus
+
+    -- ** StackSummary
+    , StackSummary
+    , stackSummary
+    , ssLastUpdatedTime
+    , ssTemplateDescription
+    , ssStackStatusReason
+    , ssDeletionTime
+    , ssStackId
+    , ssStackName
+    , ssCreationTime
+    , ssStackStatus
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- ** TemplateParameter
+    , TemplateParameter
+    , templateParameter
+    , tpParameterKey
+    , tpDefaultValue
+    , tpNoEcho
+    , tpDescription
     ) where
 
-import           Network.AWS.CloudFormation.CancelUpdateStack      as Export
-import           Network.AWS.CloudFormation.CreateStack            as Export
-import           Network.AWS.CloudFormation.DeleteStack            as Export
-import           Network.AWS.CloudFormation.DescribeStackEvents    as Export
-import           Network.AWS.CloudFormation.DescribeStackResource  as Export
-import           Network.AWS.CloudFormation.DescribeStackResources as Export
-import           Network.AWS.CloudFormation.DescribeStacks         as Export
-import           Network.AWS.CloudFormation.EstimateTemplateCost   as Export
-import           Network.AWS.CloudFormation.GetStackPolicy         as Export
-import           Network.AWS.CloudFormation.GetTemplate            as Export
-import           Network.AWS.CloudFormation.GetTemplateSummary     as Export
-import           Network.AWS.CloudFormation.ListStackResources     as Export
-import           Network.AWS.CloudFormation.ListStacks             as Export
-import           Network.AWS.CloudFormation.SetStackPolicy         as Export
-import           Network.AWS.CloudFormation.SignalResource         as Export
-import           Network.AWS.CloudFormation.Types                  as Export
-import           Network.AWS.CloudFormation.UpdateStack            as Export
-import           Network.AWS.CloudFormation.ValidateTemplate       as Export
-import           Network.AWS.CloudFormation.Waiters                as Export
+import           Network.AWS.CloudFormation.CancelUpdateStack
+import           Network.AWS.CloudFormation.CreateStack
+import           Network.AWS.CloudFormation.DeleteStack
+import           Network.AWS.CloudFormation.DescribeStackEvents
+import           Network.AWS.CloudFormation.DescribeStackResource
+import           Network.AWS.CloudFormation.DescribeStackResources
+import           Network.AWS.CloudFormation.DescribeStacks
+import           Network.AWS.CloudFormation.EstimateTemplateCost
+import           Network.AWS.CloudFormation.GetStackPolicy
+import           Network.AWS.CloudFormation.GetTemplate
+import           Network.AWS.CloudFormation.GetTemplateSummary
+import           Network.AWS.CloudFormation.ListStackResources
+import           Network.AWS.CloudFormation.ListStacks
+import           Network.AWS.CloudFormation.SetStackPolicy
+import           Network.AWS.CloudFormation.SignalResource
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.UpdateStack
+import           Network.AWS.CloudFormation.ValidateTemplate
+import           Network.AWS.CloudFormation.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'CloudFormation'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

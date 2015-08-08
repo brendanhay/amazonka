@@ -33,23 +33,21 @@
 -- can only be deleted when the SkipFinalSnapshot parameter is set to
 -- \"true\".
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html AWS API Reference> for DeleteDBInstance.
 module Network.AWS.RDS.DeleteDBInstance
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDBInstance
-    -- ** Request constructor
     , deleteDBInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , ddiFinalDBSnapshotIdentifier
     , ddiSkipFinalSnapshot
     , ddiDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDBInstanceResponse
-    -- ** Response constructor
     , deleteDBInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddirsDBInstance
     , ddirsStatus
     ) where
@@ -176,10 +174,10 @@ deleteDBInstanceResponse pStatus_ =
     , _ddirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddirsStatus :: Lens' DeleteDBInstanceResponse Int
 ddirsStatus = lens _ddirsStatus (\ s a -> s{_ddirsStatus = a});

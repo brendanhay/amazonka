@@ -19,23 +19,21 @@
 --
 -- List the grants for a specified key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html AWS API Reference> for ListGrants.
 module Network.AWS.KMS.ListGrants
     (
-    -- * Request
+    -- * Creating a Request
       ListGrants
-    -- ** Request constructor
     , listGrants
-    -- ** Request lenses
+    -- * Request Lenses
     , lgMarker
     , lgLimit
     , lgKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListGrantsResponse
-    -- ** Response constructor
     , listGrantsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lgrsTruncated
     , lgrsGrants
     , lgrsNextMarker
@@ -173,6 +171,6 @@ lgrsGrants = lens _lgrsGrants (\ s a -> s{_lgrsGrants = a}) . _Default . _Coerce
 lgrsNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgrsNextMarker = lens _lgrsNextMarker (\ s a -> s{_lgrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgrsStatus :: Lens' ListGrantsResponse Int
 lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});

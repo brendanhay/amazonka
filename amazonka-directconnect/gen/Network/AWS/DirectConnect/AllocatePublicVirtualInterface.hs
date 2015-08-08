@@ -28,23 +28,21 @@
 -- this step has been completed, the virtual interface will be in
 -- \'Confirming\' state, and will not be available for handling traffic.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html AWS API Reference> for AllocatePublicVirtualInterface.
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
-    -- * Request
+    -- * Creating a Request
       AllocatePublicVirtualInterface
-    -- ** Request constructor
     , allocatePublicVirtualInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , aConnectionId
     , aOwnerAccount
     , aNewPublicVirtualInterfaceAllocation
 
-    -- * Response
+    -- * Destructuring the Response
     , VirtualInterface
-    -- ** Response constructor
     , virtualInterface
-    -- ** Response lenses
+    -- * Response Lenses
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress

@@ -20,24 +20,22 @@
 -- Creates a new, empty pipeline. Use PutPipelineDefinition to populate the
 -- pipeline.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_CreatePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_CreatePipeline.html AWS API Reference> for CreatePipeline.
 module Network.AWS.DataPipeline.CreatePipeline
     (
-    -- * Request
+    -- * Creating a Request
       CreatePipeline
-    -- ** Request constructor
     , createPipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , cpDescription
     , cpTags
     , cpName
     , cpUniqueId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePipelineResponse
-    -- ** Response constructor
     , createPipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cprsStatus
     , cprsPipelineId
     ) where
@@ -162,7 +160,7 @@ createPipelineResponse pStatus_ pPipelineId_ =
     , _cprsPipelineId = pPipelineId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cprsStatus :: Lens' CreatePipelineResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
 

@@ -28,23 +28,21 @@
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html AWS API Reference> for ListHostedZones.
 module Network.AWS.Route53.ListHostedZones
     (
-    -- * Request
+    -- * Creating a Request
       ListHostedZones
-    -- ** Request constructor
     , listHostedZones
-    -- ** Request lenses
+    -- * Request Lenses
     , lhzDelegationSetId
     , lhzMaxItems
     , lhzMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListHostedZonesResponse
-    -- ** Response constructor
     , listHostedZonesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lhzrsNextMarker
     , lhzrsStatus
     , lhzrsHostedZones
@@ -97,7 +95,7 @@ listHostedZones =
     , _lhzMarker = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lhzDelegationSetId :: Lens' ListHostedZones (Maybe Text)
 lhzDelegationSetId = lens _lhzDelegationSetId (\ s a -> s{_lhzDelegationSetId = a});
 
@@ -191,7 +189,7 @@ listHostedZonesResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
 lhzrsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrsNextMarker = lens _lhzrsNextMarker (\ s a -> s{_lhzrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lhzrsStatus :: Lens' ListHostedZonesResponse Int
 lhzrsStatus = lens _lhzrsStatus (\ s a -> s{_lhzrsStatus = a});
 

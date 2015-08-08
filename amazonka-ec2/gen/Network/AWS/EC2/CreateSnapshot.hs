@@ -49,23 +49,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.EC2.CreateSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CreateSnapshot
-    -- ** Request constructor
     , createSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , ccDryRun
     , ccDescription
     , ccVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , Snapshot
-    -- ** Response constructor
     , snapshot
-    -- ** Response lenses
+    -- * Response Lenses
     , sOwnerAlias
     , sKMSKeyId
     , sTags

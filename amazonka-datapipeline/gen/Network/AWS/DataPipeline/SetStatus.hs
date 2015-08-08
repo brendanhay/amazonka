@@ -24,21 +24,19 @@
 -- You cannot perform this operation on @FINISHED@ pipelines and attempting
 -- to do so returns @InvalidRequestException@.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetStatus.html AWS API Reference> for SetStatus.
 module Network.AWS.DataPipeline.SetStatus
     (
-    -- * Request
+    -- * Creating a Request
       SetStatus
-    -- ** Request constructor
     , setStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , ssPipelineId
     , ssObjectIds
     , ssStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , SetStatusResponse
-    -- ** Response constructor
     , setStatusResponse
     ) where
 

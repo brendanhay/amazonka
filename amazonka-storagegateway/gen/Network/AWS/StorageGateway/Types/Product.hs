@@ -65,35 +65,35 @@ cachediSCSIVolume =
     , _cscsivVolumeType = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivVolumeStatus :: Lens' CachediSCSIVolume (Maybe Text)
 cscsivVolumeStatus = lens _cscsivVolumeStatus (\ s a -> s{_cscsivVolumeStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivVolumeiSCSIAttributes :: Lens' CachediSCSIVolume (Maybe VolumeiSCSIAttributes)
 cscsivVolumeiSCSIAttributes = lens _cscsivVolumeiSCSIAttributes (\ s a -> s{_cscsivVolumeiSCSIAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivSourceSnapshotId :: Lens' CachediSCSIVolume (Maybe Text)
 cscsivSourceSnapshotId = lens _cscsivSourceSnapshotId (\ s a -> s{_cscsivSourceSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivVolumeARN :: Lens' CachediSCSIVolume (Maybe Text)
 cscsivVolumeARN = lens _cscsivVolumeARN (\ s a -> s{_cscsivVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivVolumeProgress :: Lens' CachediSCSIVolume (Maybe Double)
 cscsivVolumeProgress = lens _cscsivVolumeProgress (\ s a -> s{_cscsivVolumeProgress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivVolumeSizeInBytes :: Lens' CachediSCSIVolume (Maybe Integer)
 cscsivVolumeSizeInBytes = lens _cscsivVolumeSizeInBytes (\ s a -> s{_cscsivVolumeSizeInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivVolumeId :: Lens' CachediSCSIVolume (Maybe Text)
 cscsivVolumeId = lens _cscsivVolumeId (\ s a -> s{_cscsivVolumeId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cscsivVolumeType :: Lens' CachediSCSIVolume (Maybe Text)
 cscsivVolumeType = lens _cscsivVolumeType (\ s a -> s{_cscsivVolumeType = a});
 
@@ -269,31 +269,31 @@ disk =
     , _dDiskId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDiskAllocationResource :: Lens' Disk (Maybe Text)
 dDiskAllocationResource = lens _dDiskAllocationResource (\ s a -> s{_dDiskAllocationResource = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDiskAllocationType :: Lens' Disk (Maybe Text)
 dDiskAllocationType = lens _dDiskAllocationType (\ s a -> s{_dDiskAllocationType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDiskNode :: Lens' Disk (Maybe Text)
 dDiskNode = lens _dDiskNode (\ s a -> s{_dDiskNode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDiskPath :: Lens' Disk (Maybe Text)
 dDiskPath = lens _dDiskPath (\ s a -> s{_dDiskPath = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDiskSizeInBytes :: Lens' Disk (Maybe Integer)
 dDiskSizeInBytes = lens _dDiskSizeInBytes (\ s a -> s{_dDiskSizeInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDiskStatus :: Lens' Disk (Maybe Text)
 dDiskStatus = lens _dDiskStatus (\ s a -> s{_dDiskStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDiskId :: Lens' Disk (Maybe Text)
 dDiskId = lens _dDiskId (\ s a -> s{_dDiskId = a});
 
@@ -334,15 +334,15 @@ gatewayInfo =
     , _giGatewayType = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 giGatewayARN :: Lens' GatewayInfo (Maybe Text)
 giGatewayARN = lens _giGatewayARN (\ s a -> s{_giGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 giGatewayOperationalState :: Lens' GatewayInfo (Maybe Text)
 giGatewayOperationalState = lens _giGatewayOperationalState (\ s a -> s{_giGatewayOperationalState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 giGatewayType :: Lens' GatewayInfo (Maybe Text)
 giGatewayType = lens _giGatewayType (\ s a -> s{_giGatewayType = a});
 
@@ -456,43 +456,43 @@ storediSCSIVolume =
     , _sscsivVolumeDiskId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeStatus :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivVolumeStatus = lens _sscsivVolumeStatus (\ s a -> s{_sscsivVolumeStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeiSCSIAttributes :: Lens' StorediSCSIVolume (Maybe VolumeiSCSIAttributes)
 sscsivVolumeiSCSIAttributes = lens _sscsivVolumeiSCSIAttributes (\ s a -> s{_sscsivVolumeiSCSIAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivSourceSnapshotId :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivSourceSnapshotId = lens _sscsivSourceSnapshotId (\ s a -> s{_sscsivSourceSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivPreservedExistingData :: Lens' StorediSCSIVolume (Maybe Bool)
 sscsivPreservedExistingData = lens _sscsivPreservedExistingData (\ s a -> s{_sscsivPreservedExistingData = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeARN :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivVolumeARN = lens _sscsivVolumeARN (\ s a -> s{_sscsivVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeProgress :: Lens' StorediSCSIVolume (Maybe Double)
 sscsivVolumeProgress = lens _sscsivVolumeProgress (\ s a -> s{_sscsivVolumeProgress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeSizeInBytes :: Lens' StorediSCSIVolume (Maybe Integer)
 sscsivVolumeSizeInBytes = lens _sscsivVolumeSizeInBytes (\ s a -> s{_sscsivVolumeSizeInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeId :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivVolumeId = lens _sscsivVolumeId (\ s a -> s{_sscsivVolumeId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeType :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivVolumeType = lens _sscsivVolumeType (\ s a -> s{_sscsivVolumeType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sscsivVolumeDiskId :: Lens' StorediSCSIVolume (Maybe Text)
 sscsivVolumeDiskId = lens _sscsivVolumeDiskId (\ s a -> s{_sscsivVolumeDiskId = a});
 
@@ -699,7 +699,7 @@ tapeRecoveryPointInfo =
     , _trpiTapeSizeInBytes = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeStatus = lens _trpiTapeStatus (\ s a -> s{_trpiTapeStatus = a});
 
@@ -767,7 +767,7 @@ vTLDevice =
 vtldDeviceiSCSIAttributes :: Lens' VTLDevice (Maybe DeviceiSCSIAttributes)
 vtldDeviceiSCSIAttributes = lens _vtldDeviceiSCSIAttributes (\ s a -> s{_vtldDeviceiSCSIAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vtldVTLDeviceVendor :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceVendor = lens _vtldVTLDeviceVendor (\ s a -> s{_vtldVTLDeviceVendor = a});
 
@@ -776,11 +776,11 @@ vtldVTLDeviceVendor = lens _vtldVTLDeviceVendor (\ s a -> s{_vtldVTLDeviceVendor
 vtldVTLDeviceARN :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceARN = lens _vtldVTLDeviceARN (\ s a -> s{_vtldVTLDeviceARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vtldVTLDeviceType :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceType = lens _vtldVTLDeviceType (\ s a -> s{_vtldVTLDeviceType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vtldVTLDeviceProductIdentifier :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceProductIdentifier = lens _vtldVTLDeviceProductIdentifier (\ s a -> s{_vtldVTLDeviceProductIdentifier = a});
 
@@ -815,11 +815,11 @@ volumeInfo =
     , _viVolumeType = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVolumeARN :: Lens' VolumeInfo (Maybe Text)
 viVolumeARN = lens _viVolumeARN (\ s a -> s{_viVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVolumeType :: Lens' VolumeInfo (Maybe Text)
 viVolumeType = lens _viVolumeType (\ s a -> s{_viVolumeType = a});
 
@@ -858,19 +858,19 @@ volumeRecoveryPointInfo =
     , _vrpiVolumeUsageInBytes = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vrpiVolumeRecoveryPointTime :: Lens' VolumeRecoveryPointInfo (Maybe Text)
 vrpiVolumeRecoveryPointTime = lens _vrpiVolumeRecoveryPointTime (\ s a -> s{_vrpiVolumeRecoveryPointTime = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vrpiVolumeARN :: Lens' VolumeRecoveryPointInfo (Maybe Text)
 vrpiVolumeARN = lens _vrpiVolumeARN (\ s a -> s{_vrpiVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vrpiVolumeSizeInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
 vrpiVolumeSizeInBytes = lens _vrpiVolumeSizeInBytes (\ s a -> s{_vrpiVolumeSizeInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vrpiVolumeUsageInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
 vrpiVolumeUsageInBytes = lens _vrpiVolumeUsageInBytes (\ s a -> s{_vrpiVolumeUsageInBytes = a});
 

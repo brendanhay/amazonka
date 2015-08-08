@@ -26,19 +26,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartInstance.html AWS API Reference> for StartInstance.
 module Network.AWS.OpsWorks.StartInstance
     (
-    -- * Request
+    -- * Creating a Request
       StartInstance
-    -- ** Request constructor
     , startInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , sInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , StartInstanceResponse
-    -- ** Response constructor
     , startInstanceResponse
     ) where
 

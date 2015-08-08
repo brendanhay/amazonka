@@ -20,22 +20,20 @@
 -- Adds a source identifier to an existing RDS event notification
 -- subscription.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddSourceIdentifierToSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddSourceIdentifierToSubscription.html AWS API Reference> for AddSourceIdentifierToSubscription.
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
     (
-    -- * Request
+    -- * Creating a Request
       AddSourceIdentifierToSubscription
-    -- ** Request constructor
     , addSourceIdentifierToSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , asitsSubscriptionName
     , asitsSourceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , AddSourceIdentifierToSubscriptionResponse
-    -- ** Response constructor
     , addSourceIdentifierToSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , asitsrsEventSubscription
     , asitsrsStatus
     ) where
@@ -140,10 +138,10 @@ addSourceIdentifierToSubscriptionResponse pStatus_ =
     , _asitsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asitsrsStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
 asitsrsStatus = lens _asitsrsStatus (\ s a -> s{_asitsrsStatus = a});

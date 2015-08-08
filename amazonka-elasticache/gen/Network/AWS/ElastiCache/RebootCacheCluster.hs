@@ -29,22 +29,20 @@
 --
 -- When the reboot is complete, a cache cluster event is created.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html AWS API Reference> for RebootCacheCluster.
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
-    -- * Request
+    -- * Creating a Request
       RebootCacheCluster
-    -- ** Request constructor
     , rebootCacheCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , rccCacheClusterId
     , rccCacheNodeIdsToReboot
 
-    -- * Response
+    -- * Destructuring the Response
     , RebootCacheClusterResponse
-    -- ** Response constructor
     , rebootCacheClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rccrsCacheCluster
     , rccrsStatus
     ) where
@@ -133,10 +131,10 @@ rebootCacheClusterResponse pStatus_ =
     , _rccrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rccrsStatus :: Lens' RebootCacheClusterResponse Int
 rccrsStatus = lens _rccrsStatus (\ s a -> s{_rccrsStatus = a});

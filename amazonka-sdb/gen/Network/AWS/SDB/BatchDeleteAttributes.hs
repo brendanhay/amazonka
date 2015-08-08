@@ -26,20 +26,18 @@
 -- -   1 MB request size
 -- -   25 item limit per BatchDeleteAttributes operation
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchDeleteAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchDeleteAttributes.html AWS API Reference> for BatchDeleteAttributes.
 module Network.AWS.SDB.BatchDeleteAttributes
     (
-    -- * Request
+    -- * Creating a Request
       BatchDeleteAttributes
-    -- ** Request constructor
     , batchDeleteAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , bdaDomainName
     , bdaItems
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchDeleteAttributesResponse
-    -- ** Response constructor
     , batchDeleteAttributesResponse
     ) where
 

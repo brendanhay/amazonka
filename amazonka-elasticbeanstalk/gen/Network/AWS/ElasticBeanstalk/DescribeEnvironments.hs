@@ -19,14 +19,13 @@
 --
 -- Returns descriptions for existing environments.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html AWS API Reference> for DescribeEnvironments.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEnvironments
-    -- ** Request constructor
     , describeEnvironments
-    -- ** Request lenses
+    -- * Request Lenses
     , dEnvironmentIds
     , dEnvironmentNames
     , dVersionLabel
@@ -34,11 +33,10 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , dApplicationName
     , dIncludeDeleted
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEnvironmentsResponse
-    -- ** Response constructor
     , describeEnvironmentsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsEnvironments
     , drsStatus
     ) where
@@ -180,6 +178,6 @@ describeEnvironmentsResponse pStatus_ =
 drsEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeEnvironmentsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

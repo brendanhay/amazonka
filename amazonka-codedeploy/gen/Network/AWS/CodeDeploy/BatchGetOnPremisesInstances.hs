@@ -19,21 +19,19 @@
 --
 -- Gets information about one or more on-premises instances.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetOnPremisesInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetOnPremisesInstances.html AWS API Reference> for BatchGetOnPremisesInstances.
 module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     (
-    -- * Request
+    -- * Creating a Request
       BatchGetOnPremisesInstances
-    -- ** Request constructor
     , batchGetOnPremisesInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , bgopiInstanceNames
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchGetOnPremisesInstancesResponse
-    -- ** Response constructor
     , batchGetOnPremisesInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bgopirsInstanceInfos
     , bgopirsStatus
     ) where
@@ -123,6 +121,6 @@ batchGetOnPremisesInstancesResponse pStatus_ =
 bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
 bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bgopirsStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
 bgopirsStatus = lens _bgopirsStatus (\ s a -> s{_bgopirsStatus = a});

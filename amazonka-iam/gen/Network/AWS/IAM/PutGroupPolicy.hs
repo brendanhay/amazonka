@@ -38,21 +38,19 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html AWS API Reference> for PutGroupPolicy.
 module Network.AWS.IAM.PutGroupPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutGroupPolicy
-    -- ** Request constructor
     , putGroupPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , pgpGroupName
     , pgpPolicyName
     , pgpPolicyDocument
 
-    -- * Response
+    -- * Destructuring the Response
     , PutGroupPolicyResponse
-    -- ** Response constructor
     , putGroupPolicyResponse
     ) where
 

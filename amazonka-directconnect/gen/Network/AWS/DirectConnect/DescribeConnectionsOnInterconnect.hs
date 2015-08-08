@@ -20,21 +20,19 @@
 -- Return a list of connections that have been provisioned on the given
 -- interconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html AWS API Reference> for DescribeConnectionsOnInterconnect.
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
-    -- * Request
+    -- * Creating a Request
       DescribeConnectionsOnInterconnect
-    -- ** Request constructor
     , describeConnectionsOnInterconnect
-    -- ** Request lenses
+    -- * Request Lenses
     , dcoiInterconnectId
 
-    -- * Response
+    -- * Destructuring the Response
     , Connections
-    -- ** Response constructor
     , connections
-    -- ** Response lenses
+    -- * Response Lenses
     , cConnections
     ) where
 

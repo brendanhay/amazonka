@@ -28,14 +28,13 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateDeployment.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateDeployment.html AWS API Reference> for CreateDeployment.
 module Network.AWS.OpsWorks.CreateDeployment
     (
-    -- * Request
+    -- * Creating a Request
       CreateDeployment
-    -- ** Request constructor
     , createDeployment
-    -- ** Request lenses
+    -- * Request Lenses
     , cdCustomJSON
     , cdAppId
     , cdInstanceIds
@@ -43,11 +42,10 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdStackId
     , cdCommand
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDeploymentResponse
-    -- ** Response constructor
     , createDeploymentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdrsDeploymentId
     , cdrsStatus
     ) where
@@ -187,6 +185,6 @@ createDeploymentResponse pStatus_ =
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdrsStatus :: Lens' CreateDeploymentResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

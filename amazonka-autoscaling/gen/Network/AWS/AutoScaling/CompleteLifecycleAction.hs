@@ -39,24 +39,22 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CompleteLifecycleAction.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CompleteLifecycleAction.html AWS API Reference> for CompleteLifecycleAction.
 module Network.AWS.AutoScaling.CompleteLifecycleAction
     (
-    -- * Request
+    -- * Creating a Request
       CompleteLifecycleAction
-    -- ** Request constructor
     , completeLifecycleAction
-    -- ** Request lenses
+    -- * Request Lenses
     , claLifecycleHookName
     , claAutoScalingGroupName
     , claLifecycleActionToken
     , claLifecycleActionResult
 
-    -- * Response
+    -- * Destructuring the Response
     , CompleteLifecycleActionResponse
-    -- ** Response constructor
     , completeLifecycleActionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clarsStatus
     ) where
 
@@ -157,6 +155,6 @@ completeLifecycleActionResponse pStatus_ =
     { _clarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clarsStatus :: Lens' CompleteLifecycleActionResponse Int
 clarsStatus = lens _clarsStatus (\ s a -> s{_clarsStatus = a});

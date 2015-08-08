@@ -23,22 +23,20 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html AWS API Reference> for DescribeEventCategories.
 module Network.AWS.RDS.DescribeEventCategories
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEventCategories
-    -- ** Request constructor
     , describeEventCategories
-    -- ** Request lenses
+    -- * Request Lenses
     , decSourceType
     , decFilters
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEventCategoriesResponse
-    -- ** Response constructor
     , describeEventCategoriesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , decrsEventCategoriesMapList
     , decrsStatus
     ) where
@@ -136,6 +134,6 @@ describeEventCategoriesResponse pStatus_ =
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 decrsStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});

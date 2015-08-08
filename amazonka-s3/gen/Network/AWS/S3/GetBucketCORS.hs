@@ -19,21 +19,19 @@
 --
 -- Returns the cors configuration for the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketCORS.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketCORS.html AWS API Reference> for GetBucketCORS.
 module Network.AWS.S3.GetBucketCORS
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketCORS
-    -- ** Request constructor
     , getBucketCORS
-    -- ** Request lenses
+    -- * Request Lenses
     , gbcBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketCORSResponse
-    -- ** Response constructor
     , getBucketCORSResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbcrsCORSRules
     , gbcrsStatus
     ) where
@@ -59,7 +57,7 @@ getBucketCORS pBucket_ =
     { _gbcBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbcBucket :: Lens' GetBucketCORS BucketName
 gbcBucket = lens _gbcBucket (\ s a -> s{_gbcBucket = a});
 
@@ -104,10 +102,10 @@ getBucketCORSResponse pStatus_ =
     , _gbcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbcrsStatus :: Lens' GetBucketCORSResponse Int
 gbcrsStatus = lens _gbcrsStatus (\ s a -> s{_gbcrsStatus = a});

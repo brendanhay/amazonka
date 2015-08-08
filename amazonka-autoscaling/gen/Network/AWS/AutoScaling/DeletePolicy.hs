@@ -19,20 +19,18 @@
 --
 -- Deletes the specified Auto Scaling policy.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html AWS API Reference> for DeletePolicy.
 module Network.AWS.AutoScaling.DeletePolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeletePolicy
-    -- ** Request constructor
     , deletePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dpAutoScalingGroupName
     , dpPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePolicyResponse
-    -- ** Response constructor
     , deletePolicyResponse
     ) where
 

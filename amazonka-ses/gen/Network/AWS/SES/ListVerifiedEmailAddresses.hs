@@ -26,19 +26,17 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html AWS API Reference> for ListVerifiedEmailAddresses.
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
-    -- * Request
+    -- * Creating a Request
       ListVerifiedEmailAddresses
-    -- ** Request constructor
     , listVerifiedEmailAddresses
 
-    -- * Response
+    -- * Destructuring the Response
     , ListVerifiedEmailAddressesResponse
-    -- ** Response constructor
     , listVerifiedEmailAddressesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lvearsVerifiedEmailAddresses
     , lvearsStatus
     ) where
@@ -112,6 +110,6 @@ listVerifiedEmailAddressesResponse pStatus_ =
 lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvearsStatus :: Lens' ListVerifiedEmailAddressesResponse Int
 lvearsStatus = lens _lvearsStatus (\ s a -> s{_lvearsStatus = a});

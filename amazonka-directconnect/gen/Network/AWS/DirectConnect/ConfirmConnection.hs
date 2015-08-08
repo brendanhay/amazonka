@@ -23,21 +23,19 @@
 -- state, and will remain in this state until the owner calls
 -- ConfirmConnection to confirm creation of the hosted connection.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html AWS API Reference> for ConfirmConnection.
 module Network.AWS.DirectConnect.ConfirmConnection
     (
-    -- * Request
+    -- * Creating a Request
       ConfirmConnection
-    -- ** Request constructor
     , confirmConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , ccConnectionId
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfirmConnectionResponse
-    -- ** Response constructor
     , confirmConnectionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccrsConnectionState
     , ccrsStatus
     ) where
@@ -65,7 +63,7 @@ confirmConnection pConnectionId_ =
     { _ccConnectionId = pConnectionId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccConnectionId :: Lens' ConfirmConnection Text
 ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a});
 
@@ -120,10 +118,10 @@ confirmConnectionResponse pStatus_ =
     , _ccrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccrsStatus :: Lens' ConfirmConnectionResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

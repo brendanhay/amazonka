@@ -27,19 +27,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterVolume.html AWS API Reference> for DeregisterVolume.
 module Network.AWS.OpsWorks.DeregisterVolume
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterVolume
-    -- ** Request constructor
     , deregisterVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , dvVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterVolumeResponse
-    -- ** Response constructor
     , deregisterVolumeResponse
     ) where
 

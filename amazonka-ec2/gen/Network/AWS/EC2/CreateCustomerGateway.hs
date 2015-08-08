@@ -45,24 +45,22 @@
 -- customer gateway. The subsequent requests do not create new customer
 -- gateway resources.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html AWS API Reference> for CreateCustomerGateway.
 module Network.AWS.EC2.CreateCustomerGateway
     (
-    -- * Request
+    -- * Creating a Request
       CreateCustomerGateway
-    -- ** Request constructor
     , createCustomerGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , ccgDryRun
     , ccgType
     , ccgPublicIP
     , ccgBGPASN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCustomerGatewayResponse
-    -- ** Response constructor
     , createCustomerGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccgrsCustomerGateway
     , ccgrsStatus
     ) where
@@ -172,6 +170,6 @@ createCustomerGatewayResponse pStatus_ =
 ccgrsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGateway = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccgrsStatus :: Lens' CreateCustomerGatewayResponse Int
 ccgrsStatus = lens _ccgrsStatus (\ s a -> s{_ccgrsStatus = a});

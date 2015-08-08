@@ -19,22 +19,20 @@
 --
 -- Gets information about tests.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTests.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTests.html AWS API Reference> for ListTests.
 module Network.AWS.DeviceFarm.ListTests
     (
-    -- * Request
+    -- * Creating a Request
       ListTests
-    -- ** Request constructor
     , listTests
-    -- ** Request lenses
+    -- * Request Lenses
     , ltNextToken
     , ltArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTestsResponse
-    -- ** Response constructor
     , listTestsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltrsTests
     , ltrsNextToken
     , ltrsStatus
@@ -144,6 +142,6 @@ ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default . _Coerce;
 ltrsNextToken :: Lens' ListTestsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltrsStatus :: Lens' ListTestsResponse Int
 ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

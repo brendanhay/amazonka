@@ -21,24 +21,22 @@
 -- @DBSecurityGroupName@ is specified, the list will contain only the
 -- descriptions of the specified DB security group.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html AWS API Reference> for DescribeDBSecurityGroups.
 module Network.AWS.RDS.DescribeDBSecurityGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBSecurityGroups
-    -- ** Request constructor
     , describeDBSecurityGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , ddbsgFilters
     , ddbsgMaxRecords
     , ddbsgMarker
     , ddbsgDBSecurityGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBSecurityGroupsResponse
-    -- ** Response constructor
     , describeDBSecurityGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddbsgrsDBSecurityGroups
     , ddbsgrsMarker
     , ddbsgrsStatus
@@ -182,6 +180,6 @@ ddbsgrsDBSecurityGroups = lens _ddbsgrsDBSecurityGroups (\ s a -> s{_ddbsgrsDBSe
 ddbsgrsMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrsMarker = lens _ddbsgrsMarker (\ s a -> s{_ddbsgrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddbsgrsStatus :: Lens' DescribeDBSecurityGroupsResponse Int
 ddbsgrsStatus = lens _ddbsgrsStatus (\ s a -> s{_ddbsgrsStatus = a});

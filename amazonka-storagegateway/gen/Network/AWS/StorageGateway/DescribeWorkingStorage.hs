@@ -29,21 +29,19 @@
 -- The response includes disk IDs that are configured as working storage,
 -- and it includes the amount of working storage allocated and used.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html AWS API Reference> for DescribeWorkingStorage.
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
-    -- * Request
+    -- * Creating a Request
       DescribeWorkingStorage
-    -- ** Request constructor
     , describeWorkingStorage
-    -- ** Request lenses
+    -- * Request Lenses
     , dwsGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeWorkingStorageResponse
-    -- ** Response constructor
     , describeWorkingStorageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dwsrsGatewayARN
     , dwsrsDiskIds
     , dwsrsWorkingStorageAllocatedInBytes
@@ -74,7 +72,7 @@ describeWorkingStorage pGatewayARN_ =
     { _dwsGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
 dwsGatewayARN = lens _dwsGatewayARN (\ s a -> s{_dwsGatewayARN = a});
 
@@ -146,7 +144,7 @@ describeWorkingStorageResponse pStatus_ =
     , _dwsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
 dwsrsGatewayARN = lens _dwsrsGatewayARN (\ s a -> s{_dwsrsGatewayARN = a});
 
@@ -167,6 +165,6 @@ dwsrsWorkingStorageAllocatedInBytes = lens _dwsrsWorkingStorageAllocatedInBytes 
 dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dwsrsStatus :: Lens' DescribeWorkingStorageResponse Int
 dwsrsStatus = lens _dwsrsStatus (\ s a -> s{_dwsrsStatus = a});

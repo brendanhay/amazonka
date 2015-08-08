@@ -23,22 +23,20 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html Spot Fleets>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotFleet.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotFleet.html AWS API Reference> for RequestSpotFleet.
 module Network.AWS.EC2.RequestSpotFleet
     (
-    -- * Request
+    -- * Creating a Request
       RequestSpotFleet
-    -- ** Request constructor
     , requestSpotFleet
-    -- ** Request lenses
+    -- * Request Lenses
     , rsfDryRun
     , rsfSpotFleetRequestConfig
 
-    -- * Response
+    -- * Destructuring the Response
     , RequestSpotFleetResponse
-    -- ** Response constructor
     , requestSpotFleetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rsfrsStatus
     , rsfrsSpotFleetRequestId
     ) where
@@ -128,7 +126,7 @@ requestSpotFleetResponse pStatus_ pSpotFleetRequestId_ =
     , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rsfrsStatus :: Lens' RequestSpotFleetResponse Int
 rsfrsStatus = lens _rsfrsStatus (\ s a -> s{_rsfrsStatus = a});
 

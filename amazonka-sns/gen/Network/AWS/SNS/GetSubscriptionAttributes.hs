@@ -19,21 +19,19 @@
 --
 -- Returns all of the properties of a subscription.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html AWS API Reference> for GetSubscriptionAttributes.
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetSubscriptionAttributes
-    -- ** Request constructor
     , getSubscriptionAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , gsaSubscriptionARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSubscriptionAttributesResponse
-    -- ** Response constructor
     , getSubscriptionAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsarsAttributes
     , gsarsStatus
     ) where
@@ -130,6 +128,6 @@ getSubscriptionAttributesResponse pStatus_ =
 gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarsAttributes = lens _gsarsAttributes (\ s a -> s{_gsarsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsarsStatus :: Lens' GetSubscriptionAttributesResponse Int
 gsarsStatus = lens _gsarsStatus (\ s a -> s{_gsarsStatus = a});

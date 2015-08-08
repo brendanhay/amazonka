@@ -22,23 +22,21 @@
 -- You can use the GetMLModel operation to view the contents of the updated
 -- data element.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateMLModel.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateMLModel.html AWS API Reference> for UpdateMLModel.
 module Network.AWS.MachineLearning.UpdateMLModel
     (
-    -- * Request
+    -- * Creating a Request
       UpdateMLModel
-    -- ** Request constructor
     , updateMLModel
-    -- ** Request lenses
+    -- * Request Lenses
     , umlmMLModelName
     , umlmScoreThreshold
     , umlmMLModelId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateMLModelResponse
-    -- ** Response constructor
     , updateMLModelResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , umlmrsMLModelId
     , umlmrsStatus
     ) where
@@ -151,6 +149,6 @@ updateMLModelResponse pStatus_ =
 umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 umlmrsStatus :: Lens' UpdateMLModelResponse Int
 umlmrsStatus = lens _umlmrsStatus (\ s a -> s{_umlmrsStatus = a});

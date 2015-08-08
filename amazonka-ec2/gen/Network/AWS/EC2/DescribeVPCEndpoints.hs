@@ -19,25 +19,23 @@
 --
 -- Describes one or more of your VPC endpoints.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpoints.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpoints.html AWS API Reference> for DescribeVPCEndpoints.
 module Network.AWS.EC2.DescribeVPCEndpoints
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPCEndpoints
-    -- ** Request constructor
     , describeVPCEndpoints
-    -- ** Request lenses
+    -- * Request Lenses
     , dvpceFilters
     , dvpceNextToken
     , dvpceVPCEndpointIds
     , dvpceDryRun
     , dvpceMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPCEndpointsResponse
-    -- ** Response constructor
     , describeVPCEndpointsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvpcersNextToken
     , dvpcersVPCEndpoints
     , dvpcersStatus
@@ -184,6 +182,6 @@ dvpcersNextToken = lens _dvpcersNextToken (\ s a -> s{_dvpcersNextToken = a});
 dvpcersVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
 dvpcersVPCEndpoints = lens _dvpcersVPCEndpoints (\ s a -> s{_dvpcersVPCEndpoints = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvpcersStatus :: Lens' DescribeVPCEndpointsResponse Int
 dvpcersStatus = lens _dvpcersStatus (\ s a -> s{_dvpcersStatus = a});

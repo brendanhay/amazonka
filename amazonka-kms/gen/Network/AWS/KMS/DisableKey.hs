@@ -19,19 +19,17 @@
 --
 -- Marks a key as disabled, thereby preventing its use.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html AWS API Reference> for DisableKey.
 module Network.AWS.KMS.DisableKey
     (
-    -- * Request
+    -- * Creating a Request
       DisableKey
-    -- ** Request constructor
     , disableKey
-    -- ** Request lenses
+    -- * Request Lenses
     , dkKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableKeyResponse
-    -- ** Response constructor
     , disableKeyResponse
     ) where
 

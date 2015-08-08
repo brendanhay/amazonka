@@ -22,21 +22,19 @@
 -- types, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications>.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html AWS API Reference> for DescribeEventCategories.
 module Network.AWS.Redshift.DescribeEventCategories
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEventCategories
-    -- ** Request constructor
     , describeEventCategories
-    -- ** Request lenses
+    -- * Request Lenses
     , decSourceType
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEventCategoriesResponse
-    -- ** Response constructor
     , describeEventCategoriesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , decrsEventCategoriesMapList
     , decrsStatus
     ) where
@@ -124,6 +122,6 @@ describeEventCategoriesResponse pStatus_ =
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 decrsStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});

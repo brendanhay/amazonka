@@ -27,22 +27,20 @@
 -- instead. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html CreateCacheSubnetGroup>.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSecurityGroup.html AWS API Reference> for CreateCacheSecurityGroup.
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateCacheSecurityGroup
-    -- ** Request constructor
     , createCacheSecurityGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ccsgCacheSecurityGroupName
     , ccsgDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCacheSecurityGroupResponse
-    -- ** Response constructor
     , createCacheSecurityGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccsgrsCacheSecurityGroup
     , ccsgrsStatus
     ) where
@@ -135,10 +133,10 @@ createCacheSecurityGroupResponse pStatus_ =
     , _ccsgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCacheSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccsgrsStatus :: Lens' CreateCacheSecurityGroupResponse Int
 ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});

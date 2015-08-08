@@ -20,14 +20,13 @@
 -- Returns information about reserved DB instances for this account, or
 -- about a specified reserved DB instance.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstances.html AWS API Reference> for DescribeReservedDBInstances.
 module Network.AWS.RDS.DescribeReservedDBInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedDBInstances
-    -- ** Request constructor
     , describeReservedDBInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , drdiProductDescription
     , drdiFilters
     , drdiReservedDBInstanceId
@@ -39,11 +38,10 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     , drdiOfferingType
     , drdiDuration
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedDBInstancesResponse
-    -- ** Response constructor
     , describeReservedDBInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drdirsReservedDBInstances
     , drdirsMarker
     , drdirsStatus
@@ -252,6 +250,6 @@ drdirsReservedDBInstances = lens _drdirsReservedDBInstances (\ s a -> s{_drdirsR
 drdirsMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdirsMarker = lens _drdirsMarker (\ s a -> s{_drdirsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drdirsStatus :: Lens' DescribeReservedDBInstancesResponse Int
 drdirsStatus = lens _drdirsStatus (\ s a -> s{_drdirsStatus = a});

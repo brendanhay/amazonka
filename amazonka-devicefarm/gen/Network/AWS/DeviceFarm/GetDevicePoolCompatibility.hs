@@ -19,23 +19,21 @@
 --
 -- Gets information about compatibility with a device pool.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevicePoolCompatibility.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevicePoolCompatibility.html AWS API Reference> for GetDevicePoolCompatibility.
 module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     (
-    -- * Request
+    -- * Creating a Request
       GetDevicePoolCompatibility
-    -- ** Request constructor
     , getDevicePoolCompatibility
-    -- ** Request lenses
+    -- * Request Lenses
     , gdpcTestType
     , gdpcDevicePoolARN
     , gdpcAppARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDevicePoolCompatibilityResponse
-    -- ** Response constructor
     , getDevicePoolCompatibilityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdpcrsIncompatibleDevices
     , gdpcrsCompatibleDevices
     , gdpcrsStatus
@@ -177,6 +175,6 @@ gdpcrsIncompatibleDevices = lens _gdpcrsIncompatibleDevices (\ s a -> s{_gdpcrsI
 gdpcrsCompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolCompatibilityResult]
 gdpcrsCompatibleDevices = lens _gdpcrsCompatibleDevices (\ s a -> s{_gdpcrsCompatibleDevices = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdpcrsStatus :: Lens' GetDevicePoolCompatibilityResponse Int
 gdpcrsStatus = lens _gdpcrsStatus (\ s a -> s{_gdpcrsStatus = a});

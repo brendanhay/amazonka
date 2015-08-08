@@ -20,22 +20,20 @@
 -- Updates the Remote Authentication Dial In User Service (RADIUS) server
 -- information for an AD Connector directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateRadius.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateRadius.html AWS API Reference> for UpdateRadius.
 module Network.AWS.DirectoryService.UpdateRadius
     (
-    -- * Request
+    -- * Creating a Request
       UpdateRadius
-    -- ** Request constructor
     , updateRadius
-    -- ** Request lenses
+    -- * Request Lenses
     , urDirectoryId
     , urRadiusSettings
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateRadiusResponse
-    -- ** Response constructor
     , updateRadiusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , urrsStatus
     ) where
 
@@ -125,6 +123,6 @@ updateRadiusResponse pStatus_ =
     { _urrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 urrsStatus :: Lens' UpdateRadiusResponse Int
 urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});

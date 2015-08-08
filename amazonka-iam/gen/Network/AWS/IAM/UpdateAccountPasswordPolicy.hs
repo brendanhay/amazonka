@@ -28,14 +28,13 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html AWS API Reference> for UpdateAccountPasswordPolicy.
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
-    -- * Request
+    -- * Creating a Request
       UpdateAccountPasswordPolicy
-    -- ** Request constructor
     , updateAccountPasswordPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , uappRequireNumbers
     , uappMinimumPasswordLength
     , uappPasswordReusePrevention
@@ -46,9 +45,8 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     , uappRequireUppercaseCharacters
     , uappAllowUsersToChangePassword
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAccountPasswordPolicyResponse
-    -- ** Response constructor
     , updateAccountPasswordPolicyResponse
     ) where
 

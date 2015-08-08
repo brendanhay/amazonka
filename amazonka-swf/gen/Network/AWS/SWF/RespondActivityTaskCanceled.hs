@@ -53,20 +53,18 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCanceled.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCanceled.html AWS API Reference> for RespondActivityTaskCanceled.
 module Network.AWS.SWF.RespondActivityTaskCanceled
     (
-    -- * Request
+    -- * Creating a Request
       RespondActivityTaskCanceled
-    -- ** Request constructor
     , respondActivityTaskCanceled
-    -- ** Request lenses
+    -- * Request Lenses
     , rDetails
     , rTaskToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RespondActivityTaskCanceledResponse
-    -- ** Response constructor
     , respondActivityTaskCanceledResponse
     ) where
 

@@ -30,22 +30,20 @@
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent>
 -- in the /Amazon EC2 Container Service Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerAgent.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerAgent.html AWS API Reference> for UpdateContainerAgent.
 module Network.AWS.ECS.UpdateContainerAgent
     (
-    -- * Request
+    -- * Creating a Request
       UpdateContainerAgent
-    -- ** Request constructor
     , updateContainerAgent
-    -- ** Request lenses
+    -- * Request Lenses
     , ucaCluster
     , ucaContainerInstance
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateContainerAgentResponse
-    -- ** Response constructor
     , updateContainerAgentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ucarsContainerInstance
     , ucarsStatus
     ) where
@@ -140,10 +138,10 @@ updateContainerAgentResponse pStatus_ =
     , _ucarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
 ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ucarsStatus :: Lens' UpdateContainerAgentResponse Int
 ucarsStatus = lens _ucarsStatus (\ s a -> s{_ucarsStatus = a});

@@ -71,25 +71,23 @@
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml.html Creating a Role for SAML-Based Federation>
 --     in /Using IAM/.
 --
--- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html>
+-- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html AWS API Reference> for AssumeRoleWithSAML.
 module Network.AWS.STS.AssumeRoleWithSAML
     (
-    -- * Request
+    -- * Creating a Request
       AssumeRoleWithSAML
-    -- ** Request constructor
     , assumeRoleWithSAML
-    -- ** Request lenses
+    -- * Request Lenses
     , arwsamlDurationSeconds
     , arwsamlPolicy
     , arwsamlRoleARN
     , arwsamlPrincipalARN
     , arwsamlSAMLAssertion
 
-    -- * Response
+    -- * Destructuring the Response
     , AssumeRoleWithSAMLResponse
-    -- ** Response constructor
     , assumeRoleWithSAMLResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , arwsamlrsAudience
     , arwsamlrsSubject
     , arwsamlrsPackedPolicySize
@@ -290,7 +288,7 @@ arwsamlrsSubject = lens _arwsamlrsSubject (\ s a -> s{_arwsamlrsSubject = a});
 arwsamlrsPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
 arwsamlrsPackedPolicySize = lens _arwsamlrsPackedPolicySize (\ s a -> s{_arwsamlrsPackedPolicySize = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
 arwsamlrsCredentials = lens _arwsamlrsCredentials (\ s a -> s{_arwsamlrsCredentials = a});
 
@@ -317,7 +315,7 @@ arwsamlrsSubjectType = lens _arwsamlrsSubjectType (\ s a -> s{_arwsamlrsSubjectT
 arwsamlrsNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsNameQualifier = lens _arwsamlrsNameQualifier (\ s a -> s{_arwsamlrsNameQualifier = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 arwsamlrsAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
 arwsamlrsAssumedRoleUser = lens _arwsamlrsAssumedRoleUser (\ s a -> s{_arwsamlrsAssumedRoleUser = a});
 
@@ -325,6 +323,6 @@ arwsamlrsAssumedRoleUser = lens _arwsamlrsAssumedRoleUser (\ s a -> s{_arwsamlrs
 arwsamlrsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 arwsamlrsStatus :: Lens' AssumeRoleWithSAMLResponse Int
 arwsamlrsStatus = lens _arwsamlrsStatus (\ s a -> s{_arwsamlrsStatus = a});

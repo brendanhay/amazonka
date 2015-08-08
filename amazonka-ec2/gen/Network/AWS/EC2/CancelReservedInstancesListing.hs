@@ -24,21 +24,19 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html AWS API Reference> for CancelReservedInstancesListing.
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
-    -- * Request
+    -- * Creating a Request
       CancelReservedInstancesListing
-    -- ** Request constructor
     , cancelReservedInstancesListing
-    -- ** Request lenses
+    -- * Request Lenses
     , crilReservedInstancesListingId
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelReservedInstancesListingResponse
-    -- ** Response constructor
     , cancelReservedInstancesListingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crilrsReservedInstancesListings
     , crilrsStatus
     ) where
@@ -122,6 +120,6 @@ cancelReservedInstancesListingResponse pStatus_ =
 crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crilrsStatus :: Lens' CancelReservedInstancesListingResponse Int
 crilrsStatus = lens _crilrsStatus (\ s a -> s{_crilrsStatus = a});

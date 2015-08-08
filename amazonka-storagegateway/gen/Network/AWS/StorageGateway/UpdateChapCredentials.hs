@@ -25,24 +25,22 @@
 -- When you update CHAP credentials, all existing connections on the target
 -- are closed and initiators must reconnect with the new credentials.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html AWS API Reference> for UpdateChapCredentials.
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
-    -- * Request
+    -- * Creating a Request
       UpdateChapCredentials
-    -- ** Request constructor
     , updateChapCredentials
-    -- ** Request lenses
+    -- * Request Lenses
     , uccSecretToAuthenticateTarget
     , uccTargetARN
     , uccSecretToAuthenticateInitiator
     , uccInitiatorName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateChapCredentialsResponse
-    -- ** Response constructor
     , updateChapCredentialsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uccrsTargetARN
     , uccrsInitiatorName
     , uccrsStatus
@@ -188,6 +186,6 @@ uccrsTargetARN = lens _uccrsTargetARN (\ s a -> s{_uccrsTargetARN = a});
 uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uccrsStatus :: Lens' UpdateChapCredentialsResponse Int
 uccrsStatus = lens _uccrsStatus (\ s a -> s{_uccrsStatus = a});

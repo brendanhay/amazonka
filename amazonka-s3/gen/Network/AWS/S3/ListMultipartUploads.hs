@@ -19,14 +19,13 @@
 --
 -- This operation lists in-progress multipart uploads.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
 module Network.AWS.S3.ListMultipartUploads
     (
-    -- * Request
+    -- * Creating a Request
       ListMultipartUploads
-    -- ** Request constructor
     , listMultipartUploads
-    -- ** Request lenses
+    -- * Request Lenses
     , lmuKeyMarker
     , lmuPrefix
     , lmuEncodingType
@@ -35,11 +34,10 @@ module Network.AWS.S3.ListMultipartUploads
     , lmuDelimiter
     , lmuBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , ListMultipartUploadsResponse
-    -- ** Response constructor
     , listMultipartUploadsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lmursKeyMarker
     , lmursPrefix
     , lmursEncodingType
@@ -111,7 +109,7 @@ lmuKeyMarker = lens _lmuKeyMarker (\ s a -> s{_lmuKeyMarker = a});
 lmuPrefix :: Lens' ListMultipartUploads (Maybe Text)
 lmuPrefix = lens _lmuPrefix (\ s a -> s{_lmuPrefix = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmuEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
 lmuEncodingType = lens _lmuEncodingType (\ s a -> s{_lmuEncodingType = a});
 
@@ -131,7 +129,7 @@ lmuUploadIdMarker = lens _lmuUploadIdMarker (\ s a -> s{_lmuUploadIdMarker = a})
 lmuDelimiter :: Lens' ListMultipartUploads (Maybe Delimiter)
 lmuDelimiter = lens _lmuDelimiter (\ s a -> s{_lmuDelimiter = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmuBucket :: Lens' ListMultipartUploads BucketName
 lmuBucket = lens _lmuBucket (\ s a -> s{_lmuBucket = a});
 
@@ -262,7 +260,7 @@ lmursPrefix = lens _lmursPrefix (\ s a -> s{_lmursPrefix = a});
 lmursEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
 lmursEncodingType = lens _lmursEncodingType (\ s a -> s{_lmursEncodingType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmursCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
 lmursCommonPrefixes = lens _lmursCommonPrefixes (\ s a -> s{_lmursCommonPrefixes = a}) . _Default . _Coerce;
 
@@ -284,7 +282,7 @@ lmursUploadIdMarker = lens _lmursUploadIdMarker (\ s a -> s{_lmursUploadIdMarker
 lmursNextKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursNextKeyMarker = lens _lmursNextKeyMarker (\ s a -> s{_lmursNextKeyMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmursUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmursUploads = lens _lmursUploads (\ s a -> s{_lmursUploads = a}) . _Default . _Coerce;
 
@@ -301,10 +299,10 @@ lmursIsTruncated = lens _lmursIsTruncated (\ s a -> s{_lmursIsTruncated = a});
 lmursNextUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursNextUploadIdMarker = lens _lmursNextUploadIdMarker (\ s a -> s{_lmursNextUploadIdMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmursDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Delimiter)
 lmursDelimiter = lens _lmursDelimiter (\ s a -> s{_lmursDelimiter = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmursStatus :: Lens' ListMultipartUploadsResponse Int
 lmursStatus = lens _lmursStatus (\ s a -> s{_lmursStatus = a});

@@ -22,23 +22,21 @@
 -- associated with it. An instance is automatically unlinked from a VPC
 -- when it\'s stopped.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachClassicLinkVPC.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachClassicLinkVPC.html AWS API Reference> for DetachClassicLinkVPC.
 module Network.AWS.EC2.DetachClassicLinkVPC
     (
-    -- * Request
+    -- * Creating a Request
       DetachClassicLinkVPC
-    -- ** Request constructor
     , detachClassicLinkVPC
-    -- ** Request lenses
+    -- * Request Lenses
     , dclvDryRun
     , dclvInstanceId
     , dclvVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachClassicLinkVPCResponse
-    -- ** Response constructor
     , detachClassicLinkVPCResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dclvrsReturn
     , dclvrsStatus
     ) where
@@ -137,6 +135,6 @@ detachClassicLinkVPCResponse pStatus_ =
 dclvrsReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
 dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dclvrsStatus :: Lens' DetachClassicLinkVPCResponse Int
 dclvrsStatus = lens _dclvrsStatus (\ s a -> s{_dclvrsStatus = a});

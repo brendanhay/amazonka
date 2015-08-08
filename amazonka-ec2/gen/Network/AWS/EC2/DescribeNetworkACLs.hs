@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkACLs.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkACLs.html AWS API Reference> for DescribeNetworkACLs.
 module Network.AWS.EC2.DescribeNetworkACLs
     (
-    -- * Request
+    -- * Creating a Request
       DescribeNetworkACLs
-    -- ** Request constructor
     , describeNetworkACLs
-    -- ** Request lenses
+    -- * Request Lenses
     , dnaclFilters
     , dnaclDryRun
     , dnaclNetworkACLIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeNetworkACLsResponse
-    -- ** Response constructor
     , describeNetworkACLsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dnarsNetworkACLs
     , dnarsStatus
     ) where
@@ -197,6 +195,6 @@ describeNetworkACLsResponse pStatus_ =
 dnarsNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
 dnarsNetworkACLs = lens _dnarsNetworkACLs (\ s a -> s{_dnarsNetworkACLs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dnarsStatus :: Lens' DescribeNetworkACLsResponse Int
 dnarsStatus = lens _dnarsStatus (\ s a -> s{_dnarsStatus = a});

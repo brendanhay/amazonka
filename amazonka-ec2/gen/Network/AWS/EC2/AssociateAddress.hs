@@ -38,14 +38,13 @@
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn\'t return an error.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateAddress.html AWS API Reference> for AssociateAddress.
 module Network.AWS.EC2.AssociateAddress
     (
-    -- * Request
+    -- * Creating a Request
       AssociateAddress
-    -- ** Request constructor
     , associateAddress
-    -- ** Request lenses
+    -- * Request Lenses
     , aasInstanceId
     , aasAllocationId
     , aasNetworkInterfaceId
@@ -54,11 +53,10 @@ module Network.AWS.EC2.AssociateAddress
     , aasPublicIP
     , aasDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , AssociateAddressResponse
-    -- ** Response constructor
     , associateAddressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , arsAssociationId
     , arsStatus
     ) where
@@ -202,6 +200,6 @@ associateAddressResponse pStatus_ =
 arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 arsStatus :: Lens' AssociateAddressResponse Int
 arsStatus = lens _arsStatus (\ s a -> s{_arsStatus = a});

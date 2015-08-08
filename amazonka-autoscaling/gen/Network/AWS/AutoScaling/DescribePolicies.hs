@@ -19,25 +19,23 @@
 --
 -- Describes the policies for the specified Auto Scaling group.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html AWS API Reference> for DescribePolicies.
 module Network.AWS.AutoScaling.DescribePolicies
     (
-    -- * Request
+    -- * Creating a Request
       DescribePolicies
-    -- ** Request constructor
     , describePolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , dpsPolicyNames
     , dpsNextToken
     , dpsMaxRecords
     , dpsAutoScalingGroupName
     , dpsPolicyTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribePoliciesResponse
-    -- ** Response constructor
     , describePoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dprsNextToken
     , dprsScalingPolicies
     , dprsStatus
@@ -178,6 +176,6 @@ dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
 dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dprsStatus :: Lens' DescribePoliciesResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

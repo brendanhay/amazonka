@@ -27,22 +27,20 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the Amazon Elastic Compute Cloud User Guide.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVPCClassicLink.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVPCClassicLink.html AWS API Reference> for EnableVPCClassicLink.
 module Network.AWS.EC2.EnableVPCClassicLink
     (
-    -- * Request
+    -- * Creating a Request
       EnableVPCClassicLink
-    -- ** Request constructor
     , enableVPCClassicLink
-    -- ** Request lenses
+    -- * Request Lenses
     , evclDryRun
     , evclVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableVPCClassicLinkResponse
-    -- ** Response constructor
     , enableVPCClassicLinkResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , evclrsReturn
     , evclrsStatus
     ) where
@@ -131,6 +129,6 @@ enableVPCClassicLinkResponse pStatus_ =
 evclrsReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
 evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 evclrsStatus :: Lens' EnableVPCClassicLinkResponse Int
 evclrsStatus = lens _evclrsStatus (\ s a -> s{_evclrsStatus = a});

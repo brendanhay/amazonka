@@ -22,19 +22,17 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetCredentialReport.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetCredentialReport.html AWS API Reference> for GetCredentialReport.
 module Network.AWS.IAM.GetCredentialReport
     (
-    -- * Request
+    -- * Creating a Request
       GetCredentialReport
-    -- ** Request constructor
     , getCredentialReport
 
-    -- * Response
+    -- * Destructuring the Response
     , GetCredentialReportResponse
-    -- ** Response constructor
     , getCredentialReportResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grsContent
     , grsGeneratedTime
     , grsReportFormat
@@ -124,6 +122,6 @@ grsGeneratedTime = lens _grsGeneratedTime (\ s a -> s{_grsGeneratedTime = a}) . 
 grsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grsStatus :: Lens' GetCredentialReportResponse Int
 grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});

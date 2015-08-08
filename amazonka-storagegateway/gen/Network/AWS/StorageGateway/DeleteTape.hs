@@ -19,22 +19,20 @@
 --
 -- Deletes the specified virtual tape.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTape.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTape.html AWS API Reference> for DeleteTape.
 module Network.AWS.StorageGateway.DeleteTape
     (
-    -- * Request
+    -- * Creating a Request
       DeleteTape
-    -- ** Request constructor
     , deleteTape
-    -- ** Request lenses
+    -- * Request Lenses
     , dttGatewayARN
     , dttTapeARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteTapeResponse
-    -- ** Response constructor
     , deleteTapeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsTapeARN
     , dtrsStatus
     ) where
@@ -133,6 +131,6 @@ deleteTapeResponse pStatus_ =
 dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DeleteTapeResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

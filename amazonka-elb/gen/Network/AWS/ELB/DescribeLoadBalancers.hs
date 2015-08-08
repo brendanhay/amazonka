@@ -20,23 +20,21 @@
 -- Describes the specified the load balancers. If no load balancers are
 -- specified, the call describes all of your load balancers.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html AWS API Reference> for DescribeLoadBalancers.
 module Network.AWS.ELB.DescribeLoadBalancers
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLoadBalancers
-    -- ** Request constructor
     , describeLoadBalancers
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbMarker
     , dlbPageSize
     , dlbLoadBalancerNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLoadBalancersResponse
-    -- ** Response constructor
     , describeLoadBalancersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbrsLoadBalancerDescriptions
     , dlbrsNextMarker
     , dlbrsStatus
@@ -157,6 +155,6 @@ dlbrsLoadBalancerDescriptions = lens _dlbrsLoadBalancerDescriptions (\ s a -> s{
 dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});

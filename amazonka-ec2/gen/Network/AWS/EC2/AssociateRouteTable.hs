@@ -28,23 +28,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html AWS API Reference> for AssociateRouteTable.
 module Network.AWS.EC2.AssociateRouteTable
     (
-    -- * Request
+    -- * Creating a Request
       AssociateRouteTable
-    -- ** Request constructor
     , associateRouteTable
-    -- ** Request lenses
+    -- * Request Lenses
     , artDryRun
     , artSubnetId
     , artRouteTableId
 
-    -- * Response
+    -- * Destructuring the Response
     , AssociateRouteTableResponse
-    -- ** Response constructor
     , associateRouteTableResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , artrsAssociationId
     , artrsStatus
     ) where
@@ -142,6 +140,6 @@ associateRouteTableResponse pStatus_ =
 artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 artrsStatus :: Lens' AssociateRouteTableResponse Int
 artrsStatus = lens _artrsStatus (\ s a -> s{_artrsStatus = a});

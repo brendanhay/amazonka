@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -83,35 +84,222 @@
 -- -   Decrypt
 -- -   GenerateDataKey
 -- -   GenerateDataKeyWithoutPlaintext
+--
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.KMS
-    ( module Export
+    (
+    -- * Service Description
+      KMS
+
+    -- * Error Matchers
+    -- $errors
+    , _InvalidMarkerException
+    , _InvalidKeyUsageException
+    , _UnsupportedOperationException
+    , _MalformedPolicyDocumentException
+    , _DisabledException
+    , _KeyUnavailableException
+    , _KMSInternalException
+    , _NotFoundException
+    , _InvalidAliasNameException
+    , _InvalidARNException
+    , _DependencyTimeoutException
+    , _InvalidGrantTokenException
+    , _InvalidCiphertextException
+    , _LimitExceededException
+    , _AlreadyExistsException
+
+    -- * Operations
+    -- $operations
+
+    -- ** DisableKeyRotation
+    , module Network.AWS.KMS.DisableKeyRotation
+
+    -- ** GenerateDataKeyWithoutPlaintext
+    , module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
+
+    -- ** ListGrants
+    , module Network.AWS.KMS.ListGrants
+
+    -- ** Encrypt
+    , module Network.AWS.KMS.Encrypt
+
+    -- ** EnableKeyRotation
+    , module Network.AWS.KMS.EnableKeyRotation
+
+    -- ** CreateGrant
+    , module Network.AWS.KMS.CreateGrant
+
+    -- ** CreateAlias
+    , module Network.AWS.KMS.CreateAlias
+
+    -- ** ListAliases
+    , module Network.AWS.KMS.ListAliases
+
+    -- ** GenerateRandom
+    , module Network.AWS.KMS.GenerateRandom
+
+    -- ** DisableKey
+    , module Network.AWS.KMS.DisableKey
+
+    -- ** CreateKey
+    , module Network.AWS.KMS.CreateKey
+
+    -- ** RetireGrant
+    , module Network.AWS.KMS.RetireGrant
+
+    -- ** ListKeys
+    , module Network.AWS.KMS.ListKeys
+
+    -- ** GetKeyRotationStatus
+    , module Network.AWS.KMS.GetKeyRotationStatus
+
+    -- ** GenerateDataKey
+    , module Network.AWS.KMS.GenerateDataKey
+
+    -- ** DeleteAlias
+    , module Network.AWS.KMS.DeleteAlias
+
+    -- ** UpdateAlias
+    , module Network.AWS.KMS.UpdateAlias
+
+    -- ** DescribeKey
+    , module Network.AWS.KMS.DescribeKey
+
+    -- ** Decrypt
+    , module Network.AWS.KMS.Decrypt
+
+    -- ** UpdateKeyDescription
+    , module Network.AWS.KMS.UpdateKeyDescription
+
+    -- ** ReEncrypt
+    , module Network.AWS.KMS.ReEncrypt
+
+    -- ** ListKeyPolicies
+    , module Network.AWS.KMS.ListKeyPolicies
+
+    -- ** EnableKey
+    , module Network.AWS.KMS.EnableKey
+
+    -- ** PutKeyPolicy
+    , module Network.AWS.KMS.PutKeyPolicy
+
+    -- ** RevokeGrant
+    , module Network.AWS.KMS.RevokeGrant
+
+    -- ** GetKeyPolicy
+    , module Network.AWS.KMS.GetKeyPolicy
+
+    -- * Types
+
+    -- ** DataKeySpec
+    , DataKeySpec (..)
+
+    -- ** GrantOperation
+    , GrantOperation (..)
+
+    -- ** KeyUsageType
+    , KeyUsageType (..)
+
+    -- ** AliasListEntry
+    , AliasListEntry
+    , aliasListEntry
+    , aleTargetKeyId
+    , aleAliasName
+    , aleAliasARN
+
+    -- ** GrantConstraints
+    , GrantConstraints
+    , grantConstraints
+    , gcEncryptionContextEquals
+    , gcEncryptionContextSubset
+
+    -- ** GrantListEntry
+    , GrantListEntry
+    , grantListEntry
+    , gleRetiringPrincipal
+    , gleIssuingAccount
+    , gleGrantId
+    , gleConstraints
+    , gleGranteePrincipal
+    , gleOperations
+
+    -- ** KeyListEntry
+    , KeyListEntry
+    , keyListEntry
+    , kleKeyARN
+    , kleKeyId
+
+    -- ** KeyMetadata
+    , KeyMetadata
+    , keyMetadata
+    , kmARN
+    , kmEnabled
+    , kmAWSAccountId
+    , kmKeyUsage
+    , kmCreationDate
+    , kmDescription
+    , kmKeyId
     ) where
 
-import           Network.AWS.KMS.CreateAlias                     as Export
-import           Network.AWS.KMS.CreateGrant                     as Export
-import           Network.AWS.KMS.CreateKey                       as Export
-import           Network.AWS.KMS.Decrypt                         as Export
-import           Network.AWS.KMS.DeleteAlias                     as Export
-import           Network.AWS.KMS.DescribeKey                     as Export
-import           Network.AWS.KMS.DisableKey                      as Export
-import           Network.AWS.KMS.DisableKeyRotation              as Export
-import           Network.AWS.KMS.EnableKey                       as Export
-import           Network.AWS.KMS.EnableKeyRotation               as Export
-import           Network.AWS.KMS.Encrypt                         as Export
-import           Network.AWS.KMS.GenerateDataKey                 as Export
-import           Network.AWS.KMS.GenerateDataKeyWithoutPlaintext as Export
-import           Network.AWS.KMS.GenerateRandom                  as Export
-import           Network.AWS.KMS.GetKeyPolicy                    as Export
-import           Network.AWS.KMS.GetKeyRotationStatus            as Export
-import           Network.AWS.KMS.ListAliases                     as Export
-import           Network.AWS.KMS.ListGrants                      as Export
-import           Network.AWS.KMS.ListKeyPolicies                 as Export
-import           Network.AWS.KMS.ListKeys                        as Export
-import           Network.AWS.KMS.PutKeyPolicy                    as Export
-import           Network.AWS.KMS.ReEncrypt                       as Export
-import           Network.AWS.KMS.RetireGrant                     as Export
-import           Network.AWS.KMS.RevokeGrant                     as Export
-import           Network.AWS.KMS.Types                           as Export
-import           Network.AWS.KMS.UpdateAlias                     as Export
-import           Network.AWS.KMS.UpdateKeyDescription            as Export
-import           Network.AWS.KMS.Waiters                         as Export
+import           Network.AWS.KMS.CreateAlias
+import           Network.AWS.KMS.CreateGrant
+import           Network.AWS.KMS.CreateKey
+import           Network.AWS.KMS.Decrypt
+import           Network.AWS.KMS.DeleteAlias
+import           Network.AWS.KMS.DescribeKey
+import           Network.AWS.KMS.DisableKey
+import           Network.AWS.KMS.DisableKeyRotation
+import           Network.AWS.KMS.EnableKey
+import           Network.AWS.KMS.EnableKeyRotation
+import           Network.AWS.KMS.Encrypt
+import           Network.AWS.KMS.GenerateDataKey
+import           Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
+import           Network.AWS.KMS.GenerateRandom
+import           Network.AWS.KMS.GetKeyPolicy
+import           Network.AWS.KMS.GetKeyRotationStatus
+import           Network.AWS.KMS.ListAliases
+import           Network.AWS.KMS.ListGrants
+import           Network.AWS.KMS.ListKeyPolicies
+import           Network.AWS.KMS.ListKeys
+import           Network.AWS.KMS.PutKeyPolicy
+import           Network.AWS.KMS.ReEncrypt
+import           Network.AWS.KMS.RetireGrant
+import           Network.AWS.KMS.RevokeGrant
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.UpdateAlias
+import           Network.AWS.KMS.UpdateKeyDescription
+import           Network.AWS.KMS.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'KMS'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

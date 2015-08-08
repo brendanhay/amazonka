@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -27,37 +28,365 @@
 -- All Elastic Load Balancing operations are /idempotent/, which means that
 -- they complete at most one time. If you repeat an operation, it succeeds
 -- with a 200 OK response code.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ELB
-    ( module Export
+    (
+    -- * Service Description
+      ELB
+
+    -- * Error Matchers
+    -- $errors
+    , _PolicyNotFoundException
+    , _AccessPointNotFoundException
+    , _DuplicatePolicyNameException
+    , _InvalidConfigurationRequestException
+    , _SubnetNotFoundException
+    , _LoadBalancerAttributeNotFoundException
+    , _InvalidSubnetException
+    , _DuplicateTagKeysException
+    , _DuplicateListenerException
+    , _TooManyTagsException
+    , _PolicyTypeNotFoundException
+    , _DuplicateAccessPointNameException
+    , _InvalidSecurityGroupException
+    , _ListenerNotFoundException
+    , _InvalidEndPointException
+    , _TooManyAccessPointsException
+    , _InvalidSchemeException
+    , _TooManyPoliciesException
+    , _CertificateNotFoundException
+
+    -- * Operations
+    -- $operations
+
+    -- ** DescribeLoadBalancerPolicyTypes
+    , module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+
+    -- ** DescribeTags
+    , module Network.AWS.ELB.DescribeTags
+
+    -- ** DescribeLoadBalancers (Paginated)
+    , module Network.AWS.ELB.DescribeLoadBalancers
+    -- $pager
+
+    -- ** ApplySecurityGroupsToLoadBalancer
+    , module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+
+    -- ** RemoveTags
+    , module Network.AWS.ELB.RemoveTags
+
+    -- ** CreateLBCookieStickinessPolicy
+    , module Network.AWS.ELB.CreateLBCookieStickinessPolicy
+
+    -- ** DeleteLoadBalancer
+    , module Network.AWS.ELB.DeleteLoadBalancer
+
+    -- ** CreateLoadBalancerPolicy
+    , module Network.AWS.ELB.CreateLoadBalancerPolicy
+
+    -- ** DeregisterInstancesFromLoadBalancer
+    , module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+
+    -- ** DescribeLoadBalancerPolicies
+    , module Network.AWS.ELB.DescribeLoadBalancerPolicies
+
+    -- ** DisableAvailabilityZonesForLoadBalancer
+    , module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+
+    -- ** SetLoadBalancerPoliciesForBackendServer
+    , module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+
+    -- ** EnableAvailabilityZonesForLoadBalancer
+    , module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+
+    -- ** SetLoadBalancerListenerSSLCertificate
+    , module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+
+    -- ** ConfigureHealthCheck
+    , module Network.AWS.ELB.ConfigureHealthCheck
+
+    -- ** AttachLoadBalancerToSubnets
+    , module Network.AWS.ELB.AttachLoadBalancerToSubnets
+
+    -- ** ModifyLoadBalancerAttributes
+    , module Network.AWS.ELB.ModifyLoadBalancerAttributes
+
+    -- ** CreateAppCookieStickinessPolicy
+    , module Network.AWS.ELB.CreateAppCookieStickinessPolicy
+
+    -- ** AddTags
+    , module Network.AWS.ELB.AddTags
+
+    -- ** DescribeLoadBalancerAttributes
+    , module Network.AWS.ELB.DescribeLoadBalancerAttributes
+
+    -- ** DescribeInstanceHealth
+    , module Network.AWS.ELB.DescribeInstanceHealth
+
+    -- ** DetachLoadBalancerFromSubnets
+    , module Network.AWS.ELB.DetachLoadBalancerFromSubnets
+
+    -- ** RegisterInstancesWithLoadBalancer
+    , module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+
+    -- ** DeleteLoadBalancerPolicy
+    , module Network.AWS.ELB.DeleteLoadBalancerPolicy
+
+    -- ** CreateLoadBalancerListeners
+    , module Network.AWS.ELB.CreateLoadBalancerListeners
+
+    -- ** DeleteLoadBalancerListeners
+    , module Network.AWS.ELB.DeleteLoadBalancerListeners
+
+    -- ** CreateLoadBalancer
+    , module Network.AWS.ELB.CreateLoadBalancer
+
+    -- ** SetLoadBalancerPoliciesOfListener
+    , module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+
+    -- * Types
+
+    -- ** AccessLog
+    , AccessLog
+    , accessLog
+    , alEmitInterval
+    , alS3BucketPrefix
+    , alS3BucketName
+    , alEnabled
+
+    -- ** AdditionalAttribute
+    , AdditionalAttribute
+    , additionalAttribute
+    , aaValue
+    , aaKey
+
+    -- ** AppCookieStickinessPolicy
+    , AppCookieStickinessPolicy
+    , appCookieStickinessPolicy
+    , acspPolicyName
+    , acspCookieName
+
+    -- ** BackendServerDescription
+    , BackendServerDescription
+    , backendServerDescription
+    , bsdPolicyNames
+    , bsdInstancePort
+
+    -- ** ConnectionDraining
+    , ConnectionDraining
+    , connectionDraining
+    , cdTimeout
+    , cdEnabled
+
+    -- ** ConnectionSettings
+    , ConnectionSettings
+    , connectionSettings
+    , csIdleTimeout
+
+    -- ** CrossZoneLoadBalancing
+    , CrossZoneLoadBalancing
+    , crossZoneLoadBalancing
+    , czlbEnabled
+
+    -- ** HealthCheck
+    , HealthCheck
+    , healthCheck
+    , hcTarget
+    , hcInterval
+    , hcTimeout
+    , hcUnhealthyThreshold
+    , hcHealthyThreshold
+
+    -- ** Instance
+    , Instance
+    , instance'
+    , iInstanceId
+
+    -- ** InstanceState
+    , InstanceState
+    , instanceState
+    , isInstanceId
+    , isState
+    , isReasonCode
+    , isDescription
+
+    -- ** LBCookieStickinessPolicy
+    , LBCookieStickinessPolicy
+    , lBCookieStickinessPolicy
+    , lbcspPolicyName
+    , lbcspCookieExpirationPeriod
+
+    -- ** Listener
+    , Listener
+    , listener
+    , lInstanceProtocol
+    , lSSLCertificateId
+    , lProtocol
+    , lLoadBalancerPort
+    , lInstancePort
+
+    -- ** ListenerDescription
+    , ListenerDescription
+    , listenerDescription
+    , ldPolicyNames
+    , ldListener
+
+    -- ** LoadBalancerAttributes
+    , LoadBalancerAttributes
+    , loadBalancerAttributes
+    , lbaCrossZoneLoadBalancing
+    , lbaAccessLog
+    , lbaAdditionalAttributes
+    , lbaConnectionSettings
+    , lbaConnectionDraining
+
+    -- ** LoadBalancerDescription
+    , LoadBalancerDescription
+    , loadBalancerDescription
+    , lbdSourceSecurityGroup
+    , lbdHealthCheck
+    , lbdCanonicalHostedZoneName
+    , lbdSecurityGroups
+    , lbdLoadBalancerName
+    , lbdCreatedTime
+    , lbdVPCId
+    , lbdSubnets
+    , lbdAvailabilityZones
+    , lbdBackendServerDescriptions
+    , lbdCanonicalHostedZoneNameId
+    , lbdInstances
+    , lbdScheme
+    , lbdListenerDescriptions
+    , lbdDNSName
+    , lbdPolicies
+
+    -- ** Policies
+    , Policies
+    , policies
+    , pOtherPolicies
+    , pLBCookieStickinessPolicies
+    , pAppCookieStickinessPolicies
+
+    -- ** PolicyAttribute
+    , PolicyAttribute
+    , policyAttribute
+    , paAttributeValue
+    , paAttributeName
+
+    -- ** PolicyAttributeDescription
+    , PolicyAttributeDescription
+    , policyAttributeDescription
+    , padAttributeValue
+    , padAttributeName
+
+    -- ** PolicyAttributeTypeDescription
+    , PolicyAttributeTypeDescription
+    , policyAttributeTypeDescription
+    , patdAttributeType
+    , patdCardinality
+    , patdDefaultValue
+    , patdAttributeName
+    , patdDescription
+
+    -- ** PolicyDescription
+    , PolicyDescription
+    , policyDescription
+    , pdPolicyName
+    , pdPolicyAttributeDescriptions
+    , pdPolicyTypeName
+
+    -- ** PolicyTypeDescription
+    , PolicyTypeDescription
+    , policyTypeDescription
+    , ptdPolicyTypeName
+    , ptdDescription
+    , ptdPolicyAttributeTypeDescriptions
+
+    -- ** SourceSecurityGroup
+    , SourceSecurityGroup
+    , sourceSecurityGroup
+    , ssgOwnerAlias
+    , ssgGroupName
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- ** TagDescription
+    , TagDescription
+    , tagDescription
+    , tdLoadBalancerName
+    , tdTags
+
+    -- ** TagKeyOnly
+    , TagKeyOnly
+    , tagKeyOnly
+    , tkoKey
     ) where
 
-import           Network.AWS.ELB.AddTags                                 as Export
-import           Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer       as Export
-import           Network.AWS.ELB.AttachLoadBalancerToSubnets             as Export
-import           Network.AWS.ELB.ConfigureHealthCheck                    as Export
-import           Network.AWS.ELB.CreateAppCookieStickinessPolicy         as Export
-import           Network.AWS.ELB.CreateLBCookieStickinessPolicy          as Export
-import           Network.AWS.ELB.CreateLoadBalancer                      as Export
-import           Network.AWS.ELB.CreateLoadBalancerListeners             as Export
-import           Network.AWS.ELB.CreateLoadBalancerPolicy                as Export
-import           Network.AWS.ELB.DeleteLoadBalancer                      as Export
-import           Network.AWS.ELB.DeleteLoadBalancerListeners             as Export
-import           Network.AWS.ELB.DeleteLoadBalancerPolicy                as Export
-import           Network.AWS.ELB.DeregisterInstancesFromLoadBalancer     as Export
-import           Network.AWS.ELB.DescribeInstanceHealth                  as Export
-import           Network.AWS.ELB.DescribeLoadBalancerAttributes          as Export
-import           Network.AWS.ELB.DescribeLoadBalancerPolicies            as Export
-import           Network.AWS.ELB.DescribeLoadBalancerPolicyTypes         as Export
-import           Network.AWS.ELB.DescribeLoadBalancers                   as Export
-import           Network.AWS.ELB.DescribeTags                            as Export
-import           Network.AWS.ELB.DetachLoadBalancerFromSubnets           as Export
-import           Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer as Export
-import           Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer  as Export
-import           Network.AWS.ELB.ModifyLoadBalancerAttributes            as Export
-import           Network.AWS.ELB.RegisterInstancesWithLoadBalancer       as Export
-import           Network.AWS.ELB.RemoveTags                              as Export
-import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate   as Export
-import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer as Export
-import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener       as Export
-import           Network.AWS.ELB.Types                                   as Export
-import           Network.AWS.ELB.Waiters                                 as Export
+import           Network.AWS.ELB.AddTags
+import           Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+import           Network.AWS.ELB.AttachLoadBalancerToSubnets
+import           Network.AWS.ELB.ConfigureHealthCheck
+import           Network.AWS.ELB.CreateAppCookieStickinessPolicy
+import           Network.AWS.ELB.CreateLBCookieStickinessPolicy
+import           Network.AWS.ELB.CreateLoadBalancer
+import           Network.AWS.ELB.CreateLoadBalancerListeners
+import           Network.AWS.ELB.CreateLoadBalancerPolicy
+import           Network.AWS.ELB.DeleteLoadBalancer
+import           Network.AWS.ELB.DeleteLoadBalancerListeners
+import           Network.AWS.ELB.DeleteLoadBalancerPolicy
+import           Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+import           Network.AWS.ELB.DescribeInstanceHealth
+import           Network.AWS.ELB.DescribeLoadBalancerAttributes
+import           Network.AWS.ELB.DescribeLoadBalancerPolicies
+import           Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+import           Network.AWS.ELB.DescribeLoadBalancers
+import           Network.AWS.ELB.DescribeTags
+import           Network.AWS.ELB.DetachLoadBalancerFromSubnets
+import           Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+import           Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+import           Network.AWS.ELB.ModifyLoadBalancerAttributes
+import           Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+import           Network.AWS.ELB.RemoveTags
+import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'ELB'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

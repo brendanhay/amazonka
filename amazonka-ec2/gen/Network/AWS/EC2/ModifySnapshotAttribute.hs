@@ -29,14 +29,13 @@
 --
 -- Snapshots with AWS Marketplace product codes cannot be made public.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html AWS API Reference> for ModifySnapshotAttribute.
 module Network.AWS.EC2.ModifySnapshotAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ModifySnapshotAttribute
-    -- ** Request constructor
     , modifySnapshotAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , msaAttribute
     , msaUserIds
     , msaCreateVolumePermission
@@ -45,9 +44,8 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     , msaDryRun
     , msaSnapshotId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifySnapshotAttributeResponse
-    -- ** Response constructor
     , modifySnapshotAttributeResponse
     ) where
 

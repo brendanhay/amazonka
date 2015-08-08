@@ -38,23 +38,21 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLBCookieStickinessPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLBCookieStickinessPolicy.html AWS API Reference> for CreateLBCookieStickinessPolicy.
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
-    -- * Request
+    -- * Creating a Request
       CreateLBCookieStickinessPolicy
-    -- ** Request constructor
     , createLBCookieStickinessPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , clbcspCookieExpirationPeriod
     , clbcspLoadBalancerName
     , clbcspPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLBCookieStickinessPolicyResponse
-    -- ** Response constructor
     , createLBCookieStickinessPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clbcsprsStatus
     ) where
 
@@ -149,6 +147,6 @@ createLBCookieStickinessPolicyResponse pStatus_ =
     { _clbcsprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clbcsprsStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
 clbcsprsStatus = lens _clbcsprsStatus (\ s a -> s{_clbcsprsStatus = a});

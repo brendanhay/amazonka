@@ -19,21 +19,19 @@
 --
 -- Creates a new application.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.CodeDeploy.CreateApplication
     (
-    -- * Request
+    -- * Creating a Request
       CreateApplication
-    -- ** Request constructor
     , createApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , caApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateApplicationResponse
-    -- ** Response constructor
     , createApplicationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , carsApplicationId
     , carsStatus
     ) where
@@ -122,6 +120,6 @@ createApplicationResponse pStatus_ =
 carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 carsStatus :: Lens' CreateApplicationResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

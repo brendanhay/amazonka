@@ -25,14 +25,13 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateApp.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateApp.html AWS API Reference> for UpdateApp.
 module Network.AWS.OpsWorks.UpdateApp
     (
-    -- * Request
+    -- * Creating a Request
       UpdateApp
-    -- ** Request constructor
     , updateApp
-    -- ** Request lenses
+    -- * Request Lenses
     , uaSSLConfiguration
     , uaEnableSSL
     , uaEnvironment
@@ -45,9 +44,8 @@ module Network.AWS.OpsWorks.UpdateApp
     , uaDescription
     , uaAppId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAppResponse
-    -- ** Response constructor
     , updateAppResponse
     ) where
 

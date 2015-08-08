@@ -25,25 +25,23 @@
 -- Deregistered images are included in the returned results for an
 -- unspecified interval after deregistration.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html AWS API Reference> for DescribeImages.
 module Network.AWS.EC2.DescribeImages
     (
-    -- * Request
+    -- * Creating a Request
       DescribeImages
-    -- ** Request constructor
     , describeImages
-    -- ** Request lenses
+    -- * Request Lenses
     , deseOwners
     , deseExecutableUsers
     , deseFilters
     , deseImageIds
     , deseDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeImagesResponse
-    -- ** Response constructor
     , describeImagesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , desrsImages
     , desrsStatus
     ) where
@@ -250,6 +248,6 @@ describeImagesResponse pStatus_ =
 desrsImages :: Lens' DescribeImagesResponse [Image]
 desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 desrsStatus :: Lens' DescribeImagesResponse Int
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

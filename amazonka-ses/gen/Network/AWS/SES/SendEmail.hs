@@ -43,14 +43,13 @@
 --     information about your sending quota, go to the
 --     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html AWS API Reference> for SendEmail.
 module Network.AWS.SES.SendEmail
     (
-    -- * Request
+    -- * Creating a Request
       SendEmail
-    -- ** Request constructor
     , sendEmail
-    -- ** Request lenses
+    -- * Request Lenses
     , seReturnPath
     , seSourceARN
     , seReturnPathARN
@@ -59,11 +58,10 @@ module Network.AWS.SES.SendEmail
     , seDestination
     , seMessage
 
-    -- * Response
+    -- * Destructuring the Response
     , SendEmailResponse
-    -- ** Response constructor
     , sendEmailResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , sersStatus
     , sersMessageId
     ) where
@@ -252,7 +250,7 @@ sendEmailResponse pStatus_ pMessageId_ =
     , _sersMessageId = pMessageId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sersStatus :: Lens' SendEmailResponse Int
 sersStatus = lens _sersStatus (\ s a -> s{_sersStatus = a});
 

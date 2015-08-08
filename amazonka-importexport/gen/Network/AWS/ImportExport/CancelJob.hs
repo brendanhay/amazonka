@@ -20,22 +20,20 @@
 -- This operation cancels a specified job. Only the job owner can cancel
 -- it. The operation fails if the job has already started or is complete.
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCancelJob.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCancelJob.html AWS API Reference> for CancelJob.
 module Network.AWS.ImportExport.CancelJob
     (
-    -- * Request
+    -- * Creating a Request
       CancelJob
-    -- ** Request constructor
     , cancelJob
-    -- ** Request lenses
+    -- * Request Lenses
     , cAPIVersion
     , cJobId
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelJobResponse
-    -- ** Response constructor
     , cancelJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsSuccess
     , crsStatus
     ) where
@@ -67,11 +65,11 @@ cancelJob pJobId_ =
     , _cJobId = pJobId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cAPIVersion :: Lens' CancelJob (Maybe Text)
 cAPIVersion = lens _cAPIVersion (\ s a -> s{_cAPIVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cJobId :: Lens' CancelJob Text
 cJobId = lens _cJobId (\ s a -> s{_cJobId = a});
 
@@ -121,10 +119,10 @@ cancelJobResponse pStatus_ =
     , _crsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsSuccess :: Lens' CancelJobResponse (Maybe Bool)
 crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CancelJobResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

@@ -24,21 +24,19 @@
 -- You can only describe @INACTIVE@ task definitions while an active task
 -- or service references them.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html AWS API Reference> for DescribeTaskDefinition.
 module Network.AWS.ECS.DescribeTaskDefinition
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTaskDefinition
-    -- ** Request constructor
     , describeTaskDefinition
-    -- ** Request lenses
+    -- * Request Lenses
     , dtdTaskDefinition
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTaskDefinitionResponse
-    -- ** Response constructor
     , describeTaskDefinitionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , desrsTaskDefinition
     , desrsStatus
     ) where
@@ -126,6 +124,6 @@ describeTaskDefinitionResponse pStatus_ =
 desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
 desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 desrsStatus :: Lens' DescribeTaskDefinitionResponse Int
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

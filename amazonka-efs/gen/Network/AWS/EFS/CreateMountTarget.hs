@@ -118,24 +118,22 @@
 -- -   @ec2:DescribeNetworkInterfaces@
 -- -   @ec2:CreateNetworkInterface@
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMountTarget.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMountTarget.html AWS API Reference> for CreateMountTarget.
 module Network.AWS.EFS.CreateMountTarget
     (
-    -- * Request
+    -- * Creating a Request
       CreateMountTarget
-    -- ** Request constructor
     , createMountTarget
-    -- ** Request lenses
+    -- * Request Lenses
     , cmtIPAddress
     , cmtSecurityGroups
     , cmtFileSystemId
     , cmtSubnetId
 
-    -- * Response
+    -- * Destructuring the Response
     , MountTargetDescription
-    -- ** Response constructor
     , mountTargetDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , mtdIPAddress
     , mtdNetworkInterfaceId
     , mtdOwnerId

@@ -39,14 +39,13 @@
 -- a security group for your VPC. The security groups must all be for the
 -- same VPC.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html AWS API Reference> for AuthorizeSecurityGroupIngress.
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
-    -- * Request
+    -- * Creating a Request
       AuthorizeSecurityGroupIngress
-    -- ** Request constructor
     , authorizeSecurityGroupIngress
-    -- ** Request lenses
+    -- * Request Lenses
     , asgiFromPort
     , asgiIPPermissions
     , asgiIPProtocol
@@ -58,9 +57,8 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     , asgiSourceSecurityGroupName
     , asgiDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , AuthorizeSecurityGroupIngressResponse
-    -- ** Response constructor
     , authorizeSecurityGroupIngressResponse
     ) where
 

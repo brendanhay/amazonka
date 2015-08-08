@@ -13,10 +13,10 @@
 --
 module Network.AWS.AutoScaling.Types
     (
-    -- * Service
+    -- * Service Decription
       AutoScaling
 
-    -- * Errors
+    -- * Error Matchers
     , _LimitExceededFault
     , _AlreadyExistsFault
     , _ResourceInUseFault

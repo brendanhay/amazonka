@@ -19,21 +19,19 @@
 --
 -- Gets information about a job.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetJob.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetJob.html AWS API Reference> for GetJob.
 module Network.AWS.DeviceFarm.GetJob
     (
-    -- * Request
+    -- * Creating a Request
       GetJob
-    -- ** Request constructor
     , getJob
-    -- ** Request lenses
+    -- * Request Lenses
     , gjArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetJobResponse
-    -- ** Response constructor
     , getJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gjrsJob
     , gjrsStatus
     ) where
@@ -115,10 +113,10 @@ getJobResponse pStatus_ =
     , _gjrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gjrsJob :: Lens' GetJobResponse (Maybe Job)
 gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gjrsStatus :: Lens' GetJobResponse Int
 gjrsStatus = lens _gjrsStatus (\ s a -> s{_gjrsStatus = a});

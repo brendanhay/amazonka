@@ -36,22 +36,20 @@
 -- the reboot process to reduce rollback activity for in-transit
 -- transactions.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html AWS API Reference> for RebootDBInstance.
 module Network.AWS.RDS.RebootDBInstance
     (
-    -- * Request
+    -- * Creating a Request
       RebootDBInstance
-    -- ** Request constructor
     , rebootDBInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , rdiForceFailover
     , rdiDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RebootDBInstanceResponse
-    -- ** Response constructor
     , rebootDBInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdirsDBInstance
     , rdirsStatus
     ) where
@@ -145,10 +143,10 @@ rebootDBInstanceResponse pStatus_ =
     , _rdirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdirsStatus :: Lens' RebootDBInstanceResponse Int
 rdirsStatus = lens _rdirsStatus (\ s a -> s{_rdirsStatus = a});

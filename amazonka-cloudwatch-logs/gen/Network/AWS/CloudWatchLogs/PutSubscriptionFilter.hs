@@ -31,23 +31,21 @@
 -- Currently there can only be one subscription filter associated with a
 -- log group.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html AWS API Reference> for PutSubscriptionFilter.
 module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     (
-    -- * Request
+    -- * Creating a Request
       PutSubscriptionFilter
-    -- ** Request constructor
     , putSubscriptionFilter
-    -- ** Request lenses
+    -- * Request Lenses
     , psfRoleARN
     , psfLogGroupName
     , psfFilterName
     , psfFilterPattern
     , psfDestinationARN
 
-    -- * Response
+    -- * Destructuring the Response
     , PutSubscriptionFilterResponse
-    -- ** Response constructor
     , putSubscriptionFilterResponse
     ) where
 

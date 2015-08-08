@@ -27,24 +27,22 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeVolumes.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeVolumes.html AWS API Reference> for DescribeVolumes.
 module Network.AWS.OpsWorks.DescribeVolumes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVolumes
-    -- ** Request constructor
     , describeVolumes
-    -- ** Request lenses
+    -- * Request Lenses
     , dvInstanceId
     , dvVolumeIds
     , dvRAIdArrayId
     , dvStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVolumesResponse
-    -- ** Response constructor
     , describeVolumesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvrsVolumes
     , dvrsStatus
     ) where
@@ -162,6 +160,6 @@ describeVolumesResponse pStatus_ =
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvrsStatus :: Lens' DescribeVolumesResponse Int
 dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

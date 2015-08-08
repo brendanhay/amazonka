@@ -46,24 +46,22 @@
 -- This operation requires permission for the
 -- @elasticfilesystem:DescribeFileSystems@ action.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeFileSystems.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeFileSystems.html AWS API Reference> for DescribeFileSystems.
 module Network.AWS.EFS.DescribeFileSystems
     (
-    -- * Request
+    -- * Creating a Request
       DescribeFileSystems
-    -- ** Request constructor
     , describeFileSystems
-    -- ** Request lenses
+    -- * Request Lenses
     , dfsFileSystemId
     , dfsMaxItems
     , dfsCreationToken
     , dfsMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeFileSystemsResponse
-    -- ** Response constructor
     , describeFileSystemsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dfsrsFileSystems
     , dfsrsMarker
     , dfsrsNextMarker
@@ -196,6 +194,6 @@ dfsrsMarker = lens _dfsrsMarker (\ s a -> s{_dfsrsMarker = a});
 dfsrsNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
 dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dfsrsStatus :: Lens' DescribeFileSystemsResponse Int
 dfsrsStatus = lens _dfsrsStatus (\ s a -> s{_dfsrsStatus = a});

@@ -20,19 +20,17 @@
 -- To retrieve a count of all your health checks, send a @GET@ request to
 -- the @2013-04-01\/healthcheckcount@ resource.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html AWS API Reference> for GetHealthCheckCount.
 module Network.AWS.Route53.GetHealthCheckCount
     (
-    -- * Request
+    -- * Creating a Request
       GetHealthCheckCount
-    -- ** Request constructor
     , getHealthCheckCount
 
-    -- * Response
+    -- * Destructuring the Response
     , GetHealthCheckCountResponse
-    -- ** Response constructor
     , getHealthCheckCountResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ghccrsStatus
     , ghccrsHealthCheckCount
     ) where
@@ -97,7 +95,7 @@ getHealthCheckCountResponse pStatus_ pHealthCheckCount_ =
     , _ghccrsHealthCheckCount = pHealthCheckCount_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ghccrsStatus :: Lens' GetHealthCheckCountResponse Int
 ghccrsStatus = lens _ghccrsStatus (\ s a -> s{_ghccrsStatus = a});
 

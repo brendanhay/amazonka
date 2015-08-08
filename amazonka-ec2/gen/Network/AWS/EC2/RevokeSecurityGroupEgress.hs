@@ -29,14 +29,13 @@
 -- Rule changes are propagated to instances within the security group as
 -- quickly as possible. However, a small delay might occur.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupEgress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupEgress.html AWS API Reference> for RevokeSecurityGroupEgress.
 module Network.AWS.EC2.RevokeSecurityGroupEgress
     (
-    -- * Request
+    -- * Creating a Request
       RevokeSecurityGroupEgress
-    -- ** Request constructor
     , revokeSecurityGroupEgress
-    -- ** Request lenses
+    -- * Request Lenses
     , rsgeFromPort
     , rsgeIPPermissions
     , rsgeIPProtocol
@@ -47,9 +46,8 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     , rsgeDryRun
     , rsgeGroupId
 
-    -- * Response
+    -- * Destructuring the Response
     , RevokeSecurityGroupEgressResponse
-    -- ** Response constructor
     , revokeSecurityGroupEgressResponse
     ) where
 

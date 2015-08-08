@@ -19,21 +19,19 @@
 --
 -- Deletes an RDS event notification subscription.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteEventSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteEventSubscription.html AWS API Reference> for DeleteEventSubscription.
 module Network.AWS.RDS.DeleteEventSubscription
     (
-    -- * Request
+    -- * Creating a Request
       DeleteEventSubscription
-    -- ** Request constructor
     , deleteEventSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , desSubscriptionName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteEventSubscriptionResponse
-    -- ** Response constructor
     , deleteEventSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsEventSubscription
     , drsStatus
     ) where
@@ -110,10 +108,10 @@ deleteEventSubscriptionResponse pStatus_ =
     , _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteEventSubscriptionResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

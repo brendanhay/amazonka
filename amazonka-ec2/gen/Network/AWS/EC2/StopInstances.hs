@@ -52,23 +52,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting Stopping Your Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StopInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StopInstances.html AWS API Reference> for StopInstances.
 module Network.AWS.EC2.StopInstances
     (
-    -- * Request
+    -- * Creating a Request
       StopInstances
-    -- ** Request constructor
     , stopInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , siForce
     , siDryRun
     , siInstanceIds
 
-    -- * Response
+    -- * Destructuring the Response
     , StopInstancesResponse
-    -- ** Response constructor
     , stopInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , sirsStoppingInstances
     , sirsStatus
     ) where
@@ -172,6 +170,6 @@ stopInstancesResponse pStatus_ =
 sirsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sirsStatus :: Lens' StopInstancesResponse Int
 sirsStatus = lens _sirsStatus (\ s a -> s{_sirsStatus = a});

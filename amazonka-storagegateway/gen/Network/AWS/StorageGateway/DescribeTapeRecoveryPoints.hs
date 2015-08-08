@@ -25,23 +25,21 @@
 -- virtual tapes that have recovery points can be recovered to a new
 -- gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html AWS API Reference> for DescribeTapeRecoveryPoints.
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTapeRecoveryPoints
-    -- ** Request constructor
     , describeTapeRecoveryPoints
-    -- ** Request lenses
+    -- * Request Lenses
     , dtrpMarker
     , dtrpLimit
     , dtrpGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTapeRecoveryPointsResponse
-    -- ** Response constructor
     , describeTapeRecoveryPointsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrprsTapeRecoveryPointInfos
     , dtrprsGatewayARN
     , dtrprsMarker
@@ -90,7 +88,7 @@ dtrpMarker = lens _dtrpMarker (\ s a -> s{_dtrpMarker = a});
 dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
 dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
 dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a});
 
@@ -172,7 +170,7 @@ describeTapeRecoveryPointsResponse pStatus_ =
 dtrprsTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
 dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\ s a -> s{_dtrprsTapeRecoveryPointInfos = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrprsGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a});
 
@@ -185,6 +183,6 @@ dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a});
 dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrprsStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
 dtrprsStatus = lens _dtrprsStatus (\ s a -> s{_dtrprsStatus = a});

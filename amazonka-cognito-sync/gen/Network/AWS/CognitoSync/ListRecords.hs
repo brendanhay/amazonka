@@ -26,14 +26,13 @@
 -- Cognito Identity or with developer credentials. You should use Cognito
 -- Identity credentials to make this API call.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListRecords.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListRecords.html AWS API Reference> for ListRecords.
 module Network.AWS.CognitoSync.ListRecords
     (
-    -- * Request
+    -- * Creating a Request
       ListRecords
-    -- ** Request constructor
     , listRecords
-    -- ** Request lenses
+    -- * Request Lenses
     , lrLastSyncCount
     , lrNextToken
     , lrSyncSessionToken
@@ -42,11 +41,10 @@ module Network.AWS.CognitoSync.ListRecords
     , lrIdentityId
     , lrDatasetName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListRecordsResponse
-    -- ** Response constructor
     , listRecordsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrrsDatasetDeletedAfterRequestedSyncCount
     , lrrsDatasetExists
     , lrrsCount
@@ -270,6 +268,6 @@ lrrsLastModifiedBy = lens _lrrsLastModifiedBy (\ s a -> s{_lrrsLastModifiedBy = 
 lrrsDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCount = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrrsStatus :: Lens' ListRecordsResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

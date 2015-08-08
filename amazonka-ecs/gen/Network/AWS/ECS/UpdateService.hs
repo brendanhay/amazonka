@@ -34,24 +34,22 @@
 -- your service, you can reduce the desired count of your service by one
 -- before modifying the task definition.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html AWS API Reference> for UpdateService.
 module Network.AWS.ECS.UpdateService
     (
-    -- * Request
+    -- * Creating a Request
       UpdateService
-    -- ** Request constructor
     , updateService
-    -- ** Request lenses
+    -- * Request Lenses
     , usCluster
     , usDesiredCount
     , usTaskDefinition
     , usService
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateServiceResponse
-    -- ** Response constructor
     , updateServiceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , usrsService
     , usrsStatus
     ) where
@@ -171,6 +169,6 @@ updateServiceResponse pStatus_ =
 usrsService :: Lens' UpdateServiceResponse (Maybe ContainerService)
 usrsService = lens _usrsService (\ s a -> s{_usrsService = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usrsStatus :: Lens' UpdateServiceResponse Int
 usrsStatus = lens _usrsStatus (\ s a -> s{_usrsStatus = a});

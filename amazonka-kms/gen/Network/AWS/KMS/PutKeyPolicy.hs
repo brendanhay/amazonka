@@ -19,21 +19,19 @@
 --
 -- Attaches a policy to the specified key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html AWS API Reference> for PutKeyPolicy.
 module Network.AWS.KMS.PutKeyPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutKeyPolicy
-    -- ** Request constructor
     , putKeyPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , pkpKeyId
     , pkpPolicyName
     , pkpPolicy
 
-    -- * Response
+    -- * Destructuring the Response
     , PutKeyPolicyResponse
-    -- ** Response constructor
     , putKeyPolicyResponse
     ) where
 

@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html AWS API Reference> for AuthorizeSnapshotAccess.
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
     (
-    -- * Request
+    -- * Creating a Request
       AuthorizeSnapshotAccess
-    -- ** Request constructor
     , authorizeSnapshotAccess
-    -- ** Request lenses
+    -- * Request Lenses
     , asaSnapshotClusterIdentifier
     , asaSnapshotIdentifier
     , asaAccountWithRestoreAccess
 
-    -- * Response
+    -- * Destructuring the Response
     , AuthorizeSnapshotAccessResponse
-    -- ** Response constructor
     , authorizeSnapshotAccessResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , asarsSnapshot
     , asarsStatus
     ) where
@@ -141,10 +139,10 @@ authorizeSnapshotAccessResponse pStatus_ =
     , _asarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asarsStatus :: Lens' AuthorizeSnapshotAccessResponse Int
 asarsStatus = lens _asarsStatus (\ s a -> s{_asarsStatus = a});

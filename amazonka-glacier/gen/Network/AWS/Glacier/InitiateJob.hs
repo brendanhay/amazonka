@@ -146,23 +146,21 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html Downloading a Vault Inventory>
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateJob.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateJob.html AWS API Reference> for InitiateJob.
 module Network.AWS.Glacier.InitiateJob
     (
-    -- * Request
+    -- * Creating a Request
       InitiateJob
-    -- ** Request constructor
     , initiateJob
-    -- ** Request lenses
+    -- * Request Lenses
     , ijJobParameters
     , ijAccountId
     , ijVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , InitiateJobResponse
-    -- ** Response constructor
     , initiateJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ijrsJobId
     , ijrsLocation
     , ijrsStatus
@@ -276,6 +274,6 @@ ijrsJobId = lens _ijrsJobId (\ s a -> s{_ijrsJobId = a});
 ijrsLocation :: Lens' InitiateJobResponse (Maybe Text)
 ijrsLocation = lens _ijrsLocation (\ s a -> s{_ijrsLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ijrsStatus :: Lens' InitiateJobResponse Int
 ijrsStatus = lens _ijrsStatus (\ s a -> s{_ijrsStatus = a});

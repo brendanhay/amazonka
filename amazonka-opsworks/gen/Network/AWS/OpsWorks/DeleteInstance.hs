@@ -29,21 +29,19 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteInstance.html AWS API Reference> for DeleteInstance.
 module Network.AWS.OpsWorks.DeleteInstance
     (
-    -- * Request
+    -- * Creating a Request
       DeleteInstance
-    -- ** Request constructor
     , deleteInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , diDeleteVolumes
     , diDeleteElasticIP
     , diInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteInstanceResponse
-    -- ** Response constructor
     , deleteInstanceResponse
     ) where
 

@@ -23,6 +23,8 @@ import           Network.AWS.ElastiCache.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 cacheClusterAvailable :: Wait DescribeCacheClusters
 cacheClusterAvailable =
     Wait
@@ -33,29 +35,31 @@ cacheClusterAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)
+                              ccCacheClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "deleted"
                              AcceptFailure
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)
+                              ccCacheClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "deleting"
                              AcceptFailure
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)
+                              ccCacheClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "incompatible-network"
                              AcceptFailure
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)
+                              ccCacheClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "restore-failed"
                              AcceptFailure
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)]
+                              ccCacheClusterStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 cacheClusterDeleted :: Wait DescribeCacheClusters
 cacheClusterDeleted =
     Wait
@@ -67,19 +71,21 @@ cacheClusterDeleted =
                              "creating"
                              AcceptFailure
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)
+                              ccCacheClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "modifying"
                              AcceptFailure
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)
+                              ccCacheClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "rebooting"
                              AcceptFailure
                              (folding (concatOf drsCacheClusters) .
-                              ccCacheClusterStatus . _Just . to toText)]
+                              ccCacheClusterStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 replicationGroupDeleted :: Wait DescribeReplicationGroups
 replicationGroupDeleted =
     Wait
@@ -93,19 +99,21 @@ replicationGroupDeleted =
                              "creating"
                              AcceptFailure
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)
+                              rgStatus . _Just . to toTextCI)
                        , matchAny
                              "modifying"
                              AcceptFailure
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)
+                              rgStatus . _Just . to toTextCI)
                        , matchAny
                              "rebooting"
                              AcceptFailure
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)]
+                              rgStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 replicationGroupAvailable :: Wait DescribeReplicationGroups
 replicationGroupAvailable =
     Wait
@@ -116,25 +124,25 @@ replicationGroupAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)
+                              rgStatus . _Just . to toTextCI)
                        , matchAny
                              "deleted"
                              AcceptFailure
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)
+                              rgStatus . _Just . to toTextCI)
                        , matchAny
                              "deleting"
                              AcceptFailure
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)
+                              rgStatus . _Just . to toTextCI)
                        , matchAny
                              "incompatible-network"
                              AcceptFailure
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)
+                              rgStatus . _Just . to toTextCI)
                        , matchAny
                              "restore-failed"
                              AcceptFailure
                              (folding (concatOf drgrsReplicationGroups) .
-                              rgStatus . _Just . to toText)]
+                              rgStatus . _Just . to toTextCI)]
     }

@@ -28,20 +28,18 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssociateElasticIP.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssociateElasticIP.html AWS API Reference> for AssociateElasticIP.
 module Network.AWS.OpsWorks.AssociateElasticIP
     (
-    -- * Request
+    -- * Creating a Request
       AssociateElasticIP
-    -- ** Request constructor
     , associateElasticIP
-    -- ** Request lenses
+    -- * Request Lenses
     , aeiInstanceId
     , aeiElasticIP
 
-    -- * Response
+    -- * Destructuring the Response
     , AssociateElasticIPResponse
-    -- ** Response constructor
     , associateElasticIPResponse
     ) where
 

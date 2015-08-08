@@ -31,23 +31,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPC.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPC.html AWS API Reference> for CreateVPC.
 module Network.AWS.EC2.CreateVPC
     (
-    -- * Request
+    -- * Creating a Request
       CreateVPC
-    -- ** Request constructor
     , createVPC
-    -- ** Request lenses
+    -- * Request Lenses
     , cvInstanceTenancy
     , cvDryRun
     , cvCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateVPCResponse
-    -- ** Response constructor
     , createVPCResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cvrsVPC
     , cvrsStatus
     ) where
@@ -152,6 +150,6 @@ createVPCResponse pStatus_ =
 cvrsVPC :: Lens' CreateVPCResponse (Maybe VPC)
 cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cvrsStatus :: Lens' CreateVPCResponse Int
 cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});

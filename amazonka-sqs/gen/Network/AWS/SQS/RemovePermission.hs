@@ -20,20 +20,18 @@
 -- Revokes any permissions in the queue policy that matches the specified
 -- @Label@ parameter. Only the owner of the queue can remove permissions.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.SQS.RemovePermission
     (
-    -- * Request
+    -- * Creating a Request
       RemovePermission
-    -- ** Request constructor
     , removePermission
-    -- ** Request lenses
+    -- * Request Lenses
     , rpQueueURL
     , rpLabel
 
-    -- * Response
+    -- * Destructuring the Response
     , RemovePermissionResponse
-    -- ** Response constructor
     , removePermissionResponse
     ) where
 

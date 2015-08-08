@@ -24,19 +24,17 @@
 -- permissions. For more information on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeMyUserProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeMyUserProfile.html AWS API Reference> for DescribeMyUserProfile.
 module Network.AWS.OpsWorks.DescribeMyUserProfile
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMyUserProfile
-    -- ** Request constructor
     , describeMyUserProfile
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMyUserProfileResponse
-    -- ** Response constructor
     , describeMyUserProfileResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmuprsUserProfile
     , dmuprsStatus
     ) where
@@ -111,6 +109,6 @@ describeMyUserProfileResponse pStatus_ =
 dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmuprsStatus :: Lens' DescribeMyUserProfileResponse Int
 dmuprsStatus = lens _dmuprsStatus (\ s a -> s{_dmuprsStatus = a});

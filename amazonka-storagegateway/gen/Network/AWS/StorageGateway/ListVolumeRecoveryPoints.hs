@@ -26,21 +26,19 @@
 -- volume recovery point use the CreateSnapshotFromVolumeRecoveryPoint
 -- operation.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html AWS API Reference> for ListVolumeRecoveryPoints.
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
-    -- * Request
+    -- * Creating a Request
       ListVolumeRecoveryPoints
-    -- ** Request constructor
     , listVolumeRecoveryPoints
-    -- ** Request lenses
+    -- * Request Lenses
     , lvrpGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListVolumeRecoveryPointsResponse
-    -- ** Response constructor
     , listVolumeRecoveryPointsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lvrprsVolumeRecoveryPointInfos
     , lvrprsGatewayARN
     , lvrprsStatus
@@ -67,7 +65,7 @@ listVolumeRecoveryPoints pGatewayARN_ =
     { _lvrpGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
 lvrpGatewayARN = lens _lvrpGatewayARN (\ s a -> s{_lvrpGatewayARN = a});
 
@@ -128,14 +126,14 @@ listVolumeRecoveryPointsResponse pStatus_ =
     , _lvrprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
 lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrprsStatus :: Lens' ListVolumeRecoveryPointsResponse Int
 lvrprsStatus = lens _lvrprsStatus (\ s a -> s{_lvrprsStatus = a});

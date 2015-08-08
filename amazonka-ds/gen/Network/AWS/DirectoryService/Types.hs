@@ -13,10 +13,10 @@
 --
 module Network.AWS.DirectoryService.Types
     (
-    -- * Service
+    -- * Service Decription
       DirectoryService
 
-    -- * Errors
+    -- * Error Matchers
     , _AuthenticationFailedException
     , _DirectoryUnavailableException
     , _InvalidParameterException

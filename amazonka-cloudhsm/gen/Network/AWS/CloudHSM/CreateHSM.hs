@@ -21,14 +21,13 @@
 -- an HSM appliance and will result in charges to your AWS account for the
 -- HSM.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHSM.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHSM.html AWS API Reference> for CreateHSM.
 module Network.AWS.CloudHSM.CreateHSM
     (
-    -- * Request
+    -- * Creating a Request
       CreateHSM
-    -- ** Request constructor
     , createHSM
-    -- ** Request lenses
+    -- * Request Lenses
     , chClientToken
     , chSyslogIP
     , chExternalId
@@ -38,11 +37,10 @@ module Network.AWS.CloudHSM.CreateHSM
     , chIAMRoleARN
     , chSubscriptionType
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateHSMResponse
-    -- ** Response constructor
     , createHSMResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , chsmrsHSMARN
     , chsmrsStatus
     ) where
@@ -193,6 +191,6 @@ createHSMResponse pStatus_ =
 chsmrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
 chsmrsHSMARN = lens _chsmrsHSMARN (\ s a -> s{_chsmrsHSMARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chsmrsStatus :: Lens' CreateHSMResponse Int
 chsmrsStatus = lens _chsmrsStatus (\ s a -> s{_chsmrsStatus = a});

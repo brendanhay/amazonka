@@ -30,23 +30,21 @@
 -- parameters. If there are no inline policies embedded with the specified
 -- group, the action returns an empty list.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html AWS API Reference> for ListGroupPolicies.
 module Network.AWS.IAM.ListGroupPolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListGroupPolicies
-    -- ** Request constructor
     , listGroupPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , lgpMaxItems
     , lgpMarker
     , lgpGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListGroupPoliciesResponse
-    -- ** Response constructor
     , listGroupPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lgprsMarker
     , lgprsIsTruncated
     , lgprsStatus
@@ -179,7 +177,7 @@ lgprsMarker = lens _lgprsMarker (\ s a -> s{_lgprsMarker = a});
 lgprsIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgprsStatus :: Lens' ListGroupPoliciesResponse Int
 lgprsStatus = lens _lgprsStatus (\ s a -> s{_lgprsStatus = a});
 

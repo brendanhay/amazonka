@@ -36,20 +36,18 @@
 -- of 48 hours to become available from submission time using
 -- @GetMetricStatistics@.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html AWS API Reference> for PutMetricData.
 module Network.AWS.CloudWatch.PutMetricData
     (
-    -- * Request
+    -- * Creating a Request
       PutMetricData
-    -- ** Request constructor
     , putMetricData
-    -- ** Request lenses
+    -- * Request Lenses
     , pmdNamespace
     , pmdMetricData
 
-    -- * Response
+    -- * Destructuring the Response
     , PutMetricDataResponse
-    -- ** Response constructor
     , putMetricDataResponse
     ) where
 

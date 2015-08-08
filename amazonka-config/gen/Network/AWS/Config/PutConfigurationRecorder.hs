@@ -30,19 +30,17 @@
 -- parameter specified, the default is to record all supported resource
 -- types.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html AWS API Reference> for PutConfigurationRecorder.
 module Network.AWS.Config.PutConfigurationRecorder
     (
-    -- * Request
+    -- * Creating a Request
       PutConfigurationRecorder
-    -- ** Request constructor
     , putConfigurationRecorder
-    -- ** Request lenses
+    -- * Request Lenses
     , pcrConfigurationRecorder
 
-    -- * Response
+    -- * Destructuring the Response
     , PutConfigurationRecorderResponse
-    -- ** Response constructor
     , putConfigurationRecorderResponse
     ) where
 

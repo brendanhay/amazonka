@@ -37,23 +37,21 @@
 -- are also displayed on the domain dashboard in the Amazon CloudSearch
 -- console.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Suggest.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Suggest.html AWS API Reference> for Suggest.
 module Network.AWS.CloudSearchDomains.Suggest
     (
-    -- * Request
+    -- * Creating a Request
       Suggest
-    -- ** Request constructor
     , suggest
-    -- ** Request lenses
+    -- * Request Lenses
     , sSize
     , sQuery
     , sSuggester
 
-    -- * Response
+    -- * Destructuring the Response
     , SuggestResponse
-    -- ** Response constructor
     , suggestResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsSuggest
     , srsStatus
     ) where
@@ -153,6 +151,6 @@ suggestResponse pStatus_ =
 srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' SuggestResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

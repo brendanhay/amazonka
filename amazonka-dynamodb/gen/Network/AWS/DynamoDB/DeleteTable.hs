@@ -38,21 +38,19 @@
 --
 -- Use the /DescribeTable/ API to check the status of the table.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html AWS API Reference> for DeleteTable.
 module Network.AWS.DynamoDB.DeleteTable
     (
-    -- * Request
+    -- * Creating a Request
       DeleteTable
-    -- ** Request constructor
     , deleteTable
-    -- ** Request lenses
+    -- * Request Lenses
     , dtTableName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteTableResponse
-    -- ** Response constructor
     , deleteTableResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsTableDescription
     , dtrsStatus
     ) where
@@ -135,10 +133,10 @@ deleteTableResponse pStatus_ =
     , _dtrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DeleteTableResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

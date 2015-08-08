@@ -19,22 +19,20 @@
 --
 -- Stops a running task.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopTask.html AWS API Reference> for StopTask.
 module Network.AWS.ECS.StopTask
     (
-    -- * Request
+    -- * Creating a Request
       StopTask
-    -- ** Request constructor
     , stopTask
-    -- ** Request lenses
+    -- * Request Lenses
     , stCluster
     , stTask
 
-    -- * Response
+    -- * Destructuring the Response
     , StopTaskResponse
-    -- ** Response constructor
     , stopTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsTask
     , srsStatus
     ) where
@@ -125,10 +123,10 @@ stopTaskResponse pStatus_ =
     , _srsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsTask :: Lens' StopTaskResponse (Maybe Task)
 srsTask = lens _srsTask (\ s a -> s{_srsTask = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' StopTaskResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

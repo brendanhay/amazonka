@@ -22,19 +22,17 @@
 -- to subscribers. This action is idempotent, so deleting a topic that does
 -- not exist does not result in an error.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html AWS API Reference> for DeleteTopic.
 module Network.AWS.SNS.DeleteTopic
     (
-    -- * Request
+    -- * Creating a Request
       DeleteTopic
-    -- ** Request constructor
     , deleteTopic
-    -- ** Request lenses
+    -- * Request Lenses
     , dtTopicARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteTopicResponse
-    -- ** Response constructor
     , deleteTopicResponse
     ) where
 

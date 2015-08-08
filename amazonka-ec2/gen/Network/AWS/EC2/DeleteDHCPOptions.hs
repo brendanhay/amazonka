@@ -22,20 +22,18 @@
 -- of DHCP options by associating either a new set of options or the
 -- default set of options with the VPC.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDHCPOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDHCPOptions.html AWS API Reference> for DeleteDHCPOptions.
 module Network.AWS.EC2.DeleteDHCPOptions
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDHCPOptions
-    -- ** Request constructor
     , deleteDHCPOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , ddhcpoDryRun
     , ddhcpoDHCPOptionsId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDHCPOptionsResponse
-    -- ** Response constructor
     , deleteDHCPOptionsResponse
     ) where
 

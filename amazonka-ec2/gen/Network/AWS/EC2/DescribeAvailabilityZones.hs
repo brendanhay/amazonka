@@ -27,23 +27,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions and Availability Zones>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html AWS API Reference> for DescribeAvailabilityZones.
 module Network.AWS.EC2.DescribeAvailabilityZones
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAvailabilityZones
-    -- ** Request constructor
     , describeAvailabilityZones
-    -- ** Request lenses
+    -- * Request Lenses
     , dazZoneNames
     , dazFilters
     , dazDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAvailabilityZonesResponse
-    -- ** Response constructor
     , describeAvailabilityZonesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dazrsAvailabilityZones
     , dazrsStatus
     ) where
@@ -157,6 +155,6 @@ describeAvailabilityZonesResponse pStatus_ =
 dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dazrsStatus :: Lens' DescribeAvailabilityZonesResponse Int
 dazrsStatus = lens _dazrsStatus (\ s a -> s{_dazrsStatus = a});

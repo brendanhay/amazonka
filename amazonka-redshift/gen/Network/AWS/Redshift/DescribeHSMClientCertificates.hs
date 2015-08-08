@@ -32,25 +32,23 @@
 -- certificates are returned regardless of whether they have tag keys or
 -- values associated with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMClientCertificates.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMClientCertificates.html AWS API Reference> for DescribeHSMClientCertificates.
 module Network.AWS.Redshift.DescribeHSMClientCertificates
     (
-    -- * Request
+    -- * Creating a Request
       DescribeHSMClientCertificates
-    -- ** Request constructor
     , describeHSMClientCertificates
-    -- ** Request lenses
+    -- * Request Lenses
     , dhccTagValues
     , dhccTagKeys
     , dhccHSMClientCertificateIdentifier
     , dhccMaxRecords
     , dhccMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeHSMClientCertificatesResponse
-    -- ** Response constructor
     , describeHSMClientCertificatesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dhccrsMarker
     , dhccrsHSMClientCertificates
     , dhccrsStatus
@@ -229,6 +227,6 @@ dhccrsMarker = lens _dhccrsMarker (\ s a -> s{_dhccrsMarker = a});
 dhccrsHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMClientCertificate]
 dhccrsHSMClientCertificates = lens _dhccrsHSMClientCertificates (\ s a -> s{_dhccrsHSMClientCertificates = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhccrsStatus :: Lens' DescribeHSMClientCertificatesResponse Int
 dhccrsStatus = lens _dhccrsStatus (\ s a -> s{_dhccrsStatus = a});

@@ -28,24 +28,22 @@
 -- This operation implements a subset of the features of the AWS Support
 -- Center.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html AWS API Reference> for AddCommunicationToCase.
 module Network.AWS.Support.AddCommunicationToCase
     (
-    -- * Request
+    -- * Creating a Request
       AddCommunicationToCase
-    -- ** Request constructor
     , addCommunicationToCase
-    -- ** Request lenses
+    -- * Request Lenses
     , actcCaseId
     , actcCcEmailAddresses
     , actcAttachmentSetId
     , actcCommunicationBody
 
-    -- * Response
+    -- * Destructuring the Response
     , AddCommunicationToCaseResponse
-    -- ** Response constructor
     , addCommunicationToCaseResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , actcrsResult
     , actcrsStatus
     ) where
@@ -166,6 +164,6 @@ addCommunicationToCaseResponse pStatus_ =
 actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 actcrsStatus :: Lens' AddCommunicationToCaseResponse Int
 actcrsStatus = lens _actcrsStatus (\ s a -> s{_actcrsStatus = a});

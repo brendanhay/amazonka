@@ -30,21 +30,19 @@
 -- window following deregistration where these restrictions have not yet
 -- taken effect).
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html AWS API Reference> for DeregisterTaskDefinition.
 module Network.AWS.ECS.DeregisterTaskDefinition
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterTaskDefinition
-    -- ** Request constructor
     , deregisterTaskDefinition
-    -- ** Request lenses
+    -- * Request Lenses
     , derTaskDefinition
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterTaskDefinitionResponse
-    -- ** Response constructor
     , deregisterTaskDefinitionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtdrsTaskDefinition
     , dtdrsStatus
     ) where
@@ -131,6 +129,6 @@ deregisterTaskDefinitionResponse pStatus_ =
 dtdrsTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
 dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\ s a -> s{_dtdrsTaskDefinition = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtdrsStatus :: Lens' DeregisterTaskDefinitionResponse Int
 dtdrsStatus = lens _dtdrsStatus (\ s a -> s{_dtdrsStatus = a});

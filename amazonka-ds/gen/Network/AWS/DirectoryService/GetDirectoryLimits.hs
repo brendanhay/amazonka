@@ -19,19 +19,17 @@
 --
 -- Obtains directory limit information for the current region.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetDirectoryLimits.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetDirectoryLimits.html AWS API Reference> for GetDirectoryLimits.
 module Network.AWS.DirectoryService.GetDirectoryLimits
     (
-    -- * Request
+    -- * Creating a Request
       GetDirectoryLimits
-    -- ** Request constructor
     , getDirectoryLimits
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDirectoryLimitsResponse
-    -- ** Response constructor
     , getDirectoryLimitsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdlrsDirectoryLimits
     , gdlrsStatus
     ) where
@@ -109,6 +107,6 @@ getDirectoryLimitsResponse pStatus_ =
 gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdlrsStatus :: Lens' GetDirectoryLimitsResponse Int
 gdlrsStatus = lens _gdlrsStatus (\ s a -> s{_gdlrsStatus = a});

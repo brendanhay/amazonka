@@ -36,24 +36,22 @@
 --     their @timestamp@.
 -- -   The maximum number of log events in a batch is 10,000.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html AWS API Reference> for PutLogEvents.
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
-    -- * Request
+    -- * Creating a Request
       PutLogEvents
-    -- ** Request constructor
     , putLogEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , pleSequenceToken
     , pleLogGroupName
     , pleLogStreamName
     , pleLogEvents
 
-    -- * Response
+    -- * Destructuring the Response
     , PutLogEventsResponse
-    -- ** Response constructor
     , putLogEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , plersRejectedLogEventsInfo
     , plersNextSequenceToken
     , plersStatus
@@ -105,7 +103,7 @@ pleLogGroupName = lens _pleLogGroupName (\ s a -> s{_pleLogGroupName = a});
 pleLogStreamName :: Lens' PutLogEvents Text
 pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
 
@@ -168,14 +166,14 @@ putLogEventsResponse pStatus_ =
     , _plersStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 plersRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
 plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plersRejectedLogEventsInfo = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 plersStatus :: Lens' PutLogEventsResponse Int
 plersStatus = lens _plersStatus (\ s a -> s{_plersStatus = a});

@@ -51,24 +51,22 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html List Multipart Uploads>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListMultipartUploads.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
 module Network.AWS.Glacier.ListMultipartUploads
     (
-    -- * Request
+    -- * Creating a Request
       ListMultipartUploads
-    -- ** Request constructor
     , listMultipartUploads
-    -- ** Request lenses
+    -- * Request Lenses
     , lmuMarker
     , lmuLimit
     , lmuAccountId
     , lmuVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListMultipartUploadsResponse
-    -- ** Response constructor
     , listMultipartUploadsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lmursUploadsList
     , lmursMarker
     , lmursStatus
@@ -199,6 +197,6 @@ lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . 
 lmursMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmursStatus :: Lens' ListMultipartUploadsResponse Int
 lmursStatus = lens _lmursStatus (\ s a -> s{_lmursStatus = a});

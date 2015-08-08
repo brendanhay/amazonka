@@ -19,22 +19,20 @@
 --
 -- Describes the lifecycle hooks for the specified Auto Scaling group.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html AWS API Reference> for DescribeLifecycleHooks.
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLifecycleHooks
-    -- ** Request constructor
     , describeLifecycleHooks
-    -- ** Request lenses
+    -- * Request Lenses
     , dlhLifecycleHookNames
     , dlhAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLifecycleHooksResponse
-    -- ** Response constructor
     , describeLifecycleHooksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlhrsLifecycleHooks
     , dlhrsStatus
     ) where
@@ -126,6 +124,6 @@ describeLifecycleHooksResponse pStatus_ =
 dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlhrsStatus :: Lens' DescribeLifecycleHooksResponse Int
 dlhrsStatus = lens _dlhrsStatus (\ s a -> s{_dlhrsStatus = a});

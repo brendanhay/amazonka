@@ -30,22 +30,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html AWS API Reference> for GetPolicyVersion.
 module Network.AWS.IAM.GetPolicyVersion
     (
-    -- * Request
+    -- * Creating a Request
       GetPolicyVersion
-    -- ** Request constructor
     , getPolicyVersion
-    -- ** Request lenses
+    -- * Request Lenses
     , gpvPolicyARN
     , gpvVersionId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPolicyVersionResponse
-    -- ** Response constructor
     , getPolicyVersionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gpvrsPolicyVersion
     , gpvrsStatus
     ) where
@@ -75,7 +73,7 @@ getPolicyVersion pPolicyARN_ pVersionId_ =
     , _gpvVersionId = pVersionId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gpvPolicyARN :: Lens' GetPolicyVersion Text
 gpvPolicyARN = lens _gpvPolicyARN (\ s a -> s{_gpvPolicyARN = a});
 
@@ -137,6 +135,6 @@ getPolicyVersionResponse pStatus_ =
 gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
 gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gpvrsStatus :: Lens' GetPolicyVersionResponse Int
 gpvrsStatus = lens _gpvrsStatus (\ s a -> s{_gpvrsStatus = a});

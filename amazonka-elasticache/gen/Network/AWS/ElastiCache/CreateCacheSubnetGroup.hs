@@ -22,23 +22,21 @@
 -- Use this parameter only when you are creating a cluster in an Amazon
 -- Virtual Private Cloud (VPC).
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html AWS API Reference> for CreateCacheSubnetGroup.
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateCacheSubnetGroup
-    -- ** Request constructor
     , createCacheSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ccsgCacheSubnetGroupName
     , ccsgCacheSubnetGroupDescription
     , ccsgSubnetIds
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCacheSubnetGroupResponse
-    -- ** Response constructor
     , createCacheSubnetGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsCacheSubnetGroup
     , crsStatus
     ) where
@@ -141,10 +139,10 @@ createCacheSubnetGroupResponse pStatus_ =
     , _crsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CreateCacheSubnetGroupResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

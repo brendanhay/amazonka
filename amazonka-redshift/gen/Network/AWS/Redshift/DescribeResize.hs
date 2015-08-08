@@ -26,21 +26,19 @@
 -- A resize operation can be requested using ModifyCluster and specifying a
 -- different number or type of nodes for the cluster.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html AWS API Reference> for DescribeResize.
 module Network.AWS.Redshift.DescribeResize
     (
-    -- * Request
+    -- * Creating a Request
       DescribeResize
-    -- ** Request constructor
     , describeResize
-    -- ** Request lenses
+    -- * Request Lenses
     , drClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeResizeResponse
-    -- ** Response constructor
     , describeResizeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drrsEstimatedTimeToCompletionInSeconds
     , drrsImportTablesNotStarted
     , drrsAvgResizeRateInMegaBytesPerSecond
@@ -254,6 +252,6 @@ drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElaps
 drrsTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 drrsTargetClusterType = lens _drrsTargetClusterType (\ s a -> s{_drrsTargetClusterType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drrsStatus :: Lens' DescribeResizeResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

@@ -34,21 +34,19 @@
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>,
 -- respectively.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html AWS API Reference> for UpdateGatewaySoftwareNow.
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
-    -- * Request
+    -- * Creating a Request
       UpdateGatewaySoftwareNow
-    -- ** Request constructor
     , updateGatewaySoftwareNow
-    -- ** Request lenses
+    -- * Request Lenses
     , ugsnGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateGatewaySoftwareNowResponse
-    -- ** Response constructor
     , updateGatewaySoftwareNowResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ugsnrsGatewayARN
     , ugsnrsStatus
     ) where
@@ -76,7 +74,7 @@ updateGatewaySoftwareNow pGatewayARN_ =
     { _ugsnGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
 ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a});
 
@@ -133,10 +131,10 @@ updateGatewaySoftwareNowResponse pStatus_ =
     , _ugsnrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugsnrsStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
 ugsnrsStatus = lens _ugsnrsStatus (\ s a -> s{_ugsnrsStatus = a});

@@ -19,23 +19,21 @@
 --
 -- Update a streaming distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateStreamingDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateStreamingDistribution.html AWS API Reference> for UpdateStreamingDistribution.
 module Network.AWS.CloudFront.UpdateStreamingDistribution
     (
-    -- * Request
+    -- * Creating a Request
       UpdateStreamingDistribution
-    -- ** Request constructor
     , updateStreamingDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , usdIfMatch
     , usdStreamingDistributionConfig
     , usdId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateStreamingDistributionResponse
-    -- ** Response constructor
     , updateStreamingDistributionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , usdrsETag
     , usdrsStreamingDistribution
     , usdrsStatus
@@ -151,6 +149,6 @@ usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a});
 usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
 usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usdrsStatus :: Lens' UpdateStreamingDistributionResponse Int
 usdrsStatus = lens _usdrsStatus (\ s a -> s{_usdrsStatus = a});

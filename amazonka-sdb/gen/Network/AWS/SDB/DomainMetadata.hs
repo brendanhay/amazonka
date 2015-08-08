@@ -21,21 +21,19 @@
 -- created, the number of items and attributes in the domain, and the size
 -- of the attribute names and values.
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.html AWS API Reference> for DomainMetadata.
 module Network.AWS.SDB.DomainMetadata
     (
-    -- * Request
+    -- * Creating a Request
       DomainMetadata
-    -- ** Request constructor
     , domainMetadata
-    -- ** Request lenses
+    -- * Request Lenses
     , dmDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DomainMetadataResponse
-    -- ** Response constructor
     , domainMetadataResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmrsItemNamesSizeBytes
     , dmrsAttributeNameCount
     , dmrsAttributeValuesSizeBytes
@@ -173,6 +171,6 @@ dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
 dmrsItemCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrsItemCount = lens _dmrsItemCount (\ s a -> s{_dmrsItemCount = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmrsStatus :: Lens' DomainMetadataResponse Int
 dmrsStatus = lens _dmrsStatus (\ s a -> s{_dmrsStatus = a});

@@ -22,25 +22,23 @@
 -- identity pools is 60 per account. You must use AWS Developer credentials
 -- to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CreateIdentityPool.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CreateIdentityPool.html AWS API Reference> for CreateIdentityPool.
 module Network.AWS.CognitoIdentity.CreateIdentityPool
     (
-    -- * Request
+    -- * Creating a Request
       CreateIdentityPool
-    -- ** Request constructor
     , createIdentityPool
-    -- ** Request lenses
+    -- * Request Lenses
     , cipSupportedLoginProviders
     , cipDeveloperProviderName
     , cipOpenIdConnectProviderARNs
     , cipIdentityPoolName
     , cipAllowUnauthenticatedIdentities
 
-    -- * Response
+    -- * Destructuring the Response
     , IdentityPool
-    -- ** Response constructor
     , identityPool
-    -- ** Response lenses
+    -- * Response Lenses
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs

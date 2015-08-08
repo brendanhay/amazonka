@@ -30,23 +30,21 @@
 -- You can use DescribeLoadBalancers or DescribeLoadBalancerPolicies to
 -- verify that the policy is associated with the back-end server.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html AWS API Reference> for SetLoadBalancerPoliciesForBackendServer.
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
-    -- * Request
+    -- * Creating a Request
       SetLoadBalancerPoliciesForBackendServer
-    -- ** Request constructor
     , setLoadBalancerPoliciesForBackendServer
-    -- ** Request lenses
+    -- * Request Lenses
     , slbpfbsLoadBalancerName
     , slbpfbsInstancePort
     , slbpfbsPolicyNames
 
-    -- * Response
+    -- * Destructuring the Response
     , SetLoadBalancerPoliciesForBackendServerResponse
-    -- ** Response constructor
     , setLoadBalancerPoliciesForBackendServerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , slbpfbsrsStatus
     ) where
 
@@ -142,6 +140,6 @@ setLoadBalancerPoliciesForBackendServerResponse pStatus_ =
     { _slbpfbsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 slbpfbsrsStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
 slbpfbsrsStatus = lens _slbpfbsrsStatus (\ s a -> s{_slbpfbsrsStatus = a});

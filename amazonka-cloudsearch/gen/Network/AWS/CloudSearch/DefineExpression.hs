@@ -23,22 +23,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineExpression.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineExpression.html AWS API Reference> for DefineExpression.
 module Network.AWS.CloudSearch.DefineExpression
     (
-    -- * Request
+    -- * Creating a Request
       DefineExpression
-    -- ** Request constructor
     , defineExpression
-    -- ** Request lenses
+    -- * Request Lenses
     , dDomainName
     , dExpression
 
-    -- * Response
+    -- * Destructuring the Response
     , DefineExpressionResponse
-    -- ** Response constructor
     , defineExpressionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dersStatus
     , dersExpression
     ) where
@@ -72,11 +70,11 @@ defineExpression pDomainName_ pExpression_ =
     , _dExpression = pExpression_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDomainName :: Lens' DefineExpression Text
 dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dExpression :: Lens' DefineExpression Expression
 dExpression = lens _dExpression (\ s a -> s{_dExpression = a});
 
@@ -127,10 +125,10 @@ defineExpressionResponse pStatus_ pExpression_ =
     , _dersExpression = pExpression_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dersStatus :: Lens' DefineExpressionResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
 dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a});

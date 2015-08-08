@@ -27,23 +27,21 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRAIdArrays.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRAIdArrays.html AWS API Reference> for DescribeRAIdArrays.
 module Network.AWS.OpsWorks.DescribeRAIdArrays
     (
-    -- * Request
+    -- * Creating a Request
       DescribeRAIdArrays
-    -- ** Request constructor
     , describeRAIdArrays
-    -- ** Request lenses
+    -- * Request Lenses
     , draiaInstanceId
     , draiaRAIdArrayIds
     , draiaStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeRAIdArraysResponse
-    -- ** Response constructor
     , describeRAIdArraysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , draiarsRAIdArrays
     , draiarsStatus
     ) where
@@ -153,6 +151,6 @@ describeRAIdArraysResponse pStatus_ =
 draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
 draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 draiarsStatus :: Lens' DescribeRAIdArraysResponse Int
 draiarsStatus = lens _draiarsStatus (\ s a -> s{_draiarsStatus = a});

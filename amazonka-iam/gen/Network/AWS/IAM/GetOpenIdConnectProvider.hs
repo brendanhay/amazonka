@@ -19,21 +19,19 @@
 --
 -- Returns information about the specified OpenID Connect provider.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIdConnectProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIdConnectProvider.html AWS API Reference> for GetOpenIdConnectProvider.
 module Network.AWS.IAM.GetOpenIdConnectProvider
     (
-    -- * Request
+    -- * Creating a Request
       GetOpenIdConnectProvider
-    -- ** Request constructor
     , getOpenIdConnectProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , goicpOpenIdConnectProviderARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetOpenIdConnectProviderResponse
-    -- ** Response constructor
     , getOpenIdConnectProviderResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , goicprsCreateDate
     , goicprsURL
     , goicprsThumbprintList
@@ -156,6 +154,6 @@ goicprsThumbprintList = lens _goicprsThumbprintList (\ s a -> s{_goicprsThumbpri
 goicprsClientIdList :: Lens' GetOpenIdConnectProviderResponse [Text]
 goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goicprsStatus :: Lens' GetOpenIdConnectProviderResponse Int
 goicprsStatus = lens _goicprsStatus (\ s a -> s{_goicprsStatus = a});

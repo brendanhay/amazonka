@@ -57,25 +57,23 @@
 -- the @error@ state (for example, when a volume is incapable of accepting
 -- I\/O.)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeStatus.html AWS API Reference> for DescribeVolumeStatus.
 module Network.AWS.EC2.DescribeVolumeStatus
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVolumeStatus
-    -- ** Request constructor
     , describeVolumeStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , dvssFilters
     , dvssVolumeIds
     , dvssNextToken
     , dvssDryRun
     , dvssMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVolumeStatusResponse
-    -- ** Response constructor
     , describeVolumeStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvsrsNextToken
     , dvsrsVolumeStatuses
     , dvsrsStatus
@@ -259,6 +257,6 @@ dvsrsNextToken = lens _dvsrsNextToken (\ s a -> s{_dvsrsNextToken = a});
 dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvsrsStatus :: Lens' DescribeVolumeStatusResponse Int
 dvsrsStatus = lens _dvsrsStatus (\ s a -> s{_dvsrsStatus = a});

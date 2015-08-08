@@ -21,14 +21,13 @@
 -- successfully, the stack creation starts. You can check the status of the
 -- stack via the DescribeStacks API.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html AWS API Reference> for CreateStack.
 module Network.AWS.CloudFormation.CreateStack
     (
-    -- * Request
+    -- * Creating a Request
       CreateStack
-    -- ** Request constructor
     , createStack
-    -- ** Request lenses
+    -- * Request Lenses
     , csDisableRollback
     , csNotificationARNs
     , csStackPolicyBody
@@ -42,11 +41,10 @@ module Network.AWS.CloudFormation.CreateStack
     , csTimeoutInMinutes
     , csStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateStackResponse
-    -- ** Response constructor
     , createStackResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsStackId
     , csrsStatus
     ) where
@@ -288,6 +286,6 @@ createStackResponse pStatus_ =
 csrsStackId :: Lens' CreateStackResponse (Maybe Text)
 csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' CreateStackResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

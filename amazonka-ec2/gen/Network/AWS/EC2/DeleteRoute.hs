@@ -19,21 +19,19 @@
 --
 -- Deletes the specified route from the specified route table.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRoute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRoute.html AWS API Reference> for DeleteRoute.
 module Network.AWS.EC2.DeleteRoute
     (
-    -- * Request
+    -- * Creating a Request
       DeleteRoute
-    -- ** Request constructor
     , deleteRoute
-    -- ** Request lenses
+    -- * Request Lenses
     , drDryRun
     , drRouteTableId
     , drDestinationCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteRouteResponse
-    -- ** Response constructor
     , deleteRouteResponse
     ) where
 

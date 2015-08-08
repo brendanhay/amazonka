@@ -25,23 +25,21 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeExpressions.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeExpressions.html AWS API Reference> for DescribeExpressions.
 module Network.AWS.CloudSearch.DescribeExpressions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeExpressions
-    -- ** Request constructor
     , describeExpressions
-    -- ** Request lenses
+    -- * Request Lenses
     , deDeployed
     , deExpressionNames
     , deDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeExpressionsResponse
-    -- ** Response constructor
     , describeExpressionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStatus
     , drsExpressions
     ) where
@@ -148,7 +146,7 @@ describeExpressionsResponse pStatus_ =
     , _drsExpressions = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeExpressionsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 

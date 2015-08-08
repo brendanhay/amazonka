@@ -19,22 +19,20 @@
 --
 -- Lists the customer master keys.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html AWS API Reference> for ListKeys.
 module Network.AWS.KMS.ListKeys
     (
-    -- * Request
+    -- * Creating a Request
       ListKeys
-    -- ** Request constructor
     , listKeys
-    -- ** Request lenses
+    -- * Request Lenses
     , lkMarker
     , lkLimit
 
-    -- * Response
+    -- * Destructuring the Response
     , ListKeysResponse
-    -- ** Response constructor
     , listKeysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lkrsTruncated
     , lkrsKeys
     , lkrsNextMarker
@@ -155,6 +153,6 @@ lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce;
 lkrsNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lkrsStatus :: Lens' ListKeysResponse Int
 lkrsStatus = lens _lkrsStatus (\ s a -> s{_lkrsStatus = a});

@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshotAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshotAttribute.html AWS API Reference> for DescribeSnapshotAttribute.
 module Network.AWS.EC2.DescribeSnapshotAttribute
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSnapshotAttribute
-    -- ** Request constructor
     , describeSnapshotAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , dsaDryRun
     , dsaSnapshotId
     , dsaAttribute
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSnapshotAttributeResponse
-    -- ** Response constructor
     , describeSnapshotAttributeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsarsCreateVolumePermissions
     , dsarsProductCodes
     , dsarsSnapshotId
@@ -164,6 +162,6 @@ dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a})
 dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsarsStatus :: Lens' DescribeSnapshotAttributeResponse Int
 dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});

@@ -21,22 +21,20 @@
 -- deletes the endpoint routes in the route tables that were associated
 -- with the endpoint.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCEndpoints.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCEndpoints.html AWS API Reference> for DeleteVPCEndpoints.
 module Network.AWS.EC2.DeleteVPCEndpoints
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVPCEndpoints
-    -- ** Request constructor
     , deleteVPCEndpoints
-    -- ** Request lenses
+    -- * Request Lenses
     , dveDryRun
     , dveVPCEndpointIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVPCEndpointsResponse
-    -- ** Response constructor
     , deleteVPCEndpointsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dversUnsuccessful
     , dversStatus
     ) where
@@ -128,6 +126,6 @@ deleteVPCEndpointsResponse pStatus_ =
 dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
 dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dversStatus :: Lens' DeleteVPCEndpointsResponse Int
 dversStatus = lens _dversStatus (\ s a -> s{_dversStatus = a});

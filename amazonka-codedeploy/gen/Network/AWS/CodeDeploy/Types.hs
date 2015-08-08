@@ -13,10 +13,10 @@
 --
 module Network.AWS.CodeDeploy.Types
     (
-    -- * Service
+    -- * Service Decription
       CodeDeploy
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidTimeRangeException
     , _InvalidTagException
     , _InstanceNameAlreadyRegisteredException

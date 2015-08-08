@@ -23,21 +23,19 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html AWS API Reference> for ResetSnapshotAttribute.
 module Network.AWS.EC2.ResetSnapshotAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ResetSnapshotAttribute
-    -- ** Request constructor
     , resetSnapshotAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , rsaDryRun
     , rsaSnapshotId
     , rsaAttribute
 
-    -- * Response
+    -- * Destructuring the Response
     , ResetSnapshotAttributeResponse
-    -- ** Response constructor
     , resetSnapshotAttributeResponse
     ) where
 

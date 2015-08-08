@@ -19,22 +19,20 @@
 --
 -- Returns AWS resources for this environment.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html AWS API Reference> for DescribeEnvironmentResources.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEnvironmentResources
-    -- ** Request constructor
     , describeEnvironmentResources
-    -- ** Request lenses
+    -- * Request Lenses
     , derEnvironmentName
     , derEnvironmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEnvironmentResourcesResponse
-    -- ** Response constructor
     , describeEnvironmentResourcesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , derrsEnvironmentResources
     , derrsStatus
     ) where
@@ -138,6 +136,6 @@ describeEnvironmentResourcesResponse pStatus_ =
 derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 derrsStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrsStatus = lens _derrsStatus (\ s a -> s{_derrsStatus = a});

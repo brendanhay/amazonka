@@ -23,22 +23,20 @@
 -- remains unchanged. To specify which gateway to work with, use the Amazon
 -- Resource Name (ARN) of the gateway in your request.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteBandwidthRateLimit.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteBandwidthRateLimit.html AWS API Reference> for DeleteBandwidthRateLimit.
 module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBandwidthRateLimit
-    -- ** Request constructor
     , deleteBandwidthRateLimit
-    -- ** Request lenses
+    -- * Request Lenses
     , delGatewayARN
     , delBandwidthType
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBandwidthRateLimitResponse
-    -- ** Response constructor
     , deleteBandwidthRateLimitResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delrsGatewayARN
     , delrsStatus
     ) where
@@ -68,11 +66,11 @@ deleteBandwidthRateLimit pGatewayARN_ pBandwidthType_ =
     , _delBandwidthType = pBandwidthType_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delGatewayARN :: Lens' DeleteBandwidthRateLimit Text
 delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delBandwidthType :: Lens' DeleteBandwidthRateLimit Text
 delBandwidthType = lens _delBandwidthType (\ s a -> s{_delBandwidthType = a});
 
@@ -132,10 +130,10 @@ deleteBandwidthRateLimitResponse pStatus_ =
     , _delrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsStatus :: Lens' DeleteBandwidthRateLimitResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

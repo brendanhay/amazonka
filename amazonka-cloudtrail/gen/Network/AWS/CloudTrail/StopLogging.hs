@@ -22,21 +22,19 @@
 -- action. You can update a trail without stopping it first. This action is
 -- the only way to stop recording.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html AWS API Reference> for StopLogging.
 module Network.AWS.CloudTrail.StopLogging
     (
-    -- * Request
+    -- * Creating a Request
       StopLogging
-    -- ** Request constructor
     , stopLogging
-    -- ** Request lenses
+    -- * Request Lenses
     , slName
 
-    -- * Response
+    -- * Destructuring the Response
     , StopLoggingResponse
-    -- ** Response constructor
     , stopLoggingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , slrsStatus
     ) where
 
@@ -116,6 +114,6 @@ stopLoggingResponse pStatus_ =
     { _slrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 slrsStatus :: Lens' StopLoggingResponse Int
 slrsStatus = lens _slrsStatus (\ s a -> s{_slrsStatus = a});

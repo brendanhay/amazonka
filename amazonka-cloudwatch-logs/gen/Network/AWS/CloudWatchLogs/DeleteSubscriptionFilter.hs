@@ -19,20 +19,18 @@
 --
 -- Deletes a subscription filter associated with the specified log group.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.html AWS API Reference> for DeleteSubscriptionFilter.
 module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSubscriptionFilter
-    -- ** Request constructor
     , deleteSubscriptionFilter
-    -- ** Request lenses
+    -- * Request Lenses
     , dLogGroupName
     , dFilterName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSubscriptionFilterResponse
-    -- ** Response constructor
     , deleteSubscriptionFilterResponse
     ) where
 

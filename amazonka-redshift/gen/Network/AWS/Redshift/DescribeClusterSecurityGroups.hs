@@ -35,25 +35,23 @@
 -- groups are returned regardless of whether they have tag keys or values
 -- associated with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html AWS API Reference> for DescribeClusterSecurityGroups.
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusterSecurityGroups
-    -- ** Request constructor
     , describeClusterSecurityGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsgTagValues
     , dcsgTagKeys
     , dcsgClusterSecurityGroupName
     , dcsgMaxRecords
     , dcsgMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClusterSecurityGroupsResponse
-    -- ** Response constructor
     , describeClusterSecurityGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcsgsrsClusterSecurityGroups
     , dcsgsrsMarker
     , dcsgsrsStatus
@@ -234,6 +232,6 @@ dcsgsrsClusterSecurityGroups = lens _dcsgsrsClusterSecurityGroups (\ s a -> s{_d
 dcsgsrsMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsgsrsStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
 dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});

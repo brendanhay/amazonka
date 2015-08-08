@@ -30,14 +30,13 @@
 -- This operation requires permission for the @lambda:AddPermission@
 -- action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.Lambda.AddPermission
     (
-    -- * Request
+    -- * Creating a Request
       AddPermission
-    -- ** Request constructor
     , addPermission
-    -- ** Request lenses
+    -- * Request Lenses
     , apSourceAccount
     , apSourceARN
     , apFunctionName
@@ -45,11 +44,10 @@ module Network.AWS.Lambda.AddPermission
     , apAction
     , apPrincipal
 
-    -- * Response
+    -- * Destructuring the Response
     , AddPermissionResponse
-    -- ** Response constructor
     , addPermissionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , aprsStatement
     , aprsStatus
     ) where
@@ -207,6 +205,6 @@ addPermissionResponse pStatus_ =
 aprsStatement :: Lens' AddPermissionResponse (Maybe Text)
 aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aprsStatus :: Lens' AddPermissionResponse Int
 aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});

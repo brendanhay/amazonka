@@ -26,21 +26,19 @@
 -- resource. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html Using Cost Allocation Tags in Amazon ElastiCache>.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.ElastiCache.ListTagsForResource
     (
-    -- * Request
+    -- * Creating a Request
       ListTagsForResource
-    -- ** Request constructor
     , listTagsForResource
-    -- ** Request lenses
+    -- * Request Lenses
     , ltfrResourceName
 
-    -- * Response
+    -- * Destructuring the Response
     , TagListMessage
-    -- ** Response constructor
     , tagListMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , tlmTagList
     ) where
 

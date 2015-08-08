@@ -27,21 +27,19 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html AWS API Reference> for CancelConversionTask.
 module Network.AWS.EC2.CancelConversionTask
     (
-    -- * Request
+    -- * Creating a Request
       CancelConversionTask
-    -- ** Request constructor
     , cancelConversionTask
-    -- ** Request lenses
+    -- * Request Lenses
     , cctReasonMessage
     , cctDryRun
     , cctConversionTaskId
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelConversionTaskResponse
-    -- ** Response constructor
     , cancelConversionTaskResponse
     ) where
 

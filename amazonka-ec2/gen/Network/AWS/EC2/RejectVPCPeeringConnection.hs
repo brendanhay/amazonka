@@ -24,22 +24,20 @@
 -- or to delete a VPC peering connection request that you initiated, use
 -- DeleteVpcPeeringConnection.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVPCPeeringConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVPCPeeringConnection.html AWS API Reference> for RejectVPCPeeringConnection.
 module Network.AWS.EC2.RejectVPCPeeringConnection
     (
-    -- * Request
+    -- * Creating a Request
       RejectVPCPeeringConnection
-    -- ** Request constructor
     , rejectVPCPeeringConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , rvpcDryRun
     , rvpcVPCPeeringConnectionId
 
-    -- * Response
+    -- * Destructuring the Response
     , RejectVPCPeeringConnectionResponse
-    -- ** Response constructor
     , rejectVPCPeeringConnectionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rvpcrsReturn
     , rvpcrsStatus
     ) where
@@ -131,6 +129,6 @@ rejectVPCPeeringConnectionResponse pStatus_ =
 rvpcrsReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
 rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rvpcrsStatus :: Lens' RejectVPCPeeringConnectionResponse Int
 rvpcrsStatus = lens _rvpcrsStatus (\ s a -> s{_rvpcrsStatus = a});

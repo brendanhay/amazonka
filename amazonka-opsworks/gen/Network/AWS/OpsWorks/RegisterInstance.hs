@@ -34,14 +34,13 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterInstance.html AWS API Reference> for RegisterInstance.
 module Network.AWS.OpsWorks.RegisterInstance
     (
-    -- * Request
+    -- * Creating a Request
       RegisterInstance
-    -- ** Request constructor
     , registerInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , riPrivateIP
     , riHostname
     , riInstanceIdentity
@@ -50,11 +49,10 @@ module Network.AWS.OpsWorks.RegisterInstance
     , riRsaPublicKey
     , riStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterInstanceResponse
-    -- ** Response constructor
     , registerInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rirsInstanceId
     , rirsStatus
     ) where
@@ -196,6 +194,6 @@ registerInstanceResponse pStatus_ =
 rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rirsStatus :: Lens' RegisterInstanceResponse Int
 rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});

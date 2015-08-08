@@ -25,22 +25,20 @@
 -- You can list events for stacks that have failed to create or have been
 -- deleted by specifying the unique stack identifier (stack ID).
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html AWS API Reference> for DescribeStackEvents.
 module Network.AWS.CloudFormation.DescribeStackEvents
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStackEvents
-    -- ** Request constructor
     , describeStackEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , dseNextToken
     , dseStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStackEventsResponse
-    -- ** Response constructor
     , describeStackEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsersNextToken
     , dsersStackEvents
     , dsersStatus
@@ -162,6 +160,6 @@ dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
 dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsersStatus :: Lens' DescribeStackEventsResponse Int
 dsersStatus = lens _dsersStatus (\ s a -> s{_dsersStatus = a});

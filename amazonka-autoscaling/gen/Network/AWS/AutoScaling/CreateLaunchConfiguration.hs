@@ -27,14 +27,13 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html AWS API Reference> for CreateLaunchConfiguration.
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       CreateLaunchConfiguration
-    -- ** Request constructor
     , createLaunchConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , clcInstanceId
     , clcSecurityGroups
     , clcAssociatePublicIPAddress
@@ -54,9 +53,8 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     , clcBlockDeviceMappings
     , clcLaunchConfigurationName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLaunchConfigurationResponse
-    -- ** Response constructor
     , createLaunchConfigurationResponse
     ) where
 

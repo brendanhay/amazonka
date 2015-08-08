@@ -20,19 +20,17 @@
 -- Returns the number of unmetered iOS and\/or unmetered Android devices
 -- that have been purchased by the account.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetAccountSettings.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetAccountSettings.html AWS API Reference> for GetAccountSettings.
 module Network.AWS.DeviceFarm.GetAccountSettings
     (
-    -- * Request
+    -- * Creating a Request
       GetAccountSettings
-    -- ** Request constructor
     , getAccountSettings
 
-    -- * Response
+    -- * Destructuring the Response
     , GetAccountSettingsResponse
-    -- ** Response constructor
     , getAccountSettingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gasrsAccountSettings
     , gasrsStatus
     ) where
@@ -101,10 +99,10 @@ getAccountSettingsResponse pStatus_ =
     , _gasrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
 gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gasrsStatus :: Lens' GetAccountSettingsResponse Int
 gasrsStatus = lens _gasrsStatus (\ s a -> s{_gasrsStatus = a});

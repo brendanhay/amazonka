@@ -19,23 +19,21 @@
 --
 -- List invalidation batches.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html AWS API Reference> for ListInvalidations.
 module Network.AWS.CloudFront.ListInvalidations
     (
-    -- * Request
+    -- * Creating a Request
       ListInvalidations
-    -- ** Request constructor
     , listInvalidations
-    -- ** Request lenses
+    -- * Request Lenses
     , liMaxItems
     , liMarker
     , liDistributionId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListInvalidationsResponse
-    -- ** Response constructor
     , listInvalidationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lirsStatus
     , lirsInvalidationList
     ) where
@@ -136,7 +134,7 @@ listInvalidationsResponse pStatus_ pInvalidationList_ =
     , _lirsInvalidationList = pInvalidationList_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lirsStatus :: Lens' ListInvalidationsResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
 

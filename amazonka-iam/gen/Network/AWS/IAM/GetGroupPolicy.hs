@@ -29,22 +29,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html AWS API Reference> for GetGroupPolicy.
 module Network.AWS.IAM.GetGroupPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetGroupPolicy
-    -- ** Request constructor
     , getGroupPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , ggpGroupName
     , ggpPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetGroupPolicyResponse
-    -- ** Response constructor
     , getGroupPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ggprsStatus
     , ggprsGroupName
     , ggprsPolicyName
@@ -140,7 +138,7 @@ getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
     , _ggprsPolicyDocument = pPolicyDocument_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ggprsStatus :: Lens' GetGroupPolicyResponse Int
 ggprsStatus = lens _ggprsStatus (\ s a -> s{_ggprsStatus = a});
 

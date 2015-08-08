@@ -27,21 +27,19 @@
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_BulkPublish.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_BulkPublish.html AWS API Reference> for BulkPublish.
 module Network.AWS.CognitoSync.BulkPublish
     (
-    -- * Request
+    -- * Creating a Request
       BulkPublish
-    -- ** Request constructor
     , bulkPublish
-    -- ** Request lenses
+    -- * Request Lenses
     , bpIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , BulkPublishResponse
-    -- ** Response constructor
     , bulkPublishResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bprsIdentityPoolId
     , bprsStatus
     ) where
@@ -132,6 +130,6 @@ bulkPublishResponse pStatus_ =
 bprsIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bprsStatus :: Lens' BulkPublishResponse Int
 bprsStatus = lens _bprsStatus (\ s a -> s{_bprsStatus = a});

@@ -20,22 +20,20 @@
 -- Returns information about a specified job and whether that job has been
 -- received by the job worker. Only used for custom actions.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_AcknowledgeJob.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_AcknowledgeJob.html AWS API Reference> for AcknowledgeJob.
 module Network.AWS.CodePipeline.AcknowledgeJob
     (
-    -- * Request
+    -- * Creating a Request
       AcknowledgeJob
-    -- ** Request constructor
     , acknowledgeJob
-    -- ** Request lenses
+    -- * Request Lenses
     , ajJobId
     , ajNonce
 
-    -- * Response
+    -- * Destructuring the Response
     , AcknowledgeJobResponse
-    -- ** Response constructor
     , acknowledgeJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ajrsStatus
     ) where
 
@@ -124,6 +122,6 @@ acknowledgeJobResponse pStatus_ =
     { _ajrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ajrsStatus :: Lens' AcknowledgeJobResponse Int
 ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});

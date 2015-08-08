@@ -43,6 +43,8 @@ import           Network.AWS.EC2.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 instanceTerminated :: Wait DescribeInstances
 instanceTerminated =
     Wait
@@ -54,21 +56,23 @@ instanceTerminated =
                              AcceptSuccess
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)
+                              insState . isName . to toTextCI)
                        , matchAny
                              "pending"
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)
+                              insState . isName . to toTextCI)
                        , matchAny
                              "stopping"
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)]
+                              insState . isName . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 volumeInUse :: Wait DescribeVolumes
 volumeInUse =
     Wait
@@ -79,14 +83,16 @@ volumeInUse =
                              "in-use"
                              AcceptSuccess
                              (folding (concatOf dvvrsVolumes) .
-                              vState . to toText)
+                              vState . to toTextCI)
                        , matchAny
                              "deleted"
                              AcceptFailure
                              (folding (concatOf dvvrsVolumes) .
-                              vState . to toText)]
+                              vState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 subnetAvailable :: Wait DescribeSubnets
 subnetAvailable =
     Wait
@@ -97,9 +103,11 @@ subnetAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf dsrsSubnets) .
-                              subState . to toText)]
+                              subState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 systemStatusOK :: Wait DescribeInstanceStatus
 systemStatusOK =
     Wait
@@ -110,9 +118,11 @@ systemStatusOK =
                              "ok"
                              AcceptSuccess
                              (folding (concatOf disrsInstanceStatuses) .
-                              isSystemStatus . _Just . issStatus . to toText)]
+                              isSystemStatus . _Just . issStatus . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeCustomerGateways' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 customerGatewayAvailable :: Wait DescribeCustomerGateways
 customerGatewayAvailable =
     Wait
@@ -123,19 +133,21 @@ customerGatewayAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf dcgrsCustomerGateways) .
-                              cgState . to toText)
+                              cgState . to toTextCI)
                        , matchAny
                              "deleted"
                              AcceptFailure
                              (folding (concatOf dcgrsCustomerGateways) .
-                              cgState . to toText)
+                              cgState . to toTextCI)
                        , matchAny
                              "deleting"
                              AcceptFailure
                              (folding (concatOf dcgrsCustomerGateways) .
-                              cgState . to toText)]
+                              cgState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 conversionTaskCompleted :: Wait DescribeConversionTasks
 conversionTaskCompleted =
     Wait
@@ -146,19 +158,21 @@ conversionTaskCompleted =
                              "completed"
                              AcceptSuccess
                              (folding (concatOf dctrsConversionTasks) .
-                              ctState . to toText)
+                              ctState . to toTextCI)
                        , matchAny
                              "cancelled"
                              AcceptFailure
                              (folding (concatOf dctrsConversionTasks) .
-                              ctState . to toText)
+                              ctState . to toTextCI)
                        , matchAny
                              "cancelling"
                              AcceptFailure
                              (folding (concatOf dctrsConversionTasks) .
-                              ctState . to toText)]
+                              ctState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 conversionTaskDeleted :: Wait DescribeConversionTasks
 conversionTaskDeleted =
     Wait
@@ -169,9 +183,11 @@ conversionTaskDeleted =
                              "deleted"
                              AcceptSuccess
                              (folding (concatOf dctrsConversionTasks) .
-                              ctState . to toText)]
+                              ctState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 instanceStopped :: Wait DescribeInstances
 instanceStopped =
     Wait
@@ -183,21 +199,23 @@ instanceStopped =
                              AcceptSuccess
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)
+                              insState . isName . to toTextCI)
                        , matchAny
                              "pending"
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)
+                              insState . isName . to toTextCI)
                        , matchAny
                              "terminated"
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)]
+                              insState . isName . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 passwordDataAvailable :: Wait GetPasswordData
 passwordDataAvailable =
     Wait
@@ -210,6 +228,8 @@ passwordDataAvailable =
                              (nonEmpty gpdrsPasswordData)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 instanceRunning :: Wait DescribeInstances
 instanceRunning =
     Wait
@@ -221,27 +241,29 @@ instanceRunning =
                              AcceptSuccess
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)
+                              insState . isName . to toTextCI)
                        , matchAny
                              "shutting-down"
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)
+                              insState . isName . to toTextCI)
                        , matchAny
                              "terminated"
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)
+                              insState . isName . to toTextCI)
                        , matchAny
                              "stopping"
                              AcceptFailure
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
-                              insState . isName . to toText)]
+                              insState . isName . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 spotInstanceRequestFulfilled :: Wait DescribeSpotInstanceRequests
 spotInstanceRequestFulfilled =
     Wait
@@ -252,29 +274,31 @@ spotInstanceRequestFulfilled =
                              "fulfilled"
                              AcceptSuccess
                              (folding (concatOf dsirrsSpotInstanceRequests) .
-                              sirStatus . _Just . sisCode . _Just . to toText)
+                              sirStatus . _Just . sisCode . _Just . to toTextCI)
                        , matchAny
                              "schedule-expired"
                              AcceptFailure
                              (folding (concatOf dsirrsSpotInstanceRequests) .
-                              sirStatus . _Just . sisCode . _Just . to toText)
+                              sirStatus . _Just . sisCode . _Just . to toTextCI)
                        , matchAny
                              "canceled-before-fulfillment"
                              AcceptFailure
                              (folding (concatOf dsirrsSpotInstanceRequests) .
-                              sirStatus . _Just . sisCode . _Just . to toText)
+                              sirStatus . _Just . sisCode . _Just . to toTextCI)
                        , matchAny
                              "bad-parameters"
                              AcceptFailure
                              (folding (concatOf dsirrsSpotInstanceRequests) .
-                              sirStatus . _Just . sisCode . _Just . to toText)
+                              sirStatus . _Just . sisCode . _Just . to toTextCI)
                        , matchAny
                              "system-error"
                              AcceptFailure
                              (folding (concatOf dsirrsSpotInstanceRequests) .
-                              sirStatus . _Just . sisCode . _Just . to toText)]
+                              sirStatus . _Just . sisCode . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 exportTaskCompleted :: Wait DescribeExportTasks
 exportTaskCompleted =
     Wait
@@ -285,9 +309,11 @@ exportTaskCompleted =
                              "completed"
                              AcceptSuccess
                              (folding (concatOf detrsExportTasks) .
-                              etState . to toText)]
+                              etState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVPCs' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 vpcAvailable :: Wait DescribeVPCs
 vpcAvailable =
     Wait
@@ -298,9 +324,11 @@ vpcAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf dvrsVPCs) .
-                              vpcState . to toText)]
+                              vpcState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionAvailable :: Wait DescribeVPNConnections
 vpnConnectionAvailable =
     Wait
@@ -311,19 +339,21 @@ vpnConnectionAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf dvcrsVPNConnections) .
-                              vcState . to toText)
+                              vcState . to toTextCI)
                        , matchAny
                              "deleting"
                              AcceptFailure
                              (folding (concatOf dvcrsVPNConnections) .
-                              vcState . to toText)
+                              vcState . to toTextCI)
                        , matchAny
                              "deleted"
                              AcceptFailure
                              (folding (concatOf dvcrsVPNConnections) .
-                              vcState . to toText)]
+                              vcState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 exportTaskCancelled :: Wait DescribeExportTasks
 exportTaskCancelled =
     Wait
@@ -334,9 +364,11 @@ exportTaskCancelled =
                              "cancelled"
                              AcceptSuccess
                              (folding (concatOf detrsExportTasks) .
-                              etState . to toText)]
+                              etState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 volumeDeleted :: Wait DescribeVolumes
 volumeDeleted =
     Wait
@@ -347,10 +379,12 @@ volumeDeleted =
                              "deleted"
                              AcceptSuccess
                              (folding (concatOf dvvrsVolumes) .
-                              vState . to toText)
+                              vState . to toTextCI)
                        , matchError "InvalidVolumeNotFound" AcceptSuccess]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 bundleTaskComplete :: Wait DescribeBundleTasks
 bundleTaskComplete =
     Wait
@@ -361,14 +395,16 @@ bundleTaskComplete =
                              "complete"
                              AcceptSuccess
                              (folding (concatOf dbtrsBundleTasks) .
-                              btState . to toText)
+                              btState . to toTextCI)
                        , matchAny
                              "failed"
                              AcceptFailure
                              (folding (concatOf dbtrsBundleTasks) .
-                              btState . to toText)]
+                              btState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionDeleted :: Wait DescribeVPNConnections
 vpnConnectionDeleted =
     Wait
@@ -379,14 +415,16 @@ vpnConnectionDeleted =
                              "deleted"
                              AcceptSuccess
                              (folding (concatOf dvcrsVPNConnections) .
-                              vcState . to toText)
+                              vcState . to toTextCI)
                        , matchAny
                              "pending"
                              AcceptFailure
                              (folding (concatOf dvcrsVPNConnections) .
-                              vcState . to toText)]
+                              vcState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 imageAvailable :: Wait DescribeImages
 imageAvailable =
     Wait
@@ -397,14 +435,16 @@ imageAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf desrsImages) .
-                              iState . to toText)
+                              iState . to toTextCI)
                        , matchAny
                              "deregistered"
                              AcceptFailure
                              (folding (concatOf desrsImages) .
-                              iState . to toText)]
+                              iState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 conversionTaskCancelled :: Wait DescribeConversionTasks
 conversionTaskCancelled =
     Wait
@@ -415,9 +455,11 @@ conversionTaskCancelled =
                              "cancelled"
                              AcceptSuccess
                              (folding (concatOf dctrsConversionTasks) .
-                              ctState . to toText)]
+                              ctState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 instanceExists :: Wait DescribeInstances
 instanceExists =
     Wait
@@ -428,6 +470,8 @@ instanceExists =
                        , matchError "InvalidInstanceIDNotFound" AcceptRetry]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 volumeAvailable :: Wait DescribeVolumes
 volumeAvailable =
     Wait
@@ -438,14 +482,16 @@ volumeAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf dvvrsVolumes) .
-                              vState . to toText)
+                              vState . to toTextCI)
                        , matchAny
                              "deleted"
                              AcceptFailure
                              (folding (concatOf dvvrsVolumes) .
-                              vState . to toText)]
+                              vState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 snapshotCompleted :: Wait DescribeSnapshots
 snapshotCompleted =
     Wait
@@ -456,9 +502,11 @@ snapshotCompleted =
                              "completed"
                              AcceptSuccess
                              (folding (concatOf dssrsSnapshots) .
-                              sState . to toText)]
+                              sState . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
 instanceStatusOK :: Wait DescribeInstanceStatus
 instanceStatusOK =
     Wait
@@ -469,5 +517,6 @@ instanceStatusOK =
                              "ok"
                              AcceptSuccess
                              (folding (concatOf disrsInstanceStatuses) .
-                              isInstanceStatus . _Just . issStatus . to toText)]
+                              isInstanceStatus .
+                              _Just . issStatus . to toTextCI)]
     }

@@ -19,24 +19,22 @@
 --
 -- Modifies an existing option group.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyOptionGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyOptionGroup.html AWS API Reference> for ModifyOptionGroup.
 module Network.AWS.RDS.ModifyOptionGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyOptionGroup
-    -- ** Request constructor
     , modifyOptionGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mogOptionsToInclude
     , mogOptionsToRemove
     , mogApplyImmediately
     , mogOptionGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyOptionGroupResponse
-    -- ** Response constructor
     , modifyOptionGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mogrsOptionGroup
     , mogrsStatus
     ) where
@@ -152,10 +150,10 @@ modifyOptionGroupResponse pStatus_ =
     , _mogrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mogrsStatus :: Lens' ModifyOptionGroupResponse Int
 mogrsStatus = lens _mogrsStatus (\ s a -> s{_mogrsStatus = a});

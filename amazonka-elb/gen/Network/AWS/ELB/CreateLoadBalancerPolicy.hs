@@ -24,24 +24,22 @@
 -- be applied to the front-end listener or the back-end application server,
 -- depending on the policy type.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerPolicy.html AWS API Reference> for CreateLoadBalancerPolicy.
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
-    -- * Request
+    -- * Creating a Request
       CreateLoadBalancerPolicy
-    -- ** Request constructor
     , createLoadBalancerPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , clbpPolicyAttributes
     , clbpLoadBalancerName
     , clbpPolicyName
     , clbpPolicyTypeName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLoadBalancerPolicyResponse
-    -- ** Response constructor
     , createLoadBalancerPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clbprsStatus
     ) where
 
@@ -142,6 +140,6 @@ createLoadBalancerPolicyResponse pStatus_ =
     { _clbprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clbprsStatus :: Lens' CreateLoadBalancerPolicyResponse Int
 clbprsStatus = lens _clbprsStatus (\ s a -> s{_clbprsStatus = a});

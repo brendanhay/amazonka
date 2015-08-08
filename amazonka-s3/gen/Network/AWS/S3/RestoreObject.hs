@@ -19,25 +19,23 @@
 --
 -- Restores an archived copy of an object back into Amazon S3
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html AWS API Reference> for RestoreObject.
 module Network.AWS.S3.RestoreObject
     (
-    -- * Request
+    -- * Creating a Request
       RestoreObject
-    -- ** Request constructor
     , restoreObject
-    -- ** Request lenses
+    -- * Request Lenses
     , roVersionId
     , roRequestPayer
     , roRestoreRequest
     , roBucket
     , roKey
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreObjectResponse
-    -- ** Response constructor
     , restoreObjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rorsRequestCharged
     , rorsStatus
     ) where
@@ -79,23 +77,23 @@ restoreObject pBucket_ pKey_ =
     , _roKey = pKey_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
 roVersionId = lens _roVersionId (\ s a -> s{_roVersionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 roRequestPayer :: Lens' RestoreObject (Maybe RequestPayer)
 roRequestPayer = lens _roRequestPayer (\ s a -> s{_roRequestPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
 roRestoreRequest = lens _roRestoreRequest (\ s a -> s{_roRestoreRequest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 roBucket :: Lens' RestoreObject BucketName
 roBucket = lens _roBucket (\ s a -> s{_roBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 roKey :: Lens' RestoreObject ObjectKey
 roKey = lens _roKey (\ s a -> s{_roKey = a});
 
@@ -149,10 +147,10 @@ restoreObjectResponse pStatus_ =
     , _rorsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
 rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rorsStatus :: Lens' RestoreObjectResponse Int
 rorsStatus = lens _rorsStatus (\ s a -> s{_rorsStatus = a});

@@ -29,21 +29,19 @@
 -- recommend that you change this only for boot volumes or for volumes that
 -- are stateless or disposable.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVolumeAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVolumeAttribute.html AWS API Reference> for ModifyVolumeAttribute.
 module Network.AWS.EC2.ModifyVolumeAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ModifyVolumeAttribute
-    -- ** Request constructor
     , modifyVolumeAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , mvaAutoEnableIO
     , mvaDryRun
     , mvaVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyVolumeAttributeResponse
-    -- ** Response constructor
     , modifyVolumeAttributeResponse
     ) where
 

@@ -20,24 +20,22 @@
 -- Enables the automatic copy of snapshots from one region to another
 -- region for a specified cluster.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html AWS API Reference> for EnableSnapshotCopy.
 module Network.AWS.Redshift.EnableSnapshotCopy
     (
-    -- * Request
+    -- * Creating a Request
       EnableSnapshotCopy
-    -- ** Request constructor
     , enableSnapshotCopy
-    -- ** Request lenses
+    -- * Request Lenses
     , escRetentionPeriod
     , escSnapshotCopyGrantName
     , escClusterIdentifier
     , escDestinationRegion
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableSnapshotCopyResponse
-    -- ** Response constructor
     , enableSnapshotCopyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , escrsCluster
     , escrsStatus
     ) where
@@ -154,10 +152,10 @@ enableSnapshotCopyResponse pStatus_ =
     , _escrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 escrsStatus :: Lens' EnableSnapshotCopyResponse Int
 escrsStatus = lens _escrsStatus (\ s a -> s{_escrsStatus = a});

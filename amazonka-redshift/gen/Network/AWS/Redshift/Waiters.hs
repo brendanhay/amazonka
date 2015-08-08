@@ -22,6 +22,8 @@ import           Network.AWS.Redshift.DescribeClusterSnapshots
 import           Network.AWS.Redshift.Types
 import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a
+-- successful state is reached. An error is returned after 30 failed checks.
 clusterDeleted :: Wait DescribeClusters
 clusterDeleted =
     Wait
@@ -33,14 +35,16 @@ clusterDeleted =
                              "creating"
                              AcceptFailure
                              (folding (concatOf dcrsClusters) .
-                              cClusterStatus . _Just . to toText)
+                              cClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "rebooting"
                              AcceptFailure
                              (folding (concatOf dcrsClusters) .
-                              cClusterStatus . _Just . to toText)]
+                              cClusterStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.Redshift.DescribeClusterSnapshots' every 15 seconds until a
+-- successful state is reached. An error is returned after 20 failed checks.
 snapshotAvailable :: Wait DescribeClusterSnapshots
 snapshotAvailable =
     Wait
@@ -51,19 +55,21 @@ snapshotAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf dcssrsSnapshots) .
-                              sStatus . _Just . to toText)
+                              sStatus . _Just . to toTextCI)
                        , matchAny
                              "failed"
                              AcceptFailure
                              (folding (concatOf dcssrsSnapshots) .
-                              sStatus . _Just . to toText)
+                              sStatus . _Just . to toTextCI)
                        , matchAny
                              "deleted"
                              AcceptFailure
                              (folding (concatOf dcssrsSnapshots) .
-                              sStatus . _Just . to toText)]
+                              sStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a
+-- successful state is reached. An error is returned after 30 failed checks.
 clusterAvailable :: Wait DescribeClusters
 clusterAvailable =
     Wait
@@ -74,11 +80,11 @@ clusterAvailable =
                              "available"
                              AcceptSuccess
                              (folding (concatOf dcrsClusters) .
-                              cClusterStatus . _Just . to toText)
+                              cClusterStatus . _Just . to toTextCI)
                        , matchAny
                              "deleting"
                              AcceptFailure
                              (folding (concatOf dcrsClusters) .
-                              cClusterStatus . _Just . to toText)
+                              cClusterStatus . _Just . to toTextCI)
                        , matchError "ClusterNotFound" AcceptRetry]
     }

@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -27,19 +28,154 @@
 -- pay only for what they use.
 --
 -- Visit <http://aws.amazon.com/simpledb/> for more information.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html AWS API Reference>
 module Network.AWS.SDB
-    ( module Export
+    (
+    -- * Service Description
+      SDB
+
+    -- * Error Matchers
+    -- $errors
+    , _InvalidNumberValueTests
+    , _NoSuchDomain
+    , _NumberDomainAttributesExceeded
+    , _NumberSubmittedItemsExceeded
+    , _AttributeDoesNotExist
+    , _InvalidNextToken
+    , _MissingParameter
+    , _DuplicateItemName
+    , _InvalidParameterValue
+    , _NumberItemAttributesExceeded
+    , _RequestTimeout
+    , _TooManyRequestedAttributes
+    , _InvalidNumberPredicates
+    , _NumberDomainsExceeded
+    , _NumberSubmittedAttributesExceeded
+    , _InvalidQueryExpression
+    , _NumberDomainBytesExceeded
+
+    -- * Operations
+    -- $operations
+
+    -- ** BatchDeleteAttributes
+    , module Network.AWS.SDB.BatchDeleteAttributes
+
+    -- ** BatchPutAttributes
+    , module Network.AWS.SDB.BatchPutAttributes
+
+    -- ** GetAttributes
+    , module Network.AWS.SDB.GetAttributes
+
+    -- ** CreateDomain
+    , module Network.AWS.SDB.CreateDomain
+
+    -- ** DomainMetadata
+    , module Network.AWS.SDB.DomainMetadata
+
+    -- ** Select (Paginated)
+    , module Network.AWS.SDB.Select
+    -- $pager
+
+    -- ** PutAttributes
+    , module Network.AWS.SDB.PutAttributes
+
+    -- ** DeleteAttributes
+    , module Network.AWS.SDB.DeleteAttributes
+
+    -- ** ListDomains (Paginated)
+    , module Network.AWS.SDB.ListDomains
+    -- $pager
+
+    -- ** DeleteDomain
+    , module Network.AWS.SDB.DeleteDomain
+
+    -- * Types
+
+    -- ** Attribute
+    , Attribute
+    , attribute
+    , aAlternateValueEncoding
+    , aAlternateNameEncoding
+    , aName
+    , aValue
+
+    -- ** DeletableItem
+    , DeletableItem
+    , deletableItem
+    , diAttributes
+    , diName
+
+    -- ** Item
+    , Item
+    , item
+    , iAlternateNameEncoding
+    , iName
+    , iAttributes
+
+    -- ** ReplaceableAttribute
+    , ReplaceableAttribute
+    , replaceableAttribute
+    , raReplace
+    , raName
+    , raValue
+
+    -- ** ReplaceableItem
+    , ReplaceableItem
+    , replaceableItem
+    , riName
+    , riAttributes
+
+    -- ** UpdateCondition
+    , UpdateCondition
+    , updateCondition
+    , ucExists
+    , ucValue
+    , ucName
     ) where
 
-import           Network.AWS.SDB.BatchDeleteAttributes as Export
-import           Network.AWS.SDB.BatchPutAttributes    as Export
-import           Network.AWS.SDB.CreateDomain          as Export
-import           Network.AWS.SDB.DeleteAttributes      as Export
-import           Network.AWS.SDB.DeleteDomain          as Export
-import           Network.AWS.SDB.DomainMetadata        as Export
-import           Network.AWS.SDB.GetAttributes         as Export
-import           Network.AWS.SDB.ListDomains           as Export
-import           Network.AWS.SDB.PutAttributes         as Export
-import           Network.AWS.SDB.Select                as Export
-import           Network.AWS.SDB.Types                 as Export
-import           Network.AWS.SDB.Waiters               as Export
+import           Network.AWS.SDB.BatchDeleteAttributes
+import           Network.AWS.SDB.BatchPutAttributes
+import           Network.AWS.SDB.CreateDomain
+import           Network.AWS.SDB.DeleteAttributes
+import           Network.AWS.SDB.DeleteDomain
+import           Network.AWS.SDB.DomainMetadata
+import           Network.AWS.SDB.GetAttributes
+import           Network.AWS.SDB.ListDomains
+import           Network.AWS.SDB.PutAttributes
+import           Network.AWS.SDB.Select
+import           Network.AWS.SDB.Types
+import           Network.AWS.SDB.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'SDB'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

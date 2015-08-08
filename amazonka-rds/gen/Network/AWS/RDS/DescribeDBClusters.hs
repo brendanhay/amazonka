@@ -24,24 +24,22 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html AWS API Reference> for DescribeDBClusters.
 module Network.AWS.RDS.DescribeDBClusters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBClusters
-    -- ** Request constructor
     , describeDBClusters
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcDBClusterIdentifier
     , ddcFilters
     , ddcMaxRecords
     , ddcMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBClustersResponse
-    -- ** Response constructor
     , describeDBClustersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddcrsDBClusters
     , ddcrsMarker
     , ddcrsStatus
@@ -182,6 +180,6 @@ ddcrsDBClusters = lens _ddcrsDBClusters (\ s a -> s{_ddcrsDBClusters = a}) . _De
 ddcrsMarker :: Lens' DescribeDBClustersResponse (Maybe Text)
 ddcrsMarker = lens _ddcrsMarker (\ s a -> s{_ddcrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcrsStatus :: Lens' DescribeDBClustersResponse Int
 ddcrsStatus = lens _ddcrsStatus (\ s a -> s{_ddcrsStatus = a});

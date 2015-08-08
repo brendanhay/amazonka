@@ -23,23 +23,21 @@
 -- encrypt customer data. For more information about data keys, see
 -- GenerateDataKey and GenerateDataKeyWithoutPlaintext.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html AWS API Reference> for CreateKey.
 module Network.AWS.KMS.CreateKey
     (
-    -- * Request
+    -- * Creating a Request
       CreateKey
-    -- ** Request constructor
     , createKey
-    -- ** Request lenses
+    -- * Request Lenses
     , ckKeyUsage
     , ckPolicy
     , ckDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateKeyResponse
-    -- ** Response constructor
     , createKeyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ckrsKeyMetadata
     , ckrsStatus
     ) where
@@ -144,6 +142,6 @@ createKeyResponse pStatus_ =
 ckrsKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrsKeyMetadata = lens _ckrsKeyMetadata (\ s a -> s{_ckrsKeyMetadata = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ckrsStatus :: Lens' CreateKeyResponse Int
 ckrsStatus = lens _ckrsStatus (\ s a -> s{_ckrsStatus = a});

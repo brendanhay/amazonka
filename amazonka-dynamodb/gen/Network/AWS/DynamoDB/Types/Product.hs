@@ -221,7 +221,7 @@ attributeValueUpdate =
     , _avuAction = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
 avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 
@@ -657,11 +657,11 @@ cgsiaIndexName = lens _cgsiaIndexName (\ s a -> s{_cgsiaIndexName = a});
 cgsiaKeySchema :: Lens' CreateGlobalSecondaryIndexAction (NonEmpty KeySchemaElement)
 cgsiaKeySchema = lens _cgsiaKeySchema (\ s a -> s{_cgsiaKeySchema = a}) . _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cgsiaProjection :: Lens' CreateGlobalSecondaryIndexAction Projection
 cgsiaProjection = lens _cgsiaProjection (\ s a -> s{_cgsiaProjection = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction ProvisionedThroughput
 cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsiaProvisionedThroughput = a});
 
@@ -837,7 +837,7 @@ eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeVal
 eavExists :: Lens' ExpectedAttributeValue (Maybe Bool)
 eavExists = lens _eavExists (\ s a -> s{_eavExists = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
 eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 
@@ -1039,11 +1039,11 @@ gsiIndexName = lens _gsiIndexName (\ s a -> s{_gsiIndexName = a});
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\ s a -> s{_gsiKeySchema = a}) . _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsiProjection :: Lens' GlobalSecondaryIndex Projection
 gsiProjection = lens _gsiProjection (\ s a -> s{_gsiProjection = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
 gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a});
 
@@ -1117,7 +1117,7 @@ globalSecondaryIndexDescription =
 gsidBackfilling :: Lens' GlobalSecondaryIndexDescription (Maybe Bool)
 gsidBackfilling = lens _gsidBackfilling (\ s a -> s{_gsidBackfilling = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsidProvisionedThroughput :: Lens' GlobalSecondaryIndexDescription (Maybe ProvisionedThroughputDescription)
 gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidProvisionedThroughput = a});
 
@@ -1149,7 +1149,7 @@ gsidIndexARN = lens _gsidIndexARN (\ s a -> s{_gsidIndexARN = a});
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . mapping _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
 gsidProjection = lens _gsidProjection (\ s a -> s{_gsidProjection = a});
 
@@ -1519,7 +1519,7 @@ lsiIndexName = lens _lsiIndexName (\ s a -> s{_lsiIndexName = a});
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\ s a -> s{_lsiProjection = a});
 
@@ -1583,7 +1583,7 @@ lsidIndexARN = lens _lsidIndexARN (\ s a -> s{_lsidIndexARN = a});
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . mapping _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\ s a -> s{_lsidProjection = a});
 
@@ -2226,7 +2226,7 @@ updateGlobalSecondaryIndexAction pIndexName_ pProvisionedThroughput_ =
 ugsiaIndexName :: Lens' UpdateGlobalSecondaryIndexAction Text
 ugsiaIndexName = lens _ugsiaIndexName (\ s a -> s{_ugsiaIndexName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction ProvisionedThroughput
 ugsiaProvisionedThroughput = lens _ugsiaProvisionedThroughput (\ s a -> s{_ugsiaProvisionedThroughput = a});
 

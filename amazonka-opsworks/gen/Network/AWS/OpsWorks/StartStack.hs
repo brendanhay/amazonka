@@ -25,19 +25,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartStack.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartStack.html AWS API Reference> for StartStack.
 module Network.AWS.OpsWorks.StartStack
     (
-    -- * Request
+    -- * Creating a Request
       StartStack
-    -- ** Request constructor
     , startStack
-    -- ** Request lenses
+    -- * Request Lenses
     , staStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , StartStackResponse
-    -- ** Response constructor
     , startStackResponse
     ) where
 

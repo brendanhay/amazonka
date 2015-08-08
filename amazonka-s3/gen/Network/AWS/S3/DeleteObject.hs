@@ -21,25 +21,23 @@
 -- delete marker, which becomes the latest version of the object. If there
 -- isn\'t a null version, Amazon S3 does not remove any objects.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html AWS API Reference> for DeleteObject.
 module Network.AWS.S3.DeleteObject
     (
-    -- * Request
+    -- * Creating a Request
       DeleteObject
-    -- ** Request constructor
     , deleteObject
-    -- ** Request lenses
+    -- * Request Lenses
     , doVersionId
     , doMFA
     , doRequestPayer
     , doBucket
     , doKey
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteObjectResponse
-    -- ** Response constructor
     , deleteObjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dorsVersionId
     , dorsRequestCharged
     , dorsDeleteMarker
@@ -92,15 +90,15 @@ doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
 doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\ s a -> s{_doMFA = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 doRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
 doRequestPayer = lens _doRequestPayer (\ s a -> s{_doRequestPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 doBucket :: Lens' DeleteObject BucketName
 doBucket = lens _doBucket (\ s a -> s{_doBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 doKey :: Lens' DeleteObject ObjectKey
 doKey = lens _doKey (\ s a -> s{_doKey = a});
 
@@ -164,7 +162,7 @@ deleteObjectResponse pStatus_ =
 dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
 dorsVersionId = lens _dorsVersionId (\ s a -> s{_dorsVersionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
 dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = a});
 
@@ -173,6 +171,6 @@ dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = 
 dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dorsStatus :: Lens' DeleteObjectResponse Int
 dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});

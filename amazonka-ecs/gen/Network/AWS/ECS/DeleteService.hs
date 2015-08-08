@@ -19,22 +19,20 @@
 --
 -- Deletes a specified service within a cluster.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteService.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteService.html AWS API Reference> for DeleteService.
 module Network.AWS.ECS.DeleteService
     (
-    -- * Request
+    -- * Creating a Request
       DeleteService
-    -- ** Request constructor
     , deleteService
-    -- ** Request lenses
+    -- * Request Lenses
     , dsCluster
     , dsService
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteServiceResponse
-    -- ** Response constructor
     , deleteServiceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsService
     , dsrsStatus
     ) where
@@ -123,10 +121,10 @@ deleteServiceResponse pStatus_ =
     , _dsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DeleteServiceResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

@@ -39,21 +39,19 @@
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityDkimAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityDkimAttributes.html AWS API Reference> for GetIdentityDkimAttributes.
 module Network.AWS.SES.GetIdentityDkimAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetIdentityDkimAttributes
-    -- ** Request constructor
     , getIdentityDkimAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , gidaIdentities
 
-    -- * Response
+    -- * Destructuring the Response
     , GetIdentityDkimAttributesResponse
-    -- ** Response constructor
     , getIdentityDkimAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gidarsStatus
     , gidarsDkimAttributes
     ) where
@@ -140,7 +138,7 @@ getIdentityDkimAttributesResponse pStatus_ =
     , _gidarsDkimAttributes = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gidarsStatus :: Lens' GetIdentityDkimAttributesResponse Int
 gidarsStatus = lens _gidarsStatus (\ s a -> s{_gidarsStatus = a});
 

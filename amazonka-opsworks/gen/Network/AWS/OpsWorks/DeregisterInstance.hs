@@ -28,19 +28,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterInstance.html AWS API Reference> for DeregisterInstance.
 module Network.AWS.OpsWorks.DeregisterInstance
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterInstance
-    -- ** Request constructor
     , deregisterInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , dInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterInstanceResponse
-    -- ** Response constructor
     , deregisterInstanceResponse
     ) where
 

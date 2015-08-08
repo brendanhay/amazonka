@@ -19,22 +19,20 @@
 --
 -- Describes a specified task or tasks.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html AWS API Reference> for DescribeTasks.
 module Network.AWS.ECS.DescribeTasks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTasks
-    -- ** Request constructor
     , describeTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , dtCluster
     , dtTasks
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTasksResponse
-    -- ** Response constructor
     , describeTasksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsFailures
     , dtrsTasks
     , dtrsStatus
@@ -133,7 +131,7 @@ describeTasksResponse pStatus_ =
     , _dtrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsFailures :: Lens' DescribeTasksResponse [Failure]
 dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default . _Coerce;
 
@@ -141,6 +139,6 @@ dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default . _
 dtrsTasks :: Lens' DescribeTasksResponse [Task]
 dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DescribeTasksResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

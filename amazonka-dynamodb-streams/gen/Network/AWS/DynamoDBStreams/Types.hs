@@ -13,10 +13,10 @@
 --
 module Network.AWS.DynamoDBStreams.Types
     (
-    -- * Service
+    -- * Service Decription
       DynamoDBStreams
 
-    -- * Errors
+    -- * Error Matchers
     , _ExpiredIteratorException
     , _InternalServerError
     , _TrimmedDataAccessException

@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html AWS API Reference> for DescribeSubnets.
 module Network.AWS.EC2.DescribeSubnets
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSubnets
-    -- ** Request constructor
     , describeSubnets
-    -- ** Request lenses
+    -- * Request Lenses
     , dsSubnetIds
     , dsFilters
     , dsDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSubnetsResponse
-    -- ** Response constructor
     , describeSubnetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsSubnets
     , dsrsStatus
     ) where
@@ -177,6 +175,6 @@ describeSubnetsResponse pStatus_ =
 dsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DescribeSubnetsResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

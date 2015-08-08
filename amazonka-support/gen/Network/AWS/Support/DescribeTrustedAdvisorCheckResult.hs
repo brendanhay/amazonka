@@ -35,22 +35,20 @@
 -- -   __Timestamp.__ The time of the last refresh of the check.
 -- -   __CheckId.__ The unique identifier for the check.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html AWS API Reference> for DescribeTrustedAdvisorCheckResult.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTrustedAdvisorCheckResult
-    -- ** Request constructor
     , describeTrustedAdvisorCheckResult
-    -- ** Request lenses
+    -- * Request Lenses
     , dtacrLanguage
     , dtacrCheckId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTrustedAdvisorCheckResultResponse
-    -- ** Response constructor
     , describeTrustedAdvisorCheckResultResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtacrrsResult
     , dtacrrsStatus
     ) where
@@ -156,6 +154,6 @@ describeTrustedAdvisorCheckResultResponse pStatus_ =
 dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtacrrsStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
 dtacrrsStatus = lens _dtacrrsStatus (\ s a -> s{_dtacrrsStatus = a});

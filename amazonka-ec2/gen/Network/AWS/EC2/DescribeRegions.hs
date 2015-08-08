@@ -22,23 +22,21 @@
 -- For a list of the regions supported by Amazon EC2, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html AWS API Reference> for DescribeRegions.
 module Network.AWS.EC2.DescribeRegions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeRegions
-    -- ** Request constructor
     , describeRegions
-    -- ** Request lenses
+    -- * Request Lenses
     , drsRegionNames
     , drsFilters
     , drsDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeRegionsResponse
-    -- ** Response constructor
     , describeRegionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drrsRegions
     , drrsStatus
     ) where
@@ -145,6 +143,6 @@ describeRegionsResponse pStatus_ =
 drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
 drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drrsStatus :: Lens' DescribeRegionsResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

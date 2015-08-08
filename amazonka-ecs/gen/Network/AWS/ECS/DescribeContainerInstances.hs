@@ -21,22 +21,20 @@
 -- metadata about registered and remaining resources on each container
 -- instance requested.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html AWS API Reference> for DescribeContainerInstances.
 module Network.AWS.ECS.DescribeContainerInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeContainerInstances
-    -- ** Request constructor
     , describeContainerInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , dciCluster
     , dciContainerInstances
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeContainerInstancesResponse
-    -- ** Response constructor
     , describeContainerInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcisrsFailures
     , dcisrsContainerInstances
     , dcisrsStatus
@@ -137,7 +135,7 @@ describeContainerInstancesResponse pStatus_ =
     , _dcisrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcisrsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
 dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Default . _Coerce;
 
@@ -145,6 +143,6 @@ dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Defau
 dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
 dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcisrsStatus :: Lens' DescribeContainerInstancesResponse Int
 dcisrsStatus = lens _dcisrsStatus (\ s a -> s{_dcisrsStatus = a});

@@ -19,21 +19,19 @@
 --
 -- Get the information about a distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistribution.html AWS API Reference> for GetDistribution.
 module Network.AWS.CloudFront.GetDistribution
     (
-    -- * Request
+    -- * Creating a Request
       GetDistribution
-    -- ** Request constructor
     , getDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , gdId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDistributionResponse
-    -- ** Response constructor
     , getDistributionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdrsETag
     , gdrsDistribution
     , gdrsStatus
@@ -122,6 +120,6 @@ gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
 gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdrsStatus :: Lens' GetDistributionResponse Int
 gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

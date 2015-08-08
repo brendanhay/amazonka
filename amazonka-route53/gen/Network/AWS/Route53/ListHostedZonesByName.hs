@@ -29,23 +29,21 @@
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByName.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByName.html AWS API Reference> for ListHostedZonesByName.
 module Network.AWS.Route53.ListHostedZonesByName
     (
-    -- * Request
+    -- * Creating a Request
       ListHostedZonesByName
-    -- ** Request constructor
     , listHostedZonesByName
-    -- ** Request lenses
+    -- * Request Lenses
     , lhzbnHostedZoneId
     , lhzbnMaxItems
     , lhzbnDNSName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListHostedZonesByNameResponse
-    -- ** Response constructor
     , listHostedZonesByNameResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lhzbnrsHostedZoneId
     , lhzbnrsNextHostedZoneId
     , lhzbnrsDNSName
@@ -226,7 +224,7 @@ lhzbnrsDNSName = lens _lhzbnrsDNSName (\ s a -> s{_lhzbnrsDNSName = a});
 lhzbnrsNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsNextDNSName = lens _lhzbnrsNextDNSName (\ s a -> s{_lhzbnrsNextDNSName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lhzbnrsStatus :: Lens' ListHostedZonesByNameResponse Int
 lhzbnrsStatus = lens _lhzbnrsStatus (\ s a -> s{_lhzbnrsStatus = a});
 

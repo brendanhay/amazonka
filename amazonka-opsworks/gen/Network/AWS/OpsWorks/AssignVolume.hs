@@ -30,20 +30,18 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html AWS API Reference> for AssignVolume.
 module Network.AWS.OpsWorks.AssignVolume
     (
-    -- * Request
+    -- * Creating a Request
       AssignVolume
-    -- ** Request constructor
     , assignVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , avInstanceId
     , avVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , AssignVolumeResponse
-    -- ** Response constructor
     , assignVolumeResponse
     ) where
 

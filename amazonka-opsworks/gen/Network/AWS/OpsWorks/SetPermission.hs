@@ -26,23 +26,21 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html AWS API Reference> for SetPermission.
 module Network.AWS.OpsWorks.SetPermission
     (
-    -- * Request
+    -- * Creating a Request
       SetPermission
-    -- ** Request constructor
     , setPermission
-    -- ** Request lenses
+    -- * Request Lenses
     , spAllowSudo
     , spLevel
     , spAllowSSH
     , spStackId
     , spIAMUserARN
 
-    -- * Response
+    -- * Destructuring the Response
     , SetPermissionResponse
-    -- ** Response constructor
     , setPermissionResponse
     ) where
 

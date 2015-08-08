@@ -25,14 +25,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html AWS API Reference> for RequestSpotInstances.
 module Network.AWS.EC2.RequestSpotInstances
     (
-    -- * Request
+    -- * Creating a Request
       RequestSpotInstances
-    -- ** Request constructor
     , requestSpotInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , rsiInstanceCount
     , rsiClientToken
     , rsiAvailabilityZoneGroup
@@ -44,11 +43,10 @@ module Network.AWS.EC2.RequestSpotInstances
     , rsiDryRun
     , rsiSpotPrice
 
-    -- * Response
+    -- * Destructuring the Response
     , RequestSpotInstancesResponse
-    -- ** Response constructor
     , requestSpotInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rsirsSpotInstanceRequests
     , rsirsStatus
     ) where
@@ -148,7 +146,7 @@ rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
 rsiAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiAvailabilityZoneGroup = lens _rsiAvailabilityZoneGroup (\ s a -> s{_rsiAvailabilityZoneGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rsiLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
 rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a});
 
@@ -255,6 +253,6 @@ requestSpotInstancesResponse pStatus_ =
 rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rsirsStatus :: Lens' RequestSpotInstancesResponse Int
 rsirsStatus = lens _rsirsStatus (\ s a -> s{_rsirsStatus = a});

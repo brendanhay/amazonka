@@ -48,20 +48,18 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateActivityType.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateActivityType.html AWS API Reference> for DeprecateActivityType.
 module Network.AWS.SWF.DeprecateActivityType
     (
-    -- * Request
+    -- * Creating a Request
       DeprecateActivityType
-    -- ** Request constructor
     , deprecateActivityType
-    -- ** Request lenses
+    -- * Request Lenses
     , depDomain
     , depActivityType
 
-    -- * Response
+    -- * Destructuring the Response
     , DeprecateActivityTypeResponse
-    -- ** Response constructor
     , deprecateActivityTypeResponse
     ) where
 

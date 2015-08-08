@@ -23,6 +23,8 @@ import           Network.AWS.MachineLearning.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 mLModelAvailable :: Wait DescribeMLModels
 mLModelAvailable =
     Wait
@@ -33,14 +35,16 @@ mLModelAvailable =
                              "COMPLETED"
                              AcceptSuccess
                              (folding (concatOf dmlmsrsResults) .
-                              mlmStatus . _Just . to toText)
+                              mlmStatus . _Just . to toTextCI)
                        , matchAny
                              "FAILED"
                              AcceptFailure
                              (folding (concatOf dmlmsrsResults) .
-                              mlmStatus . _Just . to toText)]
+                              mlmStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 batchPredictionAvailable :: Wait DescribeBatchPredictions
 batchPredictionAvailable =
     Wait
@@ -51,14 +55,16 @@ batchPredictionAvailable =
                              "COMPLETED"
                              AcceptSuccess
                              (folding (concatOf drsResults) .
-                              bpStatus . _Just . to toText)
+                              bpStatus . _Just . to toTextCI)
                        , matchAny
                              "FAILED"
                              AcceptFailure
                              (folding (concatOf drsResults) .
-                              bpStatus . _Just . to toText)]
+                              bpStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 dataSourceAvailable :: Wait DescribeDataSources
 dataSourceAvailable =
     Wait
@@ -69,14 +75,16 @@ dataSourceAvailable =
                              "COMPLETED"
                              AcceptSuccess
                              (folding (concatOf ddssrsResults) .
-                              dsStatus . _Just . to toText)
+                              dsStatus . _Just . to toTextCI)
                        , matchAny
                              "FAILED"
                              AcceptFailure
                              (folding (concatOf ddssrsResults) .
-                              dsStatus . _Just . to toText)]
+                              dsStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 evaluationAvailable :: Wait DescribeEvaluations
 evaluationAvailable =
     Wait
@@ -87,10 +95,10 @@ evaluationAvailable =
                              "COMPLETED"
                              AcceptSuccess
                              (folding (concatOf desrsResults) .
-                              eStatus . _Just . to toText)
+                              eStatus . _Just . to toTextCI)
                        , matchAny
                              "FAILED"
                              AcceptFailure
                              (folding (concatOf desrsResults) .
-                              eStatus . _Just . to toText)]
+                              eStatus . _Just . to toTextCI)]
     }

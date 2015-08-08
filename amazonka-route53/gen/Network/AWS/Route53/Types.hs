@@ -13,10 +13,10 @@
 --
 module Network.AWS.Route53.Types
     (
-    -- * Service
+    -- * Service Decription
       Route53
 
-    -- * Errors
+    -- * Error Matchers
     , _HealthCheckVersionMismatch
     , _InvalidInput
     , _HostedZoneNotEmpty
@@ -48,6 +48,9 @@ module Network.AWS.Route53.Types
     , _NoSuchHealthCheck
     , _HostedZoneAlreadyExists
     , _InvalidVPCId
+
+    -- * Re-exported Types
+    , module Network.AWS.Route53.Internal
 
     -- * ChangeAction
     , ChangeAction (..)
@@ -206,8 +209,6 @@ module Network.AWS.Route53.Types
     , vpc
     , vpcVPCRegion
     , vpcVPCId
-
-    , module Network.AWS.Route53.Internal
     ) where
 
 import           Network.AWS.Prelude

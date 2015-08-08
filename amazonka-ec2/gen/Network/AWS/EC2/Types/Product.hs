@@ -376,7 +376,7 @@ blobAttributeValue =
     { _bavValue = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bavValue :: Lens' BlobAttributeValue (Maybe ByteString)
 bavValue = lens _bavValue (\ s a -> s{_bavValue = a}) . mapping _Base64;
 
@@ -4772,7 +4772,7 @@ lsEBSOptimized = lens _lsEBSOptimized (\ s a -> s{_lsEBSOptimized = a});
 lsUserData :: Lens' LaunchSpecification (Maybe Text)
 lsUserData = lens _lsUserData (\ s a -> s{_lsUserData = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsMonitoring :: Lens' LaunchSpecification (Maybe RunInstancesMonitoringEnabled)
 lsMonitoring = lens _lsMonitoring (\ s a -> s{_lsMonitoring = a});
 
@@ -5529,11 +5529,11 @@ newDHCPConfiguration =
     , _ndcKey = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ndcValues :: Lens' NewDHCPConfiguration [Text]
 ndcValues = lens _ndcValues (\ s a -> s{_ndcValues = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ndcKey :: Lens' NewDHCPConfiguration (Maybe Text)
 ndcKey = lens _ndcKey (\ s a -> s{_ndcKey = a});
 
@@ -6147,11 +6147,11 @@ requestSpotLaunchSpecification =
     , _rslsPlacement = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification [Text]
 rslsSecurityGroupIds = lens _rslsSecurityGroupIds (\ s a -> s{_rslsSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification [Text]
 rslsSecurityGroups = lens _rslsSecurityGroups (\ s a -> s{_rslsSecurityGroups = a}) . _Default . _Coerce;
 
@@ -6193,7 +6193,7 @@ rslsEBSOptimized = lens _rslsEBSOptimized (\ s a -> s{_rslsEBSOptimized = a});
 rslsUserData :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsUserData = lens _rslsUserData (\ s a -> s{_rslsUserData = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rslsMonitoring :: Lens' RequestSpotLaunchSpecification (Maybe RunInstancesMonitoringEnabled)
 rslsMonitoring = lens _rslsMonitoring (\ s a -> s{_rslsMonitoring = a});
 
@@ -7651,7 +7651,7 @@ sdFormat = lens _sdFormat (\ s a -> s{_sdFormat = a});
 sdDeviceName :: Lens' SnapshotDetail (Maybe Text)
 sdDeviceName = lens _sdDeviceName (\ s a -> s{_sdDeviceName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sdUserBucket :: Lens' SnapshotDetail (Maybe UserBucketDetails)
 sdUserBucket = lens _sdUserBucket (\ s a -> s{_sdUserBucket = a});
 
@@ -7725,7 +7725,7 @@ sdcURL = lens _sdcURL (\ s a -> s{_sdcURL = a});
 sdcFormat :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcFormat = lens _sdcFormat (\ s a -> s{_sdcFormat = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sdcUserBucket :: Lens' SnapshotDiskContainer (Maybe UserBucket)
 sdcUserBucket = lens _sdcUserBucket (\ s a -> s{_sdcUserBucket = a});
 
@@ -8023,7 +8023,7 @@ sflsUserData = lens _sflsUserData (\ s a -> s{_sflsUserData = a});
 sflsMonitoring :: Lens' SpotFleetLaunchSpecification (Maybe SpotFleetMonitoring)
 sflsMonitoring = lens _sflsMonitoring (\ s a -> s{_sflsMonitoring = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sflsIAMInstanceProfile :: Lens' SpotFleetLaunchSpecification (Maybe IAMInstanceProfileSpecification)
 sflsIAMInstanceProfile = lens _sflsIAMInstanceProfile (\ s a -> s{_sflsIAMInstanceProfile = a});
 
@@ -8039,7 +8039,7 @@ sflsBlockDeviceMappings = lens _sflsBlockDeviceMappings (\ s a -> s{_sflsBlockDe
 sflsAddressingType :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsAddressingType = lens _sflsAddressingType (\ s a -> s{_sflsAddressingType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sflsPlacement :: Lens' SpotFleetLaunchSpecification (Maybe SpotPlacement)
 sflsPlacement = lens _sflsPlacement (\ s a -> s{_sflsPlacement = a});
 

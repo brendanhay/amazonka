@@ -28,21 +28,19 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html AWS API Reference> for ResetInstanceAttribute.
 module Network.AWS.EC2.ResetInstanceAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ResetInstanceAttribute
-    -- ** Request constructor
     , resetInstanceAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , riaDryRun
     , riaInstanceId
     , riaAttribute
 
-    -- * Response
+    -- * Destructuring the Response
     , ResetInstanceAttributeResponse
-    -- ** Response constructor
     , resetInstanceAttributeResponse
     ) where
 

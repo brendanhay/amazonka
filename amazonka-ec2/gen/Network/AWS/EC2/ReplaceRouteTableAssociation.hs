@@ -29,23 +29,21 @@
 -- table\'s association ID and the route table to be the new main route
 -- table.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html AWS API Reference> for ReplaceRouteTableAssociation.
 module Network.AWS.EC2.ReplaceRouteTableAssociation
     (
-    -- * Request
+    -- * Creating a Request
       ReplaceRouteTableAssociation
-    -- ** Request constructor
     , replaceRouteTableAssociation
-    -- ** Request lenses
+    -- * Request Lenses
     , rrtaDryRun
     , rrtaAssociationId
     , rrtaRouteTableId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReplaceRouteTableAssociationResponse
-    -- ** Response constructor
     , replaceRouteTableAssociationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rrtarsNewAssociationId
     , rrtarsStatus
     ) where
@@ -146,6 +144,6 @@ replaceRouteTableAssociationResponse pStatus_ =
 rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAssociationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rrtarsStatus :: Lens' ReplaceRouteTableAssociationResponse Int
 rrtarsStatus = lens _rrtarsStatus (\ s a -> s{_rrtarsStatus = a});

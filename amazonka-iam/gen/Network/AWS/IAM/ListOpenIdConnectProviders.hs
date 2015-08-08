@@ -19,19 +19,17 @@
 --
 -- Lists information about the OpenID Connect providers in the AWS account.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIdConnectProviders.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIdConnectProviders.html AWS API Reference> for ListOpenIdConnectProviders.
 module Network.AWS.IAM.ListOpenIdConnectProviders
     (
-    -- * Request
+    -- * Creating a Request
       ListOpenIdConnectProviders
-    -- ** Request constructor
     , listOpenIdConnectProviders
 
-    -- * Response
+    -- * Destructuring the Response
     , ListOpenIdConnectProvidersResponse
-    -- ** Response constructor
     , listOpenIdConnectProvidersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , loicprsOpenIdConnectProviderList
     , loicprsStatus
     ) where
@@ -105,6 +103,6 @@ listOpenIdConnectProvidersResponse pStatus_ =
 loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
 loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 loicprsStatus :: Lens' ListOpenIdConnectProvidersResponse Int
 loicprsStatus = lens _loicprsStatus (\ s a -> s{_loicprsStatus = a});

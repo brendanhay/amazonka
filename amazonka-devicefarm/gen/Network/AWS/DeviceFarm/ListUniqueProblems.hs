@@ -19,22 +19,20 @@
 --
 -- Gets information about unique problems.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListUniqueProblems.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListUniqueProblems.html AWS API Reference> for ListUniqueProblems.
 module Network.AWS.DeviceFarm.ListUniqueProblems
     (
-    -- * Request
+    -- * Creating a Request
       ListUniqueProblems
-    -- ** Request constructor
     , listUniqueProblems
-    -- ** Request lenses
+    -- * Request Lenses
     , lupNextToken
     , lupArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListUniqueProblemsResponse
-    -- ** Response constructor
     , listUniqueProblemsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , luprsNextToken
     , luprsUniqueProblems
     , luprsStatus
@@ -164,6 +162,6 @@ luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 luprsUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult [UniqueProblem])
 luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 luprsStatus :: Lens' ListUniqueProblemsResponse Int
 luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});

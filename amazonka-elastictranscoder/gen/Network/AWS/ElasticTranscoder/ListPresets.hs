@@ -21,22 +21,20 @@
 -- with Elastic Transcoder and the presets that you\'ve added in an AWS
 -- region.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html AWS API Reference> for ListPresets.
 module Network.AWS.ElasticTranscoder.ListPresets
     (
-    -- * Request
+    -- * Creating a Request
       ListPresets
-    -- ** Request constructor
     , listPresets
-    -- ** Request lenses
+    -- * Request Lenses
     , lAscending
     , lPageToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPresetsResponse
-    -- ** Response constructor
     , listPresetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrsNextPageToken
     , lrsPresets
     , lrsStatus
@@ -150,6 +148,6 @@ lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a});
 lrsPresets :: Lens' ListPresetsResponse [Preset]
 lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrsStatus :: Lens' ListPresetsResponse Int
 lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

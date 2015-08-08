@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html AWS API Reference> for DescribeDefaultClusterParameters.
 module Network.AWS.Redshift.DescribeDefaultClusterParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDefaultClusterParameters
-    -- ** Request constructor
     , describeDefaultClusterParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcpMaxRecords
     , ddcpMarker
     , ddcpParameterGroupFamily
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDefaultClusterParametersResponse
-    -- ** Response constructor
     , describeDefaultClusterParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddcprsStatus
     , ddcprsDefaultClusterParameters
     ) where
@@ -173,10 +171,10 @@ describeDefaultClusterParametersResponse pStatus_ pDefaultClusterParameters_ =
     , _ddcprsDefaultClusterParameters = pDefaultClusterParameters_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcprsStatus :: Lens' DescribeDefaultClusterParametersResponse Int
 ddcprsStatus = lens _ddcprsStatus (\ s a -> s{_ddcprsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
 ddcprsDefaultClusterParameters = lens _ddcprsDefaultClusterParameters (\ s a -> s{_ddcprsDefaultClusterParameters = a});

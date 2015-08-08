@@ -29,14 +29,13 @@
 --
 -- You must turn on the gateway VM before you can activate your gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html AWS API Reference> for ActivateGateway.
 module Network.AWS.StorageGateway.ActivateGateway
     (
-    -- * Request
+    -- * Creating a Request
       ActivateGateway
-    -- ** Request constructor
     , activateGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , agMediumChangerType
     , agTapeDriveType
     , agGatewayType
@@ -45,11 +44,10 @@ module Network.AWS.StorageGateway.ActivateGateway
     , agGatewayTimezone
     , agGatewayRegion
 
-    -- * Response
+    -- * Destructuring the Response
     , ActivateGatewayResponse
-    -- ** Response constructor
     , activateGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , agrsGatewayARN
     , agrsStatus
     ) where
@@ -140,7 +138,7 @@ agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
 agActivationKey :: Lens' ActivateGateway Text
 agActivationKey = lens _agActivationKey (\ s a -> s{_agActivationKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 agGatewayName :: Lens' ActivateGateway Text
 agGatewayName = lens _agGatewayName (\ s a -> s{_agGatewayName = a});
 
@@ -225,10 +223,10 @@ activateGatewayResponse pStatus_ =
     , _agrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 agrsStatus :: Lens' ActivateGatewayResponse Int
 agrsStatus = lens _agrsStatus (\ s a -> s{_agrsStatus = a});

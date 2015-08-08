@@ -26,19 +26,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RebootInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RebootInstance.html AWS API Reference> for RebootInstance.
 module Network.AWS.OpsWorks.RebootInstance
     (
-    -- * Request
+    -- * Creating a Request
       RebootInstance
-    -- ** Request constructor
     , rebootInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , riInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , RebootInstanceResponse
-    -- ** Response constructor
     , rebootInstanceResponse
     ) where
 

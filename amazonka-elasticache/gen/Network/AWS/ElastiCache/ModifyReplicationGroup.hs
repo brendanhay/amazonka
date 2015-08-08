@@ -20,14 +20,13 @@
 -- The /ModifyReplicationGroup/ action modifies the settings for a
 -- replication group.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html AWS API Reference> for ModifyReplicationGroup.
 module Network.AWS.ElastiCache.ModifyReplicationGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyReplicationGroup
-    -- ** Request constructor
     , modifyReplicationGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mrgAutomaticFailoverEnabled
     , mrgEngineVersion
     , mrgSnapshottingClusterId
@@ -45,11 +44,10 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , mrgCacheSecurityGroupNames
     , mrgReplicationGroupId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyReplicationGroupResponse
-    -- ** Response constructor
     , modifyReplicationGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mrgrsReplicationGroup
     , mrgrsStatus
     ) where
@@ -346,10 +344,10 @@ modifyReplicationGroupResponse pStatus_ =
     , _mrgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mrgrsReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
 mrgrsReplicationGroup = lens _mrgrsReplicationGroup (\ s a -> s{_mrgrsReplicationGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mrgrsStatus :: Lens' ModifyReplicationGroupResponse Int
 mrgrsStatus = lens _mrgrsStatus (\ s a -> s{_mrgrsStatus = a});

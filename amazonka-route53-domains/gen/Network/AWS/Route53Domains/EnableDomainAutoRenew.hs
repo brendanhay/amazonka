@@ -28,21 +28,19 @@
 -- you renew before the end of the renewal period that is listed on the
 -- Gandi website so we can complete processing before the deadline.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainAutoRenew.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainAutoRenew.html AWS API Reference> for EnableDomainAutoRenew.
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
     (
-    -- * Request
+    -- * Creating a Request
       EnableDomainAutoRenew
-    -- ** Request constructor
     , enableDomainAutoRenew
-    -- ** Request lenses
+    -- * Request Lenses
     , edarDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableDomainAutoRenewResponse
-    -- ** Response constructor
     , enableDomainAutoRenewResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , edarrsStatus
     ) where
 
@@ -67,7 +65,7 @@ enableDomainAutoRenew pDomainName_ =
     { _edarDomainName = pDomainName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 edarDomainName :: Lens' EnableDomainAutoRenew Text
 edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
 
@@ -118,6 +116,6 @@ enableDomainAutoRenewResponse pStatus_ =
     { _edarrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 edarrsStatus :: Lens' EnableDomainAutoRenewResponse Int
 edarrsStatus = lens _edarrsStatus (\ s a -> s{_edarrsStatus = a});

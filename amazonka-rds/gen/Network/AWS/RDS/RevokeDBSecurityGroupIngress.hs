@@ -23,25 +23,23 @@
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId).
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RevokeDBSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RevokeDBSecurityGroupIngress.html AWS API Reference> for RevokeDBSecurityGroupIngress.
 module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     (
-    -- * Request
+    -- * Creating a Request
       RevokeDBSecurityGroupIngress
-    -- ** Request constructor
     , revokeDBSecurityGroupIngress
-    -- ** Request lenses
+    -- * Request Lenses
     , rdsgiEC2SecurityGroupOwnerId
     , rdsgiEC2SecurityGroupName
     , rdsgiCIdRIP
     , rdsgiEC2SecurityGroupId
     , rdsgiDBSecurityGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , RevokeDBSecurityGroupIngressResponse
-    -- ** Response constructor
     , revokeDBSecurityGroupIngressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdsgirsDBSecurityGroup
     , rdsgirsStatus
     ) where
@@ -169,10 +167,10 @@ revokeDBSecurityGroupIngressResponse pStatus_ =
     , _rdsgirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdsgirsDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 rdsgirsDBSecurityGroup = lens _rdsgirsDBSecurityGroup (\ s a -> s{_rdsgirsDBSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdsgirsStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
 rdsgirsStatus = lens _rdsgirsStatus (\ s a -> s{_rdsgirsStatus = a});

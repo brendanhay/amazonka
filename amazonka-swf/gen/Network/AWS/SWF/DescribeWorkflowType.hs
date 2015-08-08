@@ -44,22 +44,20 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowType.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowType.html AWS API Reference> for DescribeWorkflowType.
 module Network.AWS.SWF.DescribeWorkflowType
     (
-    -- * Request
+    -- * Creating a Request
       DescribeWorkflowType
-    -- ** Request constructor
     , describeWorkflowType
-    -- ** Request lenses
+    -- * Request Lenses
     , dwtDomain
     , dwtWorkflowType
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeWorkflowTypeResponse
-    -- ** Response constructor
     , describeWorkflowTypeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dwtrsStatus
     , dwtrsTypeInfo
     , dwtrsConfiguration
@@ -158,7 +156,7 @@ describeWorkflowTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     , _dwtrsConfiguration = pConfiguration_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dwtrsStatus :: Lens' DescribeWorkflowTypeResponse Int
 dwtrsStatus = lens _dwtrsStatus (\ s a -> s{_dwtrsStatus = a});
 

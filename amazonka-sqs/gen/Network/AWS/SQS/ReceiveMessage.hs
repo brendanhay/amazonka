@@ -63,14 +63,13 @@
 -- that calls this action, we recommend that you structure your code so
 -- that it can handle new attributes gracefully.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html AWS API Reference> for ReceiveMessage.
 module Network.AWS.SQS.ReceiveMessage
     (
-    -- * Request
+    -- * Creating a Request
       ReceiveMessage
-    -- ** Request constructor
     , receiveMessage
-    -- ** Request lenses
+    -- * Request Lenses
     , rmVisibilityTimeout
     , rmMessageAttributeNames
     , rmWaitTimeSeconds
@@ -78,11 +77,10 @@ module Network.AWS.SQS.ReceiveMessage
     , rmMaxNumberOfMessages
     , rmQueueURL
 
-    -- * Response
+    -- * Destructuring the Response
     , ReceiveMessageResponse
-    -- ** Response constructor
     , receiveMessageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rmrsMessages
     , rmrsStatus
     ) where
@@ -244,6 +242,6 @@ receiveMessageResponse pStatus_ =
 rmrsMessages :: Lens' ReceiveMessageResponse [Message]
 rmrsMessages = lens _rmrsMessages (\ s a -> s{_rmrsMessages = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rmrsStatus :: Lens' ReceiveMessageResponse Int
 rmrsStatus = lens _rmrsStatus (\ s a -> s{_rmrsStatus = a});

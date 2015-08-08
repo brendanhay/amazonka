@@ -20,19 +20,17 @@
 -- Deletes the specified group. The group must not contain any users or
 -- have any attached policies.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html AWS API Reference> for DeleteGroup.
 module Network.AWS.IAM.DeleteGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteGroup
-    -- ** Request constructor
     , deleteGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dgGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteGroupResponse
-    -- ** Response constructor
     , deleteGroupResponse
     ) where
 

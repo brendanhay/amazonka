@@ -51,23 +51,21 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html AWS API Reference> for PollForActivityTask.
 module Network.AWS.SWF.PollForActivityTask
     (
-    -- * Request
+    -- * Creating a Request
       PollForActivityTask
-    -- ** Request constructor
     , pollForActivityTask
-    -- ** Request lenses
+    -- * Request Lenses
     , pfatIdentity
     , pfatDomain
     , pfatTaskList
 
-    -- * Response
+    -- * Destructuring the Response
     , PollForActivityTaskResponse
-    -- ** Response constructor
     , pollForActivityTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , pfatrsInput
     , pfatrsStatus
     , pfatrsTaskToken
@@ -212,7 +210,7 @@ pollForActivityTaskResponse pStatus_ pTaskToken_ pActivityId_ pStartedEventId_ p
 pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrsInput = lens _pfatrsInput (\ s a -> s{_pfatrsInput = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pfatrsStatus :: Lens' PollForActivityTaskResponse Int
 pfatrsStatus = lens _pfatrsStatus (\ s a -> s{_pfatrsStatus = a});
 

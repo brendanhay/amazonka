@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -125,22 +126,360 @@
 -- and
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan Operations>
 -- in the /Amazon DynamoDB Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DynamoDB
-    ( module Export
+    (
+    -- * Service Description
+      DynamoDB
+
+    -- * Error Matchers
+    -- $errors
+    , _ProvisionedThroughputExceededException
+    , _ConditionalCheckFailedException
+    , _ItemCollectionSizeLimitExceededException
+    , _InternalServerError
+    , _ResourceNotFoundException
+    , _ResourceInUseException
+    , _LimitExceededException
+
+    -- * Waiters
+    -- $waiters
+    , tableNotExists
+    , tableExists
+
+    -- * Operations
+    -- $operations
+
+    -- ** UpdateItem
+    , module Network.AWS.DynamoDB.UpdateItem
+
+    -- ** DeleteItem
+    , module Network.AWS.DynamoDB.DeleteItem
+
+    -- ** PutItem
+    , module Network.AWS.DynamoDB.PutItem
+
+    -- ** DeleteTable
+    , module Network.AWS.DynamoDB.DeleteTable
+
+    -- ** UpdateTable
+    , module Network.AWS.DynamoDB.UpdateTable
+
+    -- ** BatchGetItem
+    , module Network.AWS.DynamoDB.BatchGetItem
+
+    -- ** DescribeTable
+    , module Network.AWS.DynamoDB.DescribeTable
+
+    -- ** GetItem
+    , module Network.AWS.DynamoDB.GetItem
+
+    -- ** BatchWriteItem
+    , module Network.AWS.DynamoDB.BatchWriteItem
+
+    -- ** Scan (Paginated)
+    , module Network.AWS.DynamoDB.Scan
+    -- $pager
+
+    -- ** ListTables (Paginated)
+    , module Network.AWS.DynamoDB.ListTables
+    -- $pager
+
+    -- ** Query (Paginated)
+    , module Network.AWS.DynamoDB.Query
+    -- $pager
+
+    -- ** CreateTable
+    , module Network.AWS.DynamoDB.CreateTable
+
+    -- * Types
+
+    -- ** AttributeAction
+    , AttributeAction (..)
+
+    -- ** ComparisonOperator
+    , ComparisonOperator (..)
+
+    -- ** ConditionalOperator
+    , ConditionalOperator (..)
+
+    -- ** IndexStatus
+    , IndexStatus (..)
+
+    -- ** KeyType
+    , KeyType (..)
+
+    -- ** ProjectionType
+    , ProjectionType (..)
+
+    -- ** ReturnConsumedCapacity
+    , ReturnConsumedCapacity (..)
+
+    -- ** ReturnItemCollectionMetrics
+    , ReturnItemCollectionMetrics (..)
+
+    -- ** ReturnValue
+    , ReturnValue (..)
+
+    -- ** ScalarAttributeType
+    , ScalarAttributeType (..)
+
+    -- ** Select
+    , Select (..)
+
+    -- ** StreamViewType
+    , StreamViewType (..)
+
+    -- ** TableStatus
+    , TableStatus (..)
+
+    -- ** AttributeDefinition
+    , AttributeDefinition
+    , attributeDefinition
+    , adAttributeName
+    , adAttributeType
+
+    -- ** AttributeValue
+    , AttributeValue
+    , attributeValue
+    , avL
+    , avM
+    , avNS
+    , avNULL
+    , avN
+    , avBS
+    , avB
+    , avSS
+    , avS
+    , avBOOL
+
+    -- ** AttributeValueUpdate
+    , AttributeValueUpdate
+    , attributeValueUpdate
+    , avuValue
+    , avuAction
+
+    -- ** Capacity
+    , Capacity
+    , capacity
+    , cCapacityUnits
+
+    -- ** Condition
+    , Condition
+    , condition
+    , cAttributeValueList
+    , cComparisonOperator
+
+    -- ** ConsumedCapacity
+    , ConsumedCapacity
+    , consumedCapacity
+    , ccCapacityUnits
+    , ccGlobalSecondaryIndexes
+    , ccLocalSecondaryIndexes
+    , ccTable
+    , ccTableName
+
+    -- ** CreateGlobalSecondaryIndexAction
+    , CreateGlobalSecondaryIndexAction
+    , createGlobalSecondaryIndexAction
+    , cgsiaIndexName
+    , cgsiaKeySchema
+    , cgsiaProjection
+    , cgsiaProvisionedThroughput
+
+    -- ** DeleteGlobalSecondaryIndexAction
+    , DeleteGlobalSecondaryIndexAction
+    , deleteGlobalSecondaryIndexAction
+    , dgsiaIndexName
+
+    -- ** DeleteRequest
+    , DeleteRequest
+    , deleteRequest
+    , drKey
+
+    -- ** ExpectedAttributeValue
+    , ExpectedAttributeValue
+    , expectedAttributeValue
+    , eavAttributeValueList
+    , eavExists
+    , eavValue
+    , eavComparisonOperator
+
+    -- ** GlobalSecondaryIndex
+    , GlobalSecondaryIndex
+    , globalSecondaryIndex
+    , gsiIndexName
+    , gsiKeySchema
+    , gsiProjection
+    , gsiProvisionedThroughput
+
+    -- ** GlobalSecondaryIndexDescription
+    , GlobalSecondaryIndexDescription
+    , globalSecondaryIndexDescription
+    , gsidBackfilling
+    , gsidProvisionedThroughput
+    , gsidIndexStatus
+    , gsidIndexSizeBytes
+    , gsidIndexARN
+    , gsidKeySchema
+    , gsidProjection
+    , gsidItemCount
+    , gsidIndexName
+
+    -- ** GlobalSecondaryIndexUpdate
+    , GlobalSecondaryIndexUpdate
+    , globalSecondaryIndexUpdate
+    , gsiuCreate
+    , gsiuDelete
+    , gsiuUpdate
+
+    -- ** ItemCollectionMetrics
+    , ItemCollectionMetrics
+    , itemCollectionMetrics
+    , icmItemCollectionKey
+    , icmSizeEstimateRangeGB
+
+    -- ** KeySchemaElement
+    , KeySchemaElement
+    , keySchemaElement
+    , kseAttributeName
+    , kseKeyType
+
+    -- ** KeysAndAttributes
+    , KeysAndAttributes
+    , keysAndAttributes
+    , kaaProjectionExpression
+    , kaaConsistentRead
+    , kaaExpressionAttributeNames
+    , kaaAttributesToGet
+    , kaaKeys
+
+    -- ** LocalSecondaryIndex
+    , LocalSecondaryIndex
+    , localSecondaryIndex
+    , lsiIndexName
+    , lsiKeySchema
+    , lsiProjection
+
+    -- ** LocalSecondaryIndexDescription
+    , LocalSecondaryIndexDescription
+    , localSecondaryIndexDescription
+    , lsidIndexSizeBytes
+    , lsidIndexARN
+    , lsidKeySchema
+    , lsidProjection
+    , lsidItemCount
+    , lsidIndexName
+
+    -- ** Projection
+    , Projection
+    , projection
+    , pProjectionType
+    , pNonKeyAttributes
+
+    -- ** ProvisionedThroughput
+    , ProvisionedThroughput
+    , provisionedThroughput
+    , ptReadCapacityUnits
+    , ptWriteCapacityUnits
+
+    -- ** ProvisionedThroughputDescription
+    , ProvisionedThroughputDescription
+    , provisionedThroughputDescription
+    , ptdReadCapacityUnits
+    , ptdLastDecreaseDateTime
+    , ptdWriteCapacityUnits
+    , ptdNumberOfDecreasesToday
+    , ptdLastIncreaseDateTime
+
+    -- ** PutRequest
+    , PutRequest
+    , putRequest
+    , prItem
+
+    -- ** StreamSpecification
+    , StreamSpecification
+    , streamSpecification
+    , ssStreamEnabled
+    , ssStreamViewType
+
+    -- ** TableDescription
+    , TableDescription
+    , tableDescription
+    , tdProvisionedThroughput
+    , tdAttributeDefinitions
+    , tdLatestStreamARN
+    , tdTableSizeBytes
+    , tdTableStatus
+    , tdTableARN
+    , tdKeySchema
+    , tdLatestStreamLabel
+    , tdGlobalSecondaryIndexes
+    , tdLocalSecondaryIndexes
+    , tdCreationDateTime
+    , tdItemCount
+    , tdTableName
+    , tdStreamSpecification
+
+    -- ** UpdateGlobalSecondaryIndexAction
+    , UpdateGlobalSecondaryIndexAction
+    , updateGlobalSecondaryIndexAction
+    , ugsiaIndexName
+    , ugsiaProvisionedThroughput
+
+    -- ** WriteRequest
+    , WriteRequest
+    , writeRequest
+    , wrPutRequest
+    , wrDeleteRequest
     ) where
 
-import           Network.AWS.DynamoDB.BatchGetItem   as Export
-import           Network.AWS.DynamoDB.BatchWriteItem as Export
-import           Network.AWS.DynamoDB.CreateTable    as Export
-import           Network.AWS.DynamoDB.DeleteItem     as Export
-import           Network.AWS.DynamoDB.DeleteTable    as Export
-import           Network.AWS.DynamoDB.DescribeTable  as Export
-import           Network.AWS.DynamoDB.GetItem        as Export
-import           Network.AWS.DynamoDB.ListTables     as Export
-import           Network.AWS.DynamoDB.PutItem        as Export
-import           Network.AWS.DynamoDB.Query          as Export
-import           Network.AWS.DynamoDB.Scan           as Export
-import           Network.AWS.DynamoDB.Types          as Export
-import           Network.AWS.DynamoDB.UpdateItem     as Export
-import           Network.AWS.DynamoDB.UpdateTable    as Export
-import           Network.AWS.DynamoDB.Waiters        as Export
+import           Network.AWS.DynamoDB.BatchGetItem
+import           Network.AWS.DynamoDB.BatchWriteItem
+import           Network.AWS.DynamoDB.CreateTable
+import           Network.AWS.DynamoDB.DeleteItem
+import           Network.AWS.DynamoDB.DeleteTable
+import           Network.AWS.DynamoDB.DescribeTable
+import           Network.AWS.DynamoDB.GetItem
+import           Network.AWS.DynamoDB.ListTables
+import           Network.AWS.DynamoDB.PutItem
+import           Network.AWS.DynamoDB.Query
+import           Network.AWS.DynamoDB.Scan
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.UpdateItem
+import           Network.AWS.DynamoDB.UpdateTable
+import           Network.AWS.DynamoDB.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'DynamoDB'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

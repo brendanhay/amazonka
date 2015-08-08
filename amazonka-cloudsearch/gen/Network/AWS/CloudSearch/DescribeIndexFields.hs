@@ -25,23 +25,21 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Domain Information>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeIndexFields.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeIndexFields.html AWS API Reference> for DescribeIndexFields.
 module Network.AWS.CloudSearch.DescribeIndexFields
     (
-    -- * Request
+    -- * Creating a Request
       DescribeIndexFields
-    -- ** Request constructor
     , describeIndexFields
-    -- ** Request lenses
+    -- * Request Lenses
     , difDeployed
     , difFieldNames
     , difDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeIndexFieldsResponse
-    -- ** Response constructor
     , describeIndexFieldsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , difsrsStatus
     , difsrsIndexFields
     ) where
@@ -147,7 +145,7 @@ describeIndexFieldsResponse pStatus_ =
     , _difsrsIndexFields = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 difsrsStatus :: Lens' DescribeIndexFieldsResponse Int
 difsrsStatus = lens _difsrsStatus (\ s a -> s{_difsrsStatus = a});
 

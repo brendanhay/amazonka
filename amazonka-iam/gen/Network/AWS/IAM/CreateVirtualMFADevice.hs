@@ -35,22 +35,20 @@
 -- device, you should ensure that the information is destroyed following
 -- secure procedures.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html AWS API Reference> for CreateVirtualMFADevice.
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
-    -- * Request
+    -- * Creating a Request
       CreateVirtualMFADevice
-    -- ** Request constructor
     , createVirtualMFADevice
-    -- ** Request lenses
+    -- * Request Lenses
     , cvmdPath
     , cvmdVirtualMFADeviceName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateVirtualMFADeviceResponse
-    -- ** Response constructor
     , createVirtualMFADeviceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cvmdrsStatus
     , cvmdrsVirtualMFADevice
     ) where
@@ -143,7 +141,7 @@ createVirtualMFADeviceResponse pStatus_ pVirtualMFADevice_ =
     , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cvmdrsStatus :: Lens' CreateVirtualMFADeviceResponse Int
 cvmdrsStatus = lens _cvmdrsStatus (\ s a -> s{_cvmdrsStatus = a});
 

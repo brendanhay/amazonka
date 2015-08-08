@@ -23,19 +23,17 @@
 -- You must explicitly request this metric when calling
 -- EnableMetricsCollection.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html AWS API Reference> for DescribeMetricCollectionTypes.
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMetricCollectionTypes
-    -- ** Request constructor
     , describeMetricCollectionTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMetricCollectionTypesResponse
-    -- ** Response constructor
     , describeMetricCollectionTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmctrsMetrics
     , dmctrsGranularities
     , dmctrsStatus
@@ -120,6 +118,6 @@ dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default 
 dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
 dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmctrsStatus :: Lens' DescribeMetricCollectionTypesResponse Int
 dmctrsStatus = lens _dmctrsStatus (\ s a -> s{_dmctrsStatus = a});

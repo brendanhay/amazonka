@@ -19,24 +19,22 @@
 --
 -- Purchases a reserved DB instance offering.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html AWS API Reference> for PurchaseReservedDBInstancesOffering.
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
-    -- * Request
+    -- * Creating a Request
       PurchaseReservedDBInstancesOffering
-    -- ** Request constructor
     , purchaseReservedDBInstancesOffering
-    -- ** Request lenses
+    -- * Request Lenses
     , prdioDBInstanceCount
     , prdioReservedDBInstanceId
     , prdioTags
     , prdioReservedDBInstancesOfferingId
 
-    -- * Response
+    -- * Destructuring the Response
     , PurchaseReservedDBInstancesOfferingResponse
-    -- ** Response constructor
     , purchaseReservedDBInstancesOfferingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , prdiorsReservedDBInstance
     , prdiorsStatus
     ) where
@@ -88,7 +86,7 @@ prdioDBInstanceCount = lens _prdioDBInstanceCount (\ s a -> s{_prdioDBInstanceCo
 prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
 prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
 prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default . _Coerce;
 
@@ -153,10 +151,10 @@ purchaseReservedDBInstancesOfferingResponse pStatus_ =
     , _prdiorsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prdiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
 prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiorsReservedDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prdiorsStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
 prdiorsStatus = lens _prdiorsStatus (\ s a -> s{_prdiorsStatus = a});

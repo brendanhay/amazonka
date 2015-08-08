@@ -21,19 +21,17 @@
 -- Delete Markers) in the bucket must be deleted before the bucket itself
 -- can be deleted.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html AWS API Reference> for DeleteBucket.
 module Network.AWS.S3.DeleteBucket
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBucket
-    -- ** Request constructor
     , deleteBucket
-    -- ** Request lenses
+    -- * Request Lenses
     , dbBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBucketResponse
-    -- ** Response constructor
     , deleteBucketResponse
     ) where
 
@@ -58,7 +56,7 @@ deleteBucket pBucket_ =
     { _dbBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbBucket :: Lens' DeleteBucket BucketName
 dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a});
 

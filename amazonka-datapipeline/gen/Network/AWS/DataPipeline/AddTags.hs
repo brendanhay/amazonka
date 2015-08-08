@@ -19,22 +19,20 @@
 --
 -- Adds or modifies tags for the specified pipeline.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.DataPipeline.AddTags
     (
-    -- * Request
+    -- * Creating a Request
       AddTags
-    -- ** Request constructor
     , addTags
-    -- ** Request lenses
+    -- * Request Lenses
     , atPipelineId
     , atTags
 
-    -- * Response
+    -- * Destructuring the Response
     , AddTagsResponse
-    -- ** Response constructor
     , addTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , atrsStatus
     ) where
 
@@ -119,6 +117,6 @@ addTagsResponse pStatus_ =
     { _atrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 atrsStatus :: Lens' AddTagsResponse Int
 atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

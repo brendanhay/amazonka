@@ -24,24 +24,22 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html Exporting EC2 Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html AWS API Reference> for CreateInstanceExportTask.
 module Network.AWS.EC2.CreateInstanceExportTask
     (
-    -- * Request
+    -- * Creating a Request
       CreateInstanceExportTask
-    -- ** Request constructor
     , createInstanceExportTask
-    -- ** Request lenses
+    -- * Request Lenses
     , cietTargetEnvironment
     , cietExportToS3Task
     , cietDescription
     , cietInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateInstanceExportTaskResponse
-    -- ** Response constructor
     , createInstanceExportTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cietrsExportTask
     , cietrsStatus
     ) where
@@ -148,6 +146,6 @@ createInstanceExportTaskResponse pStatus_ =
 cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cietrsStatus :: Lens' CreateInstanceExportTaskResponse Int
 cietrsStatus = lens _cietrsStatus (\ s a -> s{_cietrsStatus = a});

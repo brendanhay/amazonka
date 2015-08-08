@@ -26,22 +26,20 @@
 -- retrieved again to another gateway. You must archive the tape again
 -- before you can retrieve it to another gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html AWS API Reference> for RetrieveTapeArchive.
 module Network.AWS.StorageGateway.RetrieveTapeArchive
     (
-    -- * Request
+    -- * Creating a Request
       RetrieveTapeArchive
-    -- ** Request constructor
     , retrieveTapeArchive
-    -- ** Request lenses
+    -- * Request Lenses
     , rtaTapeARN
     , rtaGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , RetrieveTapeArchiveResponse
-    -- ** Response constructor
     , retrieveTapeArchiveResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtarsTapeARN
     , rtarsStatus
     ) where
@@ -146,6 +144,6 @@ retrieveTapeArchiveResponse pStatus_ =
 rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarsTapeARN = lens _rtarsTapeARN (\ s a -> s{_rtarsTapeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtarsStatus :: Lens' RetrieveTapeArchiveResponse Int
 rtarsStatus = lens _rtarsStatus (\ s a -> s{_rtarsStatus = a});

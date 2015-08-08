@@ -33,22 +33,20 @@
 --
 -- @&Attribute.2=that@
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html AWS API Reference> for DeleteMessageBatch.
 module Network.AWS.SQS.DeleteMessageBatch
     (
-    -- * Request
+    -- * Creating a Request
       DeleteMessageBatch
-    -- ** Request constructor
     , deleteMessageBatch
-    -- ** Request lenses
+    -- * Request Lenses
     , dmbQueueURL
     , dmbEntries
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteMessageBatchResponse
-    -- ** Response constructor
     , deleteMessageBatchResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmbrsStatus
     , dmbrsSuccessful
     , dmbrsFailed
@@ -143,7 +141,7 @@ deleteMessageBatchResponse pStatus_ =
     , _dmbrsFailed = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmbrsStatus :: Lens' DeleteMessageBatchResponse Int
 dmbrsStatus = lens _dmbrsStatus (\ s a -> s{_dmbrsStatus = a});
 

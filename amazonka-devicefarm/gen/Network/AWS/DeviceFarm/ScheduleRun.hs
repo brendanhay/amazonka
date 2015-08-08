@@ -19,14 +19,13 @@
 --
 -- Schedules a run.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html AWS API Reference> for ScheduleRun.
 module Network.AWS.DeviceFarm.ScheduleRun
     (
-    -- * Request
+    -- * Creating a Request
       ScheduleRun
-    -- ** Request constructor
     , scheduleRun
-    -- ** Request lenses
+    -- * Request Lenses
     , srName
     , srConfiguration
     , srProjectARN
@@ -34,11 +33,10 @@ module Network.AWS.DeviceFarm.ScheduleRun
     , srDevicePoolARN
     , srTest
 
-    -- * Response
+    -- * Destructuring the Response
     , ScheduleRunResponse
-    -- ** Response constructor
     , scheduleRunResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srrsRun
     , srrsStatus
     ) where
@@ -170,6 +168,6 @@ scheduleRunResponse pStatus_ =
 srrsRun :: Lens' ScheduleRunResponse (Maybe Run)
 srrsRun = lens _srrsRun (\ s a -> s{_srrsRun = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srrsStatus :: Lens' ScheduleRunResponse Int
 srrsStatus = lens _srrsStatus (\ s a -> s{_srrsStatus = a});

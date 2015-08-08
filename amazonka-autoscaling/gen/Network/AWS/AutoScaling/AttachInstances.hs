@@ -23,20 +23,18 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html AWS API Reference> for AttachInstances.
 module Network.AWS.AutoScaling.AttachInstances
     (
-    -- * Request
+    -- * Creating a Request
       AttachInstances
-    -- ** Request constructor
     , attachInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , aiInstanceIds
     , aiAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachInstancesResponse
-    -- ** Response constructor
     , attachInstancesResponse
     ) where
 

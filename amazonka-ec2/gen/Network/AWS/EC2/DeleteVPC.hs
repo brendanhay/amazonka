@@ -24,20 +24,18 @@
 -- all route tables associated with the VPC (except the default one), and
 -- so on.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPC.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPC.html AWS API Reference> for DeleteVPC.
 module Network.AWS.EC2.DeleteVPC
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVPC
-    -- ** Request constructor
     , deleteVPC
-    -- ** Request lenses
+    -- * Request Lenses
     , delDryRun
     , delVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVPCResponse
-    -- ** Response constructor
     , deleteVPCResponse
     ) where
 

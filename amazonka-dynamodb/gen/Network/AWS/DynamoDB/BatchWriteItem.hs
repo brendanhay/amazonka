@@ -95,23 +95,21 @@
 -- -   The total request size exceeds 16 MB.
 --
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html AWS API Reference> for BatchWriteItem.
 module Network.AWS.DynamoDB.BatchWriteItem
     (
-    -- * Request
+    -- * Creating a Request
       BatchWriteItem
-    -- ** Request constructor
     , batchWriteItem
-    -- ** Request lenses
+    -- * Request Lenses
     , bwiReturnConsumedCapacity
     , bwiReturnItemCollectionMetrics
     , bwiRequestItems
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchWriteItemResponse
-    -- ** Response constructor
     , batchWriteItemResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bwirsConsumedCapacity
     , bwirsItemCollectionMetrics
     , bwirsUnprocessedItems
@@ -149,7 +147,7 @@ batchWriteItem =
     , _bwiRequestItems = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
 bwiReturnConsumedCapacity = lens _bwiReturnConsumedCapacity (\ s a -> s{_bwiReturnConsumedCapacity = a});
 
@@ -329,6 +327,6 @@ bwirsItemCollectionMetrics = lens _bwirsItemCollectionMetrics (\ s a -> s{_bwirs
 bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
 bwirsUnprocessedItems = lens _bwirsUnprocessedItems (\ s a -> s{_bwirsUnprocessedItems = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bwirsStatus :: Lens' BatchWriteItemResponse Int
 bwirsStatus = lens _bwirsStatus (\ s a -> s{_bwirsStatus = a});

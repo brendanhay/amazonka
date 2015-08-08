@@ -19,21 +19,19 @@
 --
 -- Allows a topic owner to set an attribute of the topic to a new value.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html AWS API Reference> for SetTopicAttributes.
 module Network.AWS.SNS.SetTopicAttributes
     (
-    -- * Request
+    -- * Creating a Request
       SetTopicAttributes
-    -- ** Request constructor
     , setTopicAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , staAttributeValue
     , staTopicARN
     , staAttributeName
 
-    -- * Response
+    -- * Destructuring the Response
     , SetTopicAttributesResponse
-    -- ** Response constructor
     , setTopicAttributesResponse
     ) where
 

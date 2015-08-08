@@ -20,22 +20,20 @@
 -- Retrieves information about an HSM. You can identify the HSM by its ARN
 -- or its serial number.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHSM.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHSM.html AWS API Reference> for DescribeHSM.
 module Network.AWS.CloudHSM.DescribeHSM
     (
-    -- * Request
+    -- * Creating a Request
       DescribeHSM
-    -- ** Request constructor
     , describeHSM
-    -- ** Request lenses
+    -- * Request Lenses
     , dhsmHSMSerialNumber
     , dhsmHSMARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeHSMResponse
-    -- ** Response constructor
     , describeHSMResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , desrsIAMRoleARN
     , desrsEniId
     , desrsSubscriptionEndDate
@@ -326,6 +324,6 @@ desrsEniIP = lens _desrsEniIP (\ s a -> s{_desrsEniIP = a});
 desrsHSMType :: Lens' DescribeHSMResponse (Maybe Text)
 desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 desrsStatus :: Lens' DescribeHSMResponse Int
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

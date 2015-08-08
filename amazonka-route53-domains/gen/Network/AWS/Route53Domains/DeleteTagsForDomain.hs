@@ -22,22 +22,20 @@
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DeleteTagsForDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DeleteTagsForDomain.html AWS API Reference> for DeleteTagsForDomain.
 module Network.AWS.Route53Domains.DeleteTagsForDomain
     (
-    -- * Request
+    -- * Creating a Request
       DeleteTagsForDomain
-    -- ** Request constructor
     , deleteTagsForDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , dtfdDomainName
     , dtfdTagsToDelete
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteTagsForDomainResponse
-    -- ** Response constructor
     , deleteTagsForDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtfdrsStatus
     ) where
 
@@ -146,6 +144,6 @@ deleteTagsForDomainResponse pStatus_ =
     { _dtfdrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtfdrsStatus :: Lens' DeleteTagsForDomainResponse Int
 dtfdrsStatus = lens _dtfdrsStatus (\ s a -> s{_dtfdrsStatus = a});

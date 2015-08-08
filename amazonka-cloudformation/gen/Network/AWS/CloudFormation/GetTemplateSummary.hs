@@ -29,23 +29,21 @@
 -- information for up to 90 days after the stack has been deleted. If the
 -- template does not exist, a @ValidationError@ is returned.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html AWS API Reference> for GetTemplateSummary.
 module Network.AWS.CloudFormation.GetTemplateSummary
     (
-    -- * Request
+    -- * Creating a Request
       GetTemplateSummary
-    -- ** Request constructor
     , getTemplateSummary
-    -- ** Request lenses
+    -- * Request Lenses
     , gtsTemplateBody
     , gtsTemplateURL
     , gtsStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetTemplateSummaryResponse
-    -- ** Response constructor
     , getTemplateSummaryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gtsrsVersion
     , gtsrsParameters
     , gtsrsCapabilitiesReason
@@ -227,6 +225,6 @@ gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a})
 gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gtsrsStatus :: Lens' GetTemplateSummaryResponse Int
 gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});

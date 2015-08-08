@@ -21,21 +21,19 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_BuildSuggesters.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_BuildSuggesters.html AWS API Reference> for BuildSuggesters.
 module Network.AWS.CloudSearch.BuildSuggesters
     (
-    -- * Request
+    -- * Creating a Request
       BuildSuggesters
-    -- ** Request constructor
     , buildSuggesters
-    -- ** Request lenses
+    -- * Request Lenses
     , bsDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , BuildSuggestersResponse
-    -- ** Response constructor
     , buildSuggestersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bsrsFieldNames
     , bsrsStatus
     ) where
@@ -64,7 +62,7 @@ buildSuggesters pDomainName_ =
     { _bsDomainName = pDomainName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bsDomainName :: Lens' BuildSuggesters Text
 bsDomainName = lens _bsDomainName (\ s a -> s{_bsDomainName = a});
 
@@ -116,10 +114,10 @@ buildSuggestersResponse pStatus_ =
     , _bsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bsrsStatus :: Lens' BuildSuggestersResponse Int
 bsrsStatus = lens _bsrsStatus (\ s a -> s{_bsrsStatus = a});

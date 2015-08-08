@@ -24,23 +24,21 @@
 --
 -- This is a public API. You do not need any credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html AWS API Reference> for GetId.
 module Network.AWS.CognitoIdentity.GetId
     (
-    -- * Request
+    -- * Creating a Request
       GetId
-    -- ** Request constructor
     , getId
-    -- ** Request lenses
+    -- * Request Lenses
     , giAccountId
     , giLogins
     , giIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetIdResponse
-    -- ** Response constructor
     , getIdResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , girsIdentityId
     , girsStatus
     ) where
@@ -154,6 +152,6 @@ getIdResponse pStatus_ =
 girsIdentityId :: Lens' GetIdResponse (Maybe Text)
 girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 girsStatus :: Lens' GetIdResponse Int
 girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

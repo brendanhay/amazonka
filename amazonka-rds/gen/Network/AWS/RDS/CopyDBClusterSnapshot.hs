@@ -22,23 +22,21 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBClusterSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBClusterSnapshot.html AWS API Reference> for CopyDBClusterSnapshot.
 module Network.AWS.RDS.CopyDBClusterSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CopyDBClusterSnapshot
-    -- ** Request constructor
     , copyDBClusterSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , cdbcsTags
     , cdbcsSourceDBClusterSnapshotIdentifier
     , cdbcsTargetDBClusterSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CopyDBClusterSnapshotResponse
-    -- ** Response constructor
     , copyDBClusterSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdcsrsDBClusterSnapshot
     , cdcsrsStatus
     ) where
@@ -74,7 +72,7 @@ copyDBClusterSnapshot pSourceDBClusterSnapshotIdentifier_ pTargetDBClusterSnapsh
     , _cdbcsTargetDBClusterSnapshotIdentifier = pTargetDBClusterSnapshotIdentifier_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbcsTags :: Lens' CopyDBClusterSnapshot [Tag]
 cdbcsTags = lens _cdbcsTags (\ s a -> s{_cdbcsTags = a}) . _Default . _Coerce;
 
@@ -152,10 +150,10 @@ copyDBClusterSnapshotResponse pStatus_ =
     , _cdcsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcsrsDBClusterSnapshot :: Lens' CopyDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 cdcsrsDBClusterSnapshot = lens _cdcsrsDBClusterSnapshot (\ s a -> s{_cdcsrsDBClusterSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcsrsStatus :: Lens' CopyDBClusterSnapshotResponse Int
 cdcsrsStatus = lens _cdcsrsStatus (\ s a -> s{_cdcsrsStatus = a});

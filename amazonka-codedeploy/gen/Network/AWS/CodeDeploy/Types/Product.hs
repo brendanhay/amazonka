@@ -1109,11 +1109,11 @@ revisionLocation =
 rlRevisionType :: Lens' RevisionLocation (Maybe RevisionLocationType)
 rlRevisionType = lens _rlRevisionType (\ s a -> s{_rlRevisionType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rlS3Location :: Lens' RevisionLocation (Maybe S3Location)
 rlS3Location = lens _rlS3Location (\ s a -> s{_rlS3Location = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rlGitHubLocation :: Lens' RevisionLocation (Maybe GitHubLocation)
 rlGitHubLocation = lens _rlGitHubLocation (\ s a -> s{_rlGitHubLocation = a});
 

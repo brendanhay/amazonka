@@ -24,25 +24,23 @@
 -- change the Amazon S3 location, you receive an exception when you attempt
 -- to launch an environment from the application version.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html AWS API Reference> for CreateApplicationVersion.
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
-    -- * Request
+    -- * Creating a Request
       CreateApplicationVersion
-    -- ** Request constructor
     , createApplicationVersion
-    -- ** Request lenses
+    -- * Request Lenses
     , cavSourceBundle
     , cavAutoCreateApplication
     , cavDescription
     , cavApplicationName
     , cavVersionLabel
 
-    -- * Response
+    -- * Destructuring the Response
     , ApplicationVersionDescriptionMessage
-    -- ** Response constructor
     , applicationVersionDescriptionMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , avdmApplicationVersion
     ) where
 

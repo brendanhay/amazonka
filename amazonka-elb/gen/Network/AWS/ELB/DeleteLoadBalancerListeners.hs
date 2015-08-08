@@ -19,22 +19,20 @@
 --
 -- Deletes the specified listeners from the specified load balancer.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html AWS API Reference> for DeleteLoadBalancerListeners.
 module Network.AWS.ELB.DeleteLoadBalancerListeners
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLoadBalancerListeners
-    -- ** Request constructor
     , deleteLoadBalancerListeners
-    -- ** Request lenses
+    -- * Request Lenses
     , dlblLoadBalancerName
     , dlblLoadBalancerPorts
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLoadBalancerListenersResponse
-    -- ** Response constructor
     , deleteLoadBalancerListenersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlblrsStatus
     ) where
 
@@ -115,6 +113,6 @@ deleteLoadBalancerListenersResponse pStatus_ =
     { _dlblrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlblrsStatus :: Lens' DeleteLoadBalancerListenersResponse Int
 dlblrsStatus = lens _dlblrsStatus (\ s a -> s{_dlblrsStatus = a});

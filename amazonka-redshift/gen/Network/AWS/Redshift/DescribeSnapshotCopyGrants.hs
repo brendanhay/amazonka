@@ -24,25 +24,23 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotCopyGrants.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotCopyGrants.html AWS API Reference> for DescribeSnapshotCopyGrants.
 module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSnapshotCopyGrants
-    -- ** Request constructor
     , describeSnapshotCopyGrants
-    -- ** Request lenses
+    -- * Request Lenses
     , dscgsTagValues
     , dscgsTagKeys
     , dscgsMaxRecords
     , dscgsMarker
     , dscgsSnapshotCopyGrantName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSnapshotCopyGrantsResponse
-    -- ** Response constructor
     , describeSnapshotCopyGrantsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dscgrsSnapshotCopyGrants
     , dscgrsMarker
     , dscgrsStatus
@@ -211,6 +209,6 @@ dscgrsSnapshotCopyGrants = lens _dscgrsSnapshotCopyGrants (\ s a -> s{_dscgrsSna
 dscgrsMarker :: Lens' DescribeSnapshotCopyGrantsResponse (Maybe Text)
 dscgrsMarker = lens _dscgrsMarker (\ s a -> s{_dscgrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dscgrsStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
 dscgrsStatus = lens _dscgrsStatus (\ s a -> s{_dscgrsStatus = a});

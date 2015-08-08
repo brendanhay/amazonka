@@ -20,22 +20,20 @@
 -- Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC
 -- that has EC2-Classic instances linked to it.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVPCClassicLink.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVPCClassicLink.html AWS API Reference> for DisableVPCClassicLink.
 module Network.AWS.EC2.DisableVPCClassicLink
     (
-    -- * Request
+    -- * Creating a Request
       DisableVPCClassicLink
-    -- ** Request constructor
     , disableVPCClassicLink
-    -- ** Request lenses
+    -- * Request Lenses
     , dvpcclDryRun
     , dvpcclVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableVPCClassicLinkResponse
-    -- ** Response constructor
     , disableVPCClassicLinkResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvpcclrsReturn
     , dvpcclrsStatus
     ) where
@@ -124,6 +122,6 @@ disableVPCClassicLinkResponse pStatus_ =
 dvpcclrsReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
 dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvpcclrsStatus :: Lens' DisableVPCClassicLinkResponse Int
 dvpcclrsStatus = lens _dvpcclrsStatus (\ s a -> s{_dvpcclrsStatus = a});

@@ -31,22 +31,20 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentityPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentityPolicy.html AWS API Reference> for DeleteIdentityPolicy.
 module Network.AWS.SES.DeleteIdentityPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteIdentityPolicy
-    -- ** Request constructor
     , deleteIdentityPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dipIdentity
     , dipPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteIdentityPolicyResponse
-    -- ** Response constructor
     , deleteIdentityPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , diprsStatus
     ) where
 
@@ -137,6 +135,6 @@ deleteIdentityPolicyResponse pStatus_ =
     { _diprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diprsStatus :: Lens' DeleteIdentityPolicyResponse Int
 diprsStatus = lens _diprsStatus (\ s a -> s{_diprsStatus = a});

@@ -29,20 +29,18 @@
 -- For more information about instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html AWS API Reference> for RemoveRoleFromInstanceProfile.
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
-    -- * Request
+    -- * Creating a Request
       RemoveRoleFromInstanceProfile
-    -- ** Request constructor
     , removeRoleFromInstanceProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , rrfipInstanceProfileName
     , rrfipRoleName
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveRoleFromInstanceProfileResponse
-    -- ** Response constructor
     , removeRoleFromInstanceProfileResponse
     ) where
 

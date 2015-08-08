@@ -19,23 +19,21 @@
 --
 -- Gets information about device pools.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListDevicePools.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListDevicePools.html AWS API Reference> for ListDevicePools.
 module Network.AWS.DeviceFarm.ListDevicePools
     (
-    -- * Request
+    -- * Creating a Request
       ListDevicePools
-    -- ** Request constructor
     , listDevicePools
-    -- ** Request lenses
+    -- * Request Lenses
     , ldpNextToken
     , ldpType
     , ldpArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDevicePoolsResponse
-    -- ** Response constructor
     , listDevicePoolsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldprsDevicePools
     , ldprsNextToken
     , ldprsStatus
@@ -165,6 +163,6 @@ ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . 
 ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
 ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldprsStatus :: Lens' ListDevicePoolsResponse Int
 ldprsStatus = lens _ldprsStatus (\ s a -> s{_ldprsStatus = a});

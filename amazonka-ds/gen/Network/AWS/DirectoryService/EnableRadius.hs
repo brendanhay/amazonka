@@ -20,22 +20,20 @@
 -- Enables multi-factor authentication (MFA) with Remote Authentication
 -- Dial In User Service (RADIUS) for an AD Connector directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableRadius.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableRadius.html AWS API Reference> for EnableRadius.
 module Network.AWS.DirectoryService.EnableRadius
     (
-    -- * Request
+    -- * Creating a Request
       EnableRadius
-    -- ** Request constructor
     , enableRadius
-    -- ** Request lenses
+    -- * Request Lenses
     , erDirectoryId
     , erRadiusSettings
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableRadiusResponse
-    -- ** Response constructor
     , enableRadiusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , errsStatus
     ) where
 
@@ -124,6 +122,6 @@ enableRadiusResponse pStatus_ =
     { _errsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 errsStatus :: Lens' EnableRadiusResponse Int
 errsStatus = lens _errsStatus (\ s a -> s{_errsStatus = a});

@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudSearchDomains.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudSearchDomains
 
-    -- * Errors
+    -- * Error Matchers
     , _DocumentServiceException
     , _SearchException
 

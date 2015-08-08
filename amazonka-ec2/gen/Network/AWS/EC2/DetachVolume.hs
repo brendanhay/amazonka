@@ -33,25 +33,23 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html AWS API Reference> for DetachVolume.
 module Network.AWS.EC2.DetachVolume
     (
-    -- * Request
+    -- * Creating a Request
       DetachVolume
-    -- ** Request constructor
     , detachVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , dvInstanceId
     , dvForce
     , dvDevice
     , dvDryRun
     , dvVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , VolumeAttachment
-    -- ** Response constructor
     , volumeAttachment
-    -- ** Response lenses
+    -- * Response Lenses
     , volInstanceId
     , volDeleteOnTermination
     , volState

@@ -38,21 +38,19 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterDomain.html AWS API Reference> for RegisterDomain.
 module Network.AWS.SWF.RegisterDomain
     (
-    -- * Request
+    -- * Creating a Request
       RegisterDomain
-    -- ** Request constructor
     , registerDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , rdDescription
     , rdName
     , rdWorkflowExecutionRetentionPeriodInDays
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterDomainResponse
-    -- ** Response constructor
     , registerDomainResponse
     ) where
 

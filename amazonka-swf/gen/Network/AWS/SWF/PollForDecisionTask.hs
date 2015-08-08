@@ -62,14 +62,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForDecisionTask.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForDecisionTask.html AWS API Reference> for PollForDecisionTask.
 module Network.AWS.SWF.PollForDecisionTask
     (
-    -- * Request
+    -- * Creating a Request
       PollForDecisionTask
-    -- ** Request constructor
     , pollForDecisionTask
-    -- ** Request lenses
+    -- * Request Lenses
     , pfdtNextPageToken
     , pfdtReverseOrder
     , pfdtIdentity
@@ -77,11 +76,10 @@ module Network.AWS.SWF.PollForDecisionTask
     , pfdtDomain
     , pfdtTaskList
 
-    -- * Response
+    -- * Destructuring the Response
     , PollForDecisionTaskResponse
-    -- ** Response constructor
     , pollForDecisionTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , pfdtrsNextPageToken
     , pfdtrsPreviousStartedEventId
     , pfdtrsStatus
@@ -303,7 +301,7 @@ pfdtrsNextPageToken = lens _pfdtrsNextPageToken (\ s a -> s{_pfdtrsNextPageToken
 pfdtrsPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 pfdtrsPreviousStartedEventId = lens _pfdtrsPreviousStartedEventId (\ s a -> s{_pfdtrsPreviousStartedEventId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pfdtrsStatus :: Lens' PollForDecisionTaskResponse Int
 pfdtrsStatus = lens _pfdtrsStatus (\ s a -> s{_pfdtrsStatus = a});
 

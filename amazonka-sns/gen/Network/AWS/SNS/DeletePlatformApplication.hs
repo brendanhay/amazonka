@@ -21,19 +21,17 @@
 -- notification services, such as APNS and GCM. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html AWS API Reference> for DeletePlatformApplication.
 module Network.AWS.SNS.DeletePlatformApplication
     (
-    -- * Request
+    -- * Creating a Request
       DeletePlatformApplication
-    -- ** Request constructor
     , deletePlatformApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , dpaPlatformApplicationARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePlatformApplicationResponse
-    -- ** Response constructor
     , deletePlatformApplicationResponse
     ) where
 

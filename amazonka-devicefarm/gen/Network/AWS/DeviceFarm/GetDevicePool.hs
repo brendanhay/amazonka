@@ -19,21 +19,19 @@
 --
 -- Gets information about a device pool.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevicePool.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevicePool.html AWS API Reference> for GetDevicePool.
 module Network.AWS.DeviceFarm.GetDevicePool
     (
-    -- * Request
+    -- * Creating a Request
       GetDevicePool
-    -- ** Request constructor
     , getDevicePool
-    -- ** Request lenses
+    -- * Request Lenses
     , gdpArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDevicePoolResponse
-    -- ** Response constructor
     , getDevicePoolResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdprsDevicePool
     , gdprsStatus
     ) where
@@ -115,10 +113,10 @@ getDevicePoolResponse pStatus_ =
     , _gdprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
 gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdprsStatus :: Lens' GetDevicePoolResponse Int
 gdprsStatus = lens _gdprsStatus (\ s a -> s{_gdprsStatus = a});

@@ -25,22 +25,20 @@
 -- deregistered, then you can no longer describe the load balancer using
 -- DescribeLoadBalancers. Note that the instances remain running.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachLoadBalancers.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachLoadBalancers.html AWS API Reference> for DetachLoadBalancers.
 module Network.AWS.AutoScaling.DetachLoadBalancers
     (
-    -- * Request
+    -- * Creating a Request
       DetachLoadBalancers
-    -- ** Request constructor
     , detachLoadBalancers
-    -- ** Request lenses
+    -- * Request Lenses
     , dAutoScalingGroupName
     , dLoadBalancerNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachLoadBalancersResponse
-    -- ** Response constructor
     , detachLoadBalancersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbsrsStatus
     ) where
 
@@ -119,6 +117,6 @@ detachLoadBalancersResponse pStatus_ =
     { _dlbsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbsrsStatus :: Lens' DetachLoadBalancersResponse Int
 dlbsrsStatus = lens _dlbsrsStatus (\ s a -> s{_dlbsrsStatus = a});

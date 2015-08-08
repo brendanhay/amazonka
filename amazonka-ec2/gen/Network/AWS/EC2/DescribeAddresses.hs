@@ -24,24 +24,22 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html AWS API Reference> for DescribeAddresses.
 module Network.AWS.EC2.DescribeAddresses
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAddresses
-    -- ** Request constructor
     , describeAddresses
-    -- ** Request lenses
+    -- * Request Lenses
     , daPublicIPs
     , daFilters
     , daDryRun
     , daAllocationIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAddressesResponse
-    -- ** Response constructor
     , describeAddressesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , darsAddresses
     , darsStatus
     ) where
@@ -176,6 +174,6 @@ describeAddressesResponse pStatus_ =
 darsAddresses :: Lens' DescribeAddressesResponse [Address]
 darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 darsStatus :: Lens' DescribeAddressesResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

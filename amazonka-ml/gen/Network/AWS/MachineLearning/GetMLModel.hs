@@ -22,22 +22,20 @@
 --
 -- @GetMLModel@ provides results in normal or verbose format.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetMLModel.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetMLModel.html AWS API Reference> for GetMLModel.
 module Network.AWS.MachineLearning.GetMLModel
     (
-    -- * Request
+    -- * Creating a Request
       GetMLModel
-    -- ** Request constructor
     , getMLModel
-    -- ** Request lenses
+    -- * Request Lenses
     , gmlmVerbose
     , gmlmMLModelId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetMLModelResponse
-    -- ** Response constructor
     , getMLModelResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gmlmrsTrainingParameters
     , gmlmrsLastUpdatedAt
     , gmlmrsCreatedAt
@@ -300,7 +298,7 @@ gmlmrsRecipe = lens _gmlmrsRecipe (\ s a -> s{_gmlmrsRecipe = a});
 gmlmrsInputDataLocationS3 :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsInputDataLocationS3 = lens _gmlmrsInputDataLocationS3 (\ s a -> s{_gmlmrsInputDataLocationS3 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gmlmrsSizeInBytes :: Lens' GetMLModelResponse (Maybe Integer)
 gmlmrsSizeInBytes = lens _gmlmrsSizeInBytes (\ s a -> s{_gmlmrsSizeInBytes = a});
 
@@ -364,6 +362,6 @@ gmlmrsMessage = lens _gmlmrsMessage (\ s a -> s{_gmlmrsMessage = a});
 gmlmrsMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gmlmrsStatus :: Lens' GetMLModelResponse Int
 gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});

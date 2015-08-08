@@ -31,25 +31,23 @@
 -- you want displayed on each page, and use @NextToken@ to specify the
 -- resumption of pagination.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html AWS API Reference> for DescribeCommunications.
 module Network.AWS.Support.DescribeCommunications
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCommunications
-    -- ** Request constructor
     , describeCommunications
-    -- ** Request lenses
+    -- * Request Lenses
     , dAfterTime
     , dNextToken
     , dBeforeTime
     , dMaxResults
     , dCaseId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCommunicationsResponse
-    -- ** Response constructor
     , describeCommunicationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsNextToken
     , dcrsCommunications
     , dcrsStatus
@@ -196,6 +194,6 @@ dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
 dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsStatus :: Lens' DescribeCommunicationsResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

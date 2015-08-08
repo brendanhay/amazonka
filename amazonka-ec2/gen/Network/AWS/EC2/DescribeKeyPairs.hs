@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html AWS API Reference> for DescribeKeyPairs.
 module Network.AWS.EC2.DescribeKeyPairs
     (
-    -- * Request
+    -- * Creating a Request
       DescribeKeyPairs
-    -- ** Request constructor
     , describeKeyPairs
-    -- ** Request lenses
+    -- * Request Lenses
     , dkpsFilters
     , dkpsKeyNames
     , dkpsDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeKeyPairsResponse
-    -- ** Response constructor
     , describeKeyPairsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dkprsKeyPairs
     , dkprsStatus
     ) where
@@ -146,6 +144,6 @@ describeKeyPairsResponse pStatus_ =
 dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dkprsStatus :: Lens' DescribeKeyPairsResponse Int
 dkprsStatus = lens _dkprsStatus (\ s a -> s{_dkprsStatus = a});

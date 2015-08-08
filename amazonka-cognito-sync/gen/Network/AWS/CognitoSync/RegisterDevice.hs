@@ -22,24 +22,22 @@
 -- This API can only be called with temporary credentials provided by
 -- Cognito Identity. You cannot call this API with developer credentials.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_RegisterDevice.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_RegisterDevice.html AWS API Reference> for RegisterDevice.
 module Network.AWS.CognitoSync.RegisterDevice
     (
-    -- * Request
+    -- * Creating a Request
       RegisterDevice
-    -- ** Request constructor
     , registerDevice
-    -- ** Request lenses
+    -- * Request Lenses
     , rdIdentityPoolId
     , rdIdentityId
     , rdPlatform
     , rdToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterDeviceResponse
-    -- ** Response constructor
     , registerDeviceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdrsDeviceId
     , rdrsStatus
     ) where
@@ -154,6 +152,6 @@ registerDeviceResponse pStatus_ =
 rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdrsStatus :: Lens' RegisterDeviceResponse Int
 rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});

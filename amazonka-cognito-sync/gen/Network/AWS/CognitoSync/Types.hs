@@ -13,10 +13,10 @@
 --
 module Network.AWS.CognitoSync.Types
     (
-    -- * Service
+    -- * Service Decription
       CognitoSync
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidParameterException
     , _NotAuthorizedException
     , _InternalErrorException

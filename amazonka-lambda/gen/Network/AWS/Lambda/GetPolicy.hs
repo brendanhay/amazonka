@@ -22,21 +22,19 @@
 --
 -- You need permission for the @lambda:GetPolicy action.@
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.Lambda.GetPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetPolicy
-    -- ** Request constructor
     , getPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gpFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPolicyResponse
-    -- ** Response constructor
     , getPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gprsPolicy
     , gprsStatus
     ) where
@@ -123,6 +121,6 @@ getPolicyResponse pStatus_ =
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gprsStatus :: Lens' GetPolicyResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

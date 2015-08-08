@@ -21,24 +21,22 @@
 -- pipeline. Object definitions are composed of a set of fields that define
 -- the properties of the object.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html AWS API Reference> for DescribeObjects.
 module Network.AWS.DataPipeline.DescribeObjects
     (
-    -- * Request
+    -- * Creating a Request
       DescribeObjects
-    -- ** Request constructor
     , describeObjects
-    -- ** Request lenses
+    -- * Request Lenses
     , doEvaluateExpressions
     , doMarker
     , doPipelineId
     , doObjectIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeObjectsResponse
-    -- ** Response constructor
     , describeObjectsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dorsHasMoreResults
     , dorsMarker
     , dorsStatus
@@ -184,7 +182,7 @@ dorsHasMoreResults = lens _dorsHasMoreResults (\ s a -> s{_dorsHasMoreResults = 
 dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorsMarker = lens _dorsMarker (\ s a -> s{_dorsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dorsStatus :: Lens' DescribeObjectsResponse Int
 dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
 

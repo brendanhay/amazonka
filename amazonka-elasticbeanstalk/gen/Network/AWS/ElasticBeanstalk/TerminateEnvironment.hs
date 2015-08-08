@@ -19,23 +19,21 @@
 --
 -- Terminates the specified environment.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html AWS API Reference> for TerminateEnvironment.
 module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     (
-    -- * Request
+    -- * Creating a Request
       TerminateEnvironment
-    -- ** Request constructor
     , terminateEnvironment
-    -- ** Request lenses
+    -- * Request Lenses
     , teTerminateResources
     , teEnvironmentName
     , teEnvironmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , EnvironmentDescription
-    -- ** Response constructor
     , environmentDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , eCNAME
     , eStatus
     , eTemplateName

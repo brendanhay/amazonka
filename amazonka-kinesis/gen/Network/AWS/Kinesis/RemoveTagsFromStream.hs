@@ -21,20 +21,18 @@
 --
 -- If you specify a tag that does not exist, it is ignored.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html AWS API Reference> for RemoveTagsFromStream.
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
-    -- * Request
+    -- * Creating a Request
       RemoveTagsFromStream
-    -- ** Request constructor
     , removeTagsFromStream
-    -- ** Request lenses
+    -- * Request Lenses
     , rtfsStreamName
     , rtfsTagKeys
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveTagsFromStreamResponse
-    -- ** Response constructor
     , removeTagsFromStreamResponse
     ) where
 

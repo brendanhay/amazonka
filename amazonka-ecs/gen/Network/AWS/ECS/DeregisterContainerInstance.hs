@@ -33,23 +33,21 @@
 -- When you terminate a container instance, it is automatically
 -- deregistered from your cluster.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html AWS API Reference> for DeregisterContainerInstance.
 module Network.AWS.ECS.DeregisterContainerInstance
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterContainerInstance
-    -- ** Request constructor
     , deregisterContainerInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , derCluster
     , derForce
     , derContainerInstance
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterContainerInstanceResponse
-    -- ** Response constructor
     , deregisterContainerInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcirsContainerInstance
     , dcirsStatus
     ) where
@@ -164,10 +162,10 @@ deregisterContainerInstanceResponse pStatus_ =
     , _dcirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcirsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
 dcirsContainerInstance = lens _dcirsContainerInstance (\ s a -> s{_dcirsContainerInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcirsStatus :: Lens' DeregisterContainerInstanceResponse Int
 dcirsStatus = lens _dcirsStatus (\ s a -> s{_dcirsStatus = a});

@@ -25,22 +25,20 @@
 -- The following example removes the stack tag with value Prod from a
 -- cluster:
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.EMR.RemoveTags
     (
-    -- * Request
+    -- * Creating a Request
       RemoveTags
-    -- ** Request constructor
     , removeTags
-    -- ** Request lenses
+    -- * Request Lenses
     , rtResourceId
     , rtTagKeys
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveTagsResponse
-    -- ** Response constructor
     , removeTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtrsStatus
     ) where
 
@@ -128,6 +126,6 @@ removeTagsResponse pStatus_ =
     { _rtrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtrsStatus :: Lens' RemoveTagsResponse Int
 rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

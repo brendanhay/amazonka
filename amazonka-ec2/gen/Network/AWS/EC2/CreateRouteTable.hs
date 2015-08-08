@@ -24,22 +24,20 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html AWS API Reference> for CreateRouteTable.
 module Network.AWS.EC2.CreateRouteTable
     (
-    -- * Request
+    -- * Creating a Request
       CreateRouteTable
-    -- ** Request constructor
     , createRouteTable
-    -- ** Request lenses
+    -- * Request Lenses
     , crtDryRun
     , crtVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateRouteTableResponse
-    -- ** Response constructor
     , createRouteTableResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crtrsRouteTable
     , crtrsStatus
     ) where
@@ -127,6 +125,6 @@ createRouteTableResponse pStatus_ =
 crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crtrsStatus :: Lens' CreateRouteTableResponse Int
 crtrsStatus = lens _crtrsStatus (\ s a -> s{_crtrsStatus = a});

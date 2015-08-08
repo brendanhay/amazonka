@@ -19,21 +19,19 @@
 --
 -- The ReadPipeline operation gets detailed information about a pipeline.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPipeline.html AWS API Reference> for ReadPipeline.
 module Network.AWS.ElasticTranscoder.ReadPipeline
     (
-    -- * Request
+    -- * Creating a Request
       ReadPipeline
-    -- ** Request constructor
     , readPipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , rId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReadPipelineResponse
-    -- ** Response constructor
     , readPipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rrsWarnings
     , rrsPipeline
     , rrsStatus
@@ -127,6 +125,6 @@ rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default . _Coe
 rrsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rrsStatus :: Lens' ReadPipelineResponse Int
 rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

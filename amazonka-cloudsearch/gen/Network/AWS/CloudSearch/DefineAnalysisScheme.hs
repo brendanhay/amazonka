@@ -23,22 +23,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineAnalysisScheme.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineAnalysisScheme.html AWS API Reference> for DefineAnalysisScheme.
 module Network.AWS.CloudSearch.DefineAnalysisScheme
     (
-    -- * Request
+    -- * Creating a Request
       DefineAnalysisScheme
-    -- ** Request constructor
     , defineAnalysisScheme
-    -- ** Request lenses
+    -- * Request Lenses
     , dasaDomainName
     , dasaAnalysisScheme
 
-    -- * Response
+    -- * Destructuring the Response
     , DefineAnalysisSchemeResponse
-    -- ** Response constructor
     , defineAnalysisSchemeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , defersStatus
     , defersAnalysisScheme
     ) where
@@ -72,11 +70,11 @@ defineAnalysisScheme pDomainName_ pAnalysisScheme_ =
     , _dasaAnalysisScheme = pAnalysisScheme_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasaDomainName :: Lens' DefineAnalysisScheme Text
 dasaDomainName = lens _dasaDomainName (\ s a -> s{_dasaDomainName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasaAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
 dasaAnalysisScheme = lens _dasaAnalysisScheme (\ s a -> s{_dasaAnalysisScheme = a});
 
@@ -128,10 +126,10 @@ defineAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
     , _defersAnalysisScheme = pAnalysisScheme_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 defersStatus :: Lens' DefineAnalysisSchemeResponse Int
 defersStatus = lens _defersStatus (\ s a -> s{_defersStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 defersAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 defersAnalysisScheme = lens _defersAnalysisScheme (\ s a -> s{_defersAnalysisScheme = a});

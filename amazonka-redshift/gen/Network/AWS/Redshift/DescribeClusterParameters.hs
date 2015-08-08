@@ -31,24 +31,22 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html AWS API Reference> for DescribeClusterParameters.
 module Network.AWS.Redshift.DescribeClusterParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusterParameters
-    -- ** Request constructor
     , describeClusterParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , dcpsMaxRecords
     , dcpsMarker
     , dcpsSource
     , dcpsParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClusterParametersResponse
-    -- ** Response constructor
     , describeClusterParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcprsParameters
     , dcprsMarker
     , dcprsStatus
@@ -200,6 +198,6 @@ dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _De
 dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcprsStatus :: Lens' DescribeClusterParametersResponse Int
 dcprsStatus = lens _dcprsStatus (\ s a -> s{_dcprsStatus = a});

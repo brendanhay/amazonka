@@ -28,14 +28,13 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.html AWS API Reference> for RestoreDBClusterToPointInTime.
 module Network.AWS.RDS.RestoreDBClusterToPointInTime
     (
-    -- * Request
+    -- * Creating a Request
       RestoreDBClusterToPointInTime
-    -- ** Request constructor
     , restoreDBClusterToPointInTime
-    -- ** Request lenses
+    -- * Request Lenses
     , rdctpitUseLatestRestorableTime
     , rdctpitDBSubnetGroupName
     , rdctpitVPCSecurityGroupIds
@@ -46,11 +45,10 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     , rdctpitDBClusterIdentifier
     , rdctpitSourceDBClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreDBClusterToPointInTimeResponse
-    -- ** Response constructor
     , restoreDBClusterToPointInTimeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdctpitrsDBCluster
     , rdctpitrsStatus
     ) where
@@ -146,7 +144,7 @@ rdctpitOptionGroupName = lens _rdctpitOptionGroupName (\ s a -> s{_rdctpitOption
 rdctpitRestoreToTime :: Lens' RestoreDBClusterToPointInTime (Maybe UTCTime)
 rdctpitRestoreToTime = lens _rdctpitRestoreToTime (\ s a -> s{_rdctpitRestoreToTime = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdctpitTags :: Lens' RestoreDBClusterToPointInTime [Tag]
 rdctpitTags = lens _rdctpitTags (\ s a -> s{_rdctpitTags = a}) . _Default . _Coerce;
 
@@ -241,10 +239,10 @@ restoreDBClusterToPointInTimeResponse pStatus_ =
     , _rdctpitrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdctpitrsDBCluster :: Lens' RestoreDBClusterToPointInTimeResponse (Maybe DBCluster)
 rdctpitrsDBCluster = lens _rdctpitrsDBCluster (\ s a -> s{_rdctpitrsDBCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdctpitrsStatus :: Lens' RestoreDBClusterToPointInTimeResponse Int
 rdctpitrsStatus = lens _rdctpitrsStatus (\ s a -> s{_rdctpitrsStatus = a});

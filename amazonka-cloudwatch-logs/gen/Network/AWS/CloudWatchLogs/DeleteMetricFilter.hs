@@ -19,20 +19,18 @@
 --
 -- Deletes a metric filter associated with the specified log group.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteMetricFilter.html AWS API Reference> for DeleteMetricFilter.
 module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     (
-    -- * Request
+    -- * Creating a Request
       DeleteMetricFilter
-    -- ** Request constructor
     , deleteMetricFilter
-    -- ** Request lenses
+    -- * Request Lenses
     , delLogGroupName
     , delFilterName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteMetricFilterResponse
-    -- ** Response constructor
     , deleteMetricFilterResponse
     ) where
 

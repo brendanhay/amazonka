@@ -20,14 +20,13 @@
 -- The /DescribeCacheEngineVersions/ action returns a list of the available
 -- cache engines and their versions.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html AWS API Reference> for DescribeCacheEngineVersions.
 module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCacheEngineVersions
-    -- ** Request constructor
     , describeCacheEngineVersions
-    -- ** Request lenses
+    -- * Request Lenses
     , dcevCacheParameterGroupFamily
     , dcevEngineVersion
     , dcevDefaultOnly
@@ -35,11 +34,10 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     , dcevMaxRecords
     , dcevMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCacheEngineVersionsResponse
-    -- ** Response constructor
     , describeCacheEngineVersionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcevrsCacheEngineVersions
     , dcevrsMarker
     , dcevrsStatus
@@ -209,6 +207,6 @@ dcevrsCacheEngineVersions = lens _dcevrsCacheEngineVersions (\ s a -> s{_dcevrsC
 dcevrsMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrsMarker = lens _dcevrsMarker (\ s a -> s{_dcevrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcevrsStatus :: Lens' DescribeCacheEngineVersionsResponse Int
 dcevrsStatus = lens _dcevrsStatus (\ s a -> s{_dcevrsStatus = a});

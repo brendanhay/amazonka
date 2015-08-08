@@ -30,22 +30,20 @@
 -- contains a marker that you can specify in your next request to fetch the
 -- next page of gateways.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html AWS API Reference> for ListGateways.
 module Network.AWS.StorageGateway.ListGateways
     (
-    -- * Request
+    -- * Creating a Request
       ListGateways
-    -- ** Request constructor
     , listGateways
-    -- ** Request lenses
+    -- * Request Lenses
     , lgMarker
     , lgLimit
 
-    -- * Response
+    -- * Destructuring the Response
     , ListGatewaysResponse
-    -- ** Response constructor
     , listGatewaysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lgrsMarker
     , lgrsGateways
     , lgrsStatus
@@ -154,14 +152,14 @@ listGatewaysResponse pStatus_ =
     , _lgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgrsStatus :: Lens' ListGatewaysResponse Int
 lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});

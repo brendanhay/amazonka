@@ -19,21 +19,19 @@
 --
 -- Deletes one or more flow logs.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteFlowLogs.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteFlowLogs.html AWS API Reference> for DeleteFlowLogs.
 module Network.AWS.EC2.DeleteFlowLogs
     (
-    -- * Request
+    -- * Creating a Request
       DeleteFlowLogs
-    -- ** Request constructor
     , deleteFlowLogs
-    -- ** Request lenses
+    -- * Request Lenses
     , dflFlowLogIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteFlowLogsResponse
-    -- ** Response constructor
     , deleteFlowLogsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dflrsUnsuccessful
     , dflrsStatus
     ) where
@@ -112,6 +110,6 @@ deleteFlowLogsResponse pStatus_ =
 dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
 dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dflrsStatus :: Lens' DeleteFlowLogsResponse Int
 dflrsStatus = lens _dflrsStatus (\ s a -> s{_dflrsStatus = a});

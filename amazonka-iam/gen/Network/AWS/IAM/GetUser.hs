@@ -23,21 +23,19 @@
 -- If you do not specify a user name, IAM determines the user name
 -- implicitly based on the AWS access key ID used to sign the request.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html AWS API Reference> for GetUser.
 module Network.AWS.IAM.GetUser
     (
-    -- * Request
+    -- * Creating a Request
       GetUser
-    -- ** Request constructor
     , getUser
-    -- ** Request lenses
+    -- * Request Lenses
     , guUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetUserResponse
-    -- ** Response constructor
     , getUserResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gursStatus
     , gursUser
     ) where
@@ -115,7 +113,7 @@ getUserResponse pStatus_ pUser_ =
     , _gursUser = pUser_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gursStatus :: Lens' GetUserResponse Int
 gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});
 

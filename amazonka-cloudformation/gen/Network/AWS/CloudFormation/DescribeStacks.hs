@@ -20,22 +20,20 @@
 -- Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html AWS API Reference> for DescribeStacks.
 module Network.AWS.CloudFormation.DescribeStacks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStacks
-    -- ** Request constructor
     , describeStacks
-    -- ** Request lenses
+    -- * Request Lenses
     , dNextToken
     , dStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStacksResponse
-    -- ** Response constructor
     , describeStacksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsNextToken
     , dsrsStacks
     , dsrsStatus
@@ -154,6 +152,6 @@ dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
 dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DescribeStacksResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

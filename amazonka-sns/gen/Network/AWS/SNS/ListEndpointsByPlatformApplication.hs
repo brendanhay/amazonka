@@ -28,22 +28,20 @@
 -- information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html AWS API Reference> for ListEndpointsByPlatformApplication.
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
     (
-    -- * Request
+    -- * Creating a Request
       ListEndpointsByPlatformApplication
-    -- ** Request constructor
     , listEndpointsByPlatformApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , lebpaNextToken
     , lebpaPlatformApplicationARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListEndpointsByPlatformApplicationResponse
-    -- ** Response constructor
     , listEndpointsByPlatformApplicationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lebparsNextToken
     , lebparsEndpoints
     , lebparsStatus
@@ -167,6 +165,6 @@ lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a});
 lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
 lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lebparsStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
 lebparsStatus = lens _lebparsStatus (\ s a -> s{_lebparsStatus = a});

@@ -33,23 +33,21 @@
 -- you must grant @Decrypt@ access in an IAM user policy, you should scope
 -- the resource to specific keys or to specific trusted accounts.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html AWS API Reference> for Decrypt.
 module Network.AWS.KMS.Decrypt
     (
-    -- * Request
+    -- * Creating a Request
       Decrypt
-    -- ** Request constructor
     , decrypt
-    -- ** Request lenses
+    -- * Request Lenses
     , dEncryptionContext
     , dGrantTokens
     , dCiphertextBlob
 
-    -- * Response
+    -- * Destructuring the Response
     , DecryptResponse
-    -- ** Response constructor
     , decryptResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsKeyId
     , drsPlaintext
     , drsStatus
@@ -167,6 +165,6 @@ drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
 drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DecryptResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

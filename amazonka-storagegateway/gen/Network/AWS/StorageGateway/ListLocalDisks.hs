@@ -28,21 +28,19 @@
 -- longer connected to the gateway), or mismatch (the disk node is occupied
 -- by a disk that has incorrect metadata or the disk content is corrupted).
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html AWS API Reference> for ListLocalDisks.
 module Network.AWS.StorageGateway.ListLocalDisks
     (
-    -- * Request
+    -- * Creating a Request
       ListLocalDisks
-    -- ** Request constructor
     , listLocalDisks
-    -- ** Request lenses
+    -- * Request Lenses
     , lldGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListLocalDisksResponse
-    -- ** Response constructor
     , listLocalDisksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lldrsGatewayARN
     , lldrsDisks
     , lldrsStatus
@@ -71,7 +69,7 @@ listLocalDisks pGatewayARN_ =
     { _lldGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lldGatewayARN :: Lens' ListLocalDisks Text
 lldGatewayARN = lens _lldGatewayARN (\ s a -> s{_lldGatewayARN = a});
 
@@ -130,14 +128,14 @@ listLocalDisksResponse pStatus_ =
     , _lldrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lldrsGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
 lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lldrsStatus :: Lens' ListLocalDisksResponse Int
 lldrsStatus = lens _lldrsStatus (\ s a -> s{_lldrsStatus = a});

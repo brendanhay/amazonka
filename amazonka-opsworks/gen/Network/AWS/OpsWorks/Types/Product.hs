@@ -696,7 +696,7 @@ dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dCommand :: Lens' Deployment (Maybe DeploymentCommand)
 dCommand = lens _dCommand (\ s a -> s{_dCommand = a});
 
@@ -1978,7 +1978,7 @@ lShortname = lens _lShortname (\ s a -> s{_lShortname = a});
 lCreatedAt :: Lens' Layer (Maybe Text)
 lCreatedAt = lens _lCreatedAt (\ s a -> s{_lCreatedAt = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lDefaultRecipes :: Lens' Layer (Maybe Recipes)
 lDefaultRecipes = lens _lDefaultRecipes (\ s a -> s{_lDefaultRecipes = a});
 
@@ -3116,7 +3116,7 @@ sDefaultSSHKeyName = lens _sDefaultSSHKeyName (\ s a -> s{_sDefaultSSHKeyName = 
 sCustomJSON :: Lens' Stack (Maybe Text)
 sCustomJSON = lens _sCustomJSON (\ s a -> s{_sCustomJSON = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sCustomCookbooksSource :: Lens' Stack (Maybe Source)
 sCustomCookbooksSource = lens _sCustomCookbooksSource (\ s a -> s{_sCustomCookbooksSource = a});
 

@@ -21,19 +21,17 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendQuota.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendQuota.html AWS API Reference> for GetSendQuota.
 module Network.AWS.SES.GetSendQuota
     (
-    -- * Request
+    -- * Creating a Request
       GetSendQuota
-    -- ** Request constructor
     , getSendQuota
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSendQuotaResponse
-    -- ** Response constructor
     , getSendQuotaResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsqrsMaxSendRate
     , gsqrsSentLast24Hours
     , gsqrsMax24HourSend
@@ -127,6 +125,6 @@ gsqrsSentLast24Hours = lens _gsqrsSentLast24Hours (\ s a -> s{_gsqrsSentLast24Ho
 gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsqrsStatus :: Lens' GetSendQuotaResponse Int
 gsqrsStatus = lens _gsqrsStatus (\ s a -> s{_gsqrsStatus = a});

@@ -21,19 +21,17 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html AWS API Reference> for DeleteSpotDatafeedSubscription.
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSpotDatafeedSubscription
-    -- ** Request constructor
     , deleteSpotDatafeedSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , dsdssDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSpotDatafeedSubscriptionResponse
-    -- ** Response constructor
     , deleteSpotDatafeedSubscriptionResponse
     ) where
 

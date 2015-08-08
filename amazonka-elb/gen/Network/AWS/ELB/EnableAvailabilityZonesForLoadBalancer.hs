@@ -27,22 +27,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html AWS API Reference> for EnableAvailabilityZonesForLoadBalancer.
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       EnableAvailabilityZonesForLoadBalancer
-    -- ** Request constructor
     , enableAvailabilityZonesForLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , eazflbLoadBalancerName
     , eazflbAvailabilityZones
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableAvailabilityZonesForLoadBalancerResponse
-    -- ** Response constructor
     , enableAvailabilityZonesForLoadBalancerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , eazflbrsAvailabilityZones
     , eazflbrsStatus
     ) where
@@ -140,6 +138,6 @@ enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
 eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
 eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 eazflbrsStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
 eazflbrsStatus = lens _eazflbrsStatus (\ s a -> s{_eazflbrsStatus = a});

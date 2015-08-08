@@ -19,21 +19,19 @@
 --
 -- Gets information about an on-premises instance.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html AWS API Reference> for GetOnPremisesInstance.
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
     (
-    -- * Request
+    -- * Creating a Request
       GetOnPremisesInstance
-    -- ** Request constructor
     , getOnPremisesInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , gopiInstanceName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetOnPremisesInstanceResponse
-    -- ** Response constructor
     , getOnPremisesInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gopirsInstanceInfo
     , gopirsStatus
     ) where
@@ -122,6 +120,6 @@ getOnPremisesInstanceResponse pStatus_ =
 gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
 gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gopirsStatus :: Lens' GetOnPremisesInstanceResponse Int
 gopirsStatus = lens _gopirsStatus (\ s a -> s{_gopirsStatus = a});

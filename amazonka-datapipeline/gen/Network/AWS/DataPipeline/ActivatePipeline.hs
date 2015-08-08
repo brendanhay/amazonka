@@ -26,23 +26,21 @@
 -- To activate a finished pipeline, modify the end date for the pipeline
 -- and then activate it.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html AWS API Reference> for ActivatePipeline.
 module Network.AWS.DataPipeline.ActivatePipeline
     (
-    -- * Request
+    -- * Creating a Request
       ActivatePipeline
-    -- ** Request constructor
     , activatePipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , apStartTimestamp
     , apParameterValues
     , apPipelineId
 
-    -- * Response
+    -- * Destructuring the Response
     , ActivatePipelineResponse
-    -- ** Response constructor
     , activatePipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , aprsStatus
     ) where
 
@@ -139,6 +137,6 @@ activatePipelineResponse pStatus_ =
     { _aprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aprsStatus :: Lens' ActivatePipelineResponse Int
 aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});

@@ -24,14 +24,13 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterSnapshots.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterSnapshots.html AWS API Reference> for DescribeDBClusterSnapshots.
 module Network.AWS.RDS.DescribeDBClusterSnapshots
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBClusterSnapshots
-    -- ** Request constructor
     , describeDBClusterSnapshots
-    -- ** Request lenses
+    -- * Request Lenses
     , ddbcsDBClusterIdentifier
     , ddbcsDBClusterSnapshotIdentifier
     , ddbcsFilters
@@ -39,11 +38,10 @@ module Network.AWS.RDS.DescribeDBClusterSnapshots
     , ddbcsMaxRecords
     , ddbcsMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBClusterSnapshotsResponse
-    -- ** Response constructor
     , describeDBClusterSnapshotsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddbcsrsMarker
     , ddbcsrsDBClusterSnapshots
     , ddbcsrsStatus
@@ -221,6 +219,6 @@ ddbcsrsMarker = lens _ddbcsrsMarker (\ s a -> s{_ddbcsrsMarker = a});
 ddbcsrsDBClusterSnapshots :: Lens' DescribeDBClusterSnapshotsResponse [DBClusterSnapshot]
 ddbcsrsDBClusterSnapshots = lens _ddbcsrsDBClusterSnapshots (\ s a -> s{_ddbcsrsDBClusterSnapshots = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddbcsrsStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
 ddbcsrsStatus = lens _ddbcsrsStatus (\ s a -> s{_ddbcsrsStatus = a});

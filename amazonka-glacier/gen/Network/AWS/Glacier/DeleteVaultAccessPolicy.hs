@@ -28,20 +28,18 @@
 -- about vault access policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultAccessPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultAccessPolicy.html AWS API Reference> for DeleteVaultAccessPolicy.
 module Network.AWS.Glacier.DeleteVaultAccessPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVaultAccessPolicy
-    -- ** Request constructor
     , deleteVaultAccessPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dvapAccountId
     , dvapVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVaultAccessPolicyResponse
-    -- ** Response constructor
     , deleteVaultAccessPolicyResponse
     ) where
 

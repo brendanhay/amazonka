@@ -28,21 +28,19 @@
 -- has an associated configuration document, we replace the current
 -- configuration document with the new configuration document.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociationBatch.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociationBatch.html AWS API Reference> for CreateAssociationBatch.
 module Network.AWS.SSM.CreateAssociationBatch
     (
-    -- * Request
+    -- * Creating a Request
       CreateAssociationBatch
-    -- ** Request constructor
     , createAssociationBatch
-    -- ** Request lenses
+    -- * Request Lenses
     , cabEntries
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAssociationBatchResponse
-    -- ** Response constructor
     , createAssociationBatchResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cabrsSuccessful
     , cabrsFailed
     , cabrsStatus
@@ -137,6 +135,6 @@ cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _De
 cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
 cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cabrsStatus :: Lens' CreateAssociationBatchResponse Int
 cabrsStatus = lens _cabrsStatus (\ s a -> s{_cabrsStatus = a});

@@ -13,10 +13,10 @@
 --
 module Network.AWS.Kinesis.Types
     (
-    -- * Service
+    -- * Service Decription
       Kinesis
 
-    -- * Errors
+    -- * Error Matchers
     , _ExpiredIteratorException
     , _InvalidArgumentException
     , _ProvisionedThroughputExceededException

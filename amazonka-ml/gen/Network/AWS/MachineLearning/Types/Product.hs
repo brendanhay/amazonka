@@ -268,7 +268,7 @@ dsLastUpdatedAt = lens _dsLastUpdatedAt (\ s a -> s{_dsLastUpdatedAt = a}) . map
 dsCreatedAt :: Lens' DataSource (Maybe UTCTime)
 dsCreatedAt = lens _dsCreatedAt (\ s a -> s{_dsCreatedAt = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsRDSMetadata :: Lens' DataSource (Maybe RDSMetadata)
 dsRDSMetadata = lens _dsRDSMetadata (\ s a -> s{_dsRDSMetadata = a});
 
@@ -306,11 +306,11 @@ dsComputeStatistics = lens _dsComputeStatistics (\ s a -> s{_dsComputeStatistics
 dsMessage :: Lens' DataSource (Maybe Text)
 dsMessage = lens _dsMessage (\ s a -> s{_dsMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsRedshiftMetadata :: Lens' DataSource (Maybe RedshiftMetadata)
 dsRedshiftMetadata = lens _dsRedshiftMetadata (\ s a -> s{_dsRedshiftMetadata = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsRoleARN :: Lens' DataSource (Maybe Text)
 dsRoleARN = lens _dsRoleARN (\ s a -> s{_dsRoleARN = a});
 
@@ -643,7 +643,7 @@ mlmScoreThresholdLastUpdatedAt = lens _mlmScoreThresholdLastUpdatedAt (\ s a -> 
 mlmInputDataLocationS3 :: Lens' MLModel (Maybe Text)
 mlmInputDataLocationS3 = lens _mlmInputDataLocationS3 (\ s a -> s{_mlmInputDataLocationS3 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mlmSizeInBytes :: Lens' MLModel (Maybe Integer)
 mlmSizeInBytes = lens _mlmSizeInBytes (\ s a -> s{_mlmSizeInBytes = a});
 
@@ -651,7 +651,7 @@ mlmSizeInBytes = lens _mlmSizeInBytes (\ s a -> s{_mlmSizeInBytes = a});
 mlmMLModelId :: Lens' MLModel (Maybe Text)
 mlmMLModelId = lens _mlmMLModelId (\ s a -> s{_mlmMLModelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mlmScoreThreshold :: Lens' MLModel (Maybe Double)
 mlmScoreThreshold = lens _mlmScoreThreshold (\ s a -> s{_mlmScoreThreshold = a});
 
@@ -754,7 +754,7 @@ performanceMetrics =
     { _pmProperties = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pmProperties :: Lens' PerformanceMetrics (HashMap Text Text)
 pmProperties = lens _pmProperties (\ s a -> s{_pmProperties = a}) . _Default . _Map;
 
@@ -816,11 +816,11 @@ pPredictedValue = lens _pPredictedValue (\ s a -> s{_pPredictedValue = a});
 pPredictedLabel :: Lens' Prediction (Maybe Text)
 pPredictedLabel = lens _pPredictedLabel (\ s a -> s{_pPredictedLabel = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pPredictedScores :: Lens' Prediction (HashMap Text Double)
 pPredictedScores = lens _pPredictedScores (\ s a -> s{_pPredictedScores = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pDetails :: Lens' Prediction (HashMap DetailsAttributes Text)
 pDetails = lens _pDetails (\ s a -> s{_pDetails = a}) . _Default . _Map;
 
@@ -999,7 +999,7 @@ rdsDatabase pInstanceIdentifier_ pDatabaseName_ =
 rdsdInstanceIdentifier :: Lens' RDSDatabase Text
 rdsdInstanceIdentifier = lens _rdsdInstanceIdentifier (\ s a -> s{_rdsdInstanceIdentifier = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdsdDatabaseName :: Lens' RDSDatabase Text
 rdsdDatabaseName = lens _rdsdDatabaseName (\ s a -> s{_rdsdDatabaseName = a});
 
@@ -1039,11 +1039,11 @@ rdsDatabaseCredentials pUsername_ pPassword_ =
     , _rdsdcPassword = pPassword_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdsdcUsername :: Lens' RDSDatabaseCredentials Text
 rdsdcUsername = lens _rdsdcUsername (\ s a -> s{_rdsdcUsername = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdsdcPassword :: Lens' RDSDatabaseCredentials Text
 rdsdcPassword = lens _rdsdcPassword (\ s a -> s{_rdsdcPassword = a});
 
@@ -1106,7 +1106,7 @@ rmDataPipelineId = lens _rmDataPipelineId (\ s a -> s{_rmDataPipelineId = a});
 rmDatabase :: Lens' RDSMetadata (Maybe RDSDatabase)
 rmDatabase = lens _rmDatabase (\ s a -> s{_rmDatabase = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rmDatabaseUserName :: Lens' RDSMetadata (Maybe Text)
 rmDatabaseUserName = lens _rmDatabaseUserName (\ s a -> s{_rmDatabaseUserName = a});
 
@@ -1313,11 +1313,11 @@ redshiftDatabase pDatabaseName_ pClusterIdentifier_ =
     , _rdClusterIdentifier = pClusterIdentifier_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdDatabaseName :: Lens' RedshiftDatabase Text
 rdDatabaseName = lens _rdDatabaseName (\ s a -> s{_rdDatabaseName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdClusterIdentifier :: Lens' RedshiftDatabase Text
 rdClusterIdentifier = lens _rdClusterIdentifier (\ s a -> s{_rdClusterIdentifier = a});
 
@@ -1357,11 +1357,11 @@ redshiftDatabaseCredentials pUsername_ pPassword_ =
     , _rdcPassword = pPassword_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdcUsername :: Lens' RedshiftDatabaseCredentials Text
 rdcUsername = lens _rdcUsername (\ s a -> s{_rdcUsername = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdcPassword :: Lens' RedshiftDatabaseCredentials Text
 rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a});
 
@@ -1402,11 +1402,11 @@ redshiftMetadata =
 redSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
 redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 redRedshiftDatabase :: Lens' RedshiftMetadata (Maybe RedshiftDatabase)
 redRedshiftDatabase = lens _redRedshiftDatabase (\ s a -> s{_redRedshiftDatabase = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 redDatabaseUserName :: Lens' RedshiftMetadata (Maybe Text)
 redDatabaseUserName = lens _redDatabaseUserName (\ s a -> s{_redDatabaseUserName = a});
 

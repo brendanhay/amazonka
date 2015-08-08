@@ -50,14 +50,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterWorkflowType.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterWorkflowType.html AWS API Reference> for RegisterWorkflowType.
 module Network.AWS.SWF.RegisterWorkflowType
     (
-    -- * Request
+    -- * Creating a Request
       RegisterWorkflowType
-    -- ** Request constructor
     , registerWorkflowType
-    -- ** Request lenses
+    -- * Request Lenses
     , rwtDefaultLambdaRole
     , rwtDefaultChildPolicy
     , rwtDefaultTaskList
@@ -69,9 +68,8 @@ module Network.AWS.SWF.RegisterWorkflowType
     , rwtName
     , rwtVersion
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterWorkflowTypeResponse
-    -- ** Response constructor
     , registerWorkflowTypeResponse
     ) where
 

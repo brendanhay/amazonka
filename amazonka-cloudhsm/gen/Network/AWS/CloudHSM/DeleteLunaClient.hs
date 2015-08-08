@@ -19,21 +19,19 @@
 --
 -- Deletes a client.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteLunaClient.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteLunaClient.html AWS API Reference> for DeleteLunaClient.
 module Network.AWS.CloudHSM.DeleteLunaClient
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLunaClient
-    -- ** Request constructor
     , deleteLunaClient
-    -- ** Request lenses
+    -- * Request Lenses
     , dClientARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLunaClientResponse
-    -- ** Response constructor
     , deleteLunaClientResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlcrsStatus
     ) where
 
@@ -107,6 +105,6 @@ deleteLunaClientResponse pStatus_ =
     { _dlcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlcrsStatus :: Lens' DeleteLunaClientResponse Int
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});

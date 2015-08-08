@@ -20,14 +20,13 @@
 -- uses the acl subresource to set the access control list (ACL)
 -- permissions for an object that already exists in a bucket
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObjectACL.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObjectACL.html AWS API Reference> for PutObjectACL.
 module Network.AWS.S3.PutObjectACL
     (
-    -- * Request
+    -- * Creating a Request
       PutObjectACL
-    -- ** Request constructor
     , putObjectACL
-    -- ** Request lenses
+    -- * Request Lenses
     , poaGrantReadACP
     , poaRequestPayer
     , poaGrantWriteACP
@@ -40,11 +39,10 @@ module Network.AWS.S3.PutObjectACL
     , poaBucket
     , poaKey
 
-    -- * Response
+    -- * Destructuring the Response
     , PutObjectACLResponse
-    -- ** Response constructor
     , putObjectACLResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , poarsRequestCharged
     , poarsStatus
     ) where
@@ -114,7 +112,7 @@ putObjectACL pBucket_ pKey_ =
 poaGrantReadACP :: Lens' PutObjectACL (Maybe Text)
 poaGrantReadACP = lens _poaGrantReadACP (\ s a -> s{_poaGrantReadACP = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poaRequestPayer :: Lens' PutObjectACL (Maybe RequestPayer)
 poaRequestPayer = lens _poaRequestPayer (\ s a -> s{_poaRequestPayer = a});
 
@@ -131,11 +129,11 @@ poaGrantRead = lens _poaGrantRead (\ s a -> s{_poaGrantRead = a});
 poaGrantFullControl :: Lens' PutObjectACL (Maybe Text)
 poaGrantFullControl = lens _poaGrantFullControl (\ s a -> s{_poaGrantFullControl = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poaContentMD5 :: Lens' PutObjectACL (Maybe Text)
 poaContentMD5 = lens _poaContentMD5 (\ s a -> s{_poaContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poaAccessControlPolicy :: Lens' PutObjectACL (Maybe AccessControlPolicy)
 poaAccessControlPolicy = lens _poaAccessControlPolicy (\ s a -> s{_poaAccessControlPolicy = a});
 
@@ -148,11 +146,11 @@ poaGrantWrite = lens _poaGrantWrite (\ s a -> s{_poaGrantWrite = a});
 poaACL :: Lens' PutObjectACL (Maybe ObjectCannedACL)
 poaACL = lens _poaACL (\ s a -> s{_poaACL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poaBucket :: Lens' PutObjectACL BucketName
 poaBucket = lens _poaBucket (\ s a -> s{_poaBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poaKey :: Lens' PutObjectACL ObjectKey
 poaKey = lens _poaKey (\ s a -> s{_poaKey = a});
 
@@ -213,10 +211,10 @@ putObjectACLResponse pStatus_ =
     , _poarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poarsRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
 poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poarsStatus :: Lens' PutObjectACLResponse Int
 poarsStatus = lens _poarsStatus (\ s a -> s{_poarsStatus = a});

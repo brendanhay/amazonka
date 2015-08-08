@@ -22,22 +22,20 @@
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html AWS API Reference> for UpdateSAMLProvider.
 module Network.AWS.IAM.UpdateSAMLProvider
     (
-    -- * Request
+    -- * Creating a Request
       UpdateSAMLProvider
-    -- ** Request constructor
     , updateSAMLProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , usamlpSAMLMetadataDocument
     , usamlpSAMLProviderARN
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateSAMLProviderResponse
-    -- ** Response constructor
     , updateSAMLProviderResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , usamlprsSAMLProviderARN
     , usamlprsStatus
     ) where
@@ -132,6 +130,6 @@ updateSAMLProviderResponse pStatus_ =
 usamlprsSAMLProviderARN :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprsSAMLProviderARN = lens _usamlprsSAMLProviderARN (\ s a -> s{_usamlprsSAMLProviderARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usamlprsStatus :: Lens' UpdateSAMLProviderResponse Int
 usamlprsStatus = lens _usamlprsStatus (\ s a -> s{_usamlprsStatus = a});

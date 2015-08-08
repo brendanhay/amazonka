@@ -26,23 +26,21 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html AWS API Reference> for DescribeSuggesters.
 module Network.AWS.CloudSearch.DescribeSuggesters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSuggesters
-    -- ** Request constructor
     , describeSuggesters
-    -- ** Request lenses
+    -- * Request Lenses
     , dssDeployed
     , dssSuggesterNames
     , dssDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSuggestersResponse
-    -- ** Response constructor
     , describeSuggestersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dssrsStatus
     , dssrsSuggesters
     ) where
@@ -147,7 +145,7 @@ describeSuggestersResponse pStatus_ =
     , _dssrsSuggesters = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStatus :: Lens' DescribeSuggestersResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
 

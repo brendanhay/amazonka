@@ -27,20 +27,18 @@
 -- retrieval policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetDataRetrievalPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetDataRetrievalPolicy.html AWS API Reference> for SetDataRetrievalPolicy.
 module Network.AWS.Glacier.SetDataRetrievalPolicy
     (
-    -- * Request
+    -- * Creating a Request
       SetDataRetrievalPolicy
-    -- ** Request constructor
     , setDataRetrievalPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , sdrpPolicy
     , sdrpAccountId
 
-    -- * Response
+    -- * Destructuring the Response
     , SetDataRetrievalPolicyResponse
-    -- ** Response constructor
     , setDataRetrievalPolicyResponse
     ) where
 

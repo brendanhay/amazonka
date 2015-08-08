@@ -24,21 +24,19 @@
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeUserProfiles.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeUserProfiles.html AWS API Reference> for DescribeUserProfiles.
 module Network.AWS.OpsWorks.DescribeUserProfiles
     (
-    -- * Request
+    -- * Creating a Request
       DescribeUserProfiles
-    -- ** Request constructor
     , describeUserProfiles
-    -- ** Request lenses
+    -- * Request Lenses
     , dupIAMUserARNs
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeUserProfilesResponse
-    -- ** Response constructor
     , describeUserProfilesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , duprsUserProfiles
     , duprsStatus
     ) where
@@ -126,6 +124,6 @@ describeUserProfilesResponse pStatus_ =
 duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 duprsStatus :: Lens' DescribeUserProfilesResponse Int
 duprsStatus = lens _duprsStatus (\ s a -> s{_duprsStatus = a});

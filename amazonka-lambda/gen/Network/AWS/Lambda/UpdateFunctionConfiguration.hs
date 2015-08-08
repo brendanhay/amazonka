@@ -26,14 +26,13 @@
 -- This operation requires permission for the
 -- @lambda:UpdateFunctionConfiguration@ action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionConfiguration.html AWS API Reference> for UpdateFunctionConfiguration.
 module Network.AWS.Lambda.UpdateFunctionConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       UpdateFunctionConfiguration
-    -- ** Request constructor
     , updateFunctionConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , ufcMemorySize
     , ufcRole
     , ufcHandler
@@ -41,11 +40,10 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , ufcDescription
     , ufcFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , FunctionConfiguration
-    -- ** Response constructor
     , functionConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , fcRuntime
     , fcMemorySize
     , fcFunctionARN

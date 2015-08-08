@@ -23,22 +23,20 @@
 -- @DescribeVpcPeeringConnections@ request to view your outstanding VPC
 -- peering connection requests.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVPCPeeringConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVPCPeeringConnection.html AWS API Reference> for AcceptVPCPeeringConnection.
 module Network.AWS.EC2.AcceptVPCPeeringConnection
     (
-    -- * Request
+    -- * Creating a Request
       AcceptVPCPeeringConnection
-    -- ** Request constructor
     , acceptVPCPeeringConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , avpcVPCPeeringConnectionId
     , avpcDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , AcceptVPCPeeringConnectionResponse
-    -- ** Response constructor
     , acceptVPCPeeringConnectionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , avpcrsVPCPeeringConnection
     , avpcrsStatus
     ) where
@@ -131,6 +129,6 @@ acceptVPCPeeringConnectionResponse pStatus_ =
 avpcrsVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcrsVPCPeeringConnection = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 avpcrsStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
 avpcrsStatus = lens _avpcrsStatus (\ s a -> s{_avpcrsStatus = a});

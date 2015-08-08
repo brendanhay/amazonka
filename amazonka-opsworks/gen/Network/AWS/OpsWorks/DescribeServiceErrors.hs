@@ -25,23 +25,21 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeServiceErrors.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeServiceErrors.html AWS API Reference> for DescribeServiceErrors.
 module Network.AWS.OpsWorks.DescribeServiceErrors
     (
-    -- * Request
+    -- * Creating a Request
       DescribeServiceErrors
-    -- ** Request constructor
     , describeServiceErrors
-    -- ** Request lenses
+    -- * Request Lenses
     , dseInstanceId
     , dseServiceErrorIds
     , dseStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeServiceErrorsResponse
-    -- ** Response constructor
     , describeServiceErrorsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsersServiceErrors
     , dsersStatus
     ) where
@@ -154,6 +152,6 @@ describeServiceErrorsResponse pStatus_ =
 dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsersStatus :: Lens' DescribeServiceErrorsResponse Int
 dsersStatus = lens _dsersStatus (\ s a -> s{_dsersStatus = a});

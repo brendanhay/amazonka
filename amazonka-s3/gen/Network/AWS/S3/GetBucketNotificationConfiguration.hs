@@ -19,21 +19,19 @@
 --
 -- Returns the notification configuration of a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketNotificationConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketNotificationConfiguration.html AWS API Reference> for GetBucketNotificationConfiguration.
 module Network.AWS.S3.GetBucketNotificationConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketNotificationConfiguration
-    -- ** Request constructor
     , getBucketNotificationConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , gbncBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , NotificationConfiguration
-    -- ** Response constructor
     , notificationConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , ncQueueConfigurations
     , ncTopicConfigurations
     , ncLambdaFunctionConfigurations

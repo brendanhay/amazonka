@@ -28,21 +28,19 @@
 -- -   Notification of delivery failure, if the delivery failed to
 --     complete.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html AWS API Reference> for DeliverConfigSnapshot.
 module Network.AWS.Config.DeliverConfigSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       DeliverConfigSnapshot
-    -- ** Request constructor
     , deliverConfigSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsDeliveryChannelName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeliverConfigSnapshotResponse
-    -- ** Response constructor
     , deliverConfigSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcsrsConfigSnapshotId
     , dcsrsStatus
     ) where
@@ -133,6 +131,6 @@ deliverConfigSnapshotResponse pStatus_ =
 dcsrsConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsrsStatus :: Lens' DeliverConfigSnapshotResponse Int
 dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

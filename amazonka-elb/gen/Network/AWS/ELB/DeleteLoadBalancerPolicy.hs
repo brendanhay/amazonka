@@ -20,22 +20,20 @@
 -- Deletes the specified policy from the specified load balancer. This
 -- policy must not be enabled for any listeners.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html AWS API Reference> for DeleteLoadBalancerPolicy.
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLoadBalancerPolicy
-    -- ** Request constructor
     , deleteLoadBalancerPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dLoadBalancerName
     , dPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLoadBalancerPolicyResponse
-    -- ** Response constructor
     , deleteLoadBalancerPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delrsStatus
     ) where
 
@@ -116,6 +114,6 @@ deleteLoadBalancerPolicyResponse pStatus_ =
     { _delrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

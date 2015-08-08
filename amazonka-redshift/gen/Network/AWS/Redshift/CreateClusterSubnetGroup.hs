@@ -25,24 +25,22 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster Subnet Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html AWS API Reference> for CreateClusterSubnetGroup.
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateClusterSubnetGroup
-    -- ** Request constructor
     , createClusterSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ccsgTags
     , ccsgClusterSubnetGroupName
     , ccsgDescription
     , ccsgSubnetIds
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateClusterSubnetGroupResponse
-    -- ** Response constructor
     , createClusterSubnetGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccsgrsClusterSubnetGroup
     , ccsgrsStatus
     ) where
@@ -159,10 +157,10 @@ createClusterSubnetGroupResponse pStatus_ =
     , _ccsgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccsgrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClusterSubnetGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccsgrsStatus :: Lens' CreateClusterSubnetGroupResponse Int
 ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});

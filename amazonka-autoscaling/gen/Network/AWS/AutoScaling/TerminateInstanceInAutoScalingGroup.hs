@@ -23,22 +23,20 @@
 -- This call simply makes a termination request. The instances is not
 -- terminated immediately.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html AWS API Reference> for TerminateInstanceInAutoScalingGroup.
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
-    -- * Request
+    -- * Creating a Request
       TerminateInstanceInAutoScalingGroup
-    -- ** Request constructor
     , terminateInstanceInAutoScalingGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , tiiasgInstanceId
     , tiiasgShouldDecrementDesiredCapacity
 
-    -- * Response
+    -- * Destructuring the Response
     , TerminateInstanceInAutoScalingGroupResponse
-    -- ** Response constructor
     , terminateInstanceInAutoScalingGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , tiiasgrsActivity
     , tiiasgrsStatus
     ) where
@@ -135,6 +133,6 @@ terminateInstanceInAutoScalingGroupResponse pStatus_ =
 tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tiiasgrsStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
 tiiasgrsStatus = lens _tiiasgrsStatus (\ s a -> s{_tiiasgrsStatus = a});

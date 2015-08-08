@@ -22,21 +22,19 @@
 -- container instances in a cluster with ListContainerInstances and
 -- deregister them with DeregisterContainerInstance.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteCluster.html AWS API Reference> for DeleteCluster.
 module Network.AWS.ECS.DeleteCluster
     (
-    -- * Request
+    -- * Creating a Request
       DeleteCluster
-    -- ** Request constructor
     , deleteCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , dcCluster
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteClusterResponse
-    -- ** Response constructor
     , deleteClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsCluster
     , drsStatus
     ) where
@@ -121,6 +119,6 @@ deleteClusterResponse pStatus_ =
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteClusterResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

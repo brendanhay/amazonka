@@ -19,23 +19,21 @@
 --
 -- Update an origin access identity.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateCloudFrontOriginAccessIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateCloudFrontOriginAccessIdentity.html AWS API Reference> for UpdateCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     (
-    -- * Request
+    -- * Creating a Request
       UpdateCloudFrontOriginAccessIdentity
-    -- ** Request constructor
     , updateCloudFrontOriginAccessIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , ucfoaiIfMatch
     , ucfoaiCloudFrontOriginAccessIdentityConfig
     , ucfoaiId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateCloudFrontOriginAccessIdentityResponse
-    -- ** Response constructor
     , updateCloudFrontOriginAccessIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ucfoairsETag
     , ucfoairsCloudFrontOriginAccessIdentity
     , ucfoairsStatus
@@ -157,6 +155,6 @@ ucfoairsETag = lens _ucfoairsETag (\ s a -> s{_ucfoairsETag = a});
 ucfoairsCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ucfoairsCloudFrontOriginAccessIdentity = lens _ucfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairsCloudFrontOriginAccessIdentity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ucfoairsStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
 ucfoairsStatus = lens _ucfoairsStatus (\ s a -> s{_ucfoairsStatus = a});

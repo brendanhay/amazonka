@@ -47,24 +47,22 @@
 -- AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress,
 -- RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html AWS API Reference> for CreateSecurityGroup.
 module Network.AWS.EC2.CreateSecurityGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateSecurityGroup
-    -- ** Request constructor
     , createSecurityGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , csgVPCId
     , csgDryRun
     , csgGroupName
     , csgDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSecurityGroupResponse
-    -- ** Response constructor
     , createSecurityGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csgrsStatus
     , csgrsGroupId
     ) where
@@ -181,7 +179,7 @@ createSecurityGroupResponse pStatus_ pGroupId_ =
     , _csgrsGroupId = pGroupId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csgrsStatus :: Lens' CreateSecurityGroupResponse Int
 csgrsStatus = lens _csgrsStatus (\ s a -> s{_csgrsStatus = a});
 

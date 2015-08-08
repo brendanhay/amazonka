@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkACLAssociation.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkACLAssociation.html AWS API Reference> for ReplaceNetworkACLAssociation.
 module Network.AWS.EC2.ReplaceNetworkACLAssociation
     (
-    -- * Request
+    -- * Creating a Request
       ReplaceNetworkACLAssociation
-    -- ** Request constructor
     , replaceNetworkACLAssociation
-    -- ** Request lenses
+    -- * Request Lenses
     , rnaaDryRun
     , rnaaAssociationId
     , rnaaNetworkACLId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReplaceNetworkACLAssociationResponse
-    -- ** Response constructor
     , replaceNetworkACLAssociationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rnaarsNewAssociationId
     , rnaarsStatus
     ) where
@@ -141,6 +139,6 @@ replaceNetworkACLAssociationResponse pStatus_ =
 rnaarsNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
 rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAssociationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rnaarsStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
 rnaarsStatus = lens _rnaarsStatus (\ s a -> s{_rnaarsStatus = a});

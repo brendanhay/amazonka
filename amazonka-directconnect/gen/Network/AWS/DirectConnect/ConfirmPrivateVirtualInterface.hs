@@ -24,22 +24,20 @@
 -- interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html AWS API Reference> for ConfirmPrivateVirtualInterface.
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
-    -- * Request
+    -- * Creating a Request
       ConfirmPrivateVirtualInterface
-    -- ** Request constructor
     , confirmPrivateVirtualInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , cpviVirtualInterfaceId
     , cpviVirtualGatewayId
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfirmPrivateVirtualInterfaceResponse
-    -- ** Response constructor
     , confirmPrivateVirtualInterfaceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cpvirsVirtualInterfaceState
     , cpvirsStatus
     ) where
@@ -72,7 +70,7 @@ confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
     , _cpviVirtualGatewayId = pVirtualGatewayId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
 
@@ -147,10 +145,10 @@ confirmPrivateVirtualInterfaceResponse pStatus_ =
     , _cpvirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpvirsStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
 cpvirsStatus = lens _cpvirsStatus (\ s a -> s{_cpvirsStatus = a});

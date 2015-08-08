@@ -27,21 +27,19 @@
 --
 -- The results of the @DeleteEvaluation@ operation are irreversible.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteEvaluation.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteEvaluation.html AWS API Reference> for DeleteEvaluation.
 module Network.AWS.MachineLearning.DeleteEvaluation
     (
-    -- * Request
+    -- * Creating a Request
       DeleteEvaluation
-    -- ** Request constructor
     , deleteEvaluation
-    -- ** Request lenses
+    -- * Request Lenses
     , deEvaluationId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteEvaluationResponse
-    -- ** Response constructor
     , deleteEvaluationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dersEvaluationId
     , dersStatus
     ) where
@@ -132,6 +130,6 @@ deleteEvaluationResponse pStatus_ =
 dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dersStatus :: Lens' DeleteEvaluationResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

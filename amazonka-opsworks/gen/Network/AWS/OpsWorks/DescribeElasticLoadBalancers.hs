@@ -27,22 +27,20 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.html AWS API Reference> for DescribeElasticLoadBalancers.
 module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     (
-    -- * Request
+    -- * Creating a Request
       DescribeElasticLoadBalancers
-    -- ** Request constructor
     , describeElasticLoadBalancers
-    -- ** Request lenses
+    -- * Request Lenses
     , delbLayerIds
     , delbStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeElasticLoadBalancersResponse
-    -- ** Response constructor
     , describeElasticLoadBalancersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delbrsElasticLoadBalancers
     , delbrsStatus
     ) where
@@ -144,6 +142,6 @@ describeElasticLoadBalancersResponse pStatus_ =
 delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
 delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delbrsStatus :: Lens' DescribeElasticLoadBalancersResponse Int
 delbrsStatus = lens _delbrsStatus (\ s a -> s{_delbrsStatus = a});

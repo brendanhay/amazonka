@@ -21,21 +21,19 @@
 -- Protocol (CHAP) credentials information for a specified iSCSI target,
 -- one for each target-initiator pair.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html AWS API Reference> for DescribeChapCredentials.
 module Network.AWS.StorageGateway.DescribeChapCredentials
     (
-    -- * Request
+    -- * Creating a Request
       DescribeChapCredentials
-    -- ** Request constructor
     , describeChapCredentials
-    -- ** Request lenses
+    -- * Request Lenses
     , dccTargetARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeChapCredentialsResponse
-    -- ** Response constructor
     , describeChapCredentialsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dccrsChapCredentials
     , dccrsStatus
     ) where
@@ -145,6 +143,6 @@ describeChapCredentialsResponse pStatus_ =
 dccrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dccrsStatus :: Lens' DescribeChapCredentialsResponse Int
 dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});

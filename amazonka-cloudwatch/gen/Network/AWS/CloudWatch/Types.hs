@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudWatch.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudWatch
 
-    -- * Errors
+    -- * Error Matchers
     , _LimitExceededFault
     , _InvalidNextToken
     , _InternalServiceFault

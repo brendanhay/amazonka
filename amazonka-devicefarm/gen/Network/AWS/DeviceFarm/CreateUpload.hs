@@ -19,24 +19,22 @@
 --
 -- Uploads an app or test scripts.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html AWS API Reference> for CreateUpload.
 module Network.AWS.DeviceFarm.CreateUpload
     (
-    -- * Request
+    -- * Creating a Request
       CreateUpload
-    -- ** Request constructor
     , createUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , cuContentType
     , cuProjectARN
     , cuName
     , cuType
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateUploadResponse
-    -- ** Response constructor
     , createUploadResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cursUpload
     , cursStatus
     ) where
@@ -173,6 +171,6 @@ createUploadResponse pStatus_ =
 cursUpload :: Lens' CreateUploadResponse (Maybe Upload)
 cursUpload = lens _cursUpload (\ s a -> s{_cursUpload = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cursStatus :: Lens' CreateUploadResponse Int
 cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});

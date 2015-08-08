@@ -19,21 +19,19 @@
 --
 -- Gets information about a unique device type.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevice.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevice.html AWS API Reference> for GetDevice.
 module Network.AWS.DeviceFarm.GetDevice
     (
-    -- * Request
+    -- * Creating a Request
       GetDevice
-    -- ** Request constructor
     , getDevice
-    -- ** Request lenses
+    -- * Request Lenses
     , gdArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDeviceResponse
-    -- ** Response constructor
     , getDeviceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdrsDevice
     , gdrsStatus
     ) where
@@ -115,10 +113,10 @@ getDeviceResponse pStatus_ =
     , _gdrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
 gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdrsStatus :: Lens' GetDeviceResponse Int
 gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

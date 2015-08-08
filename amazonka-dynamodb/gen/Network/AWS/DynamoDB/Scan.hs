@@ -39,14 +39,13 @@
 -- strongly consistent reads instead by setting the /ConsistentRead/
 -- parameter to /true/.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html AWS API Reference> for Scan.
 module Network.AWS.DynamoDB.Scan
     (
-    -- * Request
+    -- * Creating a Request
       Scan
-    -- ** Request constructor
     , scan
-    -- ** Request lenses
+    -- * Request Lenses
     , sProjectionExpression
     , sScanFilter
     , sTotalSegments
@@ -64,11 +63,10 @@ module Network.AWS.DynamoDB.Scan
     , sIndexName
     , sTableName
 
-    -- * Response
+    -- * Destructuring the Response
     , ScanResponse
-    -- ** Response constructor
     , scanResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsLastEvaluatedKey
     , srsCount
     , srsScannedCount
@@ -341,7 +339,7 @@ sExpressionAttributeNames = lens _sExpressionAttributeNames (\ s a -> s{_sExpres
 sAttributesToGet :: Lens' Scan (Maybe (NonEmpty Text))
 sAttributesToGet = lens _sAttributesToGet (\ s a -> s{_sAttributesToGet = a}) . mapping _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
 sReturnConsumedCapacity = lens _sReturnConsumedCapacity (\ s a -> s{_sReturnConsumedCapacity = a});
 
@@ -604,10 +602,10 @@ srsScannedCount = lens _srsScannedCount (\ s a -> s{_srsScannedCount = a});
 srsItems :: Lens' ScanResponse [HashMap Text AttributeValue]
 srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 srsConsumedCapacity = lens _srsConsumedCapacity (\ s a -> s{_srsConsumedCapacity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' ScanResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

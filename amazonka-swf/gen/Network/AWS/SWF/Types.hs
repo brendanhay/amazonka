@@ -13,10 +13,10 @@
 --
 module Network.AWS.SWF.Types
     (
-    -- * Service
+    -- * Service Decription
       SWF
 
-    -- * Errors
+    -- * Error Matchers
     , _LimitExceededFault
     , _WorkflowExecutionAlreadyStartedFault
     , _DomainAlreadyExistsFault

@@ -29,24 +29,22 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeEcsClusters.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeEcsClusters.html AWS API Reference> for DescribeEcsClusters.
 module Network.AWS.OpsWorks.DescribeEcsClusters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEcsClusters
-    -- ** Request constructor
     , describeEcsClusters
-    -- ** Request lenses
+    -- * Request Lenses
     , decNextToken
     , decStackId
     , decMaxResults
     , decEcsClusterARNs
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEcsClustersResponse
-    -- ** Response constructor
     , describeEcsClustersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , decrsNextToken
     , decrsEcsClusters
     , decrsStatus
@@ -186,6 +184,6 @@ decrsNextToken = lens _decrsNextToken (\ s a -> s{_decrsNextToken = a});
 decrsEcsClusters :: Lens' DescribeEcsClustersResponse [EcsCluster]
 decrsEcsClusters = lens _decrsEcsClusters (\ s a -> s{_decrsEcsClusters = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 decrsStatus :: Lens' DescribeEcsClustersResponse Int
 decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});

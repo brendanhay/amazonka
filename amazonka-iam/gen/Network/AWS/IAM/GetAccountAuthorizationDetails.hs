@@ -25,23 +25,21 @@
 -- You can optionally filter the results using the @Filter@ parameter. You
 -- can paginate the results using the @MaxItems@ and @Marker@ parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html AWS API Reference> for GetAccountAuthorizationDetails.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
     (
-    -- * Request
+    -- * Creating a Request
       GetAccountAuthorizationDetails
-    -- ** Request constructor
     , getAccountAuthorizationDetails
-    -- ** Request lenses
+    -- * Request Lenses
     , gaadMaxItems
     , gaadMarker
     , gaadFilter
 
-    -- * Response
+    -- * Destructuring the Response
     , GetAccountAuthorizationDetailsResponse
-    -- ** Response constructor
     , getAccountAuthorizationDetailsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gaadrsRoleDetailList
     , gaadrsGroupDetailList
     , gaadrsUserDetailList
@@ -214,6 +212,6 @@ gaadrsIsTruncated = lens _gaadrsIsTruncated (\ s a -> s{_gaadrsIsTruncated = a})
 gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
 gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gaadrsStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
 gaadrsStatus = lens _gaadrsStatus (\ s a -> s{_gaadrsStatus = a});

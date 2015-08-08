@@ -36,14 +36,13 @@
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html AWS API Reference> for UpdateRecords.
 module Network.AWS.CognitoSync.UpdateRecords
     (
-    -- * Request
+    -- * Creating a Request
       UpdateRecords
-    -- ** Request constructor
     , updateRecords
-    -- ** Request lenses
+    -- * Request Lenses
     , urRecordPatches
     , urDeviceId
     , urClientContext
@@ -52,11 +51,10 @@ module Network.AWS.CognitoSync.UpdateRecords
     , urDatasetName
     , urSyncSessionToken
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateRecordsResponse
-    -- ** Response constructor
     , updateRecordsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , urrsRecords
     , urrsStatus
     ) where
@@ -205,6 +203,6 @@ updateRecordsResponse pStatus_ =
 urrsRecords :: Lens' UpdateRecordsResponse [Record]
 urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 urrsStatus :: Lens' UpdateRecordsResponse Int
 urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});

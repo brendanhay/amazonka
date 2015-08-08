@@ -62,14 +62,13 @@
 -- For the underlying REST API, go to
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html List Jobs>
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListJobs.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListJobs.html AWS API Reference> for ListJobs.
 module Network.AWS.Glacier.ListJobs
     (
-    -- * Request
+    -- * Creating a Request
       ListJobs
-    -- ** Request constructor
     , listJobs
-    -- ** Request lenses
+    -- * Request Lenses
     , ljMarker
     , ljCompleted
     , ljLimit
@@ -77,11 +76,10 @@ module Network.AWS.Glacier.ListJobs
     , ljAccountId
     , ljVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListJobsResponse
-    -- ** Response constructor
     , listJobsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ljrsMarker
     , ljrsJobList
     , ljrsStatus
@@ -229,6 +227,6 @@ ljrsMarker = lens _ljrsMarker (\ s a -> s{_ljrsMarker = a});
 ljrsJobList :: Lens' ListJobsResponse [GlacierJobDescription]
 ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljrsStatus :: Lens' ListJobsResponse Int
 ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

@@ -19,14 +19,13 @@
 --
 -- Returns a list of the available DB engines.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html AWS API Reference> for DescribeDBEngineVersions.
 module Network.AWS.RDS.DescribeDBEngineVersions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBEngineVersions
-    -- ** Request constructor
     , describeDBEngineVersions
-    -- ** Request lenses
+    -- * Request Lenses
     , ddevEngineVersion
     , ddevDefaultOnly
     , ddevFilters
@@ -36,11 +35,10 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     , ddevMaxRecords
     , ddevMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBEngineVersionsResponse
-    -- ** Response constructor
     , describeDBEngineVersionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddevrsMarker
     , ddevrsDBEngineVersions
     , ddevrsStatus
@@ -230,6 +228,6 @@ ddevrsMarker = lens _ddevrsMarker (\ s a -> s{_ddevrsMarker = a});
 ddevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
 ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddevrsStatus :: Lens' DescribeDBEngineVersionsResponse Int
 ddevrsStatus = lens _ddevrsStatus (\ s a -> s{_ddevrsStatus = a});

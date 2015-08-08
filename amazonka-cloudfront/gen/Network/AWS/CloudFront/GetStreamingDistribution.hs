@@ -19,21 +19,19 @@
 --
 -- Get the information about a streaming distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistribution.html AWS API Reference> for GetStreamingDistribution.
 module Network.AWS.CloudFront.GetStreamingDistribution
     (
-    -- * Request
+    -- * Creating a Request
       GetStreamingDistribution
-    -- ** Request constructor
     , getStreamingDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , gsdId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetStreamingDistributionResponse
-    -- ** Response constructor
     , getStreamingDistributionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsdrsETag
     , gsdrsStreamingDistribution
     , gsdrsStatus
@@ -124,6 +122,6 @@ gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a});
 gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
 gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrsStreamingDistribution = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsdrsStatus :: Lens' GetStreamingDistributionResponse Int
 gsdrsStatus = lens _gsdrsStatus (\ s a -> s{_gsdrsStatus = a});

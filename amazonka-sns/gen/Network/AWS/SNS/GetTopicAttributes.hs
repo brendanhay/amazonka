@@ -20,21 +20,19 @@
 -- Returns all of the properties of a topic. Topic properties returned
 -- might differ based on the authorization of the user.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html AWS API Reference> for GetTopicAttributes.
 module Network.AWS.SNS.GetTopicAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetTopicAttributes
-    -- ** Request constructor
     , getTopicAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , gtaTopicARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetTopicAttributesResponse
-    -- ** Response constructor
     , getTopicAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gtarsAttributes
     , gtarsStatus
     ) where
@@ -136,6 +134,6 @@ getTopicAttributesResponse pStatus_ =
 gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gtarsStatus :: Lens' GetTopicAttributesResponse Int
 gtarsStatus = lens _gtarsStatus (\ s a -> s{_gtarsStatus = a});

@@ -20,23 +20,21 @@
 -- The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet
 -- group.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html AWS API Reference> for ModifyCacheSubnetGroup.
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyCacheSubnetGroup
-    -- ** Request constructor
     , modifyCacheSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mcsgSubnetIds
     , mcsgCacheSubnetGroupDescription
     , mcsgCacheSubnetGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyCacheSubnetGroupResponse
-    -- ** Response constructor
     , modifyCacheSubnetGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mcsgrsCacheSubnetGroup
     , mcsgrsStatus
     ) where
@@ -140,10 +138,10 @@ modifyCacheSubnetGroupResponse pStatus_ =
     , _mcsgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSubnetGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mcsgrsStatus :: Lens' ModifyCacheSubnetGroupResponse Int
 mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});

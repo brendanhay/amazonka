@@ -20,22 +20,20 @@
 -- The ListPipelines operation gets a list of the pipelines associated with
 -- the current AWS account.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPipelines.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPipelines.html AWS API Reference> for ListPipelines.
 module Network.AWS.ElasticTranscoder.ListPipelines
     (
-    -- * Request
+    -- * Creating a Request
       ListPipelines
-    -- ** Request constructor
     , listPipelines
-    -- ** Request lenses
+    -- * Request Lenses
     , lpAscending
     , lpPageToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPipelinesResponse
-    -- ** Response constructor
     , listPipelinesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lprsNextPageToken
     , lprsPipelines
     , lprsStatus
@@ -149,6 +147,6 @@ lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a})
 lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsStatus :: Lens' ListPipelinesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

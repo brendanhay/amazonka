@@ -23,21 +23,19 @@
 -- pipeline from starting to process a job while you\'re getting the job
 -- identifier, use UpdatePipelineStatus to temporarily pause the pipeline.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CancelJob.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CancelJob.html AWS API Reference> for CancelJob.
 module Network.AWS.ElasticTranscoder.CancelJob
     (
-    -- * Request
+    -- * Creating a Request
       CancelJob
-    -- ** Request constructor
     , cancelJob
-    -- ** Request lenses
+    -- * Request Lenses
     , cjId
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelJobResponse
-    -- ** Response constructor
     , cancelJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , canrsStatus
     ) where
 
@@ -109,6 +107,6 @@ cancelJobResponse pStatus_ =
     { _canrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 canrsStatus :: Lens' CancelJobResponse Int
 canrsStatus = lens _canrsStatus (\ s a -> s{_canrsStatus = a});

@@ -65,14 +65,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
 module Network.AWS.EC2.DescribeSnapshots
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSnapshots
-    -- ** Request constructor
     , describeSnapshots
-    -- ** Request lenses
+    -- * Request Lenses
     , dssOwnerIds
     , dssFilters
     , dssNextToken
@@ -81,11 +80,10 @@ module Network.AWS.EC2.DescribeSnapshots
     , dssDryRun
     , dssMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSnapshotsResponse
-    -- ** Response constructor
     , describeSnapshotsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dssrsNextToken
     , dssrsSnapshots
     , dssrsStatus
@@ -297,6 +295,6 @@ dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

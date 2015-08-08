@@ -28,23 +28,21 @@
 -- @DisassociateVPCFromHostedZoneRequest@ you made. See @GetChange@
 -- operation for how to track the progress of your change.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html AWS API Reference> for DisassociateVPCFromHostedZone.
 module Network.AWS.Route53.DisassociateVPCFromHostedZone
     (
-    -- * Request
+    -- * Creating a Request
       DisassociateVPCFromHostedZone
-    -- ** Request constructor
     , disassociateVPCFromHostedZone
-    -- ** Request lenses
+    -- * Request Lenses
     , dvfhzComment
     , dvfhzHostedZoneId
     , dvfhzVPC
 
-    -- * Response
+    -- * Destructuring the Response
     , DisassociateVPCFromHostedZoneResponse
-    -- ** Response constructor
     , disassociateVPCFromHostedZoneResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvfhzrsStatus
     , dvfhzrsChangeInfo
     ) where
@@ -154,7 +152,7 @@ disassociateVPCFromHostedZoneResponse pStatus_ pChangeInfo_ =
     , _dvfhzrsChangeInfo = pChangeInfo_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvfhzrsStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
 dvfhzrsStatus = lens _dvfhzrsStatus (\ s a -> s{_dvfhzrsStatus = a});
 

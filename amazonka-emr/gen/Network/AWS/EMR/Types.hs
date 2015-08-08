@@ -13,10 +13,10 @@
 --
 module Network.AWS.EMR.Types
     (
-    -- * Service
+    -- * Service Decription
       EMR
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidRequestException
     , _InternalServerError
     , _InternalServerException

@@ -19,14 +19,13 @@
 --
 -- Describes the available option groups.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroups.html AWS API Reference> for DescribeOptionGroups.
 module Network.AWS.RDS.DescribeOptionGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeOptionGroups
-    -- ** Request constructor
     , describeOptionGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dogFilters
     , dogEngineName
     , dogMajorEngineVersion
@@ -34,11 +33,10 @@ module Network.AWS.RDS.DescribeOptionGroups
     , dogMarker
     , dogOptionGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeOptionGroupsResponse
-    -- ** Response constructor
     , describeOptionGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dogrsMarker
     , dogrsOptionGroupsList
     , dogrsStatus
@@ -201,6 +199,6 @@ dogrsMarker = lens _dogrsMarker (\ s a -> s{_dogrsMarker = a});
 dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dogrsStatus :: Lens' DescribeOptionGroupsResponse Int
 dogrsStatus = lens _dogrsStatus (\ s a -> s{_dogrsStatus = a});

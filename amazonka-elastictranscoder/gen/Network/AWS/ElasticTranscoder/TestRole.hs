@@ -26,24 +26,22 @@
 -- buckets, and tries to send a test notification to Amazon SNS topics that
 -- you specify.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/TestRole.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/TestRole.html AWS API Reference> for TestRole.
 module Network.AWS.ElasticTranscoder.TestRole
     (
-    -- * Request
+    -- * Creating a Request
       TestRole
-    -- ** Request constructor
     , testRole
-    -- ** Request lenses
+    -- * Request Lenses
     , trRole
     , trInputBucket
     , trOutputBucket
     , trTopics
 
-    -- * Response
+    -- * Destructuring the Response
     , TestRoleResponse
-    -- ** Response constructor
     , testRoleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , trrsSuccess
     , trrsMessages
     , trrsStatus
@@ -167,6 +165,6 @@ trrsSuccess = lens _trrsSuccess (\ s a -> s{_trrsSuccess = a});
 trrsMessages :: Lens' TestRoleResponse [Text]
 trrsMessages = lens _trrsMessages (\ s a -> s{_trrsMessages = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 trrsStatus :: Lens' TestRoleResponse Int
 trrsStatus = lens _trrsStatus (\ s a -> s{_trrsStatus = a});

@@ -25,22 +25,20 @@
 -- operation returns up to @MaxNumberOfDomains@ more domain names with each
 -- successive operation call.
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html AWS API Reference> for ListDomains.
 module Network.AWS.SDB.ListDomains
     (
-    -- * Request
+    -- * Creating a Request
       ListDomains
-    -- ** Request constructor
     , listDomains
-    -- ** Request lenses
+    -- * Request Lenses
     , ldMaxNumberOfDomains
     , ldNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDomainsResponse
-    -- ** Response constructor
     , listDomainsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsDomainNames
     , ldrsNextToken
     , ldrsStatus
@@ -148,6 +146,6 @@ ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _De
 ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDomainsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudHSM.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudHSM
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidRequestException
     , _CloudHSMServiceException
     , _CloudHSMInternalException

@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -51,31 +52,252 @@
 -- -   <http://aws.amazon.com/python/ AWS Python Developer Center>
 -- -   <http://aws.amazon.com/ruby/ AWS Ruby Developer Center>
 -- -   <http://aws.amazon.com/net/ AWS Windows and .NET Developer Center>
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudWatchLogs
-    ( module Export
+    (
+    -- * Service Description
+      CloudWatchLogs
+
+    -- * Error Matchers
+    -- $errors
+    , _InvalidParameterException
+    , _InvalidSequenceTokenException
+    , _ResourceAlreadyExistsException
+    , _OperationAbortedException
+    , _DataAlreadyAcceptedException
+    , _ServiceUnavailableException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+
+    -- * Operations
+    -- $operations
+
+    -- ** DescribeDestinations
+    , module Network.AWS.CloudWatchLogs.DescribeDestinations
+
+    -- ** DeleteDestination
+    , module Network.AWS.CloudWatchLogs.DeleteDestination
+
+    -- ** PutDestination
+    , module Network.AWS.CloudWatchLogs.PutDestination
+
+    -- ** DescribeSubscriptionFilters
+    , module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+
+    -- ** GetLogEvents
+    , module Network.AWS.CloudWatchLogs.GetLogEvents
+
+    -- ** DescribeLogGroups
+    , module Network.AWS.CloudWatchLogs.DescribeLogGroups
+
+    -- ** FilterLogEvents
+    , module Network.AWS.CloudWatchLogs.FilterLogEvents
+
+    -- ** DeleteLogStream
+    , module Network.AWS.CloudWatchLogs.DeleteLogStream
+
+    -- ** CreateLogStream
+    , module Network.AWS.CloudWatchLogs.CreateLogStream
+
+    -- ** CreateLogGroup
+    , module Network.AWS.CloudWatchLogs.CreateLogGroup
+
+    -- ** PutLogEvents
+    , module Network.AWS.CloudWatchLogs.PutLogEvents
+
+    -- ** DeleteSubscriptionFilter
+    , module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+
+    -- ** PutSubscriptionFilter
+    , module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+
+    -- ** DeleteLogGroup
+    , module Network.AWS.CloudWatchLogs.DeleteLogGroup
+
+    -- ** TestMetricFilter
+    , module Network.AWS.CloudWatchLogs.TestMetricFilter
+
+    -- ** DescribeMetricFilters
+    , module Network.AWS.CloudWatchLogs.DescribeMetricFilters
+
+    -- ** DeleteMetricFilter
+    , module Network.AWS.CloudWatchLogs.DeleteMetricFilter
+
+    -- ** PutRetentionPolicy
+    , module Network.AWS.CloudWatchLogs.PutRetentionPolicy
+
+    -- ** DeleteRetentionPolicy
+    , module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+
+    -- ** PutMetricFilter
+    , module Network.AWS.CloudWatchLogs.PutMetricFilter
+
+    -- ** PutDestinationPolicy
+    , module Network.AWS.CloudWatchLogs.PutDestinationPolicy
+
+    -- ** DescribeLogStreams
+    , module Network.AWS.CloudWatchLogs.DescribeLogStreams
+
+    -- * Types
+
+    -- ** OrderBy
+    , OrderBy (..)
+
+    -- ** Destination
+    , Destination
+    , destination
+    , dTargetARN
+    , dCreationTime
+    , dArn
+    , dAccessPolicy
+    , dDestinationName
+    , dRoleARN
+
+    -- ** FilteredLogEvent
+    , FilteredLogEvent
+    , filteredLogEvent
+    , fleIngestionTime
+    , fleLogStreamName
+    , fleMessage
+    , fleTimestamp
+    , fleEventId
+
+    -- ** InputLogEvent
+    , InputLogEvent
+    , inputLogEvent
+    , ileTimestamp
+    , ileMessage
+
+    -- ** LogGroup
+    , LogGroup
+    , logGroup
+    , lgCreationTime
+    , lgMetricFilterCount
+    , lgArn
+    , lgLogGroupName
+    , lgRetentionInDays
+    , lgStoredBytes
+
+    -- ** LogStream
+    , LogStream
+    , logStream
+    , lsCreationTime
+    , lsUploadSequenceToken
+    , lsArn
+    , lsFirstEventTimestamp
+    , lsLogStreamName
+    , lsStoredBytes
+    , lsLastIngestionTime
+    , lsLastEventTimestamp
+
+    -- ** MetricFilter
+    , MetricFilter
+    , metricFilter
+    , mfCreationTime
+    , mfFilterName
+    , mfFilterPattern
+    , mfMetricTransformations
+
+    -- ** MetricFilterMatchRecord
+    , MetricFilterMatchRecord
+    , metricFilterMatchRecord
+    , mfmrExtractedValues
+    , mfmrEventMessage
+    , mfmrEventNumber
+
+    -- ** MetricTransformation
+    , MetricTransformation
+    , metricTransformation
+    , mtMetricName
+    , mtMetricNamespace
+    , mtMetricValue
+
+    -- ** OutputLogEvent
+    , OutputLogEvent
+    , outputLogEvent
+    , oleIngestionTime
+    , oleMessage
+    , oleTimestamp
+
+    -- ** RejectedLogEventsInfo
+    , RejectedLogEventsInfo
+    , rejectedLogEventsInfo
+    , rleiTooOldLogEventEndIndex
+    , rleiTooNewLogEventStartIndex
+    , rleiExpiredLogEventEndIndex
+
+    -- ** SearchedLogStream
+    , SearchedLogStream
+    , searchedLogStream
+    , slsLogStreamName
+    , slsSearchedCompletely
+
+    -- ** SubscriptionFilter
+    , SubscriptionFilter
+    , subscriptionFilter
+    , sfCreationTime
+    , sfFilterName
+    , sfDestinationARN
+    , sfLogGroupName
+    , sfFilterPattern
+    , sfRoleARN
     ) where
 
-import           Network.AWS.CloudWatchLogs.CreateLogGroup              as Export
-import           Network.AWS.CloudWatchLogs.CreateLogStream             as Export
-import           Network.AWS.CloudWatchLogs.DeleteDestination           as Export
-import           Network.AWS.CloudWatchLogs.DeleteLogGroup              as Export
-import           Network.AWS.CloudWatchLogs.DeleteLogStream             as Export
-import           Network.AWS.CloudWatchLogs.DeleteMetricFilter          as Export
-import           Network.AWS.CloudWatchLogs.DeleteRetentionPolicy       as Export
-import           Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter    as Export
-import           Network.AWS.CloudWatchLogs.DescribeDestinations        as Export
-import           Network.AWS.CloudWatchLogs.DescribeLogGroups           as Export
-import           Network.AWS.CloudWatchLogs.DescribeLogStreams          as Export
-import           Network.AWS.CloudWatchLogs.DescribeMetricFilters       as Export
-import           Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters as Export
-import           Network.AWS.CloudWatchLogs.FilterLogEvents             as Export
-import           Network.AWS.CloudWatchLogs.GetLogEvents                as Export
-import           Network.AWS.CloudWatchLogs.PutDestination              as Export
-import           Network.AWS.CloudWatchLogs.PutDestinationPolicy        as Export
-import           Network.AWS.CloudWatchLogs.PutLogEvents                as Export
-import           Network.AWS.CloudWatchLogs.PutMetricFilter             as Export
-import           Network.AWS.CloudWatchLogs.PutRetentionPolicy          as Export
-import           Network.AWS.CloudWatchLogs.PutSubscriptionFilter       as Export
-import           Network.AWS.CloudWatchLogs.TestMetricFilter            as Export
-import           Network.AWS.CloudWatchLogs.Types                       as Export
-import           Network.AWS.CloudWatchLogs.Waiters                     as Export
+import           Network.AWS.CloudWatchLogs.CreateLogGroup
+import           Network.AWS.CloudWatchLogs.CreateLogStream
+import           Network.AWS.CloudWatchLogs.DeleteDestination
+import           Network.AWS.CloudWatchLogs.DeleteLogGroup
+import           Network.AWS.CloudWatchLogs.DeleteLogStream
+import           Network.AWS.CloudWatchLogs.DeleteMetricFilter
+import           Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+import           Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+import           Network.AWS.CloudWatchLogs.DescribeDestinations
+import           Network.AWS.CloudWatchLogs.DescribeLogGroups
+import           Network.AWS.CloudWatchLogs.DescribeLogStreams
+import           Network.AWS.CloudWatchLogs.DescribeMetricFilters
+import           Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+import           Network.AWS.CloudWatchLogs.FilterLogEvents
+import           Network.AWS.CloudWatchLogs.GetLogEvents
+import           Network.AWS.CloudWatchLogs.PutDestination
+import           Network.AWS.CloudWatchLogs.PutDestinationPolicy
+import           Network.AWS.CloudWatchLogs.PutLogEvents
+import           Network.AWS.CloudWatchLogs.PutMetricFilter
+import           Network.AWS.CloudWatchLogs.PutRetentionPolicy
+import           Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+import           Network.AWS.CloudWatchLogs.TestMetricFilter
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'CloudWatchLogs'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

@@ -19,23 +19,21 @@
 --
 -- Return torrent files from a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html AWS API Reference> for GetObjectTorrent.
 module Network.AWS.S3.GetObjectTorrent
     (
-    -- * Request
+    -- * Creating a Request
       GetObjectTorrent
-    -- ** Request constructor
     , getObjectTorrent
-    -- ** Request lenses
+    -- * Request Lenses
     , gotRequestPayer
     , gotBucket
     , gotKey
 
-    -- * Response
+    -- * Destructuring the Response
     , GetObjectTorrentResponse
-    -- ** Response constructor
     , getObjectTorrentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gotrsRequestCharged
     , gotrsStatus
     , gotrsBody
@@ -70,15 +68,15 @@ getObjectTorrent pBucket_ pKey_ =
     , _gotKey = pKey_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
 gotRequestPayer = lens _gotRequestPayer (\ s a -> s{_gotRequestPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gotBucket :: Lens' GetObjectTorrent BucketName
 gotBucket = lens _gotBucket (\ s a -> s{_gotBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gotKey :: Lens' GetObjectTorrent ObjectKey
 gotKey = lens _gotKey (\ s a -> s{_gotKey = a});
 
@@ -129,14 +127,14 @@ getObjectTorrentResponse pStatus_ pBody_ =
     , _gotrsBody = pBody_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
 gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gotrsStatus :: Lens' GetObjectTorrentResponse Int
 gotrsStatus = lens _gotrsStatus (\ s a -> s{_gotrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gotrsBody :: Lens' GetObjectTorrentResponse RsBody
 gotrsBody = lens _gotrsBody (\ s a -> s{_gotrsBody = a});

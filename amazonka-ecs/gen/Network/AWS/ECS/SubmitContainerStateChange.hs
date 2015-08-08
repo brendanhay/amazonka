@@ -22,14 +22,13 @@
 --
 -- Sent to acknowledge that a container changed states.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitContainerStateChange.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitContainerStateChange.html AWS API Reference> for SubmitContainerStateChange.
 module Network.AWS.ECS.SubmitContainerStateChange
     (
-    -- * Request
+    -- * Creating a Request
       SubmitContainerStateChange
-    -- ** Request constructor
     , submitContainerStateChange
-    -- ** Request lenses
+    -- * Request Lenses
     , scscNetworkBindings
     , scscStatus
     , scscCluster
@@ -38,11 +37,10 @@ module Network.AWS.ECS.SubmitContainerStateChange
     , scscExitCode
     , scscTask
 
-    -- * Response
+    -- * Destructuring the Response
     , SubmitContainerStateChangeResponse
-    -- ** Response constructor
     , submitContainerStateChangeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , scscrsAcknowledgment
     , scscrsStatus
     ) where
@@ -182,6 +180,6 @@ submitContainerStateChangeResponse pStatus_ =
 scscrsAcknowledgment :: Lens' SubmitContainerStateChangeResponse (Maybe Text)
 scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgment = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 scscrsStatus :: Lens' SubmitContainerStateChangeResponse Int
 scscrsStatus = lens _scscrsStatus (\ s a -> s{_scscrsStatus = a});

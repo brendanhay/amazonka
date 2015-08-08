@@ -29,23 +29,21 @@
 -- parameters. If there are no inline policies embedded with the specified
 -- user, the action returns an empty list.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html AWS API Reference> for ListUserPolicies.
 module Network.AWS.IAM.ListUserPolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListUserPolicies
-    -- ** Request constructor
     , listUserPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , lupMaxItems
     , lupMarker
     , lupUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListUserPoliciesResponse
-    -- ** Response constructor
     , listUserPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , luprsMarker
     , luprsIsTruncated
     , luprsStatus
@@ -178,7 +176,7 @@ luprsMarker = lens _luprsMarker (\ s a -> s{_luprsMarker = a});
 luprsIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
 luprsIsTruncated = lens _luprsIsTruncated (\ s a -> s{_luprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 luprsStatus :: Lens' ListUserPoliciesResponse Int
 luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});
 

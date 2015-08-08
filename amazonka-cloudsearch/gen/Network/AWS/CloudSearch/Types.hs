@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudSearch.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudSearch
 
-    -- * Errors
+    -- * Error Matchers
     , _BaseException
     , _DisabledOperationException
     , _InternalException

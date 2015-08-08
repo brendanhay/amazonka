@@ -19,23 +19,21 @@
 --
 -- Gets information about one or more repositories.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_ListRepositories.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_ListRepositories.html AWS API Reference> for ListRepositories.
 module Network.AWS.CodeCommit.ListRepositories
     (
-    -- * Request
+    -- * Creating a Request
       ListRepositories
-    -- ** Request constructor
     , listRepositories
-    -- ** Request lenses
+    -- * Request Lenses
     , lrNextToken
     , lrOrder
     , lrSortBy
 
-    -- * Response
+    -- * Destructuring the Response
     , ListRepositoriesResponse
-    -- ** Response constructor
     , listRepositoriesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrrsNextToken
     , lrrsRepositories
     , lrrsStatus
@@ -158,6 +156,6 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
 lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrrsStatus :: Lens' ListRepositoriesResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

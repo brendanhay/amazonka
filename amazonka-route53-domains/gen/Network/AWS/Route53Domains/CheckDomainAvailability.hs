@@ -22,22 +22,20 @@
 -- status of a domain is pending, you must submit another request to
 -- determine the availability of the domain name.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-CheckDomainAvailability.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-CheckDomainAvailability.html AWS API Reference> for CheckDomainAvailability.
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
-    -- * Request
+    -- * Creating a Request
       CheckDomainAvailability
-    -- ** Request constructor
     , checkDomainAvailability
-    -- ** Request lenses
+    -- * Request Lenses
     , cdaIdNLangCode
     , cdaDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , CheckDomainAvailabilityResponse
-    -- ** Response constructor
     , checkDomainAvailabilityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdarsStatus
     , cdarsAvailability
     ) where
@@ -142,7 +140,7 @@ checkDomainAvailabilityResponse pStatus_ pAvailability_ =
     , _cdarsAvailability = pAvailability_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdarsStatus :: Lens' CheckDomainAvailabilityResponse Int
 cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});
 

@@ -24,22 +24,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAvailabilityOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAvailabilityOptions.html AWS API Reference> for DescribeAvailabilityOptions.
 module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAvailabilityOptions
-    -- ** Request constructor
     , describeAvailabilityOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , daoDeployed
     , daoDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAvailabilityOptionsResponse
-    -- ** Response constructor
     , describeAvailabilityOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , daorsAvailabilityOptions
     , daorsStatus
     ) where
@@ -140,6 +138,6 @@ describeAvailabilityOptionsResponse pStatus_ =
 daorsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorsAvailabilityOptions = lens _daorsAvailabilityOptions (\ s a -> s{_daorsAvailabilityOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 daorsStatus :: Lens' DescribeAvailabilityOptionsResponse Int
 daorsStatus = lens _daorsStatus (\ s a -> s{_daorsStatus = a});

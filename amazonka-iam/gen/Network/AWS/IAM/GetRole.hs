@@ -24,21 +24,19 @@
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html AWS API Reference> for GetRole.
 module Network.AWS.IAM.GetRole
     (
-    -- * Request
+    -- * Creating a Request
       GetRole
-    -- ** Request constructor
     , getRole
-    -- ** Request lenses
+    -- * Request Lenses
     , grRoleName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetRoleResponse
-    -- ** Response constructor
     , getRoleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grrsStatus
     , grrsRole
     ) where
@@ -113,7 +111,7 @@ getRoleResponse pStatus_ pRole_ =
     , _grrsRole = pRole_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grrsStatus :: Lens' GetRoleResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
 

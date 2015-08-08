@@ -19,21 +19,19 @@
 --
 -- Returns the descriptions of existing applications.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html AWS API Reference> for DescribeApplications.
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
-    -- * Request
+    -- * Creating a Request
       DescribeApplications
-    -- ** Request constructor
     , describeApplications
-    -- ** Request lenses
+    -- * Request Lenses
     , daApplicationNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeApplicationsResponse
-    -- ** Response constructor
     , describeApplicationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , darsApplications
     , darsStatus
     ) where
@@ -120,6 +118,6 @@ describeApplicationsResponse pStatus_ =
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 darsStatus :: Lens' DescribeApplicationsResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

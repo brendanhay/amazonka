@@ -13,10 +13,10 @@
 --
 module Network.AWS.IAM.Types
     (
-    -- * Service
+    -- * Service Decription
       IAM
 
-    -- * Errors
+    -- * Error Matchers
     , _CredentialReportNotPresentException
     , _CredentialReportNotReadyException
     , _MalformedPolicyDocumentException

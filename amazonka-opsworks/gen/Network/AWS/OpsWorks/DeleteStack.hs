@@ -27,19 +27,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteStack.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteStack.html AWS API Reference> for DeleteStack.
 module Network.AWS.OpsWorks.DeleteStack
     (
-    -- * Request
+    -- * Creating a Request
       DeleteStack
-    -- ** Request constructor
     , deleteStack
-    -- ** Request lenses
+    -- * Request Lenses
     , dsStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteStackResponse
-    -- ** Response constructor
     , deleteStackResponse
     ) where
 

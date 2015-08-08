@@ -25,22 +25,20 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribePermissions.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribePermissions.html AWS API Reference> for DescribePermissions.
 module Network.AWS.OpsWorks.DescribePermissions
     (
-    -- * Request
+    -- * Creating a Request
       DescribePermissions
-    -- ** Request constructor
     , describePermissions
-    -- ** Request lenses
+    -- * Request Lenses
     , dpIAMUserARN
     , dpStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribePermissionsResponse
-    -- ** Response constructor
     , describePermissionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dprsPermissions
     , dprsStatus
     ) where
@@ -148,6 +146,6 @@ describePermissionsResponse pStatus_ =
 dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dprsStatus :: Lens' DescribePermissionsResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

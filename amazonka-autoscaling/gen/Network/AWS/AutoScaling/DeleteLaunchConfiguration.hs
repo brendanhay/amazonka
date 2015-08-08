@@ -23,19 +23,17 @@
 -- When this call completes, the launch configuration is no longer
 -- available for use.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html AWS API Reference> for DeleteLaunchConfiguration.
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLaunchConfiguration
-    -- ** Request constructor
     , deleteLaunchConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , dlcLaunchConfigurationName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLaunchConfigurationResponse
-    -- ** Response constructor
     , deleteLaunchConfigurationResponse
     ) where
 

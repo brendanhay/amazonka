@@ -30,21 +30,19 @@
 --     until the check is eligible for refresh.
 -- -   __CheckId.__ The unique identifier for the check.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html AWS API Reference> for RefreshTrustedAdvisorCheck.
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
-    -- * Request
+    -- * Creating a Request
       RefreshTrustedAdvisorCheck
-    -- ** Request constructor
     , refreshTrustedAdvisorCheck
-    -- ** Request lenses
+    -- * Request Lenses
     , rtacCheckId
 
-    -- * Response
+    -- * Destructuring the Response
     , RefreshTrustedAdvisorCheckResponse
-    -- ** Response constructor
     , refreshTrustedAdvisorCheckResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtacrsStatus
     ) where
 
@@ -122,6 +120,6 @@ refreshTrustedAdvisorCheckResponse pStatus_ =
     { _rtacrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
 rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});

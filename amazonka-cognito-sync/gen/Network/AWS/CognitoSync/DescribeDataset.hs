@@ -26,23 +26,21 @@
 -- Cognito Identity or with developer credentials. You should use Cognito
 -- Identity credentials to make this API call.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html AWS API Reference> for DescribeDataset.
 module Network.AWS.CognitoSync.DescribeDataset
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDataset
-    -- ** Request constructor
     , describeDataset
-    -- ** Request lenses
+    -- * Request Lenses
     , ddIdentityPoolId
     , ddIdentityId
     , ddDatasetName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDatasetResponse
-    -- ** Response constructor
     , describeDatasetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddrsDataset
     , ddrsStatus
     ) where
@@ -153,6 +151,6 @@ describeDatasetResponse pStatus_ =
 ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsStatus :: Lens' DescribeDatasetResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

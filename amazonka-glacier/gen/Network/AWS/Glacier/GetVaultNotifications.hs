@@ -38,22 +38,20 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html Get Vault Notification Configuration>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultNotifications.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultNotifications.html AWS API Reference> for GetVaultNotifications.
 module Network.AWS.Glacier.GetVaultNotifications
     (
-    -- * Request
+    -- * Creating a Request
       GetVaultNotifications
-    -- ** Request constructor
     , getVaultNotifications
-    -- ** Request lenses
+    -- * Request Lenses
     , gvnAccountId
     , gvnVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetVaultNotificationsResponse
-    -- ** Response constructor
     , getVaultNotificationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gvnrsVaultNotificationConfig
     , gvnrsStatus
     ) where
@@ -148,6 +146,6 @@ getVaultNotificationsResponse pStatus_ =
 gvnrsVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultNotificationConfig)
 gvnrsVaultNotificationConfig = lens _gvnrsVaultNotificationConfig (\ s a -> s{_gvnrsVaultNotificationConfig = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gvnrsStatus :: Lens' GetVaultNotificationsResponse Int
 gvnrsStatus = lens _gvnrsStatus (\ s a -> s{_gvnrsStatus = a});

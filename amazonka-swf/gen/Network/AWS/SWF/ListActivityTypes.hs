@@ -42,14 +42,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListActivityTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListActivityTypes.html AWS API Reference> for ListActivityTypes.
 module Network.AWS.SWF.ListActivityTypes
     (
-    -- * Request
+    -- * Creating a Request
       ListActivityTypes
-    -- ** Request constructor
     , listActivityTypes
-    -- ** Request lenses
+    -- * Request Lenses
     , latNextPageToken
     , latReverseOrder
     , latName
@@ -57,11 +56,10 @@ module Network.AWS.SWF.ListActivityTypes
     , latDomain
     , latRegistrationStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , ListActivityTypesResponse
-    -- ** Response constructor
     , listActivityTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , latrsNextPageToken
     , latrsStatus
     , latrsTypeInfos
@@ -228,7 +226,7 @@ listActivityTypesResponse pStatus_ =
 latrsNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 latrsNextPageToken = lens _latrsNextPageToken (\ s a -> s{_latrsNextPageToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 latrsStatus :: Lens' ListActivityTypesResponse Int
 latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
 

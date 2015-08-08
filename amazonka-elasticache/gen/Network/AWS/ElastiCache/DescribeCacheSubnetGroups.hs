@@ -21,23 +21,21 @@
 -- group descriptions. If a subnet group name is specified, the list will
 -- contain only the description of that group.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html AWS API Reference> for DescribeCacheSubnetGroups.
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCacheSubnetGroups
-    -- ** Request constructor
     , describeCacheSubnetGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsgCacheSubnetGroupName
     , dcsgMaxRecords
     , dcsgMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCacheSubnetGroupsResponse
-    -- ** Response constructor
     , describeCacheSubnetGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcsgrsMarker
     , dcsgrsCacheSubnetGroups
     , dcsgrsStatus
@@ -168,6 +166,6 @@ dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 dcsgrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
 dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsgrsStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
 dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});

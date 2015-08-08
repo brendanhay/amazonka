@@ -194,7 +194,7 @@ repositoryNameIdPair =
 rnipRepositoryId :: Lens' RepositoryNameIdPair (Maybe Text)
 rnipRepositoryId = lens _rnipRepositoryId (\ s a -> s{_rnipRepositoryId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rnipRepositoryName :: Lens' RepositoryNameIdPair (Maybe Text)
 rnipRepositoryName = lens _rnipRepositoryName (\ s a -> s{_rnipRepositoryName = a});
 

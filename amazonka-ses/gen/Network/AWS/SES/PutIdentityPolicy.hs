@@ -30,23 +30,21 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_PutIdentityPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_PutIdentityPolicy.html AWS API Reference> for PutIdentityPolicy.
 module Network.AWS.SES.PutIdentityPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutIdentityPolicy
-    -- ** Request constructor
     , putIdentityPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , pipIdentity
     , pipPolicyName
     , pipPolicy
 
-    -- * Response
+    -- * Destructuring the Response
     , PutIdentityPolicyResponse
-    -- ** Response constructor
     , putIdentityPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , piprsStatus
     ) where
 
@@ -149,6 +147,6 @@ putIdentityPolicyResponse pStatus_ =
     { _piprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 piprsStatus :: Lens' PutIdentityPolicyResponse Int
 piprsStatus = lens _piprsStatus (\ s a -> s{_piprsStatus = a});

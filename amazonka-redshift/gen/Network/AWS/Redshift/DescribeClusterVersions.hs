@@ -24,24 +24,22 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html AWS API Reference> for DescribeClusterVersions.
 module Network.AWS.Redshift.DescribeClusterVersions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusterVersions
-    -- ** Request constructor
     , describeClusterVersions
-    -- ** Request lenses
+    -- * Request Lenses
     , dcvMaxRecords
     , dcvMarker
     , dcvClusterParameterGroupFamily
     , dcvClusterVersion
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClusterVersionsResponse
-    -- ** Response constructor
     , describeClusterVersionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcvrsClusterVersions
     , dcvrsMarker
     , dcvrsStatus
@@ -197,6 +195,6 @@ dcvrsClusterVersions = lens _dcvrsClusterVersions (\ s a -> s{_dcvrsClusterVersi
 dcvrsMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrsMarker = lens _dcvrsMarker (\ s a -> s{_dcvrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcvrsStatus :: Lens' DescribeClusterVersionsResponse Int
 dcvrsStatus = lens _dcvrsStatus (\ s a -> s{_dcvrsStatus = a});

@@ -19,14 +19,13 @@
 --
 -- Sets the permissions on a bucket using access control lists (ACL).
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketACL.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketACL.html AWS API Reference> for PutBucketACL.
 module Network.AWS.S3.PutBucketACL
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketACL
-    -- ** Request constructor
     , putBucketACL
-    -- ** Request lenses
+    -- * Request Lenses
     , pbaGrantReadACP
     , pbaGrantWriteACP
     , pbaGrantRead
@@ -37,9 +36,8 @@ module Network.AWS.S3.PutBucketACL
     , pbaACL
     , pbaBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketACLResponse
-    -- ** Response constructor
     , putBucketACLResponse
     ) where
 
@@ -113,11 +111,11 @@ pbaGrantRead = lens _pbaGrantRead (\ s a -> s{_pbaGrantRead = a});
 pbaGrantFullControl :: Lens' PutBucketACL (Maybe Text)
 pbaGrantFullControl = lens _pbaGrantFullControl (\ s a -> s{_pbaGrantFullControl = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbaContentMD5 :: Lens' PutBucketACL (Maybe Text)
 pbaContentMD5 = lens _pbaContentMD5 (\ s a -> s{_pbaContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbaAccessControlPolicy :: Lens' PutBucketACL (Maybe AccessControlPolicy)
 pbaAccessControlPolicy = lens _pbaAccessControlPolicy (\ s a -> s{_pbaAccessControlPolicy = a});
 
@@ -130,7 +128,7 @@ pbaGrantWrite = lens _pbaGrantWrite (\ s a -> s{_pbaGrantWrite = a});
 pbaACL :: Lens' PutBucketACL (Maybe BucketCannedACL)
 pbaACL = lens _pbaACL (\ s a -> s{_pbaACL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbaBucket :: Lens' PutBucketACL BucketName
 pbaBucket = lens _pbaBucket (\ s a -> s{_pbaBucket = a});
 

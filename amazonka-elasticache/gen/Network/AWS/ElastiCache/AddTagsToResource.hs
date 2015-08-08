@@ -30,22 +30,20 @@
 -- see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache>.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.ElastiCache.AddTagsToResource
     (
-    -- * Request
+    -- * Creating a Request
       AddTagsToResource
-    -- ** Request constructor
     , addTagsToResource
-    -- ** Request lenses
+    -- * Request Lenses
     , attrResourceName
     , attrTags
 
-    -- * Response
+    -- * Destructuring the Response
     , TagListMessage
-    -- ** Response constructor
     , tagListMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , tlmTagList
     ) where
 

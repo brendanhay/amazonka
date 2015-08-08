@@ -28,21 +28,19 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeTimeBasedAutoScaling.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeTimeBasedAutoScaling.html AWS API Reference> for DescribeTimeBasedAutoScaling.
 module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTimeBasedAutoScaling
-    -- ** Request constructor
     , describeTimeBasedAutoScaling
-    -- ** Request lenses
+    -- * Request Lenses
     , dtbasInstanceIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTimeBasedAutoScalingResponse
-    -- ** Response constructor
     , describeTimeBasedAutoScalingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtbasrsTimeBasedAutoScalingConfigurations
     , dtbasrsStatus
     ) where
@@ -133,6 +131,6 @@ describeTimeBasedAutoScalingResponse pStatus_ =
 dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
 dtbasrsTimeBasedAutoScalingConfigurations = lens _dtbasrsTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrsTimeBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtbasrsStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
 dtbasrsStatus = lens _dtbasrsStatus (\ s a -> s{_dtbasrsStatus = a});

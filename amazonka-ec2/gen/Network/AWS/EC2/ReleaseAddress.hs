@@ -35,21 +35,19 @@
 -- Elastic IP address before you try to release it. Otherwise, Amazon EC2
 -- returns an error (@InvalidIPAddress.InUse@).
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html AWS API Reference> for ReleaseAddress.
 module Network.AWS.EC2.ReleaseAddress
     (
-    -- * Request
+    -- * Creating a Request
       ReleaseAddress
-    -- ** Request constructor
     , releaseAddress
-    -- ** Request lenses
+    -- * Request Lenses
     , raAllocationId
     , raPublicIP
     , raDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , ReleaseAddressResponse
-    -- ** Response constructor
     , releaseAddressResponse
     ) where
 

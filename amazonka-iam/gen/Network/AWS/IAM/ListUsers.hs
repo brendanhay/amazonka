@@ -24,23 +24,21 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html AWS API Reference> for ListUsers.
 module Network.AWS.IAM.ListUsers
     (
-    -- * Request
+    -- * Creating a Request
       ListUsers
-    -- ** Request constructor
     , listUsers
-    -- ** Request lenses
+    -- * Request Lenses
     , luPathPrefix
     , luMaxItems
     , luMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListUsersResponse
-    -- ** Response constructor
     , listUsersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lursMarker
     , lursIsTruncated
     , lursStatus
@@ -177,7 +175,7 @@ lursMarker = lens _lursMarker (\ s a -> s{_lursMarker = a});
 lursIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
 lursIsTruncated = lens _lursIsTruncated (\ s a -> s{_lursIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lursStatus :: Lens' ListUsersResponse Int
 lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});
 

@@ -30,19 +30,17 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners>
 -- in the /Elastic Load Balancing API Reference/.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html AWS API Reference> for DeleteServerCertificate.
 module Network.AWS.IAM.DeleteServerCertificate
     (
-    -- * Request
+    -- * Creating a Request
       DeleteServerCertificate
-    -- ** Request constructor
     , deleteServerCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , dscServerCertificateName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteServerCertificateResponse
-    -- ** Response constructor
     , deleteServerCertificateResponse
     ) where
 

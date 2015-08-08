@@ -22,21 +22,19 @@
 -- information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_GetPlatformApplicationAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetPlatformApplicationAttributes.html AWS API Reference> for GetPlatformApplicationAttributes.
 module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetPlatformApplicationAttributes
-    -- ** Request constructor
     , getPlatformApplicationAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , gpaaPlatformApplicationARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPlatformApplicationAttributesResponse
-    -- ** Response constructor
     , getPlatformApplicationAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gpaarsAttributes
     , gpaarsStatus
     ) where
@@ -137,6 +135,6 @@ getPlatformApplicationAttributesResponse pStatus_ =
 gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gpaarsStatus :: Lens' GetPlatformApplicationAttributesResponse Int
 gpaarsStatus = lens _gpaarsStatus (\ s a -> s{_gpaarsStatus = a});

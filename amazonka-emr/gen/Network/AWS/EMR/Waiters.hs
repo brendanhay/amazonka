@@ -20,6 +20,8 @@ import           Network.AWS.EMR.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 clusterRunning :: Wait DescribeCluster
 clusterRunning =
     Wait
@@ -30,25 +32,25 @@ clusterRunning =
                              "RUNNING"
                              AcceptSuccess
                              (dcrsCluster .
-                              cluStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toTextCI)
                        , matchAll
                              "WAITING"
                              AcceptSuccess
                              (dcrsCluster .
-                              cluStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toTextCI)
                        , matchAll
                              "TERMINATING"
                              AcceptFailure
                              (dcrsCluster .
-                              cluStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toTextCI)
                        , matchAll
                              "TERMINATED"
                              AcceptFailure
                              (dcrsCluster .
-                              cluStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toTextCI)
                        , matchAll
                              "TERMINATED_WITH_ERRORS"
                              AcceptFailure
                              (dcrsCluster .
-                              cluStatus . csState . _Just . to toText)]
+                              cluStatus . csState . _Just . to toTextCI)]
     }

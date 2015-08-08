@@ -49,22 +49,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register EC2 Instances>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html AWS API Reference> for RegisterInstancesWithLoadBalancer.
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       RegisterInstancesWithLoadBalancer
-    -- ** Request constructor
     , registerInstancesWithLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , riwlbLoadBalancerName
     , riwlbInstances
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterInstancesWithLoadBalancerResponse
-    -- ** Response constructor
     , registerInstancesWithLoadBalancerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , riwlbrsInstances
     , riwlbrsStatus
     ) where
@@ -159,6 +157,6 @@ registerInstancesWithLoadBalancerResponse pStatus_ =
 riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 riwlbrsStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
 riwlbrsStatus = lens _riwlbrsStatus (\ s a -> s{_riwlbrsStatus = a});

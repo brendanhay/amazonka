@@ -22,19 +22,17 @@
 -- The specified DB security group must not be associated with any DB
 -- instances.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSecurityGroup.html AWS API Reference> for DeleteDBSecurityGroup.
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDBSecurityGroup
-    -- ** Request constructor
     , deleteDBSecurityGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ddsgDBSecurityGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDBSecurityGroupResponse
-    -- ** Response constructor
     , deleteDBSecurityGroupResponse
     ) where
 

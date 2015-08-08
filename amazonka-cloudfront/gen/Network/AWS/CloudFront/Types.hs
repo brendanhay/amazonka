@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudFront.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudFront
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidErrorCode
     , _TooManyCacheBehaviors
     , _DistributionNotDisabled

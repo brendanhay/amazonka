@@ -21,20 +21,18 @@
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html AWS API Reference> for UpdateAssumeRolePolicy.
 module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
-    -- * Request
+    -- * Creating a Request
       UpdateAssumeRolePolicy
-    -- ** Request constructor
     , updateAssumeRolePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , uarpRoleName
     , uarpPolicyDocument
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAssumeRolePolicyResponse
-    -- ** Response constructor
     , updateAssumeRolePolicyResponse
     ) where
 

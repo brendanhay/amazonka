@@ -23,20 +23,18 @@
 -- that is used to authorize claims to register a subscription filter
 -- against a given destination.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html AWS API Reference> for PutDestinationPolicy.
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutDestinationPolicy
-    -- ** Request constructor
     , putDestinationPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , pdpDestinationName
     , pdpAccessPolicy
 
-    -- * Response
+    -- * Destructuring the Response
     , PutDestinationPolicyResponse
-    -- ** Response constructor
     , putDestinationPolicyResponse
     ) where
 

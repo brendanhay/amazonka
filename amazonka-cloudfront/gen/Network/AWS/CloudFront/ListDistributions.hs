@@ -19,22 +19,20 @@
 --
 -- List distributions.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html AWS API Reference> for ListDistributions.
 module Network.AWS.CloudFront.ListDistributions
     (
-    -- * Request
+    -- * Creating a Request
       ListDistributions
-    -- ** Request constructor
     , listDistributions
-    -- ** Request lenses
+    -- * Request Lenses
     , ldMaxItems
     , ldMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDistributionsResponse
-    -- ** Response constructor
     , listDistributionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsStatus
     , ldrsDistributionList
     ) where
@@ -121,7 +119,7 @@ listDistributionsResponse pStatus_ pDistributionList_ =
     , _ldrsDistributionList = pDistributionList_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDistributionsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 

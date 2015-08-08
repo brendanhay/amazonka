@@ -19,20 +19,18 @@
 --
 -- Delete a streaming distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteStreamingDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteStreamingDistribution.html AWS API Reference> for DeleteStreamingDistribution.
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
-    -- * Request
+    -- * Creating a Request
       DeleteStreamingDistribution
-    -- ** Request constructor
     , deleteStreamingDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , dsdIfMatch
     , dsdId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteStreamingDistributionResponse
-    -- ** Response constructor
     , deleteStreamingDistributionResponse
     ) where
 

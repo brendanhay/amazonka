@@ -67,21 +67,19 @@
 --
 -- @SplitShard@ has limit of 5 transactions per second per account.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html AWS API Reference> for SplitShard.
 module Network.AWS.Kinesis.SplitShard
     (
-    -- * Request
+    -- * Creating a Request
       SplitShard
-    -- ** Request constructor
     , splitShard
-    -- ** Request lenses
+    -- * Request Lenses
     , ssStreamName
     , ssShardToSplit
     , ssNewStartingHashKey
 
-    -- * Response
+    -- * Destructuring the Response
     , SplitShardResponse
-    -- ** Response constructor
     , splitShardResponse
     ) where
 

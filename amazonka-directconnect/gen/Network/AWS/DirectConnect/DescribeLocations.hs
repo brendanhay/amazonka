@@ -21,19 +21,17 @@
 -- region. These are the locations that may be selected when calling
 -- CreateConnection or CreateInterconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html AWS API Reference> for DescribeLocations.
 module Network.AWS.DirectConnect.DescribeLocations
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLocations
-    -- ** Request constructor
     , describeLocations
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLocationsResponse
-    -- ** Response constructor
     , describeLocationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlrsLocations
     , dlrsStatus
     ) where
@@ -101,10 +99,10 @@ describeLocationsResponse pStatus_ =
     , _dlrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlrsLocations :: Lens' DescribeLocationsResponse [Location]
 dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlrsStatus :: Lens' DescribeLocationsResponse Int
 dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});

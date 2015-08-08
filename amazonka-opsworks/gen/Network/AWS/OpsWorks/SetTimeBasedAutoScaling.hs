@@ -27,20 +27,18 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetTimeBasedAutoScaling.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetTimeBasedAutoScaling.html AWS API Reference> for SetTimeBasedAutoScaling.
 module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     (
-    -- * Request
+    -- * Creating a Request
       SetTimeBasedAutoScaling
-    -- ** Request constructor
     , setTimeBasedAutoScaling
-    -- ** Request lenses
+    -- * Request Lenses
     , stbasAutoScalingSchedule
     , stbasInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , SetTimeBasedAutoScalingResponse
-    -- ** Response constructor
     , setTimeBasedAutoScalingResponse
     ) where
 

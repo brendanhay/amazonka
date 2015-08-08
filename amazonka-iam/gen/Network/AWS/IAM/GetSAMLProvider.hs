@@ -23,21 +23,19 @@
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html AWS API Reference> for GetSAMLProvider.
 module Network.AWS.IAM.GetSAMLProvider
     (
-    -- * Request
+    -- * Creating a Request
       GetSAMLProvider
-    -- ** Request constructor
     , getSAMLProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , gsamlpSAMLProviderARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSAMLProviderResponse
-    -- ** Response constructor
     , getSAMLProviderResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsamlprsCreateDate
     , gsamlprsValidUntil
     , gsamlprsSAMLMetadataDocument
@@ -138,6 +136,6 @@ gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = 
 gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsamlprsStatus :: Lens' GetSAMLProviderResponse Int
 gsamlprsStatus = lens _gsamlprsStatus (\ s a -> s{_gsamlprsStatus = a});

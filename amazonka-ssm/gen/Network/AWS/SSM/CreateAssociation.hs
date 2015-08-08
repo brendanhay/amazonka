@@ -28,22 +28,20 @@
 -- has an associated configuration document, we replace the current
 -- configuration document with the new configuration document.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociation.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociation.html AWS API Reference> for CreateAssociation.
 module Network.AWS.SSM.CreateAssociation
     (
-    -- * Request
+    -- * Creating a Request
       CreateAssociation
-    -- ** Request constructor
     , createAssociation
-    -- ** Request lenses
+    -- * Request Lenses
     , caName
     , caInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAssociationResponse
-    -- ** Response constructor
     , createAssociationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , carsAssociationDescription
     , carsStatus
     ) where
@@ -136,6 +134,6 @@ createAssociationResponse pStatus_ =
 carsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
 carsAssociationDescription = lens _carsAssociationDescription (\ s a -> s{_carsAssociationDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 carsStatus :: Lens' CreateAssociationResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

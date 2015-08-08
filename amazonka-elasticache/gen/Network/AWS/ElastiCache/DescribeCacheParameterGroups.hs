@@ -21,23 +21,21 @@
 -- parameter group descriptions. If a cache parameter group name is
 -- specified, the list will contain only the descriptions for that group.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html AWS API Reference> for DescribeCacheParameterGroups.
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCacheParameterGroups
-    -- ** Request constructor
     , describeCacheParameterGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dcpgCacheParameterGroupName
     , dcpgMaxRecords
     , dcpgMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCacheParameterGroupsResponse
-    -- ** Response constructor
     , describeCacheParameterGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcpgrsCacheParameterGroups
     , dcpgrsMarker
     , dcpgrsStatus
@@ -171,6 +169,6 @@ dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgr
 dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcpgrsStatus :: Lens' DescribeCacheParameterGroupsResponse Int
 dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});

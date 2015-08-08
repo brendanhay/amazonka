@@ -25,22 +25,20 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRDSDBInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRDSDBInstances.html AWS API Reference> for DescribeRDSDBInstances.
 module Network.AWS.OpsWorks.DescribeRDSDBInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeRDSDBInstances
-    -- ** Request constructor
     , describeRDSDBInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , drdiRDSDBInstanceARNs
     , drdiStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeRDSDBInstancesResponse
-    -- ** Response constructor
     , describeRDSDBInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drdirsRDSDBInstances
     , drdirsStatus
     ) where
@@ -139,6 +137,6 @@ describeRDSDBInstancesResponse pStatus_ =
 drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
 drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drdirsStatus :: Lens' DescribeRDSDBInstancesResponse Int
 drdirsStatus = lens _drdirsStatus (\ s a -> s{_drdirsStatus = a});

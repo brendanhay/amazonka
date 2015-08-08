@@ -28,20 +28,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html AWS API Reference> for DeletePolicyVersion.
 module Network.AWS.IAM.DeletePolicyVersion
     (
-    -- * Request
+    -- * Creating a Request
       DeletePolicyVersion
-    -- ** Request constructor
     , deletePolicyVersion
-    -- ** Request lenses
+    -- * Request Lenses
     , dpvPolicyARN
     , dpvVersionId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePolicyVersionResponse
-    -- ** Response constructor
     , deletePolicyVersionResponse
     ) where
 
@@ -70,7 +68,7 @@ deletePolicyVersion pPolicyARN_ pVersionId_ =
     , _dpvVersionId = pVersionId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dpvPolicyARN :: Lens' DeletePolicyVersion Text
 dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a});
 

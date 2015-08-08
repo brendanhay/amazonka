@@ -26,23 +26,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances>
 -- in the Amazon Elastic Compute Cloud User Guide.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyReservedInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyReservedInstances.html AWS API Reference> for ModifyReservedInstances.
 module Network.AWS.EC2.ModifyReservedInstances
     (
-    -- * Request
+    -- * Creating a Request
       ModifyReservedInstances
-    -- ** Request constructor
     , modifyReservedInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , mriClientToken
     , mriReservedInstancesIds
     , mriTargetConfigurations
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyReservedInstancesResponse
-    -- ** Response constructor
     , modifyReservedInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mrirsReservedInstancesModificationId
     , mrirsStatus
     ) where
@@ -143,6 +141,6 @@ modifyReservedInstancesResponse pStatus_ =
 mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationId (\ s a -> s{_mrirsReservedInstancesModificationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mrirsStatus :: Lens' ModifyReservedInstancesResponse Int
 mrirsStatus = lens _mrirsStatus (\ s a -> s{_mrirsStatus = a});

@@ -42,22 +42,20 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting Terminating Your Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-TerminateInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-TerminateInstances.html AWS API Reference> for TerminateInstances.
 module Network.AWS.EC2.TerminateInstances
     (
-    -- * Request
+    -- * Creating a Request
       TerminateInstances
-    -- ** Request constructor
     , terminateInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , tiDryRun
     , tiInstanceIds
 
-    -- * Response
+    -- * Destructuring the Response
     , TerminateInstancesResponse
-    -- ** Response constructor
     , terminateInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , tirsTerminatingInstances
     , tirsStatus
     ) where
@@ -149,6 +147,6 @@ terminateInstancesResponse pStatus_ =
 tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tirsStatus :: Lens' TerminateInstancesResponse Int
 tirsStatus = lens _tirsStatus (\ s a -> s{_tirsStatus = a});

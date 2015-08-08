@@ -24,24 +24,22 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html AWS API Reference> for RevokeClusterSecurityGroupIngress.
 module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     (
-    -- * Request
+    -- * Creating a Request
       RevokeClusterSecurityGroupIngress
-    -- ** Request constructor
     , revokeClusterSecurityGroupIngress
-    -- ** Request lenses
+    -- * Request Lenses
     , rcsgiEC2SecurityGroupOwnerId
     , rcsgiEC2SecurityGroupName
     , rcsgiCIdRIP
     , rcsgiClusterSecurityGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , RevokeClusterSecurityGroupIngressResponse
-    -- ** Response constructor
     , revokeClusterSecurityGroupIngressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rcsgirsClusterSecurityGroup
     , rcsgirsStatus
     ) where
@@ -164,10 +162,10 @@ revokeClusterSecurityGroupIngressResponse pStatus_ =
     , _rcsgirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcsgirsClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 rcsgirsClusterSecurityGroup = lens _rcsgirsClusterSecurityGroup (\ s a -> s{_rcsgirsClusterSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcsgirsStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
 rcsgirsStatus = lens _rcsgirsStatus (\ s a -> s{_rcsgirsStatus = a});

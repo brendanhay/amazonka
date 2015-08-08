@@ -33,21 +33,19 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.IAM.GetPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetPolicy
-    -- ** Request constructor
     , getPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gpPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPolicyResponse
-    -- ** Response constructor
     , getPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gprsPolicy
     , gprsStatus
     ) where
@@ -73,7 +71,7 @@ getPolicy pPolicyARN_ =
     { _gpPolicyARN = pPolicyARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gpPolicyARN :: Lens' GetPolicy Text
 gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
 
@@ -126,6 +124,6 @@ getPolicyResponse pStatus_ =
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gprsStatus :: Lens' GetPolicyResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

@@ -26,19 +26,17 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailAddress.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailAddress.html AWS API Reference> for VerifyEmailAddress.
 module Network.AWS.SES.VerifyEmailAddress
     (
-    -- * Request
+    -- * Creating a Request
       VerifyEmailAddress
-    -- ** Request constructor
     , verifyEmailAddress
-    -- ** Request lenses
+    -- * Request Lenses
     , veaEmailAddress
 
-    -- * Response
+    -- * Destructuring the Response
     , VerifyEmailAddressResponse
-    -- ** Response constructor
     , verifyEmailAddressResponse
     ) where
 

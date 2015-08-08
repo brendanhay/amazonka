@@ -24,21 +24,19 @@
 -- virtual interface will be created and made available for handling
 -- traffic.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html AWS API Reference> for ConfirmPublicVirtualInterface.
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
-    -- * Request
+    -- * Creating a Request
       ConfirmPublicVirtualInterface
-    -- ** Request constructor
     , confirmPublicVirtualInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , cVirtualInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfirmPublicVirtualInterfaceResponse
-    -- ** Response constructor
     , confirmPublicVirtualInterfaceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsVirtualInterfaceState
     , crsStatus
     ) where
@@ -67,7 +65,7 @@ confirmPublicVirtualInterface pVirtualInterfaceId_ =
     { _cVirtualInterfaceId = pVirtualInterfaceId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
 cVirtualInterfaceId = lens _cVirtualInterfaceId (\ s a -> s{_cVirtualInterfaceId = a});
 
@@ -128,10 +126,10 @@ confirmPublicVirtualInterfaceResponse pStatus_ =
     , _crsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

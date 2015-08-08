@@ -33,22 +33,20 @@
 -- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html Access Logs>
 -- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout Idle Connection Timeout>
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ModifyLoadBalancerAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ModifyLoadBalancerAttributes.html AWS API Reference> for ModifyLoadBalancerAttributes.
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
-    -- * Request
+    -- * Creating a Request
       ModifyLoadBalancerAttributes
-    -- ** Request constructor
     , modifyLoadBalancerAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , mlbaLoadBalancerName
     , mlbaLoadBalancerAttributes
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyLoadBalancerAttributesResponse
-    -- ** Response constructor
     , modifyLoadBalancerAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mlbarsLoadBalancerAttributes
     , mlbarsLoadBalancerName
     , mlbarsStatus
@@ -142,7 +140,7 @@ modifyLoadBalancerAttributesResponse pStatus_ =
     , _mlbarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a});
 
@@ -150,6 +148,6 @@ mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_m
 mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mlbarsStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarsStatus = lens _mlbarsStatus (\ s a -> s{_mlbarsStatus = a});

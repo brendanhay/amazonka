@@ -20,21 +20,19 @@
 -- Stops logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableLogging.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableLogging.html AWS API Reference> for DisableLogging.
 module Network.AWS.Redshift.DisableLogging
     (
-    -- * Request
+    -- * Creating a Request
       DisableLogging
-    -- ** Request constructor
     , disableLogging
-    -- ** Request lenses
+    -- * Request Lenses
     , dlClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , LoggingStatus
-    -- ** Response constructor
     , loggingStatus
-    -- ** Response lenses
+    -- * Response Lenses
     , lsLastSuccessfulDeliveryTime
     , lsLastFailureTime
     , lsS3KeyPrefix

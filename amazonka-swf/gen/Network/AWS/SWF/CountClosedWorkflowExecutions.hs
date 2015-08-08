@@ -48,14 +48,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountClosedWorkflowExecutions.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountClosedWorkflowExecutions.html AWS API Reference> for CountClosedWorkflowExecutions.
 module Network.AWS.SWF.CountClosedWorkflowExecutions
     (
-    -- * Request
+    -- * Creating a Request
       CountClosedWorkflowExecutions
-    -- ** Request constructor
     , countClosedWorkflowExecutions
-    -- ** Request lenses
+    -- * Request Lenses
     , ccweCloseStatusFilter
     , ccweExecutionFilter
     , ccweTypeFilter
@@ -64,11 +63,10 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     , ccweStartTimeFilter
     , ccweDomain
 
-    -- * Response
+    -- * Destructuring the Response
     , WorkflowExecutionCount
-    -- ** Response constructor
     , workflowExecutionCount
-    -- ** Response lenses
+    -- * Response Lenses
     , wecTruncated
     , wecCount
     ) where

@@ -20,20 +20,18 @@
 -- Causes the environment to restart the application container server
 -- running on each Amazon EC2 instance.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RestartAppServer.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RestartAppServer.html AWS API Reference> for RestartAppServer.
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
-    -- * Request
+    -- * Creating a Request
       RestartAppServer
-    -- ** Request constructor
     , restartAppServer
-    -- ** Request lenses
+    -- * Request Lenses
     , rasEnvironmentName
     , rasEnvironmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , RestartAppServerResponse
-    -- ** Response constructor
     , restartAppServerResponse
     ) where
 

@@ -19,19 +19,17 @@
 --
 -- Returns a list of the available solution stack names.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html AWS API Reference> for ListAvailableSolutionStacks.
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
-    -- * Request
+    -- * Creating a Request
       ListAvailableSolutionStacks
-    -- ** Request constructor
     , listAvailableSolutionStacks
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAvailableSolutionStacksResponse
-    -- ** Response constructor
     , listAvailableSolutionStacksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lassrsSolutionStacks
     , lassrsSolutionStackDetails
     , lassrsStatus
@@ -117,6 +115,6 @@ lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionSta
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lassrsStatus :: Lens' ListAvailableSolutionStacksResponse Int
 lassrsStatus = lens _lassrsStatus (\ s a -> s{_lassrsStatus = a});

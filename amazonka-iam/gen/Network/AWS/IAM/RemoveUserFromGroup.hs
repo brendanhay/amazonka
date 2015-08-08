@@ -19,20 +19,18 @@
 --
 -- Removes the specified user from the specified group.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html AWS API Reference> for RemoveUserFromGroup.
 module Network.AWS.IAM.RemoveUserFromGroup
     (
-    -- * Request
+    -- * Creating a Request
       RemoveUserFromGroup
-    -- ** Request constructor
     , removeUserFromGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , rufgGroupName
     , rufgUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveUserFromGroupResponse
-    -- ** Response constructor
     , removeUserFromGroupResponse
     ) where
 

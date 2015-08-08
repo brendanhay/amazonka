@@ -22,21 +22,19 @@
 -- You must use DeleteAssociation to disassociate all instances that are
 -- associated with the configuration document before you can delete it.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteDocument.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteDocument.html AWS API Reference> for DeleteDocument.
 module Network.AWS.SSM.DeleteDocument
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDocument
-    -- ** Request constructor
     , deleteDocument
-    -- ** Request lenses
+    -- * Request Lenses
     , dddName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDocumentResponse
-    -- ** Response constructor
     , deleteDocumentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddrsStatus
     ) where
 
@@ -109,6 +107,6 @@ deleteDocumentResponse pStatus_ =
     { _ddrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsStatus :: Lens' DeleteDocumentResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

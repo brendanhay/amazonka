@@ -26,21 +26,19 @@
 -- description field in any application that uses this API to display the
 -- repository description on a web page.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html AWS API Reference> for GetRepository.
 module Network.AWS.CodeCommit.GetRepository
     (
-    -- * Request
+    -- * Creating a Request
       GetRepository
-    -- ** Request constructor
     , getRepository
-    -- ** Request lenses
+    -- * Request Lenses
     , grRepositoryName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetRepositoryResponse
-    -- ** Response constructor
     , getRepositoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grrsRepositoryMetadata
     , grrsStatus
     ) where
@@ -127,6 +125,6 @@ getRepositoryResponse pStatus_ =
 grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
 grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grrsStatus :: Lens' GetRepositoryResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

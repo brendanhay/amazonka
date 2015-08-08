@@ -39,22 +39,20 @@
 --     that you can allocate for use with EC2-VPC.
 --
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAccountAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAccountAttributes.html AWS API Reference> for DescribeAccountAttributes.
 module Network.AWS.EC2.DescribeAccountAttributes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAccountAttributes
-    -- ** Request constructor
     , describeAccountAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , daaAttributeNames
     , daaDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAccountAttributesResponse
-    -- ** Response constructor
     , describeAccountAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , daarsAccountAttributes
     , daarsStatus
     ) where
@@ -148,6 +146,6 @@ describeAccountAttributesResponse pStatus_ =
 daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 daarsStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});

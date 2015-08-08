@@ -34,25 +34,23 @@
 -- parameter to @FAILED@ and includes an error message in the @Message@
 -- attribute of the GetDataSource operation response.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRDS.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRDS.html AWS API Reference> for CreateDataSourceFromRDS.
 module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     (
-    -- * Request
+    -- * Creating a Request
       CreateDataSourceFromRDS
-    -- ** Request constructor
     , createDataSourceFromRDS
-    -- ** Request lenses
+    -- * Request Lenses
     , cdsfrdsDataSourceName
     , cdsfrdsComputeStatistics
     , cdsfrdsDataSourceId
     , cdsfrdsRDSData
     , cdsfrdsRoleARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDataSourceFromRDSResponse
-    -- ** Response constructor
     , createDataSourceFromRDSResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdsfrdsrsDataSourceId
     , cdsfrdsrsStatus
     ) where
@@ -239,6 +237,6 @@ createDataSourceFromRDSResponse pStatus_ =
 cdsfrdsrsDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
 cdsfrdsrsDataSourceId = lens _cdsfrdsrsDataSourceId (\ s a -> s{_cdsfrdsrsDataSourceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsfrdsrsStatus :: Lens' CreateDataSourceFromRDSResponse Int
 cdsfrdsrsStatus = lens _cdsfrdsrsStatus (\ s a -> s{_cdsfrdsrsStatus = a});

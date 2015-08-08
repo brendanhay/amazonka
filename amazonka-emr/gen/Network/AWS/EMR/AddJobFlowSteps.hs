@@ -43,22 +43,20 @@
 -- You can only add steps to a job flow that is in one of the following
 -- states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddJobFlowSteps.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddJobFlowSteps.html AWS API Reference> for AddJobFlowSteps.
 module Network.AWS.EMR.AddJobFlowSteps
     (
-    -- * Request
+    -- * Creating a Request
       AddJobFlowSteps
-    -- ** Request constructor
     , addJobFlowSteps
-    -- ** Request lenses
+    -- * Request Lenses
     , ajfsJobFlowId
     , ajfsSteps
 
-    -- * Response
+    -- * Destructuring the Response
     , AddJobFlowStepsResponse
-    -- ** Response constructor
     , addJobFlowStepsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ajfsrsStepIds
     , ajfsrsStatus
     ) where
@@ -156,6 +154,6 @@ addJobFlowStepsResponse pStatus_ =
 ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ajfsrsStatus :: Lens' AddJobFlowStepsResponse Int
 ajfsrsStatus = lens _ajfsrsStatus (\ s a -> s{_ajfsrsStatus = a});

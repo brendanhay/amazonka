@@ -20,22 +20,20 @@
 -- Prevents artifacts in a pipeline from transitioning to the next stage in
 -- the pipeline.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DisableStageTransition.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DisableStageTransition.html AWS API Reference> for DisableStageTransition.
 module Network.AWS.CodePipeline.DisableStageTransition
     (
-    -- * Request
+    -- * Creating a Request
       DisableStageTransition
-    -- ** Request constructor
     , disableStageTransition
-    -- ** Request lenses
+    -- * Request Lenses
     , dstPipelineName
     , dstStageName
     , dstTransitionType
     , dstReason
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableStageTransitionResponse
-    -- ** Response constructor
     , disableStageTransitionResponse
     ) where
 

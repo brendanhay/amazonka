@@ -23,25 +23,23 @@
 -- an outbound security group rule that allows traffic from a VPC to access
 -- an AWS service through a VPC endpoint.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePrefixLists.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePrefixLists.html AWS API Reference> for DescribePrefixLists.
 module Network.AWS.EC2.DescribePrefixLists
     (
-    -- * Request
+    -- * Creating a Request
       DescribePrefixLists
-    -- ** Request constructor
     , describePrefixLists
-    -- ** Request lenses
+    -- * Request Lenses
     , dplFilters
     , dplNextToken
     , dplPrefixListIds
     , dplDryRun
     , dplMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribePrefixListsResponse
-    -- ** Response constructor
     , describePrefixListsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dplrsNextToken
     , dplrsPrefixLists
     , dplrsStatus
@@ -182,6 +180,6 @@ dplrsNextToken = lens _dplrsNextToken (\ s a -> s{_dplrsNextToken = a});
 dplrsPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
 dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dplrsStatus :: Lens' DescribePrefixListsResponse Int
 dplrsStatus = lens _dplrsStatus (\ s a -> s{_dplrsStatus = a});

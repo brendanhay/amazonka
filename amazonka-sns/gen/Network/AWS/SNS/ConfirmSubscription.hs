@@ -23,23 +23,21 @@
 -- Amazon Resource Name (ARN). This call requires an AWS signature only
 -- when the @AuthenticateOnUnsubscribe@ flag is set to \"true\".
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html AWS API Reference> for ConfirmSubscription.
 module Network.AWS.SNS.ConfirmSubscription
     (
-    -- * Request
+    -- * Creating a Request
       ConfirmSubscription
-    -- ** Request constructor
     , confirmSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , csAuthenticateOnUnsubscribe
     , csTopicARN
     , csToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfirmSubscriptionResponse
-    -- ** Response constructor
     , confirmSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsSubscriptionARN
     , csrsStatus
     ) where
@@ -142,6 +140,6 @@ confirmSubscriptionResponse pStatus_ =
 csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' ConfirmSubscriptionResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

@@ -27,22 +27,20 @@
 -- descriptions of all sample policies. The names of the sample policies
 -- have the @ELBSample-@ prefix.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html AWS API Reference> for DescribeLoadBalancerPolicies.
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLoadBalancerPolicies
-    -- ** Request constructor
     , describeLoadBalancerPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbpPolicyNames
     , dlbpLoadBalancerName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLoadBalancerPoliciesResponse
-    -- ** Response constructor
     , describeLoadBalancerPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbprsPolicyDescriptions
     , dlbprsStatus
     ) where
@@ -135,6 +133,6 @@ describeLoadBalancerPoliciesResponse pStatus_ =
 dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbprsStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
 dlbprsStatus = lens _dlbprsStatus (\ s a -> s{_dlbprsStatus = a});

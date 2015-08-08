@@ -22,22 +22,20 @@
 -- address that was originally allocated for use in EC2-VPC. The Elastic IP
 -- address must not be associated with an instance or network interface.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RestoreAddressToClassic.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RestoreAddressToClassic.html AWS API Reference> for RestoreAddressToClassic.
 module Network.AWS.EC2.RestoreAddressToClassic
     (
-    -- * Request
+    -- * Creating a Request
       RestoreAddressToClassic
-    -- ** Request constructor
     , restoreAddressToClassic
-    -- ** Request lenses
+    -- * Request Lenses
     , ratcDryRun
     , ratcPublicIP
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreAddressToClassicResponse
-    -- ** Response constructor
     , restoreAddressToClassicResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ratcrsPublicIP
     , ratcrsStatus
     ) where
@@ -127,6 +125,6 @@ restoreAddressToClassicResponse pStatus_ =
 ratcrsPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ratcrsStatus :: Lens' RestoreAddressToClassicResponse Int
 ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a});

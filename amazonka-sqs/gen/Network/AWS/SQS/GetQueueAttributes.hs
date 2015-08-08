@@ -67,22 +67,20 @@
 --
 -- @&Attribute.2=that@
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html AWS API Reference> for GetQueueAttributes.
 module Network.AWS.SQS.GetQueueAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetQueueAttributes
-    -- ** Request constructor
     , getQueueAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , gqaAttributeNames
     , gqaQueueURL
 
-    -- * Response
+    -- * Destructuring the Response
     , GetQueueAttributesResponse
-    -- ** Response constructor
     , getQueueAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gqarsAttributes
     , gqarsStatus
     ) where
@@ -173,6 +171,6 @@ getQueueAttributesResponse pStatus_ =
 gqarsAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
 gqarsAttributes = lens _gqarsAttributes (\ s a -> s{_gqarsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gqarsStatus :: Lens' GetQueueAttributesResponse Int
 gqarsStatus = lens _gqarsStatus (\ s a -> s{_gqarsStatus = a});

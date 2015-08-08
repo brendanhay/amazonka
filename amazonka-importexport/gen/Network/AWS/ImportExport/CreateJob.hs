@@ -24,25 +24,23 @@
 -- identify your storage device, and the address where you should ship your
 -- storage device.
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCreateJob.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCreateJob.html AWS API Reference> for CreateJob.
 module Network.AWS.ImportExport.CreateJob
     (
-    -- * Request
+    -- * Creating a Request
       CreateJob
-    -- ** Request constructor
     , createJob
-    -- ** Request lenses
+    -- * Request Lenses
     , cjAPIVersion
     , cjManifestAddendum
     , cjJobType
     , cjManifest
     , cjValidateOnly
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateJobResponse
-    -- ** Response constructor
     , createJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cjrsSignature
     , cjrsJobType
     , cjrsJobId
@@ -91,23 +89,23 @@ createJob pJobType_ pManifest_ pValidateOnly_ =
     , _cjValidateOnly = pValidateOnly_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjAPIVersion :: Lens' CreateJob (Maybe Text)
 cjAPIVersion = lens _cjAPIVersion (\ s a -> s{_cjAPIVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjManifestAddendum :: Lens' CreateJob (Maybe Text)
 cjManifestAddendum = lens _cjManifestAddendum (\ s a -> s{_cjManifestAddendum = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjJobType :: Lens' CreateJob JobType
 cjJobType = lens _cjJobType (\ s a -> s{_cjJobType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjManifest :: Lens' CreateJob Text
 cjManifest = lens _cjManifest (\ s a -> s{_cjManifest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjValidateOnly :: Lens' CreateJob Bool
 cjValidateOnly = lens _cjValidateOnly (\ s a -> s{_cjValidateOnly = a});
 
@@ -187,30 +185,30 @@ createJobResponse pStatus_ =
     , _cjrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsSignature :: Lens' CreateJobResponse (Maybe Text)
 cjrsSignature = lens _cjrsSignature (\ s a -> s{_cjrsSignature = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsJobType :: Lens' CreateJobResponse (Maybe JobType)
 cjrsJobType = lens _cjrsJobType (\ s a -> s{_cjrsJobType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsJobId :: Lens' CreateJobResponse (Maybe Text)
 cjrsJobId = lens _cjrsJobId (\ s a -> s{_cjrsJobId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
 cjrsSignatureFileContents = lens _cjrsSignatureFileContents (\ s a -> s{_cjrsSignatureFileContents = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsWarningMessage :: Lens' CreateJobResponse (Maybe Text)
 cjrsWarningMessage = lens _cjrsWarningMessage (\ s a -> s{_cjrsWarningMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsArtifactList :: Lens' CreateJobResponse [Artifact]
 cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsStatus :: Lens' CreateJobResponse Int
 cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});

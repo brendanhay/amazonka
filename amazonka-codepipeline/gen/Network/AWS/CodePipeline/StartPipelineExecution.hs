@@ -20,21 +20,19 @@
 -- Starts the specified pipeline. Specifically, it begins processing the
 -- latest commit to the source location specified as part of the pipeline.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_StartPipelineExecution.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_StartPipelineExecution.html AWS API Reference> for StartPipelineExecution.
 module Network.AWS.CodePipeline.StartPipelineExecution
     (
-    -- * Request
+    -- * Creating a Request
       StartPipelineExecution
-    -- ** Request constructor
     , startPipelineExecution
-    -- ** Request lenses
+    -- * Request Lenses
     , speName
 
-    -- * Response
+    -- * Destructuring the Response
     , StartPipelineExecutionResponse
-    -- ** Response constructor
     , startPipelineExecutionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , spersPipelineExecutionId
     , spersStatus
     ) where
@@ -124,6 +122,6 @@ startPipelineExecutionResponse pStatus_ =
 spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
 spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 spersStatus :: Lens' StartPipelineExecutionResponse Int
 spersStatus = lens _spersStatus (\ s a -> s{_spersStatus = a});

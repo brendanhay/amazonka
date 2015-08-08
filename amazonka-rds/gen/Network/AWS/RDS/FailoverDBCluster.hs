@@ -34,21 +34,19 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_FailoverDBCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_FailoverDBCluster.html AWS API Reference> for FailoverDBCluster.
 module Network.AWS.RDS.FailoverDBCluster
     (
-    -- * Request
+    -- * Creating a Request
       FailoverDBCluster
-    -- ** Request constructor
     , failoverDBCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , fdcDBClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , FailoverDBClusterResponse
-    -- ** Response constructor
     , failoverDBClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , fdcrsDBCluster
     , fdcrsStatus
     ) where
@@ -130,10 +128,10 @@ failoverDBClusterResponse pStatus_ =
     , _fdcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 fdcrsDBCluster :: Lens' FailoverDBClusterResponse (Maybe DBCluster)
 fdcrsDBCluster = lens _fdcrsDBCluster (\ s a -> s{_fdcrsDBCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 fdcrsStatus :: Lens' FailoverDBClusterResponse Int
 fdcrsStatus = lens _fdcrsStatus (\ s a -> s{_fdcrsStatus = a});

@@ -19,24 +19,22 @@
 --
 -- Creates a device pool.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateDevicePool.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateDevicePool.html AWS API Reference> for CreateDevicePool.
 module Network.AWS.DeviceFarm.CreateDevicePool
     (
-    -- * Request
+    -- * Creating a Request
       CreateDevicePool
-    -- ** Request constructor
     , createDevicePool
-    -- ** Request lenses
+    -- * Request Lenses
     , cdpDescription
     , cdpProjectARN
     , cdpName
     , cdpRules
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDevicePoolResponse
-    -- ** Response constructor
     , createDevicePoolResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdprsDevicePool
     , cdprsStatus
     ) where
@@ -151,6 +149,6 @@ createDevicePoolResponse pStatus_ =
 cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
 cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdprsStatus :: Lens' CreateDevicePoolResponse Int
 cdprsStatus = lens _cdprsStatus (\ s a -> s{_cdprsStatus = a});

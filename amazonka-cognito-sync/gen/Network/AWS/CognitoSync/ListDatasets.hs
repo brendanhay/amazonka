@@ -25,24 +25,22 @@
 -- Cognito Identity or with developer credentials. You should use the
 -- Cognito Identity credentials to make this API call.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html AWS API Reference> for ListDatasets.
 module Network.AWS.CognitoSync.ListDatasets
     (
-    -- * Request
+    -- * Creating a Request
       ListDatasets
-    -- ** Request constructor
     , listDatasets
-    -- ** Request lenses
+    -- * Request Lenses
     , ldNextToken
     , ldMaxResults
     , ldIdentityId
     , ldIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDatasetsResponse
-    -- ** Response constructor
     , listDatasetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsCount
     , ldrsNextToken
     , ldrsDatasets
@@ -177,6 +175,6 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
 ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDatasetsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

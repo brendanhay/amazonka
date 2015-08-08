@@ -25,23 +25,21 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating an SSL Certificate for a Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html AWS API Reference> for SetLoadBalancerListenerSSLCertificate.
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
-    -- * Request
+    -- * Creating a Request
       SetLoadBalancerListenerSSLCertificate
-    -- ** Request constructor
     , setLoadBalancerListenerSSLCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , slblscLoadBalancerName
     , slblscLoadBalancerPort
     , slblscSSLCertificateId
 
-    -- * Response
+    -- * Destructuring the Response
     , SetLoadBalancerListenerSSLCertificateResponse
-    -- ** Response constructor
     , setLoadBalancerListenerSSLCertificateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , slblscrsStatus
     ) where
 
@@ -135,6 +133,6 @@ setLoadBalancerListenerSSLCertificateResponse pStatus_ =
     { _slblscrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 slblscrsStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
 slblscrsStatus = lens _slblscrsStatus (\ s a -> s{_slblscrsStatus = a});

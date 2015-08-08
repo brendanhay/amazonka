@@ -25,20 +25,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html AWS API Reference> for ChangePassword.
 module Network.AWS.IAM.ChangePassword
     (
-    -- * Request
+    -- * Creating a Request
       ChangePassword
-    -- ** Request constructor
     , changePassword
-    -- ** Request lenses
+    -- * Request Lenses
     , cpOldPassword
     , cpNewPassword
 
-    -- * Response
+    -- * Destructuring the Response
     , ChangePasswordResponse
-    -- ** Response constructor
     , changePasswordResponse
     ) where
 

@@ -25,22 +25,20 @@
 -- which you want to add upload buffer, and one or more disk IDs that you
 -- want to configure as upload buffer.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddUploadBuffer.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddUploadBuffer.html AWS API Reference> for AddUploadBuffer.
 module Network.AWS.StorageGateway.AddUploadBuffer
     (
-    -- * Request
+    -- * Creating a Request
       AddUploadBuffer
-    -- ** Request constructor
     , addUploadBuffer
-    -- ** Request lenses
+    -- * Request Lenses
     , aubGatewayARN
     , aubDiskIds
 
-    -- * Response
+    -- * Destructuring the Response
     , AddUploadBufferResponse
-    -- ** Response constructor
     , addUploadBufferResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , aubrsGatewayARN
     , aubrsStatus
     ) where
@@ -70,11 +68,11 @@ addUploadBuffer pGatewayARN_ =
     , _aubDiskIds = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aubGatewayARN :: Lens' AddUploadBuffer Text
 aubGatewayARN = lens _aubGatewayARN (\ s a -> s{_aubGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aubDiskIds :: Lens' AddUploadBuffer [Text]
 aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a}) . _Coerce;
 
@@ -130,10 +128,10 @@ addUploadBufferResponse pStatus_ =
     , _aubrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aubrsStatus :: Lens' AddUploadBufferResponse Int
 aubrsStatus = lens _aubrsStatus (\ s a -> s{_aubrsStatus = a});

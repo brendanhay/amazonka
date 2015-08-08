@@ -25,19 +25,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterRDSDBInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterRDSDBInstance.html AWS API Reference> for DeregisterRDSDBInstance.
 module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterRDSDBInstance
-    -- ** Request constructor
     , deregisterRDSDBInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , drdiRDSDBInstanceARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterRDSDBInstanceResponse
-    -- ** Response constructor
     , deregisterRDSDBInstanceResponse
     ) where
 

@@ -19,22 +19,20 @@
 --
 -- Removes existing tags from the specified pipeline.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_RemoveTags.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.DataPipeline.RemoveTags
     (
-    -- * Request
+    -- * Creating a Request
       RemoveTags
-    -- ** Request constructor
     , removeTags
-    -- ** Request lenses
+    -- * Request Lenses
     , rtPipelineId
     , rtTagKeys
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveTagsResponse
-    -- ** Response constructor
     , removeTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtrsStatus
     ) where
 
@@ -121,6 +119,6 @@ removeTagsResponse pStatus_ =
     { _rtrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtrsStatus :: Lens' RemoveTagsResponse Int
 rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

@@ -23,25 +23,23 @@
 --
 -- The @count@ parameter is limited to 10 tasks per call.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html AWS API Reference> for RunTask.
 module Network.AWS.ECS.RunTask
     (
-    -- * Request
+    -- * Creating a Request
       RunTask
-    -- ** Request constructor
     , runTask
-    -- ** Request lenses
+    -- * Request Lenses
     , rtOverrides
     , rtCluster
     , rtCount
     , rtStartedBy
     , rtTaskDefinition
 
-    -- * Response
+    -- * Destructuring the Response
     , RunTaskResponse
-    -- ** Response constructor
     , runTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtrsFailures
     , rtrsTasks
     , rtrsStatus
@@ -196,6 +194,6 @@ rtrsFailures = lens _rtrsFailures (\ s a -> s{_rtrsFailures = a}) . _Default . _
 rtrsTasks :: Lens' RunTaskResponse [Task]
 rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtrsStatus :: Lens' RunTaskResponse Int
 rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

@@ -19,22 +19,20 @@
 --
 -- AddInstanceGroups adds an instance group to a running cluster.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddInstanceGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddInstanceGroups.html AWS API Reference> for AddInstanceGroups.
 module Network.AWS.EMR.AddInstanceGroups
     (
-    -- * Request
+    -- * Creating a Request
       AddInstanceGroups
-    -- ** Request constructor
     , addInstanceGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , aigInstanceGroups
     , aigJobFlowId
 
-    -- * Response
+    -- * Destructuring the Response
     , AddInstanceGroupsResponse
-    -- ** Response constructor
     , addInstanceGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , aigrsJobFlowId
     , aigrsInstanceGroupIds
     , aigrsStatus
@@ -142,6 +140,6 @@ aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a});
 aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aigrsStatus :: Lens' AddInstanceGroupsResponse Int
 aigrsStatus = lens _aigrsStatus (\ s a -> s{_aigrsStatus = a});

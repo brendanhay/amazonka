@@ -22,22 +22,20 @@
 -- it\'s in the @active@ state. The owner of the requester VPC can delete a
 -- VPC peering connection in the @pending-acceptance@ state.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCPeeringConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCPeeringConnection.html AWS API Reference> for DeleteVPCPeeringConnection.
 module Network.AWS.EC2.DeleteVPCPeeringConnection
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVPCPeeringConnection
-    -- ** Request constructor
     , deleteVPCPeeringConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , dvpcDryRun
     , dvpcVPCPeeringConnectionId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVPCPeeringConnectionResponse
-    -- ** Response constructor
     , deleteVPCPeeringConnectionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvpcrsReturn
     , dvpcrsStatus
     ) where
@@ -129,6 +127,6 @@ deleteVPCPeeringConnectionResponse pStatus_ =
 dvpcrsReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrsReturn = lens _dvpcrsReturn (\ s a -> s{_dvpcrsReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvpcrsStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
 dvpcrsStatus = lens _dvpcrsStatus (\ s a -> s{_dvpcrsStatus = a});

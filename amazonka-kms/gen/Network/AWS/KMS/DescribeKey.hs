@@ -19,21 +19,19 @@
 --
 -- Provides detailed information about the specified customer master key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html AWS API Reference> for DescribeKey.
 module Network.AWS.KMS.DescribeKey
     (
-    -- * Request
+    -- * Creating a Request
       DescribeKey
-    -- ** Request constructor
     , describeKey
-    -- ** Request lenses
+    -- * Request Lenses
     , dKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeKeyResponse
-    -- ** Response constructor
     , describeKeyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dkrsKeyMetadata
     , dkrsStatus
     ) where
@@ -125,6 +123,6 @@ describeKeyResponse pStatus_ =
 dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dkrsStatus :: Lens' DescribeKeyResponse Int
 dkrsStatus = lens _dkrsStatus (\ s a -> s{_dkrsStatus = a});

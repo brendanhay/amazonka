@@ -33,22 +33,20 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html AWS API Reference> for CreateKeyPair.
 module Network.AWS.EC2.CreateKeyPair
     (
-    -- * Request
+    -- * Creating a Request
       CreateKeyPair
-    -- ** Request constructor
     , createKeyPair
-    -- ** Request lenses
+    -- * Request Lenses
     , ckpDryRun
     , ckpKeyName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateKeyPairResponse
-    -- ** Response constructor
     , createKeyPairResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ckprsStatus
     , ckprsKeyName
     , ckprsKeyFingerprint
@@ -148,7 +146,7 @@ createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
     , _ckprsKeyMaterial = pKeyMaterial_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ckprsStatus :: Lens' CreateKeyPairResponse Int
 ckprsStatus = lens _ckprsStatus (\ s a -> s{_ckprsStatus = a});
 

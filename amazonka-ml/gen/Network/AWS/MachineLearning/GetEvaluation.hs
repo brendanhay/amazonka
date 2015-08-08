@@ -20,21 +20,19 @@
 -- Returns an @Evaluation@ that includes metadata as well as the current
 -- status of the @Evaluation@.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetEvaluation.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetEvaluation.html AWS API Reference> for GetEvaluation.
 module Network.AWS.MachineLearning.GetEvaluation
     (
-    -- * Request
+    -- * Creating a Request
       GetEvaluation
-    -- ** Request constructor
     , getEvaluation
-    -- ** Request lenses
+    -- * Request Lenses
     , geEvaluationId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetEvaluationResponse
-    -- ** Response constructor
     , getEvaluationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gersPerformanceMetrics
     , gersLastUpdatedAt
     , gersCreatedAt
@@ -244,6 +242,6 @@ gersEvaluationId = lens _gersEvaluationId (\ s a -> s{_gersEvaluationId = a});
 gersEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)
 gersEvaluationDataSourceId = lens _gersEvaluationDataSourceId (\ s a -> s{_gersEvaluationDataSourceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gersStatus :: Lens' GetEvaluationResponse Int
 gersStatus = lens _gersStatus (\ s a -> s{_gersStatus = a});

@@ -20,24 +20,22 @@
 -- Returns information about provisioned RDS instances. This API supports
 -- pagination.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html AWS API Reference> for DescribeDBInstances.
 module Network.AWS.RDS.DescribeDBInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBInstances
-    -- ** Request constructor
     , describeDBInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , ddbiFilters
     , ddbiDBInstanceIdentifier
     , ddbiMaxRecords
     , ddbiMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBInstancesResponse
-    -- ** Response constructor
     , describeDBInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddbirsDBInstances
     , ddbirsMarker
     , ddbirsStatus
@@ -188,6 +186,6 @@ ddbirsDBInstances = lens _ddbirsDBInstances (\ s a -> s{_ddbirsDBInstances = a})
 ddbirsMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirsMarker = lens _ddbirsMarker (\ s a -> s{_ddbirsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddbirsStatus :: Lens' DescribeDBInstancesResponse Int
 ddbirsStatus = lens _ddbirsStatus (\ s a -> s{_ddbirsStatus = a});

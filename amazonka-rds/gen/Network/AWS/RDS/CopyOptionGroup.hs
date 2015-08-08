@@ -19,24 +19,22 @@
 --
 -- Copies the specified option group.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html AWS API Reference> for CopyOptionGroup.
 module Network.AWS.RDS.CopyOptionGroup
     (
-    -- * Request
+    -- * Creating a Request
       CopyOptionGroup
-    -- ** Request constructor
     , copyOptionGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cTags
     , cSourceOptionGroupIdentifier
     , cTargetOptionGroupIdentifier
     , cTargetOptionGroupDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CopyOptionGroupResponse
-    -- ** Response constructor
     , copyOptionGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cogrsOptionGroup
     , cogrsStatus
     ) where
@@ -76,7 +74,7 @@ copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTar
     , _cTargetOptionGroupDescription = pTargetOptionGroupDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cTags :: Lens' CopyOptionGroup [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
@@ -162,10 +160,10 @@ copyOptionGroupResponse pStatus_ =
     , _cogrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cogrsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cogrsStatus :: Lens' CopyOptionGroupResponse Int
 cogrsStatus = lens _cogrsStatus (\ s a -> s{_cogrsStatus = a});

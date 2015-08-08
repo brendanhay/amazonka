@@ -21,19 +21,17 @@
 -- more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_DeleteEndpoint.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_DeleteEndpoint.html AWS API Reference> for DeleteEndpoint.
 module Network.AWS.SNS.DeleteEndpoint
     (
-    -- * Request
+    -- * Creating a Request
       DeleteEndpoint
-    -- ** Request constructor
     , deleteEndpoint
-    -- ** Request lenses
+    -- * Request Lenses
     , deEndpointARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteEndpointResponse
-    -- ** Response constructor
     , deleteEndpointResponse
     ) where
 

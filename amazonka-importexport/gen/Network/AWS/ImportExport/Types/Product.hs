@@ -44,11 +44,11 @@ artifact =
     , _aDescription = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aURL :: Lens' Artifact (Maybe Text)
 aURL = lens _aURL (\ s a -> s{_aURL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aDescription :: Lens' Artifact (Maybe Text)
 aDescription = lens _aDescription (\ s a -> s{_aDescription = a});
 
@@ -87,19 +87,19 @@ job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
     , _jobCreationDate = _Time # pCreationDate_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jobJobType :: Lens' Job JobType
 jobJobType = lens _jobJobType (\ s a -> s{_jobJobType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jobJobId :: Lens' Job Text
 jobJobId = lens _jobJobId (\ s a -> s{_jobJobId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jobIsCanceled :: Lens' Job Bool
 jobIsCanceled = lens _jobIsCanceled (\ s a -> s{_jobIsCanceled = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jobCreationDate :: Lens' Job UTCTime
 jobCreationDate = lens _jobCreationDate (\ s a -> s{_jobCreationDate = a}) . _Time;
 

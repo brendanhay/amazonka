@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html AWS API Reference> for CreateLoginProfile.
 module Network.AWS.IAM.CreateLoginProfile
     (
-    -- * Request
+    -- * Creating a Request
       CreateLoginProfile
-    -- ** Request constructor
     , createLoginProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , clpPasswordResetRequired
     , clpUserName
     , clpPassword
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLoginProfileResponse
-    -- ** Response constructor
     , createLoginProfileResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clprsStatus
     , clprsLoginProfile
     ) where
@@ -134,7 +132,7 @@ createLoginProfileResponse pStatus_ pLoginProfile_ =
     , _clprsLoginProfile = pLoginProfile_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clprsStatus :: Lens' CreateLoginProfileResponse Int
 clprsStatus = lens _clprsStatus (\ s a -> s{_clprsStatus = a});
 

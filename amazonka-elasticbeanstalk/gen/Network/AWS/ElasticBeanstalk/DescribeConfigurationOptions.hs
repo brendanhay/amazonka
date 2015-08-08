@@ -23,25 +23,23 @@
 -- default values, and an indication of the required action on a running
 -- environment if an option value is changed.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html AWS API Reference> for DescribeConfigurationOptions.
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeConfigurationOptions
-    -- ** Request constructor
     , describeConfigurationOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , dcoTemplateName
     , dcoEnvironmentName
     , dcoApplicationName
     , dcoOptions
     , dcoSolutionStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeConfigurationOptionsResponse
-    -- ** Response constructor
     , describeConfigurationOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcorsOptions
     , dcorsSolutionStackName
     , dcorsStatus
@@ -182,6 +180,6 @@ dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcorsStatus :: Lens' DescribeConfigurationOptionsResponse Int
 dcorsStatus = lens _dcorsStatus (\ s a -> s{_dcorsStatus = a});

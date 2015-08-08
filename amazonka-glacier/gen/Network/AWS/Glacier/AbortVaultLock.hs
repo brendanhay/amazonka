@@ -36,20 +36,18 @@
 -- multiple times, if the vault lock is in the @InProgress@ state or if
 -- there is no policy associated with the vault.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortVaultLock.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortVaultLock.html AWS API Reference> for AbortVaultLock.
 module Network.AWS.Glacier.AbortVaultLock
     (
-    -- * Request
+    -- * Creating a Request
       AbortVaultLock
-    -- ** Request constructor
     , abortVaultLock
-    -- ** Request lenses
+    -- * Request Lenses
     , avlAccountId
     , avlVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , AbortVaultLockResponse
-    -- ** Response constructor
     , abortVaultLockResponse
     ) where
 

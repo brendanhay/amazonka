@@ -13,10 +13,10 @@
 --
 module Network.AWS.DeviceFarm.Types
     (
-    -- * Service
+    -- * Service Decription
       DeviceFarm
 
-    -- * Errors
+    -- * Error Matchers
     , _IdempotencyException
     , _NotFoundException
     , _ArgumentException

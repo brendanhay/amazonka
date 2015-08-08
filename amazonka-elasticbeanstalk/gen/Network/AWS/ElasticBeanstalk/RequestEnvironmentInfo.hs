@@ -34,21 +34,19 @@
 --
 -- -   RetrieveEnvironmentInfo
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html AWS API Reference> for RequestEnvironmentInfo.
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
-    -- * Request
+    -- * Creating a Request
       RequestEnvironmentInfo
-    -- ** Request constructor
     , requestEnvironmentInfo
-    -- ** Request lenses
+    -- * Request Lenses
     , reiEnvironmentName
     , reiEnvironmentId
     , reiInfoType
 
-    -- * Response
+    -- * Destructuring the Response
     , RequestEnvironmentInfoResponse
-    -- ** Response constructor
     , requestEnvironmentInfoResponse
     ) where
 

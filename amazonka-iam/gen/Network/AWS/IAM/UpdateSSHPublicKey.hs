@@ -29,21 +29,19 @@
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
 -- in the /AWS CodeCommit User Guide/.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSSHPublicKey.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSSHPublicKey.html AWS API Reference> for UpdateSSHPublicKey.
 module Network.AWS.IAM.UpdateSSHPublicKey
     (
-    -- * Request
+    -- * Creating a Request
       UpdateSSHPublicKey
-    -- ** Request constructor
     , updateSSHPublicKey
-    -- ** Request lenses
+    -- * Request Lenses
     , uspkUserName
     , uspkSSHPublicKeyId
     , uspkStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateSSHPublicKeyResponse
-    -- ** Response constructor
     , updateSSHPublicKeyResponse
     ) where
 

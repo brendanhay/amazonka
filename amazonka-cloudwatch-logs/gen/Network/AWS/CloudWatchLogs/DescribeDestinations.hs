@@ -27,23 +27,21 @@
 -- destinations returned in the response by specifying the @limit@
 -- parameter in the request.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html AWS API Reference> for DescribeDestinations.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDestinations
-    -- ** Request constructor
     , describeDestinations
-    -- ** Request lenses
+    -- * Request Lenses
     , ddNextToken
     , ddLimit
     , ddDestinationNamePrefix
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDestinationsResponse
-    -- ** Response constructor
     , describeDestinationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddrsNextToken
     , ddrsDestinations
     , ddrsStatus
@@ -78,11 +76,11 @@ describeDestinations =
     , _ddDestinationNamePrefix = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddNextToken :: Lens' DescribeDestinations (Maybe Text)
 ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddLimit :: Lens' DescribeDestinations (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 
@@ -150,14 +148,14 @@ describeDestinationsResponse pStatus_ =
     , _ddrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsNextToken :: Lens' DescribeDestinationsResponse (Maybe Text)
 ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
 ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsStatus :: Lens' DescribeDestinationsResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

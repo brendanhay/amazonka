@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -71,118 +72,808 @@
 -- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
 --     This set of topics walk you through the process of signing a request
 --     using an access key ID and secret access key.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.IAM
-    ( module Export
+    (
+    -- * Service Description
+      IAM
+
+    -- * Error Matchers
+    -- $errors
+    , _CredentialReportNotPresentException
+    , _CredentialReportNotReadyException
+    , _MalformedPolicyDocumentException
+    , _EntityAlreadyExistsException
+    , _MalformedCertificateException
+    , _DuplicateCertificateException
+    , _CredentialReportExpiredException
+    , _NoSuchEntityException
+    , _DeleteConflictException
+    , _InvalidCertificateException
+    , _UnrecognizedPublicKeyEncodingException
+    , _InvalidUserTypeException
+    , _ServiceFailureException
+    , _InvalidInputException
+    , _InvalidPublicKeyException
+    , _InvalidAuthenticationCodeException
+    , _EntityTemporarilyUnmodifiableException
+    , _DuplicateSSHPublicKeyException
+    , _KeyPairMismatchException
+    , _LimitExceededException
+    , _PasswordPolicyViolationException
+
+    -- * Operations
+    -- $operations
+
+    -- ** AttachGroupPolicy
+    , module Network.AWS.IAM.AttachGroupPolicy
+
+    -- ** ListInstanceProfilesForRole (Paginated)
+    , module Network.AWS.IAM.ListInstanceProfilesForRole
+    -- $pager
+
+    -- ** CreatePolicy
+    , module Network.AWS.IAM.CreatePolicy
+
+    -- ** ListPolicies (Paginated)
+    , module Network.AWS.IAM.ListPolicies
+    -- $pager
+
+    -- ** AttachRolePolicy
+    , module Network.AWS.IAM.AttachRolePolicy
+
+    -- ** ListSSHPublicKeys
+    , module Network.AWS.IAM.ListSSHPublicKeys
+
+    -- ** DeleteSSHPublicKey
+    , module Network.AWS.IAM.DeleteSSHPublicKey
+
+    -- ** UpdateSSHPublicKey
+    , module Network.AWS.IAM.UpdateSSHPublicKey
+
+    -- ** ListOpenIdConnectProviders
+    , module Network.AWS.IAM.ListOpenIdConnectProviders
+
+    -- ** DeleteAccountPasswordPolicy
+    , module Network.AWS.IAM.DeleteAccountPasswordPolicy
+
+    -- ** UpdateAccountPasswordPolicy
+    , module Network.AWS.IAM.UpdateAccountPasswordPolicy
+
+    -- ** CreateAccessKey
+    , module Network.AWS.IAM.CreateAccessKey
+
+    -- ** GetUserPolicy
+    , module Network.AWS.IAM.GetUserPolicy
+
+    -- ** CreateVirtualMFADevice
+    , module Network.AWS.IAM.CreateVirtualMFADevice
+
+    -- ** CreateOpenIdConnectProvider
+    , module Network.AWS.IAM.CreateOpenIdConnectProvider
+
+    -- ** ListAttachedRolePolicies
+    , module Network.AWS.IAM.ListAttachedRolePolicies
+
+    -- ** DeleteVirtualMFADevice
+    , module Network.AWS.IAM.DeleteVirtualMFADevice
+
+    -- ** GetRole
+    , module Network.AWS.IAM.GetRole
+
+    -- ** DeactivateMFADevice
+    , module Network.AWS.IAM.DeactivateMFADevice
+
+    -- ** ListRoles (Paginated)
+    , module Network.AWS.IAM.ListRoles
+    -- $pager
+
+    -- ** DeleteRole
+    , module Network.AWS.IAM.DeleteRole
+
+    -- ** ListUserPolicies (Paginated)
+    , module Network.AWS.IAM.ListUserPolicies
+    -- $pager
+
+    -- ** UploadSSHPublicKey
+    , module Network.AWS.IAM.UploadSSHPublicKey
+
+    -- ** ListUsers (Paginated)
+    , module Network.AWS.IAM.ListUsers
+    -- $pager
+
+    -- ** UpdateOpenIdConnectProviderThumbprint
+    , module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+
+    -- ** GetSSHPublicKey
+    , module Network.AWS.IAM.GetSSHPublicKey
+
+    -- ** PutUserPolicy
+    , module Network.AWS.IAM.PutUserPolicy
+
+    -- ** CreateRole
+    , module Network.AWS.IAM.CreateRole
+
+    -- ** DeleteUserPolicy
+    , module Network.AWS.IAM.DeleteUserPolicy
+
+    -- ** GetOpenIdConnectProvider
+    , module Network.AWS.IAM.GetOpenIdConnectProvider
+
+    -- ** DetachGroupPolicy
+    , module Network.AWS.IAM.DetachGroupPolicy
+
+    -- ** GetCredentialReport
+    , module Network.AWS.IAM.GetCredentialReport
+
+    -- ** DeletePolicyVersion
+    , module Network.AWS.IAM.DeletePolicyVersion
+
+    -- ** DetachRolePolicy
+    , module Network.AWS.IAM.DetachRolePolicy
+
+    -- ** DeleteInstanceProfile
+    , module Network.AWS.IAM.DeleteInstanceProfile
+
+    -- ** ListGroupPolicies (Paginated)
+    , module Network.AWS.IAM.ListGroupPolicies
+    -- $pager
+
+    -- ** GetAccountSummary
+    , module Network.AWS.IAM.GetAccountSummary
+
+    -- ** CreateInstanceProfile
+    , module Network.AWS.IAM.CreateInstanceProfile
+
+    -- ** PutGroupPolicy
+    , module Network.AWS.IAM.PutGroupPolicy
+
+    -- ** DeleteGroupPolicy
+    , module Network.AWS.IAM.DeleteGroupPolicy
+
+    -- ** GetAccountAuthorizationDetails
+    , module Network.AWS.IAM.GetAccountAuthorizationDetails
+
+    -- ** DeleteAccountAlias
+    , module Network.AWS.IAM.DeleteAccountAlias
+
+    -- ** RemoveRoleFromInstanceProfile
+    , module Network.AWS.IAM.RemoveRoleFromInstanceProfile
+
+    -- ** GetLoginProfile
+    , module Network.AWS.IAM.GetLoginProfile
+
+    -- ** RemoveUserFromGroup
+    , module Network.AWS.IAM.RemoveUserFromGroup
+
+    -- ** DetachUserPolicy
+    , module Network.AWS.IAM.DetachUserPolicy
+
+    -- ** CreateSAMLProvider
+    , module Network.AWS.IAM.CreateSAMLProvider
+
+    -- ** CreatePolicyVersion
+    , module Network.AWS.IAM.CreatePolicyVersion
+
+    -- ** GetGroupPolicy
+    , module Network.AWS.IAM.GetGroupPolicy
+
+    -- ** DeletePolicy
+    , module Network.AWS.IAM.DeletePolicy
+
+    -- ** ListServerCertificates (Paginated)
+    , module Network.AWS.IAM.ListServerCertificates
+    -- $pager
+
+    -- ** UpdateAssumeRolePolicy
+    , module Network.AWS.IAM.UpdateAssumeRolePolicy
+
+    -- ** ChangePassword
+    , module Network.AWS.IAM.ChangePassword
+
+    -- ** ListGroupsForUser (Paginated)
+    , module Network.AWS.IAM.ListGroupsForUser
+    -- $pager
+
+    -- ** GetPolicyVersion
+    , module Network.AWS.IAM.GetPolicyVersion
+
+    -- ** CreateLoginProfile
+    , module Network.AWS.IAM.CreateLoginProfile
+
+    -- ** GetInstanceProfile
+    , module Network.AWS.IAM.GetInstanceProfile
+
+    -- ** ListEntitiesForPolicy
+    , module Network.AWS.IAM.ListEntitiesForPolicy
+
+    -- ** GetSAMLProvider
+    , module Network.AWS.IAM.GetSAMLProvider
+
+    -- ** AddRoleToInstanceProfile
+    , module Network.AWS.IAM.AddRoleToInstanceProfile
+
+    -- ** AddUserToGroup
+    , module Network.AWS.IAM.AddUserToGroup
+
+    -- ** DeleteOpenIdConnectProvider
+    , module Network.AWS.IAM.DeleteOpenIdConnectProvider
+
+    -- ** GetUser
+    , module Network.AWS.IAM.GetUser
+
+    -- ** ListAttachedUserPolicies
+    , module Network.AWS.IAM.ListAttachedUserPolicies
+
+    -- ** DeleteSigningCertificate
+    , module Network.AWS.IAM.DeleteSigningCertificate
+
+    -- ** UpdateSigningCertificate
+    , module Network.AWS.IAM.UpdateSigningCertificate
+
+    -- ** ListSigningCertificates (Paginated)
+    , module Network.AWS.IAM.ListSigningCertificates
+    -- $pager
+
+    -- ** RemoveClientIdFromOpenIdConnectProvider
+    , module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
+
+    -- ** ListAccessKeys (Paginated)
+    , module Network.AWS.IAM.ListAccessKeys
+    -- $pager
+
+    -- ** ListVirtualMFADevices (Paginated)
+    , module Network.AWS.IAM.ListVirtualMFADevices
+    -- $pager
+
+    -- ** DeleteAccessKey
+    , module Network.AWS.IAM.DeleteAccessKey
+
+    -- ** UpdateAccessKey
+    , module Network.AWS.IAM.UpdateAccessKey
+
+    -- ** GetRolePolicy
+    , module Network.AWS.IAM.GetRolePolicy
+
+    -- ** AttachUserPolicy
+    , module Network.AWS.IAM.AttachUserPolicy
+
+    -- ** ResyncMFADevice
+    , module Network.AWS.IAM.ResyncMFADevice
+
+    -- ** CreateUser
+    , module Network.AWS.IAM.CreateUser
+
+    -- ** UploadSigningCertificate
+    , module Network.AWS.IAM.UploadSigningCertificate
+
+    -- ** PutRolePolicy
+    , module Network.AWS.IAM.PutRolePolicy
+
+    -- ** DeleteRolePolicy
+    , module Network.AWS.IAM.DeleteRolePolicy
+
+    -- ** UpdateUser
+    , module Network.AWS.IAM.UpdateUser
+
+    -- ** DeleteUser
+    , module Network.AWS.IAM.DeleteUser
+
+    -- ** ListRolePolicies (Paginated)
+    , module Network.AWS.IAM.ListRolePolicies
+    -- $pager
+
+    -- ** AddClientIdToOpenIdConnectProvider
+    , module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
+
+    -- ** GetAccessKeyLastUsed
+    , module Network.AWS.IAM.GetAccessKeyLastUsed
+
+    -- ** GetAccountPasswordPolicy
+    , module Network.AWS.IAM.GetAccountPasswordPolicy
+
+    -- ** ListAccountAliases (Paginated)
+    , module Network.AWS.IAM.ListAccountAliases
+    -- $pager
+
+    -- ** CreateAccountAlias
+    , module Network.AWS.IAM.CreateAccountAlias
+
+    -- ** UploadServerCertificate
+    , module Network.AWS.IAM.UploadServerCertificate
+
+    -- ** ListMFADevices (Paginated)
+    , module Network.AWS.IAM.ListMFADevices
+    -- $pager
+
+    -- ** EnableMFADevice
+    , module Network.AWS.IAM.EnableMFADevice
+
+    -- ** ListPolicyVersions
+    , module Network.AWS.IAM.ListPolicyVersions
+
+    -- ** ListSAMLProviders
+    , module Network.AWS.IAM.ListSAMLProviders
+
+    -- ** UpdateSAMLProvider
+    , module Network.AWS.IAM.UpdateSAMLProvider
+
+    -- ** DeleteSAMLProvider
+    , module Network.AWS.IAM.DeleteSAMLProvider
+
+    -- ** CreateGroup
+    , module Network.AWS.IAM.CreateGroup
+
+    -- ** SetDefaultPolicyVersion
+    , module Network.AWS.IAM.SetDefaultPolicyVersion
+
+    -- ** ListInstanceProfiles (Paginated)
+    , module Network.AWS.IAM.ListInstanceProfiles
+    -- $pager
+
+    -- ** ListGroups (Paginated)
+    , module Network.AWS.IAM.ListGroups
+    -- $pager
+
+    -- ** DeleteGroup
+    , module Network.AWS.IAM.DeleteGroup
+
+    -- ** UpdateGroup
+    , module Network.AWS.IAM.UpdateGroup
+
+    -- ** GetServerCertificate
+    , module Network.AWS.IAM.GetServerCertificate
+
+    -- ** GetPolicy
+    , module Network.AWS.IAM.GetPolicy
+
+    -- ** GenerateCredentialReport
+    , module Network.AWS.IAM.GenerateCredentialReport
+
+    -- ** GetGroup (Paginated)
+    , module Network.AWS.IAM.GetGroup
+    -- $pager
+
+    -- ** DeleteServerCertificate
+    , module Network.AWS.IAM.DeleteServerCertificate
+
+    -- ** UpdateServerCertificate
+    , module Network.AWS.IAM.UpdateServerCertificate
+
+    -- ** DeleteLoginProfile
+    , module Network.AWS.IAM.DeleteLoginProfile
+
+    -- ** UpdateLoginProfile
+    , module Network.AWS.IAM.UpdateLoginProfile
+
+    -- ** ListAttachedGroupPolicies
+    , module Network.AWS.IAM.ListAttachedGroupPolicies
+
+    -- * Types
+
+    -- ** AssignmentStatusType
+    , AssignmentStatusType (..)
+
+    -- ** EncodingType
+    , EncodingType (..)
+
+    -- ** EntityType
+    , EntityType (..)
+
+    -- ** PolicyScopeType
+    , PolicyScopeType (..)
+
+    -- ** ReportFormatType
+    , ReportFormatType (..)
+
+    -- ** ReportStateType
+    , ReportStateType (..)
+
+    -- ** StatusType
+    , StatusType (..)
+
+    -- ** SummaryKeyType
+    , SummaryKeyType (..)
+
+    -- ** AccessKey
+    , AccessKey
+    , accessKey
+    , akCreateDate
+    , akUserName
+    , akAccessKeyId
+    , akStatus
+    , akSecretAccessKey
+
+    -- ** AccessKeyLastUsed
+    , AccessKeyLastUsed
+    , accessKeyLastUsed
+    , akluLastUsedDate
+    , akluServiceName
+    , akluRegion
+
+    -- ** AccessKeyMetadata
+    , AccessKeyMetadata
+    , accessKeyMetadata
+    , akmStatus
+    , akmCreateDate
+    , akmUserName
+    , akmAccessKeyId
+
+    -- ** AttachedPolicy
+    , AttachedPolicy
+    , attachedPolicy
+    , apPolicyName
+    , apPolicyARN
+
+    -- ** Group
+    , Group
+    , group'
+    , gPath
+    , gGroupName
+    , gGroupId
+    , gARN
+    , gCreateDate
+
+    -- ** GroupDetail
+    , GroupDetail
+    , groupDetail
+    , gdARN
+    , gdPath
+    , gdCreateDate
+    , gdGroupId
+    , gdGroupPolicyList
+    , gdGroupName
+    , gdAttachedManagedPolicies
+
+    -- ** InstanceProfile
+    , InstanceProfile
+    , instanceProfile
+    , ipPath
+    , ipInstanceProfileName
+    , ipInstanceProfileId
+    , ipARN
+    , ipCreateDate
+    , ipRoles
+
+    -- ** LoginProfile
+    , LoginProfile
+    , loginProfile
+    , lpPasswordResetRequired
+    , lpUserName
+    , lpCreateDate
+
+    -- ** MFADevice
+    , MFADevice
+    , mfaDevice
+    , mdUserName
+    , mdSerialNumber
+    , mdEnableDate
+
+    -- ** ManagedPolicyDetail
+    , ManagedPolicyDetail
+    , managedPolicyDetail
+    , mpdPolicyName
+    , mpdARN
+    , mpdPath
+    , mpdUpdateDate
+    , mpdPolicyId
+    , mpdCreateDate
+    , mpdPolicyVersionList
+    , mpdIsAttachable
+    , mpdDefaultVersionId
+    , mpdAttachmentCount
+    , mpdDescription
+
+    -- ** OpenIdConnectProviderListEntry
+    , OpenIdConnectProviderListEntry
+    , openIdConnectProviderListEntry
+    , oicpleARN
+
+    -- ** PasswordPolicy
+    , PasswordPolicy
+    , passwordPolicy
+    , ppExpirePasswords
+    , ppRequireNumbers
+    , ppMinimumPasswordLength
+    , ppPasswordReusePrevention
+    , ppRequireLowercaseCharacters
+    , ppMaxPasswordAge
+    , ppHardExpiry
+    , ppRequireSymbols
+    , ppRequireUppercaseCharacters
+    , ppAllowUsersToChangePassword
+
+    -- ** Policy
+    , Policy
+    , policy
+    , pPolicyName
+    , pARN
+    , pPath
+    , pUpdateDate
+    , pPolicyId
+    , pCreateDate
+    , pIsAttachable
+    , pDefaultVersionId
+    , pAttachmentCount
+    , pDescription
+
+    -- ** PolicyDetail
+    , PolicyDetail
+    , policyDetail
+    , pdPolicyDocument
+    , pdPolicyName
+
+    -- ** PolicyGroup
+    , PolicyGroup
+    , policyGroup
+    , pgGroupName
+
+    -- ** PolicyRole
+    , PolicyRole
+    , policyRole
+    , prRoleName
+
+    -- ** PolicyUser
+    , PolicyUser
+    , policyUser
+    , puUserName
+
+    -- ** PolicyVersion
+    , PolicyVersion
+    , policyVersion
+    , pvVersionId
+    , pvCreateDate
+    , pvDocument
+    , pvIsDefaultVersion
+
+    -- ** Role
+    , Role
+    , role
+    , rAssumeRolePolicyDocument
+    , rPath
+    , rRoleName
+    , rRoleId
+    , rARN
+    , rCreateDate
+
+    -- ** RoleDetail
+    , RoleDetail
+    , roleDetail
+    , rdAssumeRolePolicyDocument
+    , rdARN
+    , rdPath
+    , rdInstanceProfileList
+    , rdCreateDate
+    , rdRoleName
+    , rdRoleId
+    , rdRolePolicyList
+    , rdAttachedManagedPolicies
+
+    -- ** SAMLProviderListEntry
+    , SAMLProviderListEntry
+    , sAMLProviderListEntry
+    , samlpleARN
+    , samlpleCreateDate
+    , samlpleValidUntil
+
+    -- ** SSHPublicKey
+    , SSHPublicKey
+    , sshPublicKey
+    , spkUploadDate
+    , spkUserName
+    , spkSSHPublicKeyId
+    , spkFingerprint
+    , spkSSHPublicKeyBody
+    , spkStatus
+
+    -- ** SSHPublicKeyMetadata
+    , SSHPublicKeyMetadata
+    , sshPublicKeyMetadata
+    , spkmUserName
+    , spkmSSHPublicKeyId
+    , spkmStatus
+    , spkmUploadDate
+
+    -- ** ServerCertificate
+    , ServerCertificate
+    , serverCertificate
+    , sCertificateChain
+    , sServerCertificateMetadata
+    , sCertificateBody
+
+    -- ** ServerCertificateMetadata
+    , ServerCertificateMetadata
+    , serverCertificateMetadata
+    , scmUploadDate
+    , scmExpiration
+    , scmPath
+    , scmServerCertificateName
+    , scmServerCertificateId
+    , scmARN
+
+    -- ** SigningCertificate
+    , SigningCertificate
+    , signingCertificate
+    , scUploadDate
+    , scUserName
+    , scCertificateId
+    , scCertificateBody
+    , scStatus
+
+    -- ** User
+    , User
+    , user
+    , uPasswordLastUsed
+    , uPath
+    , uUserName
+    , uUserId
+    , uARN
+    , uCreateDate
+
+    -- ** UserDetail
+    , UserDetail
+    , userDetail
+    , udARN
+    , udPath
+    , udGroupList
+    , udCreateDate
+    , udUserName
+    , udUserId
+    , udUserPolicyList
+    , udAttachedManagedPolicies
+
+    -- ** VirtualMFADevice
+    , VirtualMFADevice
+    , virtualMFADevice
+    , vmdQRCodePNG
+    , vmdBase32StringSeed
+    , vmdUser
+    , vmdEnableDate
+    , vmdSerialNumber
     ) where
 
-import           Network.AWS.IAM.AddClientIdToOpenIdConnectProvider      as Export
-import           Network.AWS.IAM.AddRoleToInstanceProfile                as Export
-import           Network.AWS.IAM.AddUserToGroup                          as Export
-import           Network.AWS.IAM.AttachGroupPolicy                       as Export
-import           Network.AWS.IAM.AttachRolePolicy                        as Export
-import           Network.AWS.IAM.AttachUserPolicy                        as Export
-import           Network.AWS.IAM.ChangePassword                          as Export
-import           Network.AWS.IAM.CreateAccessKey                         as Export
-import           Network.AWS.IAM.CreateAccountAlias                      as Export
-import           Network.AWS.IAM.CreateGroup                             as Export
-import           Network.AWS.IAM.CreateInstanceProfile                   as Export
-import           Network.AWS.IAM.CreateLoginProfile                      as Export
-import           Network.AWS.IAM.CreateOpenIdConnectProvider             as Export
-import           Network.AWS.IAM.CreatePolicy                            as Export
-import           Network.AWS.IAM.CreatePolicyVersion                     as Export
-import           Network.AWS.IAM.CreateRole                              as Export
-import           Network.AWS.IAM.CreateSAMLProvider                      as Export
-import           Network.AWS.IAM.CreateUser                              as Export
-import           Network.AWS.IAM.CreateVirtualMFADevice                  as Export
-import           Network.AWS.IAM.DeactivateMFADevice                     as Export
-import           Network.AWS.IAM.DeleteAccessKey                         as Export
-import           Network.AWS.IAM.DeleteAccountAlias                      as Export
-import           Network.AWS.IAM.DeleteAccountPasswordPolicy             as Export
-import           Network.AWS.IAM.DeleteGroup                             as Export
-import           Network.AWS.IAM.DeleteGroupPolicy                       as Export
-import           Network.AWS.IAM.DeleteInstanceProfile                   as Export
-import           Network.AWS.IAM.DeleteLoginProfile                      as Export
-import           Network.AWS.IAM.DeleteOpenIdConnectProvider             as Export
-import           Network.AWS.IAM.DeletePolicy                            as Export
-import           Network.AWS.IAM.DeletePolicyVersion                     as Export
-import           Network.AWS.IAM.DeleteRole                              as Export
-import           Network.AWS.IAM.DeleteRolePolicy                        as Export
-import           Network.AWS.IAM.DeleteSAMLProvider                      as Export
-import           Network.AWS.IAM.DeleteServerCertificate                 as Export
-import           Network.AWS.IAM.DeleteSigningCertificate                as Export
-import           Network.AWS.IAM.DeleteSSHPublicKey                      as Export
-import           Network.AWS.IAM.DeleteUser                              as Export
-import           Network.AWS.IAM.DeleteUserPolicy                        as Export
-import           Network.AWS.IAM.DeleteVirtualMFADevice                  as Export
-import           Network.AWS.IAM.DetachGroupPolicy                       as Export
-import           Network.AWS.IAM.DetachRolePolicy                        as Export
-import           Network.AWS.IAM.DetachUserPolicy                        as Export
-import           Network.AWS.IAM.EnableMFADevice                         as Export
-import           Network.AWS.IAM.GenerateCredentialReport                as Export
-import           Network.AWS.IAM.GetAccessKeyLastUsed                    as Export
-import           Network.AWS.IAM.GetAccountAuthorizationDetails          as Export
-import           Network.AWS.IAM.GetAccountPasswordPolicy                as Export
-import           Network.AWS.IAM.GetAccountSummary                       as Export
-import           Network.AWS.IAM.GetCredentialReport                     as Export
-import           Network.AWS.IAM.GetGroup                                as Export
-import           Network.AWS.IAM.GetGroupPolicy                          as Export
-import           Network.AWS.IAM.GetInstanceProfile                      as Export
-import           Network.AWS.IAM.GetLoginProfile                         as Export
-import           Network.AWS.IAM.GetOpenIdConnectProvider                as Export
-import           Network.AWS.IAM.GetPolicy                               as Export
-import           Network.AWS.IAM.GetPolicyVersion                        as Export
-import           Network.AWS.IAM.GetRole                                 as Export
-import           Network.AWS.IAM.GetRolePolicy                           as Export
-import           Network.AWS.IAM.GetSAMLProvider                         as Export
-import           Network.AWS.IAM.GetServerCertificate                    as Export
-import           Network.AWS.IAM.GetSSHPublicKey                         as Export
-import           Network.AWS.IAM.GetUser                                 as Export
-import           Network.AWS.IAM.GetUserPolicy                           as Export
-import           Network.AWS.IAM.ListAccessKeys                          as Export
-import           Network.AWS.IAM.ListAccountAliases                      as Export
-import           Network.AWS.IAM.ListAttachedGroupPolicies               as Export
-import           Network.AWS.IAM.ListAttachedRolePolicies                as Export
-import           Network.AWS.IAM.ListAttachedUserPolicies                as Export
-import           Network.AWS.IAM.ListEntitiesForPolicy                   as Export
-import           Network.AWS.IAM.ListGroupPolicies                       as Export
-import           Network.AWS.IAM.ListGroups                              as Export
-import           Network.AWS.IAM.ListGroupsForUser                       as Export
-import           Network.AWS.IAM.ListInstanceProfiles                    as Export
-import           Network.AWS.IAM.ListInstanceProfilesForRole             as Export
-import           Network.AWS.IAM.ListMFADevices                          as Export
-import           Network.AWS.IAM.ListOpenIdConnectProviders              as Export
-import           Network.AWS.IAM.ListPolicies                            as Export
-import           Network.AWS.IAM.ListPolicyVersions                      as Export
-import           Network.AWS.IAM.ListRolePolicies                        as Export
-import           Network.AWS.IAM.ListRoles                               as Export
-import           Network.AWS.IAM.ListSAMLProviders                       as Export
-import           Network.AWS.IAM.ListServerCertificates                  as Export
-import           Network.AWS.IAM.ListSigningCertificates                 as Export
-import           Network.AWS.IAM.ListSSHPublicKeys                       as Export
-import           Network.AWS.IAM.ListUserPolicies                        as Export
-import           Network.AWS.IAM.ListUsers                               as Export
-import           Network.AWS.IAM.ListVirtualMFADevices                   as Export
-import           Network.AWS.IAM.PutGroupPolicy                          as Export
-import           Network.AWS.IAM.PutRolePolicy                           as Export
-import           Network.AWS.IAM.PutUserPolicy                           as Export
-import           Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider as Export
-import           Network.AWS.IAM.RemoveRoleFromInstanceProfile           as Export
-import           Network.AWS.IAM.RemoveUserFromGroup                     as Export
-import           Network.AWS.IAM.ResyncMFADevice                         as Export
-import           Network.AWS.IAM.SetDefaultPolicyVersion                 as Export
-import           Network.AWS.IAM.Types                                   as Export
-import           Network.AWS.IAM.UpdateAccessKey                         as Export
-import           Network.AWS.IAM.UpdateAccountPasswordPolicy             as Export
-import           Network.AWS.IAM.UpdateAssumeRolePolicy                  as Export
-import           Network.AWS.IAM.UpdateGroup                             as Export
-import           Network.AWS.IAM.UpdateLoginProfile                      as Export
-import           Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint   as Export
-import           Network.AWS.IAM.UpdateSAMLProvider                      as Export
-import           Network.AWS.IAM.UpdateServerCertificate                 as Export
-import           Network.AWS.IAM.UpdateSigningCertificate                as Export
-import           Network.AWS.IAM.UpdateSSHPublicKey                      as Export
-import           Network.AWS.IAM.UpdateUser                              as Export
-import           Network.AWS.IAM.UploadServerCertificate                 as Export
-import           Network.AWS.IAM.UploadSigningCertificate                as Export
-import           Network.AWS.IAM.UploadSSHPublicKey                      as Export
-import           Network.AWS.IAM.Waiters                                 as Export
+import           Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
+import           Network.AWS.IAM.AddRoleToInstanceProfile
+import           Network.AWS.IAM.AddUserToGroup
+import           Network.AWS.IAM.AttachGroupPolicy
+import           Network.AWS.IAM.AttachRolePolicy
+import           Network.AWS.IAM.AttachUserPolicy
+import           Network.AWS.IAM.ChangePassword
+import           Network.AWS.IAM.CreateAccessKey
+import           Network.AWS.IAM.CreateAccountAlias
+import           Network.AWS.IAM.CreateGroup
+import           Network.AWS.IAM.CreateInstanceProfile
+import           Network.AWS.IAM.CreateLoginProfile
+import           Network.AWS.IAM.CreateOpenIdConnectProvider
+import           Network.AWS.IAM.CreatePolicy
+import           Network.AWS.IAM.CreatePolicyVersion
+import           Network.AWS.IAM.CreateRole
+import           Network.AWS.IAM.CreateSAMLProvider
+import           Network.AWS.IAM.CreateUser
+import           Network.AWS.IAM.CreateVirtualMFADevice
+import           Network.AWS.IAM.DeactivateMFADevice
+import           Network.AWS.IAM.DeleteAccessKey
+import           Network.AWS.IAM.DeleteAccountAlias
+import           Network.AWS.IAM.DeleteAccountPasswordPolicy
+import           Network.AWS.IAM.DeleteGroup
+import           Network.AWS.IAM.DeleteGroupPolicy
+import           Network.AWS.IAM.DeleteInstanceProfile
+import           Network.AWS.IAM.DeleteLoginProfile
+import           Network.AWS.IAM.DeleteOpenIdConnectProvider
+import           Network.AWS.IAM.DeletePolicy
+import           Network.AWS.IAM.DeletePolicyVersion
+import           Network.AWS.IAM.DeleteRole
+import           Network.AWS.IAM.DeleteRolePolicy
+import           Network.AWS.IAM.DeleteSAMLProvider
+import           Network.AWS.IAM.DeleteServerCertificate
+import           Network.AWS.IAM.DeleteSigningCertificate
+import           Network.AWS.IAM.DeleteSSHPublicKey
+import           Network.AWS.IAM.DeleteUser
+import           Network.AWS.IAM.DeleteUserPolicy
+import           Network.AWS.IAM.DeleteVirtualMFADevice
+import           Network.AWS.IAM.DetachGroupPolicy
+import           Network.AWS.IAM.DetachRolePolicy
+import           Network.AWS.IAM.DetachUserPolicy
+import           Network.AWS.IAM.EnableMFADevice
+import           Network.AWS.IAM.GenerateCredentialReport
+import           Network.AWS.IAM.GetAccessKeyLastUsed
+import           Network.AWS.IAM.GetAccountAuthorizationDetails
+import           Network.AWS.IAM.GetAccountPasswordPolicy
+import           Network.AWS.IAM.GetAccountSummary
+import           Network.AWS.IAM.GetCredentialReport
+import           Network.AWS.IAM.GetGroup
+import           Network.AWS.IAM.GetGroupPolicy
+import           Network.AWS.IAM.GetInstanceProfile
+import           Network.AWS.IAM.GetLoginProfile
+import           Network.AWS.IAM.GetOpenIdConnectProvider
+import           Network.AWS.IAM.GetPolicy
+import           Network.AWS.IAM.GetPolicyVersion
+import           Network.AWS.IAM.GetRole
+import           Network.AWS.IAM.GetRolePolicy
+import           Network.AWS.IAM.GetSAMLProvider
+import           Network.AWS.IAM.GetServerCertificate
+import           Network.AWS.IAM.GetSSHPublicKey
+import           Network.AWS.IAM.GetUser
+import           Network.AWS.IAM.GetUserPolicy
+import           Network.AWS.IAM.ListAccessKeys
+import           Network.AWS.IAM.ListAccountAliases
+import           Network.AWS.IAM.ListAttachedGroupPolicies
+import           Network.AWS.IAM.ListAttachedRolePolicies
+import           Network.AWS.IAM.ListAttachedUserPolicies
+import           Network.AWS.IAM.ListEntitiesForPolicy
+import           Network.AWS.IAM.ListGroupPolicies
+import           Network.AWS.IAM.ListGroups
+import           Network.AWS.IAM.ListGroupsForUser
+import           Network.AWS.IAM.ListInstanceProfiles
+import           Network.AWS.IAM.ListInstanceProfilesForRole
+import           Network.AWS.IAM.ListMFADevices
+import           Network.AWS.IAM.ListOpenIdConnectProviders
+import           Network.AWS.IAM.ListPolicies
+import           Network.AWS.IAM.ListPolicyVersions
+import           Network.AWS.IAM.ListRolePolicies
+import           Network.AWS.IAM.ListRoles
+import           Network.AWS.IAM.ListSAMLProviders
+import           Network.AWS.IAM.ListServerCertificates
+import           Network.AWS.IAM.ListSigningCertificates
+import           Network.AWS.IAM.ListSSHPublicKeys
+import           Network.AWS.IAM.ListUserPolicies
+import           Network.AWS.IAM.ListUsers
+import           Network.AWS.IAM.ListVirtualMFADevices
+import           Network.AWS.IAM.PutGroupPolicy
+import           Network.AWS.IAM.PutRolePolicy
+import           Network.AWS.IAM.PutUserPolicy
+import           Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
+import           Network.AWS.IAM.RemoveRoleFromInstanceProfile
+import           Network.AWS.IAM.RemoveUserFromGroup
+import           Network.AWS.IAM.ResyncMFADevice
+import           Network.AWS.IAM.SetDefaultPolicyVersion
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.UpdateAccessKey
+import           Network.AWS.IAM.UpdateAccountPasswordPolicy
+import           Network.AWS.IAM.UpdateAssumeRolePolicy
+import           Network.AWS.IAM.UpdateGroup
+import           Network.AWS.IAM.UpdateLoginProfile
+import           Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+import           Network.AWS.IAM.UpdateSAMLProvider
+import           Network.AWS.IAM.UpdateServerCertificate
+import           Network.AWS.IAM.UpdateSigningCertificate
+import           Network.AWS.IAM.UpdateSSHPublicKey
+import           Network.AWS.IAM.UpdateUser
+import           Network.AWS.IAM.UploadServerCertificate
+import           Network.AWS.IAM.UploadSigningCertificate
+import           Network.AWS.IAM.UploadSSHPublicKey
+import           Network.AWS.IAM.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'IAM'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

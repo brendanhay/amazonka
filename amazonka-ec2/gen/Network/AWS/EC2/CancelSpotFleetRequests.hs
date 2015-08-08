@@ -19,23 +19,21 @@
 --
 -- Cancels the specified Spot fleet requests.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotFleetRequests.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotFleetRequests.html AWS API Reference> for CancelSpotFleetRequests.
 module Network.AWS.EC2.CancelSpotFleetRequests
     (
-    -- * Request
+    -- * Creating a Request
       CancelSpotFleetRequests
-    -- ** Request constructor
     , cancelSpotFleetRequests
-    -- ** Request lenses
+    -- * Request Lenses
     , csfrDryRun
     , csfrSpotFleetRequestIds
     , csfrTerminateInstances
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelSpotFleetRequestsResponse
-    -- ** Response constructor
     , cancelSpotFleetRequestsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csfrrsSuccessfulFleetRequests
     , csfrrsUnsuccessfulFleetRequests
     , csfrrsStatus
@@ -156,6 +154,6 @@ csfrrsSuccessfulFleetRequests = lens _csfrrsSuccessfulFleetRequests (\ s a -> s{
 csfrrsUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsErrorItem]
 csfrrsUnsuccessfulFleetRequests = lens _csfrrsUnsuccessfulFleetRequests (\ s a -> s{_csfrrsUnsuccessfulFleetRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csfrrsStatus :: Lens' CancelSpotFleetRequestsResponse Int
 csfrrsStatus = lens _csfrrsStatus (\ s a -> s{_csfrrsStatus = a});

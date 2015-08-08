@@ -32,21 +32,19 @@
 -- unique identifier of a grant. Both are returned by the @CreateGrant@
 -- function.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html AWS API Reference> for RetireGrant.
 module Network.AWS.KMS.RetireGrant
     (
-    -- * Request
+    -- * Creating a Request
       RetireGrant
-    -- ** Request constructor
     , retireGrant
-    -- ** Request lenses
+    -- * Request Lenses
     , rgKeyId
     , rgGrantId
     , rgGrantToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RetireGrantResponse
-    -- ** Response constructor
     , retireGrantResponse
     ) where
 

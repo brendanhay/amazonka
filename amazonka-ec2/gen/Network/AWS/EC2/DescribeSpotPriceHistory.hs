@@ -29,14 +29,13 @@
 -- that you specified; the response merely indicates the last time that the
 -- price changed.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html AWS API Reference> for DescribeSpotPriceHistory.
 module Network.AWS.EC2.DescribeSpotPriceHistory
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSpotPriceHistory
-    -- ** Request constructor
     , describeSpotPriceHistory
-    -- ** Request lenses
+    -- * Request Lenses
     , dsphInstanceTypes
     , dsphStartTime
     , dsphFilters
@@ -47,11 +46,10 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     , dsphDryRun
     , dsphMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSpotPriceHistoryResponse
-    -- ** Response constructor
     , describeSpotPriceHistoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsphrsNextToken
     , dsphrsSpotPriceHistory
     , dsphrsStatus
@@ -259,6 +257,6 @@ dsphrsNextToken = lens _dsphrsNextToken (\ s a -> s{_dsphrsNextToken = a});
 dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsphrsStatus :: Lens' DescribeSpotPriceHistoryResponse Int
 dsphrsStatus = lens _dsphrsStatus (\ s a -> s{_dsphrsStatus = a});

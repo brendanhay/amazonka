@@ -24,22 +24,20 @@
 -- This operation requires permission for the @lambda:ListFunctions@
 -- action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html AWS API Reference> for ListFunctions.
 module Network.AWS.Lambda.ListFunctions
     (
-    -- * Request
+    -- * Creating a Request
       ListFunctions
-    -- ** Request constructor
     , listFunctions
-    -- ** Request lenses
+    -- * Request Lenses
     , lfMaxItems
     , lfMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListFunctionsResponse
-    -- ** Response constructor
     , listFunctionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lfrsNextMarker
     , lfrsFunctions
     , lfrsStatus
@@ -147,6 +145,6 @@ lfrsNextMarker = lens _lfrsNextMarker (\ s a -> s{_lfrsNextMarker = a});
 lfrsFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lfrsStatus :: Lens' ListFunctionsResponse Int
 lfrsStatus = lens _lfrsStatus (\ s a -> s{_lfrsStatus = a});

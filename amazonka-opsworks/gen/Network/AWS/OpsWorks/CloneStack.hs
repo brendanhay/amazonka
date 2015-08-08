@@ -27,14 +27,13 @@
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CloneStack.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CloneStack.html AWS API Reference> for CloneStack.
 module Network.AWS.OpsWorks.CloneStack
     (
-    -- * Request
+    -- * Creating a Request
       CloneStack
-    -- ** Request constructor
     , cloneStack
-    -- ** Request lenses
+    -- * Request Lenses
     , cCloneAppIds
     , cDefaultInstanceProfileARN
     , cDefaultRootDeviceType
@@ -58,11 +57,10 @@ module Network.AWS.OpsWorks.CloneStack
     , cSourceStackId
     , cServiceRoleARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CloneStackResponse
-    -- ** Response constructor
     , cloneStackResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsStackId
     , csrsStatus
     ) where
@@ -274,7 +272,7 @@ cCustomJSON = lens _cCustomJSON (\ s a -> s{_cCustomJSON = a});
 cClonePermissions :: Lens' CloneStack (Maybe Bool)
 cClonePermissions = lens _cClonePermissions (\ s a -> s{_cClonePermissions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cCustomCookbooksSource :: Lens' CloneStack (Maybe Source)
 cCustomCookbooksSource = lens _cCustomCookbooksSource (\ s a -> s{_cCustomCookbooksSource = a});
 
@@ -488,6 +486,6 @@ cloneStackResponse pStatus_ =
 csrsStackId :: Lens' CloneStackResponse (Maybe Text)
 csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' CloneStackResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

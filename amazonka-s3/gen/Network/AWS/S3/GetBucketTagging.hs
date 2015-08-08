@@ -19,21 +19,19 @@
 --
 -- Returns the tag set associated with the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketTagging.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketTagging.html AWS API Reference> for GetBucketTagging.
 module Network.AWS.S3.GetBucketTagging
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketTagging
-    -- ** Request constructor
     , getBucketTagging
-    -- ** Request lenses
+    -- * Request Lenses
     , gbtBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketTaggingResponse
-    -- ** Response constructor
     , getBucketTaggingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbtrsStatus
     , gbtrsTagSet
     ) where
@@ -59,7 +57,7 @@ getBucketTagging pBucket_ =
     { _gbtBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbtBucket :: Lens' GetBucketTagging BucketName
 gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a});
 
@@ -104,10 +102,10 @@ getBucketTaggingResponse pStatus_ =
     , _gbtrsTagSet = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbtrsStatus :: Lens' GetBucketTaggingResponse Int
 gbtrsStatus = lens _gbtrsStatus (\ s a -> s{_gbtrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce;

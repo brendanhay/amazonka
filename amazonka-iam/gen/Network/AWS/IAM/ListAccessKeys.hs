@@ -32,23 +32,21 @@
 -- To ensure the security of your AWS account, the secret access key is
 -- accessible only during key and user creation.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html AWS API Reference> for ListAccessKeys.
 module Network.AWS.IAM.ListAccessKeys
     (
-    -- * Request
+    -- * Creating a Request
       ListAccessKeys
-    -- ** Request constructor
     , listAccessKeys
-    -- ** Request lenses
+    -- * Request Lenses
     , lakUserName
     , lakMaxItems
     , lakMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAccessKeysResponse
-    -- ** Response constructor
     , listAccessKeysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lakrsMarker
     , lakrsIsTruncated
     , lakrsStatus
@@ -181,7 +179,7 @@ lakrsMarker = lens _lakrsMarker (\ s a -> s{_lakrsMarker = a});
 lakrsIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
 lakrsIsTruncated = lens _lakrsIsTruncated (\ s a -> s{_lakrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lakrsStatus :: Lens' ListAccessKeysResponse Int
 lakrsStatus = lens _lakrsStatus (\ s a -> s{_lakrsStatus = a});
 

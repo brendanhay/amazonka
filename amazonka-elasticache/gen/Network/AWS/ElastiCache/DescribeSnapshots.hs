@@ -22,25 +22,23 @@
 -- it can optionally describe a single snapshot, or just the snapshots
 -- associated with a particular cache cluster.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
 module Network.AWS.ElastiCache.DescribeSnapshots
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSnapshots
-    -- ** Request constructor
     , describeSnapshots
-    -- ** Request lenses
+    -- * Request Lenses
     , dsCacheClusterId
     , dsMaxRecords
     , dsMarker
     , dsSnapshotName
     , dsSnapshotSource
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSnapshotsResponse
-    -- ** Response constructor
     , describeSnapshotsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dssrsSnapshots
     , dssrsMarker
     , dssrsStatus
@@ -194,6 +192,6 @@ dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Defau
 dssrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dssrsMarker = lens _dssrsMarker (\ s a -> s{_dssrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

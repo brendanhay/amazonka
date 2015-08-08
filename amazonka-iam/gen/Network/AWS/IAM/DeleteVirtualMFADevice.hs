@@ -23,19 +23,17 @@
 -- it. For information about deactivating MFA devices, see
 -- DeactivateMFADevice.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html AWS API Reference> for DeleteVirtualMFADevice.
 module Network.AWS.IAM.DeleteVirtualMFADevice
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVirtualMFADevice
-    -- ** Request constructor
     , deleteVirtualMFADevice
-    -- ** Request lenses
+    -- * Request Lenses
     , dvmdSerialNumber
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVirtualMFADeviceResponse
-    -- ** Response constructor
     , deleteVirtualMFADeviceResponse
     ) where
 

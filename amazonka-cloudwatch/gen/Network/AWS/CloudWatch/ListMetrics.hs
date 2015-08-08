@@ -21,24 +21,22 @@
 -- Returned metrics can be used with GetMetricStatistics to obtain
 -- statistical data for a given metric.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html AWS API Reference> for ListMetrics.
 module Network.AWS.CloudWatch.ListMetrics
     (
-    -- * Request
+    -- * Creating a Request
       ListMetrics
-    -- ** Request constructor
     , listMetrics
-    -- ** Request lenses
+    -- * Request Lenses
     , lmMetricName
     , lmNamespace
     , lmNextToken
     , lmDimensions
 
-    -- * Response
+    -- * Destructuring the Response
     , ListMetricsResponse
-    -- ** Response constructor
     , listMetricsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lmrsMetrics
     , lmrsNextToken
     , lmrsStatus
@@ -166,6 +164,6 @@ lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default . _Coe
 lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmrsStatus :: Lens' ListMetricsResponse Int
 lmrsStatus = lens _lmrsStatus (\ s a -> s{_lmrsStatus = a});

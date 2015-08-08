@@ -21,23 +21,21 @@
 -- specified load balancer. You can associate multiple policies with a
 -- listener.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListener.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListener.html AWS API Reference> for SetLoadBalancerPoliciesOfListener.
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
-    -- * Request
+    -- * Creating a Request
       SetLoadBalancerPoliciesOfListener
-    -- ** Request constructor
     , setLoadBalancerPoliciesOfListener
-    -- ** Request lenses
+    -- * Request Lenses
     , slbpolLoadBalancerName
     , slbpolLoadBalancerPort
     , slbpolPolicyNames
 
-    -- * Response
+    -- * Destructuring the Response
     , SetLoadBalancerPoliciesOfListenerResponse
-    -- ** Response constructor
     , setLoadBalancerPoliciesOfListenerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , slbpolrsStatus
     ) where
 
@@ -132,6 +130,6 @@ setLoadBalancerPoliciesOfListenerResponse pStatus_ =
     { _slbpolrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 slbpolrsStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
 slbpolrsStatus = lens _slbpolrsStatus (\ s a -> s{_slbpolrsStatus = a});

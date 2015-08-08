@@ -21,22 +21,20 @@
 -- event messages. You can use this operation to validate the correctness
 -- of a metric filter pattern.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.html AWS API Reference> for TestMetricFilter.
 module Network.AWS.CloudWatchLogs.TestMetricFilter
     (
-    -- * Request
+    -- * Creating a Request
       TestMetricFilter
-    -- ** Request constructor
     , testMetricFilter
-    -- ** Request lenses
+    -- * Request Lenses
     , tmfFilterPattern
     , tmfLogEventMessages
 
-    -- * Response
+    -- * Destructuring the Response
     , TestMetricFilterResponse
-    -- ** Response constructor
     , testMetricFilterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , tmfrsMatches
     , tmfrsStatus
     ) where
@@ -66,7 +64,7 @@ testMetricFilter pFilterPattern_ pLogEventMessages_ =
     , _tmfLogEventMessages = _List1 # pLogEventMessages_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tmfFilterPattern :: Lens' TestMetricFilter Text
 tmfFilterPattern = lens _tmfFilterPattern (\ s a -> s{_tmfFilterPattern = a});
 
@@ -125,10 +123,10 @@ testMetricFilterResponse pStatus_ =
     , _tmfrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tmfrsStatus :: Lens' TestMetricFilterResponse Int
 tmfrsStatus = lens _tmfrsStatus (\ s a -> s{_tmfrsStatus = a});

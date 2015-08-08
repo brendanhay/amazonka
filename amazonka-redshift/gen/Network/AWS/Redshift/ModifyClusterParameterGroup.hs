@@ -23,22 +23,20 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html AWS API Reference> for ModifyClusterParameterGroup.
 module Network.AWS.Redshift.ModifyClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyClusterParameterGroup
-    -- ** Request constructor
     , modifyClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mcpgParameterGroupName
     , mcpgParameters
 
-    -- * Response
+    -- * Destructuring the Response
     , ClusterParameterGroupNameMessage
-    -- ** Response constructor
     , clusterParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , cpgnmParameterGroupStatus
     , cpgnmParameterGroupName
     ) where

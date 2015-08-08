@@ -19,19 +19,17 @@
 --
 -- Describes the termination policies supported by Auto Scaling.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html AWS API Reference> for DescribeTerminationPolicyTypes.
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTerminationPolicyTypes
-    -- ** Request constructor
     , describeTerminationPolicyTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTerminationPolicyTypesResponse
-    -- ** Response constructor
     , describeTerminationPolicyTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtptrsTerminationPolicyTypes
     , dtptrsStatus
     ) where
@@ -106,6 +104,6 @@ describeTerminationPolicyTypesResponse pStatus_ =
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtptrsStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
 dtptrsStatus = lens _dtptrsStatus (\ s a -> s{_dtptrsStatus = a});

@@ -19,20 +19,18 @@
 --
 -- Deletes the specified scheduled action.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html AWS API Reference> for DeleteScheduledAction.
 module Network.AWS.AutoScaling.DeleteScheduledAction
     (
-    -- * Request
+    -- * Creating a Request
       DeleteScheduledAction
-    -- ** Request constructor
     , deleteScheduledAction
-    -- ** Request lenses
+    -- * Request Lenses
     , dsaAutoScalingGroupName
     , dsaScheduledActionName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteScheduledActionResponse
-    -- ** Response constructor
     , deleteScheduledActionResponse
     ) where
 

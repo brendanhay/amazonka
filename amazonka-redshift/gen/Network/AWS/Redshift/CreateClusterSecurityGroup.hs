@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html AWS API Reference> for CreateClusterSecurityGroup.
 module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateClusterSecurityGroup
-    -- ** Request constructor
     , createClusterSecurityGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , creTags
     , creClusterSecurityGroupName
     , creDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateClusterSecurityGroupResponse
-    -- ** Response constructor
     , createClusterSecurityGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsClusterSecurityGroup
     , crsStatus
     ) where
@@ -148,10 +146,10 @@ createClusterSecurityGroupResponse pStatus_ =
     , _crsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
 crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CreateClusterSecurityGroupResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

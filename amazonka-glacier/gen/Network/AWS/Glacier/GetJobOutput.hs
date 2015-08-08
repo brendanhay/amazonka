@@ -65,24 +65,22 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html Get Job Output>
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetJobOutput.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetJobOutput.html AWS API Reference> for GetJobOutput.
 module Network.AWS.Glacier.GetJobOutput
     (
-    -- * Request
+    -- * Creating a Request
       GetJobOutput
-    -- ** Request constructor
     , getJobOutput
-    -- ** Request lenses
+    -- * Request Lenses
     , gjoRange
     , gjoAccountId
     , gjoVaultName
     , gjoJobId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetJobOutputResponse
-    -- ** Response constructor
     , getJobOutputResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gjorsChecksum
     , gjorsAcceptRanges
     , gjorsArchiveDescription

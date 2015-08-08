@@ -30,23 +30,21 @@
 -- To specify which gateway to update, use the Amazon Resource Name (ARN)
 -- of the gateway in your request.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimit.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimit.html AWS API Reference> for UpdateBandwidthRateLimit.
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     (
-    -- * Request
+    -- * Creating a Request
       UpdateBandwidthRateLimit
-    -- ** Request constructor
     , updateBandwidthRateLimit
-    -- ** Request lenses
+    -- * Request Lenses
     , ubrlAverageUploadRateLimitInBitsPerSec
     , ubrlAverageDownloadRateLimitInBitsPerSec
     , ubrlGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateBandwidthRateLimitResponse
-    -- ** Response constructor
     , updateBandwidthRateLimitResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ubrlrsGatewayARN
     , ubrlrsStatus
     ) where
@@ -93,7 +91,7 @@ ubrlAverageUploadRateLimitInBitsPerSec = lens _ubrlAverageUploadRateLimitInBitsP
 ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
 ubrlAverageDownloadRateLimitInBitsPerSec = lens _ubrlAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
 ubrlGatewayARN = lens _ubrlGatewayARN (\ s a -> s{_ubrlGatewayARN = a});
 
@@ -156,10 +154,10 @@ updateBandwidthRateLimitResponse pStatus_ =
     , _ubrlrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\ s a -> s{_ubrlrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ubrlrsStatus :: Lens' UpdateBandwidthRateLimitResponse Int
 ubrlrsStatus = lens _ubrlrsStatus (\ s a -> s{_ubrlrsStatus = a});

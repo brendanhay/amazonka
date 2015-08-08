@@ -33,23 +33,21 @@
 -- the same @workerGroup@ until it receives a response, and this can take
 -- up to 90 seconds.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html AWS API Reference> for PollForTask.
 module Network.AWS.DataPipeline.PollForTask
     (
-    -- * Request
+    -- * Creating a Request
       PollForTask
-    -- ** Request constructor
     , pollForTask
-    -- ** Request lenses
+    -- * Request Lenses
     , pftHostname
     , pftInstanceIdentity
     , pftWorkerGroup
 
-    -- * Response
+    -- * Destructuring the Response
     , PollForTaskResponse
-    -- ** Response constructor
     , pollForTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , pftrsTaskObject
     , pftrsStatus
     ) where
@@ -171,6 +169,6 @@ pollForTaskResponse pStatus_ =
 pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pftrsStatus :: Lens' PollForTaskResponse Int
 pftrsStatus = lens _pftrsStatus (\ s a -> s{_pftrsStatus = a});

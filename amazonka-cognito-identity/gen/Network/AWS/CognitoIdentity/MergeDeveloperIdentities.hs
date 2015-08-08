@@ -28,24 +28,22 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_MergeDeveloperIdentities.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_MergeDeveloperIdentities.html AWS API Reference> for MergeDeveloperIdentities.
 module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     (
-    -- * Request
+    -- * Creating a Request
       MergeDeveloperIdentities
-    -- ** Request constructor
     , mergeDeveloperIdentities
-    -- ** Request lenses
+    -- * Request Lenses
     , mdiSourceUserIdentifier
     , mdiDestinationUserIdentifier
     , mdiDeveloperProviderName
     , mdiIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , MergeDeveloperIdentitiesResponse
-    -- ** Response constructor
     , mergeDeveloperIdentitiesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mdirsIdentityId
     , mdirsStatus
     ) where
@@ -170,6 +168,6 @@ mergeDeveloperIdentitiesResponse pStatus_ =
 mdirsIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirsIdentityId = lens _mdirsIdentityId (\ s a -> s{_mdirsIdentityId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mdirsStatus :: Lens' MergeDeveloperIdentitiesResponse Int
 mdirsStatus = lens _mdirsStatus (\ s a -> s{_mdirsStatus = a});

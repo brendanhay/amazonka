@@ -21,19 +21,17 @@
 -- deletion starts. Deleted stacks do not show up in the DescribeStacks API
 -- if the deletion has been completed successfully.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html AWS API Reference> for DeleteStack.
 module Network.AWS.CloudFormation.DeleteStack
     (
-    -- * Request
+    -- * Creating a Request
       DeleteStack
-    -- ** Request constructor
     , deleteStack
-    -- ** Request lenses
+    -- * Request Lenses
     , dsStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteStackResponse
-    -- ** Response constructor
     , deleteStackResponse
     ) where
 

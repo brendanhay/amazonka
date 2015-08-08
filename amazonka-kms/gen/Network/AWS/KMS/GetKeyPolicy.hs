@@ -19,22 +19,20 @@
 --
 -- Retrieves a policy attached to the specified key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html AWS API Reference> for GetKeyPolicy.
 module Network.AWS.KMS.GetKeyPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetKeyPolicy
-    -- ** Request constructor
     , getKeyPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gkpKeyId
     , gkpPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetKeyPolicyResponse
-    -- ** Response constructor
     , getKeyPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gkprsPolicy
     , gkprsStatus
     ) where
@@ -134,6 +132,6 @@ getKeyPolicyResponse pStatus_ =
 gkprsPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gkprsStatus :: Lens' GetKeyPolicyResponse Int
 gkprsStatus = lens _gkprsStatus (\ s a -> s{_gkprsStatus = a});

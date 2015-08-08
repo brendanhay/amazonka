@@ -45,14 +45,13 @@
 -- -   All other optional parameters are left unchanged if not specified.
 --
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html AWS API Reference> for UpdateAutoScalingGroup.
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
-    -- * Request
+    -- * Creating a Request
       UpdateAutoScalingGroup
-    -- ** Request constructor
     , updateAutoScalingGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , uasgTerminationPolicies
     , uasgHealthCheckGracePeriod
     , uasgVPCZoneIdentifier
@@ -66,9 +65,8 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     , uasgPlacementGroup
     , uasgAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAutoScalingGroupResponse
-    -- ** Response constructor
     , updateAutoScalingGroupResponse
     ) where
 

@@ -25,22 +25,20 @@
 -- cannot move an Elastic IP address that\'s allocated for use in the
 -- EC2-VPC platform to the EC2-Classic platform.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MoveAddressToVPC.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MoveAddressToVPC.html AWS API Reference> for MoveAddressToVPC.
 module Network.AWS.EC2.MoveAddressToVPC
     (
-    -- * Request
+    -- * Creating a Request
       MoveAddressToVPC
-    -- ** Request constructor
     , moveAddressToVPC
-    -- ** Request lenses
+    -- * Request Lenses
     , matvDryRun
     , matvPublicIP
 
-    -- * Response
+    -- * Destructuring the Response
     , MoveAddressToVPCResponse
-    -- ** Response constructor
     , moveAddressToVPCResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , matvrsAllocationId
     , matvrsStatus
     ) where
@@ -128,6 +126,6 @@ moveAddressToVPCResponse pStatus_ =
 matvrsAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
 matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 matvrsStatus :: Lens' MoveAddressToVPCResponse Int
 matvrsStatus = lens _matvrsStatus (\ s a -> s{_matvrsStatus = a});

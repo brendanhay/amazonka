@@ -41,25 +41,23 @@
 -- could specify an optional DelegationSetId, and Route53 would assign
 -- those 4 NS records for the zone, instead of alloting a new one.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html AWS API Reference> for CreateHostedZone.
 module Network.AWS.Route53.CreateHostedZone
     (
-    -- * Request
+    -- * Creating a Request
       CreateHostedZone
-    -- ** Request constructor
     , createHostedZone
-    -- ** Request lenses
+    -- * Request Lenses
     , chzDelegationSetId
     , chzHostedZoneConfig
     , chzVPC
     , chzName
     , chzCallerReference
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateHostedZoneResponse
-    -- ** Response constructor
     , createHostedZoneResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , chzrsVPC
     , chzrsStatus
     , chzrsHostedZone
@@ -223,11 +221,11 @@ createHostedZoneResponse pStatus_ pHostedZone_ pChangeInfo_ pDelegationSet_ pLoc
     , _chzrsLocation = pLocation_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chzrsVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrsVPC = lens _chzrsVPC (\ s a -> s{_chzrsVPC = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chzrsStatus :: Lens' CreateHostedZoneResponse Int
 chzrsStatus = lens _chzrsStatus (\ s a -> s{_chzrsStatus = a});
 

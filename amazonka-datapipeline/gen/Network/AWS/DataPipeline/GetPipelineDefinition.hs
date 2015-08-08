@@ -21,22 +21,20 @@
 -- @GetPipelineDefinition@ to retrieve the pipeline definition that you
 -- provided using PutPipelineDefinition.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html AWS API Reference> for GetPipelineDefinition.
 module Network.AWS.DataPipeline.GetPipelineDefinition
     (
-    -- * Request
+    -- * Creating a Request
       GetPipelineDefinition
-    -- ** Request constructor
     , getPipelineDefinition
-    -- ** Request lenses
+    -- * Request Lenses
     , gpdVersion
     , gpdPipelineId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPipelineDefinitionResponse
-    -- ** Response constructor
     , getPipelineDefinitionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gpdrsPipelineObjects
     , gpdrsParameterObjects
     , gpdrsParameterValues
@@ -157,6 +155,6 @@ gpdrsParameterObjects = lens _gpdrsParameterObjects (\ s a -> s{_gpdrsParameterO
 gpdrsParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gpdrsStatus :: Lens' GetPipelineDefinitionResponse Int
 gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});

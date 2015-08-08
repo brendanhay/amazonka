@@ -20,21 +20,19 @@
 -- Describes whether information, such as queries and connection attempts,
 -- is being logged for the specified Amazon Redshift cluster.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html AWS API Reference> for DescribeLoggingStatus.
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLoggingStatus
-    -- ** Request constructor
     , describeLoggingStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , dlsClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , LoggingStatus
-    -- ** Response constructor
     , loggingStatus
-    -- ** Response lenses
+    -- * Response Lenses
     , lsLastSuccessfulDeliveryTime
     , lsLastFailureTime
     , lsS3KeyPrefix

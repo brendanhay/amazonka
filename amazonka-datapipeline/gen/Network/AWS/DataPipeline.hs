@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -33,28 +34,240 @@
 -- progress to the web service as it does so. When the task is done, the
 -- task runner reports the final success or failure of the task to the web
 -- service.
+--
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DataPipeline
-    ( module Export
+    (
+    -- * Service Description
+      DataPipeline
+
+    -- * Error Matchers
+    -- $errors
+    , _InvalidRequestException
+    , _InternalServiceError
+    , _PipelineDeletedException
+    , _PipelineNotFoundException
+    , _TaskNotFoundException
+
+    -- * Operations
+    -- $operations
+
+    -- ** DescribePipelines
+    , module Network.AWS.DataPipeline.DescribePipelines
+
+    -- ** QueryObjects (Paginated)
+    , module Network.AWS.DataPipeline.QueryObjects
+    -- $pager
+
+    -- ** RemoveTags
+    , module Network.AWS.DataPipeline.RemoveTags
+
+    -- ** DeletePipeline
+    , module Network.AWS.DataPipeline.DeletePipeline
+
+    -- ** ListPipelines (Paginated)
+    , module Network.AWS.DataPipeline.ListPipelines
+    -- $pager
+
+    -- ** GetPipelineDefinition
+    , module Network.AWS.DataPipeline.GetPipelineDefinition
+
+    -- ** PollForTask
+    , module Network.AWS.DataPipeline.PollForTask
+
+    -- ** EvaluateExpression
+    , module Network.AWS.DataPipeline.EvaluateExpression
+
+    -- ** DeactivatePipeline
+    , module Network.AWS.DataPipeline.DeactivatePipeline
+
+    -- ** AddTags
+    , module Network.AWS.DataPipeline.AddTags
+
+    -- ** DescribeObjects (Paginated)
+    , module Network.AWS.DataPipeline.DescribeObjects
+    -- $pager
+
+    -- ** ReportTaskRunnerHeartbeat
+    , module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
+
+    -- ** ActivatePipeline
+    , module Network.AWS.DataPipeline.ActivatePipeline
+
+    -- ** SetTaskStatus
+    , module Network.AWS.DataPipeline.SetTaskStatus
+
+    -- ** ReportTaskProgress
+    , module Network.AWS.DataPipeline.ReportTaskProgress
+
+    -- ** CreatePipeline
+    , module Network.AWS.DataPipeline.CreatePipeline
+
+    -- ** SetStatus
+    , module Network.AWS.DataPipeline.SetStatus
+
+    -- ** PutPipelineDefinition
+    , module Network.AWS.DataPipeline.PutPipelineDefinition
+
+    -- ** ValidatePipelineDefinition
+    , module Network.AWS.DataPipeline.ValidatePipelineDefinition
+
+    -- * Types
+
+    -- ** OperatorType
+    , OperatorType (..)
+
+    -- ** TaskStatus
+    , TaskStatus (..)
+
+    -- ** Field
+    , Field
+    , field
+    , fRefValue
+    , fStringValue
+    , fKey
+
+    -- ** InstanceIdentity
+    , InstanceIdentity
+    , instanceIdentity
+    , iiSignature
+    , iiDocument
+
+    -- ** Operator
+    , Operator
+    , operator
+    , oValues
+    , oType
+
+    -- ** ParameterAttribute
+    , ParameterAttribute
+    , parameterAttribute
+    , paKey
+    , paStringValue
+
+    -- ** ParameterObject
+    , ParameterObject
+    , parameterObject
+    , poId
+    , poAttributes
+
+    -- ** ParameterValue
+    , ParameterValue
+    , parameterValue
+    , pvId
+    , pvStringValue
+
+    -- ** PipelineDescription
+    , PipelineDescription
+    , pipelineDescription
+    , pdDescription
+    , pdTags
+    , pdPipelineId
+    , pdName
+    , pdFields
+
+    -- ** PipelineIdName
+    , PipelineIdName
+    , pipelineIdName
+    , pinName
+    , pinId
+
+    -- ** PipelineObject
+    , PipelineObject
+    , pipelineObject
+    , pId
+    , pName
+    , pFields
+
+    -- ** Query
+    , Query
+    , query
+    , qSelectors
+
+    -- ** Selector
+    , Selector
+    , selector
+    , sOperator
+    , sFieldName
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
+    -- ** TaskObject
+    , TaskObject
+    , taskObject
+    , toPipelineId
+    , toTaskId
+    , toAttemptId
+    , toObjects
+
+    -- ** ValidationError
+    , ValidationError
+    , validationError
+    , veId
+    , veErrors
+
+    -- ** ValidationWarning
+    , ValidationWarning
+    , validationWarning
+    , vwWarnings
+    , vwId
     ) where
 
-import           Network.AWS.DataPipeline.ActivatePipeline           as Export
-import           Network.AWS.DataPipeline.AddTags                    as Export
-import           Network.AWS.DataPipeline.CreatePipeline             as Export
-import           Network.AWS.DataPipeline.DeactivatePipeline         as Export
-import           Network.AWS.DataPipeline.DeletePipeline             as Export
-import           Network.AWS.DataPipeline.DescribeObjects            as Export
-import           Network.AWS.DataPipeline.DescribePipelines          as Export
-import           Network.AWS.DataPipeline.EvaluateExpression         as Export
-import           Network.AWS.DataPipeline.GetPipelineDefinition      as Export
-import           Network.AWS.DataPipeline.ListPipelines              as Export
-import           Network.AWS.DataPipeline.PollForTask                as Export
-import           Network.AWS.DataPipeline.PutPipelineDefinition      as Export
-import           Network.AWS.DataPipeline.QueryObjects               as Export
-import           Network.AWS.DataPipeline.RemoveTags                 as Export
-import           Network.AWS.DataPipeline.ReportTaskProgress         as Export
-import           Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat  as Export
-import           Network.AWS.DataPipeline.SetStatus                  as Export
-import           Network.AWS.DataPipeline.SetTaskStatus              as Export
-import           Network.AWS.DataPipeline.Types                      as Export
-import           Network.AWS.DataPipeline.ValidatePipelineDefinition as Export
-import           Network.AWS.DataPipeline.Waiters                    as Export
+import           Network.AWS.DataPipeline.ActivatePipeline
+import           Network.AWS.DataPipeline.AddTags
+import           Network.AWS.DataPipeline.CreatePipeline
+import           Network.AWS.DataPipeline.DeactivatePipeline
+import           Network.AWS.DataPipeline.DeletePipeline
+import           Network.AWS.DataPipeline.DescribeObjects
+import           Network.AWS.DataPipeline.DescribePipelines
+import           Network.AWS.DataPipeline.EvaluateExpression
+import           Network.AWS.DataPipeline.GetPipelineDefinition
+import           Network.AWS.DataPipeline.ListPipelines
+import           Network.AWS.DataPipeline.PollForTask
+import           Network.AWS.DataPipeline.PutPipelineDefinition
+import           Network.AWS.DataPipeline.QueryObjects
+import           Network.AWS.DataPipeline.RemoveTags
+import           Network.AWS.DataPipeline.ReportTaskProgress
+import           Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
+import           Network.AWS.DataPipeline.SetStatus
+import           Network.AWS.DataPipeline.SetTaskStatus
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.ValidatePipelineDefinition
+import           Network.AWS.DataPipeline.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'DataPipeline'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

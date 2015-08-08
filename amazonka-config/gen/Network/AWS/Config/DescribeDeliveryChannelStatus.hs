@@ -23,21 +23,19 @@
 --
 -- Currently, you can specify only one delivery channel per account.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannelStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannelStatus.html AWS API Reference> for DescribeDeliveryChannelStatus.
 module Network.AWS.Config.DescribeDeliveryChannelStatus
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDeliveryChannelStatus
-    -- ** Request constructor
     , describeDeliveryChannelStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcsDeliveryChannelNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDeliveryChannelStatusResponse
-    -- ** Response constructor
     , describeDeliveryChannelStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddcsrsDeliveryChannelsStatus
     , ddcsrsStatus
     ) where
@@ -130,6 +128,6 @@ describeDeliveryChannelStatusResponse pStatus_ =
 ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
 ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcsrsStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
 ddcsrsStatus = lens _ddcsrsStatus (\ s a -> s{_ddcsrsStatus = a});

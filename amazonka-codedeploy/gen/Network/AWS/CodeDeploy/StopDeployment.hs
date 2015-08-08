@@ -19,21 +19,19 @@
 --
 -- Attempts to stop an ongoing deployment.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html AWS API Reference> for StopDeployment.
 module Network.AWS.CodeDeploy.StopDeployment
     (
-    -- * Request
+    -- * Creating a Request
       StopDeployment
-    -- ** Request constructor
     , stopDeployment
-    -- ** Request lenses
+    -- * Request Lenses
     , sdDeploymentId
 
-    -- * Response
+    -- * Destructuring the Response
     , StopDeploymentResponse
-    -- ** Response constructor
     , stopDeploymentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , sdrsStatusMessage
     , sdrsStatus
     ) where
@@ -120,6 +118,6 @@ stopDeploymentResponse pStatus_ =
 sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sdrsStatus :: Lens' StopDeploymentResponse Int
 sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});

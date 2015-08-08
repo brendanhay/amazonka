@@ -31,22 +31,20 @@
 -- the specified connection will be returned. If a virtual interface ID is
 -- provided, only this particular virtual interface will be returned.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html AWS API Reference> for DescribeVirtualInterfaces.
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVirtualInterfaces
-    -- ** Request constructor
     , describeVirtualInterfaces
-    -- ** Request lenses
+    -- * Request Lenses
     , dviConnectionId
     , dviVirtualInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVirtualInterfacesResponse
-    -- ** Response constructor
     , describeVirtualInterfacesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvisrsVirtualInterfaces
     , dvisrsStatus
     ) where
@@ -78,11 +76,11 @@ describeVirtualInterfaces =
     , _dviVirtualInterfaceId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviConnectionId = lens _dviConnectionId (\ s a -> s{_dviConnectionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a});
 
@@ -146,6 +144,6 @@ describeVirtualInterfacesResponse pStatus_ =
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvisrsStatus :: Lens' DescribeVirtualInterfacesResponse Int
 dvisrsStatus = lens _dvisrsStatus (\ s a -> s{_dvisrsStatus = a});

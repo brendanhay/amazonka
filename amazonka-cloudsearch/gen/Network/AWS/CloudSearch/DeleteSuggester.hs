@@ -21,22 +21,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteSuggester.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteSuggester.html AWS API Reference> for DeleteSuggester.
 module Network.AWS.CloudSearch.DeleteSuggester
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSuggester
-    -- ** Request constructor
     , deleteSuggester
-    -- ** Request lenses
+    -- * Request Lenses
     , ddDomainName
     , ddSuggesterName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSuggesterResponse
-    -- ** Response constructor
     , deleteSuggesterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delersStatus
     , delersSuggester
     ) where
@@ -70,7 +68,7 @@ deleteSuggester pDomainName_ pSuggesterName_ =
     , _ddSuggesterName = pSuggesterName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddDomainName :: Lens' DeleteSuggester Text
 ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
 
@@ -125,7 +123,7 @@ deleteSuggesterResponse pStatus_ pSuggester_ =
     , _delersSuggester = pSuggester_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delersStatus :: Lens' DeleteSuggesterResponse Int
 delersStatus = lens _delersStatus (\ s a -> s{_delersStatus = a});
 

@@ -20,23 +20,21 @@
 -- Describes the specified attribute of the specified VPC. You can specify
 -- only one attribute at a time.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCAttribute.html AWS API Reference> for DescribeVPCAttribute.
 module Network.AWS.EC2.DescribeVPCAttribute
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPCAttribute
-    -- ** Request constructor
     , describeVPCAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , dvpcaAttribute
     , dvpcaDryRun
     , dvpcaVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPCAttributeResponse
-    -- ** Response constructor
     , describeVPCAttributeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvpcarsEnableDNSHostnames
     , dvpcarsEnableDNSSupport
     , dvpcarsVPCId
@@ -160,6 +158,6 @@ dvpcarsEnableDNSSupport = lens _dvpcarsEnableDNSSupport (\ s a -> s{_dvpcarsEnab
 dvpcarsVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
 dvpcarsVPCId = lens _dvpcarsVPCId (\ s a -> s{_dvpcarsVPCId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvpcarsStatus :: Lens' DescribeVPCAttributeResponse Int
 dvpcarsStatus = lens _dvpcarsStatus (\ s a -> s{_dvpcarsStatus = a});

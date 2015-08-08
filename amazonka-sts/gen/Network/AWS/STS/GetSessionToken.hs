@@ -52,23 +52,21 @@
 -- credentials, go to
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSessionTokens.html Creating Temporary Credentials to Enable Access for IAM Users>.
 --
--- <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html>
+-- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html AWS API Reference> for GetSessionToken.
 module Network.AWS.STS.GetSessionToken
     (
-    -- * Request
+    -- * Creating a Request
       GetSessionToken
-    -- ** Request constructor
     , getSessionToken
-    -- ** Request lenses
+    -- * Request Lenses
     , gstTokenCode
     , gstDurationSeconds
     , gstSerialNumber
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSessionTokenResponse
-    -- ** Response constructor
     , getSessionTokenResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gstrsCredentials
     , gstrsStatus
     ) where
@@ -183,6 +181,6 @@ getSessionTokenResponse pStatus_ =
 gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gstrsStatus :: Lens' GetSessionTokenResponse Int
 gstrsStatus = lens _gstrsStatus (\ s a -> s{_gstrsStatus = a});

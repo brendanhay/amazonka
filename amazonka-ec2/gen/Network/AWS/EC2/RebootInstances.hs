@@ -29,20 +29,18 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting Console Output and Rebooting Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RebootInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RebootInstances.html AWS API Reference> for RebootInstances.
 module Network.AWS.EC2.RebootInstances
     (
-    -- * Request
+    -- * Creating a Request
       RebootInstances
-    -- ** Request constructor
     , rebootInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , rebDryRun
     , rebInstanceIds
 
-    -- * Response
+    -- * Destructuring the Response
     , RebootInstancesResponse
-    -- ** Response constructor
     , rebootInstancesResponse
     ) where
 

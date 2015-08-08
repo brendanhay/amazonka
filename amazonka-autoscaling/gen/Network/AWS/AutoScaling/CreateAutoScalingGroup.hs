@@ -27,14 +27,13 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html Auto Scaling Groups>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html AWS API Reference> for CreateAutoScalingGroup.
 module Network.AWS.AutoScaling.CreateAutoScalingGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateAutoScalingGroup
-    -- ** Request constructor
     , createAutoScalingGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , casgInstanceId
     , casgTerminationPolicies
     , casgHealthCheckGracePeriod
@@ -51,9 +50,8 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , casgMinSize
     , casgMaxSize
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAutoScalingGroupResponse
-    -- ** Response constructor
     , createAutoScalingGroupResponse
     ) where
 

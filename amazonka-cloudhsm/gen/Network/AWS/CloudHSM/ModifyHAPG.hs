@@ -19,23 +19,21 @@
 --
 -- Modifies an existing high-availability partition group.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHAPG.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHAPG.html AWS API Reference> for ModifyHAPG.
 module Network.AWS.CloudHSM.ModifyHAPG
     (
-    -- * Request
+    -- * Creating a Request
       ModifyHAPG
-    -- ** Request constructor
     , modifyHAPG
-    -- ** Request lenses
+    -- * Request Lenses
     , mhPartitionSerialList
     , mhLabel
     , mhHAPGARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyHAPGResponse
-    -- ** Response constructor
     , modifyHAPGResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mhrsHAPGARN
     , mhrsStatus
     ) where
@@ -137,6 +135,6 @@ modifyHAPGResponse pStatus_ =
 mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
 mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mhrsStatus :: Lens' ModifyHAPGResponse Int
 mhrsStatus = lens _mhrsStatus (\ s a -> s{_mhrsStatus = a});

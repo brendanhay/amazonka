@@ -20,23 +20,21 @@
 -- Confirms a job worker has received the specified job. Only used for
 -- partner actions.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_AcknowledgeThirdPartyJob.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_AcknowledgeThirdPartyJob.html AWS API Reference> for AcknowledgeThirdPartyJob.
 module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     (
-    -- * Request
+    -- * Creating a Request
       AcknowledgeThirdPartyJob
-    -- ** Request constructor
     , acknowledgeThirdPartyJob
-    -- ** Request lenses
+    -- * Request Lenses
     , atpjJobId
     , atpjNonce
     , atpjClientToken
 
-    -- * Response
+    -- * Destructuring the Response
     , AcknowledgeThirdPartyJobResponse
-    -- ** Response constructor
     , acknowledgeThirdPartyJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , atpjrsStatus
     ) where
 
@@ -138,6 +136,6 @@ acknowledgeThirdPartyJobResponse pStatus_ =
     { _atpjrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
 atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a});

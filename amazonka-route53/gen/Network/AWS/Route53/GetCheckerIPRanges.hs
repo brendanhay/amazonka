@@ -23,19 +23,17 @@
 -- addresses to configure router and firewall rules to allow health
 -- checkers to check the health of your resources.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIPRanges.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIPRanges.html AWS API Reference> for GetCheckerIPRanges.
 module Network.AWS.Route53.GetCheckerIPRanges
     (
-    -- * Request
+    -- * Creating a Request
       GetCheckerIPRanges
-    -- ** Request constructor
     , getCheckerIPRanges
 
-    -- * Response
+    -- * Destructuring the Response
     , GetCheckerIPRangesResponse
-    -- ** Response constructor
     , getCheckerIPRangesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcirrsStatus
     , gcirrsCheckerIPRanges
     ) where
@@ -100,7 +98,7 @@ getCheckerIPRangesResponse pStatus_ =
     , _gcirrsCheckerIPRanges = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcirrsStatus :: Lens' GetCheckerIPRangesResponse Int
 gcirrsStatus = lens _gcirrsStatus (\ s a -> s{_gcirrsStatus = a});
 

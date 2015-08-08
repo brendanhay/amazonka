@@ -25,20 +25,18 @@
 -- this action to manage root credentials even if the AWS account has no
 -- associated users.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html AWS API Reference> for DeleteAccessKey.
 module Network.AWS.IAM.DeleteAccessKey
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAccessKey
-    -- ** Request constructor
     , deleteAccessKey
-    -- ** Request lenses
+    -- * Request Lenses
     , dakUserName
     , dakAccessKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAccessKeyResponse
-    -- ** Response constructor
     , deleteAccessKeyResponse
     ) where
 

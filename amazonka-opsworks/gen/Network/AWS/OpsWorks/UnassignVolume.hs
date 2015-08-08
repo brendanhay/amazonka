@@ -27,19 +27,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignVolume.html AWS API Reference> for UnassignVolume.
 module Network.AWS.OpsWorks.UnassignVolume
     (
-    -- * Request
+    -- * Creating a Request
       UnassignVolume
-    -- ** Request constructor
     , unassignVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , uvVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , UnassignVolumeResponse
-    -- ** Response constructor
     , unassignVolumeResponse
     ) where
 

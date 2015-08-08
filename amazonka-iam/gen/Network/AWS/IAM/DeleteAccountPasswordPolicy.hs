@@ -19,17 +19,15 @@
 --
 -- Deletes the password policy for the AWS account.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html AWS API Reference> for DeleteAccountPasswordPolicy.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAccountPasswordPolicy
-    -- ** Request constructor
     , deleteAccountPasswordPolicy
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAccountPasswordPolicyResponse
-    -- ** Response constructor
     , deleteAccountPasswordPolicyResponse
     ) where
 

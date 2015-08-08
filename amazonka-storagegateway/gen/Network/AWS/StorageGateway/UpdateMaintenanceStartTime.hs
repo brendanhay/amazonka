@@ -21,24 +21,22 @@
 -- information, including day and time of the week. The maintenance time is
 -- the time in your gateway\'s time zone.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html AWS API Reference> for UpdateMaintenanceStartTime.
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
-    -- * Request
+    -- * Creating a Request
       UpdateMaintenanceStartTime
-    -- ** Request constructor
     , updateMaintenanceStartTime
-    -- ** Request lenses
+    -- * Request Lenses
     , umstGatewayARN
     , umstHourOfDay
     , umstMinuteOfHour
     , umstDayOfWeek
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateMaintenanceStartTimeResponse
-    -- ** Response constructor
     , updateMaintenanceStartTimeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , umstrsGatewayARN
     , umstrsStatus
     ) where
@@ -82,7 +80,7 @@ updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
     , _umstDayOfWeek = _Nat # pDayOfWeek_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
 umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a});
 
@@ -160,10 +158,10 @@ updateMaintenanceStartTimeResponse pStatus_ =
     , _umstrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 umstrsStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
 umstrsStatus = lens _umstrsStatus (\ s a -> s{_umstrsStatus = a});

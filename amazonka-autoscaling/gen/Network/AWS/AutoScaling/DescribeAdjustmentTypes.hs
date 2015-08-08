@@ -19,19 +19,17 @@
 --
 -- Describes the policy adjustment types for use with PutScalingPolicy.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAdjustmentTypes.html AWS API Reference> for DescribeAdjustmentTypes.
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAdjustmentTypes
-    -- ** Request constructor
     , describeAdjustmentTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAdjustmentTypesResponse
-    -- ** Response constructor
     , describeAdjustmentTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , datrsAdjustmentTypes
     , datrsStatus
     ) where
@@ -101,6 +99,6 @@ describeAdjustmentTypesResponse pStatus_ =
 datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 datrsStatus :: Lens' DescribeAdjustmentTypesResponse Int
 datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});

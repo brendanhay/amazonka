@@ -19,14 +19,13 @@
 --
 -- Changes information about an existing deployment group.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html AWS API Reference> for UpdateDeploymentGroup.
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     (
-    -- * Request
+    -- * Creating a Request
       UpdateDeploymentGroup
-    -- ** Request constructor
     , updateDeploymentGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , udgServiceRoleARN
     , udgDeploymentConfigName
     , udgEc2TagFilters
@@ -36,11 +35,10 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgApplicationName
     , udgCurrentDeploymentGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateDeploymentGroupResponse
-    -- ** Response constructor
     , updateDeploymentGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , udgrsHooksNotCleanedUp
     , udgrsStatus
     ) where
@@ -205,6 +203,6 @@ updateDeploymentGroupResponse pStatus_ =
 udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udgrsStatus :: Lens' UpdateDeploymentGroupResponse Int
 udgrsStatus = lens _udgrsStatus (\ s a -> s{_udgrsStatus = a});

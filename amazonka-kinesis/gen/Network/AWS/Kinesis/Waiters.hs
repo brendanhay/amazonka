@@ -20,6 +20,8 @@ import           Network.AWS.Kinesis.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a
+-- successful state is reached. An error is returned after 18 failed checks.
 streamExists :: Wait DescribeStream
 streamExists =
     Wait
@@ -30,5 +32,5 @@ streamExists =
                              "ACTIVE"
                              AcceptSuccess
                              (dsrsStreamDescription .
-                              sdStreamStatus . to toText)]
+                              sdStreamStatus . to toTextCI)]
     }

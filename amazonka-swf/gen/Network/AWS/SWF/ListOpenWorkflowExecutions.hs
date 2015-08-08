@@ -50,14 +50,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListOpenWorkflowExecutions.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListOpenWorkflowExecutions.html AWS API Reference> for ListOpenWorkflowExecutions.
 module Network.AWS.SWF.ListOpenWorkflowExecutions
     (
-    -- * Request
+    -- * Creating a Request
       ListOpenWorkflowExecutions
-    -- ** Request constructor
     , listOpenWorkflowExecutions
-    -- ** Request lenses
+    -- * Request Lenses
     , loweNextPageToken
     , loweExecutionFilter
     , loweTypeFilter
@@ -67,11 +66,10 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     , loweDomain
     , loweStartTimeFilter
 
-    -- * Response
+    -- * Destructuring the Response
     , WorkflowExecutionInfos
-    -- ** Response constructor
     , workflowExecutionInfos
-    -- ** Response lenses
+    -- * Response Lenses
     , weiNextPageToken
     , weiExecutionInfos
     ) where

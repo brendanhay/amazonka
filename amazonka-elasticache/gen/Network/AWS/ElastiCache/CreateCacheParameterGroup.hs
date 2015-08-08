@@ -21,23 +21,21 @@
 -- group. A cache parameter group is a collection of parameters that you
 -- apply to all of the nodes in a cache cluster.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html AWS API Reference> for CreateCacheParameterGroup.
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateCacheParameterGroup
-    -- ** Request constructor
     , createCacheParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ccpgCacheParameterGroupName
     , ccpgCacheParameterGroupFamily
     , ccpgDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCacheParameterGroupResponse
-    -- ** Response constructor
     , createCacheParameterGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccpgrsCacheParameterGroup
     , ccpgrsStatus
     ) where
@@ -138,10 +136,10 @@ createCacheParameterGroupResponse pStatus_ =
     , _ccpgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccpgrsCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
 ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsCacheParameterGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccpgrsStatus :: Lens' CreateCacheParameterGroupResponse Int
 ccpgrsStatus = lens _ccpgrsStatus (\ s a -> s{_ccpgrsStatus = a});

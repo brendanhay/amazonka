@@ -21,14 +21,13 @@
 -- or item type. If an alarm name is not specified, Amazon CloudWatch
 -- returns histories for all of the owner\'s alarms.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html AWS API Reference> for DescribeAlarmHistory.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAlarmHistory
-    -- ** Request constructor
     , describeAlarmHistory
-    -- ** Request lenses
+    -- * Request Lenses
     , dahAlarmName
     , dahHistoryItemType
     , dahEndDate
@@ -36,11 +35,10 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     , dahNextToken
     , dahMaxRecords
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAlarmHistoryResponse
-    -- ** Response constructor
     , describeAlarmHistoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dahrsAlarmHistoryItems
     , dahrsNextToken
     , dahrsStatus
@@ -186,6 +184,6 @@ dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHis
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dahrsStatus :: Lens' DescribeAlarmHistoryResponse Int
 dahrsStatus = lens _dahrsStatus (\ s a -> s{_dahrsStatus = a});

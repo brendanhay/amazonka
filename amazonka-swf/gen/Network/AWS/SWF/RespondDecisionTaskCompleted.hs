@@ -36,21 +36,19 @@
 -- parameters. For more information, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondDecisionTaskCompleted.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondDecisionTaskCompleted.html AWS API Reference> for RespondDecisionTaskCompleted.
 module Network.AWS.SWF.RespondDecisionTaskCompleted
     (
-    -- * Request
+    -- * Creating a Request
       RespondDecisionTaskCompleted
-    -- ** Request constructor
     , respondDecisionTaskCompleted
-    -- ** Request lenses
+    -- * Request Lenses
     , rdtcDecisions
     , rdtcExecutionContext
     , rdtcTaskToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RespondDecisionTaskCompletedResponse
-    -- ** Response constructor
     , respondDecisionTaskCompletedResponse
     ) where
 

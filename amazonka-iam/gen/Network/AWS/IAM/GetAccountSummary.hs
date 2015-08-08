@@ -24,19 +24,17 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html AWS API Reference> for GetAccountSummary.
 module Network.AWS.IAM.GetAccountSummary
     (
-    -- * Request
+    -- * Creating a Request
       GetAccountSummary
-    -- ** Request constructor
     , getAccountSummary
 
-    -- * Response
+    -- * Destructuring the Response
     , GetAccountSummaryResponse
-    -- ** Response constructor
     , getAccountSummaryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gasrsSummaryMap
     , gasrsStatus
     ) where
@@ -258,6 +256,6 @@ getAccountSummaryResponse pStatus_ =
 gasrsSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gasrsStatus :: Lens' GetAccountSummaryResponse Int
 gasrsStatus = lens _gasrsStatus (\ s a -> s{_gasrsStatus = a});

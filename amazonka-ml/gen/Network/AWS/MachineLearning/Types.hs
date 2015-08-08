@@ -13,10 +13,10 @@
 --
 module Network.AWS.MachineLearning.Types
     (
-    -- * Service
+    -- * Service Decription
       MachineLearning
 
-    -- * Errors
+    -- * Error Matchers
     , _InternalServerException
     , _InvalidInputException
     , _IdempotentParameterMismatchException

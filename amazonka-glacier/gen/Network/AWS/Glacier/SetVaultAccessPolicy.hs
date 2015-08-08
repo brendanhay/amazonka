@@ -25,21 +25,19 @@
 -- KB in size. For more information about vault access policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html AWS API Reference> for SetVaultAccessPolicy.
 module Network.AWS.Glacier.SetVaultAccessPolicy
     (
-    -- * Request
+    -- * Creating a Request
       SetVaultAccessPolicy
-    -- ** Request constructor
     , setVaultAccessPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , svapPolicy
     , svapAccountId
     , svapVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , SetVaultAccessPolicyResponse
-    -- ** Response constructor
     , setVaultAccessPolicyResponse
     ) where
 

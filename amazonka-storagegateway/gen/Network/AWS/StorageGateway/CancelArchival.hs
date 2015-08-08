@@ -20,22 +20,20 @@
 -- Cancels archiving of a virtual tape to the virtual tape shelf (VTS)
 -- after the archiving process is initiated.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelArchival.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelArchival.html AWS API Reference> for CancelArchival.
 module Network.AWS.StorageGateway.CancelArchival
     (
-    -- * Request
+    -- * Creating a Request
       CancelArchival
-    -- ** Request constructor
     , cancelArchival
-    -- ** Request lenses
+    -- * Request Lenses
     , caGatewayARN
     , caTapeARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelArchivalResponse
-    -- ** Response constructor
     , cancelArchivalResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , carsTapeARN
     , carsStatus
     ) where
@@ -67,7 +65,7 @@ cancelArchival pGatewayARN_ pTapeARN_ =
     , _caTapeARN = pTapeARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 caGatewayARN :: Lens' CancelArchival Text
 caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a});
 
@@ -135,6 +133,6 @@ cancelArchivalResponse pStatus_ =
 carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 carsStatus :: Lens' CancelArchivalResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

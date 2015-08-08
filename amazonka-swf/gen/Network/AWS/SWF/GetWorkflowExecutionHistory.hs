@@ -42,25 +42,23 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_GetWorkflowExecutionHistory.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_GetWorkflowExecutionHistory.html AWS API Reference> for GetWorkflowExecutionHistory.
 module Network.AWS.SWF.GetWorkflowExecutionHistory
     (
-    -- * Request
+    -- * Creating a Request
       GetWorkflowExecutionHistory
-    -- ** Request constructor
     , getWorkflowExecutionHistory
-    -- ** Request lenses
+    -- * Request Lenses
     , gwehNextPageToken
     , gwehReverseOrder
     , gwehMaximumPageSize
     , gwehDomain
     , gwehExecution
 
-    -- * Response
+    -- * Destructuring the Response
     , GetWorkflowExecutionHistoryResponse
-    -- ** Response constructor
     , getWorkflowExecutionHistoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gwehrsNextPageToken
     , gwehrsStatus
     , gwehrsEvents
@@ -221,7 +219,7 @@ getWorkflowExecutionHistoryResponse pStatus_ =
 gwehrsNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 gwehrsNextPageToken = lens _gwehrsNextPageToken (\ s a -> s{_gwehrsNextPageToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gwehrsStatus :: Lens' GetWorkflowExecutionHistoryResponse Int
 gwehrsStatus = lens _gwehrsStatus (\ s a -> s{_gwehrsStatus = a});
 

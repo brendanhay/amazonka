@@ -19,23 +19,21 @@
 --
 -- Describes one or more of your configuration documents.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListDocuments.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListDocuments.html AWS API Reference> for ListDocuments.
 module Network.AWS.SSM.ListDocuments
     (
-    -- * Request
+    -- * Creating a Request
       ListDocuments
-    -- ** Request constructor
     , listDocuments
-    -- ** Request lenses
+    -- * Request Lenses
     , ldDocumentFilterList
     , ldNextToken
     , ldMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDocumentsResponse
-    -- ** Response constructor
     , listDocumentsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsDocumentIdentifiers
     , ldrsNextToken
     , ldrsStatus
@@ -153,6 +151,6 @@ ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumen
 ldrsNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDocumentsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

@@ -19,22 +19,20 @@
 --
 -- Gets information about an instance as part of a deployment.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html AWS API Reference> for GetDeploymentInstance.
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
-    -- * Request
+    -- * Creating a Request
       GetDeploymentInstance
-    -- ** Request constructor
     , getDeploymentInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , gdiDeploymentId
     , gdiInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDeploymentInstanceResponse
-    -- ** Response constructor
     , getDeploymentInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdirsInstanceSummary
     , gdirsStatus
     ) where
@@ -133,6 +131,6 @@ getDeploymentInstanceResponse pStatus_ =
 gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
 gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdirsStatus :: Lens' GetDeploymentInstanceResponse Int
 gdirsStatus = lens _gdirsStatus (\ s a -> s{_gdirsStatus = a});

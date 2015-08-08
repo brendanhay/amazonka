@@ -35,22 +35,20 @@
 -- For more information about Easy DKIM signing, go to the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html AWS API Reference> for SetIdentityDkimEnabled.
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
-    -- * Request
+    -- * Creating a Request
       SetIdentityDkimEnabled
-    -- ** Request constructor
     , setIdentityDkimEnabled
-    -- ** Request lenses
+    -- * Request Lenses
     , sideIdentity
     , sideDkimEnabled
 
-    -- * Response
+    -- * Destructuring the Response
     , SetIdentityDkimEnabledResponse
-    -- ** Response constructor
     , setIdentityDkimEnabledResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , sidersStatus
     ) where
 
@@ -136,6 +134,6 @@ setIdentityDkimEnabledResponse pStatus_ =
     { _sidersStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sidersStatus :: Lens' SetIdentityDkimEnabledResponse Int
 sidersStatus = lens _sidersStatus (\ s a -> s{_sidersStatus = a});

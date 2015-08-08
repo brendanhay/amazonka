@@ -19,22 +19,20 @@
 --
 -- Validates a specified template.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html AWS API Reference> for ValidateTemplate.
 module Network.AWS.CloudFormation.ValidateTemplate
     (
-    -- * Request
+    -- * Creating a Request
       ValidateTemplate
-    -- ** Request constructor
     , validateTemplate
-    -- ** Request lenses
+    -- * Request Lenses
     , vtTemplateBody
     , vtTemplateURL
 
-    -- * Response
+    -- * Destructuring the Response
     , ValidateTemplateResponse
-    -- ** Response constructor
     , validateTemplateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , vtrsParameters
     , vtrsCapabilitiesReason
     , vtrsCapabilities
@@ -177,6 +175,6 @@ vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . 
 vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vtrsStatus :: Lens' ValidateTemplateResponse Int
 vtrsStatus = lens _vtrsStatus (\ s a -> s{_vtrsStatus = a});

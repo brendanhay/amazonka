@@ -25,20 +25,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html AWS API Reference> for DetachUserPolicy.
 module Network.AWS.IAM.DetachUserPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DetachUserPolicy
-    -- ** Request constructor
     , detachUserPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dUserName
     , dPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachUserPolicyResponse
-    -- ** Response constructor
     , detachUserPolicyResponse
     ) where
 
@@ -71,7 +69,7 @@ detachUserPolicy pUserName_ pPolicyARN_ =
 dUserName :: Lens' DetachUserPolicy Text
 dUserName = lens _dUserName (\ s a -> s{_dUserName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dPolicyARN :: Lens' DetachUserPolicy Text
 dPolicyARN = lens _dPolicyARN (\ s a -> s{_dPolicyARN = a});
 

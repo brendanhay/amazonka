@@ -29,22 +29,20 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterVolume.html AWS API Reference> for RegisterVolume.
 module Network.AWS.OpsWorks.RegisterVolume
     (
-    -- * Request
+    -- * Creating a Request
       RegisterVolume
-    -- ** Request constructor
     , registerVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , rvEC2VolumeId
     , rvStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterVolumeResponse
-    -- ** Response constructor
     , registerVolumeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rvrsVolumeId
     , rvrsStatus
     ) where
@@ -139,6 +137,6 @@ registerVolumeResponse pStatus_ =
 rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rvrsStatus :: Lens' RegisterVolumeResponse Int
 rvrsStatus = lens _rvrsStatus (\ s a -> s{_rvrsStatus = a});

@@ -76,22 +76,20 @@
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations Capacity Units Calculations>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html AWS API Reference> for BatchGetItem.
 module Network.AWS.DynamoDB.BatchGetItem
     (
-    -- * Request
+    -- * Creating a Request
       BatchGetItem
-    -- ** Request constructor
     , batchGetItem
-    -- ** Request lenses
+    -- * Request Lenses
     , bgiReturnConsumedCapacity
     , bgiRequestItems
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchGetItemResponse
-    -- ** Response constructor
     , batchGetItemResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bgirsUnprocessedKeys
     , bgirsResponses
     , bgirsConsumedCapacity
@@ -125,7 +123,7 @@ batchGetItem =
     , _bgiRequestItems = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
 bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiReturnConsumedCapacity = a});
 
@@ -328,6 +326,6 @@ bgirsResponses = lens _bgirsResponses (\ s a -> s{_bgirsResponses = a}) . _Defau
 bgirsConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
 bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCapacity = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bgirsStatus :: Lens' BatchGetItemResponse Int
 bgirsStatus = lens _bgirsStatus (\ s a -> s{_bgirsStatus = a});

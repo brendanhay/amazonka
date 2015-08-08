@@ -23,21 +23,19 @@
 -- currently in use (doesn\'t contain any active jobs). If the pipeline is
 -- currently in use, @DeletePipeline@ returns an error.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.ElasticTranscoder.DeletePipeline
     (
-    -- * Request
+    -- * Creating a Request
       DeletePipeline
-    -- ** Request constructor
     , deletePipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , dId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePipelineResponse
-    -- ** Response constructor
     , deletePipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStatus
     ) where
 
@@ -105,6 +103,6 @@ deletePipelineResponse pStatus_ =
     { _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeletePipelineResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

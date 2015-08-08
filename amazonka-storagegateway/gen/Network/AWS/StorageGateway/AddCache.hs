@@ -26,22 +26,20 @@
 -- which you want to add cache, and one or more disk IDs that you want to
 -- configure as cache.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddCache.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddCache.html AWS API Reference> for AddCache.
 module Network.AWS.StorageGateway.AddCache
     (
-    -- * Request
+    -- * Creating a Request
       AddCache
-    -- ** Request constructor
     , addCache
-    -- ** Request lenses
+    -- * Request Lenses
     , acGatewayARN
     , acDiskIds
 
-    -- * Response
+    -- * Destructuring the Response
     , AddCacheResponse
-    -- ** Response constructor
     , addCacheResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , acrsGatewayARN
     , acrsStatus
     ) where
@@ -71,11 +69,11 @@ addCache pGatewayARN_ =
     , _acDiskIds = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acGatewayARN :: Lens' AddCache Text
 acGatewayARN = lens _acGatewayARN (\ s a -> s{_acGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acDiskIds :: Lens' AddCache [Text]
 acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a}) . _Coerce;
 
@@ -130,10 +128,10 @@ addCacheResponse pStatus_ =
     , _acrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acrsStatus :: Lens' AddCacheResponse Int
 acrsStatus = lens _acrsStatus (\ s a -> s{_acrsStatus = a});

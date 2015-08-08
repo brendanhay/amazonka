@@ -20,22 +20,20 @@
 -- Gets a summary of all AWS CodePipeline action types associated with your
 -- account.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ListActionTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ListActionTypes.html AWS API Reference> for ListActionTypes.
 module Network.AWS.CodePipeline.ListActionTypes
     (
-    -- * Request
+    -- * Creating a Request
       ListActionTypes
-    -- ** Request constructor
     , listActionTypes
-    -- ** Request lenses
+    -- * Request Lenses
     , latActionOwnerFilter
     , latNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListActionTypesResponse
-    -- ** Response constructor
     , listActionTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , latrsNextToken
     , latrsStatus
     , latrsActionTypes
@@ -143,7 +141,7 @@ listActionTypesResponse pStatus_ =
 latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
 latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 latrsStatus :: Lens' ListActionTypesResponse Int
 latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
 

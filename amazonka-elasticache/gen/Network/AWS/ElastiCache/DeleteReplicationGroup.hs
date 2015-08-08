@@ -27,23 +27,21 @@
 -- ElastiCache immediately begins deleting the selected resources; you
 -- cannot cancel or revert this action.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html AWS API Reference> for DeleteReplicationGroup.
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteReplicationGroup
-    -- ** Request constructor
     , deleteReplicationGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , drgFinalSnapshotIdentifier
     , drgRetainPrimaryCluster
     , drgReplicationGroupId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteReplicationGroupResponse
-    -- ** Response constructor
     , deleteReplicationGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delrsReplicationGroup
     , delrsStatus
     ) where
@@ -144,10 +142,10 @@ deleteReplicationGroupResponse pStatus_ =
     , _delrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsStatus :: Lens' DeleteReplicationGroupResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

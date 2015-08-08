@@ -20,25 +20,23 @@
 -- Queries the specified pipeline for the names of objects that match the
 -- specified set of conditions.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html AWS API Reference> for QueryObjects.
 module Network.AWS.DataPipeline.QueryObjects
     (
-    -- * Request
+    -- * Creating a Request
       QueryObjects
-    -- ** Request constructor
     , queryObjects
-    -- ** Request lenses
+    -- * Request Lenses
     , qoQuery
     , qoMarker
     , qoLimit
     , qoPipelineId
     , qoSphere
 
-    -- * Response
+    -- * Destructuring the Response
     , QueryObjectsResponse
-    -- ** Response constructor
     , queryObjectsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , qorsHasMoreResults
     , qorsIds
     , qorsMarker
@@ -199,6 +197,6 @@ qorsIds = lens _qorsIds (\ s a -> s{_qorsIds = a}) . _Default . _Coerce;
 qorsMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorsMarker = lens _qorsMarker (\ s a -> s{_qorsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 qorsStatus :: Lens' QueryObjectsResponse Int
 qorsStatus = lens _qorsStatus (\ s a -> s{_qorsStatus = a});

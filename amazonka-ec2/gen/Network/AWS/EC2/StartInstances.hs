@@ -39,23 +39,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html AWS API Reference> for StartInstances.
 module Network.AWS.EC2.StartInstances
     (
-    -- * Request
+    -- * Creating a Request
       StartInstances
-    -- ** Request constructor
     , startInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , sAdditionalInfo
     , sDryRun
     , sInstanceIds
 
-    -- * Response
+    -- * Destructuring the Response
     , StartInstancesResponse
-    -- ** Response constructor
     , startInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsStartingInstances
     , srsStatus
     ) where
@@ -155,6 +153,6 @@ startInstancesResponse pStatus_ =
 srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' StartInstancesResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

@@ -24,22 +24,20 @@
 -- The maximum number of metric filters that can be associated with a log
 -- group is 100.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html AWS API Reference> for PutMetricFilter.
 module Network.AWS.CloudWatchLogs.PutMetricFilter
     (
-    -- * Request
+    -- * Creating a Request
       PutMetricFilter
-    -- ** Request constructor
     , putMetricFilter
-    -- ** Request lenses
+    -- * Request Lenses
     , pmfLogGroupName
     , pmfFilterName
     , pmfFilterPattern
     , pmfMetricTransformations
 
-    -- * Response
+    -- * Destructuring the Response
     , PutMetricFilterResponse
-    -- ** Response constructor
     , putMetricFilterResponse
     ) where
 

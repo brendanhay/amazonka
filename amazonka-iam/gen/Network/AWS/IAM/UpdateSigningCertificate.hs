@@ -27,21 +27,19 @@
 -- use this action to manage root credentials even if the AWS account has
 -- no associated users.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html AWS API Reference> for UpdateSigningCertificate.
 module Network.AWS.IAM.UpdateSigningCertificate
     (
-    -- * Request
+    -- * Creating a Request
       UpdateSigningCertificate
-    -- ** Request constructor
     , updateSigningCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , uscUserName
     , uscCertificateId
     , uscStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateSigningCertificateResponse
-    -- ** Response constructor
     , updateSigningCertificateResponse
     ) where
 

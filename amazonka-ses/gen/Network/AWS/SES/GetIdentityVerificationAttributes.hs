@@ -24,21 +24,19 @@
 -- This action is throttled at one request per second and can only get
 -- verification attributes for up to 100 identities at a time.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html AWS API Reference> for GetIdentityVerificationAttributes.
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetIdentityVerificationAttributes
-    -- ** Request constructor
     , getIdentityVerificationAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , givaIdentities
 
-    -- * Response
+    -- * Destructuring the Response
     , GetIdentityVerificationAttributesResponse
-    -- ** Response constructor
     , getIdentityVerificationAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , givarsStatus
     , givarsVerificationAttributes
     ) where
@@ -125,7 +123,7 @@ getIdentityVerificationAttributesResponse pStatus_ =
     , _givarsVerificationAttributes = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 givarsStatus :: Lens' GetIdentityVerificationAttributesResponse Int
 givarsStatus = lens _givarsStatus (\ s a -> s{_givarsStatus = a});
 

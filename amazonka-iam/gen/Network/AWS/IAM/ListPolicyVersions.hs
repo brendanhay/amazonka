@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html AWS API Reference> for ListPolicyVersions.
 module Network.AWS.IAM.ListPolicyVersions
     (
-    -- * Request
+    -- * Creating a Request
       ListPolicyVersions
-    -- ** Request constructor
     , listPolicyVersions
-    -- ** Request lenses
+    -- * Request Lenses
     , lpvMaxItems
     , lpvMarker
     , lpvPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPolicyVersionsResponse
-    -- ** Response constructor
     , listPolicyVersionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lpvrsVersions
     , lpvrsMarker
     , lpvrsIsTruncated
@@ -91,7 +89,7 @@ lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat;
 lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
 lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lpvPolicyARN :: Lens' ListPolicyVersions Text
 lpvPolicyARN = lens _lpvPolicyARN (\ s a -> s{_lpvPolicyARN = a});
 
@@ -174,6 +172,6 @@ lpvrsMarker = lens _lpvrsMarker (\ s a -> s{_lpvrsMarker = a});
 lpvrsIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
 lpvrsIsTruncated = lens _lpvrsIsTruncated (\ s a -> s{_lpvrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lpvrsStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrsStatus = lens _lpvrsStatus (\ s a -> s{_lpvrsStatus = a});

@@ -20,21 +20,19 @@
 -- Resets a network interface attribute. You can specify only one attribute
 -- at a time.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html AWS API Reference> for ResetNetworkInterfaceAttribute.
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ResetNetworkInterfaceAttribute
-    -- ** Request constructor
     , resetNetworkInterfaceAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , rniaSourceDestCheck
     , rniaDryRun
     , rniaNetworkInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , ResetNetworkInterfaceAttributeResponse
-    -- ** Response constructor
     , resetNetworkInterfaceAttributeResponse
     ) where
 

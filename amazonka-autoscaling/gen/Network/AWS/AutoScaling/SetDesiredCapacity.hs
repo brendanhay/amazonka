@@ -23,21 +23,19 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetDesiredCapacity.html AWS API Reference> for SetDesiredCapacity.
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
-    -- * Request
+    -- * Creating a Request
       SetDesiredCapacity
-    -- ** Request constructor
     , setDesiredCapacity
-    -- ** Request lenses
+    -- * Request Lenses
     , sdcHonorCooldown
     , sdcAutoScalingGroupName
     , sdcDesiredCapacity
 
-    -- * Response
+    -- * Destructuring the Response
     , SetDesiredCapacityResponse
-    -- ** Response constructor
     , setDesiredCapacityResponse
     ) where
 

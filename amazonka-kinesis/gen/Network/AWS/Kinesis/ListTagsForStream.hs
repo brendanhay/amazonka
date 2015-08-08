@@ -19,23 +19,21 @@
 --
 -- Lists the tags for the specified Amazon Kinesis stream.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html AWS API Reference> for ListTagsForStream.
 module Network.AWS.Kinesis.ListTagsForStream
     (
-    -- * Request
+    -- * Creating a Request
       ListTagsForStream
-    -- ** Request constructor
     , listTagsForStream
-    -- ** Request lenses
+    -- * Request Lenses
     , ltfsLimit
     , ltfsExclusiveStartTagKey
     , ltfsStreamName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTagsForStreamResponse
-    -- ** Response constructor
     , listTagsForStreamResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltfsrsStatus
     , ltfsrsTags
     , ltfsrsHasMoreTags
@@ -148,7 +146,7 @@ listTagsForStreamResponse pStatus_ pHasMoreTags_ =
     , _ltfsrsHasMoreTags = pHasMoreTags_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltfsrsStatus :: Lens' ListTagsForStreamResponse Int
 ltfsrsStatus = lens _ltfsrsStatus (\ s a -> s{_ltfsrsStatus = a});
 

@@ -19,14 +19,13 @@
 --
 -- Adds an object to a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObject.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObject.html AWS API Reference> for PutObject.
 module Network.AWS.S3.PutObject
     (
-    -- * Request
+    -- * Creating a Request
       PutObject
-    -- ** Request constructor
     , putObject
-    -- ** Request lenses
+    -- * Request Lenses
     , poContentLength
     , poExpires
     , poSSECustomerAlgorithm
@@ -53,11 +52,10 @@ module Network.AWS.S3.PutObject
     , poKey
     , poBody
 
-    -- * Response
+    -- * Destructuring the Response
     , PutObjectResponse
-    -- ** Response constructor
     , putObjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , porsVersionId
     , porsETag
     , porsRequestCharged
@@ -212,7 +210,7 @@ poGrantReadACP = lens _poGrantReadACP (\ s a -> s{_poGrantReadACP = a});
 poSSECustomerKey :: Lens' PutObject (Maybe Text)
 poSSECustomerKey = lens _poSSECustomerKey (\ s a -> s{_poSSECustomerKey = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poRequestPayer :: Lens' PutObject (Maybe RequestPayer)
 poRequestPayer = lens _poRequestPayer (\ s a -> s{_poRequestPayer = a});
 
@@ -263,7 +261,7 @@ poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5
 poMetadata :: Lens' PutObject (HashMap Text Text)
 poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poContentMD5 :: Lens' PutObject (Maybe Text)
 poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
 
@@ -292,11 +290,11 @@ poServerSideEncryption = lens _poServerSideEncryption (\ s a -> s{_poServerSideE
 poContentType :: Lens' PutObject (Maybe Text)
 poContentType = lens _poContentType (\ s a -> s{_poContentType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poBucket :: Lens' PutObject BucketName
 poBucket = lens _poBucket (\ s a -> s{_poBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 poKey :: Lens' PutObject ObjectKey
 poKey = lens _poKey (\ s a -> s{_poKey = a});
 
@@ -424,7 +422,7 @@ porsVersionId = lens _porsVersionId (\ s a -> s{_porsVersionId = a});
 porsETag :: Lens' PutObjectResponse (Maybe ETag)
 porsETag = lens _porsETag (\ s a -> s{_porsETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 porsRequestCharged :: Lens' PutObjectResponse (Maybe RequestCharged)
 porsRequestCharged = lens _porsRequestCharged (\ s a -> s{_porsRequestCharged = a});
 
@@ -456,6 +454,6 @@ porsSSECustomerKeyMD5 = lens _porsSSECustomerKeyMD5 (\ s a -> s{_porsSSECustomer
 porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 porsStatus :: Lens' PutObjectResponse Int
 porsStatus = lens _porsStatus (\ s a -> s{_porsStatus = a});

@@ -28,21 +28,19 @@
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn\'t return an error.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateAddress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateAddress.html AWS API Reference> for DisassociateAddress.
 module Network.AWS.EC2.DisassociateAddress
     (
-    -- * Request
+    -- * Creating a Request
       DisassociateAddress
-    -- ** Request constructor
     , disassociateAddress
-    -- ** Request lenses
+    -- * Request Lenses
     , dasAssociationId
     , dasPublicIP
     , dasDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DisassociateAddressResponse
-    -- ** Response constructor
     , disassociateAddressResponse
     ) where
 

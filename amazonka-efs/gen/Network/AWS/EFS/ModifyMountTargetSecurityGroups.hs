@@ -34,20 +34,18 @@
 -- -   @ec2:ModifyNetworkInterfaceAttribute@ action on the mount target\'s
 --     network interface.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ModifyMountTargetSecurityGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ModifyMountTargetSecurityGroups.html AWS API Reference> for ModifyMountTargetSecurityGroups.
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     (
-    -- * Request
+    -- * Creating a Request
       ModifyMountTargetSecurityGroups
-    -- ** Request constructor
     , modifyMountTargetSecurityGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , mmtsgSecurityGroups
     , mmtsgMountTargetId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyMountTargetSecurityGroupsResponse
-    -- ** Response constructor
     , modifyMountTargetSecurityGroupsResponse
     ) where
 

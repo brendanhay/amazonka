@@ -38,21 +38,19 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeDomain.html AWS API Reference> for DescribeDomain.
 module Network.AWS.SWF.DescribeDomain
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDomain
-    -- ** Request constructor
     , describeDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , ddName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDomainResponse
-    -- ** Response constructor
     , describeDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddrsStatus
     , ddrsDomainInfo
     , ddrsConfiguration
@@ -140,14 +138,14 @@ describeDomainResponse pStatus_ pDomainInfo_ pConfiguration_ =
     , _ddrsConfiguration = pConfiguration_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsStatus :: Lens' DescribeDomainResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
 ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
 ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a});

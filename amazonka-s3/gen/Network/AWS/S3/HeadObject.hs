@@ -22,14 +22,13 @@
 -- in an object\'s metadata. To use HEAD, you must have READ access to the
 -- object.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadObject.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadObject.html AWS API Reference> for HeadObject.
 module Network.AWS.S3.HeadObject
     (
-    -- * Request
+    -- * Creating a Request
       HeadObject
-    -- ** Request constructor
     , headObject
-    -- ** Request lenses
+    -- * Request Lenses
     , hoIfMatch
     , hoVersionId
     , hoSSECustomerAlgorithm
@@ -43,11 +42,10 @@ module Network.AWS.S3.HeadObject
     , hoBucket
     , hoKey
 
-    -- * Response
+    -- * Destructuring the Response
     , HeadObjectResponse
-    -- ** Response constructor
     , headObjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , horsVersionId
     , horsETag
     , horsRequestCharged
@@ -162,7 +160,7 @@ hoSSECustomerAlgorithm = lens _hoSSECustomerAlgorithm (\ s a -> s{_hoSSECustomer
 hoSSECustomerKey :: Lens' HeadObject (Maybe Text)
 hoSSECustomerKey = lens _hoSSECustomerKey (\ s a -> s{_hoSSECustomerKey = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 hoRequestPayer :: Lens' HeadObject (Maybe RequestPayer)
 hoRequestPayer = lens _hoRequestPayer (\ s a -> s{_hoRequestPayer = a});
 
@@ -193,11 +191,11 @@ hoSSECustomerKeyMD5 = lens _hoSSECustomerKeyMD5 (\ s a -> s{_hoSSECustomerKeyMD5
 hoIfNoneMatch :: Lens' HeadObject (Maybe Text)
 hoIfNoneMatch = lens _hoIfNoneMatch (\ s a -> s{_hoIfNoneMatch = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 hoBucket :: Lens' HeadObject BucketName
 hoBucket = lens _hoBucket (\ s a -> s{_hoBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 hoKey :: Lens' HeadObject ObjectKey
 hoKey = lens _hoKey (\ s a -> s{_hoKey = a});
 
@@ -384,7 +382,7 @@ horsVersionId = lens _horsVersionId (\ s a -> s{_horsVersionId = a});
 horsETag :: Lens' HeadObjectResponse (Maybe ETag)
 horsETag = lens _horsETag (\ s a -> s{_horsETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 horsRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
 horsRequestCharged = lens _horsRequestCharged (\ s a -> s{_horsRequestCharged = a});
 
@@ -434,11 +432,11 @@ horsMissingMeta = lens _horsMissingMeta (\ s a -> s{_horsMissingMeta = a});
 horsWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
 horsWebsiteRedirectLocation = lens _horsWebsiteRedirectLocation (\ s a -> s{_horsWebsiteRedirectLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 horsAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
 horsAcceptRanges = lens _horsAcceptRanges (\ s a -> s{_horsAcceptRanges = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 horsStorageClass :: Lens' HeadObjectResponse (Maybe StorageClass)
 horsStorageClass = lens _horsStorageClass (\ s a -> s{_horsStorageClass = a});
 
@@ -463,7 +461,7 @@ horsSSECustomerKeyMD5 = lens _horsSSECustomerKeyMD5 (\ s a -> s{_horsSSECustomer
 horsMetadata :: Lens' HeadObjectResponse (HashMap Text Text)
 horsMetadata = lens _horsMetadata (\ s a -> s{_horsMetadata = a}) . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 horsReplicationStatus :: Lens' HeadObjectResponse (Maybe ReplicationStatus)
 horsReplicationStatus = lens _horsReplicationStatus (\ s a -> s{_horsReplicationStatus = a});
 
@@ -492,6 +490,6 @@ horsServerSideEncryption = lens _horsServerSideEncryption (\ s a -> s{_horsServe
 horsContentType :: Lens' HeadObjectResponse (Maybe Text)
 horsContentType = lens _horsContentType (\ s a -> s{_horsContentType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 horsStatus :: Lens' HeadObjectResponse Int
 horsStatus = lens _horsStatus (\ s a -> s{_horsStatus = a});

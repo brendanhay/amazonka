@@ -26,21 +26,19 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.EC2.CreateTags
     (
-    -- * Request
+    -- * Creating a Request
       CreateTags
-    -- ** Request constructor
     , createTags
-    -- ** Request lenses
+    -- * Request Lenses
     , cDryRun
     , cResources
     , cTags
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateTagsResponse
-    -- ** Response constructor
     , createTagsResponse
     ) where
 

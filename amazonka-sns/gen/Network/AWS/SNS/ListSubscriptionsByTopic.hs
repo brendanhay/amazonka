@@ -23,22 +23,20 @@
 -- parameter in a new @ListSubscriptionsByTopic@ call to get further
 -- results.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html AWS API Reference> for ListSubscriptionsByTopic.
 module Network.AWS.SNS.ListSubscriptionsByTopic
     (
-    -- * Request
+    -- * Creating a Request
       ListSubscriptionsByTopic
-    -- ** Request constructor
     , listSubscriptionsByTopic
-    -- ** Request lenses
+    -- * Request Lenses
     , lsbtNextToken
     , lsbtTopicARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListSubscriptionsByTopicResponse
-    -- ** Response constructor
     , listSubscriptionsByTopicResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsbtrsNextToken
     , lsbtrsSubscriptions
     , lsbtrsStatus
@@ -151,6 +149,6 @@ lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a});
 lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsbtrsStatus :: Lens' ListSubscriptionsByTopicResponse Int
 lsbtrsStatus = lens _lsbtrsStatus (\ s a -> s{_lsbtrsStatus = a});

@@ -19,21 +19,19 @@
 --
 -- Returns the policy of a specified bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketPolicy.html AWS API Reference> for GetBucketPolicy.
 module Network.AWS.S3.GetBucketPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketPolicy
-    -- ** Request constructor
     , getBucketPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gbpBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketPolicyResponse
-    -- ** Response constructor
     , getBucketPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbprsPolicy
     , gbprsStatus
     ) where
@@ -59,7 +57,7 @@ getBucketPolicy pBucket_ =
     { _gbpBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbpBucket :: Lens' GetBucketPolicy BucketName
 gbpBucket = lens _gbpBucket (\ s a -> s{_gbpBucket = a});
 
@@ -107,6 +105,6 @@ getBucketPolicyResponse pStatus_ =
 gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbprsStatus :: Lens' GetBucketPolicyResponse Int
 gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});

@@ -20,22 +20,20 @@
 -- Represents the success of a job as returned to the pipeline by a job
 -- worker. Only used for custom actions.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobSuccessResult.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobSuccessResult.html AWS API Reference> for PutJobSuccessResult.
 module Network.AWS.CodePipeline.PutJobSuccessResult
     (
-    -- * Request
+    -- * Creating a Request
       PutJobSuccessResult
-    -- ** Request constructor
     , putJobSuccessResult
-    -- ** Request lenses
+    -- * Request Lenses
     , pjsrContinuationToken
     , pjsrExecutionDetails
     , pjsrCurrentRevision
     , pjsrJobId
 
-    -- * Response
+    -- * Destructuring the Response
     , PutJobSuccessResultResponse
-    -- ** Response constructor
     , putJobSuccessResultResponse
     ) where
 

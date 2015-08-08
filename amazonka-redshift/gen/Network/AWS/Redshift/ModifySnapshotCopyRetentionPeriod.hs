@@ -20,22 +20,20 @@
 -- Modifies the number of days to retain automated snapshots in the
 -- destination region after they are copied from the source region.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotCopyRetentionPeriod.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotCopyRetentionPeriod.html AWS API Reference> for ModifySnapshotCopyRetentionPeriod.
 module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     (
-    -- * Request
+    -- * Creating a Request
       ModifySnapshotCopyRetentionPeriod
-    -- ** Request constructor
     , modifySnapshotCopyRetentionPeriod
-    -- ** Request lenses
+    -- * Request Lenses
     , mscrpClusterIdentifier
     , mscrpRetentionPeriod
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifySnapshotCopyRetentionPeriodResponse
-    -- ** Response constructor
     , modifySnapshotCopyRetentionPeriodResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mscrprsCluster
     , mscrprsStatus
     ) where
@@ -139,10 +137,10 @@ modifySnapshotCopyRetentionPeriodResponse pStatus_ =
     , _mscrprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mscrprsCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprsCluster = lens _mscrprsCluster (\ s a -> s{_mscrprsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mscrprsStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
 mscrprsStatus = lens _mscrprsStatus (\ s a -> s{_mscrprsStatus = a});

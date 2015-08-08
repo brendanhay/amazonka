@@ -19,14 +19,13 @@
 --
 -- Lists available reserved DB instance offerings.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstancesOfferings.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstancesOfferings.html AWS API Reference> for DescribeReservedDBInstancesOfferings.
 module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedDBInstancesOfferings
-    -- ** Request constructor
     , describeReservedDBInstancesOfferings
-    -- ** Request lenses
+    -- * Request Lenses
     , drdioProductDescription
     , drdioFilters
     , drdioDBInstanceClass
@@ -37,11 +36,10 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     , drdioOfferingType
     , drdioDuration
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedDBInstancesOfferingsResponse
-    -- ** Response constructor
     , describeReservedDBInstancesOfferingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drdiorsMarker
     , drdiorsReservedDBInstancesOfferings
     , drdiorsStatus
@@ -250,6 +248,6 @@ drdiorsMarker = lens _drdiorsMarker (\ s a -> s{_drdiorsMarker = a});
 drdiorsReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
 drdiorsReservedDBInstancesOfferings = lens _drdiorsReservedDBInstancesOfferings (\ s a -> s{_drdiorsReservedDBInstancesOfferings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drdiorsStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
 drdiorsStatus = lens _drdiorsStatus (\ s a -> s{_drdiorsStatus = a});

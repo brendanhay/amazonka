@@ -22,21 +22,19 @@
 -- You cannot delete an application version that is associated with a
 -- running environment.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplicationVersion.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplicationVersion.html AWS API Reference> for DeleteApplicationVersion.
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
-    -- * Request
+    -- * Creating a Request
       DeleteApplicationVersion
-    -- ** Request constructor
     , deleteApplicationVersion
-    -- ** Request lenses
+    -- * Request Lenses
     , davDeleteSourceBundle
     , davApplicationName
     , davVersionLabel
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteApplicationVersionResponse
-    -- ** Response constructor
     , deleteApplicationVersionResponse
     ) where
 

@@ -13,10 +13,10 @@
 --
 module Network.AWS.Support.Types
     (
-    -- * Service
+    -- * Service Decription
       Support
 
-    -- * Errors
+    -- * Error Matchers
     , _AttachmentSetExpired
     , _AttachmentLimitExceeded
     , _DescribeAttachmentLimitExceeded

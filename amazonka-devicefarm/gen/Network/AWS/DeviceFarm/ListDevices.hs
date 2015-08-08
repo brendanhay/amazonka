@@ -19,22 +19,20 @@
 --
 -- Gets information about unique device types.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListDevices.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListDevices.html AWS API Reference> for ListDevices.
 module Network.AWS.DeviceFarm.ListDevices
     (
-    -- * Request
+    -- * Creating a Request
       ListDevices
-    -- ** Request constructor
     , listDevices
-    -- ** Request lenses
+    -- * Request Lenses
     , ldArn
     , ldNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDevicesResponse
-    -- ** Response constructor
     , listDevicesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsNextToken
     , ldrsDevices
     , ldrsStatus
@@ -144,6 +142,6 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDevices :: Lens' ListDevicesResponse [Device]
 ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDevicesResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

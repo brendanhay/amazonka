@@ -25,24 +25,22 @@
 -- operation, an empty set is returned. The system does not return an error
 -- as it cannot guarantee the item does not exist on other replicas.
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.html AWS API Reference> for GetAttributes.
 module Network.AWS.SDB.GetAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetAttributes
-    -- ** Request constructor
     , getAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , gaConsistentRead
     , gaAttributeNames
     , gaDomainName
     , gaItemName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetAttributesResponse
-    -- ** Response constructor
     , getAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , garsAttributes
     , garsStatus
     ) where
@@ -152,6 +150,6 @@ getAttributesResponse pStatus_ =
 garsAttributes :: Lens' GetAttributesResponse [Attribute]
 garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 garsStatus :: Lens' GetAttributesResponse Int
 garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

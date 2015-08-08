@@ -23,24 +23,22 @@
 -- call returns a maximum of 50 clusters per call, but returns a marker to
 -- track the paging of the cluster list across multiple ListClusters calls.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html AWS API Reference> for ListClusters.
 module Network.AWS.EMR.ListClusters
     (
-    -- * Request
+    -- * Creating a Request
       ListClusters
-    -- ** Request constructor
     , listClusters
-    -- ** Request lenses
+    -- * Request Lenses
     , lcCreatedAfter
     , lcMarker
     , lcClusterStates
     , lcCreatedBefore
 
-    -- * Response
+    -- * Destructuring the Response
     , ListClustersResponse
-    -- ** Response constructor
     , listClustersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lcrsMarker
     , lcrsClusters
     , lcrsStatus
@@ -175,6 +173,6 @@ lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a});
 lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lcrsStatus :: Lens' ListClustersResponse Int
 lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});

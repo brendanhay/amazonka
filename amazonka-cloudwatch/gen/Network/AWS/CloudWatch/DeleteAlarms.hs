@@ -20,19 +20,17 @@
 -- Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html AWS API Reference> for DeleteAlarms.
 module Network.AWS.CloudWatch.DeleteAlarms
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAlarms
-    -- ** Request constructor
     , deleteAlarms
-    -- ** Request lenses
+    -- * Request Lenses
     , dAlarmNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAlarmsResponse
-    -- ** Response constructor
     , deleteAlarmsResponse
     ) where
 

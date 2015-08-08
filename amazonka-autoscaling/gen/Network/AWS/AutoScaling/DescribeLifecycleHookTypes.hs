@@ -19,19 +19,17 @@
 --
 -- Describes the available types of lifecycle hooks.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHookTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHookTypes.html AWS API Reference> for DescribeLifecycleHookTypes.
 module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLifecycleHookTypes
-    -- ** Request constructor
     , describeLifecycleHookTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLifecycleHookTypesResponse
-    -- ** Response constructor
     , describeLifecycleHookTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlhtrsLifecycleHookTypes
     , dlhtrsStatus
     ) where
@@ -107,6 +105,6 @@ describeLifecycleHookTypesResponse pStatus_ =
 dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlhtrsStatus :: Lens' DescribeLifecycleHookTypesResponse Int
 dlhtrsStatus = lens _dlhtrsStatus (\ s a -> s{_dlhtrsStatus = a});

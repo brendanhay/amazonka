@@ -38,22 +38,20 @@
 -- For Windows instances, the instance console output includes output from
 -- the EC2Config service.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html AWS API Reference> for GetConsoleOutput.
 module Network.AWS.EC2.GetConsoleOutput
     (
-    -- * Request
+    -- * Creating a Request
       GetConsoleOutput
-    -- ** Request constructor
     , getConsoleOutput
-    -- ** Request lenses
+    -- * Request Lenses
     , gcoDryRun
     , gcoInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetConsoleOutputResponse
-    -- ** Response constructor
     , getConsoleOutputResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcorsInstanceId
     , gcorsOutput
     , gcorsTimestamp
@@ -162,6 +160,6 @@ gcorsOutput = lens _gcorsOutput (\ s a -> s{_gcorsOutput = a});
 gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcorsStatus :: Lens' GetConsoleOutputResponse Int
 gcorsStatus = lens _gcorsStatus (\ s a -> s{_gcorsStatus = a});

@@ -13,10 +13,10 @@
 --
 module Network.AWS.CodeCommit.Types
     (
-    -- * Service
+    -- * Service Decription
       CodeCommit
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidContinuationTokenException
     , _EncryptionKeyNotFoundException
     , _RepositoryNameExistsException

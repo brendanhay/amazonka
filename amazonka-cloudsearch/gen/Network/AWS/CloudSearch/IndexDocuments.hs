@@ -21,21 +21,19 @@
 -- indexing options. This operation must be invoked to activate options
 -- whose OptionStatus is @RequiresIndexDocuments@.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html AWS API Reference> for IndexDocuments.
 module Network.AWS.CloudSearch.IndexDocuments
     (
-    -- * Request
+    -- * Creating a Request
       IndexDocuments
-    -- ** Request constructor
     , indexDocuments
-    -- ** Request lenses
+    -- * Request Lenses
     , idDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , IndexDocumentsResponse
-    -- ** Response constructor
     , indexDocumentsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , idrsFieldNames
     , idrsStatus
     ) where
@@ -64,7 +62,7 @@ indexDocuments pDomainName_ =
     { _idDomainName = pDomainName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a});
 
@@ -120,6 +118,6 @@ indexDocumentsResponse pStatus_ =
 idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 idrsStatus :: Lens' IndexDocumentsResponse Int
 idrsStatus = lens _idrsStatus (\ s a -> s{_idrsStatus = a});

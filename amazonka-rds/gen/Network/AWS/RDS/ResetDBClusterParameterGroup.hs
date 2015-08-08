@@ -33,23 +33,21 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBClusterParameterGroup.html AWS API Reference> for ResetDBClusterParameterGroup.
 module Network.AWS.RDS.ResetDBClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ResetDBClusterParameterGroup
-    -- ** Request constructor
     , resetDBClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , rdcpgResetAllParameters
     , rdcpgParameters
     , rdcpgDBClusterParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DBClusterParameterGroupNameMessage
-    -- ** Response constructor
     , dbClusterParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , dcpgnmDBClusterParameterGroupName
     ) where
 

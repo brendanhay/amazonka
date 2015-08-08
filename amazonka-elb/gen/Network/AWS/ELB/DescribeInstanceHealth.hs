@@ -22,22 +22,20 @@
 -- describes the state of all instances registered with the load balancer,
 -- not including any terminated instances.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html AWS API Reference> for DescribeInstanceHealth.
 module Network.AWS.ELB.DescribeInstanceHealth
     (
-    -- * Request
+    -- * Creating a Request
       DescribeInstanceHealth
-    -- ** Request constructor
     , describeInstanceHealth
-    -- ** Request lenses
+    -- * Request Lenses
     , dihInstances
     , dihLoadBalancerName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeInstanceHealthResponse
-    -- ** Response constructor
     , describeInstanceHealthResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dihrsInstanceStates
     , dihrsStatus
     ) where
@@ -128,6 +126,6 @@ describeInstanceHealthResponse pStatus_ =
 dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dihrsStatus :: Lens' DescribeInstanceHealthResponse Int
 dihrsStatus = lens _dihrsStatus (\ s a -> s{_dihrsStatus = a});

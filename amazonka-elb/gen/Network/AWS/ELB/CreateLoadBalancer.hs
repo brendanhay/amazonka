@@ -32,14 +32,13 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html AWS API Reference> for CreateLoadBalancer.
 module Network.AWS.ELB.CreateLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       CreateLoadBalancer
-    -- ** Request constructor
     , createLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , clbSecurityGroups
     , clbSubnets
     , clbAvailabilityZones
@@ -48,11 +47,10 @@ module Network.AWS.ELB.CreateLoadBalancer
     , clbLoadBalancerName
     , clbListeners
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLoadBalancerResponse
-    -- ** Response constructor
     , createLoadBalancerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clbrsDNSName
     , clbrsStatus
     ) where
@@ -221,6 +219,6 @@ createLoadBalancerResponse pStatus_ =
 clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrsDNSName = lens _clbrsDNSName (\ s a -> s{_clbrsDNSName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clbrsStatus :: Lens' CreateLoadBalancerResponse Int
 clbrsStatus = lens _clbrsStatus (\ s a -> s{_clbrsStatus = a});

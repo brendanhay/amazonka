@@ -20,21 +20,19 @@
 -- Creates a new replication configuration (or replaces an existing one, if
 -- present).
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketReplication.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketReplication.html AWS API Reference> for PutBucketReplication.
 module Network.AWS.S3.PutBucketReplication
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketReplication
-    -- ** Request constructor
     , putBucketReplication
-    -- ** Request lenses
+    -- * Request Lenses
     , pbrContentMD5
     , pbrBucket
     , pbrReplicationConfiguration
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketReplicationResponse
-    -- ** Response constructor
     , putBucketReplicationResponse
     ) where
 
@@ -67,15 +65,15 @@ putBucketReplication pBucket_ pReplicationConfiguration_ =
     , _pbrReplicationConfiguration = pReplicationConfiguration_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbrContentMD5 :: Lens' PutBucketReplication (Maybe Text)
 pbrContentMD5 = lens _pbrContentMD5 (\ s a -> s{_pbrContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbrBucket :: Lens' PutBucketReplication BucketName
 pbrBucket = lens _pbrBucket (\ s a -> s{_pbrBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbrReplicationConfiguration :: Lens' PutBucketReplication ReplicationConfiguration
 pbrReplicationConfiguration = lens _pbrReplicationConfiguration (\ s a -> s{_pbrReplicationConfiguration = a});
 

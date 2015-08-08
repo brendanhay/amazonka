@@ -31,21 +31,19 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html AWS API Reference> for UpdateUser.
 module Network.AWS.IAM.UpdateUser
     (
-    -- * Request
+    -- * Creating a Request
       UpdateUser
-    -- ** Request constructor
     , updateUser
-    -- ** Request lenses
+    -- * Request Lenses
     , uuNewUserName
     , uuNewPath
     , uuUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateUserResponse
-    -- ** Response constructor
     , updateUserResponse
     ) where
 

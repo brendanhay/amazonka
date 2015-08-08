@@ -35,22 +35,20 @@
 --
 -- ListStreams has a limit of 5 transactions per second per account.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html AWS API Reference> for ListStreams.
 module Network.AWS.Kinesis.ListStreams
     (
-    -- * Request
+    -- * Creating a Request
       ListStreams
-    -- ** Request constructor
     , listStreams
-    -- ** Request lenses
+    -- * Request Lenses
     , lsLimit
     , lsExclusiveStartStreamName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListStreamsResponse
-    -- ** Response constructor
     , listStreamsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrsStatus
     , lsrsStreamNames
     , lsrsHasMoreStreams
@@ -161,7 +159,7 @@ listStreamsResponse pStatus_ pHasMoreStreams_ =
     , _lsrsHasMoreStreams = pHasMoreStreams_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrsStatus :: Lens' ListStreamsResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
 

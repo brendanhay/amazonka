@@ -23,19 +23,17 @@
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html AWS API Reference> for DescribeAccountLimits.
 module Network.AWS.AutoScaling.DescribeAccountLimits
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAccountLimits
-    -- ** Request constructor
     , describeAccountLimits
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAccountLimitsResponse
-    -- ** Response constructor
     , describeAccountLimitsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dalrsMaxNumberOfLaunchConfigurations
     , dalrsMaxNumberOfAutoScalingGroups
     , dalrsStatus
@@ -115,6 +113,6 @@ dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfiguration
 dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrsMaxNumberOfAutoScalingGroups = lens _dalrsMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrsMaxNumberOfAutoScalingGroups = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dalrsStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsStatus = lens _dalrsStatus (\ s a -> s{_dalrsStatus = a});

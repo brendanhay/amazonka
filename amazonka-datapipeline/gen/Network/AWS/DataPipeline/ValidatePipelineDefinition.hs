@@ -20,24 +20,22 @@
 -- Validates the specified pipeline definition to ensure that it is well
 -- formed and can be run without error.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html AWS API Reference> for ValidatePipelineDefinition.
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
-    -- * Request
+    -- * Creating a Request
       ValidatePipelineDefinition
-    -- ** Request constructor
     , validatePipelineDefinition
-    -- ** Request lenses
+    -- * Request Lenses
     , vpdParameterObjects
     , vpdParameterValues
     , vpdPipelineId
     , vpdPipelineObjects
 
-    -- * Response
+    -- * Destructuring the Response
     , ValidatePipelineDefinitionResponse
-    -- ** Response constructor
     , validatePipelineDefinitionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , vpdrsValidationErrors
     , vpdrsValidationWarnings
     , vpdrsStatus
@@ -172,7 +170,7 @@ vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidation
 vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vpdrsStatus :: Lens' ValidatePipelineDefinitionResponse Int
 vpdrsStatus = lens _vpdrsStatus (\ s a -> s{_vpdrsStatus = a});
 

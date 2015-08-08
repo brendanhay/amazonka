@@ -26,23 +26,21 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAnalysisSchemes.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAnalysisSchemes.html AWS API Reference> for DescribeAnalysisSchemes.
 module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAnalysisSchemes
-    -- ** Request constructor
     , describeAnalysisSchemes
-    -- ** Request lenses
+    -- * Request Lenses
     , dassDeployed
     , dassAnalysisSchemeNames
     , dassDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAnalysisSchemesResponse
-    -- ** Response constructor
     , describeAnalysisSchemesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dasrsStatus
     , dasrsAnalysisSchemes
     ) where
@@ -149,7 +147,7 @@ describeAnalysisSchemesResponse pStatus_ =
     , _dasrsAnalysisSchemes = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasrsStatus :: Lens' DescribeAnalysisSchemesResponse Int
 dasrsStatus = lens _dasrsStatus (\ s a -> s{_dasrsStatus = a});
 

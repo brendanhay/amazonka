@@ -19,23 +19,21 @@
 --
 -- Cancels an in-process import virtual machine or import snapshot task.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelImportTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelImportTask.html AWS API Reference> for CancelImportTask.
 module Network.AWS.EC2.CancelImportTask
     (
-    -- * Request
+    -- * Creating a Request
       CancelImportTask
-    -- ** Request constructor
     , cancelImportTask
-    -- ** Request lenses
+    -- * Request Lenses
     , citCancelReason
     , citImportTaskId
     , citDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelImportTaskResponse
-    -- ** Response constructor
     , cancelImportTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , citrsState
     , citrsImportTaskId
     , citrsPreviousState
@@ -153,6 +151,6 @@ citrsImportTaskId = lens _citrsImportTaskId (\ s a -> s{_citrsImportTaskId = a})
 citrsPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
 citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 citrsStatus :: Lens' CancelImportTaskResponse Int
 citrsStatus = lens _citrsStatus (\ s a -> s{_citrsStatus = a});

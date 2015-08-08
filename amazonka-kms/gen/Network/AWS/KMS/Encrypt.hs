@@ -40,24 +40,22 @@
 -- a copy of the key encrypted under the customer master key (CMK) of your
 -- choosing.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html AWS API Reference> for Encrypt.
 module Network.AWS.KMS.Encrypt
     (
-    -- * Request
+    -- * Creating a Request
       Encrypt
-    -- ** Request constructor
     , encrypt
-    -- ** Request lenses
+    -- * Request Lenses
     , eEncryptionContext
     , eGrantTokens
     , eKeyId
     , ePlaintext
 
-    -- * Response
+    -- * Destructuring the Response
     , EncryptResponse
-    -- ** Response constructor
     , encryptResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ersKeyId
     , ersCiphertextBlob
     , ersStatus
@@ -192,6 +190,6 @@ ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a});
 ersCiphertextBlob :: Lens' EncryptResponse (Maybe ByteString)
 ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ersStatus :: Lens' EncryptResponse Int
 ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});

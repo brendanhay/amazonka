@@ -28,14 +28,13 @@
 -- direction. You can also limit the number of log events returned in the
 -- response by specifying the @limit@ parameter in the request.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html AWS API Reference> for GetLogEvents.
 module Network.AWS.CloudWatchLogs.GetLogEvents
     (
-    -- * Request
+    -- * Creating a Request
       GetLogEvents
-    -- ** Request constructor
     , getLogEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , gleStartTime
     , gleStartFromHead
     , gleNextToken
@@ -44,11 +43,10 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     , gleLogGroupName
     , gleLogStreamName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetLogEventsResponse
-    -- ** Response constructor
     , getLogEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , glersNextBackwardToken
     , glersNextForwardToken
     , glersEvents
@@ -100,7 +98,7 @@ getLogEvents pLogGroupName_ pLogStreamName_ =
     , _gleLogStreamName = pLogStreamName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
 gleStartTime = lens _gleStartTime (\ s a -> s{_gleStartTime = a}) . mapping _Nat;
 
@@ -116,7 +114,7 @@ gleStartFromHead = lens _gleStartFromHead (\ s a -> s{_gleStartFromHead = a});
 gleNextToken :: Lens' GetLogEvents (Maybe Text)
 gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gleEndTime :: Lens' GetLogEvents (Maybe Natural)
 gleEndTime = lens _gleEndTime (\ s a -> s{_gleEndTime = a}) . mapping _Nat;
 
@@ -200,18 +198,18 @@ getLogEventsResponse pStatus_ =
     , _glersStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextBackwardToken = lens _glersNextBackwardToken (\ s a -> s{_glersNextBackwardToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 glersNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextForwardToken = lens _glersNextForwardToken (\ s a -> s{_glersNextForwardToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 glersStatus :: Lens' GetLogEventsResponse Int
 glersStatus = lens _glersStatus (\ s a -> s{_glersStatus = a});

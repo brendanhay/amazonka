@@ -37,25 +37,23 @@
 -- groups are returned regardless of whether they have tag keys or values
 -- associated with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html AWS API Reference> for DescribeClusterParameterGroups.
 module Network.AWS.Redshift.DescribeClusterParameterGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusterParameterGroups
-    -- ** Request constructor
     , describeClusterParameterGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dcpgTagValues
     , dcpgTagKeys
     , dcpgMaxRecords
     , dcpgMarker
     , dcpgParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClusterParameterGroupsResponse
-    -- ** Response constructor
     , describeClusterParameterGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcpgrsMarker
     , dcpgrsParameterGroups
     , dcpgrsStatus
@@ -234,6 +232,6 @@ dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameterGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcpgrsStatus :: Lens' DescribeClusterParameterGroupsResponse Int
 dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});

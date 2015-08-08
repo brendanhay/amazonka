@@ -28,20 +28,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SetDefaultPolicyVersion.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SetDefaultPolicyVersion.html AWS API Reference> for SetDefaultPolicyVersion.
 module Network.AWS.IAM.SetDefaultPolicyVersion
     (
-    -- * Request
+    -- * Creating a Request
       SetDefaultPolicyVersion
-    -- ** Request constructor
     , setDefaultPolicyVersion
-    -- ** Request lenses
+    -- * Request Lenses
     , sdpvPolicyARN
     , sdpvVersionId
 
-    -- * Response
+    -- * Destructuring the Response
     , SetDefaultPolicyVersionResponse
-    -- ** Response constructor
     , setDefaultPolicyVersionResponse
     ) where
 
@@ -70,7 +68,7 @@ setDefaultPolicyVersion pPolicyARN_ pVersionId_ =
     , _sdpvVersionId = pVersionId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sdpvPolicyARN :: Lens' SetDefaultPolicyVersion Text
 sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a});
 

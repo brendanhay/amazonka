@@ -26,21 +26,19 @@
 --
 -- Once a gateway is disabled it cannot be enabled.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html AWS API Reference> for DisableGateway.
 module Network.AWS.StorageGateway.DisableGateway
     (
-    -- * Request
+    -- * Creating a Request
       DisableGateway
-    -- ** Request constructor
     , disableGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , dGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableGatewayResponse
-    -- ** Response constructor
     , disableGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , disrsGatewayARN
     , disrsStatus
     ) where
@@ -68,7 +66,7 @@ disableGateway pGatewayARN_ =
     { _dGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dGatewayARN :: Lens' DisableGateway Text
 dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
 
@@ -128,6 +126,6 @@ disableGatewayResponse pStatus_ =
 disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 disrsStatus :: Lens' DisableGatewayResponse Int
 disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});

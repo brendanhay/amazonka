@@ -23,20 +23,18 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeletePlacementGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeletePlacementGroup.html AWS API Reference> for DeletePlacementGroup.
 module Network.AWS.EC2.DeletePlacementGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeletePlacementGroup
-    -- ** Request constructor
     , deletePlacementGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dpgDryRun
     , dpgGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePlacementGroupResponse
-    -- ** Response constructor
     , deletePlacementGroupResponse
     ) where
 

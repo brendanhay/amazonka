@@ -22,20 +22,18 @@
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html AWS API Reference> for SetEndpointAttributes.
 module Network.AWS.SNS.SetEndpointAttributes
     (
-    -- * Request
+    -- * Creating a Request
       SetEndpointAttributes
-    -- ** Request constructor
     , setEndpointAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , seaEndpointARN
     , seaAttributes
 
-    -- * Response
+    -- * Destructuring the Response
     , SetEndpointAttributesResponse
-    -- ** Response constructor
     , setEndpointAttributesResponse
     ) where
 

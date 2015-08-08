@@ -22,14 +22,13 @@
 -- Creates a trail that specifies the settings for delivery of log data to
 -- an Amazon S3 bucket.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html AWS API Reference> for CreateTrail.
 module Network.AWS.CloudTrail.CreateTrail
     (
-    -- * Request
+    -- * Creating a Request
       CreateTrail
-    -- ** Request constructor
     , createTrail
-    -- ** Request lenses
+    -- * Request Lenses
     , ctS3KeyPrefix
     , ctSNSTopicName
     , ctCloudWatchLogsLogGroupARN
@@ -38,11 +37,10 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctName
     , ctS3BucketName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateTrailResponse
-    -- ** Response constructor
     , createTrailResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ctrsS3KeyPrefix
     , ctrsSNSTopicName
     , ctrsCloudWatchLogsLogGroupARN
@@ -260,6 +258,6 @@ ctrsCloudWatchLogsRoleARN = lens _ctrsCloudWatchLogsRoleARN (\ s a -> s{_ctrsClo
 ctrsS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrsS3BucketName = lens _ctrsS3BucketName (\ s a -> s{_ctrsS3BucketName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ctrsStatus :: Lens' CreateTrailResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

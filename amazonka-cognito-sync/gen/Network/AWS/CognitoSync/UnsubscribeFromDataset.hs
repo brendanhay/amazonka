@@ -23,24 +23,22 @@
 -- This API can only be called with temporary credentials provided by
 -- Cognito Identity. You cannot call this API with developer credentials.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UnsubscribeFromDataset.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UnsubscribeFromDataset.html AWS API Reference> for UnsubscribeFromDataset.
 module Network.AWS.CognitoSync.UnsubscribeFromDataset
     (
-    -- * Request
+    -- * Creating a Request
       UnsubscribeFromDataset
-    -- ** Request constructor
     , unsubscribeFromDataset
-    -- ** Request lenses
+    -- * Request Lenses
     , ufdIdentityPoolId
     , ufdIdentityId
     , ufdDatasetName
     , ufdDeviceId
 
-    -- * Response
+    -- * Destructuring the Response
     , UnsubscribeFromDatasetResponse
-    -- ** Response constructor
     , unsubscribeFromDatasetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ufdrsStatus
     ) where
 
@@ -144,6 +142,6 @@ unsubscribeFromDatasetResponse pStatus_ =
     { _ufdrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ufdrsStatus :: Lens' UnsubscribeFromDatasetResponse Int
 ufdrsStatus = lens _ufdrsStatus (\ s a -> s{_ufdrsStatus = a});

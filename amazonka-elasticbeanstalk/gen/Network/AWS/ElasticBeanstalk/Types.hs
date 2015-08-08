@@ -13,10 +13,10 @@
 --
 module Network.AWS.ElasticBeanstalk.Types
     (
-    -- * Service
+    -- * Service Decription
       ElasticBeanstalk
 
-    -- * Errors
+    -- * Error Matchers
     , _S3SubscriptionRequiredException
     , _TooManyBucketsException
     , _OperationInProgressException

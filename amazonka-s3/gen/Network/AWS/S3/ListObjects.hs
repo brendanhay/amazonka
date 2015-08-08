@@ -21,14 +21,13 @@
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html AWS API Reference> for ListObjects.
 module Network.AWS.S3.ListObjects
     (
-    -- * Request
+    -- * Creating a Request
       ListObjects
-    -- ** Request constructor
     , listObjects
-    -- ** Request lenses
+    -- * Request Lenses
     , loPrefix
     , loEncodingType
     , loMarker
@@ -36,11 +35,10 @@ module Network.AWS.S3.ListObjects
     , loDelimiter
     , loBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , ListObjectsResponse
-    -- ** Response constructor
     , listObjectsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lorsContents
     , lorsPrefix
     , lorsEncodingType
@@ -100,7 +98,7 @@ listObjects pBucket_ =
 loPrefix :: Lens' ListObjects (Maybe Text)
 loPrefix = lens _loPrefix (\ s a -> s{_loPrefix = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 loEncodingType :: Lens' ListObjects (Maybe EncodingType)
 loEncodingType = lens _loEncodingType (\ s a -> s{_loEncodingType = a});
 
@@ -117,7 +115,7 @@ loMaxKeys = lens _loMaxKeys (\ s a -> s{_loMaxKeys = a});
 loDelimiter :: Lens' ListObjects (Maybe Delimiter)
 loDelimiter = lens _loDelimiter (\ s a -> s{_loDelimiter = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 loBucket :: Lens' ListObjects BucketName
 loBucket = lens _loBucket (\ s a -> s{_loBucket = a});
 
@@ -227,11 +225,11 @@ listObjectsResponse pStatus_ =
     , _lorsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsContents :: Lens' ListObjectsResponse [Object]
 lorsContents = lens _lorsContents (\ s a -> s{_lorsContents = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
 lorsPrefix = lens _lorsPrefix (\ s a -> s{_lorsPrefix = a});
 
@@ -239,15 +237,15 @@ lorsPrefix = lens _lorsPrefix (\ s a -> s{_lorsPrefix = a});
 lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
 lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsName :: Lens' ListObjectsResponse (Maybe BucketName)
 lorsName = lens _lorsName (\ s a -> s{_lorsName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsMarker = lens _lorsMarker (\ s a -> s{_lorsMarker = a});
 
@@ -262,7 +260,7 @@ lorsMarker = lens _lorsMarker (\ s a -> s{_lorsMarker = a});
 lorsNextMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsNextMarker = lens _lorsNextMarker (\ s a -> s{_lorsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsMaxKeys :: Lens' ListObjectsResponse (Maybe Int)
 lorsMaxKeys = lens _lorsMaxKeys (\ s a -> s{_lorsMaxKeys = a});
 
@@ -271,10 +269,10 @@ lorsMaxKeys = lens _lorsMaxKeys (\ s a -> s{_lorsMaxKeys = a});
 lorsIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
 lorsIsTruncated = lens _lorsIsTruncated (\ s a -> s{_lorsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
 lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsStatus :: Lens' ListObjectsResponse Int
 lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});

@@ -23,20 +23,18 @@
 --
 -- You cannot delete an application that has a running environment.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
-    -- * Request
+    -- * Creating a Request
       DeleteApplication
-    -- ** Request constructor
     , deleteApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , daTerminateEnvByForce
     , daApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteApplicationResponse
-    -- ** Response constructor
     , deleteApplicationResponse
     ) where
 

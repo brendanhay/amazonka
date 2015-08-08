@@ -13,16 +13,19 @@
 --
 module Network.AWS.S3.Types
     (
-    -- * Service
+    -- * Service Decription
       S3
 
-    -- * Errors
+    -- * Error Matchers
     , _ObjectAlreadyInActiveTierError
     , _BucketAlreadyExists
     , _ObjectNotInActiveTierError
     , _NoSuchUpload
     , _NoSuchBucket
     , _NoSuchKey
+
+    -- * Re-exported Types
+    , module Network.AWS.S3.Internal
 
     -- * BucketCannedACL
     , BucketCannedACL (..)
@@ -432,8 +435,6 @@ module Network.AWS.S3.Types
     , wcErrorDocument
     , wcRoutingRules
     , wcIndexDocument
-
-    , module Network.AWS.S3.Internal
     ) where
 
 import           Network.AWS.Prelude

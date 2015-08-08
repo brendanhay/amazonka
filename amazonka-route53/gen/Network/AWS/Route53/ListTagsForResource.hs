@@ -17,24 +17,22 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- FIXME: Undocumented operation.
+-- Undocumented operation.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResource.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.Route53.ListTagsForResource
     (
-    -- * Request
+    -- * Creating a Request
       ListTagsForResource
-    -- ** Request constructor
     , listTagsForResource
-    -- ** Request lenses
+    -- * Request Lenses
     , ltfrResourceType
     , ltfrResourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTagsForResourceResponse
-    -- ** Response constructor
     , listTagsForResourceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltfrrsStatus
     , ltfrrsResourceTagSet
     ) where
@@ -124,7 +122,7 @@ listTagsForResourceResponse pStatus_ pResourceTagSet_ =
     , _ltfrrsResourceTagSet = pResourceTagSet_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});
 

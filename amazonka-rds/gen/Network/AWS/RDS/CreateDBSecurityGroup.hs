@@ -20,23 +20,21 @@
 -- Creates a new DB security group. DB security groups control access to a
 -- DB instance.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSecurityGroup.html AWS API Reference> for CreateDBSecurityGroup.
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBSecurityGroup
-    -- ** Request constructor
     , createDBSecurityGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cdsgTags
     , cdsgDBSecurityGroupName
     , cdsgDBSecurityGroupDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBSecurityGroupResponse
-    -- ** Response constructor
     , createDBSecurityGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdbsgrsDBSecurityGroup
     , cdbsgrsStatus
     ) where
@@ -72,7 +70,7 @@ createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
     , _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
 cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
 
@@ -142,10 +140,10 @@ createDBSecurityGroupResponse pStatus_ =
     , _cdbsgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbsgrsStatus :: Lens' CreateDBSecurityGroupResponse Int
 cdbsgrsStatus = lens _cdbsgrsStatus (\ s a -> s{_cdbsgrsStatus = a});

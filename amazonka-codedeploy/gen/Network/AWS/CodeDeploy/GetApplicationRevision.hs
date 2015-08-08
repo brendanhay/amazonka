@@ -19,22 +19,20 @@
 --
 -- Gets information about an application revision.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplicationRevision.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplicationRevision.html AWS API Reference> for GetApplicationRevision.
 module Network.AWS.CodeDeploy.GetApplicationRevision
     (
-    -- * Request
+    -- * Creating a Request
       GetApplicationRevision
-    -- ** Request constructor
     , getApplicationRevision
-    -- ** Request lenses
+    -- * Request Lenses
     , garApplicationName
     , garRevision
 
-    -- * Response
+    -- * Destructuring the Response
     , GetApplicationRevisionResponse
-    -- ** Response constructor
     , getApplicationRevisionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , garrsRevisionInfo
     , garrsApplicationName
     , garrsRevision
@@ -155,6 +153,6 @@ garrsApplicationName = lens _garrsApplicationName (\ s a -> s{_garrsApplicationN
 garrsRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 garrsStatus :: Lens' GetApplicationRevisionResponse Int
 garrsStatus = lens _garrsStatus (\ s a -> s{_garrsStatus = a});

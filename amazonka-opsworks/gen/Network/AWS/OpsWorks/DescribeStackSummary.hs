@@ -26,21 +26,19 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackSummary.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackSummary.html AWS API Reference> for DescribeStackSummary.
 module Network.AWS.OpsWorks.DescribeStackSummary
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStackSummary
-    -- ** Request constructor
     , describeStackSummary
-    -- ** Request lenses
+    -- * Request Lenses
     , dssStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStackSummaryResponse
-    -- ** Response constructor
     , describeStackSummaryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dssrsStackSummary
     , dssrsStatus
     ) where
@@ -127,6 +125,6 @@ describeStackSummaryResponse pStatus_ =
 dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStatus :: Lens' DescribeStackSummaryResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

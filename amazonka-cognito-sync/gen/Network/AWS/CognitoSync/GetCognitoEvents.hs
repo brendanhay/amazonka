@@ -24,21 +24,19 @@
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetCognitoEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetCognitoEvents.html AWS API Reference> for GetCognitoEvents.
 module Network.AWS.CognitoSync.GetCognitoEvents
     (
-    -- * Request
+    -- * Creating a Request
       GetCognitoEvents
-    -- ** Request constructor
     , getCognitoEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , gceIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetCognitoEventsResponse
-    -- ** Response constructor
     , getCognitoEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcersEvents
     , gcersStatus
     ) where
@@ -122,6 +120,6 @@ getCognitoEventsResponse pStatus_ =
 gcersEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcersStatus :: Lens' GetCognitoEventsResponse Int
 gcersStatus = lens _gcersStatus (\ s a -> s{_gcersStatus = a});

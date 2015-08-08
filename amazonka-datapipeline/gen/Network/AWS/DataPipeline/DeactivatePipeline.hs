@@ -24,22 +24,20 @@
 -- pipeline resumes from the last completed execution. Optionally, you can
 -- specify the date and time to resume the pipeline.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeactivatePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeactivatePipeline.html AWS API Reference> for DeactivatePipeline.
 module Network.AWS.DataPipeline.DeactivatePipeline
     (
-    -- * Request
+    -- * Creating a Request
       DeactivatePipeline
-    -- ** Request constructor
     , deactivatePipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , dCancelActive
     , dPipelineId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeactivatePipelineResponse
-    -- ** Response constructor
     , deactivatePipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStatus
     ) where
 
@@ -129,6 +127,6 @@ deactivatePipelineResponse pStatus_ =
     { _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeactivatePipelineResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

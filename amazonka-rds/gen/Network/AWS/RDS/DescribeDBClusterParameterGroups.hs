@@ -26,24 +26,22 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterParameterGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterParameterGroups.html AWS API Reference> for DescribeDBClusterParameterGroups.
 module Network.AWS.RDS.DescribeDBClusterParameterGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBClusterParameterGroups
-    -- ** Request constructor
     , describeDBClusterParameterGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcpgFilters
     , ddcpgMaxRecords
     , ddcpgMarker
     , ddcpgDBClusterParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBClusterParameterGroupsResponse
-    -- ** Response constructor
     , describeDBClusterParameterGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddcpgrsMarker
     , ddcpgrsDBClusterParameterGroups
     , ddcpgrsStatus
@@ -191,6 +189,6 @@ ddcpgrsMarker = lens _ddcpgrsMarker (\ s a -> s{_ddcpgrsMarker = a});
 ddcpgrsDBClusterParameterGroups :: Lens' DescribeDBClusterParameterGroupsResponse [DBClusterParameterGroup]
 ddcpgrsDBClusterParameterGroups = lens _ddcpgrsDBClusterParameterGroups (\ s a -> s{_ddcpgrsDBClusterParameterGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcpgrsStatus :: Lens' DescribeDBClusterParameterGroupsResponse Int
 ddcpgrsStatus = lens _ddcpgrsStatus (\ s a -> s{_ddcpgrsStatus = a});

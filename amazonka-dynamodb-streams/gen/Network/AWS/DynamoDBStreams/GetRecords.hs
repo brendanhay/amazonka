@@ -29,22 +29,20 @@
 -- GetRecords can retrieve a maximum of 1 MB of data or 2000 stream
 -- records, whichever comes first.
 --
--- <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetRecords.html>
+-- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetRecords.html AWS API Reference> for GetRecords.
 module Network.AWS.DynamoDBStreams.GetRecords
     (
-    -- * Request
+    -- * Creating a Request
       GetRecords
-    -- ** Request constructor
     , getRecords
-    -- ** Request lenses
+    -- * Request Lenses
     , grLimit
     , grShardIterator
 
-    -- * Response
+    -- * Destructuring the Response
     , GetRecordsResponse
-    -- ** Response constructor
     , getRecordsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grrsRecords
     , grrsNextShardIterator
     , grrsStatus
@@ -159,6 +157,6 @@ grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default . _Coe
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grrsStatus :: Lens' GetRecordsResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

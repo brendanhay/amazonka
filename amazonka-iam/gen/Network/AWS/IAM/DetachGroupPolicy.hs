@@ -25,20 +25,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachGroupPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachGroupPolicy.html AWS API Reference> for DetachGroupPolicy.
 module Network.AWS.IAM.DetachGroupPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DetachGroupPolicy
-    -- ** Request constructor
     , detachGroupPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dgpGroupName
     , dgpPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachGroupPolicyResponse
-    -- ** Response constructor
     , detachGroupPolicyResponse
     ) where
 
@@ -72,7 +70,7 @@ detachGroupPolicy pGroupName_ pPolicyARN_ =
 dgpGroupName :: Lens' DetachGroupPolicy Text
 dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dgpPolicyARN :: Lens' DetachGroupPolicy Text
 dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a});
 

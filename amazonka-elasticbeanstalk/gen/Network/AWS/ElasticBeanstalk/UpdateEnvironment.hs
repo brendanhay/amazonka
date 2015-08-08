@@ -31,14 +31,13 @@
 -- DescribeConfigurationSettings for this environment returns two setting
 -- descriptions with different @DeploymentStatus@ values.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html AWS API Reference> for UpdateEnvironment.
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     (
-    -- * Request
+    -- * Creating a Request
       UpdateEnvironment
-    -- ** Request constructor
     , updateEnvironment
-    -- ** Request lenses
+    -- * Request Lenses
     , ueTemplateName
     , ueOptionsToRemove
     , ueOptionSettings
@@ -49,11 +48,10 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , ueSolutionStackName
     , ueDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , EnvironmentDescription
-    -- ** Response constructor
     , environmentDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , eCNAME
     , eStatus
     , eTemplateName

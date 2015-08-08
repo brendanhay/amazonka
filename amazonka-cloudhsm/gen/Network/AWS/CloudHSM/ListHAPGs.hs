@@ -24,21 +24,19 @@
 -- response contains a token that you pass in the next call to ListHapgs to
 -- retrieve the next set of items.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHAPGs.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHAPGs.html AWS API Reference> for ListHAPGs.
 module Network.AWS.CloudHSM.ListHAPGs
     (
-    -- * Request
+    -- * Creating a Request
       ListHAPGs
-    -- ** Request constructor
     , listHAPGs
-    -- ** Request lenses
+    -- * Request Lenses
     , lhNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListHAPGsResponse
-    -- ** Response constructor
     , listHAPGsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lhrsNextToken
     , lhrsStatus
     , lhrsHAPGList
@@ -129,7 +127,7 @@ listHAPGsResponse pStatus_ =
 lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
 lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lhrsStatus :: Lens' ListHAPGsResponse Int
 lhrsStatus = lens _lhrsStatus (\ s a -> s{_lhrsStatus = a});
 

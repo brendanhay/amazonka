@@ -37,14 +37,13 @@
 -- replace the original DB instance with the DB instance created from the
 -- snapshot.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html AWS API Reference> for RestoreDBInstanceFromDBSnapshot.
 module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       RestoreDBInstanceFromDBSnapshot
-    -- ** Request constructor
     , restoreDBInstanceFromDBSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , rdifdsDBSecurityGroups
     , rdifdsAutoMinorVersionUpgrade
     , rdifdsPubliclyAccessible
@@ -68,11 +67,10 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsDBInstanceIdentifier
     , rdifdsDBSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreDBInstanceFromDBSnapshotResponse
-    -- ** Response constructor
     , restoreDBInstanceFromDBSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdifdsrsDBInstance
     , rdifdsrsStatus
     ) where
@@ -322,7 +320,7 @@ rdifdsCopyTagsToSnapshot = lens _rdifdsCopyTagsToSnapshot (\ s a -> s{_rdifdsCop
 rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
 rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a}) . _Default . _Coerce;
 
@@ -449,10 +447,10 @@ restoreDBInstanceFromDBSnapshotResponse pStatus_ =
     , _rdifdsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdifdsrsDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
 rdifdsrsDBInstance = lens _rdifdsrsDBInstance (\ s a -> s{_rdifdsrsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdifdsrsStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
 rdifdsrsStatus = lens _rdifdsrsStatus (\ s a -> s{_rdifdsrsStatus = a});

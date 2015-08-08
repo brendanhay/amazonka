@@ -24,22 +24,20 @@
 --
 -- The comment can have a maximum length of 256 characters.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html AWS API Reference> for UpdateHostedZoneComment.
 module Network.AWS.Route53.UpdateHostedZoneComment
     (
-    -- * Request
+    -- * Creating a Request
       UpdateHostedZoneComment
-    -- ** Request constructor
     , updateHostedZoneComment
-    -- ** Request lenses
+    -- * Request Lenses
     , uhzcComment
     , uhzcId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateHostedZoneCommentResponse
-    -- ** Response constructor
     , updateHostedZoneCommentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uhzcrsStatus
     , uhzcrsHostedZone
     ) where
@@ -133,10 +131,10 @@ updateHostedZoneCommentResponse pStatus_ pHostedZone_ =
     , _uhzcrsHostedZone = pHostedZone_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uhzcrsStatus :: Lens' UpdateHostedZoneCommentResponse Int
 uhzcrsStatus = lens _uhzcrsStatus (\ s a -> s{_uhzcrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
 uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a});

@@ -29,21 +29,19 @@
 -- -   @ec2:DescribeNetworkInterfaceAttribute@ action on the mount
 --     target\'s network interface.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargetSecurityGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargetSecurityGroups.html AWS API Reference> for DescribeMountTargetSecurityGroups.
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMountTargetSecurityGroups
-    -- ** Request constructor
     , describeMountTargetSecurityGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dmtsgMountTargetId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMountTargetSecurityGroupsResponse
-    -- ** Response constructor
     , describeMountTargetSecurityGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmtsgrsStatus
     , dmtsgrsSecurityGroups
     ) where
@@ -121,7 +119,7 @@ describeMountTargetSecurityGroupsResponse pStatus_ =
     , _dmtsgrsSecurityGroups = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmtsgrsStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
 dmtsgrsStatus = lens _dmtsgrsStatus (\ s a -> s{_dmtsgrsStatus = a});
 

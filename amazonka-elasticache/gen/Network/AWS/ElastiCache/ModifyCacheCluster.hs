@@ -22,14 +22,13 @@
 -- configuration parameters by specifying the parameters and the new
 -- values.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html AWS API Reference> for ModifyCacheCluster.
 module Network.AWS.ElastiCache.ModifyCacheCluster
     (
-    -- * Request
+    -- * Creating a Request
       ModifyCacheCluster
-    -- ** Request constructor
     , modifyCacheCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , mccEngineVersion
     , mccSecurityGroupIds
     , mccAutoMinorVersionUpgrade
@@ -47,11 +46,10 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , mccCacheSecurityGroupNames
     , mccCacheClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyCacheClusterResponse
-    -- ** Response constructor
     , modifyCacheClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mccrsCacheCluster
     , mccrsStatus
     ) where
@@ -443,10 +441,10 @@ modifyCacheClusterResponse pStatus_ =
     , _mccrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mccrsCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrsCacheCluster = lens _mccrsCacheCluster (\ s a -> s{_mccrsCacheCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mccrsStatus :: Lens' ModifyCacheClusterResponse Int
 mccrsStatus = lens _mccrsStatus (\ s a -> s{_mccrsStatus = a});

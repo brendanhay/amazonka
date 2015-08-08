@@ -20,21 +20,19 @@
 -- Returns a @BatchPrediction@ that includes detailed metadata, status, and
 -- data file information for a @Batch Prediction@ request.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetBatchPrediction.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetBatchPrediction.html AWS API Reference> for GetBatchPrediction.
 module Network.AWS.MachineLearning.GetBatchPrediction
     (
-    -- * Request
+    -- * Creating a Request
       GetBatchPrediction
-    -- ** Request constructor
     , getBatchPrediction
-    -- ** Request lenses
+    -- * Request Lenses
     , gbpBatchPredictionId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBatchPredictionResponse
-    -- ** Response constructor
     , getBatchPredictionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbprsLastUpdatedAt
     , gbprsCreatedAt
     , gbprsInputDataLocationS3
@@ -234,6 +232,6 @@ gbprsMessage = lens _gbprsMessage (\ s a -> s{_gbprsMessage = a});
 gbprsOutputURI :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsOutputURI = lens _gbprsOutputURI (\ s a -> s{_gbprsOutputURI = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbprsStatus :: Lens' GetBatchPredictionResponse Int
 gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});

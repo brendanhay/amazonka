@@ -23,22 +23,20 @@
 -- (@ABANDON@ for launching instances, @CONTINUE@ for terminating
 -- instances).
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLifecycleHook.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLifecycleHook.html AWS API Reference> for DeleteLifecycleHook.
 module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLifecycleHook
-    -- ** Request constructor
     , deleteLifecycleHook
-    -- ** Request lenses
+    -- * Request Lenses
     , delLifecycleHookName
     , delAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLifecycleHookResponse
-    -- ** Response constructor
     , deleteLifecycleHookResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStatus
     ) where
 
@@ -115,6 +113,6 @@ deleteLifecycleHookResponse pStatus_ =
     { _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteLifecycleHookResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

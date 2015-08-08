@@ -23,21 +23,19 @@
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetIdentityPoolConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetIdentityPoolConfiguration.html AWS API Reference> for GetIdentityPoolConfiguration.
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       GetIdentityPoolConfiguration
-    -- ** Request constructor
     , getIdentityPoolConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , gipcIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetIdentityPoolConfigurationResponse
-    -- ** Response constructor
     , getIdentityPoolConfigurationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gipcrsIdentityPoolId
     , gipcrsCognitoStreams
     , gipcrsPushSync
@@ -147,6 +145,6 @@ gipcrsCognitoStreams = lens _gipcrsCognitoStreams (\ s a -> s{_gipcrsCognitoStre
 gipcrsPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrsPushSync = lens _gipcrsPushSync (\ s a -> s{_gipcrsPushSync = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gipcrsStatus :: Lens' GetIdentityPoolConfigurationResponse Int
 gipcrsStatus = lens _gipcrsStatus (\ s a -> s{_gipcrsStatus = a});

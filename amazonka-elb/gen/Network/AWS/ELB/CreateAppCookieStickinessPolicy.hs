@@ -35,23 +35,21 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicy.html AWS API Reference> for CreateAppCookieStickinessPolicy.
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
-    -- * Request
+    -- * Creating a Request
       CreateAppCookieStickinessPolicy
-    -- ** Request constructor
     , createAppCookieStickinessPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , cacspLoadBalancerName
     , cacspPolicyName
     , cacspCookieName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAppCookieStickinessPolicyResponse
-    -- ** Response constructor
     , createAppCookieStickinessPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cacsprsStatus
     ) where
 
@@ -144,6 +142,6 @@ createAppCookieStickinessPolicyResponse pStatus_ =
     { _cacsprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cacsprsStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
 cacsprsStatus = lens _cacsprsStatus (\ s a -> s{_cacsprsStatus = a});

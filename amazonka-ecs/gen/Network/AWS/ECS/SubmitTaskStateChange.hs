@@ -22,24 +22,22 @@
 --
 -- Sent to acknowledge that a task changed states.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitTaskStateChange.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitTaskStateChange.html AWS API Reference> for SubmitTaskStateChange.
 module Network.AWS.ECS.SubmitTaskStateChange
     (
-    -- * Request
+    -- * Creating a Request
       SubmitTaskStateChange
-    -- ** Request constructor
     , submitTaskStateChange
-    -- ** Request lenses
+    -- * Request Lenses
     , stscStatus
     , stscCluster
     , stscReason
     , stscTask
 
-    -- * Response
+    -- * Destructuring the Response
     , SubmitTaskStateChangeResponse
-    -- ** Response constructor
     , submitTaskStateChangeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , stscrsAcknowledgment
     , stscrsStatus
     ) where
@@ -152,6 +150,6 @@ submitTaskStateChangeResponse pStatus_ =
 stscrsAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
 stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgment = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 stscrsStatus :: Lens' SubmitTaskStateChangeResponse Int
 stscrsStatus = lens _stscrsStatus (\ s a -> s{_stscrsStatus = a});

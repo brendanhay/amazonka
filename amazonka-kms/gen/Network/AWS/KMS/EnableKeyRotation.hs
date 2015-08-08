@@ -19,19 +19,17 @@
 --
 -- Enables rotation of the specified customer master key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html AWS API Reference> for EnableKeyRotation.
 module Network.AWS.KMS.EnableKeyRotation
     (
-    -- * Request
+    -- * Creating a Request
       EnableKeyRotation
-    -- ** Request constructor
     , enableKeyRotation
-    -- ** Request lenses
+    -- * Request Lenses
     , ekrKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableKeyRotationResponse
-    -- ** Response constructor
     , enableKeyRotationResponse
     ) where
 

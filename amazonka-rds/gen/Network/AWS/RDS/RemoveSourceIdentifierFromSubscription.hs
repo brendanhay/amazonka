@@ -20,22 +20,20 @@
 -- Removes a source identifier from an existing RDS event notification
 -- subscription.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveSourceIdentifierFromSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveSourceIdentifierFromSubscription.html AWS API Reference> for RemoveSourceIdentifierFromSubscription.
 module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     (
-    -- * Request
+    -- * Creating a Request
       RemoveSourceIdentifierFromSubscription
-    -- ** Request constructor
     , removeSourceIdentifierFromSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , rsifsSubscriptionName
     , rsifsSourceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveSourceIdentifierFromSubscriptionResponse
-    -- ** Response constructor
     , removeSourceIdentifierFromSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rsifsrsEventSubscription
     , rsifsrsStatus
     ) where
@@ -130,10 +128,10 @@ removeSourceIdentifierFromSubscriptionResponse pStatus_ =
     , _rsifsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEventSubscription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rsifsrsStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
 rsifsrsStatus = lens _rsifsrsStatus (\ s a -> s{_rsifsrsStatus = a});

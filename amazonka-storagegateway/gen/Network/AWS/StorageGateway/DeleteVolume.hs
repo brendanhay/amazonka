@@ -33,21 +33,19 @@
 -- In the request, you must provide the Amazon Resource Name (ARN) of the
 -- storage volume you want to delete.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteVolume.html AWS API Reference> for DeleteVolume.
 module Network.AWS.StorageGateway.DeleteVolume
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVolume
-    -- ** Request constructor
     , deleteVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , dvVolumeARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVolumeResponse
-    -- ** Response constructor
     , deleteVolumeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvrsVolumeARN
     , dvrsStatus
     ) where
@@ -137,6 +135,6 @@ deleteVolumeResponse pStatus_ =
 dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrsVolumeARN = lens _dvrsVolumeARN (\ s a -> s{_dvrsVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvrsStatus :: Lens' DeleteVolumeResponse Int
 dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

@@ -19,22 +19,20 @@
 --
 -- Get the information about an invalidation.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html AWS API Reference> for GetInvalidation.
 module Network.AWS.CloudFront.GetInvalidation
     (
-    -- * Request
+    -- * Creating a Request
       GetInvalidation
-    -- ** Request constructor
     , getInvalidation
-    -- ** Request lenses
+    -- * Request Lenses
     , giDistributionId
     , giId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetInvalidationResponse
-    -- ** Response constructor
     , getInvalidationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , girsInvalidation
     , girsStatus
     ) where
@@ -122,6 +120,6 @@ getInvalidationResponse pStatus_ =
 girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 girsStatus :: Lens' GetInvalidationResponse Int
 girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

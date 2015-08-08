@@ -13,10 +13,10 @@
 --
 module Network.AWS.DirectConnect.Types
     (
-    -- * Service
+    -- * Service Decription
       DirectConnect
 
-    -- * Errors
+    -- * Error Matchers
     , _DirectConnectClientException
     , _DirectConnectServerException
 

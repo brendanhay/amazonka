@@ -19,21 +19,19 @@
 --
 -- Registers with AWS CodeDeploy a revision for the specified application.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html AWS API Reference> for RegisterApplicationRevision.
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
-    -- * Request
+    -- * Creating a Request
       RegisterApplicationRevision
-    -- ** Request constructor
     , registerApplicationRevision
-    -- ** Request lenses
+    -- * Request Lenses
     , rarDescription
     , rarApplicationName
     , rarRevision
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterApplicationRevisionResponse
-    -- ** Response constructor
     , registerApplicationRevisionResponse
     ) where
 

@@ -19,22 +19,20 @@
 --
 -- Gets information about samples.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListSamples.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListSamples.html AWS API Reference> for ListSamples.
 module Network.AWS.DeviceFarm.ListSamples
     (
-    -- * Request
+    -- * Creating a Request
       ListSamples
-    -- ** Request constructor
     , listSamples
-    -- ** Request lenses
+    -- * Request Lenses
     , lsNextToken
     , lsArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListSamplesResponse
-    -- ** Response constructor
     , listSamplesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrsNextToken
     , lsrsSamples
     , lsrsStatus
@@ -144,6 +142,6 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 lsrsSamples :: Lens' ListSamplesResponse [Sample]
 lsrsSamples = lens _lsrsSamples (\ s a -> s{_lsrsSamples = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrsStatus :: Lens' ListSamplesResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

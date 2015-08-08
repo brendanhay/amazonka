@@ -43,22 +43,20 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html Create Vault>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CreateVault.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CreateVault.html AWS API Reference> for CreateVault.
 module Network.AWS.Glacier.CreateVault
     (
-    -- * Request
+    -- * Creating a Request
       CreateVault
-    -- ** Request constructor
     , createVault
-    -- ** Request lenses
+    -- * Request Lenses
     , cvAccountId
     , cvVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateVaultResponse
-    -- ** Response constructor
     , createVaultResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cvrsLocation
     , cvrsStatus
     ) where
@@ -155,6 +153,6 @@ createVaultResponse pStatus_ =
 cvrsLocation :: Lens' CreateVaultResponse (Maybe Text)
 cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cvrsStatus :: Lens' CreateVaultResponse Int
 cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});

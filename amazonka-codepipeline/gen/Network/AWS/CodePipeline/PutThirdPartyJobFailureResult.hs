@@ -20,21 +20,19 @@
 -- Represents the failure of a third party job as returned to the pipeline
 -- by a job worker. Only used for partner actions.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobFailureResult.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobFailureResult.html AWS API Reference> for PutThirdPartyJobFailureResult.
 module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
     (
-    -- * Request
+    -- * Creating a Request
       PutThirdPartyJobFailureResult
-    -- ** Request constructor
     , putThirdPartyJobFailureResult
-    -- ** Request lenses
+    -- * Request Lenses
     , ptpjfrJobId
     , ptpjfrClientToken
     , ptpjfrFailureDetails
 
-    -- * Response
+    -- * Destructuring the Response
     , PutThirdPartyJobFailureResultResponse
-    -- ** Response constructor
     , putThirdPartyJobFailureResultResponse
     ) where
 
@@ -80,7 +78,7 @@ ptpjfrJobId = lens _ptpjfrJobId (\ s a -> s{_ptpjfrJobId = a});
 ptpjfrClientToken :: Lens' PutThirdPartyJobFailureResult Text
 ptpjfrClientToken = lens _ptpjfrClientToken (\ s a -> s{_ptpjfrClientToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ptpjfrFailureDetails :: Lens' PutThirdPartyJobFailureResult FailureDetails
 ptpjfrFailureDetails = lens _ptpjfrFailureDetails (\ s a -> s{_ptpjfrFailureDetails = a});
 

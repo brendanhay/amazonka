@@ -20,21 +20,19 @@
 -- Lists the applications registered with the applicable IAM user or AWS
 -- account.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html AWS API Reference> for ListApplications.
 module Network.AWS.CodeDeploy.ListApplications
     (
-    -- * Request
+    -- * Creating a Request
       ListApplications
-    -- ** Request constructor
     , listApplications
-    -- ** Request lenses
+    -- * Request Lenses
     , laNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListApplicationsResponse
-    -- ** Response constructor
     , listApplicationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , larsNextToken
     , larsApplications
     , larsStatus
@@ -137,6 +135,6 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsApplications :: Lens' ListApplicationsResponse [Text]
 larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 larsStatus :: Lens' ListApplicationsResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

@@ -225,7 +225,7 @@ cluster pId_ pName_ pStatus_ =
 cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
 cluRequestedAMIVersion = lens _cluRequestedAMIVersion (\ s a -> s{_cluRequestedAMIVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cluEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
 cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2InstanceAttributes = a});
 

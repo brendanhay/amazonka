@@ -22,22 +22,20 @@
 -- If a property (for example, @description@) is not provided, the value
 -- remains unchanged. To clear these properties, specify an empty string.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
-    -- * Request
+    -- * Creating a Request
       UpdateApplication
-    -- ** Request constructor
     , updateApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , uaDescription
     , uaApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , ApplicationDescriptionMessage
-    -- ** Response constructor
     , applicationDescriptionMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , admApplication
     ) where
 

@@ -53,20 +53,18 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCompleted.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskCompleted.html AWS API Reference> for RespondActivityTaskCompleted.
 module Network.AWS.SWF.RespondActivityTaskCompleted
     (
-    -- * Request
+    -- * Creating a Request
       RespondActivityTaskCompleted
-    -- ** Request constructor
     , respondActivityTaskCompleted
-    -- ** Request lenses
+    -- * Request Lenses
     , ratcResult
     , ratcTaskToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RespondActivityTaskCompletedResponse
-    -- ** Response constructor
     , respondActivityTaskCompletedResponse
     ) where
 

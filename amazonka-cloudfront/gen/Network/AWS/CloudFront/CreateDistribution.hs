@@ -19,21 +19,19 @@
 --
 -- Create a new distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateDistribution.html AWS API Reference> for CreateDistribution.
 module Network.AWS.CloudFront.CreateDistribution
     (
-    -- * Request
+    -- * Creating a Request
       CreateDistribution
-    -- ** Request constructor
     , createDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , cdDistributionConfig
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDistributionResponse
-    -- ** Response constructor
     , createDistributionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdrsETag
     , cdrsDistribution
     , cdrsLocation
@@ -140,6 +138,6 @@ cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdrsStatus :: Lens' CreateDistributionResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

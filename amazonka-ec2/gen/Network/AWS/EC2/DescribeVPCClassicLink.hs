@@ -19,23 +19,21 @@
 --
 -- Describes the ClassicLink status of one or more VPCs.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCClassicLink.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCClassicLink.html AWS API Reference> for DescribeVPCClassicLink.
 module Network.AWS.EC2.DescribeVPCClassicLink
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPCClassicLink
-    -- ** Request constructor
     , describeVPCClassicLink
-    -- ** Request lenses
+    -- * Request Lenses
     , dvclFilters
     , dvclVPCIds
     , dvclDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPCClassicLinkResponse
-    -- ** Response constructor
     , describeVPCClassicLinkResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvclrsVPCs
     , dvclrsStatus
     ) where
@@ -155,6 +153,6 @@ describeVPCClassicLinkResponse pStatus_ =
 dvclrsVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
 dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvclrsStatus :: Lens' DescribeVPCClassicLinkResponse Int
 dvclrsStatus = lens _dvclrsStatus (\ s a -> s{_dvclrsStatus = a});

@@ -21,23 +21,21 @@
 -- status. The response body contains one element for each job that
 -- satisfies the search criteria.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByStatus.html AWS API Reference> for ListJobsByStatus.
 module Network.AWS.ElasticTranscoder.ListJobsByStatus
     (
-    -- * Request
+    -- * Creating a Request
       ListJobsByStatus
-    -- ** Request constructor
     , listJobsByStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , ljbsAscending
     , ljbsPageToken
     , ljbsStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , ListJobsByStatusResponse
-    -- ** Response constructor
     , listJobsByStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ljbsrsNextPageToken
     , ljbsrsJobs
     , ljbsrsStatus
@@ -163,6 +161,6 @@ ljbsrsNextPageToken = lens _ljbsrsNextPageToken (\ s a -> s{_ljbsrsNextPageToken
 ljbsrsJobs :: Lens' ListJobsByStatusResponse [Job']
 ljbsrsJobs = lens _ljbsrsJobs (\ s a -> s{_ljbsrsJobs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljbsrsStatus :: Lens' ListJobsByStatusResponse Int
 ljbsrsStatus = lens _ljbsrsStatus (\ s a -> s{_ljbsrsStatus = a});

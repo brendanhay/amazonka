@@ -22,21 +22,19 @@
 -- retrieval policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetDataRetrievalPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetDataRetrievalPolicy.html AWS API Reference> for GetDataRetrievalPolicy.
 module Network.AWS.Glacier.GetDataRetrievalPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetDataRetrievalPolicy
-    -- ** Request constructor
     , getDataRetrievalPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gdrpAccountId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDataRetrievalPolicyResponse
-    -- ** Response constructor
     , getDataRetrievalPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdrprsPolicy
     , gdrprsStatus
     ) where
@@ -124,6 +122,6 @@ getDataRetrievalPolicyResponse pStatus_ =
 gdrprsPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
 gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdrprsStatus :: Lens' GetDataRetrievalPolicyResponse Int
 gdrprsStatus = lens _gdrprsStatus (\ s a -> s{_gdrprsStatus = a});

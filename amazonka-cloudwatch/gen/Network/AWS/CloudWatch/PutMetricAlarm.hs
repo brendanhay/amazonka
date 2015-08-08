@@ -26,14 +26,13 @@
 -- set appropriately. Any actions associated with the @StateValue@ is then
 -- executed.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html AWS API Reference> for PutMetricAlarm.
 module Network.AWS.CloudWatch.PutMetricAlarm
     (
-    -- * Request
+    -- * Creating a Request
       PutMetricAlarm
-    -- ** Request constructor
     , putMetricAlarm
-    -- ** Request lenses
+    -- * Request Lenses
     , pmaAlarmDescription
     , pmaOKActions
     , pmaActionsEnabled
@@ -50,9 +49,8 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     , pmaThreshold
     , pmaComparisonOperator
 
-    -- * Response
+    -- * Destructuring the Response
     , PutMetricAlarmResponse
-    -- ** Response constructor
     , putMetricAlarmResponse
     ) where
 

@@ -46,14 +46,13 @@
 -- consistent reads only, so do not specify /ConsistentRead/ when querying
 -- a global secondary index.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html AWS API Reference> for Query.
 module Network.AWS.DynamoDB.Query
     (
-    -- * Request
+    -- * Creating a Request
       Query
-    -- ** Request constructor
     , query
-    -- ** Request lenses
+    -- * Request Lenses
     , qProjectionExpression
     , qKeyConditions
     , qFilterExpression
@@ -72,11 +71,10 @@ module Network.AWS.DynamoDB.Query
     , qIndexName
     , qTableName
 
-    -- * Response
+    -- * Destructuring the Response
     , QueryResponse
-    -- ** Response constructor
     , queryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , qrsLastEvaluatedKey
     , qrsCount
     , qrsScannedCount
@@ -470,7 +468,7 @@ qExpressionAttributeNames = lens _qExpressionAttributeNames (\ s a -> s{_qExpres
 qAttributesToGet :: Lens' Query (Maybe (NonEmpty Text))
 qAttributesToGet = lens _qAttributesToGet (\ s a -> s{_qAttributesToGet = a}) . mapping _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 qReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
 qReturnConsumedCapacity = lens _qReturnConsumedCapacity (\ s a -> s{_qReturnConsumedCapacity = a});
 
@@ -833,10 +831,10 @@ qrsScannedCount = lens _qrsScannedCount (\ s a -> s{_qrsScannedCount = a});
 qrsItems :: Lens' QueryResponse [HashMap Text AttributeValue]
 qrsItems = lens _qrsItems (\ s a -> s{_qrsItems = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 qrsConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)
 qrsConsumedCapacity = lens _qrsConsumedCapacity (\ s a -> s{_qrsConsumedCapacity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 qrsStatus :: Lens' QueryResponse Int
 qrsStatus = lens _qrsStatus (\ s a -> s{_qrsStatus = a});

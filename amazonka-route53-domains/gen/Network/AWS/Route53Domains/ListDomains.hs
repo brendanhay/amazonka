@@ -20,22 +20,20 @@
 -- This operation returns all the domain names registered with Amazon Route
 -- 53 for the current AWS account.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListDomains.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListDomains.html AWS API Reference> for ListDomains.
 module Network.AWS.Route53Domains.ListDomains
     (
-    -- * Request
+    -- * Creating a Request
       ListDomains
-    -- ** Request constructor
     , listDomains
-    -- ** Request lenses
+    -- * Request Lenses
     , ldMaxItems
     , ldMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDomainsResponse
-    -- ** Response constructor
     , listDomainsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsNextPageMarker
     , ldrsStatus
     , ldrsDomains
@@ -174,7 +172,7 @@ listDomainsResponse pStatus_ =
 ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDomainsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 

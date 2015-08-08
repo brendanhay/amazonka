@@ -31,20 +31,18 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendProcesses.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SuspendProcesses.html AWS API Reference> for SuspendProcesses.
 module Network.AWS.AutoScaling.SuspendProcesses
     (
-    -- * Request
+    -- * Creating a Request
       SuspendProcesses
-    -- ** Request constructor
     , suspendProcesses
-    -- ** Request lenses
+    -- * Request Lenses
     , spScalingProcesses
     , spAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , SuspendProcessesResponse
-    -- ** Response constructor
     , suspendProcessesResponse
     ) where
 

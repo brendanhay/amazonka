@@ -19,23 +19,21 @@
 --
 -- Retrieves a list of policies attached to a key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html AWS API Reference> for ListKeyPolicies.
 module Network.AWS.KMS.ListKeyPolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListKeyPolicies
-    -- ** Request constructor
     , listKeyPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , lkpMarker
     , lkpLimit
     , lkpKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListKeyPoliciesResponse
-    -- ** Response constructor
     , listKeyPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lkprsPolicyNames
     , lkprsTruncated
     , lkprsNextMarker
@@ -179,6 +177,6 @@ lkprsTruncated = lens _lkprsTruncated (\ s a -> s{_lkprsTruncated = a});
 lkprsNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lkprsStatus :: Lens' ListKeyPoliciesResponse Int
 lkprsStatus = lens _lkprsStatus (\ s a -> s{_lkprsStatus = a});

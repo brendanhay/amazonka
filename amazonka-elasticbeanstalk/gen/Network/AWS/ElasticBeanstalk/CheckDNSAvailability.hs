@@ -19,21 +19,19 @@
 --
 -- Checks if the specified CNAME is available.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html AWS API Reference> for CheckDNSAvailability.
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
-    -- * Request
+    -- * Creating a Request
       CheckDNSAvailability
-    -- ** Request constructor
     , checkDNSAvailability
-    -- ** Request lenses
+    -- * Request Lenses
     , cdaCNAMEPrefix
 
-    -- * Response
+    -- * Destructuring the Response
     , CheckDNSAvailabilityResponse
-    -- ** Response constructor
     , checkDNSAvailabilityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdarsFullyQualifiedCNAME
     , cdarsAvailable
     , cdarsStatus
@@ -133,6 +131,6 @@ cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFull
 cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdarsStatus :: Lens' CheckDNSAvailabilityResponse Int
 cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});

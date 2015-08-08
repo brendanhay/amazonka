@@ -22,22 +22,20 @@
 -- signature value associated with the job. You can only return information
 -- about jobs you own.
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetStatus.html AWS API Reference> for GetStatus.
 module Network.AWS.ImportExport.GetStatus
     (
-    -- * Request
+    -- * Creating a Request
       GetStatus
-    -- ** Request constructor
     , getStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , gsAPIVersion
     , gsJobId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetStatusResponse
-    -- ** Response constructor
     , getStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsrsCarrier
     , gsrsSignature
     , gsrsTrackingNumber
@@ -84,11 +82,11 @@ getStatus pJobId_ =
     , _gsJobId = pJobId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsAPIVersion :: Lens' GetStatus (Maybe Text)
 gsAPIVersion = lens _gsAPIVersion (\ s a -> s{_gsAPIVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsJobId :: Lens' GetStatus Text
 gsJobId = lens _gsJobId (\ s a -> s{_gsJobId = a});
 
@@ -215,70 +213,70 @@ getStatusResponse pStatus_ =
     , _gsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsCarrier :: Lens' GetStatusResponse (Maybe Text)
 gsrsCarrier = lens _gsrsCarrier (\ s a -> s{_gsrsCarrier = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsSignature :: Lens' GetStatusResponse (Maybe Text)
 gsrsSignature = lens _gsrsSignature (\ s a -> s{_gsrsSignature = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
 gsrsTrackingNumber = lens _gsrsTrackingNumber (\ s a -> s{_gsrsTrackingNumber = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsJobType :: Lens' GetStatusResponse (Maybe JobType)
 gsrsJobType = lens _gsrsJobType (\ s a -> s{_gsrsJobType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsJobId :: Lens' GetStatusResponse (Maybe Text)
 gsrsJobId = lens _gsrsJobId (\ s a -> s{_gsrsJobId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
 gsrsSignatureFileContents = lens _gsrsSignatureFileContents (\ s a -> s{_gsrsSignatureFileContents = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsErrorCount :: Lens' GetStatusResponse (Maybe Int)
 gsrsErrorCount = lens _gsrsErrorCount (\ s a -> s{_gsrsErrorCount = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
 gsrsCurrentManifest = lens _gsrsCurrentManifest (\ s a -> s{_gsrsCurrentManifest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsArtifactList :: Lens' GetStatusResponse [Artifact]
 gsrsArtifactList = lens _gsrsArtifactList (\ s a -> s{_gsrsArtifactList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsLogBucket :: Lens' GetStatusResponse (Maybe Text)
 gsrsLogBucket = lens _gsrsLogBucket (\ s a -> s{_gsrsLogBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsCreationDate :: Lens' GetStatusResponse (Maybe UTCTime)
 gsrsCreationDate = lens _gsrsCreationDate (\ s a -> s{_gsrsCreationDate = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsProgressCode :: Lens' GetStatusResponse (Maybe Text)
 gsrsProgressCode = lens _gsrsProgressCode (\ s a -> s{_gsrsProgressCode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsLocationCode :: Lens' GetStatusResponse (Maybe Text)
 gsrsLocationCode = lens _gsrsLocationCode (\ s a -> s{_gsrsLocationCode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsLogKey :: Lens' GetStatusResponse (Maybe Text)
 gsrsLogKey = lens _gsrsLogKey (\ s a -> s{_gsrsLogKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsLocationMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrsLocationMessage = lens _gsrsLocationMessage (\ s a -> s{_gsrsLocationMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsStatus :: Lens' GetStatusResponse Int
 gsrsStatus = lens _gsrsStatus (\ s a -> s{_gsrsStatus = a});

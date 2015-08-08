@@ -24,25 +24,23 @@
 -- virtual tapes. Use the AddCache operation to add cache storage to a
 -- gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html AWS API Reference> for CreateTapes.
 module Network.AWS.StorageGateway.CreateTapes
     (
-    -- * Request
+    -- * Creating a Request
       CreateTapes
-    -- ** Request constructor
     , createTapes
-    -- ** Request lenses
+    -- * Request Lenses
     , ctGatewayARN
     , ctTapeSizeInBytes
     , ctClientToken
     , ctNumTapesToCreate
     , ctTapeBarcodePrefix
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateTapesResponse
-    -- ** Response constructor
     , createTapesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ctrsTapeARNs
     , ctrsStatus
     ) where
@@ -181,6 +179,6 @@ createTapesResponse pStatus_ =
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ctrsStatus :: Lens' CreateTapesResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

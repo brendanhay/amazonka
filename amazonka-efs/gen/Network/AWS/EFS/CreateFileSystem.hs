@@ -58,21 +58,19 @@
 -- This operation requires permission for the
 -- @elasticfilesystem:CreateFileSystem@ action.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateFileSystem.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateFileSystem.html AWS API Reference> for CreateFileSystem.
 module Network.AWS.EFS.CreateFileSystem
     (
-    -- * Request
+    -- * Creating a Request
       CreateFileSystem
-    -- ** Request constructor
     , createFileSystem
-    -- ** Request lenses
+    -- * Request Lenses
     , cfsCreationToken
 
-    -- * Response
+    -- * Destructuring the Response
     , FileSystemDescription
-    -- ** Response constructor
     , fileSystemDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , fsdName
     , fsdOwnerId
     , fsdCreationToken

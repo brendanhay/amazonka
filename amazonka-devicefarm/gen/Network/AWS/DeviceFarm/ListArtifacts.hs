@@ -19,23 +19,21 @@
 --
 -- Gets information about artifacts.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListArtifacts.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListArtifacts.html AWS API Reference> for ListArtifacts.
 module Network.AWS.DeviceFarm.ListArtifacts
     (
-    -- * Request
+    -- * Creating a Request
       ListArtifacts
-    -- ** Request constructor
     , listArtifacts
-    -- ** Request lenses
+    -- * Request Lenses
     , laNextToken
     , laArn
     , laType
 
-    -- * Response
+    -- * Destructuring the Response
     , ListArtifactsResponse
-    -- ** Response constructor
     , listArtifactsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , larsArtifacts
     , larsNextToken
     , larsStatus
@@ -161,6 +159,6 @@ larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default 
 larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 larsStatus :: Lens' ListArtifactsResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

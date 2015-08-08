@@ -25,22 +25,20 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterRDSDBInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterRDSDBInstance.html AWS API Reference> for RegisterRDSDBInstance.
 module Network.AWS.OpsWorks.RegisterRDSDBInstance
     (
-    -- * Request
+    -- * Creating a Request
       RegisterRDSDBInstance
-    -- ** Request constructor
     , registerRDSDBInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , rrdiStackId
     , rrdiRDSDBInstanceARN
     , rrdiDBUser
     , rrdiDBPassword
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterRDSDBInstanceResponse
-    -- ** Response constructor
     , registerRDSDBInstanceResponse
     ) where
 

@@ -20,14 +20,13 @@
 -- Creates a new deployment group for application revisions to be deployed
 -- to.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html AWS API Reference> for CreateDeploymentGroup.
 module Network.AWS.CodeDeploy.CreateDeploymentGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateDeploymentGroup
-    -- ** Request constructor
     , createDeploymentGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cdgDeploymentConfigName
     , cdgEc2TagFilters
     , cdgOnPremisesInstanceTagFilters
@@ -36,11 +35,10 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , cdgDeploymentGroupName
     , cdgServiceRoleARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDeploymentGroupResponse
-    -- ** Response constructor
     , createDeploymentGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdgrsDeploymentGroupId
     , cdgrsStatus
     ) where
@@ -221,6 +219,6 @@ createDeploymentGroupResponse pStatus_ =
 cdgrsDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrsDeploymentGroupId = lens _cdgrsDeploymentGroupId (\ s a -> s{_cdgrsDeploymentGroupId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdgrsStatus :: Lens' CreateDeploymentGroupResponse Int
 cdgrsStatus = lens _cdgrsStatus (\ s a -> s{_cdgrsStatus = a});

@@ -23,21 +23,19 @@
 --
 -- The response contains an array of TrustedAdvisorCheckSummary objects.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html AWS API Reference> for DescribeTrustedAdvisorCheckSummaries.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTrustedAdvisorCheckSummaries
-    -- ** Request constructor
     , describeTrustedAdvisorCheckSummaries
-    -- ** Request lenses
+    -- * Request Lenses
     , dtacsCheckIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTrustedAdvisorCheckSummariesResponse
-    -- ** Response constructor
     , describeTrustedAdvisorCheckSummariesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtacsrsStatus
     , dtacsrsSummaries
     ) where
@@ -128,7 +126,7 @@ describeTrustedAdvisorCheckSummariesResponse pStatus_ =
     , _dtacsrsSummaries = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtacsrsStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
 dtacsrsStatus = lens _dtacsrsStatus (\ s a -> s{_dtacsrsStatus = a});
 

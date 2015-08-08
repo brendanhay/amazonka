@@ -22,21 +22,19 @@
 -- If a connection ID is provided, the call returns only that particular
 -- connection.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html AWS API Reference> for DescribeConnections.
 module Network.AWS.DirectConnect.DescribeConnections
     (
-    -- * Request
+    -- * Creating a Request
       DescribeConnections
-    -- ** Request constructor
     , describeConnections
-    -- ** Request lenses
+    -- * Request Lenses
     , dConnectionId
 
-    -- * Response
+    -- * Destructuring the Response
     , Connections
-    -- ** Response constructor
     , connections
-    -- ** Response lenses
+    -- * Response Lenses
     , cConnections
     ) where
 
@@ -63,7 +61,7 @@ describeConnections =
     { _dConnectionId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dConnectionId :: Lens' DescribeConnections (Maybe Text)
 dConnectionId = lens _dConnectionId (\ s a -> s{_dConnectionId = a});
 

@@ -26,20 +26,18 @@
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetCognitoEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetCognitoEvents.html AWS API Reference> for SetCognitoEvents.
 module Network.AWS.CognitoSync.SetCognitoEvents
     (
-    -- * Request
+    -- * Creating a Request
       SetCognitoEvents
-    -- ** Request constructor
     , setCognitoEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , sceIdentityPoolId
     , sceEvents
 
-    -- * Response
+    -- * Destructuring the Response
     , SetCognitoEventsResponse
-    -- ** Response constructor
     , setCognitoEventsResponse
     ) where
 

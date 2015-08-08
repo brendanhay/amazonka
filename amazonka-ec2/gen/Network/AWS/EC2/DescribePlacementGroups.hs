@@ -22,23 +22,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html AWS API Reference> for DescribePlacementGroups.
 module Network.AWS.EC2.DescribePlacementGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribePlacementGroups
-    -- ** Request constructor
     , describePlacementGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dpgsGroupNames
     , dpgsFilters
     , dpgsDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribePlacementGroupsResponse
-    -- ** Response constructor
     , describePlacementGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dpgrsPlacementGroups
     , dpgrsStatus
     ) where
@@ -152,6 +150,6 @@ describePlacementGroupsResponse pStatus_ =
 dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dpgrsStatus :: Lens' DescribePlacementGroupsResponse Int
 dpgrsStatus = lens _dpgrsStatus (\ s a -> s{_dpgrsStatus = a});

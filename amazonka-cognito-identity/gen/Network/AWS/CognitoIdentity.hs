@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -47,27 +48,178 @@
 -- application, you will probably want to make API calls via the AWS Mobile
 -- SDK. To learn more, see the
 -- <http://docs.aws.amazon.com/mobile/index.html AWS Mobile SDK Developer Guide>.
+--
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CognitoIdentity
-    ( module Export
+    (
+    -- * Service Description
+      CognitoIdentity
+
+    -- * Error Matchers
+    -- $errors
+    , _InvalidIdentityPoolConfigurationException
+    , _InvalidParameterException
+    , _NotAuthorizedException
+    , _InternalErrorException
+    , _ExternalServiceException
+    , _ConcurrentModificationException
+    , _TooManyRequestsException
+    , _ResourceConflictException
+    , _DeveloperUserAlreadyRegisteredException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+
+    -- * Operations
+    -- $operations
+
+    -- ** GetOpenIdToken
+    , module Network.AWS.CognitoIdentity.GetOpenIdToken
+
+    -- ** DescribeIdentityPool
+    , module Network.AWS.CognitoIdentity.DescribeIdentityPool
+
+    -- ** GetOpenIdTokenForDeveloperIdentity
+    , module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+
+    -- ** UnlinkDeveloperIdentity
+    , module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+
+    -- ** GetCredentialsForIdentity
+    , module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
+
+    -- ** ListIdentityPools
+    , module Network.AWS.CognitoIdentity.ListIdentityPools
+
+    -- ** GetIdentityPoolRoles
+    , module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+
+    -- ** DeleteIdentityPool
+    , module Network.AWS.CognitoIdentity.DeleteIdentityPool
+
+    -- ** UpdateIdentityPool
+    , module Network.AWS.CognitoIdentity.UpdateIdentityPool
+
+    -- ** GetId
+    , module Network.AWS.CognitoIdentity.GetId
+
+    -- ** DeleteIdentities
+    , module Network.AWS.CognitoIdentity.DeleteIdentities
+
+    -- ** SetIdentityPoolRoles
+    , module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
+
+    -- ** ListIdentities
+    , module Network.AWS.CognitoIdentity.ListIdentities
+
+    -- ** LookupDeveloperIdentity
+    , module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+
+    -- ** UnlinkIdentity
+    , module Network.AWS.CognitoIdentity.UnlinkIdentity
+
+    -- ** DescribeIdentity
+    , module Network.AWS.CognitoIdentity.DescribeIdentity
+
+    -- ** CreateIdentityPool
+    , module Network.AWS.CognitoIdentity.CreateIdentityPool
+
+    -- ** MergeDeveloperIdentities
+    , module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
+
+    -- * Types
+
+    -- ** CognitoErrorCode
+    , CognitoErrorCode (..)
+
+    -- ** Credentials
+    , Credentials
+    , credentials
+    , cSessionToken
+    , cExpiration
+    , cSecretKey
+    , cAccessKeyId
+
+    -- ** IdentityDescription
+    , IdentityDescription
+    , identityDescription
+    , idLastModifiedDate
+    , idCreationDate
+    , idLogins
+    , idIdentityId
+
+    -- ** IdentityPool
+    , IdentityPool
+    , identityPool
+    , ipSupportedLoginProviders
+    , ipDeveloperProviderName
+    , ipOpenIdConnectProviderARNs
+    , ipIdentityPoolId
+    , ipIdentityPoolName
+    , ipAllowUnauthenticatedIdentities
+
+    -- ** IdentityPoolShortDescription
+    , IdentityPoolShortDescription
+    , identityPoolShortDescription
+    , ipsdIdentityPoolId
+    , ipsdIdentityPoolName
+
+    -- ** UnprocessedIdentityId
+    , UnprocessedIdentityId
+    , unprocessedIdentityId
+    , uiiErrorCode
+    , uiiIdentityId
     ) where
 
-import           Network.AWS.CognitoIdentity.CreateIdentityPool                 as Export
-import           Network.AWS.CognitoIdentity.DeleteIdentities                   as Export
-import           Network.AWS.CognitoIdentity.DeleteIdentityPool                 as Export
-import           Network.AWS.CognitoIdentity.DescribeIdentity                   as Export
-import           Network.AWS.CognitoIdentity.DescribeIdentityPool               as Export
-import           Network.AWS.CognitoIdentity.GetCredentialsForIdentity          as Export
-import           Network.AWS.CognitoIdentity.GetId                              as Export
-import           Network.AWS.CognitoIdentity.GetIdentityPoolRoles               as Export
-import           Network.AWS.CognitoIdentity.GetOpenIdToken                     as Export
-import           Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity as Export
-import           Network.AWS.CognitoIdentity.ListIdentities                     as Export
-import           Network.AWS.CognitoIdentity.ListIdentityPools                  as Export
-import           Network.AWS.CognitoIdentity.LookupDeveloperIdentity            as Export
-import           Network.AWS.CognitoIdentity.MergeDeveloperIdentities           as Export
-import           Network.AWS.CognitoIdentity.SetIdentityPoolRoles               as Export
-import           Network.AWS.CognitoIdentity.Types                              as Export
-import           Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity            as Export
-import           Network.AWS.CognitoIdentity.UnlinkIdentity                     as Export
-import           Network.AWS.CognitoIdentity.UpdateIdentityPool                 as Export
-import           Network.AWS.CognitoIdentity.Waiters                            as Export
+import           Network.AWS.CognitoIdentity.CreateIdentityPool
+import           Network.AWS.CognitoIdentity.DeleteIdentities
+import           Network.AWS.CognitoIdentity.DeleteIdentityPool
+import           Network.AWS.CognitoIdentity.DescribeIdentity
+import           Network.AWS.CognitoIdentity.DescribeIdentityPool
+import           Network.AWS.CognitoIdentity.GetCredentialsForIdentity
+import           Network.AWS.CognitoIdentity.GetId
+import           Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+import           Network.AWS.CognitoIdentity.GetOpenIdToken
+import           Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+import           Network.AWS.CognitoIdentity.ListIdentities
+import           Network.AWS.CognitoIdentity.ListIdentityPools
+import           Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+import           Network.AWS.CognitoIdentity.MergeDeveloperIdentities
+import           Network.AWS.CognitoIdentity.SetIdentityPoolRoles
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+import           Network.AWS.CognitoIdentity.UnlinkIdentity
+import           Network.AWS.CognitoIdentity.UpdateIdentityPool
+import           Network.AWS.CognitoIdentity.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'CognitoIdentity'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

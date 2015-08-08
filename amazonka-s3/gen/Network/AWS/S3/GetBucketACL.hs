@@ -19,21 +19,19 @@
 --
 -- Gets the access control policy for the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketACL.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketACL.html AWS API Reference> for GetBucketACL.
 module Network.AWS.S3.GetBucketACL
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketACL
-    -- ** Request constructor
     , getBucketACL
-    -- ** Request lenses
+    -- * Request Lenses
     , gbaBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketACLResponse
-    -- ** Response constructor
     , getBucketACLResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbarsGrants
     , gbarsOwner
     , gbarsStatus
@@ -60,7 +58,7 @@ getBucketACL pBucket_ =
     { _gbaBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbaBucket :: Lens' GetBucketACL BucketName
 gbaBucket = lens _gbaBucket (\ s a -> s{_gbaBucket = a});
 
@@ -115,10 +113,10 @@ getBucketACLResponse pStatus_ =
 gbarsGrants :: Lens' GetBucketACLResponse [Grant]
 gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbarsStatus :: Lens' GetBucketACLResponse Int
 gbarsStatus = lens _gbarsStatus (\ s a -> s{_gbarsStatus = a});

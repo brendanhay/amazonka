@@ -19,21 +19,19 @@
 --
 -- Sets a stack policy for a specified stack.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html AWS API Reference> for SetStackPolicy.
 module Network.AWS.CloudFormation.SetStackPolicy
     (
-    -- * Request
+    -- * Creating a Request
       SetStackPolicy
-    -- ** Request constructor
     , setStackPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , sspStackPolicyBody
     , sspStackPolicyURL
     , sspStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , SetStackPolicyResponse
-    -- ** Response constructor
     , setStackPolicyResponse
     ) where
 

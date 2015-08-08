@@ -20,21 +20,19 @@
 -- Replaces a policy on a bucket. If the bucket already has a policy, the
 -- one in this request completely replaces it.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketPolicy.html AWS API Reference> for PutBucketPolicy.
 module Network.AWS.S3.PutBucketPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketPolicy
-    -- ** Request constructor
     , putBucketPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , pbpContentMD5
     , pbpBucket
     , pbpPolicy
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketPolicyResponse
-    -- ** Response constructor
     , putBucketPolicyResponse
     ) where
 
@@ -67,11 +65,11 @@ putBucketPolicy pBucket_ pPolicy_ =
     , _pbpPolicy = pPolicy_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
 pbpContentMD5 = lens _pbpContentMD5 (\ s a -> s{_pbpContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbpBucket :: Lens' PutBucketPolicy BucketName
 pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a});
 

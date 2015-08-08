@@ -23,21 +23,19 @@
 -- This operation is idempotent. The operation will be successful, even if
 -- there are no tags attached to the vault.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-RemoveTagsFromVault.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-RemoveTagsFromVault.html AWS API Reference> for RemoveTagsFromVault.
 module Network.AWS.Glacier.RemoveTagsFromVault
     (
-    -- * Request
+    -- * Creating a Request
       RemoveTagsFromVault
-    -- ** Request constructor
     , removeTagsFromVault
-    -- ** Request lenses
+    -- * Request Lenses
     , rtfvTagKeys
     , rtfvAccountId
     , rtfvVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveTagsFromVaultResponse
-    -- ** Response constructor
     , removeTagsFromVaultResponse
     ) where
 

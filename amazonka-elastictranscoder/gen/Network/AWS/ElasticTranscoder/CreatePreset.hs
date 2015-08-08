@@ -36,14 +36,13 @@
 -- /Recommendation ITU-T H.264: Advanced video coding for generic
 -- audiovisual services/.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html AWS API Reference> for CreatePreset.
 module Network.AWS.ElasticTranscoder.CreatePreset
     (
-    -- * Request
+    -- * Creating a Request
       CreatePreset
-    -- ** Request constructor
     , createPreset
-    -- ** Request lenses
+    -- * Request Lenses
     , cpVideo
     , cpThumbnails
     , cpAudio
@@ -51,11 +50,10 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     , cpName
     , cpContainer
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePresetResponse
-    -- ** Response constructor
     , createPresetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cprsWarning
     , cprsPreset
     , cprsStatus
@@ -198,6 +196,6 @@ cprsWarning = lens _cprsWarning (\ s a -> s{_cprsWarning = a});
 cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cprsStatus :: Lens' CreatePresetResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

@@ -19,14 +19,13 @@
 --
 -- Lists the parts that have been uploaded for a specific multipart upload.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html AWS API Reference> for ListParts.
 module Network.AWS.S3.ListParts
     (
-    -- * Request
+    -- * Creating a Request
       ListParts
-    -- ** Request constructor
     , listParts
-    -- ** Request lenses
+    -- * Request Lenses
     , lpMaxParts
     , lpRequestPayer
     , lpPartNumberMarker
@@ -34,11 +33,10 @@ module Network.AWS.S3.ListParts
     , lpKey
     , lpUploadId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPartsResponse
-    -- ** Response constructor
     , listPartsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lprsParts
     , lprsRequestCharged
     , lprsMaxParts
@@ -100,7 +98,7 @@ listParts pBucket_ pKey_ pUploadId_ =
 lpMaxParts :: Lens' ListParts (Maybe Int)
 lpMaxParts = lens _lpMaxParts (\ s a -> s{_lpMaxParts = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lpRequestPayer :: Lens' ListParts (Maybe RequestPayer)
 lpRequestPayer = lens _lpRequestPayer (\ s a -> s{_lpRequestPayer = a});
 
@@ -109,11 +107,11 @@ lpRequestPayer = lens _lpRequestPayer (\ s a -> s{_lpRequestPayer = a});
 lpPartNumberMarker :: Lens' ListParts (Maybe Int)
 lpPartNumberMarker = lens _lpPartNumberMarker (\ s a -> s{_lpPartNumberMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lpBucket :: Lens' ListParts BucketName
 lpBucket = lens _lpBucket (\ s a -> s{_lpBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lpKey :: Lens' ListParts ObjectKey
 lpKey = lens _lpKey (\ s a -> s{_lpKey = a});
 
@@ -231,11 +229,11 @@ listPartsResponse pStatus_ =
     , _lprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsParts :: Lens' ListPartsResponse [Part]
 lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsRequestCharged :: Lens' ListPartsResponse (Maybe RequestCharged)
 lprsRequestCharged = lens _lprsRequestCharged (\ s a -> s{_lprsRequestCharged = a});
 
@@ -257,7 +255,7 @@ lprsBucket = lens _lprsBucket (\ s a -> s{_lprsBucket = a});
 lprsNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Int)
 lprsNextPartNumberMarker = lens _lprsNextPartNumberMarker (\ s a -> s{_lprsNextPartNumberMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsOwner :: Lens' ListPartsResponse (Maybe Owner)
 lprsOwner = lens _lprsOwner (\ s a -> s{_lprsOwner = a});
 
@@ -281,6 +279,6 @@ lprsPartNumberMarker = lens _lprsPartNumberMarker (\ s a -> s{_lprsPartNumberMar
 lprsUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsUploadId = lens _lprsUploadId (\ s a -> s{_lprsUploadId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsStatus :: Lens' ListPartsResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

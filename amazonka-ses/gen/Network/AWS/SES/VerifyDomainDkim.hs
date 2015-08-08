@@ -34,21 +34,19 @@
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainDkim.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainDkim.html AWS API Reference> for VerifyDomainDkim.
 module Network.AWS.SES.VerifyDomainDkim
     (
-    -- * Request
+    -- * Creating a Request
       VerifyDomainDkim
-    -- ** Request constructor
     , verifyDomainDkim
-    -- ** Request lenses
+    -- * Request Lenses
     , vddDomain
 
-    -- * Response
+    -- * Destructuring the Response
     , VerifyDomainDkimResponse
-    -- ** Response constructor
     , verifyDomainDkimResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , vddrsStatus
     , vddrsDkimTokens
     ) where
@@ -129,7 +127,7 @@ verifyDomainDkimResponse pStatus_ =
     , _vddrsDkimTokens = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vddrsStatus :: Lens' VerifyDomainDkimResponse Int
 vddrsStatus = lens _vddrsStatus (\ s a -> s{_vddrsStatus = a});
 

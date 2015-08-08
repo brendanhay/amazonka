@@ -22,19 +22,17 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html AWS API Reference> for CreateAccountAlias.
 module Network.AWS.IAM.CreateAccountAlias
     (
-    -- * Request
+    -- * Creating a Request
       CreateAccountAlias
-    -- ** Request constructor
     , createAccountAlias
-    -- ** Request lenses
+    -- * Request Lenses
     , caaAccountAlias
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAccountAliasResponse
-    -- ** Response constructor
     , createAccountAliasResponse
     ) where
 

@@ -20,14 +20,13 @@
 -- Returns a list of @MLModel@ that match the search criteria in the
 -- request.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeMLModels.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeMLModels.html AWS API Reference> for DescribeMLModels.
 module Network.AWS.MachineLearning.DescribeMLModels
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMLModels
-    -- ** Request constructor
     , describeMLModels
-    -- ** Request lenses
+    -- * Request Lenses
     , dmlmEQ
     , dmlmGE
     , dmlmPrefix
@@ -40,11 +39,10 @@ module Network.AWS.MachineLearning.DescribeMLModels
     , dmlmFilterVariable
     , dmlmLE
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMLModelsResponse
-    -- ** Response constructor
     , describeMLModelsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmlmsrsResults
     , dmlmsrsNextToken
     , dmlmsrsStatus
@@ -283,6 +281,6 @@ dmlmsrsResults = lens _dmlmsrsResults (\ s a -> s{_dmlmsrsResults = a}) . _Defau
 dmlmsrsNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
 dmlmsrsNextToken = lens _dmlmsrsNextToken (\ s a -> s{_dmlmsrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmlmsrsStatus :: Lens' DescribeMLModelsResponse Int
 dmlmsrsStatus = lens _dmlmsrsStatus (\ s a -> s{_dmlmsrsStatus = a});

@@ -20,21 +20,19 @@
 -- Lists the pipeline identifiers for all active pipelines that you have
 -- permission to access.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html AWS API Reference> for ListPipelines.
 module Network.AWS.DataPipeline.ListPipelines
     (
-    -- * Request
+    -- * Creating a Request
       ListPipelines
-    -- ** Request constructor
     , listPipelines
-    -- ** Request lenses
+    -- * Request Lenses
     , lpMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPipelinesResponse
-    -- ** Response constructor
     , listPipelinesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lprsHasMoreResults
     , lprsMarker
     , lprsStatus
@@ -151,7 +149,7 @@ lprsHasMoreResults = lens _lprsHasMoreResults (\ s a -> s{_lprsHasMoreResults = 
 lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsStatus :: Lens' ListPipelinesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
 

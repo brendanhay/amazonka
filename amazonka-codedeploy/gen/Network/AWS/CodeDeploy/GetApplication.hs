@@ -19,21 +19,19 @@
 --
 -- Gets information about an application.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html AWS API Reference> for GetApplication.
 module Network.AWS.CodeDeploy.GetApplication
     (
-    -- * Request
+    -- * Creating a Request
       GetApplication
-    -- ** Request constructor
     , getApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , gaApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetApplicationResponse
-    -- ** Response constructor
     , getApplicationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , garsApplication
     , garsStatus
     ) where
@@ -121,6 +119,6 @@ getApplicationResponse pStatus_ =
 garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 garsStatus :: Lens' GetApplicationResponse Int
 garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

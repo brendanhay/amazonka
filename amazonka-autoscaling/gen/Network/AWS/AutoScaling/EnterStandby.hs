@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnterStandby.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnterStandby.html AWS API Reference> for EnterStandby.
 module Network.AWS.AutoScaling.EnterStandby
     (
-    -- * Request
+    -- * Creating a Request
       EnterStandby
-    -- ** Request constructor
     , enterStandby
-    -- ** Request lenses
+    -- * Request Lenses
     , esInstanceIds
     , esAutoScalingGroupName
     , esShouldDecrementDesiredCapacity
 
-    -- * Response
+    -- * Destructuring the Response
     , EnterStandbyResponse
-    -- ** Response constructor
     , enterStandbyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , esrsActivities
     , esrsStatus
     ) where
@@ -142,6 +140,6 @@ enterStandbyResponse pStatus_ =
 esrsActivities :: Lens' EnterStandbyResponse [Activity]
 esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 esrsStatus :: Lens' EnterStandbyResponse Int
 esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});

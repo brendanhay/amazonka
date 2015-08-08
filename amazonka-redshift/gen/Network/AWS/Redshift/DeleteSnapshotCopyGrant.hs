@@ -19,19 +19,17 @@
 --
 -- Deletes the specified snapshot copy grant.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotCopyGrant.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotCopyGrant.html AWS API Reference> for DeleteSnapshotCopyGrant.
 module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSnapshotCopyGrant
-    -- ** Request constructor
     , deleteSnapshotCopyGrant
-    -- ** Request lenses
+    -- * Request Lenses
     , dscgSnapshotCopyGrantName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSnapshotCopyGrantResponse
-    -- ** Response constructor
     , deleteSnapshotCopyGrantResponse
     ) where
 

@@ -26,14 +26,13 @@
 -- @true@. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html AWS API Reference> for GetItem.
 module Network.AWS.DynamoDB.GetItem
     (
-    -- * Request
+    -- * Creating a Request
       GetItem
-    -- ** Request constructor
     , getItem
-    -- ** Request lenses
+    -- * Request Lenses
     , giProjectionExpression
     , giConsistentRead
     , giExpressionAttributeNames
@@ -42,11 +41,10 @@ module Network.AWS.DynamoDB.GetItem
     , giTableName
     , giKey
 
-    -- * Response
+    -- * Destructuring the Response
     , GetItemResponse
-    -- ** Response constructor
     , getItemResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , girsConsumedCapacity
     , girsItem
     , girsStatus
@@ -179,7 +177,7 @@ giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExp
 giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
 giAttributesToGet = lens _giAttributesToGet (\ s a -> s{_giAttributesToGet = a}) . mapping _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 giReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
 giReturnConsumedCapacity = lens _giReturnConsumedCapacity (\ s a -> s{_giReturnConsumedCapacity = a});
 
@@ -262,7 +260,7 @@ getItemResponse pStatus_ =
     , _girsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 girsConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
 girsConsumedCapacity = lens _girsConsumedCapacity (\ s a -> s{_girsConsumedCapacity = a});
 
@@ -271,6 +269,6 @@ girsConsumedCapacity = lens _girsConsumedCapacity (\ s a -> s{_girsConsumedCapac
 girsItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girsItem = lens _girsItem (\ s a -> s{_girsItem = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 girsStatus :: Lens' GetItemResponse Int
 girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

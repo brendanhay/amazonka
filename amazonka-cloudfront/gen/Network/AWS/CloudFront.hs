@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -21,30 +22,564 @@
 -- currently in that edge location, CloudFront retrieves it from an Amazon
 -- S3 bucket or an HTTP server (for example, a web server) that you have
 -- identified as the source for the definitive version of your content.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudFront
-    ( module Export
+    (
+    -- * Service Description
+      CloudFront
+
+    -- * Error Matchers
+    -- $errors
+    , _InvalidErrorCode
+    , _TooManyCacheBehaviors
+    , _DistributionNotDisabled
+    , _InvalidOriginAccessIdentity
+    , _TooManyCloudFrontOriginAccessIdentities
+    , _TooManyStreamingDistributions
+    , _InvalidArgument
+    , _NoSuchCloudFrontOriginAccessIdentity
+    , _NoSuchStreamingDistribution
+    , _CloudFrontOriginAccessIdentityInUse
+    , _InconsistentQuantities
+    , _TooManyInvalidationsInProgress
+    , _TooManyDistributionCNAMEs
+    , _InvalidForwardCookies
+    , _TooManyCookieNamesInWhiteList
+    , _BatchTooLarge
+    , _InvalidOrigin
+    , _TooManyTrustedSigners
+    , _NoSuchOrigin
+    , _NoSuchInvalidation
+    , _StreamingDistributionNotDisabled
+    , _InvalidTTLOrder
+    , _TooManyStreamingDistributionCNAMEs
+    , _TooManyDistributions
+    , _InvalidRequiredProtocol
+    , _TooManyHeadersInForwardedValues
+    , _TooManyCertificates
+    , _MissingBody
+    , _DistributionAlreadyExists
+    , _IllegalUpdate
+    , _InvalidResponseCode
+    , _InvalidIfMatchVersion
+    , _PreconditionFailed
+    , _InvalidProtocolSettings
+    , _TrustedSignerDoesNotExist
+    , _InvalidHeadersForS3Origin
+    , _CNAMEAlreadyExists
+    , _StreamingDistributionAlreadyExists
+    , _TooManyOrigins
+    , _CloudFrontOriginAccessIdentityAlreadyExists
+    , _InvalidRelativePath
+    , _InvalidMinimumProtocolVersion
+    , _AccessDenied
+    , _NoSuchDistribution
+    , _InvalidViewerCertificate
+    , _InvalidDefaultRootObject
+    , _InvalidLocationCode
+    , _InvalidGeoRestrictionParameter
+
+    -- * Operations
+    -- $operations
+
+    -- ** DeleteStreamingDistribution
+    , module Network.AWS.CloudFront.DeleteStreamingDistribution
+
+    -- ** UpdateStreamingDistribution
+    , module Network.AWS.CloudFront.UpdateStreamingDistribution
+
+    -- ** CreateDistribution
+    , module Network.AWS.CloudFront.CreateDistribution
+
+    -- ** GetDistributionConfig
+    , module Network.AWS.CloudFront.GetDistributionConfig
+
+    -- ** GetDistribution
+    , module Network.AWS.CloudFront.GetDistribution
+
+    -- ** DeleteCloudFrontOriginAccessIdentity
+    , module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+
+    -- ** UpdateCloudFrontOriginAccessIdentity
+    , module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+
+    -- ** ListStreamingDistributions
+    , module Network.AWS.CloudFront.ListStreamingDistributions
+
+    -- ** GetStreamingDistributionConfig
+    , module Network.AWS.CloudFront.GetStreamingDistributionConfig
+
+    -- ** GetCloudFrontOriginAccessIdentityConfig
+    , module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+
+    -- ** CreateStreamingDistribution
+    , module Network.AWS.CloudFront.CreateStreamingDistribution
+
+    -- ** CreateCloudFrontOriginAccessIdentity
+    , module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+
+    -- ** ListCloudFrontOriginAccessIdentities
+    , module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+
+    -- ** GetInvalidation
+    , module Network.AWS.CloudFront.GetInvalidation
+
+    -- ** ListInvalidations
+    , module Network.AWS.CloudFront.ListInvalidations
+
+    -- ** GetStreamingDistribution
+    , module Network.AWS.CloudFront.GetStreamingDistribution
+
+    -- ** GetCloudFrontOriginAccessIdentity
+    , module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+
+    -- ** CreateInvalidation
+    , module Network.AWS.CloudFront.CreateInvalidation
+
+    -- ** UpdateDistribution
+    , module Network.AWS.CloudFront.UpdateDistribution
+
+    -- ** DeleteDistribution
+    , module Network.AWS.CloudFront.DeleteDistribution
+
+    -- ** ListDistributions
+    , module Network.AWS.CloudFront.ListDistributions
+
+    -- * Types
+
+    -- ** GeoRestrictionType
+    , GeoRestrictionType (..)
+
+    -- ** ItemSelection
+    , ItemSelection (..)
+
+    -- ** Method
+    , Method (..)
+
+    -- ** MinimumProtocolVersion
+    , MinimumProtocolVersion (..)
+
+    -- ** OriginProtocolPolicy
+    , OriginProtocolPolicy (..)
+
+    -- ** PriceClass
+    , PriceClass (..)
+
+    -- ** SSLSupportMethod
+    , SSLSupportMethod (..)
+
+    -- ** ViewerProtocolPolicy
+    , ViewerProtocolPolicy (..)
+
+    -- ** ActiveTrustedSigners
+    , ActiveTrustedSigners
+    , activeTrustedSigners
+    , atsItems
+    , atsEnabled
+    , atsQuantity
+
+    -- ** Aliases
+    , Aliases
+    , aliases
+    , aItems
+    , aQuantity
+
+    -- ** AllowedMethods
+    , AllowedMethods
+    , allowedMethods
+    , amCachedMethods
+    , amQuantity
+    , amItems
+
+    -- ** CacheBehavior
+    , CacheBehavior
+    , cacheBehavior
+    , cbAllowedMethods
+    , cbMaxTTL
+    , cbSmoothStreaming
+    , cbDefaultTTL
+    , cbPathPattern
+    , cbTargetOriginId
+    , cbForwardedValues
+    , cbTrustedSigners
+    , cbViewerProtocolPolicy
+    , cbMinTTL
+
+    -- ** CacheBehaviors
+    , CacheBehaviors
+    , cacheBehaviors
+    , cbItems
+    , cbQuantity
+
+    -- ** CachedMethods
+    , CachedMethods
+    , cachedMethods
+    , cmQuantity
+    , cmItems
+
+    -- ** CloudFrontOriginAccessIdentity
+    , CloudFrontOriginAccessIdentity
+    , cloudFrontOriginAccessIdentity
+    , cfoaiCloudFrontOriginAccessIdentityConfig
+    , cfoaiId
+    , cfoaiS3CanonicalUserId
+
+    -- ** CloudFrontOriginAccessIdentityConfig
+    , CloudFrontOriginAccessIdentityConfig
+    , cloudFrontOriginAccessIdentityConfig
+    , cfoaicCallerReference
+    , cfoaicComment
+
+    -- ** CloudFrontOriginAccessIdentityList
+    , CloudFrontOriginAccessIdentityList
+    , cloudFrontOriginAccessIdentityList
+    , cfoailItems
+    , cfoailNextMarker
+    , cfoailMarker
+    , cfoailMaxItems
+    , cfoailIsTruncated
+    , cfoailQuantity
+
+    -- ** CloudFrontOriginAccessIdentitySummary
+    , CloudFrontOriginAccessIdentitySummary
+    , cloudFrontOriginAccessIdentitySummary
+    , cfoaisId
+    , cfoaisS3CanonicalUserId
+    , cfoaisComment
+
+    -- ** CookieNames
+    , CookieNames
+    , cookieNames
+    , cnItems
+    , cnQuantity
+
+    -- ** CookiePreference
+    , CookiePreference
+    , cookiePreference
+    , cpWhitelistedNames
+    , cpForward
+
+    -- ** CustomErrorResponse
+    , CustomErrorResponse
+    , customErrorResponse
+    , ceResponsePagePath
+    , ceResponseCode
+    , ceErrorCachingMinTTL
+    , ceErrorCode
+
+    -- ** CustomErrorResponses
+    , CustomErrorResponses
+    , customErrorResponses
+    , cerItems
+    , cerQuantity
+
+    -- ** CustomOriginConfig
+    , CustomOriginConfig
+    , customOriginConfig
+    , cocHTTPPort
+    , cocHTTPSPort
+    , cocOriginProtocolPolicy
+
+    -- ** DefaultCacheBehavior
+    , DefaultCacheBehavior
+    , defaultCacheBehavior
+    , dcbAllowedMethods
+    , dcbMaxTTL
+    , dcbSmoothStreaming
+    , dcbDefaultTTL
+    , dcbTargetOriginId
+    , dcbForwardedValues
+    , dcbTrustedSigners
+    , dcbViewerProtocolPolicy
+    , dcbMinTTL
+
+    -- ** Distribution
+    , Distribution
+    , distribution
+    , dId
+    , dStatus
+    , dLastModifiedTime
+    , dInProgressInvalidationBatches
+    , dDomainName
+    , dActiveTrustedSigners
+    , dDistributionConfig
+
+    -- ** DistributionConfig
+    , DistributionConfig
+    , distributionConfig
+    , dcDefaultRootObject
+    , dcAliases
+    , dcCustomErrorResponses
+    , dcPriceClass
+    , dcViewerCertificate
+    , dcRestrictions
+    , dcCacheBehaviors
+    , dcLogging
+    , dcCallerReference
+    , dcOrigins
+    , dcDefaultCacheBehavior
+    , dcComment
+    , dcEnabled
+
+    -- ** DistributionList
+    , DistributionList
+    , distributionList
+    , dlItems
+    , dlNextMarker
+    , dlMarker
+    , dlMaxItems
+    , dlIsTruncated
+    , dlQuantity
+
+    -- ** DistributionSummary
+    , DistributionSummary
+    , distributionSummary
+    , dsId
+    , dsStatus
+    , dsLastModifiedTime
+    , dsDomainName
+    , dsAliases
+    , dsOrigins
+    , dsDefaultCacheBehavior
+    , dsCacheBehaviors
+    , dsCustomErrorResponses
+    , dsComment
+    , dsPriceClass
+    , dsEnabled
+    , dsViewerCertificate
+    , dsRestrictions
+
+    -- ** ForwardedValues
+    , ForwardedValues
+    , forwardedValues
+    , fvHeaders
+    , fvQueryString
+    , fvCookies
+
+    -- ** GeoRestriction
+    , GeoRestriction
+    , geoRestriction
+    , grItems
+    , grRestrictionType
+    , grQuantity
+
+    -- ** Headers
+    , Headers
+    , headers
+    , hItems
+    , hQuantity
+
+    -- ** Invalidation
+    , Invalidation
+    , invalidation
+    , iId
+    , iStatus
+    , iCreateTime
+    , iInvalidationBatch
+
+    -- ** InvalidationBatch
+    , InvalidationBatch
+    , invalidationBatch
+    , ibPaths
+    , ibCallerReference
+
+    -- ** InvalidationList
+    , InvalidationList
+    , invalidationList
+    , ilItems
+    , ilNextMarker
+    , ilMarker
+    , ilMaxItems
+    , ilIsTruncated
+    , ilQuantity
+
+    -- ** InvalidationSummary
+    , InvalidationSummary
+    , invalidationSummary
+    , isId
+    , isCreateTime
+    , isStatus
+
+    -- ** KeyPairIds
+    , KeyPairIds
+    , keyPairIds
+    , kpiItems
+    , kpiQuantity
+
+    -- ** LoggingConfig
+    , LoggingConfig
+    , loggingConfig
+    , lcEnabled
+    , lcIncludeCookies
+    , lcBucket
+    , lcPrefix
+
+    -- ** Origin
+    , Origin
+    , origin
+    , oCustomOriginConfig
+    , oS3OriginConfig
+    , oOriginPath
+    , oId
+    , oDomainName
+
+    -- ** Origins
+    , Origins
+    , origins
+    , oItems
+    , oQuantity
+
+    -- ** Paths
+    , Paths
+    , paths
+    , pItems
+    , pQuantity
+
+    -- ** Restrictions
+    , Restrictions
+    , restrictions
+    , rGeoRestriction
+
+    -- ** S3Origin
+    , S3Origin
+    , s3Origin
+    , soDomainName
+    , soOriginAccessIdentity
+
+    -- ** S3OriginConfig
+    , S3OriginConfig
+    , s3OriginConfig
+    , socOriginAccessIdentity
+
+    -- ** Signer
+    , Signer
+    , signer
+    , sAWSAccountNumber
+    , sKeyPairIds
+
+    -- ** StreamingDistribution
+    , StreamingDistribution
+    , streamingDistribution
+    , sdLastModifiedTime
+    , sdId
+    , sdStatus
+    , sdDomainName
+    , sdActiveTrustedSigners
+    , sdStreamingDistributionConfig
+
+    -- ** StreamingDistributionConfig
+    , StreamingDistributionConfig
+    , streamingDistributionConfig
+    , sdcAliases
+    , sdcPriceClass
+    , sdcLogging
+    , sdcCallerReference
+    , sdcS3Origin
+    , sdcComment
+    , sdcTrustedSigners
+    , sdcEnabled
+
+    -- ** StreamingDistributionList
+    , StreamingDistributionList
+    , streamingDistributionList
+    , sdlItems
+    , sdlNextMarker
+    , sdlMarker
+    , sdlMaxItems
+    , sdlIsTruncated
+    , sdlQuantity
+
+    -- ** StreamingDistributionSummary
+    , StreamingDistributionSummary
+    , streamingDistributionSummary
+    , sdsId
+    , sdsStatus
+    , sdsLastModifiedTime
+    , sdsDomainName
+    , sdsS3Origin
+    , sdsAliases
+    , sdsTrustedSigners
+    , sdsComment
+    , sdsPriceClass
+    , sdsEnabled
+
+    -- ** StreamingLoggingConfig
+    , StreamingLoggingConfig
+    , streamingLoggingConfig
+    , slcEnabled
+    , slcBucket
+    , slcPrefix
+
+    -- ** TrustedSigners
+    , TrustedSigners
+    , trustedSigners
+    , tsItems
+    , tsEnabled
+    , tsQuantity
+
+    -- ** ViewerCertificate
+    , ViewerCertificate
+    , viewerCertificate
+    , vcSSLSupportMethod
+    , vcMinimumProtocolVersion
+    , vcIAMCertificateId
+    , vcCloudFrontDefaultCertificate
     ) where
 
-import           Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity    as Export
-import           Network.AWS.CloudFront.CreateDistribution                      as Export
-import           Network.AWS.CloudFront.CreateInvalidation                      as Export
-import           Network.AWS.CloudFront.CreateStreamingDistribution             as Export
-import           Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity    as Export
-import           Network.AWS.CloudFront.DeleteDistribution                      as Export
-import           Network.AWS.CloudFront.DeleteStreamingDistribution             as Export
-import           Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity       as Export
-import           Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig as Export
-import           Network.AWS.CloudFront.GetDistribution                         as Export
-import           Network.AWS.CloudFront.GetDistributionConfig                   as Export
-import           Network.AWS.CloudFront.GetInvalidation                         as Export
-import           Network.AWS.CloudFront.GetStreamingDistribution                as Export
-import           Network.AWS.CloudFront.GetStreamingDistributionConfig          as Export
-import           Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities    as Export
-import           Network.AWS.CloudFront.ListDistributions                       as Export
-import           Network.AWS.CloudFront.ListInvalidations                       as Export
-import           Network.AWS.CloudFront.ListStreamingDistributions              as Export
-import           Network.AWS.CloudFront.Types                                   as Export
-import           Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity    as Export
-import           Network.AWS.CloudFront.UpdateDistribution                      as Export
-import           Network.AWS.CloudFront.UpdateStreamingDistribution             as Export
-import           Network.AWS.CloudFront.Waiters                                 as Export
+import           Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+import           Network.AWS.CloudFront.CreateDistribution
+import           Network.AWS.CloudFront.CreateInvalidation
+import           Network.AWS.CloudFront.CreateStreamingDistribution
+import           Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+import           Network.AWS.CloudFront.DeleteDistribution
+import           Network.AWS.CloudFront.DeleteStreamingDistribution
+import           Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+import           Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+import           Network.AWS.CloudFront.GetDistribution
+import           Network.AWS.CloudFront.GetDistributionConfig
+import           Network.AWS.CloudFront.GetInvalidation
+import           Network.AWS.CloudFront.GetStreamingDistribution
+import           Network.AWS.CloudFront.GetStreamingDistributionConfig
+import           Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+import           Network.AWS.CloudFront.ListDistributions
+import           Network.AWS.CloudFront.ListInvalidations
+import           Network.AWS.CloudFront.ListStreamingDistributions
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+import           Network.AWS.CloudFront.UpdateDistribution
+import           Network.AWS.CloudFront.UpdateStreamingDistribution
+import           Network.AWS.CloudFront.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'CloudFront'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

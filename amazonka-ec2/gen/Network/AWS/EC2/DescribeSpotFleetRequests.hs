@@ -19,24 +19,22 @@
 --
 -- Describes your Spot fleet requests.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequests.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequests.html AWS API Reference> for DescribeSpotFleetRequests.
 module Network.AWS.EC2.DescribeSpotFleetRequests
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSpotFleetRequests
-    -- ** Request constructor
     , describeSpotFleetRequests
-    -- ** Request lenses
+    -- * Request Lenses
     , dsfrSpotFleetRequestIds
     , dsfrNextToken
     , dsfrDryRun
     , dsfrMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSpotFleetRequestsResponse
-    -- ** Response constructor
     , describeSpotFleetRequestsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsfrrsNextToken
     , dsfrrsStatus
     , dsfrrsSpotFleetRequestConfigs
@@ -161,7 +159,7 @@ describeSpotFleetRequestsResponse pStatus_ =
 dsfrrsNextToken :: Lens' DescribeSpotFleetRequestsResponse (Maybe Text)
 dsfrrsNextToken = lens _dsfrrsNextToken (\ s a -> s{_dsfrrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfrrsStatus :: Lens' DescribeSpotFleetRequestsResponse Int
 dsfrrsStatus = lens _dsfrrsStatus (\ s a -> s{_dsfrrsStatus = a});
 

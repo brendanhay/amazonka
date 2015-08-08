@@ -26,21 +26,19 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeDomains.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeDomains.html AWS API Reference> for DescribeDomains.
 module Network.AWS.CloudSearch.DescribeDomains
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDomains
-    -- ** Request constructor
     , describeDomains
-    -- ** Request lenses
+    -- * Request Lenses
     , ddDomainNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDomainsResponse
-    -- ** Response constructor
     , describeDomainsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddsrsStatus
     , ddsrsDomainStatusList
     ) where
@@ -124,10 +122,10 @@ describeDomainsResponse pStatus_ =
     , _ddsrsDomainStatusList = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddsrsStatus :: Lens' DescribeDomainsResponse Int
 ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a}) . _Coerce;

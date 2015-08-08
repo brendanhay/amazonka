@@ -23,22 +23,20 @@
 -- StackStatusFilter is specified, summary information for all stacks is
 -- returned (including existing stacks and stacks that have been deleted).
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html AWS API Reference> for ListStacks.
 module Network.AWS.CloudFormation.ListStacks
     (
-    -- * Request
+    -- * Creating a Request
       ListStacks
-    -- ** Request constructor
     , listStacks
-    -- ** Request lenses
+    -- * Request Lenses
     , lsNextToken
     , lsStackStatusFilter
 
-    -- * Response
+    -- * Destructuring the Response
     , ListStacksResponse
-    -- ** Response constructor
     , listStacksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrsStackSummaries
     , lsrsNextToken
     , lsrsStatus
@@ -158,6 +156,6 @@ lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = 
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrsStatus :: Lens' ListStacksResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

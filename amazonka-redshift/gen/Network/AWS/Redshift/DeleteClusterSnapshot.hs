@@ -28,22 +28,20 @@
 -- must revoke all of the authorizations before you can delete the
 -- snapshot.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html AWS API Reference> for DeleteClusterSnapshot.
 module Network.AWS.Redshift.DeleteClusterSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       DeleteClusterSnapshot
-    -- ** Request constructor
     , deleteClusterSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsSnapshotClusterIdentifier
     , dcsSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteClusterSnapshotResponse
-    -- ** Response constructor
     , deleteClusterSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcsrsSnapshot
     , dcsrsStatus
     ) where
@@ -137,10 +135,10 @@ deleteClusterSnapshotResponse pStatus_ =
     , _dcsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsrsStatus :: Lens' DeleteClusterSnapshotResponse Int
 dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

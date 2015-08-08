@@ -20,24 +20,22 @@
 -- Downloads all or a portion of the specified log file, up to 1 MB in
 -- size.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html AWS API Reference> for DownloadDBLogFilePortion.
 module Network.AWS.RDS.DownloadDBLogFilePortion
     (
-    -- * Request
+    -- * Creating a Request
       DownloadDBLogFilePortion
-    -- ** Request constructor
     , downloadDBLogFilePortion
-    -- ** Request lenses
+    -- * Request Lenses
     , ddlfpNumberOfLines
     , ddlfpMarker
     , ddlfpDBInstanceIdentifier
     , ddlfpLogFileName
 
-    -- * Response
+    -- * Destructuring the Response
     , DownloadDBLogFilePortionResponse
-    -- ** Response constructor
     , downloadDBLogFilePortionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddlfprsLogFileData
     , ddlfprsAdditionalDataPending
     , ddlfprsMarker
@@ -211,6 +209,6 @@ ddlfprsAdditionalDataPending = lens _ddlfprsAdditionalDataPending (\ s a -> s{_d
 ddlfprsMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddlfprsMarker = lens _ddlfprsMarker (\ s a -> s{_ddlfprsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddlfprsStatus :: Lens' DownloadDBLogFilePortionResponse Int
 ddlfprsStatus = lens _ddlfprsStatus (\ s a -> s{_ddlfprsStatus = a});

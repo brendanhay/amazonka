@@ -23,22 +23,20 @@
 -- cannot make this API call with the temporary user credentials provided
 -- by Cognito Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html AWS API Reference> for ListIdentityPoolUsage.
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (
-    -- * Request
+    -- * Creating a Request
       ListIdentityPoolUsage
-    -- ** Request constructor
     , listIdentityPoolUsage
-    -- ** Request lenses
+    -- * Request Lenses
     , lipuNextToken
     , lipuMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListIdentityPoolUsageResponse
-    -- ** Response constructor
     , listIdentityPoolUsageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lipursIdentityPoolUsages
     , lipursCount
     , lipursNextToken
@@ -162,6 +160,6 @@ lipursNextToken = lens _lipursNextToken (\ s a -> s{_lipursNextToken = a});
 lipursMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lipursStatus :: Lens' ListIdentityPoolUsageResponse Int
 lipursStatus = lens _lipursStatus (\ s a -> s{_lipursStatus = a});

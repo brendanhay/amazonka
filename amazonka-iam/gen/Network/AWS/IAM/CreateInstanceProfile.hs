@@ -26,22 +26,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html AWS API Reference> for CreateInstanceProfile.
 module Network.AWS.IAM.CreateInstanceProfile
     (
-    -- * Request
+    -- * Creating a Request
       CreateInstanceProfile
-    -- ** Request constructor
     , createInstanceProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , cipPath
     , cipInstanceProfileName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateInstanceProfileResponse
-    -- ** Response constructor
     , createInstanceProfileResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ciprsStatus
     , ciprsInstanceProfile
     ) where
@@ -131,7 +129,7 @@ createInstanceProfileResponse pStatus_ pInstanceProfile_ =
     , _ciprsInstanceProfile = pInstanceProfile_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ciprsStatus :: Lens' CreateInstanceProfileResponse Int
 ciprsStatus = lens _ciprsStatus (\ s a -> s{_ciprsStatus = a});
 

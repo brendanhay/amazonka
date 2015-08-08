@@ -28,24 +28,22 @@
 -- You can also specify a maximum number of return results with the /Limit/
 -- parameter.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeSnapshots.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
 module Network.AWS.DirectoryService.DescribeSnapshots
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSnapshots
-    -- ** Request constructor
     , describeSnapshots
-    -- ** Request lenses
+    -- * Request Lenses
     , dsDirectoryId
     , dsNextToken
     , dsSnapshotIds
     , dsLimit
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSnapshotsResponse
-    -- ** Response constructor
     , describeSnapshotsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dssrsNextToken
     , dssrsSnapshots
     , dssrsStatus
@@ -180,6 +178,6 @@ dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

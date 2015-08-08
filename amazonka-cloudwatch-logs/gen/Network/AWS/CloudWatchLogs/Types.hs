@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudWatchLogs.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudWatchLogs
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidParameterException
     , _InvalidSequenceTokenException
     , _ResourceAlreadyExistsException

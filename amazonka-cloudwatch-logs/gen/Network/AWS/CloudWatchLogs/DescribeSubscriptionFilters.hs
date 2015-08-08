@@ -26,24 +26,22 @@
 -- of subscription filters returned in the response by specifying the
 -- @limit@ parameter in the request.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html AWS API Reference> for DescribeSubscriptionFilters.
 module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSubscriptionFilters
-    -- ** Request constructor
     , describeSubscriptionFilters
-    -- ** Request lenses
+    -- * Request Lenses
     , dsfFilterNamePrefix
     , dsfNextToken
     , dsfLimit
     , dsfLogGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSubscriptionFiltersResponse
-    -- ** Response constructor
     , describeSubscriptionFiltersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsfrsSubscriptionFilters
     , dsfrsNextToken
     , dsfrsStatus
@@ -88,11 +86,11 @@ describeSubscriptionFilters pLogGroupName_ =
 dsfFilterNamePrefix :: Lens' DescribeSubscriptionFilters (Maybe Text)
 dsfFilterNamePrefix = lens _dsfFilterNamePrefix (\ s a -> s{_dsfFilterNamePrefix = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfNextToken :: Lens' DescribeSubscriptionFilters (Maybe Text)
 dsfNextToken = lens _dsfNextToken (\ s a -> s{_dsfNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfLimit :: Lens' DescribeSubscriptionFilters (Maybe Natural)
 dsfLimit = lens _dsfLimit (\ s a -> s{_dsfLimit = a}) . mapping _Nat;
 
@@ -160,14 +158,14 @@ describeSubscriptionFiltersResponse pStatus_ =
     , _dsfrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfrsSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse [SubscriptionFilter]
 dsfrsSubscriptionFilters = lens _dsfrsSubscriptionFilters (\ s a -> s{_dsfrsSubscriptionFilters = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfrsNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrsNextToken = lens _dsfrsNextToken (\ s a -> s{_dsfrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfrsStatus :: Lens' DescribeSubscriptionFiltersResponse Int
 dsfrsStatus = lens _dsfrsStatus (\ s a -> s{_dsfrsStatus = a});

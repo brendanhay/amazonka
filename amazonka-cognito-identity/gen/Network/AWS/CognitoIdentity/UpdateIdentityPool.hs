@@ -21,14 +21,13 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UpdateIdentityPool.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UpdateIdentityPool.html AWS API Reference> for UpdateIdentityPool.
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
-    -- * Request
+    -- * Creating a Request
       UpdateIdentityPool
-    -- ** Request constructor
     , updateIdentityPool
-    -- ** Request lenses
+    -- * Request Lenses
     , uipSupportedLoginProviders
     , uipDeveloperProviderName
     , uipOpenIdConnectProviderARNs
@@ -36,11 +35,10 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , uipIdentityPoolName
     , uipAllowUnauthenticatedIdentities
 
-    -- * Response
+    -- * Destructuring the Response
     , IdentityPool
-    -- ** Response constructor
     , identityPool
-    -- ** Response lenses
+    -- * Response Lenses
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs

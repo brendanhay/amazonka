@@ -33,25 +33,23 @@
 -- For an overview of CIDR ranges, go to the
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html AWS API Reference> for AuthorizeDBSecurityGroupIngress.
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     (
-    -- * Request
+    -- * Creating a Request
       AuthorizeDBSecurityGroupIngress
-    -- ** Request constructor
     , authorizeDBSecurityGroupIngress
-    -- ** Request lenses
+    -- * Request Lenses
     , adsgiEC2SecurityGroupOwnerId
     , adsgiEC2SecurityGroupName
     , adsgiCIdRIP
     , adsgiEC2SecurityGroupId
     , adsgiDBSecurityGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , AuthorizeDBSecurityGroupIngressResponse
-    -- ** Response constructor
     , authorizeDBSecurityGroupIngressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , adsgirsDBSecurityGroup
     , adsgirsStatus
     ) where
@@ -179,10 +177,10 @@ authorizeDBSecurityGroupIngressResponse pStatus_ =
     , _adsgirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 adsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 adsgirsDBSecurityGroup = lens _adsgirsDBSecurityGroup (\ s a -> s{_adsgirsDBSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 adsgirsStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
 adsgirsStatus = lens _adsgirsStatus (\ s a -> s{_adsgirsStatus = a});

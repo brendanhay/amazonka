@@ -26,19 +26,17 @@
 -- associated with a running instance will break any applications running
 -- on the instance.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRole.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRole.html AWS API Reference> for DeleteRole.
 module Network.AWS.IAM.DeleteRole
     (
-    -- * Request
+    -- * Creating a Request
       DeleteRole
-    -- ** Request constructor
     , deleteRole
-    -- ** Request lenses
+    -- * Request Lenses
     , drRoleName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteRoleResponse
-    -- ** Response constructor
     , deleteRoleResponse
     ) where
 

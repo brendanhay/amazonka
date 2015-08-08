@@ -26,14 +26,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html AWS API Reference> for CopyImage.
 module Network.AWS.EC2.CopyImage
     (
-    -- * Request
+    -- * Creating a Request
       CopyImage
-    -- ** Request constructor
     , copyImage
-    -- ** Request lenses
+    -- * Request Lenses
     , ciClientToken
     , ciDryRun
     , ciDescription
@@ -41,11 +40,10 @@ module Network.AWS.EC2.CopyImage
     , ciSourceImageId
     , ciName
 
-    -- * Response
+    -- * Destructuring the Response
     , CopyImageResponse
-    -- ** Response constructor
     , copyImageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , coprsImageId
     , coprsStatus
     ) where
@@ -173,6 +171,6 @@ copyImageResponse pStatus_ =
 coprsImageId :: Lens' CopyImageResponse (Maybe Text)
 coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 coprsStatus :: Lens' CopyImageResponse Int
 coprsStatus = lens _coprsStatus (\ s a -> s{_coprsStatus = a});

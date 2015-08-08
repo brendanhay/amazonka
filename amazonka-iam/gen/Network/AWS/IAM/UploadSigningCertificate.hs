@@ -38,22 +38,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html AWS API Reference> for UploadSigningCertificate.
 module Network.AWS.IAM.UploadSigningCertificate
     (
-    -- * Request
+    -- * Creating a Request
       UploadSigningCertificate
-    -- ** Request constructor
     , uploadSigningCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , uplUserName
     , uplCertificateBody
 
-    -- * Response
+    -- * Destructuring the Response
     , UploadSigningCertificateResponse
-    -- ** Response constructor
     , uploadSigningCertificateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uscrsStatus
     , uscrsCertificate
     ) where
@@ -139,7 +137,7 @@ uploadSigningCertificateResponse pStatus_ pCertificate_ =
     , _uscrsCertificate = pCertificate_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uscrsStatus :: Lens' UploadSigningCertificateResponse Int
 uscrsStatus = lens _uscrsStatus (\ s a -> s{_uscrsStatus = a});
 

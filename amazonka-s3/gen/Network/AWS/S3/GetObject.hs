@@ -19,14 +19,13 @@
 --
 -- Retrieves objects from Amazon S3.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObject.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObject.html AWS API Reference> for GetObject.
 module Network.AWS.S3.GetObject
     (
-    -- * Request
+    -- * Creating a Request
       GetObject
-    -- ** Request constructor
     , getObject
-    -- ** Request lenses
+    -- * Request Lenses
     , goIfMatch
     , goVersionId
     , goResponseContentType
@@ -46,11 +45,10 @@ module Network.AWS.S3.GetObject
     , goBucket
     , goKey
 
-    -- * Response
+    -- * Destructuring the Response
     , GetObjectResponse
-    -- ** Response constructor
     , getObjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gorsVersionId
     , gorsETag
     , gorsRequestCharged
@@ -203,7 +201,7 @@ goSSECustomerAlgorithm = lens _goSSECustomerAlgorithm (\ s a -> s{_goSSECustomer
 goSSECustomerKey :: Lens' GetObject (Maybe Text)
 goSSECustomerKey = lens _goSSECustomerKey (\ s a -> s{_goSSECustomerKey = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goRequestPayer :: Lens' GetObject (Maybe RequestPayer)
 goRequestPayer = lens _goRequestPayer (\ s a -> s{_goRequestPayer = a});
 
@@ -246,11 +244,11 @@ goResponseExpires = lens _goResponseExpires (\ s a -> s{_goResponseExpires = a})
 goIfNoneMatch :: Lens' GetObject (Maybe Text)
 goIfNoneMatch = lens _goIfNoneMatch (\ s a -> s{_goIfNoneMatch = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goBucket :: Lens' GetObject BucketName
 goBucket = lens _goBucket (\ s a -> s{_goBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goKey :: Lens' GetObject ObjectKey
 goKey = lens _goKey (\ s a -> s{_goKey = a});
 
@@ -457,7 +455,7 @@ gorsVersionId = lens _gorsVersionId (\ s a -> s{_gorsVersionId = a});
 gorsETag :: Lens' GetObjectResponse (Maybe ETag)
 gorsETag = lens _gorsETag (\ s a -> s{_gorsETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gorsRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)
 gorsRequestCharged = lens _gorsRequestCharged (\ s a -> s{_gorsRequestCharged = a});
 
@@ -507,11 +505,11 @@ gorsMissingMeta = lens _gorsMissingMeta (\ s a -> s{_gorsMissingMeta = a});
 gorsWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
 gorsWebsiteRedirectLocation = lens _gorsWebsiteRedirectLocation (\ s a -> s{_gorsWebsiteRedirectLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gorsAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
 gorsAcceptRanges = lens _gorsAcceptRanges (\ s a -> s{_gorsAcceptRanges = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gorsStorageClass :: Lens' GetObjectResponse (Maybe StorageClass)
 gorsStorageClass = lens _gorsStorageClass (\ s a -> s{_gorsStorageClass = a});
 
@@ -536,7 +534,7 @@ gorsSSECustomerKeyMD5 = lens _gorsSSECustomerKeyMD5 (\ s a -> s{_gorsSSECustomer
 gorsMetadata :: Lens' GetObjectResponse (HashMap Text Text)
 gorsMetadata = lens _gorsMetadata (\ s a -> s{_gorsMetadata = a}) . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gorsReplicationStatus :: Lens' GetObjectResponse (Maybe ReplicationStatus)
 gorsReplicationStatus = lens _gorsReplicationStatus (\ s a -> s{_gorsReplicationStatus = a});
 
@@ -569,7 +567,7 @@ gorsServerSideEncryption = lens _gorsServerSideEncryption (\ s a -> s{_gorsServe
 gorsContentType :: Lens' GetObjectResponse (Maybe Text)
 gorsContentType = lens _gorsContentType (\ s a -> s{_gorsContentType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gorsStatus :: Lens' GetObjectResponse Int
 gorsStatus = lens _gorsStatus (\ s a -> s{_gorsStatus = a});
 

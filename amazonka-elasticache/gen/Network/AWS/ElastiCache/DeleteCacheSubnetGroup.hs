@@ -22,19 +22,17 @@
 -- You cannot delete a cache subnet group if it is associated with any
 -- cache clusters.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html AWS API Reference> for DeleteCacheSubnetGroup.
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteCacheSubnetGroup
-    -- ** Request constructor
     , deleteCacheSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dCacheSubnetGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteCacheSubnetGroupResponse
-    -- ** Response constructor
     , deleteCacheSubnetGroupResponse
     ) where
 

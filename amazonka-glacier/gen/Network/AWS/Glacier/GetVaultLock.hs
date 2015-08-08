@@ -42,22 +42,20 @@
 -- a @404 Not found@ error. For more information about vault lock policies,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultLock.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultLock.html AWS API Reference> for GetVaultLock.
 module Network.AWS.Glacier.GetVaultLock
     (
-    -- * Request
+    -- * Creating a Request
       GetVaultLock
-    -- ** Request constructor
     , getVaultLock
-    -- ** Request lenses
+    -- * Request Lenses
     , gvlAccountId
     , gvlVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetVaultLockResponse
-    -- ** Response constructor
     , getVaultLockResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gvlrsState
     , gvlrsExpirationDate
     , gvlrsCreationDate
@@ -182,6 +180,6 @@ gvlrsCreationDate = lens _gvlrsCreationDate (\ s a -> s{_gvlrsCreationDate = a})
 gvlrsPolicy :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsPolicy = lens _gvlrsPolicy (\ s a -> s{_gvlrsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gvlrsStatus :: Lens' GetVaultLockResponse Int
 gvlrsStatus = lens _gvlrsStatus (\ s a -> s{_gvlrsStatus = a});

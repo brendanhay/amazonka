@@ -20,20 +20,18 @@
 -- Deletes the specified Internet gateway. You must detach the Internet
 -- gateway from the VPC before you can delete it.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html AWS API Reference> for DeleteInternetGateway.
 module Network.AWS.EC2.DeleteInternetGateway
     (
-    -- * Request
+    -- * Creating a Request
       DeleteInternetGateway
-    -- ** Request constructor
     , deleteInternetGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , digiDryRun
     , digiInternetGatewayId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteInternetGatewayResponse
-    -- ** Response constructor
     , deleteInternetGatewayResponse
     ) where
 

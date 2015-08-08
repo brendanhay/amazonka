@@ -22,23 +22,21 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html AWS API Reference> for ListIdentities.
 module Network.AWS.SES.ListIdentities
     (
-    -- * Request
+    -- * Creating a Request
       ListIdentities
-    -- ** Request constructor
     , listIdentities
-    -- ** Request lenses
+    -- * Request Lenses
     , liIdentityType
     , liNextToken
     , liMaxItems
 
-    -- * Response
+    -- * Destructuring the Response
     , ListIdentitiesResponse
-    -- ** Response constructor
     , listIdentitiesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lirsNextToken
     , lirsStatus
     , lirsIdentities
@@ -156,7 +154,7 @@ listIdentitiesResponse pStatus_ =
 lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lirsStatus :: Lens' ListIdentitiesResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
 

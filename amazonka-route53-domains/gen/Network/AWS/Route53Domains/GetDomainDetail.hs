@@ -20,21 +20,19 @@
 -- This operation returns detailed information about the domain. The
 -- domain\'s contact information is also returned as part of the output.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html AWS API Reference> for GetDomainDetail.
 module Network.AWS.Route53Domains.GetDomainDetail
     (
-    -- * Request
+    -- * Creating a Request
       GetDomainDetail
-    -- ** Request constructor
     , getDomainDetail
-    -- ** Request lenses
+    -- * Request Lenses
     , gddDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDomainDetailResponse
-    -- ** Response constructor
     , getDomainDetailResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gddrsTechPrivacy
     , gddrsDNSSec
     , gddrsWhoIsServer
@@ -366,7 +364,7 @@ gddrsStatusList = lens _gddrsStatusList (\ s a -> s{_gddrsStatusList = a}) . _De
 gddrsReseller :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrsReseller = lens _gddrsReseller (\ s a -> s{_gddrsReseller = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gddrsStatus :: Lens' GetDomainDetailResponse Int
 gddrsStatus = lens _gddrsStatus (\ s a -> s{_gddrsStatus = a});
 

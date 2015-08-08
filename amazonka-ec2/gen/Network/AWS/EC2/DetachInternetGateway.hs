@@ -21,21 +21,19 @@
 -- the Internet and the VPC. The VPC must not contain any running instances
 -- with Elastic IP addresses.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachInternetGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachInternetGateway.html AWS API Reference> for DetachInternetGateway.
 module Network.AWS.EC2.DetachInternetGateway
     (
-    -- * Request
+    -- * Creating a Request
       DetachInternetGateway
-    -- ** Request constructor
     , detachInternetGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , digDryRun
     , digInternetGatewayId
     , digVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachInternetGatewayResponse
-    -- ** Response constructor
     , detachInternetGatewayResponse
     ) where
 

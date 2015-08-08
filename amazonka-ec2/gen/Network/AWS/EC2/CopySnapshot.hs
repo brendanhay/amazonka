@@ -34,14 +34,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html Copying an Amazon EBS Snapshot>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html AWS API Reference> for CopySnapshot.
 module Network.AWS.EC2.CopySnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CopySnapshot
-    -- ** Request constructor
     , copySnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , csEncrypted
     , csPresignedURL
     , csDestinationRegion
@@ -51,11 +50,10 @@ module Network.AWS.EC2.CopySnapshot
     , csSourceRegion
     , csSourceSnapshotId
 
-    -- * Response
+    -- * Destructuring the Response
     , CopySnapshotResponse
-    -- ** Response constructor
     , copySnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsSnapshotId
     , csrsStatus
     ) where
@@ -232,6 +230,6 @@ copySnapshotResponse pStatus_ =
 csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' CopySnapshotResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

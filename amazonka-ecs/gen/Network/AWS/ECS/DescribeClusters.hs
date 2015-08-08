@@ -19,21 +19,19 @@
 --
 -- Describes one or more of your clusters.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeClusters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeClusters.html AWS API Reference> for DescribeClusters.
 module Network.AWS.ECS.DescribeClusters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusters
-    -- ** Request constructor
     , describeClusters
-    -- ** Request lenses
+    -- * Request Lenses
     , dcClusters
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClustersResponse
-    -- ** Response constructor
     , describeClustersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsFailures
     , dcrsClusters
     , dcrsStatus
@@ -122,7 +120,7 @@ describeClustersResponse pStatus_ =
     , _dcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsFailures :: Lens' DescribeClustersResponse [Failure]
 dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _Coerce;
 
@@ -130,6 +128,6 @@ dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsStatus :: Lens' DescribeClustersResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

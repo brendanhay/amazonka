@@ -22,21 +22,19 @@
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html AWS API Reference> for GetEndpointAttributes.
 module Network.AWS.SNS.GetEndpointAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetEndpointAttributes
-    -- ** Request constructor
     , getEndpointAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , geaEndpointARN
 
-    -- * Response
+    -- * Destructuring the Response
     , GetEndpointAttributesResponse
-    -- ** Response constructor
     , getEndpointAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gearsAttributes
     , gearsStatus
     ) where
@@ -132,6 +130,6 @@ getEndpointAttributesResponse pStatus_ =
 gearsAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gearsStatus :: Lens' GetEndpointAttributesResponse Int
 gearsStatus = lens _gearsStatus (\ s a -> s{_gearsStatus = a});

@@ -24,21 +24,19 @@
 -- specified name, that topic\'s ARN is returned without creating a new
 -- topic.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html AWS API Reference> for CreateTopic.
 module Network.AWS.SNS.CreateTopic
     (
-    -- * Request
+    -- * Creating a Request
       CreateTopic
-    -- ** Request constructor
     , createTopic
-    -- ** Request lenses
+    -- * Request Lenses
     , ctName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateTopicResponse
-    -- ** Response constructor
     , createTopicResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ctrsTopicARN
     , ctrsStatus
     ) where
@@ -123,6 +121,6 @@ createTopicResponse pStatus_ =
 ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
 ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ctrsStatus :: Lens' CreateTopicResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

@@ -21,21 +21,19 @@
 -- @2013-04-01\/healthcheck\/health check ID\/status@ resource. You can use
 -- this call to get a health check\'s current status.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html AWS API Reference> for GetHealthCheckStatus.
 module Network.AWS.Route53.GetHealthCheckStatus
     (
-    -- * Request
+    -- * Creating a Request
       GetHealthCheckStatus
-    -- ** Request constructor
     , getHealthCheckStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , ghcsHealthCheckId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetHealthCheckStatusResponse
-    -- ** Response constructor
     , getHealthCheckStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ghcsrsStatus
     , ghcsrsHealthCheckObservations
     ) where
@@ -117,7 +115,7 @@ getHealthCheckStatusResponse pStatus_ =
     , _ghcsrsHealthCheckObservations = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ghcsrsStatus :: Lens' GetHealthCheckStatusResponse Int
 ghcsrsStatus = lens _ghcsrsStatus (\ s a -> s{_ghcsrsStatus = a});
 

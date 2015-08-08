@@ -28,23 +28,21 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticIPs.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticIPs.html AWS API Reference> for DescribeElasticIPs.
 module Network.AWS.OpsWorks.DescribeElasticIPs
     (
-    -- * Request
+    -- * Creating a Request
       DescribeElasticIPs
-    -- ** Request constructor
     , describeElasticIPs
-    -- ** Request lenses
+    -- * Request Lenses
     , deiInstanceId
     , deiIPs
     , deiStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeElasticIPsResponse
-    -- ** Response constructor
     , describeElasticIPsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , deirsElasticIPs
     , deirsStatus
     ) where
@@ -158,6 +156,6 @@ describeElasticIPsResponse pStatus_ =
 deirsElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
 deirsElasticIPs = lens _deirsElasticIPs (\ s a -> s{_deirsElasticIPs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 deirsStatus :: Lens' DescribeElasticIPsResponse Int
 deirsStatus = lens _deirsStatus (\ s a -> s{_deirsStatus = a});

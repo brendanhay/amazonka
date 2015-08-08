@@ -42,22 +42,20 @@
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>
 -- in the /Using Temporary Credentials/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html AWS API Reference> for CreateSAMLProvider.
 module Network.AWS.IAM.CreateSAMLProvider
     (
-    -- * Request
+    -- * Creating a Request
       CreateSAMLProvider
-    -- ** Request constructor
     , createSAMLProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , csamlpSAMLMetadataDocument
     , csamlpName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSAMLProviderResponse
-    -- ** Response constructor
     , createSAMLProviderResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csamlprsSAMLProviderARN
     , csamlprsStatus
     ) where
@@ -156,6 +154,6 @@ createSAMLProviderResponse pStatus_ =
 csamlprsSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprsSAMLProviderARN = lens _csamlprsSAMLProviderARN (\ s a -> s{_csamlprsSAMLProviderARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csamlprsStatus :: Lens' CreateSAMLProviderResponse Int
 csamlprsStatus = lens _csamlprsStatus (\ s a -> s{_csamlprsStatus = a});

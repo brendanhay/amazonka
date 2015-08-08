@@ -19,20 +19,18 @@
 --
 -- Removes a statement from a topic\'s access control policy.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.SNS.RemovePermission
     (
-    -- * Request
+    -- * Creating a Request
       RemovePermission
-    -- ** Request constructor
     , removePermission
-    -- ** Request lenses
+    -- * Request Lenses
     , rpTopicARN
     , rpLabel
 
-    -- * Response
+    -- * Destructuring the Response
     , RemovePermissionResponse
-    -- ** Response constructor
     , removePermissionResponse
     ) where
 

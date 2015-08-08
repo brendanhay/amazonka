@@ -21,21 +21,19 @@
 -- who can view and modify the logging parameters. To set the logging
 -- status of a bucket, you must be the bucket owner.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html AWS API Reference> for PutBucketLogging.
 module Network.AWS.S3.PutBucketLogging
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketLogging
-    -- ** Request constructor
     , putBucketLogging
-    -- ** Request lenses
+    -- * Request Lenses
     , pblContentMD5
     , pblBucket
     , pblBucketLoggingStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketLoggingResponse
-    -- ** Response constructor
     , putBucketLoggingResponse
     ) where
 
@@ -68,15 +66,15 @@ putBucketLogging pBucket_ pBucketLoggingStatus_ =
     , _pblBucketLoggingStatus = pBucketLoggingStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
 pblContentMD5 = lens _pblContentMD5 (\ s a -> s{_pblContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pblBucket :: Lens' PutBucketLogging BucketName
 pblBucket = lens _pblBucket (\ s a -> s{_pblBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
 pblBucketLoggingStatus = lens _pblBucketLoggingStatus (\ s a -> s{_pblBucketLoggingStatus = a});
 

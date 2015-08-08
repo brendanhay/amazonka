@@ -49,14 +49,13 @@
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutLifecycleHook.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutLifecycleHook.html AWS API Reference> for PutLifecycleHook.
 module Network.AWS.AutoScaling.PutLifecycleHook
     (
-    -- * Request
+    -- * Creating a Request
       PutLifecycleHook
-    -- ** Request constructor
     , putLifecycleHook
-    -- ** Request lenses
+    -- * Request Lenses
     , plhDefaultResult
     , plhHeartbeatTimeout
     , plhNotificationMetadata
@@ -66,11 +65,10 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     , plhLifecycleHookName
     , plhAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , PutLifecycleHookResponse
-    -- ** Response constructor
     , putLifecycleHookResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , plhrsStatus
     ) where
 
@@ -241,6 +239,6 @@ putLifecycleHookResponse pStatus_ =
     { _plhrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 plhrsStatus :: Lens' PutLifecycleHookResponse Int
 plhrsStatus = lens _plhrsStatus (\ s a -> s{_plhrsStatus = a});

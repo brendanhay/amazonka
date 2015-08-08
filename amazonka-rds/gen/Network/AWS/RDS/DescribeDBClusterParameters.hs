@@ -24,25 +24,23 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterParameters.html AWS API Reference> for DescribeDBClusterParameters.
 module Network.AWS.RDS.DescribeDBClusterParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBClusterParameters
-    -- ** Request constructor
     , describeDBClusterParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcpFilters
     , ddcpMaxRecords
     , ddcpMarker
     , ddcpSource
     , ddcpDBClusterParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBClusterParametersResponse
-    -- ** Response constructor
     , describeDBClusterParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddcprsParameters
     , ddcprsMarker
     , ddcprsStatus
@@ -197,6 +195,6 @@ ddcprsParameters = lens _ddcprsParameters (\ s a -> s{_ddcprsParameters = a}) . 
 ddcprsMarker :: Lens' DescribeDBClusterParametersResponse (Maybe Text)
 ddcprsMarker = lens _ddcprsMarker (\ s a -> s{_ddcprsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcprsStatus :: Lens' DescribeDBClusterParametersResponse Int
 ddcprsStatus = lens _ddcprsStatus (\ s a -> s{_ddcprsStatus = a});

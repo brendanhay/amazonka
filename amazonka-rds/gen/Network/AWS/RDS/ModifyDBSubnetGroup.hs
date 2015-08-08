@@ -20,23 +20,21 @@
 -- Modifies an existing DB subnet group. DB subnet groups must contain at
 -- least one subnet in at least two AZs in the region.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSubnetGroup.html AWS API Reference> for ModifyDBSubnetGroup.
 module Network.AWS.RDS.ModifyDBSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyDBSubnetGroup
-    -- ** Request constructor
     , modifyDBSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mdsgDBSubnetGroupDescription
     , mdsgDBSubnetGroupName
     , mdsgSubnetIds
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyDBSubnetGroupResponse
-    -- ** Response constructor
     , modifyDBSubnetGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mdsgrsDBSubnetGroup
     , mdsgrsStatus
     ) where
@@ -138,10 +136,10 @@ modifyDBSubnetGroupResponse pStatus_ =
     , _mdsgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mdsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mdsgrsStatus :: Lens' ModifyDBSubnetGroupResponse Int
 mdsgrsStatus = lens _mdsgrsStatus (\ s a -> s{_mdsgrsStatus = a});

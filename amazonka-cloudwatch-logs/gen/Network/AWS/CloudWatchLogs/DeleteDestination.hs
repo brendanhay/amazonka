@@ -21,19 +21,17 @@
 -- all the subscription filters that publish to it. This will not delete
 -- the physical resource encapsulated by the destination.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDestination.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDestination.html AWS API Reference> for DeleteDestination.
 module Network.AWS.CloudWatchLogs.DeleteDestination
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDestination
-    -- ** Request constructor
     , deleteDestination
-    -- ** Request lenses
+    -- * Request Lenses
     , ddDestinationName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDestinationResponse
-    -- ** Response constructor
     , deleteDestinationResponse
     ) where
 

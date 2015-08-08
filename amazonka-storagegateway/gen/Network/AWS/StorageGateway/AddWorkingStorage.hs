@@ -30,22 +30,20 @@
 -- which you want to add working storage, and one or more disk IDs that you
 -- want to configure as working storage.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html AWS API Reference> for AddWorkingStorage.
 module Network.AWS.StorageGateway.AddWorkingStorage
     (
-    -- * Request
+    -- * Creating a Request
       AddWorkingStorage
-    -- ** Request constructor
     , addWorkingStorage
-    -- ** Request lenses
+    -- * Request Lenses
     , awsGatewayARN
     , awsDiskIds
 
-    -- * Response
+    -- * Destructuring the Response
     , AddWorkingStorageResponse
-    -- ** Response constructor
     , addWorkingStorageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , awsrsGatewayARN
     , awsrsStatus
     ) where
@@ -79,7 +77,7 @@ addWorkingStorage pGatewayARN_ =
     , _awsDiskIds = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 awsGatewayARN :: Lens' AddWorkingStorage Text
 awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a});
 
@@ -144,10 +142,10 @@ addWorkingStorageResponse pStatus_ =
     , _awsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 awsrsStatus :: Lens' AddWorkingStorageResponse Int
 awsrsStatus = lens _awsrsStatus (\ s a -> s{_awsrsStatus = a});

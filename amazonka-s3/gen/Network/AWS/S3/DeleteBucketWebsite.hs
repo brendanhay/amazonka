@@ -19,19 +19,17 @@
 --
 -- This operation removes the website configuration from the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketWebsite.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketWebsite.html AWS API Reference> for DeleteBucketWebsite.
 module Network.AWS.S3.DeleteBucketWebsite
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBucketWebsite
-    -- ** Request constructor
     , deleteBucketWebsite
-    -- ** Request lenses
+    -- * Request Lenses
     , dbwBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBucketWebsiteResponse
-    -- ** Response constructor
     , deleteBucketWebsiteResponse
     ) where
 
@@ -56,7 +54,7 @@ deleteBucketWebsite pBucket_ =
     { _dbwBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbwBucket :: Lens' DeleteBucketWebsite BucketName
 dbwBucket = lens _dbwBucket (\ s a -> s{_dbwBucket = a});
 

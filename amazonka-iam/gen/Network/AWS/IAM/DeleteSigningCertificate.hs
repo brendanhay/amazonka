@@ -26,20 +26,18 @@
 -- this action to manage root credentials even if the AWS account has no
 -- associated users.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html AWS API Reference> for DeleteSigningCertificate.
 module Network.AWS.IAM.DeleteSigningCertificate
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSigningCertificate
-    -- ** Request constructor
     , deleteSigningCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , dscUserName
     , dscCertificateId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSigningCertificateResponse
-    -- ** Response constructor
     , deleteSigningCertificateResponse
     ) where
 

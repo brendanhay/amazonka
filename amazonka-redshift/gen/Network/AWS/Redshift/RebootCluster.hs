@@ -26,21 +26,19 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html AWS API Reference> for RebootCluster.
 module Network.AWS.Redshift.RebootCluster
     (
-    -- * Request
+    -- * Creating a Request
       RebootCluster
-    -- ** Request constructor
     , rebootCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , rcClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RebootClusterResponse
-    -- ** Response constructor
     , rebootClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rcrsCluster
     , rcrsStatus
     ) where
@@ -115,10 +113,10 @@ rebootClusterResponse pStatus_ =
     , _rcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcrsStatus :: Lens' RebootClusterResponse Int
 rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

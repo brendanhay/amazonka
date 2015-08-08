@@ -22,21 +22,19 @@
 -- gateway, see the
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html AWS API Reference> for AttachInternetGateway.
 module Network.AWS.EC2.AttachInternetGateway
     (
-    -- * Request
+    -- * Creating a Request
       AttachInternetGateway
-    -- ** Request constructor
     , attachInternetGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , aigDryRun
     , aigInternetGatewayId
     , aigVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachInternetGatewayResponse
-    -- ** Response constructor
     , attachInternetGatewayResponse
     ) where
 

@@ -28,23 +28,21 @@
 -- you made. See @GetChange@ operation for how to track the progress of
 -- your change.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AWS API Reference> for AssociateVPCWithHostedZone.
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
-    -- * Request
+    -- * Creating a Request
       AssociateVPCWithHostedZone
-    -- ** Request constructor
     , associateVPCWithHostedZone
-    -- ** Request lenses
+    -- * Request Lenses
     , avwhzComment
     , avwhzHostedZoneId
     , avwhzVPC
 
-    -- * Response
+    -- * Destructuring the Response
     , AssociateVPCWithHostedZoneResponse
-    -- ** Response constructor
     , associateVPCWithHostedZoneResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , avwhzrsStatus
     , avwhzrsChangeInfo
     ) where
@@ -152,7 +150,7 @@ associateVPCWithHostedZoneResponse pStatus_ pChangeInfo_ =
     , _avwhzrsChangeInfo = pChangeInfo_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 avwhzrsStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
 avwhzrsStatus = lens _avwhzrsStatus (\ s a -> s{_avwhzrsStatus = a});
 

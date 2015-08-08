@@ -26,21 +26,19 @@
 -- For more information about using notifications with Amazon SES, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html AWS API Reference> for GetIdentityNotificationAttributes.
 module Network.AWS.SES.GetIdentityNotificationAttributes
     (
-    -- * Request
+    -- * Creating a Request
       GetIdentityNotificationAttributes
-    -- ** Request constructor
     , getIdentityNotificationAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , ginaIdentities
 
-    -- * Response
+    -- * Destructuring the Response
     , GetIdentityNotificationAttributesResponse
-    -- ** Response constructor
     , getIdentityNotificationAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ginarsStatus
     , ginarsNotificationAttributes
     ) where
@@ -130,7 +128,7 @@ getIdentityNotificationAttributesResponse pStatus_ =
     , _ginarsNotificationAttributes = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ginarsStatus :: Lens' GetIdentityNotificationAttributesResponse Int
 ginarsStatus = lens _ginarsStatus (\ s a -> s{_ginarsStatus = a});
 

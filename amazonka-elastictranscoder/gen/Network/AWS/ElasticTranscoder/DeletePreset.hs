@@ -23,21 +23,19 @@
 -- You can\'t delete the default presets that are included with Elastic
 -- Transcoder.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html AWS API Reference> for DeletePreset.
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
-    -- * Request
+    -- * Creating a Request
       DeletePreset
-    -- ** Request constructor
     , deletePreset
-    -- ** Request lenses
+    -- * Request Lenses
     , dpId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePresetResponse
-    -- ** Response constructor
     , deletePresetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dprsStatus
     ) where
 
@@ -106,6 +104,6 @@ deletePresetResponse pStatus_ =
     { _dprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dprsStatus :: Lens' DeletePresetResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

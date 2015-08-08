@@ -13,10 +13,10 @@
 --
 module Network.AWS.ECS.Types
     (
-    -- * Service
+    -- * Service Decription
       ECS
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidParameterException
     , _ServerException
     , _ClusterContainsServicesException

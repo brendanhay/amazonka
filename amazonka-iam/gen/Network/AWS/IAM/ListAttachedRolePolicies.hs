@@ -31,24 +31,22 @@
 -- no policies attached to the specified role (or none that match the
 -- specified path prefix), the action returns an empty list.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html AWS API Reference> for ListAttachedRolePolicies.
 module Network.AWS.IAM.ListAttachedRolePolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListAttachedRolePolicies
-    -- ** Request constructor
     , listAttachedRolePolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , larpPathPrefix
     , larpMaxItems
     , larpMarker
     , larpRoleName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAttachedRolePoliciesResponse
-    -- ** Response constructor
     , listAttachedRolePoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , larprsAttachedPolicies
     , larprsMarker
     , larprsIsTruncated
@@ -191,6 +189,6 @@ larprsMarker = lens _larprsMarker (\ s a -> s{_larprsMarker = a});
 larprsIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
 larprsIsTruncated = lens _larprsIsTruncated (\ s a -> s{_larprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 larprsStatus :: Lens' ListAttachedRolePoliciesResponse Int
 larprsStatus = lens _larprsStatus (\ s a -> s{_larprsStatus = a});

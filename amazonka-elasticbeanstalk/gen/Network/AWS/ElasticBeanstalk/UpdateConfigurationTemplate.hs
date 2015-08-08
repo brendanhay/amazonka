@@ -28,25 +28,23 @@
 --
 -- -   DescribeConfigurationOptions
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html AWS API Reference> for UpdateConfigurationTemplate.
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
-    -- * Request
+    -- * Creating a Request
       UpdateConfigurationTemplate
-    -- ** Request constructor
     , updateConfigurationTemplate
-    -- ** Request lenses
+    -- * Request Lenses
     , uctOptionsToRemove
     , uctOptionSettings
     , uctDescription
     , uctApplicationName
     , uctTemplateName
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfigurationSettingsDescription
-    -- ** Response constructor
     , configurationSettingsDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , csdTemplateName
     , csdOptionSettings
     , csdDateUpdated

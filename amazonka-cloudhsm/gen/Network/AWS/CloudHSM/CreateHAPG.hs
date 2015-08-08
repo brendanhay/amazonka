@@ -21,21 +21,19 @@
 -- partition group is a group of partitions that spans multiple physical
 -- HSMs.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHAPG.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHAPG.html AWS API Reference> for CreateHAPG.
 module Network.AWS.CloudHSM.CreateHAPG
     (
-    -- * Request
+    -- * Creating a Request
       CreateHAPG
-    -- ** Request constructor
     , createHAPG
-    -- ** Request lenses
+    -- * Request Lenses
     , chLabel
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateHAPGResponse
-    -- ** Response constructor
     , createHAPGResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , chrsHAPGARN
     , chrsStatus
     ) where
@@ -121,6 +119,6 @@ createHAPGResponse pStatus_ =
 chrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
 chrsHAPGARN = lens _chrsHAPGARN (\ s a -> s{_chrsHAPGARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chrsStatus :: Lens' CreateHAPGResponse Int
 chrsStatus = lens _chrsStatus (\ s a -> s{_chrsStatus = a});

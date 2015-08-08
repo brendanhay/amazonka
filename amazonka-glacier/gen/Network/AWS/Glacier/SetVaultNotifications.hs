@@ -53,21 +53,19 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html Set Vault Notification Configuration>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultNotifications.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultNotifications.html AWS API Reference> for SetVaultNotifications.
 module Network.AWS.Glacier.SetVaultNotifications
     (
-    -- * Request
+    -- * Creating a Request
       SetVaultNotifications
-    -- ** Request constructor
     , setVaultNotifications
-    -- ** Request lenses
+    -- * Request Lenses
     , svnVaultNotificationConfig
     , svnAccountId
     , svnVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , SetVaultNotificationsResponse
-    -- ** Response constructor
     , setVaultNotificationsResponse
     ) where
 

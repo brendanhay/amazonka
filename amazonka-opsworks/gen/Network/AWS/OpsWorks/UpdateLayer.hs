@@ -25,14 +25,13 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateLayer.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateLayer.html AWS API Reference> for UpdateLayer.
 module Network.AWS.OpsWorks.UpdateLayer
     (
-    -- * Request
+    -- * Creating a Request
       UpdateLayer
-    -- ** Request constructor
     , updateLayer
-    -- ** Request lenses
+    -- * Request Lenses
     , ulCustomInstanceProfileARN
     , ulInstallUpdatesOnBoot
     , ulCustomSecurityGroupIds
@@ -50,9 +49,8 @@ module Network.AWS.OpsWorks.UpdateLayer
     , ulAutoAssignElasticIPs
     , ulLayerId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateLayerResponse
-    -- ** Response constructor
     , updateLayerResponse
     ) where
 

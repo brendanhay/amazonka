@@ -19,23 +19,21 @@
 --
 -- Describes one or more of your network interfaces.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaces.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaces.html AWS API Reference> for DescribeNetworkInterfaces.
 module Network.AWS.EC2.DescribeNetworkInterfaces
     (
-    -- * Request
+    -- * Creating a Request
       DescribeNetworkInterfaces
-    -- ** Request constructor
     , describeNetworkInterfaces
-    -- ** Request lenses
+    -- * Request Lenses
     , dnisNetworkInterfaceIds
     , dnisFilters
     , dnisDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeNetworkInterfacesResponse
-    -- ** Response constructor
     , describeNetworkInterfacesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dnirsNetworkInterfaces
     , dnirsStatus
     ) where
@@ -247,6 +245,6 @@ describeNetworkInterfacesResponse pStatus_ =
 dnirsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirsNetworkInterfaces = lens _dnirsNetworkInterfaces (\ s a -> s{_dnirsNetworkInterfaces = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dnirsStatus :: Lens' DescribeNetworkInterfacesResponse Int
 dnirsStatus = lens _dnirsStatus (\ s a -> s{_dnirsStatus = a});

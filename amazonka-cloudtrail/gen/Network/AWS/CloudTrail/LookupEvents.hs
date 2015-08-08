@@ -33,25 +33,23 @@
 -- available for lookup if CloudTrail logging was not enabled when the
 -- events occurred.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html AWS API Reference> for LookupEvents.
 module Network.AWS.CloudTrail.LookupEvents
     (
-    -- * Request
+    -- * Creating a Request
       LookupEvents
-    -- ** Request constructor
     , lookupEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , leStartTime
     , leLookupAttributes
     , leNextToken
     , leEndTime
     , leMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , LookupEventsResponse
-    -- ** Response constructor
     , lookupEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lersNextToken
     , lersEvents
     , lersStatus
@@ -202,6 +200,6 @@ lersNextToken = lens _lersNextToken (\ s a -> s{_lersNextToken = a});
 lersEvents :: Lens' LookupEventsResponse [Event]
 lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lersStatus :: Lens' LookupEventsResponse Int
 lersStatus = lens _lersStatus (\ s a -> s{_lersStatus = a});

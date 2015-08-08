@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html AWS API Reference> for DeleteUserPolicy.
 module Network.AWS.IAM.DeleteUserPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteUserPolicy
-    -- ** Request constructor
     , deleteUserPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dupUserName
     , dupPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteUserPolicyResponse
-    -- ** Response constructor
     , deleteUserPolicyResponse
     ) where
 

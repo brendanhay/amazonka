@@ -22,22 +22,20 @@
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateTagsForDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateTagsForDomain.html AWS API Reference> for UpdateTagsForDomain.
 module Network.AWS.Route53Domains.UpdateTagsForDomain
     (
-    -- * Request
+    -- * Creating a Request
       UpdateTagsForDomain
-    -- ** Request constructor
     , updateTagsForDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , utfdTagsToUpdate
     , utfdDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateTagsForDomainResponse
-    -- ** Response constructor
     , updateTagsForDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , utfdrsStatus
     ) where
 
@@ -181,6 +179,6 @@ updateTagsForDomainResponse pStatus_ =
     { _utfdrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 utfdrsStatus :: Lens' UpdateTagsForDomainResponse Int
 utfdrsStatus = lens _utfdrsStatus (\ s a -> s{_utfdrsStatus = a});

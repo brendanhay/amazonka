@@ -25,14 +25,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modifying Attributes of a Stopped Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html AWS API Reference> for ModifyInstanceAttribute.
 module Network.AWS.EC2.ModifyInstanceAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ModifyInstanceAttribute
-    -- ** Request constructor
     , modifyInstanceAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , mAttribute
     , mGroups
     , mSourceDestCheck
@@ -49,9 +48,8 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     , mDryRun
     , mInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyInstanceAttributeResponse
-    -- ** Response constructor
     , modifyInstanceAttributeResponse
     ) where
 

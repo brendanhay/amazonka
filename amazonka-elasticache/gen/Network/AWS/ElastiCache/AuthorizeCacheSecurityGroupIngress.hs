@@ -25,23 +25,21 @@
 -- You cannot authorize ingress from an Amazon EC2 security group in one
 -- region to an ElastiCache cluster in another region.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html AWS API Reference> for AuthorizeCacheSecurityGroupIngress.
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
-    -- * Request
+    -- * Creating a Request
       AuthorizeCacheSecurityGroupIngress
-    -- ** Request constructor
     , authorizeCacheSecurityGroupIngress
-    -- ** Request lenses
+    -- * Request Lenses
     , acsgiCacheSecurityGroupName
     , acsgiEC2SecurityGroupName
     , acsgiEC2SecurityGroupOwnerId
 
-    -- * Response
+    -- * Destructuring the Response
     , AuthorizeCacheSecurityGroupIngressResponse
-    -- ** Response constructor
     , authorizeCacheSecurityGroupIngressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , acsgirsCacheSecurityGroup
     , acsgirsStatus
     ) where
@@ -147,10 +145,10 @@ authorizeCacheSecurityGroupIngressResponse pStatus_ =
     , _acsgirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acsgirsCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 acsgirsCacheSecurityGroup = lens _acsgirsCacheSecurityGroup (\ s a -> s{_acsgirsCacheSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acsgirsStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
 acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});

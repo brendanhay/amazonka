@@ -19,23 +19,21 @@
 --
 -- Returns a list of container instances in a specified cluster.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html AWS API Reference> for ListContainerInstances.
 module Network.AWS.ECS.ListContainerInstances
     (
-    -- * Request
+    -- * Creating a Request
       ListContainerInstances
-    -- ** Request constructor
     , listContainerInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , lciCluster
     , lciNextToken
     , lciMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListContainerInstancesResponse
-    -- ** Response constructor
     , listContainerInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lcirsContainerInstanceARNs
     , lcirsNextToken
     , lcirsStatus
@@ -176,6 +174,6 @@ lcirsContainerInstanceARNs = lens _lcirsContainerInstanceARNs (\ s a -> s{_lcirs
 lcirsNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
 lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lcirsStatus :: Lens' ListContainerInstancesResponse Int
 lcirsStatus = lens _lcirsStatus (\ s a -> s{_lcirsStatus = a});

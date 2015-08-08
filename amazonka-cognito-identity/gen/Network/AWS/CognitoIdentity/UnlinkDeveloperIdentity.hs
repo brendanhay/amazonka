@@ -25,22 +25,20 @@
 --
 -- This is a public API. You do not need any credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkDeveloperIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkDeveloperIdentity.html AWS API Reference> for UnlinkDeveloperIdentity.
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     (
-    -- * Request
+    -- * Creating a Request
       UnlinkDeveloperIdentity
-    -- ** Request constructor
     , unlinkDeveloperIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , udiIdentityId
     , udiIdentityPoolId
     , udiDeveloperProviderName
     , udiDeveloperUserIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , UnlinkDeveloperIdentityResponse
-    -- ** Response constructor
     , unlinkDeveloperIdentityResponse
     ) where
 

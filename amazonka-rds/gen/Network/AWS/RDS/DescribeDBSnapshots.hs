@@ -19,14 +19,13 @@
 --
 -- Returns information about DB snapshots. This API supports pagination.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html AWS API Reference> for DescribeDBSnapshots.
 module Network.AWS.RDS.DescribeDBSnapshots
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBSnapshots
-    -- ** Request constructor
     , describeDBSnapshots
-    -- ** Request lenses
+    -- * Request Lenses
     , ddsFilters
     , ddsDBSnapshotIdentifier
     , ddsSnapshotType
@@ -34,11 +33,10 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , ddsMaxRecords
     , ddsMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBSnapshotsResponse
-    -- ** Response constructor
     , describeDBSnapshotsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddsrsMarker
     , ddsrsDBSnapshots
     , ddsrsStatus
@@ -219,6 +217,6 @@ ddsrsMarker = lens _ddsrsMarker (\ s a -> s{_ddsrsMarker = a});
 ddsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddsrsStatus :: Lens' DescribeDBSnapshotsResponse Int
 ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});

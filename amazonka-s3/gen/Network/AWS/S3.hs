@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,61 +18,692 @@
 -- inexpensive data storage infrastructure that Amazon uses to run its own
 -- global network of web sites. The service aims to maximize benefits of
 -- scale and to pass those benefits on to developers.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.S3
-    ( module Export
+    (
+    -- * Service Description
+      S3
+
+    -- * Error Matchers
+    -- $errors
+    , _ObjectAlreadyInActiveTierError
+    , _BucketAlreadyExists
+    , _ObjectNotInActiveTierError
+    , _NoSuchUpload
+    , _NoSuchBucket
+    , _NoSuchKey
+
+    -- * Waiters
+    -- $waiters
+    , objectNotExists
+    , bucketExists
+    , objectExists
+    , bucketNotExists
+
+    -- * Operations
+    -- $operations
+
+    -- ** PutBucketRequestPayment
+    , module Network.AWS.S3.PutBucketRequestPayment
+
+    -- ** PutObject
+    , module Network.AWS.S3.PutObject
+
+    -- ** PutBucketLogging
+    , module Network.AWS.S3.PutBucketLogging
+
+    -- ** DeleteObject
+    , module Network.AWS.S3.DeleteObject
+
+    -- ** DeleteBucket
+    , module Network.AWS.S3.DeleteBucket
+
+    -- ** ListBuckets
+    , module Network.AWS.S3.ListBuckets
+
+    -- ** CreateBucket
+    , module Network.AWS.S3.CreateBucket
+
+    -- ** PutBucketTagging
+    , module Network.AWS.S3.PutBucketTagging
+
+    -- ** DeleteBucketTagging
+    , module Network.AWS.S3.DeleteBucketTagging
+
+    -- ** PutObjectACL
+    , module Network.AWS.S3.PutObjectACL
+
+    -- ** GetBucketNotificationConfiguration
+    , module Network.AWS.S3.GetBucketNotificationConfiguration
+
+    -- ** GetBucketLocation
+    , module Network.AWS.S3.GetBucketLocation
+
+    -- ** PutBucketReplication
+    , module Network.AWS.S3.PutBucketReplication
+
+    -- ** GetBucketWebsite
+    , module Network.AWS.S3.GetBucketWebsite
+
+    -- ** GetObject
+    , module Network.AWS.S3.GetObject
+
+    -- ** DeleteBucketReplication
+    , module Network.AWS.S3.DeleteBucketReplication
+
+    -- ** GetBucketRequestPayment
+    , module Network.AWS.S3.GetBucketRequestPayment
+
+    -- ** ListObjectVersions (Paginated)
+    , module Network.AWS.S3.ListObjectVersions
+    -- $pager
+
+    -- ** GetBucketLifecycle
+    , module Network.AWS.S3.GetBucketLifecycle
+
+    -- ** HeadBucket
+    , module Network.AWS.S3.HeadBucket
+
+    -- ** PutBucketLifecycle
+    , module Network.AWS.S3.PutBucketLifecycle
+
+    -- ** CreateMultipartUpload
+    , module Network.AWS.S3.CreateMultipartUpload
+
+    -- ** DeleteBucketLifecycle
+    , module Network.AWS.S3.DeleteBucketLifecycle
+
+    -- ** GetBucketReplication
+    , module Network.AWS.S3.GetBucketReplication
+
+    -- ** PutBucketWebsite
+    , module Network.AWS.S3.PutBucketWebsite
+
+    -- ** CompleteMultipartUpload
+    , module Network.AWS.S3.CompleteMultipartUpload
+
+    -- ** UploadPart
+    , module Network.AWS.S3.UploadPart
+
+    -- ** ListMultipartUploads (Paginated)
+    , module Network.AWS.S3.ListMultipartUploads
+    -- $pager
+
+    -- ** DeleteBucketWebsite
+    , module Network.AWS.S3.DeleteBucketWebsite
+
+    -- ** ListObjects (Paginated)
+    , module Network.AWS.S3.ListObjects
+    -- $pager
+
+    -- ** DeleteObjects
+    , module Network.AWS.S3.DeleteObjects
+
+    -- ** PutBucketPolicy
+    , module Network.AWS.S3.PutBucketPolicy
+
+    -- ** DeleteBucketPolicy
+    , module Network.AWS.S3.DeleteBucketPolicy
+
+    -- ** AbortMultipartUpload
+    , module Network.AWS.S3.AbortMultipartUpload
+
+    -- ** GetObjectTorrent
+    , module Network.AWS.S3.GetObjectTorrent
+
+    -- ** PutBucketCORS
+    , module Network.AWS.S3.PutBucketCORS
+
+    -- ** DeleteBucketCORS
+    , module Network.AWS.S3.DeleteBucketCORS
+
+    -- ** GetBucketVersioning
+    , module Network.AWS.S3.GetBucketVersioning
+
+    -- ** PutBucketNotificationConfiguration
+    , module Network.AWS.S3.PutBucketNotificationConfiguration
+
+    -- ** GetBucketTagging
+    , module Network.AWS.S3.GetBucketTagging
+
+    -- ** HeadObject
+    , module Network.AWS.S3.HeadObject
+
+    -- ** PutBucketVersioning
+    , module Network.AWS.S3.PutBucketVersioning
+
+    -- ** GetObjectACL
+    , module Network.AWS.S3.GetObjectACL
+
+    -- ** RestoreObject
+    , module Network.AWS.S3.RestoreObject
+
+    -- ** GetBucketCORS
+    , module Network.AWS.S3.GetBucketCORS
+
+    -- ** CopyObject
+    , module Network.AWS.S3.CopyObject
+
+    -- ** GetBucketPolicy
+    , module Network.AWS.S3.GetBucketPolicy
+
+    -- ** GetBucketLogging
+    , module Network.AWS.S3.GetBucketLogging
+
+    -- ** ListParts (Paginated)
+    , module Network.AWS.S3.ListParts
+    -- $pager
+
+    -- ** GetBucketACL
+    , module Network.AWS.S3.GetBucketACL
+
+    -- ** PutBucketACL
+    , module Network.AWS.S3.PutBucketACL
+
+    -- ** UploadPartCopy
+    , module Network.AWS.S3.UploadPartCopy
+
+    -- * Types
+
+    -- ** Re-exported Types
+    , module Network.AWS.S3.Internal
+
+    -- ** BucketCannedACL
+    , BucketCannedACL (..)
+
+    -- ** BucketLogsPermission
+    , BucketLogsPermission (..)
+
+    -- ** BucketVersioningStatus
+    , BucketVersioningStatus (..)
+
+    -- ** EncodingType
+    , EncodingType (..)
+
+    -- ** Event
+    , Event (..)
+
+    -- ** ExpirationStatus
+    , ExpirationStatus (..)
+
+    -- ** MFADelete
+    , MFADelete (..)
+
+    -- ** MFADeleteStatus
+    , MFADeleteStatus (..)
+
+    -- ** MetadataDirective
+    , MetadataDirective (..)
+
+    -- ** ObjectCannedACL
+    , ObjectCannedACL (..)
+
+    -- ** ObjectStorageClass
+    , ObjectStorageClass (..)
+
+    -- ** ObjectVersionStorageClass
+    , ObjectVersionStorageClass (..)
+
+    -- ** Payer
+    , Payer (..)
+
+    -- ** Permission
+    , Permission (..)
+
+    -- ** Protocol
+    , Protocol (..)
+
+    -- ** ReplicationRuleStatus
+    , ReplicationRuleStatus (..)
+
+    -- ** ReplicationStatus
+    , ReplicationStatus (..)
+
+    -- ** RequestCharged
+    , RequestCharged (..)
+
+    -- ** RequestPayer
+    , RequestPayer (..)
+
+    -- ** ServerSideEncryption
+    , ServerSideEncryption (..)
+
+    -- ** StorageClass
+    , StorageClass (..)
+
+    -- ** TransitionStorageClass
+    , TransitionStorageClass (..)
+
+    -- ** Type
+    , Type (..)
+
+    -- ** AccessControlPolicy
+    , AccessControlPolicy
+    , accessControlPolicy
+    , acpGrants
+    , acpOwner
+
+    -- ** Bucket
+    , Bucket
+    , bucket
+    , bCreationDate
+    , bName
+
+    -- ** BucketLoggingStatus
+    , BucketLoggingStatus
+    , bucketLoggingStatus
+    , blsLoggingEnabled
+
+    -- ** CORSConfiguration
+    , CORSConfiguration
+    , corsConfiguration
+    , ccCORSRules
+
+    -- ** CORSRule
+    , CORSRule
+    , corsRule
+    , crAllowedMethods
+    , crMaxAgeSeconds
+    , crAllowedHeaders
+    , crAllowedOrigins
+    , crExposeHeaders
+
+    -- ** CommonPrefix
+    , CommonPrefix
+    , commonPrefix
+    , cpPrefix
+
+    -- ** CompletedMultipartUpload
+    , CompletedMultipartUpload
+    , completedMultipartUpload
+    , cmuParts
+
+    -- ** CompletedPart
+    , CompletedPart
+    , completedPart
+    , cpPartNumber
+    , cpETag
+
+    -- ** Condition
+    , Condition
+    , condition
+    , cKeyPrefixEquals
+    , cHTTPErrorCodeReturnedEquals
+
+    -- ** CopyObjectResult
+    , CopyObjectResult
+    , copyObjectResult
+    , corETag
+    , corLastModified
+
+    -- ** CopyPartResult
+    , CopyPartResult
+    , copyPartResult
+    , cprETag
+    , cprLastModified
+
+    -- ** CreateBucketConfiguration
+    , CreateBucketConfiguration
+    , createBucketConfiguration
+    , cbcLocationConstraint
+
+    -- ** Delete
+    , Delete
+    , delete'
+    , dQuiet
+    , dObjects
+
+    -- ** DeleteMarkerEntry
+    , DeleteMarkerEntry
+    , deleteMarkerEntry
+    , dmeVersionId
+    , dmeIsLatest
+    , dmeOwner
+    , dmeKey
+    , dmeLastModified
+
+    -- ** DeletedObject
+    , DeletedObject
+    , deletedObject
+    , dVersionId
+    , dDeleteMarker
+    , dDeleteMarkerVersionId
+    , dKey
+
+    -- ** Destination
+    , Destination
+    , destination
+    , dBucket
+
+    -- ** ErrorDocument
+    , ErrorDocument
+    , errorDocument
+    , edKey
+
+    -- ** Grant
+    , Grant
+    , grant
+    , gPermission
+    , gGrantee
+
+    -- ** Grantee
+    , Grantee
+    , grantee
+    , gURI
+    , gEmailAddress
+    , gId
+    , gDisplayName
+    , gType
+
+    -- ** IndexDocument
+    , IndexDocument
+    , indexDocument
+    , idSuffix
+
+    -- ** Initiator
+    , Initiator
+    , initiator
+    , iId
+    , iDisplayName
+
+    -- ** LambdaFunctionConfiguration
+    , LambdaFunctionConfiguration
+    , lambdaFunctionConfiguration
+    , lfcId
+    , lfcLambdaFunctionARN
+    , lfcEvents
+
+    -- ** LifecycleConfiguration
+    , LifecycleConfiguration
+    , lifecycleConfiguration
+    , lcRules
+
+    -- ** LifecycleExpiration
+    , LifecycleExpiration
+    , lifecycleExpiration
+    , leDays
+    , leDate
+
+    -- ** LoggingEnabled
+    , LoggingEnabled
+    , loggingEnabled
+    , leTargetBucket
+    , leTargetGrants
+    , leTargetPrefix
+
+    -- ** MultipartUpload
+    , MultipartUpload
+    , multipartUpload
+    , muInitiated
+    , muInitiator
+    , muOwner
+    , muKey
+    , muStorageClass
+    , muUploadId
+
+    -- ** NoncurrentVersionExpiration
+    , NoncurrentVersionExpiration
+    , noncurrentVersionExpiration
+    , nveNoncurrentDays
+
+    -- ** NoncurrentVersionTransition
+    , NoncurrentVersionTransition
+    , noncurrentVersionTransition
+    , nvtNoncurrentDays
+    , nvtStorageClass
+
+    -- ** NotificationConfiguration
+    , NotificationConfiguration
+    , notificationConfiguration
+    , ncQueueConfigurations
+    , ncTopicConfigurations
+    , ncLambdaFunctionConfigurations
+
+    -- ** Object
+    , Object
+    , object'
+    , oOwner
+    , oETag
+    , oSize
+    , oKey
+    , oStorageClass
+    , oLastModified
+
+    -- ** ObjectIdentifier
+    , ObjectIdentifier
+    , objectIdentifier
+    , oiVersionId
+    , oiKey
+
+    -- ** ObjectVersion
+    , ObjectVersion
+    , objectVersion
+    , ovVersionId
+    , ovETag
+    , ovSize
+    , ovIsLatest
+    , ovOwner
+    , ovKey
+    , ovStorageClass
+    , ovLastModified
+
+    -- ** Owner
+    , Owner
+    , owner
+    , oId
+    , oDisplayName
+
+    -- ** Part
+    , Part
+    , part
+    , pETag
+    , pSize
+    , pPartNumber
+    , pLastModified
+
+    -- ** QueueConfiguration
+    , QueueConfiguration
+    , queueConfiguration
+    , qcId
+    , qcQueueARN
+    , qcEvents
+
+    -- ** Redirect
+    , Redirect
+    , redirect
+    , rHostName
+    , rProtocol
+    , rHTTPRedirectCode
+    , rReplaceKeyWith
+    , rReplaceKeyPrefixWith
+
+    -- ** RedirectAllRequestsTo
+    , RedirectAllRequestsTo
+    , redirectAllRequestsTo
+    , rartProtocol
+    , rartHostName
+
+    -- ** ReplicationConfiguration
+    , ReplicationConfiguration
+    , replicationConfiguration
+    , rcRole
+    , rcRules
+
+    -- ** ReplicationRule
+    , ReplicationRule
+    , replicationRule
+    , rrId
+    , rrPrefix
+    , rrStatus
+    , rrDestination
+
+    -- ** RequestPaymentConfiguration
+    , RequestPaymentConfiguration
+    , requestPaymentConfiguration
+    , rpcPayer
+
+    -- ** RestoreRequest
+    , RestoreRequest
+    , restoreRequest
+    , rrDays
+
+    -- ** RoutingRule
+    , RoutingRule
+    , routingRule
+    , rrCondition
+    , rrRedirect
+
+    -- ** Rule
+    , Rule
+    , rule
+    , rNoncurrentVersionExpiration
+    , rTransition
+    , rExpiration
+    , rNoncurrentVersionTransition
+    , rId
+    , rPrefix
+    , rStatus
+
+    -- ** S3ServiceError
+    , S3ServiceError
+    , s3ServiceError
+    , sseVersionId
+    , sseKey
+    , sseCode
+    , sseMessage
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
+    -- ** Tagging
+    , Tagging
+    , tagging
+    , tTagSet
+
+    -- ** TargetGrant
+    , TargetGrant
+    , targetGrant
+    , tgPermission
+    , tgGrantee
+
+    -- ** TopicConfiguration
+    , TopicConfiguration
+    , topicConfiguration
+    , tcId
+    , tcTopicARN
+    , tcEvents
+
+    -- ** Transition
+    , Transition
+    , transition
+    , tDays
+    , tDate
+    , tStorageClass
+
+    -- ** VersioningConfiguration
+    , VersioningConfiguration
+    , versioningConfiguration
+    , vcStatus
+    , vcMFADelete
+
+    -- ** WebsiteConfiguration
+    , WebsiteConfiguration
+    , websiteConfiguration
+    , wcRedirectAllRequestsTo
+    , wcErrorDocument
+    , wcRoutingRules
+    , wcIndexDocument
     ) where
 
-import           Network.AWS.S3.AbortMultipartUpload               as Export
-import           Network.AWS.S3.CompleteMultipartUpload            as Export
-import           Network.AWS.S3.CopyObject                         as Export
-import           Network.AWS.S3.CreateBucket                       as Export
-import           Network.AWS.S3.CreateMultipartUpload              as Export
-import           Network.AWS.S3.DeleteBucket                       as Export
-import           Network.AWS.S3.DeleteBucketCORS                   as Export
-import           Network.AWS.S3.DeleteBucketLifecycle              as Export
-import           Network.AWS.S3.DeleteBucketPolicy                 as Export
-import           Network.AWS.S3.DeleteBucketReplication            as Export
-import           Network.AWS.S3.DeleteBucketTagging                as Export
-import           Network.AWS.S3.DeleteBucketWebsite                as Export
-import           Network.AWS.S3.DeleteObject                       as Export
-import           Network.AWS.S3.DeleteObjects                      as Export
-import           Network.AWS.S3.GetBucketACL                       as Export
-import           Network.AWS.S3.GetBucketCORS                      as Export
-import           Network.AWS.S3.GetBucketLifecycle                 as Export
-import           Network.AWS.S3.GetBucketLocation                  as Export
-import           Network.AWS.S3.GetBucketLogging                   as Export
-import           Network.AWS.S3.GetBucketNotificationConfiguration as Export
-import           Network.AWS.S3.GetBucketPolicy                    as Export
-import           Network.AWS.S3.GetBucketReplication               as Export
-import           Network.AWS.S3.GetBucketRequestPayment            as Export
-import           Network.AWS.S3.GetBucketTagging                   as Export
-import           Network.AWS.S3.GetBucketVersioning                as Export
-import           Network.AWS.S3.GetBucketWebsite                   as Export
-import           Network.AWS.S3.GetObject                          as Export
-import           Network.AWS.S3.GetObjectACL                       as Export
-import           Network.AWS.S3.GetObjectTorrent                   as Export
-import           Network.AWS.S3.HeadBucket                         as Export
-import           Network.AWS.S3.HeadObject                         as Export
-import           Network.AWS.S3.ListBuckets                        as Export
-import           Network.AWS.S3.ListMultipartUploads               as Export
-import           Network.AWS.S3.ListObjects                        as Export
-import           Network.AWS.S3.ListObjectVersions                 as Export
-import           Network.AWS.S3.ListParts                          as Export
-import           Network.AWS.S3.PutBucketACL                       as Export
-import           Network.AWS.S3.PutBucketCORS                      as Export
-import           Network.AWS.S3.PutBucketLifecycle                 as Export
-import           Network.AWS.S3.PutBucketLogging                   as Export
-import           Network.AWS.S3.PutBucketNotificationConfiguration as Export
-import           Network.AWS.S3.PutBucketPolicy                    as Export
-import           Network.AWS.S3.PutBucketReplication               as Export
-import           Network.AWS.S3.PutBucketRequestPayment            as Export
-import           Network.AWS.S3.PutBucketTagging                   as Export
-import           Network.AWS.S3.PutBucketVersioning                as Export
-import           Network.AWS.S3.PutBucketWebsite                   as Export
-import           Network.AWS.S3.PutObject                          as Export
-import           Network.AWS.S3.PutObjectACL                       as Export
-import           Network.AWS.S3.RestoreObject                      as Export
-import           Network.AWS.S3.Types                              as Export
-import           Network.AWS.S3.UploadPart                         as Export
-import           Network.AWS.S3.UploadPartCopy                     as Export
-import           Network.AWS.S3.Waiters                            as Export
+import           Network.AWS.S3.AbortMultipartUpload
+import           Network.AWS.S3.CompleteMultipartUpload
+import           Network.AWS.S3.CopyObject
+import           Network.AWS.S3.CreateBucket
+import           Network.AWS.S3.CreateMultipartUpload
+import           Network.AWS.S3.DeleteBucket
+import           Network.AWS.S3.DeleteBucketCORS
+import           Network.AWS.S3.DeleteBucketLifecycle
+import           Network.AWS.S3.DeleteBucketPolicy
+import           Network.AWS.S3.DeleteBucketReplication
+import           Network.AWS.S3.DeleteBucketTagging
+import           Network.AWS.S3.DeleteBucketWebsite
+import           Network.AWS.S3.DeleteObject
+import           Network.AWS.S3.DeleteObjects
+import           Network.AWS.S3.GetBucketACL
+import           Network.AWS.S3.GetBucketCORS
+import           Network.AWS.S3.GetBucketLifecycle
+import           Network.AWS.S3.GetBucketLocation
+import           Network.AWS.S3.GetBucketLogging
+import           Network.AWS.S3.GetBucketNotificationConfiguration
+import           Network.AWS.S3.GetBucketPolicy
+import           Network.AWS.S3.GetBucketReplication
+import           Network.AWS.S3.GetBucketRequestPayment
+import           Network.AWS.S3.GetBucketTagging
+import           Network.AWS.S3.GetBucketVersioning
+import           Network.AWS.S3.GetBucketWebsite
+import           Network.AWS.S3.GetObject
+import           Network.AWS.S3.GetObjectACL
+import           Network.AWS.S3.GetObjectTorrent
+import           Network.AWS.S3.HeadBucket
+import           Network.AWS.S3.HeadObject
+import           Network.AWS.S3.Internal
+import           Network.AWS.S3.ListBuckets
+import           Network.AWS.S3.ListMultipartUploads
+import           Network.AWS.S3.ListObjects
+import           Network.AWS.S3.ListObjectVersions
+import           Network.AWS.S3.ListParts
+import           Network.AWS.S3.PutBucketACL
+import           Network.AWS.S3.PutBucketCORS
+import           Network.AWS.S3.PutBucketLifecycle
+import           Network.AWS.S3.PutBucketLogging
+import           Network.AWS.S3.PutBucketNotificationConfiguration
+import           Network.AWS.S3.PutBucketPolicy
+import           Network.AWS.S3.PutBucketReplication
+import           Network.AWS.S3.PutBucketRequestPayment
+import           Network.AWS.S3.PutBucketTagging
+import           Network.AWS.S3.PutBucketVersioning
+import           Network.AWS.S3.PutBucketWebsite
+import           Network.AWS.S3.PutObject
+import           Network.AWS.S3.PutObjectACL
+import           Network.AWS.S3.RestoreObject
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.UploadPart
+import           Network.AWS.S3.UploadPartCopy
+import           Network.AWS.S3.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'S3'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

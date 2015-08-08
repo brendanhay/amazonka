@@ -28,22 +28,20 @@
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues>
 -- in the /Amazon SQS Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueURL.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueURL.html AWS API Reference> for GetQueueURL.
 module Network.AWS.SQS.GetQueueURL
     (
-    -- * Request
+    -- * Creating a Request
       GetQueueURL
-    -- ** Request constructor
     , getQueueURL
-    -- ** Request lenses
+    -- * Request Lenses
     , gquQueueOwnerAWSAccountId
     , gquQueueName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetQueueURLResponse
-    -- ** Response constructor
     , getQueueURLResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gqursStatus
     , gqursQueueURL
     ) where
@@ -131,7 +129,7 @@ getQueueURLResponse pStatus_ pQueueURL_ =
     , _gqursQueueURL = pQueueURL_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gqursStatus :: Lens' GetQueueURLResponse Int
 gqursStatus = lens _gqursStatus (\ s a -> s{_gqursStatus = a});
 

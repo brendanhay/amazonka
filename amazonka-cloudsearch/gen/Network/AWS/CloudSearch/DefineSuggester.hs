@@ -25,22 +25,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html AWS API Reference> for DefineSuggester.
 module Network.AWS.CloudSearch.DefineSuggester
     (
-    -- * Request
+    -- * Creating a Request
       DefineSuggester
-    -- ** Request constructor
     , defineSuggester
-    -- ** Request lenses
+    -- * Request Lenses
     , defDomainName
     , defSuggester
 
-    -- * Response
+    -- * Destructuring the Response
     , DefineSuggesterResponse
-    -- ** Response constructor
     , defineSuggesterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsStatus
     , dsrsSuggester
     ) where
@@ -74,11 +72,11 @@ defineSuggester pDomainName_ pSuggester_ =
     , _defSuggester = pSuggester_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 defDomainName :: Lens' DefineSuggester Text
 defDomainName = lens _defDomainName (\ s a -> s{_defDomainName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 defSuggester :: Lens' DefineSuggester Suggester
 defSuggester = lens _defSuggester (\ s a -> s{_defSuggester = a});
 
@@ -129,10 +127,10 @@ defineSuggesterResponse pStatus_ pSuggester_ =
     , _dsrsSuggester = pSuggester_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DefineSuggesterResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrsSuggester = lens _dsrsSuggester (\ s a -> s{_dsrsSuggester = a});

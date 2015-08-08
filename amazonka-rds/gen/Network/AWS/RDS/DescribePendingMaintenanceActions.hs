@@ -20,24 +20,22 @@
 -- Returns a list of resources (for example, DB instances) that have at
 -- least one pending maintenance action.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribePendingMaintenanceActions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribePendingMaintenanceActions.html AWS API Reference> for DescribePendingMaintenanceActions.
 module Network.AWS.RDS.DescribePendingMaintenanceActions
     (
-    -- * Request
+    -- * Creating a Request
       DescribePendingMaintenanceActions
-    -- ** Request constructor
     , describePendingMaintenanceActions
-    -- ** Request lenses
+    -- * Request Lenses
     , dpmaFilters
     , dpmaMaxRecords
     , dpmaMarker
     , dpmaResourceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribePendingMaintenanceActionsResponse
-    -- ** Response constructor
     , describePendingMaintenanceActionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dpmarsPendingMaintenanceActions
     , dpmarsMarker
     , dpmarsStatus
@@ -187,6 +185,6 @@ dpmarsPendingMaintenanceActions = lens _dpmarsPendingMaintenanceActions (\ s a -
 dpmarsMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarsMarker = lens _dpmarsMarker (\ s a -> s{_dpmarsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dpmarsStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
 dpmarsStatus = lens _dpmarsStatus (\ s a -> s{_dpmarsStatus = a});

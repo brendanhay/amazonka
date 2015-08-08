@@ -25,21 +25,19 @@
 -- that grants Amazon Redshift permission to the CMK in the destination
 -- region.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html AWS API Reference> for DisableSnapshotCopy.
 module Network.AWS.Redshift.DisableSnapshotCopy
     (
-    -- * Request
+    -- * Creating a Request
       DisableSnapshotCopy
-    -- ** Request constructor
     , disableSnapshotCopy
-    -- ** Request lenses
+    -- * Request Lenses
     , dscClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableSnapshotCopyResponse
-    -- ** Response constructor
     , disableSnapshotCopyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dscrsCluster
     , dscrsStatus
     ) where
@@ -119,10 +117,10 @@ disableSnapshotCopyResponse pStatus_ =
     , _dscrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dscrsStatus :: Lens' DisableSnapshotCopyResponse Int
 dscrsStatus = lens _dscrsStatus (\ s a -> s{_dscrsStatus = a});

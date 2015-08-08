@@ -23,24 +23,22 @@
 -- for the part storage, you should call the List Parts operation and
 -- ensure the parts list is empty.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/AbortMultipartUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/AbortMultipartUpload.html AWS API Reference> for AbortMultipartUpload.
 module Network.AWS.S3.AbortMultipartUpload
     (
-    -- * Request
+    -- * Creating a Request
       AbortMultipartUpload
-    -- ** Request constructor
     , abortMultipartUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , amuRequestPayer
     , amuBucket
     , amuKey
     , amuUploadId
 
-    -- * Response
+    -- * Destructuring the Response
     , AbortMultipartUploadResponse
-    -- ** Response constructor
     , abortMultipartUploadResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , amursRequestCharged
     , amursStatus
     ) where
@@ -78,19 +76,19 @@ abortMultipartUpload pBucket_ pKey_ pUploadId_ =
     , _amuUploadId = pUploadId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
 amuRequestPayer = lens _amuRequestPayer (\ s a -> s{_amuRequestPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 amuBucket :: Lens' AbortMultipartUpload BucketName
 amuBucket = lens _amuBucket (\ s a -> s{_amuBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 amuKey :: Lens' AbortMultipartUpload ObjectKey
 amuKey = lens _amuKey (\ s a -> s{_amuKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a});
 
@@ -138,10 +136,10 @@ abortMultipartUploadResponse pStatus_ =
     , _amursStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 amursStatus :: Lens' AbortMultipartUploadResponse Int
 amursStatus = lens _amursStatus (\ s a -> s{_amursStatus = a});

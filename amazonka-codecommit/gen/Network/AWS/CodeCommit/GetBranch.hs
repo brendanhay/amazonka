@@ -20,22 +20,20 @@
 -- Retrieves information about a repository branch, including its name and
 -- the last commit ID.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetBranch.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetBranch.html AWS API Reference> for GetBranch.
 module Network.AWS.CodeCommit.GetBranch
     (
-    -- * Request
+    -- * Creating a Request
       GetBranch
-    -- ** Request constructor
     , getBranch
-    -- ** Request lenses
+    -- * Request Lenses
     , gbBranchName
     , gbRepositoryName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBranchResponse
-    -- ** Response constructor
     , getBranchResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbrsBranch
     , gbrsStatus
     ) where
@@ -71,7 +69,7 @@ getBranch =
 gbBranchName :: Lens' GetBranch (Maybe Text)
 gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbRepositoryName :: Lens' GetBranch (Maybe Text)
 gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
 
@@ -132,6 +130,6 @@ getBranchResponse pStatus_ =
 gbrsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
 gbrsBranch = lens _gbrsBranch (\ s a -> s{_gbrsBranch = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbrsStatus :: Lens' GetBranchResponse Int
 gbrsStatus = lens _gbrsStatus (\ s a -> s{_gbrsStatus = a});

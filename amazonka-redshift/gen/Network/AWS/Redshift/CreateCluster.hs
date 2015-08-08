@@ -26,14 +26,13 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/ .
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html AWS API Reference> for CreateCluster.
 module Network.AWS.Redshift.CreateCluster
     (
-    -- * Request
+    -- * Creating a Request
       CreateCluster
-    -- ** Request constructor
     , createCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , ccPubliclyAccessible
     , ccHSMConfigurationIdentifier
     , ccClusterSecurityGroups
@@ -59,11 +58,10 @@ module Network.AWS.Redshift.CreateCluster
     , ccMasterUsername
     , ccMasterUserPassword
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateClusterResponse
-    -- ** Response constructor
     , createClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccrsCluster
     , ccrsStatus
     ) where
@@ -516,10 +514,10 @@ createClusterResponse pStatus_ =
     , _ccrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccrsStatus :: Lens' CreateClusterResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

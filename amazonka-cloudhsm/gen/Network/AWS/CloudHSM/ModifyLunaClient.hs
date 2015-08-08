@@ -22,22 +22,20 @@
 -- This action can potentially start a workflow to install the new
 -- certificate on the client\'s HSMs.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyLunaClient.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyLunaClient.html AWS API Reference> for ModifyLunaClient.
 module Network.AWS.CloudHSM.ModifyLunaClient
     (
-    -- * Request
+    -- * Creating a Request
       ModifyLunaClient
-    -- ** Request constructor
     , modifyLunaClient
-    -- ** Request lenses
+    -- * Request Lenses
     , mlcClientARN
     , mlcCertificate
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyLunaClientResponse
-    -- ** Response constructor
     , modifyLunaClientResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mlcrsClientARN
     , mlcrsStatus
     ) where
@@ -131,6 +129,6 @@ modifyLunaClientResponse pStatus_ =
 mlcrsClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
 mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mlcrsStatus :: Lens' ModifyLunaClientResponse Int
 mlcrsStatus = lens _mlcrsStatus (\ s a -> s{_mlcrsStatus = a});

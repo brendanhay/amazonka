@@ -13,10 +13,10 @@
 --
 module Network.AWS.ElastiCache.Types
     (
-    -- * Service
+    -- * Service Decription
       ElastiCache
 
-    -- * Errors
+    -- * Error Matchers
     , _CacheSubnetGroupAlreadyExistsFault
     , _CacheSubnetGroupInUse
     , _CacheSecurityGroupNotFoundFault

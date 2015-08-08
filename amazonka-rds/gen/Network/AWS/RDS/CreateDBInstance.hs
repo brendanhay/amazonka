@@ -19,14 +19,13 @@
 --
 -- Creates a new DB instance.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html AWS API Reference> for CreateDBInstance.
 module Network.AWS.RDS.CreateDBInstance
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBInstance
-    -- ** Request constructor
     , createDBInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , cdiDBSecurityGroups
     , cdiEngineVersion
     , cdiStorageEncrypted
@@ -61,11 +60,10 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiDBInstanceClass
     , cdiEngine
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBInstanceResponse
-    -- ** Response constructor
     , createDBInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdirsDBInstance
     , cdirsStatus
     ) where
@@ -785,7 +783,7 @@ cdiCopyTagsToSnapshot = lens _cdiCopyTagsToSnapshot (\ s a -> s{_cdiCopyTagsToSn
 cdiDBName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdiTags :: Lens' CreateDBInstance [Tag]
 cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default . _Coerce;
 
@@ -946,10 +944,10 @@ createDBInstanceResponse pStatus_ =
     , _cdirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdirsDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdirsDBInstance = lens _cdirsDBInstance (\ s a -> s{_cdirsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdirsStatus :: Lens' CreateDBInstanceResponse Int
 cdirsStatus = lens _cdirsStatus (\ s a -> s{_cdirsStatus = a});

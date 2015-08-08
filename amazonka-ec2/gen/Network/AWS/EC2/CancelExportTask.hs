@@ -22,19 +22,17 @@
 -- task is complete or is in the process of transferring the final disk
 -- image, the command fails and returns an error.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html AWS API Reference> for CancelExportTask.
 module Network.AWS.EC2.CancelExportTask
     (
-    -- * Request
+    -- * Creating a Request
       CancelExportTask
-    -- ** Request constructor
     , cancelExportTask
-    -- ** Request lenses
+    -- * Request Lenses
     , cetExportTaskId
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelExportTaskResponse
-    -- ** Response constructor
     , cancelExportTaskResponse
     ) where
 

@@ -23,24 +23,22 @@
 -- This action returns a list of messages indicating any errors or warnings
 -- associated with the selection of option values.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ValidateConfigurationSettings.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ValidateConfigurationSettings.html AWS API Reference> for ValidateConfigurationSettings.
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
-    -- * Request
+    -- * Creating a Request
       ValidateConfigurationSettings
-    -- ** Request constructor
     , validateConfigurationSettings
-    -- ** Request lenses
+    -- * Request Lenses
     , vcsTemplateName
     , vcsEnvironmentName
     , vcsApplicationName
     , vcsOptionSettings
 
-    -- * Response
+    -- * Destructuring the Response
     , ValidateConfigurationSettingsResponse
-    -- ** Response constructor
     , validateConfigurationSettingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , vcsrsMessages
     , vcsrsStatus
     ) where
@@ -163,6 +161,6 @@ validateConfigurationSettingsResponse pStatus_ =
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vcsrsStatus :: Lens' ValidateConfigurationSettingsResponse Int
 vcsrsStatus = lens _vcsrsStatus (\ s a -> s{_vcsrsStatus = a});

@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudTrail.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudTrail
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidTimeRangeException
     , _InsufficientS3BucketPolicyException
     , _MaximumNumberOfTrailsExceededException

@@ -21,22 +21,20 @@
 -- endpoint. The output from /ListTables/ is paginated, with each page
 -- returning a maximum of 100 table names.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html AWS API Reference> for ListTables.
 module Network.AWS.DynamoDB.ListTables
     (
-    -- * Request
+    -- * Creating a Request
       ListTables
-    -- ** Request constructor
     , listTables
-    -- ** Request lenses
+    -- * Request Lenses
     , ltExclusiveStartTableName
     , ltLimit
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTablesResponse
-    -- ** Response constructor
     , listTablesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltrsLastEvaluatedTableName
     , ltrsTableNames
     , ltrsStatus
@@ -168,6 +166,6 @@ ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsL
 ltrsTableNames :: Lens' ListTablesResponse [Text]
 ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltrsStatus :: Lens' ListTablesResponse Int
 ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

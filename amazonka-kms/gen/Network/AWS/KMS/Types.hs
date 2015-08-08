@@ -13,10 +13,10 @@
 --
 module Network.AWS.KMS.Types
     (
-    -- * Service
+    -- * Service Decription
       KMS
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidMarkerException
     , _InvalidKeyUsageException
     , _UnsupportedOperationException

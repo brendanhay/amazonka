@@ -19,21 +19,19 @@
 --
 -- Returns the lifecycle configuration information set on the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycle.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycle.html AWS API Reference> for GetBucketLifecycle.
 module Network.AWS.S3.GetBucketLifecycle
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketLifecycle
-    -- ** Request constructor
     , getBucketLifecycle
-    -- ** Request lenses
+    -- * Request Lenses
     , gBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketLifecycleResponse
-    -- ** Response constructor
     , getBucketLifecycleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gblrsRules
     , gblrsStatus
     ) where
@@ -59,7 +57,7 @@ getBucketLifecycle pBucket_ =
     { _gBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gBucket :: Lens' GetBucketLifecycle BucketName
 gBucket = lens _gBucket (\ s a -> s{_gBucket = a});
 
@@ -105,10 +103,10 @@ getBucketLifecycleResponse pStatus_ =
     , _gblrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrsRules = lens _gblrsRules (\ s a -> s{_gblrsRules = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gblrsStatus :: Lens' GetBucketLifecycleResponse Int
 gblrsStatus = lens _gblrsStatus (\ s a -> s{_gblrsStatus = a});

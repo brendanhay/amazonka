@@ -25,23 +25,21 @@
 -- artifacts. Additionally, this API returns any secret values defined for
 -- the action.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PollForJobs.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PollForJobs.html AWS API Reference> for PollForJobs.
 module Network.AWS.CodePipeline.PollForJobs
     (
-    -- * Request
+    -- * Creating a Request
       PollForJobs
-    -- ** Request constructor
     , pollForJobs
-    -- ** Request lenses
+    -- * Request Lenses
     , pfjMaxBatchSize
     , pfjQueryParam
     , pfjActionTypeId
 
-    -- * Response
+    -- * Destructuring the Response
     , PollForJobsResponse
-    -- ** Response constructor
     , pollForJobsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , pfjrsJobs
     , pfjrsStatus
     ) where
@@ -89,7 +87,7 @@ pfjMaxBatchSize = lens _pfjMaxBatchSize (\ s a -> s{_pfjMaxBatchSize = a}) . map
 pfjQueryParam :: Lens' PollForJobs (HashMap Text Text)
 pfjQueryParam = lens _pfjQueryParam (\ s a -> s{_pfjQueryParam = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pfjActionTypeId :: Lens' PollForJobs ActionTypeId
 pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a});
 
@@ -151,6 +149,6 @@ pollForJobsResponse pStatus_ =
 pfjrsJobs :: Lens' PollForJobsResponse [Job]
 pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pfjrsStatus :: Lens' PollForJobsResponse Int
 pfjrsStatus = lens _pfjrsStatus (\ s a -> s{_pfjrsStatus = a});

@@ -24,22 +24,20 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html AWS API Reference> for AllocateAddress.
 module Network.AWS.EC2.AllocateAddress
     (
-    -- * Request
+    -- * Creating a Request
       AllocateAddress
-    -- ** Request constructor
     , allocateAddress
-    -- ** Request lenses
+    -- * Request Lenses
     , aaDomain
     , aaDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , AllocateAddressResponse
-    -- ** Response constructor
     , allocateAddressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , aarsAllocationId
     , aarsDomain
     , aarsPublicIP
@@ -151,6 +149,6 @@ aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 aarsPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
 aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aarsStatus :: Lens' AllocateAddressResponse Int
 aarsStatus = lens _aarsStatus (\ s a -> s{_aarsStatus = a});

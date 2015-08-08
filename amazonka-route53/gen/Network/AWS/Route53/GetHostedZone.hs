@@ -22,21 +22,19 @@
 -- set is the four Route 53 name servers that were assigned to the hosted
 -- zone when you created it.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html AWS API Reference> for GetHostedZone.
 module Network.AWS.Route53.GetHostedZone
     (
-    -- * Request
+    -- * Creating a Request
       GetHostedZone
-    -- ** Request constructor
     , getHostedZone
-    -- ** Request lenses
+    -- * Request Lenses
     , ghzId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetHostedZoneResponse
-    -- ** Response constructor
     , getHostedZoneResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ghzrsVPCs
     , ghzrsDelegationSet
     , ghzrsStatus
@@ -135,7 +133,7 @@ ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1;
 ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ghzrsStatus :: Lens' GetHostedZoneResponse Int
 ghzrsStatus = lens _ghzrsStatus (\ s a -> s{_ghzrsStatus = a});
 

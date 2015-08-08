@@ -13,10 +13,10 @@
 --
 module Network.AWS.EC2.Types
     (
-    -- * Service
+    -- * Service Decription
       EC2
 
-    -- * Errors
+    -- * Error Matchers
 
     -- * AccountAttributeName
     , AccountAttributeName (..)

@@ -23,23 +23,21 @@
 -- /ResetAllParameters/ parameter. For parameter changes to take effect you
 -- must reboot any associated clusters.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html AWS API Reference> for ResetClusterParameterGroup.
 module Network.AWS.Redshift.ResetClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ResetClusterParameterGroup
-    -- ** Request constructor
     , resetClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , rcpgResetAllParameters
     , rcpgParameters
     , rcpgParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ClusterParameterGroupNameMessage
-    -- ** Response constructor
     , clusterParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , cpgnmParameterGroupStatus
     , cpgnmParameterGroupName
     ) where

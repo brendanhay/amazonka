@@ -25,20 +25,18 @@
 --
 -- You need permission for the @lambda:RemovePermission@ action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.Lambda.RemovePermission
     (
-    -- * Request
+    -- * Creating a Request
       RemovePermission
-    -- ** Request constructor
     , removePermission
-    -- ** Request lenses
+    -- * Request Lenses
     , rpFunctionName
     , rpStatementId
 
-    -- * Response
+    -- * Destructuring the Response
     , RemovePermissionResponse
-    -- ** Response constructor
     , removePermissionResponse
     ) where
 

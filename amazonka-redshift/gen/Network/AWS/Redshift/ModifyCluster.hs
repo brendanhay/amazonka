@@ -32,14 +32,13 @@
 -- number of nodes and the node type even if one of the parameters does not
 -- change.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html AWS API Reference> for ModifyCluster.
 module Network.AWS.Redshift.ModifyCluster
     (
-    -- * Request
+    -- * Creating a Request
       ModifyCluster
-    -- ** Request constructor
     , modifyCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , mcMasterUserPassword
     , mcHSMConfigurationIdentifier
     , mcClusterSecurityGroups
@@ -56,11 +55,10 @@ module Network.AWS.Redshift.ModifyCluster
     , mcClusterParameterGroupName
     , mcClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyClusterResponse
-    -- ** Response constructor
     , modifyClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mcrsCluster
     , mcrsStatus
     ) where
@@ -396,10 +394,10 @@ modifyClusterResponse pStatus_ =
     , _mcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrsCluster = lens _mcrsCluster (\ s a -> s{_mcrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mcrsStatus :: Lens' ModifyClusterResponse Int
 mcrsStatus = lens _mcrsStatus (\ s a -> s{_mcrsStatus = a});

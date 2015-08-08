@@ -32,23 +32,21 @@
 -- You can also specify a maximum number of return results with the /Limit/
 -- parameter.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeDirectories.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeDirectories.html AWS API Reference> for DescribeDirectories.
 module Network.AWS.DirectoryService.DescribeDirectories
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDirectories
-    -- ** Request constructor
     , describeDirectories
-    -- ** Request lenses
+    -- * Request Lenses
     , ddNextToken
     , ddDirectoryIds
     , ddLimit
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDirectoriesResponse
-    -- ** Response constructor
     , describeDirectoriesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddrsDirectoryDescriptions
     , ddrsNextToken
     , ddrsStatus
@@ -181,6 +179,6 @@ ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDir
 ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
 ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsStatus :: Lens' DescribeDirectoriesResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

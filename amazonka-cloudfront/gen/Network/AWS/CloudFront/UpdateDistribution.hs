@@ -19,23 +19,21 @@
 --
 -- Update a distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html AWS API Reference> for UpdateDistribution.
 module Network.AWS.CloudFront.UpdateDistribution
     (
-    -- * Request
+    -- * Creating a Request
       UpdateDistribution
-    -- ** Request constructor
     , updateDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , udIfMatch
     , udDistributionConfig
     , udId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateDistributionResponse
-    -- ** Response constructor
     , updateDistributionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , udrsETag
     , udrsDistribution
     , udrsStatus
@@ -150,6 +148,6 @@ udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a});
 udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udrsStatus :: Lens' UpdateDistributionResponse Int
 udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});

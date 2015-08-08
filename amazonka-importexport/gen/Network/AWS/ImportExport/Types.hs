@@ -13,10 +13,10 @@
 --
 module Network.AWS.ImportExport.Types
     (
-    -- * Service
+    -- * Service Decription
       ImportExport
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidJobIdException
     , _InvalidParameterException
     , _ExpiredJobIdException

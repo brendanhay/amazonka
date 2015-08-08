@@ -27,22 +27,20 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeApps.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeApps.html AWS API Reference> for DescribeApps.
 module Network.AWS.OpsWorks.DescribeApps
     (
-    -- * Request
+    -- * Creating a Request
       DescribeApps
-    -- ** Request constructor
     , describeApps
-    -- ** Request lenses
+    -- * Request Lenses
     , daAppIds
     , daStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAppsResponse
-    -- ** Response constructor
     , describeAppsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , darsApps
     , darsStatus
     ) where
@@ -139,6 +137,6 @@ describeAppsResponse pStatus_ =
 darsApps :: Lens' DescribeAppsResponse [App]
 darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 darsStatus :: Lens' DescribeAppsResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

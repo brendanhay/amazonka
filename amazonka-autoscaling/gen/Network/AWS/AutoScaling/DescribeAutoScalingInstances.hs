@@ -20,23 +20,21 @@
 -- Describes one or more Auto Scaling instances. If a list is not provided,
 -- the call describes all instances.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html AWS API Reference> for DescribeAutoScalingInstances.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAutoScalingInstances
-    -- ** Request constructor
     , describeAutoScalingInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , dasiNextToken
     , dasiInstanceIds
     , dasiMaxRecords
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAutoScalingInstancesResponse
-    -- ** Response constructor
     , describeAutoScalingInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dasirsNextToken
     , dasirsAutoScalingInstances
     , dasirsStatus
@@ -160,6 +158,6 @@ dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a});
 dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
 dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasirsStatus :: Lens' DescribeAutoScalingInstancesResponse Int
 dasirsStatus = lens _dasirsStatus (\ s a -> s{_dasirsStatus = a});

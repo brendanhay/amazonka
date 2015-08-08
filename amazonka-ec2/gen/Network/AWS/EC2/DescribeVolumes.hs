@@ -30,25 +30,23 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html AWS API Reference> for DescribeVolumes.
 module Network.AWS.EC2.DescribeVolumes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVolumes
-    -- ** Request constructor
     , describeVolumes
-    -- ** Request lenses
+    -- * Request Lenses
     , desFilters
     , desVolumeIds
     , desNextToken
     , desDryRun
     , desMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVolumesResponse
-    -- ** Response constructor
     , describeVolumesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvvrsNextToken
     , dvvrsVolumes
     , dvvrsStatus
@@ -241,6 +239,6 @@ dvvrsNextToken = lens _dvvrsNextToken (\ s a -> s{_dvvrsNextToken = a});
 dvvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvvrsVolumes = lens _dvvrsVolumes (\ s a -> s{_dvvrsVolumes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvvrsStatus :: Lens' DescribeVolumesResponse Int
 dvvrsStatus = lens _dvvrsStatus (\ s a -> s{_dvvrsStatus = a});

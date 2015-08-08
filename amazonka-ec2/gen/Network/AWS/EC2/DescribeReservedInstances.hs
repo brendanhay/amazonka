@@ -23,24 +23,22 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html AWS API Reference> for DescribeReservedInstances.
 module Network.AWS.EC2.DescribeReservedInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedInstances
-    -- ** Request constructor
     , describeReservedInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , driFilters
     , driOfferingType
     , driReservedInstancesIds
     , driDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedInstancesResponse
-    -- ** Response constructor
     , describeReservedInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drirsReservedInstances
     , drirsStatus
     ) where
@@ -213,6 +211,6 @@ describeReservedInstancesResponse pStatus_ =
 drirsReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReservedInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drirsStatus :: Lens' DescribeReservedInstancesResponse Int
 drirsStatus = lens _drirsStatus (\ s a -> s{_drirsStatus = a});

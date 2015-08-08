@@ -23,21 +23,19 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeScalingParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeScalingParameters.html AWS API Reference> for DescribeScalingParameters.
 module Network.AWS.CloudSearch.DescribeScalingParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeScalingParameters
-    -- ** Request constructor
     , describeScalingParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , dspDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeScalingParametersResponse
-    -- ** Response constructor
     , describeScalingParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsprsStatus
     , dsprsScalingParameters
     ) where
@@ -66,7 +64,7 @@ describeScalingParameters pDomainName_ =
     { _dspDomainName = pDomainName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dspDomainName :: Lens' DescribeScalingParameters Text
 dspDomainName = lens _dspDomainName (\ s a -> s{_dspDomainName = a});
 
@@ -118,10 +116,10 @@ describeScalingParametersResponse pStatus_ pScalingParameters_ =
     , _dsprsScalingParameters = pScalingParameters_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsprsStatus :: Lens' DescribeScalingParametersResponse Int
 dsprsStatus = lens _dsprsStatus (\ s a -> s{_dsprsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
 dsprsScalingParameters = lens _dsprsScalingParameters (\ s a -> s{_dsprsScalingParameters = a});

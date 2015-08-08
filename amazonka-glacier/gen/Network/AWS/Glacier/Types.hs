@@ -13,10 +13,10 @@
 --
 module Network.AWS.Glacier.Types
     (
-    -- * Service
+    -- * Service Decription
       Glacier
 
-    -- * Errors
+    -- * Error Matchers
     , _PolicyEnforcedException
     , _InvalidParameterValueException
     , _RequestTimeoutException

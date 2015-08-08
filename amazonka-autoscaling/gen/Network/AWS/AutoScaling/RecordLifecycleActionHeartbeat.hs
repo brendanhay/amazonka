@@ -40,23 +40,21 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_RecordLifecycleActionHeartbeat.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_RecordLifecycleActionHeartbeat.html AWS API Reference> for RecordLifecycleActionHeartbeat.
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     (
-    -- * Request
+    -- * Creating a Request
       RecordLifecycleActionHeartbeat
-    -- ** Request constructor
     , recordLifecycleActionHeartbeat
-    -- ** Request lenses
+    -- * Request Lenses
     , rlahLifecycleHookName
     , rlahAutoScalingGroupName
     , rlahLifecycleActionToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RecordLifecycleActionHeartbeatResponse
-    -- ** Response constructor
     , recordLifecycleActionHeartbeatResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rlahrsStatus
     ) where
 
@@ -149,6 +147,6 @@ recordLifecycleActionHeartbeatResponse pStatus_ =
     { _rlahrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rlahrsStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
 rlahrsStatus = lens _rlahrsStatus (\ s a -> s{_rlahrsStatus = a});

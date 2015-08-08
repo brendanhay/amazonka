@@ -25,14 +25,13 @@
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateStack.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateStack.html AWS API Reference> for CreateStack.
 module Network.AWS.OpsWorks.CreateStack
     (
-    -- * Request
+    -- * Creating a Request
       CreateStack
-    -- ** Request constructor
     , createStack
-    -- ** Request lenses
+    -- * Request Lenses
     , csDefaultRootDeviceType
     , csChefConfiguration
     , csVPCId
@@ -53,11 +52,10 @@ module Network.AWS.OpsWorks.CreateStack
     , csServiceRoleARN
     , csDefaultInstanceProfileARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateStackResponse
-    -- ** Response constructor
     , createStackResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsStackId
     , crsStatus
     ) where
@@ -243,7 +241,7 @@ csDefaultSSHKeyName = lens _csDefaultSSHKeyName (\ s a -> s{_csDefaultSSHKeyName
 csCustomJSON :: Lens' CreateStack (Maybe Text)
 csCustomJSON = lens _csCustomJSON (\ s a -> s{_csCustomJSON = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csCustomCookbooksSource :: Lens' CreateStack (Maybe Source)
 csCustomCookbooksSource = lens _csCustomCookbooksSource (\ s a -> s{_csCustomCookbooksSource = a});
 
@@ -447,6 +445,6 @@ createStackResponse pStatus_ =
 crsStackId :: Lens' CreateStackResponse (Maybe Text)
 crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CreateStackResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

@@ -21,21 +21,19 @@
 -- including the day and time of the week. Note that values are in terms of
 -- the gateway\'s time zone.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html AWS API Reference> for DescribeMaintenanceStartTime.
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMaintenanceStartTime
-    -- ** Request constructor
     , describeMaintenanceStartTime
-    -- ** Request lenses
+    -- * Request Lenses
     , dmstGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMaintenanceStartTimeResponse
-    -- ** Response constructor
     , describeMaintenanceStartTimeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmstrsGatewayARN
     , dmstrsMinuteOfHour
     , dmstrsHourOfDay
@@ -67,7 +65,7 @@ describeMaintenanceStartTime pGatewayARN_ =
     { _dmstGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
 dmstGatewayARN = lens _dmstGatewayARN (\ s a -> s{_dmstGatewayARN = a});
 
@@ -143,26 +141,26 @@ describeMaintenanceStartTimeResponse pStatus_ =
     , _dmstrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmstrsGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrsGatewayARN = lens _dmstrsGatewayARN (\ s a -> s{_dmstrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmstrsMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsMinuteOfHour = lens _dmstrsMinuteOfHour (\ s a -> s{_dmstrsMinuteOfHour = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmstrsHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmstrsTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmstrsStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
 dmstrsStatus = lens _dmstrsStatus (\ s a -> s{_dmstrsStatus = a});

@@ -22,22 +22,20 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnmonitorInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnmonitorInstances.html AWS API Reference> for UnmonitorInstances.
 module Network.AWS.EC2.UnmonitorInstances
     (
-    -- * Request
+    -- * Creating a Request
       UnmonitorInstances
-    -- ** Request constructor
     , unmonitorInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , uiDryRun
     , uiInstanceIds
 
-    -- * Response
+    -- * Destructuring the Response
     , UnmonitorInstancesResponse
-    -- ** Response constructor
     , unmonitorInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uirsInstanceMonitorings
     , uirsStatus
     ) where
@@ -129,6 +127,6 @@ unmonitorInstancesResponse pStatus_ =
 uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uirsStatus :: Lens' UnmonitorInstancesResponse Int
 uirsStatus = lens _uirsStatus (\ s a -> s{_uirsStatus = a});

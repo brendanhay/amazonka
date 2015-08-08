@@ -32,20 +32,18 @@
 -- Note that you cannot create or update an alias that represents a key in
 -- another account.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html AWS API Reference> for UpdateAlias.
 module Network.AWS.KMS.UpdateAlias
     (
-    -- * Request
+    -- * Creating a Request
       UpdateAlias
-    -- ** Request constructor
     , updateAlias
-    -- ** Request lenses
+    -- * Request Lenses
     , uaAliasName
     , uaTargetKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAliasResponse
-    -- ** Response constructor
     , updateAliasResponse
     ) where
 

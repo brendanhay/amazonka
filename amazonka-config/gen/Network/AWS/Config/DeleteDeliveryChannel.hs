@@ -24,19 +24,17 @@
 -- delivery channel, stop the running configuration recorder using the
 -- StopConfigurationRecorder action.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html AWS API Reference> for DeleteDeliveryChannel.
 module Network.AWS.Config.DeleteDeliveryChannel
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDeliveryChannel
-    -- ** Request constructor
     , deleteDeliveryChannel
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcDeliveryChannelName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDeliveryChannelResponse
-    -- ** Response constructor
     , deleteDeliveryChannelResponse
     ) where
 

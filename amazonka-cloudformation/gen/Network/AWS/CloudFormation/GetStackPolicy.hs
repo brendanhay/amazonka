@@ -20,21 +20,19 @@
 -- Returns the stack policy for a specified stack. If a stack doesn\'t have
 -- a policy, a null value is returned.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html AWS API Reference> for GetStackPolicy.
 module Network.AWS.CloudFormation.GetStackPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetStackPolicy
-    -- ** Request constructor
     , getStackPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gspStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetStackPolicyResponse
-    -- ** Response constructor
     , getStackPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsprsStackPolicyBody
     , gsprsStatus
     ) where
@@ -118,6 +116,6 @@ getStackPolicyResponse pStatus_ =
 gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsprsStatus :: Lens' GetStackPolicyResponse Int
 gsprsStatus = lens _gsprsStatus (\ s a -> s{_gsprsStatus = a});

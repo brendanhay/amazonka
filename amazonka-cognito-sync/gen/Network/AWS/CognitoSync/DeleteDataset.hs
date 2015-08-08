@@ -25,23 +25,21 @@
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DeleteDataset.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DeleteDataset.html AWS API Reference> for DeleteDataset.
 module Network.AWS.CognitoSync.DeleteDataset
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDataset
-    -- ** Request constructor
     , deleteDataset
-    -- ** Request lenses
+    -- * Request Lenses
     , delIdentityPoolId
     , delIdentityId
     , delDatasetName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDatasetResponse
-    -- ** Response constructor
     , deleteDatasetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsDataset
     , drsStatus
     ) where
@@ -151,6 +149,6 @@ deleteDatasetResponse pStatus_ =
 drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteDatasetResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

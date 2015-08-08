@@ -47,14 +47,13 @@
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference>
 -- in the /Amazon CloudWatch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html AWS API Reference> for GetMetricStatistics.
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
-    -- * Request
+    -- * Creating a Request
       GetMetricStatistics
-    -- ** Request constructor
     , getMetricStatistics
-    -- ** Request lenses
+    -- * Request Lenses
     , gmsDimensions
     , gmsUnit
     , gmsNamespace
@@ -64,11 +63,10 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     , gmsPeriod
     , gmsStatistics
 
-    -- * Response
+    -- * Destructuring the Response
     , GetMetricStatisticsResponse
-    -- ** Response constructor
     , getMetricStatisticsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gmsrsDatapoints
     , gmsrsLabel
     , gmsrsStatus
@@ -233,6 +231,6 @@ gmsrsDatapoints = lens _gmsrsDatapoints (\ s a -> s{_gmsrsDatapoints = a}) . _De
 gmsrsLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrsLabel = lens _gmsrsLabel (\ s a -> s{_gmsrsLabel = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gmsrsStatus :: Lens' GetMetricStatisticsResponse Int
 gmsrsStatus = lens _gmsrsStatus (\ s a -> s{_gmsrsStatus = a});

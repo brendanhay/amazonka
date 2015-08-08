@@ -45,19 +45,17 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateDomain.html AWS API Reference> for DeprecateDomain.
 module Network.AWS.SWF.DeprecateDomain
     (
-    -- * Request
+    -- * Creating a Request
       DeprecateDomain
-    -- ** Request constructor
     , deprecateDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , dName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeprecateDomainResponse
-    -- ** Response constructor
     , deprecateDomainResponse
     ) where
 

@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html AWS API Reference> for DescribeCustomerGateways.
 module Network.AWS.EC2.DescribeCustomerGateways
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCustomerGateways
-    -- ** Request constructor
     , describeCustomerGateways
-    -- ** Request lenses
+    -- * Request Lenses
     , dcgCustomerGatewayIds
     , dcgFilters
     , dcgDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCustomerGatewaysResponse
-    -- ** Response constructor
     , describeCustomerGatewaysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcgrsCustomerGateways
     , dcgrsStatus
     ) where
@@ -174,6 +172,6 @@ describeCustomerGatewaysResponse pStatus_ =
 dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGateways = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcgrsStatus :: Lens' DescribeCustomerGatewaysResponse Int
 dcgrsStatus = lens _dcgrsStatus (\ s a -> s{_dcgrsStatus = a});

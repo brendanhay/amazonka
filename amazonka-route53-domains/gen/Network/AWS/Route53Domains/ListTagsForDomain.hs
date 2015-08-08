@@ -23,21 +23,19 @@
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListTagsForDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListTagsForDomain.html AWS API Reference> for ListTagsForDomain.
 module Network.AWS.Route53Domains.ListTagsForDomain
     (
-    -- * Request
+    -- * Creating a Request
       ListTagsForDomain
-    -- ** Request constructor
     , listTagsForDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , ltfdDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTagsForDomainResponse
-    -- ** Response constructor
     , listTagsForDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltfdrsStatus
     , ltfdrsTagList
     ) where
@@ -121,7 +119,7 @@ listTagsForDomainResponse pStatus_ =
     , _ltfdrsTagList = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltfdrsStatus :: Lens' ListTagsForDomainResponse Int
 ltfdrsStatus = lens _ltfdrsStatus (\ s a -> s{_ltfdrsStatus = a});
 

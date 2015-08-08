@@ -21,23 +21,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVPNGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVPNGateway.html AWS API Reference> for AttachVPNGateway.
 module Network.AWS.EC2.AttachVPNGateway
     (
-    -- * Request
+    -- * Creating a Request
       AttachVPNGateway
-    -- ** Request constructor
     , attachVPNGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , avgDryRun
     , avgVPNGatewayId
     , avgVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachVPNGatewayResponse
-    -- ** Response constructor
     , attachVPNGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , avgrsVPCAttachment
     , avgrsStatus
     ) where
@@ -135,6 +133,6 @@ attachVPNGatewayResponse pStatus_ =
 avgrsVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
 avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 avgrsStatus :: Lens' AttachVPNGatewayResponse Int
 avgrsStatus = lens _avgrsStatus (\ s a -> s{_avgrsStatus = a});

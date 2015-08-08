@@ -20,23 +20,21 @@
 -- The /DescribeEngineDefaultParameters/ action returns the default engine
 -- and system parameter information for the specified cache engine.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEngineDefaultParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEngineDefaultParameters.html AWS API Reference> for DescribeEngineDefaultParameters.
 module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEngineDefaultParameters
-    -- ** Request constructor
     , describeEngineDefaultParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , dedpMaxRecords
     , dedpMarker
     , dedpCacheParameterGroupFamily
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEngineDefaultParametersResponse
-    -- ** Response constructor
     , describeEngineDefaultParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dedprsStatus
     , dedprsEngineDefaults
     ) where
@@ -160,10 +158,10 @@ describeEngineDefaultParametersResponse pStatus_ pEngineDefaults_ =
     , _dedprsEngineDefaults = pEngineDefaults_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dedprsStatus :: Lens' DescribeEngineDefaultParametersResponse Int
 dedprsStatus = lens _dedprsStatus (\ s a -> s{_dedprsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a});

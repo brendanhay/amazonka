@@ -25,14 +25,13 @@
 -- either complete or abort multipart upload, Amazon S3 frees up the parts
 -- storage and stops charging you for the parts storage.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPart.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPart.html AWS API Reference> for UploadPart.
 module Network.AWS.S3.UploadPart
     (
-    -- * Request
+    -- * Creating a Request
       UploadPart
-    -- ** Request constructor
     , uploadPart
-    -- ** Request lenses
+    -- * Request Lenses
     , upContentLength
     , upSSECustomerAlgorithm
     , upSSECustomerKey
@@ -45,11 +44,10 @@ module Network.AWS.S3.UploadPart
     , upUploadId
     , upBody
 
-    -- * Response
+    -- * Destructuring the Response
     , UploadPartResponse
-    -- ** Response constructor
     , uploadPartResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uprsETag
     , uprsRequestCharged
     , uprsSSECustomerAlgorithm
@@ -140,7 +138,7 @@ upSSECustomerAlgorithm = lens _upSSECustomerAlgorithm (\ s a -> s{_upSSECustomer
 upSSECustomerKey :: Lens' UploadPart (Maybe Text)
 upSSECustomerKey = lens _upSSECustomerKey (\ s a -> s{_upSSECustomerKey = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upRequestPayer :: Lens' UploadPart (Maybe RequestPayer)
 upRequestPayer = lens _upRequestPayer (\ s a -> s{_upRequestPayer = a});
 
@@ -150,15 +148,15 @@ upRequestPayer = lens _upRequestPayer (\ s a -> s{_upRequestPayer = a});
 upSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
 upSSECustomerKeyMD5 = lens _upSSECustomerKeyMD5 (\ s a -> s{_upSSECustomerKeyMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upContentMD5 :: Lens' UploadPart (Maybe Text)
 upContentMD5 = lens _upContentMD5 (\ s a -> s{_upContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upBucket :: Lens' UploadPart BucketName
 upBucket = lens _upBucket (\ s a -> s{_upBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upKey :: Lens' UploadPart ObjectKey
 upKey = lens _upKey (\ s a -> s{_upKey = a});
 
@@ -171,7 +169,7 @@ upPartNumber = lens _upPartNumber (\ s a -> s{_upPartNumber = a});
 upUploadId :: Lens' UploadPart Text
 upUploadId = lens _upUploadId (\ s a -> s{_upUploadId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upBody :: Lens' UploadPart RqBody
 upBody = lens _upBody (\ s a -> s{_upBody = a});
 
@@ -265,7 +263,7 @@ uploadPartResponse pStatus_ =
 uprsETag :: Lens' UploadPartResponse (Maybe ETag)
 uprsETag = lens _uprsETag (\ s a -> s{_uprsETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uprsRequestCharged :: Lens' UploadPartResponse (Maybe RequestCharged)
 uprsRequestCharged = lens _uprsRequestCharged (\ s a -> s{_uprsRequestCharged = a});
 
@@ -291,6 +289,6 @@ uprsSSECustomerKeyMD5 = lens _uprsSSECustomerKeyMD5 (\ s a -> s{_uprsSSECustomer
 uprsServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprsServerSideEncryption = lens _uprsServerSideEncryption (\ s a -> s{_uprsServerSideEncryption = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uprsStatus :: Lens' UploadPartResponse Int
 uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});

@@ -22,25 +22,23 @@
 -- request does not return information about any other Elastic IP addresses
 -- in your account.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeMovingAddresses.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeMovingAddresses.html AWS API Reference> for DescribeMovingAddresses.
 module Network.AWS.EC2.DescribeMovingAddresses
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMovingAddresses
-    -- ** Request constructor
     , describeMovingAddresses
-    -- ** Request lenses
+    -- * Request Lenses
     , dmaPublicIPs
     , dmaFilters
     , dmaNextToken
     , dmaDryRun
     , dmaMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMovingAddressesResponse
-    -- ** Response constructor
     , describeMovingAddressesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmarsMovingAddressStatuses
     , dmarsNextToken
     , dmarsStatus
@@ -180,6 +178,6 @@ dmarsMovingAddressStatuses = lens _dmarsMovingAddressStatuses (\ s a -> s{_dmars
 dmarsNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmarsStatus :: Lens' DescribeMovingAddressesResponse Int
 dmarsStatus = lens _dmarsStatus (\ s a -> s{_dmarsStatus = a});

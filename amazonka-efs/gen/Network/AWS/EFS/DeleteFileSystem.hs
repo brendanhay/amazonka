@@ -35,19 +35,17 @@
 -- This operation requires permission for the
 -- @elasticfilesystem:DeleteFileSystem@ action.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteFileSystem.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteFileSystem.html AWS API Reference> for DeleteFileSystem.
 module Network.AWS.EFS.DeleteFileSystem
     (
-    -- * Request
+    -- * Creating a Request
       DeleteFileSystem
-    -- ** Request constructor
     , deleteFileSystem
-    -- ** Request lenses
+    -- * Request Lenses
     , delFileSystemId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteFileSystemResponse
-    -- ** Response constructor
     , deleteFileSystemResponse
     ) where
 

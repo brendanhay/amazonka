@@ -20,19 +20,17 @@
 -- Stops recording configurations of the AWS resources you have selected to
 -- record in your AWS account.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html AWS API Reference> for StopConfigurationRecorder.
 module Network.AWS.Config.StopConfigurationRecorder
     (
-    -- * Request
+    -- * Creating a Request
       StopConfigurationRecorder
-    -- ** Request constructor
     , stopConfigurationRecorder
-    -- ** Request lenses
+    -- * Request Lenses
     , scrConfigurationRecorderName
 
-    -- * Response
+    -- * Destructuring the Response
     , StopConfigurationRecorderResponse
-    -- ** Response constructor
     , stopConfigurationRecorderResponse
     ) where
 

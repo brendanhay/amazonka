@@ -38,25 +38,23 @@
 -- This operation requires permission for the
 -- @lambda:CreateEventSourceMapping@ action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html AWS API Reference> for CreateEventSourceMapping.
 module Network.AWS.Lambda.CreateEventSourceMapping
     (
-    -- * Request
+    -- * Creating a Request
       CreateEventSourceMapping
-    -- ** Request constructor
     , createEventSourceMapping
-    -- ** Request lenses
+    -- * Request Lenses
     , cesmEnabled
     , cesmBatchSize
     , cesmEventSourceARN
     , cesmFunctionName
     , cesmStartingPosition
 
-    -- * Response
+    -- * Destructuring the Response
     , EventSourceMappingConfiguration
-    -- ** Response constructor
     , eventSourceMappingConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , esmcEventSourceARN
     , esmcFunctionARN
     , esmcState

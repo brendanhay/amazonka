@@ -24,21 +24,19 @@
 -- response contains a token that you pass in the next call to
 -- ListLunaClients to retrieve the next set of items.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListLunaClients.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListLunaClients.html AWS API Reference> for ListLunaClients.
 module Network.AWS.CloudHSM.ListLunaClients
     (
-    -- * Request
+    -- * Creating a Request
       ListLunaClients
-    -- ** Request constructor
     , listLunaClients
-    -- ** Request lenses
+    -- * Request Lenses
     , llcNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListLunaClientsResponse
-    -- ** Response constructor
     , listLunaClientsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , llcrsNextToken
     , llcrsStatus
     , llcrsClientList
@@ -130,7 +128,7 @@ listLunaClientsResponse pStatus_ =
 llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
 llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 llcrsStatus :: Lens' ListLunaClientsResponse Int
 llcrsStatus = lens _llcrsStatus (\ s a -> s{_llcrsStatus = a});
 

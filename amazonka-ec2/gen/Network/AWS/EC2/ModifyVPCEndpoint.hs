@@ -21,14 +21,13 @@
 -- policy associated with the endpoint, and you can add and remove route
 -- tables associated with the endpoint.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCEndpoint.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCEndpoint.html AWS API Reference> for ModifyVPCEndpoint.
 module Network.AWS.EC2.ModifyVPCEndpoint
     (
-    -- * Request
+    -- * Creating a Request
       ModifyVPCEndpoint
-    -- ** Request constructor
     , modifyVPCEndpoint
-    -- ** Request lenses
+    -- * Request Lenses
     , mvePolicyDocument
     , mveRemoveRouteTableIds
     , mveResetPolicy
@@ -36,11 +35,10 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , mveDryRun
     , mveVPCEndpointId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyVPCEndpointResponse
-    -- ** Response constructor
     , modifyVPCEndpointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mversReturn
     , mversStatus
     ) where
@@ -169,6 +167,6 @@ modifyVPCEndpointResponse pStatus_ =
 mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
 mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mversStatus :: Lens' ModifyVPCEndpointResponse Int
 mversStatus = lens _mversStatus (\ s a -> s{_mversStatus = a});

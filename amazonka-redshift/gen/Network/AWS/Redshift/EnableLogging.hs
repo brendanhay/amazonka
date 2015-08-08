@@ -20,23 +20,21 @@
 -- Starts logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html AWS API Reference> for EnableLogging.
 module Network.AWS.Redshift.EnableLogging
     (
-    -- * Request
+    -- * Creating a Request
       EnableLogging
-    -- ** Request constructor
     , enableLogging
-    -- ** Request lenses
+    -- * Request Lenses
     , elS3KeyPrefix
     , elClusterIdentifier
     , elBucketName
 
-    -- * Response
+    -- * Destructuring the Response
     , LoggingStatus
-    -- ** Response constructor
     , loggingStatus
-    -- ** Response lenses
+    -- * Response Lenses
     , lsLastSuccessfulDeliveryTime
     , lsLastFailureTime
     , lsS3KeyPrefix

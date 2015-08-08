@@ -19,21 +19,19 @@
 --
 -- Create a new origin access identity.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html AWS API Reference> for CreateCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
-    -- * Request
+    -- * Creating a Request
       CreateCloudFrontOriginAccessIdentity
-    -- ** Request constructor
     , createCloudFrontOriginAccessIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , ccfoaiCloudFrontOriginAccessIdentityConfig
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCloudFrontOriginAccessIdentityResponse
-    -- ** Response constructor
     , createCloudFrontOriginAccessIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccfoairsETag
     , ccfoairsLocation
     , ccfoairsCloudFrontOriginAccessIdentity
@@ -148,6 +146,6 @@ ccfoairsLocation = lens _ccfoairsLocation (\ s a -> s{_ccfoairsLocation = a});
 ccfoairsCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ccfoairsCloudFrontOriginAccessIdentity = lens _ccfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ccfoairsCloudFrontOriginAccessIdentity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccfoairsStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
 ccfoairsStatus = lens _ccfoairsStatus (\ s a -> s{_ccfoairsStatus = a});

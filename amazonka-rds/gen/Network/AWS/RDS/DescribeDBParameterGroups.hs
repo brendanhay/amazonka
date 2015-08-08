@@ -21,24 +21,22 @@
 -- @DBParameterGroupName@ is specified, the list will contain only the
 -- description of the specified DB parameter group.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html AWS API Reference> for DescribeDBParameterGroups.
 module Network.AWS.RDS.DescribeDBParameterGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBParameterGroups
-    -- ** Request constructor
     , describeDBParameterGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , ddpgFilters
     , ddpgDBParameterGroupName
     , ddpgMaxRecords
     , ddpgMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBParameterGroupsResponse
-    -- ** Response constructor
     , describeDBParameterGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddpgrsMarker
     , ddpgrsDBParameterGroups
     , ddpgrsStatus
@@ -188,6 +186,6 @@ ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddpgrsStatus :: Lens' DescribeDBParameterGroupsResponse Int
 ddpgrsStatus = lens _ddpgrsStatus (\ s a -> s{_ddpgrsStatus = a});

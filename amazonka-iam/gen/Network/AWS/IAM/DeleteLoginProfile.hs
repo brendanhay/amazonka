@@ -27,19 +27,17 @@
 -- For more information about making keys inactive or deleting them, see
 -- UpdateAccessKey and DeleteAccessKey.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html AWS API Reference> for DeleteLoginProfile.
 module Network.AWS.IAM.DeleteLoginProfile
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLoginProfile
-    -- ** Request constructor
     , deleteLoginProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , dlpUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLoginProfileResponse
-    -- ** Response constructor
     , deleteLoginProfileResponse
     ) where
 

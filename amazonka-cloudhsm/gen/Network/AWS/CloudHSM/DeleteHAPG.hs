@@ -19,21 +19,19 @@
 --
 -- Deletes a high-availability partition group.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHAPG.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHAPG.html AWS API Reference> for DeleteHAPG.
 module Network.AWS.CloudHSM.DeleteHAPG
     (
-    -- * Request
+    -- * Creating a Request
       DeleteHAPG
-    -- ** Request constructor
     , deleteHAPG
-    -- ** Request lenses
+    -- * Request Lenses
     , dhHAPGARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteHAPGResponse
-    -- ** Response constructor
     , deleteHAPGResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dhrsStatus
     ) where
 
@@ -110,6 +108,6 @@ deleteHAPGResponse pStatus_ =
     { _dhrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhrsStatus :: Lens' DeleteHAPGResponse Int
 dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});

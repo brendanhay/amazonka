@@ -28,25 +28,23 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html AWS API Reference> for ListEntitiesForPolicy.
 module Network.AWS.IAM.ListEntitiesForPolicy
     (
-    -- * Request
+    -- * Creating a Request
       ListEntitiesForPolicy
-    -- ** Request constructor
     , listEntitiesForPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , lefpPathPrefix
     , lefpEntityFilter
     , lefpMaxItems
     , lefpMarker
     , lefpPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListEntitiesForPolicyResponse
-    -- ** Response constructor
     , listEntitiesForPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lefprsPolicyGroups
     , lefprsPolicyRoles
     , lefprsPolicyUsers
@@ -122,7 +120,7 @@ lefpMaxItems = lens _lefpMaxItems (\ s a -> s{_lefpMaxItems = a}) . mapping _Nat
 lefpMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
 lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lefpPolicyARN :: Lens' ListEntitiesForPolicy Text
 lefpPolicyARN = lens _lefpPolicyARN (\ s a -> s{_lefpPolicyARN = a});
 
@@ -225,6 +223,6 @@ lefprsMarker = lens _lefprsMarker (\ s a -> s{_lefprsMarker = a});
 lefprsIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
 lefprsIsTruncated = lens _lefprsIsTruncated (\ s a -> s{_lefprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lefprsStatus :: Lens' ListEntitiesForPolicyResponse Int
 lefprsStatus = lens _lefprsStatus (\ s a -> s{_lefprsStatus = a});

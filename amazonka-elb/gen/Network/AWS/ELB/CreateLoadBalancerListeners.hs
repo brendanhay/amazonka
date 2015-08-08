@@ -26,22 +26,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerListeners.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerListeners.html AWS API Reference> for CreateLoadBalancerListeners.
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
-    -- * Request
+    -- * Creating a Request
       CreateLoadBalancerListeners
-    -- ** Request constructor
     , createLoadBalancerListeners
-    -- ** Request lenses
+    -- * Request Lenses
     , clblLoadBalancerName
     , clblListeners
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLoadBalancerListenersResponse
-    -- ** Response constructor
     , createLoadBalancerListenersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clblrsStatus
     ) where
 
@@ -121,6 +119,6 @@ createLoadBalancerListenersResponse pStatus_ =
     { _clblrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clblrsStatus :: Lens' CreateLoadBalancerListenersResponse Int
 clblrsStatus = lens _clblrsStatus (\ s a -> s{_clblrsStatus = a});

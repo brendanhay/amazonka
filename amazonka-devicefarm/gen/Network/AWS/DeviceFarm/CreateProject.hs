@@ -19,21 +19,19 @@
 --
 -- Creates a new project.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateProject.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateProject.html AWS API Reference> for CreateProject.
 module Network.AWS.DeviceFarm.CreateProject
     (
-    -- * Request
+    -- * Creating a Request
       CreateProject
-    -- ** Request constructor
     , createProject
-    -- ** Request lenses
+    -- * Request Lenses
     , cpName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateProjectResponse
-    -- ** Response constructor
     , createProjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cprsProject
     , cprsStatus
     ) where
@@ -120,6 +118,6 @@ createProjectResponse pStatus_ =
 cprsProject :: Lens' CreateProjectResponse (Maybe Project)
 cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cprsStatus :: Lens' CreateProjectResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

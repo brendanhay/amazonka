@@ -20,19 +20,17 @@
 -- Deletes a specified Amazon Redshift parameter group.
 -- You cannot delete a parameter group if it is associated with a cluster.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html AWS API Reference> for DeleteClusterParameterGroup.
 module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteClusterParameterGroup
-    -- ** Request constructor
     , deleteClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteClusterParameterGroupResponse
-    -- ** Response constructor
     , deleteClusterParameterGroupResponse
     ) where
 

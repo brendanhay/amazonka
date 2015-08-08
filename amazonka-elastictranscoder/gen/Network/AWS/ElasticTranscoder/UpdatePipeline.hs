@@ -23,14 +23,13 @@
 -- started to process are affected in addition to jobs that you submit
 -- after you change settings.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipeline.html AWS API Reference> for UpdatePipeline.
 module Network.AWS.ElasticTranscoder.UpdatePipeline
     (
-    -- * Request
+    -- * Creating a Request
       UpdatePipeline
-    -- ** Request constructor
     , updatePipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , upInputBucket
     , upContentConfig
     , upRole
@@ -40,11 +39,10 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     , upNotifications
     , upId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdatePipelineResponse
-    -- ** Response constructor
     , updatePipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uprsWarnings
     , uprsPipeline
     , uprsStatus
@@ -244,7 +242,7 @@ upAWSKMSKeyARN = lens _upAWSKMSKeyARN (\ s a -> s{_upAWSKMSKeyARN = a});
 upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upThumbnailConfig = lens _upThumbnailConfig (\ s a -> s{_upThumbnailConfig = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upNotifications :: Lens' UpdatePipeline (Maybe Notifications)
 upNotifications = lens _upNotifications (\ s a -> s{_upNotifications = a});
 
@@ -319,10 +317,10 @@ updatePipelineResponse pStatus_ =
 uprsWarnings :: Lens' UpdatePipelineResponse [Warning]
 uprsWarnings = lens _uprsWarnings (\ s a -> s{_uprsWarnings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uprsPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uprsStatus :: Lens' UpdatePipelineResponse Int
 uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});

@@ -19,21 +19,19 @@
 --
 -- Enables artifacts in a pipeline to transition to a stage in a pipeline.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_EnableStageTransition.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_EnableStageTransition.html AWS API Reference> for EnableStageTransition.
 module Network.AWS.CodePipeline.EnableStageTransition
     (
-    -- * Request
+    -- * Creating a Request
       EnableStageTransition
-    -- ** Request constructor
     , enableStageTransition
-    -- ** Request lenses
+    -- * Request Lenses
     , estPipelineName
     , estStageName
     , estTransitionType
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableStageTransitionResponse
-    -- ** Response constructor
     , enableStageTransitionResponse
     ) where
 

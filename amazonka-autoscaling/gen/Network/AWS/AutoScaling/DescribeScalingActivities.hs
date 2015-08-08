@@ -22,24 +22,22 @@
 -- from the past six weeks. Activities are sorted by the start time.
 -- Activities still in progress appear first on the list.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html AWS API Reference> for DescribeScalingActivities.
 module Network.AWS.AutoScaling.DescribeScalingActivities
     (
-    -- * Request
+    -- * Creating a Request
       DescribeScalingActivities
-    -- ** Request constructor
     , describeScalingActivities
-    -- ** Request lenses
+    -- * Request Lenses
     , desNextToken
     , desMaxRecords
     , desAutoScalingGroupName
     , desActivityIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeScalingActivitiesResponse
-    -- ** Response constructor
     , describeScalingActivitiesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsasrsNextToken
     , dsasrsStatus
     , dsasrsActivities
@@ -167,7 +165,7 @@ describeScalingActivitiesResponse pStatus_ =
 dsasrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsasrsStatus :: Lens' DescribeScalingActivitiesResponse Int
 dsasrsStatus = lens _dsasrsStatus (\ s a -> s{_dsasrsStatus = a});
 

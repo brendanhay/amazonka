@@ -22,21 +22,19 @@
 --
 -- The DBSnapshot must be in the @available@ state to be deleted.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html AWS API Reference> for DeleteDBSnapshot.
 module Network.AWS.RDS.DeleteDBSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDBSnapshot
-    -- ** Request constructor
     , deleteDBSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , ddbsDBSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDBSnapshotResponse
-    -- ** Response constructor
     , deleteDBSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddbsrsDBSnapshot
     , ddbsrsStatus
     ) where
@@ -114,10 +112,10 @@ deleteDBSnapshotResponse pStatus_ =
     , _ddbsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddbsrsStatus :: Lens' DeleteDBSnapshotResponse Int
 ddbsrsStatus = lens _ddbsrsStatus (\ s a -> s{_ddbsrsStatus = a});

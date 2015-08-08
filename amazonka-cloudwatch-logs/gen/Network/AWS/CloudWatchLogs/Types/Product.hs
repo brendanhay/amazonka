@@ -57,27 +57,27 @@ destination =
     , _dRoleARN = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dTargetARN :: Lens' Destination (Maybe Text)
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dCreationTime :: Lens' Destination (Maybe Natural)
 dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dArn :: Lens' Destination (Maybe Text)
 dArn = lens _dArn (\ s a -> s{_dArn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dAccessPolicy :: Lens' Destination (Maybe Text)
 dAccessPolicy = lens _dAccessPolicy (\ s a -> s{_dAccessPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDestinationName :: Lens' Destination (Maybe Text)
 dDestinationName = lens _dDestinationName (\ s a -> s{_dDestinationName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dRoleARN :: Lens' Destination (Maybe Text)
 dRoleARN = lens _dRoleARN (\ s a -> s{_dRoleARN = a});
 
@@ -126,7 +126,7 @@ filteredLogEvent =
     , _fleEventId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
 fleIngestionTime = lens _fleIngestionTime (\ s a -> s{_fleIngestionTime = a}) . mapping _Nat;
 
@@ -138,7 +138,7 @@ fleLogStreamName = lens _fleLogStreamName (\ s a -> s{_fleLogStreamName = a});
 fleMessage :: Lens' FilteredLogEvent (Maybe Text)
 fleMessage = lens _fleMessage (\ s a -> s{_fleMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 fleTimestamp :: Lens' FilteredLogEvent (Maybe Natural)
 fleTimestamp = lens _fleTimestamp (\ s a -> s{_fleTimestamp = a}) . mapping _Nat;
 
@@ -181,11 +181,11 @@ inputLogEvent pTimestamp_ pMessage_ =
     , _ileMessage = pMessage_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ileMessage :: Lens' InputLogEvent Text
 ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a});
 
@@ -231,27 +231,27 @@ logGroup =
     , _lgStoredBytes = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
 lgCreationTime = lens _lgCreationTime (\ s a -> s{_lgCreationTime = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgMetricFilterCount :: Lens' LogGroup (Maybe Int)
 lgMetricFilterCount = lens _lgMetricFilterCount (\ s a -> s{_lgMetricFilterCount = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgArn :: Lens' LogGroup (Maybe Text)
 lgArn = lens _lgArn (\ s a -> s{_lgArn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgLogGroupName :: Lens' LogGroup (Maybe Text)
 lgLogGroupName = lens _lgLogGroupName (\ s a -> s{_lgLogGroupName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgRetentionInDays :: Lens' LogGroup (Maybe Int)
 lgRetentionInDays = lens _lgRetentionInDays (\ s a -> s{_lgRetentionInDays = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgStoredBytes :: Lens' LogGroup (Maybe Natural)
 lgStoredBytes = lens _lgStoredBytes (\ s a -> s{_lgStoredBytes = a}) . mapping _Nat;
 
@@ -313,35 +313,35 @@ logStream =
     , _lsLastEventTimestamp = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsCreationTime :: Lens' LogStream (Maybe Natural)
 lsCreationTime = lens _lsCreationTime (\ s a -> s{_lsCreationTime = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
 lsUploadSequenceToken = lens _lsUploadSequenceToken (\ s a -> s{_lsUploadSequenceToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsArn :: Lens' LogStream (Maybe Text)
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsFirstEventTimestamp = lens _lsFirstEventTimestamp (\ s a -> s{_lsFirstEventTimestamp = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsLogStreamName :: Lens' LogStream (Maybe Text)
 lsLogStreamName = lens _lsLogStreamName (\ s a -> s{_lsLogStreamName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsStoredBytes :: Lens' LogStream (Maybe Natural)
 lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
 lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat;
 
@@ -391,19 +391,19 @@ metricFilter =
     , _mfMetricTransformations = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
 mfCreationTime = lens _mfCreationTime (\ s a -> s{_mfCreationTime = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mfFilterName :: Lens' MetricFilter (Maybe Text)
 mfFilterName = lens _mfFilterName (\ s a -> s{_mfFilterName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mfFilterPattern :: Lens' MetricFilter (Maybe Text)
 mfFilterPattern = lens _mfFilterPattern (\ s a -> s{_mfFilterPattern = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mfMetricTransformations :: Lens' MetricFilter (Maybe (NonEmpty MetricTransformation))
 mfMetricTransformations = lens _mfMetricTransformations (\ s a -> s{_mfMetricTransformations = a}) . mapping _List1;
 
@@ -440,15 +440,15 @@ metricFilterMatchRecord =
     , _mfmrEventNumber = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
 mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
 mfmrEventMessage = lens _mfmrEventMessage (\ s a -> s{_mfmrEventMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mfmrEventNumber :: Lens' MetricFilterMatchRecord (Maybe Integer)
 mfmrEventNumber = lens _mfmrEventNumber (\ s a -> s{_mfmrEventNumber = a});
 
@@ -485,15 +485,15 @@ metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
     , _mtMetricValue = pMetricValue_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mtMetricName :: Lens' MetricTransformation Text
 mtMetricName = lens _mtMetricName (\ s a -> s{_mtMetricName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mtMetricNamespace :: Lens' MetricTransformation Text
 mtMetricNamespace = lens _mtMetricNamespace (\ s a -> s{_mtMetricNamespace = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mtMetricValue :: Lens' MetricTransformation Text
 mtMetricValue = lens _mtMetricValue (\ s a -> s{_mtMetricValue = a});
 
@@ -536,15 +536,15 @@ outputLogEvent =
     , _oleTimestamp = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
 oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
 oleMessage = lens _oleMessage (\ s a -> s{_oleMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
 oleTimestamp = lens _oleTimestamp (\ s a -> s{_oleTimestamp = a}) . mapping _Nat;
 
@@ -580,15 +580,15 @@ rejectedLogEventsInfo =
     , _rleiExpiredLogEventEndIndex = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rleiTooOldLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
 rleiTooOldLogEventEndIndex = lens _rleiTooOldLogEventEndIndex (\ s a -> s{_rleiTooOldLogEventEndIndex = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rleiTooNewLogEventStartIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
 rleiTooNewLogEventStartIndex = lens _rleiTooNewLogEventStartIndex (\ s a -> s{_rleiTooNewLogEventStartIndex = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rleiExpiredLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
 rleiExpiredLogEventEndIndex = lens _rleiExpiredLogEventEndIndex (\ s a -> s{_rleiExpiredLogEventEndIndex = a});
 
@@ -677,27 +677,27 @@ subscriptionFilter =
     , _sfRoleARN = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)
 sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sfFilterName :: Lens' SubscriptionFilter (Maybe Text)
 sfFilterName = lens _sfFilterName (\ s a -> s{_sfFilterName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sfDestinationARN :: Lens' SubscriptionFilter (Maybe Text)
 sfDestinationARN = lens _sfDestinationARN (\ s a -> s{_sfDestinationARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sfLogGroupName :: Lens' SubscriptionFilter (Maybe Text)
 sfLogGroupName = lens _sfLogGroupName (\ s a -> s{_sfLogGroupName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sfFilterPattern :: Lens' SubscriptionFilter (Maybe Text)
 sfFilterPattern = lens _sfFilterPattern (\ s a -> s{_sfFilterPattern = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sfRoleARN :: Lens' SubscriptionFilter (Maybe Text)
 sfRoleARN = lens _sfRoleARN (\ s a -> s{_sfRoleARN = a});
 

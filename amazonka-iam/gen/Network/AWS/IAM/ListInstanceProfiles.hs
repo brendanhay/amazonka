@@ -25,23 +25,21 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html AWS API Reference> for ListInstanceProfiles.
 module Network.AWS.IAM.ListInstanceProfiles
     (
-    -- * Request
+    -- * Creating a Request
       ListInstanceProfiles
-    -- ** Request constructor
     , listInstanceProfiles
-    -- ** Request lenses
+    -- * Request Lenses
     , lipPathPrefix
     , lipMaxItems
     , lipMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListInstanceProfilesResponse
-    -- ** Response constructor
     , listInstanceProfilesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , liprsMarker
     , liprsIsTruncated
     , liprsStatus
@@ -180,7 +178,7 @@ liprsMarker = lens _liprsMarker (\ s a -> s{_liprsMarker = a});
 liprsIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
 liprsIsTruncated = lens _liprsIsTruncated (\ s a -> s{_liprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 liprsStatus :: Lens' ListInstanceProfilesResponse Int
 liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
 

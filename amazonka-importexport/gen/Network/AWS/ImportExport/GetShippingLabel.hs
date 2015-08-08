@@ -20,14 +20,13 @@
 -- This operation generates a pre-paid UPS shipping label that you will use
 -- to ship your device to AWS for processing.
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html AWS API Reference> for GetShippingLabel.
 module Network.AWS.ImportExport.GetShippingLabel
     (
-    -- * Request
+    -- * Creating a Request
       GetShippingLabel
-    -- ** Request constructor
     , getShippingLabel
-    -- ** Request lenses
+    -- * Request Lenses
     , gslStreet3
     , gslAPIVersion
     , gslPostalCode
@@ -41,11 +40,10 @@ module Network.AWS.ImportExport.GetShippingLabel
     , gslStreet1
     , gslJobIds
 
-    -- * Response
+    -- * Destructuring the Response
     , GetShippingLabelResponse
-    -- ** Response constructor
     , getShippingLabelResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gslrsShippingLabelURL
     , gslrsWarning
     , gslrsStatus
@@ -116,51 +114,51 @@ getShippingLabel =
     , _gslJobIds = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslStreet3 :: Lens' GetShippingLabel (Maybe Text)
 gslStreet3 = lens _gslStreet3 (\ s a -> s{_gslStreet3 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslAPIVersion :: Lens' GetShippingLabel (Maybe Text)
 gslAPIVersion = lens _gslAPIVersion (\ s a -> s{_gslAPIVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslPostalCode :: Lens' GetShippingLabel (Maybe Text)
 gslPostalCode = lens _gslPostalCode (\ s a -> s{_gslPostalCode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslCountry :: Lens' GetShippingLabel (Maybe Text)
 gslCountry = lens _gslCountry (\ s a -> s{_gslCountry = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
 gslStateOrProvince = lens _gslStateOrProvince (\ s a -> s{_gslStateOrProvince = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslStreet2 :: Lens' GetShippingLabel (Maybe Text)
 gslStreet2 = lens _gslStreet2 (\ s a -> s{_gslStreet2 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslName :: Lens' GetShippingLabel (Maybe Text)
 gslName = lens _gslName (\ s a -> s{_gslName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslCompany :: Lens' GetShippingLabel (Maybe Text)
 gslCompany = lens _gslCompany (\ s a -> s{_gslCompany = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslCity :: Lens' GetShippingLabel (Maybe Text)
 gslCity = lens _gslCity (\ s a -> s{_gslCity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
 gslPhoneNumber = lens _gslPhoneNumber (\ s a -> s{_gslPhoneNumber = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslStreet1 :: Lens' GetShippingLabel (Maybe Text)
 gslStreet1 = lens _gslStreet1 (\ s a -> s{_gslStreet1 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslJobIds :: Lens' GetShippingLabel [Text]
 gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a}) . _Coerce;
 
@@ -222,14 +220,14 @@ getShippingLabelResponse pStatus_ =
     , _gslrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslrsShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\ s a -> s{_gslrsShippingLabelURL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslrsStatus :: Lens' GetShippingLabelResponse Int
 gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});

@@ -20,25 +20,23 @@
 -- Displays details about an import virtual machine or import snapshot
 -- tasks that are already created.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportImageTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportImageTasks.html AWS API Reference> for DescribeImportImageTasks.
 module Network.AWS.EC2.DescribeImportImageTasks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeImportImageTasks
-    -- ** Request constructor
     , describeImportImageTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , diitFilters
     , diitImportTaskIds
     , diitNextToken
     , diitDryRun
     , diitMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeImportImageTasksResponse
-    -- ** Response constructor
     , describeImportImageTasksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , diitrsImportImageTasks
     , diitrsNextToken
     , diitrsStatus
@@ -171,6 +169,6 @@ diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportI
 diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
 diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diitrsStatus :: Lens' DescribeImportImageTasksResponse Int
 diitrsStatus = lens _diitrsStatus (\ s a -> s{_diitrsStatus = a});

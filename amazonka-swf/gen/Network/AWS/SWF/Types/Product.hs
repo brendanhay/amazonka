@@ -1560,7 +1560,7 @@ canwedaLambdaRole = lens _canwedaLambdaRole (\ s a -> s{_canwedaLambdaRole = a})
 canwedaInput :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaInput = lens _canwedaInput (\ s a -> s{_canwedaInput = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 canwedaWorkflowTypeVersion :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaWorkflowTypeVersion = lens _canwedaWorkflowTypeVersion (\ s a -> s{_canwedaWorkflowTypeVersion = a});
 
@@ -1579,7 +1579,7 @@ canwedaWorkflowTypeVersion = lens _canwedaWorkflowTypeVersion (\ s a -> s{_canwe
 canwedaExecutionStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaExecutionStartToCloseTimeout = lens _canwedaExecutionStartToCloseTimeout (\ s a -> s{_canwedaExecutionStartToCloseTimeout = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 canwedaTaskList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe TaskList)
 canwedaTaskList = lens _canwedaTaskList (\ s a -> s{_canwedaTaskList = a});
 
@@ -1940,7 +1940,7 @@ dFailWorkflowExecutionDecisionAttributes = lens _dFailWorkflowExecutionDecisionA
 dStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
 dStartChildWorkflowExecutionDecisionAttributes = lens _dStartChildWorkflowExecutionDecisionAttributes (\ s a -> s{_dStartChildWorkflowExecutionDecisionAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dScheduleLambdaFunctionDecisionAttributes :: Lens' Decision (Maybe ScheduleLambdaFunctionDecisionAttributes)
 dScheduleLambdaFunctionDecisionAttributes = lens _dScheduleLambdaFunctionDecisionAttributes (\ s a -> s{_dScheduleLambdaFunctionDecisionAttributes = a});
 
@@ -2903,7 +2903,7 @@ heDecisionTaskScheduledEventAttributes = lens _heDecisionTaskScheduledEventAttri
 heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
 heStartTimerFailedEventAttributes = lens _heStartTimerFailedEventAttributes (\ s a -> s{_heStartTimerFailedEventAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 heLambdaFunctionStartedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionStartedEventAttributes)
 heLambdaFunctionStartedEventAttributes = lens _heLambdaFunctionStartedEventAttributes (\ s a -> s{_heLambdaFunctionStartedEventAttributes = a});
 
@@ -2950,7 +2950,7 @@ heScheduleActivityTaskFailedEventAttributes = lens _heScheduleActivityTaskFailed
 heMarkerRecordedEventAttributes :: Lens' HistoryEvent (Maybe MarkerRecordedEventAttributes)
 heMarkerRecordedEventAttributes = lens _heMarkerRecordedEventAttributes (\ s a -> s{_heMarkerRecordedEventAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 heScheduleLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe ScheduleLambdaFunctionFailedEventAttributes)
 heScheduleLambdaFunctionFailedEventAttributes = lens _heScheduleLambdaFunctionFailedEventAttributes (\ s a -> s{_heScheduleLambdaFunctionFailedEventAttributes = a});
 
@@ -2966,7 +2966,7 @@ heCompleteWorkflowExecutionFailedEventAttributes = lens _heCompleteWorkflowExecu
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes = lens _heRequestCancelExternalWorkflowExecutionFailedEventAttributes (\ s a -> s{_heRequestCancelExternalWorkflowExecutionFailedEventAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 heLambdaFunctionCompletedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionCompletedEventAttributes)
 heLambdaFunctionCompletedEventAttributes = lens _heLambdaFunctionCompletedEventAttributes (\ s a -> s{_heLambdaFunctionCompletedEventAttributes = a});
 
@@ -3036,7 +3036,7 @@ heDecisionTaskStartedEventAttributes = lens _heDecisionTaskStartedEventAttribute
 heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
 heCancelWorkflowExecutionFailedEventAttributes = lens _heCancelWorkflowExecutionFailedEventAttributes (\ s a -> s{_heCancelWorkflowExecutionFailedEventAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 heLambdaFunctionScheduledEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionScheduledEventAttributes)
 heLambdaFunctionScheduledEventAttributes = lens _heLambdaFunctionScheduledEventAttributes (\ s a -> s{_heLambdaFunctionScheduledEventAttributes = a});
 
@@ -3094,7 +3094,7 @@ heWorkflowExecutionTimedOutEventAttributes = lens _heWorkflowExecutionTimedOutEv
 heActivityTaskCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCancelRequestedEventAttributes)
 heActivityTaskCancelRequestedEventAttributes = lens _heActivityTaskCancelRequestedEventAttributes (\ s a -> s{_heActivityTaskCancelRequestedEventAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 heStartLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartLambdaFunctionFailedEventAttributes)
 heStartLambdaFunctionFailedEventAttributes = lens _heStartLambdaFunctionFailedEventAttributes (\ s a -> s{_heStartLambdaFunctionFailedEventAttributes = a});
 
@@ -3104,7 +3104,7 @@ heStartLambdaFunctionFailedEventAttributes = lens _heStartLambdaFunctionFailedEv
 heChildWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTerminatedEventAttributes)
 heChildWorkflowExecutionTerminatedEventAttributes = lens _heChildWorkflowExecutionTerminatedEventAttributes (\ s a -> s{_heChildWorkflowExecutionTerminatedEventAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 heLambdaFunctionFailedEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionFailedEventAttributes)
 heLambdaFunctionFailedEventAttributes = lens _heLambdaFunctionFailedEventAttributes (\ s a -> s{_heLambdaFunctionFailedEventAttributes = a});
 
@@ -3192,7 +3192,7 @@ heWorkflowExecutionContinuedAsNewEventAttributes = lens _heWorkflowExecutionCont
 heExternalWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
 heExternalWorkflowExecutionCancelRequestedEventAttributes = lens _heExternalWorkflowExecutionCancelRequestedEventAttributes (\ s a -> s{_heExternalWorkflowExecutionCancelRequestedEventAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 heLambdaFunctionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe LambdaFunctionTimedOutEventAttributes)
 heLambdaFunctionTimedOutEventAttributes = lens _heLambdaFunctionTimedOutEventAttributes (\ s a -> s{_heLambdaFunctionTimedOutEventAttributes = a});
 
@@ -3992,7 +3992,7 @@ requestCancelExternalWorkflowExecutionFailedEventAttributes pWorkflowId_ pCause_
     , _rcewefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcewefeaControl :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaControl = lens _rcewefeaControl (\ s a -> s{_rcewefeaControl = a});
 
@@ -4651,7 +4651,7 @@ signalExternalWorkflowExecutionFailedEventAttributes pWorkflowId_ pCause_ pIniti
     , _sewefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sewefeaControl :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 sewefeaControl = lens _sewefeaControl (\ s a -> s{_sewefeaControl = a});
 
@@ -5047,7 +5047,7 @@ startChildWorkflowExecutionFailedEventAttributes pWorkflowType_ pCause_ pWorkflo
     , _scwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 scwefeaControl :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 scwefeaControl = lens _scwefeaControl (\ s a -> s{_scwefeaControl = a});
 
@@ -6036,7 +6036,7 @@ wecaneaInput = lens _wecaneaInput (\ s a -> s{_wecaneaInput = a});
 wecaneaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaExecutionStartToCloseTimeout = lens _wecaneaExecutionStartToCloseTimeout (\ s a -> s{_wecaneaExecutionStartToCloseTimeout = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 wecaneaTaskPriority :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskPriority = lens _wecaneaTaskPriority (\ s a -> s{_wecaneaTaskPriority = a});
 
@@ -6052,7 +6052,7 @@ wecaneaDecisionTaskCompletedEventId = lens _wecaneaDecisionTaskCompletedEventId 
 wecaneaNewExecutionRunId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes Text
 wecaneaNewExecutionRunId = lens _wecaneaNewExecutionRunId (\ s a -> s{_wecaneaNewExecutionRunId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 wecaneaTaskList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes TaskList
 wecaneaTaskList = lens _wecaneaTaskList (\ s a -> s{_wecaneaTaskList = a});
 
@@ -6072,7 +6072,7 @@ wecaneaTaskList = lens _wecaneaTaskList (\ s a -> s{_wecaneaTaskList = a});
 wecaneaChildPolicy :: Lens' WorkflowExecutionContinuedAsNewEventAttributes ChildPolicy
 wecaneaChildPolicy = lens _wecaneaChildPolicy (\ s a -> s{_wecaneaChildPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 wecaneaWorkflowType :: Lens' WorkflowExecutionContinuedAsNewEventAttributes WorkflowType
 wecaneaWorkflowType = lens _wecaneaWorkflowType (\ s a -> s{_wecaneaWorkflowType = a});
 
@@ -6607,7 +6607,7 @@ weseaInput = lens _weseaInput (\ s a -> s{_weseaInput = a});
 weseaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaExecutionStartToCloseTimeout = lens _weseaExecutionStartToCloseTimeout (\ s a -> s{_weseaExecutionStartToCloseTimeout = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 weseaTaskPriority :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaTaskPriority = lens _weseaTaskPriority (\ s a -> s{_weseaTaskPriority = a});
 

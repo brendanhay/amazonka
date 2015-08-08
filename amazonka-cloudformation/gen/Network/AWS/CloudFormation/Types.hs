@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudFormation.Types
     (
-    -- * Service
+    -- * Service Decription
       CloudFormation
 
-    -- * Errors
+    -- * Error Matchers
     , _InsufficientCapabilitiesException
     , _LimitExceededException
     , _AlreadyExistsException

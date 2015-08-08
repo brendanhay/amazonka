@@ -23,14 +23,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html AWS API Reference> for CreateNetworkInterface.
 module Network.AWS.EC2.CreateNetworkInterface
     (
-    -- * Request
+    -- * Creating a Request
       CreateNetworkInterface
-    -- ** Request constructor
     , createNetworkInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , cniPrivateIPAddresses
     , cniGroups
     , cniPrivateIPAddress
@@ -39,11 +38,10 @@ module Network.AWS.EC2.CreateNetworkInterface
     , cniDescription
     , cniSubnetId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateNetworkInterfaceResponse
-    -- ** Response constructor
     , createNetworkInterfaceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cnirsNetworkInterface
     , cnirsStatus
     ) where
@@ -195,6 +193,6 @@ createNetworkInterfaceResponse pStatus_ =
 cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirsNetworkInterface = lens _cnirsNetworkInterface (\ s a -> s{_cnirsNetworkInterface = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cnirsStatus :: Lens' CreateNetworkInterfaceResponse Int
 cnirsStatus = lens _cnirsStatus (\ s a -> s{_cnirsStatus = a});

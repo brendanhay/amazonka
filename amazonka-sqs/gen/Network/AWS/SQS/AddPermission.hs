@@ -41,22 +41,20 @@
 --
 -- @&Attribute.2=that@
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.SQS.AddPermission
     (
-    -- * Request
+    -- * Creating a Request
       AddPermission
-    -- ** Request constructor
     , addPermission
-    -- ** Request lenses
+    -- * Request Lenses
     , apQueueURL
     , apLabel
     , apAWSAccountIds
     , apActions
 
-    -- * Response
+    -- * Destructuring the Response
     , AddPermissionResponse
-    -- ** Response constructor
     , addPermissionResponse
     ) where
 

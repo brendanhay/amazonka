@@ -20,21 +20,19 @@
 -- Returns information about the state of a pipeline, including the stages,
 -- actions, and details about the last run of the pipeline.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetPipelineState.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetPipelineState.html AWS API Reference> for GetPipelineState.
 module Network.AWS.CodePipeline.GetPipelineState
     (
-    -- * Request
+    -- * Creating a Request
       GetPipelineState
-    -- ** Request constructor
     , getPipelineState
-    -- ** Request lenses
+    -- * Request Lenses
     , gpsName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPipelineStateResponse
-    -- ** Response constructor
     , getPipelineStateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gpsrsPipelineName
     , gpsrsPipelineVersion
     , gpsrsCreated
@@ -166,6 +164,6 @@ gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . 
 gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
 gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gpsrsStatus :: Lens' GetPipelineStateResponse Int
 gpsrsStatus = lens _gpsrsStatus (\ s a -> s{_gpsrsStatus = a});

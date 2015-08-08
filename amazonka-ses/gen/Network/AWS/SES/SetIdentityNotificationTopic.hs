@@ -31,23 +31,21 @@
 -- For more information about feedback notification, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityNotificationTopic.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityNotificationTopic.html AWS API Reference> for SetIdentityNotificationTopic.
 module Network.AWS.SES.SetIdentityNotificationTopic
     (
-    -- * Request
+    -- * Creating a Request
       SetIdentityNotificationTopic
-    -- ** Request constructor
     , setIdentityNotificationTopic
-    -- ** Request lenses
+    -- * Request Lenses
     , sintSNSTopic
     , sintIdentity
     , sintNotificationType
 
-    -- * Response
+    -- * Destructuring the Response
     , SetIdentityNotificationTopicResponse
-    -- ** Response constructor
     , setIdentityNotificationTopicResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , sintrsStatus
     ) where
 
@@ -148,6 +146,6 @@ setIdentityNotificationTopicResponse pStatus_ =
     { _sintrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sintrsStatus :: Lens' SetIdentityNotificationTopicResponse Int
 sintrsStatus = lens _sintrsStatus (\ s a -> s{_sintrsStatus = a});

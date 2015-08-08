@@ -22,21 +22,19 @@
 -- also returned. Use the @NextToken@ parameter in a new @ListTopics@ call
 -- to get further results.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html AWS API Reference> for ListTopics.
 module Network.AWS.SNS.ListTopics
     (
-    -- * Request
+    -- * Creating a Request
       ListTopics
-    -- ** Request constructor
     , listTopics
-    -- ** Request lenses
+    -- * Request Lenses
     , ltNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTopicsResponse
-    -- ** Response constructor
     , listTopicsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltrsTopics
     , ltrsNextToken
     , ltrsStatus
@@ -136,6 +134,6 @@ ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce
 ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltrsStatus :: Lens' ListTopicsResponse Int
 ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

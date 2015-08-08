@@ -21,21 +21,19 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html Creating a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_CreateDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_CreateDomain.html AWS API Reference> for CreateDomain.
 module Network.AWS.CloudSearch.CreateDomain
     (
-    -- * Request
+    -- * Creating a Request
       CreateDomain
-    -- ** Request constructor
     , createDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , cdDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDomainResponse
-    -- ** Response constructor
     , createDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdrsDomainStatus
     , cdrsStatus
     ) where
@@ -117,10 +115,10 @@ createDomainResponse pStatus_ =
     , _cdrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdrsStatus :: Lens' CreateDomainResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

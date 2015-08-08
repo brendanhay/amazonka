@@ -19,21 +19,19 @@
 --
 -- Create a new streaming distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateStreamingDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateStreamingDistribution.html AWS API Reference> for CreateStreamingDistribution.
 module Network.AWS.CloudFront.CreateStreamingDistribution
     (
-    -- * Request
+    -- * Creating a Request
       CreateStreamingDistribution
-    -- ** Request constructor
     , createStreamingDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , csdStreamingDistributionConfig
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateStreamingDistributionResponse
-    -- ** Response constructor
     , createStreamingDistributionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csdrsETag
     , csdrsLocation
     , csdrsStreamingDistribution
@@ -140,6 +138,6 @@ csdrsLocation = lens _csdrsLocation (\ s a -> s{_csdrsLocation = a});
 csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
 csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrsStreamingDistribution = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csdrsStatus :: Lens' CreateStreamingDistributionResponse Int
 csdrsStatus = lens _csdrsStatus (\ s a -> s{_csdrsStatus = a});

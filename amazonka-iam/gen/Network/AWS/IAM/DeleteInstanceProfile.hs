@@ -28,19 +28,17 @@
 -- For more information about instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html AWS API Reference> for DeleteInstanceProfile.
 module Network.AWS.IAM.DeleteInstanceProfile
     (
-    -- * Request
+    -- * Creating a Request
       DeleteInstanceProfile
-    -- ** Request constructor
     , deleteInstanceProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , dipInstanceProfileName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteInstanceProfileResponse
-    -- ** Response constructor
     , deleteInstanceProfileResponse
     ) where
 

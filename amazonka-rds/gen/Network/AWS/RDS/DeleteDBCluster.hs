@@ -27,23 +27,21 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBCluster.html AWS API Reference> for DeleteDBCluster.
 module Network.AWS.RDS.DeleteDBCluster
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDBCluster
-    -- ** Request constructor
     , deleteDBCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , ddbcDBClusterIdentifier
     , ddbcFinalDBSnapshotIdentifier
     , ddbcSkipFinalSnapshot
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDBClusterResponse
-    -- ** Response constructor
     , deleteDBClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddbcrsDBCluster
     , ddbcrsStatus
     ) where
@@ -162,10 +160,10 @@ deleteDBClusterResponse pStatus_ =
     , _ddbcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddbcrsDBCluster :: Lens' DeleteDBClusterResponse (Maybe DBCluster)
 ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddbcrsStatus :: Lens' DeleteDBClusterResponse Int
 ddbcrsStatus = lens _ddbcrsStatus (\ s a -> s{_ddbcrsStatus = a});

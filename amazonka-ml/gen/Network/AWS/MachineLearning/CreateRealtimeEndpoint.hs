@@ -21,21 +21,19 @@
 -- the URI of the @MLModel@; that is, the location to send real-time
 -- prediction requests for the specified @MLModel@.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateRealtimeEndpoint.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateRealtimeEndpoint.html AWS API Reference> for CreateRealtimeEndpoint.
 module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     (
-    -- * Request
+    -- * Creating a Request
       CreateRealtimeEndpoint
-    -- ** Request constructor
     , createRealtimeEndpoint
-    -- ** Request lenses
+    -- * Request Lenses
     , creMLModelId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateRealtimeEndpointResponse
-    -- ** Response constructor
     , createRealtimeEndpointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crersRealtimeEndpointInfo
     , crersMLModelId
     , crersStatus
@@ -140,6 +138,6 @@ crersRealtimeEndpointInfo = lens _crersRealtimeEndpointInfo (\ s a -> s{_crersRe
 crersMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
 crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crersStatus :: Lens' CreateRealtimeEndpointResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

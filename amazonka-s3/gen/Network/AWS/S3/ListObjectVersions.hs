@@ -19,14 +19,13 @@
 --
 -- Returns metadata about all of the versions of objects in a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjectVersions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjectVersions.html AWS API Reference> for ListObjectVersions.
 module Network.AWS.S3.ListObjectVersions
     (
-    -- * Request
+    -- * Creating a Request
       ListObjectVersions
-    -- ** Request constructor
     , listObjectVersions
-    -- ** Request lenses
+    -- * Request Lenses
     , lovKeyMarker
     , lovPrefix
     , lovEncodingType
@@ -35,11 +34,10 @@ module Network.AWS.S3.ListObjectVersions
     , lovDelimiter
     , lovBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , ListObjectVersionsResponse
-    -- ** Response constructor
     , listObjectVersionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lovrsNextVersionIdMarker
     , lovrsKeyMarker
     , lovrsPrefix
@@ -110,7 +108,7 @@ lovKeyMarker = lens _lovKeyMarker (\ s a -> s{_lovKeyMarker = a});
 lovPrefix :: Lens' ListObjectVersions (Maybe Text)
 lovPrefix = lens _lovPrefix (\ s a -> s{_lovPrefix = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
 lovEncodingType = lens _lovEncodingType (\ s a -> s{_lovEncodingType = a});
 
@@ -127,7 +125,7 @@ lovMaxKeys = lens _lovMaxKeys (\ s a -> s{_lovMaxKeys = a});
 lovDelimiter :: Lens' ListObjectVersions (Maybe Delimiter)
 lovDelimiter = lens _lovDelimiter (\ s a -> s{_lovDelimiter = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovBucket :: Lens' ListObjectVersions BucketName
 lovBucket = lens _lovBucket (\ s a -> s{_lovBucket = a});
 
@@ -259,11 +257,11 @@ lovrsNextVersionIdMarker = lens _lovrsNextVersionIdMarker (\ s a -> s{_lovrsNext
 lovrsKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsKeyMarker = lens _lovrsKeyMarker (\ s a -> s{_lovrsKeyMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsPrefix = lens _lovrsPrefix (\ s a -> s{_lovrsPrefix = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
 lovrsDeleteMarkers = lens _lovrsDeleteMarkers (\ s a -> s{_lovrsDeleteMarkers = a}) . _Default . _Coerce;
 
@@ -271,15 +269,15 @@ lovrsDeleteMarkers = lens _lovrsDeleteMarkers (\ s a -> s{_lovrsDeleteMarkers = 
 lovrsEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovrsEncodingType = lens _lovrsEncodingType (\ s a -> s{_lovrsEncodingType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
 lovrsCommonPrefixes = lens _lovrsCommonPrefixes (\ s a -> s{_lovrsCommonPrefixes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
 lovrsVersions = lens _lovrsVersions (\ s a -> s{_lovrsVersions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
 lovrsName = lens _lovrsName (\ s a -> s{_lovrsName = a});
 
@@ -288,11 +286,11 @@ lovrsName = lens _lovrsName (\ s a -> s{_lovrsName = a});
 lovrsNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsNextKeyMarker = lens _lovrsNextKeyMarker (\ s a -> s{_lovrsNextKeyMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsVersionIdMarker = lens _lovrsVersionIdMarker (\ s a -> s{_lovrsVersionIdMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Int)
 lovrsMaxKeys = lens _lovrsMaxKeys (\ s a -> s{_lovrsMaxKeys = a});
 
@@ -304,10 +302,10 @@ lovrsMaxKeys = lens _lovrsMaxKeys (\ s a -> s{_lovrsMaxKeys = a});
 lovrsIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
 lovrsIsTruncated = lens _lovrsIsTruncated (\ s a -> s{_lovrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Delimiter)
 lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lovrsStatus :: Lens' ListObjectVersionsResponse Int
 lovrsStatus = lens _lovrsStatus (\ s a -> s{_lovrsStatus = a});

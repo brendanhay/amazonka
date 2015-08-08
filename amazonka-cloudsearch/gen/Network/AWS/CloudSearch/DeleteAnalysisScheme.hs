@@ -21,22 +21,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteAnalysisScheme.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteAnalysisScheme.html AWS API Reference> for DeleteAnalysisScheme.
 module Network.AWS.CloudSearch.DeleteAnalysisScheme
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAnalysisScheme
-    -- ** Request constructor
     , deleteAnalysisScheme
-    -- ** Request lenses
+    -- * Request Lenses
     , dasDomainName
     , dasAnalysisSchemeName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAnalysisSchemeResponse
-    -- ** Response constructor
     , deleteAnalysisSchemeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dasarsStatus
     , dasarsAnalysisScheme
     ) where
@@ -70,7 +68,7 @@ deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ =
     , _dasAnalysisSchemeName = pAnalysisSchemeName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasDomainName :: Lens' DeleteAnalysisScheme Text
 dasDomainName = lens _dasDomainName (\ s a -> s{_dasDomainName = a});
 
@@ -126,7 +124,7 @@ deleteAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
     , _dasarsAnalysisScheme = pAnalysisScheme_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasarsStatus :: Lens' DeleteAnalysisSchemeResponse Int
 dasarsStatus = lens _dasarsStatus (\ s a -> s{_dasarsStatus = a});
 

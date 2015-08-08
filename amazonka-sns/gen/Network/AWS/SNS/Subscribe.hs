@@ -22,23 +22,21 @@
 -- the @ConfirmSubscription@ action with the token from the confirmation
 -- message. Confirmation tokens are valid for three days.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html AWS API Reference> for Subscribe.
 module Network.AWS.SNS.Subscribe
     (
-    -- * Request
+    -- * Creating a Request
       Subscribe
-    -- ** Request constructor
     , subscribe
-    -- ** Request lenses
+    -- * Request Lenses
     , subEndpoint
     , subTopicARN
     , subProtocol
 
-    -- * Response
+    -- * Destructuring the Response
     , SubscribeResponse
-    -- ** Response constructor
     , subscribeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsSubscriptionARN
     , srsStatus
     ) where
@@ -162,6 +160,6 @@ subscribeResponse pStatus_ =
 srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
 srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' SubscribeResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

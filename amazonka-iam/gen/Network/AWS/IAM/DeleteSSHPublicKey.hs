@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
 -- in the /AWS CodeCommit User Guide/.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSSHPublicKey.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSSHPublicKey.html AWS API Reference> for DeleteSSHPublicKey.
 module Network.AWS.IAM.DeleteSSHPublicKey
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSSHPublicKey
-    -- ** Request constructor
     , deleteSSHPublicKey
-    -- ** Request lenses
+    -- * Request Lenses
     , dspkUserName
     , dspkSSHPublicKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSSHPublicKeyResponse
-    -- ** Response constructor
     , deleteSSHPublicKeyResponse
     ) where
 

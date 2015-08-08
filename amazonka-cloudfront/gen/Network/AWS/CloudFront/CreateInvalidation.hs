@@ -19,22 +19,20 @@
 --
 -- Create a new invalidation.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateInvalidation.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateInvalidation.html AWS API Reference> for CreateInvalidation.
 module Network.AWS.CloudFront.CreateInvalidation
     (
-    -- * Request
+    -- * Creating a Request
       CreateInvalidation
-    -- ** Request constructor
     , createInvalidation
-    -- ** Request lenses
+    -- * Request Lenses
     , ciDistributionId
     , ciInvalidationBatch
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateInvalidationResponse
-    -- ** Response constructor
     , createInvalidationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cirsInvalidation
     , cirsLocation
     , cirsStatus
@@ -141,6 +139,6 @@ cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cirsStatus :: Lens' CreateInvalidationResponse Int
 cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

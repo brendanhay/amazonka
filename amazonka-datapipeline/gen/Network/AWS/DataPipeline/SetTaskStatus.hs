@@ -23,25 +23,23 @@
 -- task runner does not need to call @SetTaskStatus@ for tasks that are
 -- canceled by the web service during a call to ReportTaskProgress.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html AWS API Reference> for SetTaskStatus.
 module Network.AWS.DataPipeline.SetTaskStatus
     (
-    -- * Request
+    -- * Creating a Request
       SetTaskStatus
-    -- ** Request constructor
     , setTaskStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , stsErrorStackTrace
     , stsErrorId
     , stsErrorMessage
     , stsTaskId
     , stsTaskStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , SetTaskStatusResponse
-    -- ** Response constructor
     , setTaskStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , stsrsStatus
     ) where
 
@@ -166,6 +164,6 @@ setTaskStatusResponse pStatus_ =
     { _stsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 stsrsStatus :: Lens' SetTaskStatusResponse Int
 stsrsStatus = lens _stsrsStatus (\ s a -> s{_stsrsStatus = a});

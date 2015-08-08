@@ -19,21 +19,19 @@
 --
 -- Gets information about a suite.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetSuite.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetSuite.html AWS API Reference> for GetSuite.
 module Network.AWS.DeviceFarm.GetSuite
     (
-    -- * Request
+    -- * Creating a Request
       GetSuite
-    -- ** Request constructor
     , getSuite
-    -- ** Request lenses
+    -- * Request Lenses
     , gsArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSuiteResponse
-    -- ** Response constructor
     , getSuiteResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsrsSuite
     , gsrsStatus
     ) where
@@ -115,10 +113,10 @@ getSuiteResponse pStatus_ =
     , _gsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
 gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsrsStatus :: Lens' GetSuiteResponse Int
 gsrsStatus = lens _gsrsStatus (\ s a -> s{_gsrsStatus = a});

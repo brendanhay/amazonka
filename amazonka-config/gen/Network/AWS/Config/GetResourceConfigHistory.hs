@@ -29,14 +29,13 @@
 -- @limit@. In such cases, you can make another call, using the @nextToken@
 -- .
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html AWS API Reference> for GetResourceConfigHistory.
 module Network.AWS.Config.GetResourceConfigHistory
     (
-    -- * Request
+    -- * Creating a Request
       GetResourceConfigHistory
-    -- ** Request constructor
     , getResourceConfigHistory
-    -- ** Request lenses
+    -- * Request Lenses
     , grchChronologicalOrder
     , grchNextToken
     , grchLimit
@@ -45,11 +44,10 @@ module Network.AWS.Config.GetResourceConfigHistory
     , grchResourceType
     , grchResourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetResourceConfigHistoryResponse
-    -- ** Response constructor
     , getResourceConfigHistoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grchrsNextToken
     , grchrsConfigurationItems
     , grchrsStatus
@@ -208,6 +206,6 @@ grchrsNextToken = lens _grchrsNextToken (\ s a -> s{_grchrsNextToken = a});
 grchrsConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
 grchrsConfigurationItems = lens _grchrsConfigurationItems (\ s a -> s{_grchrsConfigurationItems = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grchrsStatus :: Lens' GetResourceConfigHistoryResponse Int
 grchrsStatus = lens _grchrsStatus (\ s a -> s{_grchrsStatus = a});

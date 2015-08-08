@@ -20,22 +20,20 @@
 -- Cancels a bundling operation for an instance store-backed Windows
 -- instance.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html AWS API Reference> for CancelBundleTask.
 module Network.AWS.EC2.CancelBundleTask
     (
-    -- * Request
+    -- * Creating a Request
       CancelBundleTask
-    -- ** Request constructor
     , cancelBundleTask
-    -- ** Request lenses
+    -- * Request Lenses
     , cbtDryRun
     , cbtBundleId
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelBundleTaskResponse
-    -- ** Response constructor
     , cancelBundleTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cbtrsBundleTask
     , cbtrsStatus
     ) where
@@ -123,6 +121,6 @@ cancelBundleTaskResponse pStatus_ =
 cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cbtrsStatus :: Lens' CancelBundleTaskResponse Int
 cbtrsStatus = lens _cbtrsStatus (\ s a -> s{_cbtrsStatus = a});

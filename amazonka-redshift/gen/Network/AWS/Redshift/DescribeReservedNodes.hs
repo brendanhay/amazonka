@@ -19,23 +19,21 @@
 --
 -- Returns the descriptions of the reserved nodes.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodes.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodes.html AWS API Reference> for DescribeReservedNodes.
 module Network.AWS.Redshift.DescribeReservedNodes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedNodes
-    -- ** Request constructor
     , describeReservedNodes
-    -- ** Request lenses
+    -- * Request Lenses
     , drnReservedNodeId
     , drnMaxRecords
     , drnMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedNodesResponse
-    -- ** Response constructor
     , describeReservedNodesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drnrsReservedNodes
     , drnrsMarker
     , drnrsStatus
@@ -173,6 +171,6 @@ drnrsReservedNodes = lens _drnrsReservedNodes (\ s a -> s{_drnrsReservedNodes = 
 drnrsMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrsMarker = lens _drnrsMarker (\ s a -> s{_drnrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drnrsStatus :: Lens' DescribeReservedNodesResponse Int
 drnrsStatus = lens _drnrsStatus (\ s a -> s{_drnrsStatus = a});

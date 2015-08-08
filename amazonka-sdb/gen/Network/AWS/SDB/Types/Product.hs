@@ -103,11 +103,11 @@ deletableItem pName_ =
     , _diName = pName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diAttributes :: Lens' DeletableItem [Attribute]
 diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diName :: Lens' DeletableItem Text
 diName = lens _diName (\ s a -> s{_diName = a});
 

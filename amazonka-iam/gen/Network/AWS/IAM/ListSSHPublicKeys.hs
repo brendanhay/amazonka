@@ -30,23 +30,21 @@
 -- Although each user is limited to a small number of keys, you can still
 -- paginate the results using the @MaxItems@ and @Marker@ parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSSHPublicKeys.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSSHPublicKeys.html AWS API Reference> for ListSSHPublicKeys.
 module Network.AWS.IAM.ListSSHPublicKeys
     (
-    -- * Request
+    -- * Creating a Request
       ListSSHPublicKeys
-    -- ** Request constructor
     , listSSHPublicKeys
-    -- ** Request lenses
+    -- * Request Lenses
     , lspkUserName
     , lspkMaxItems
     , lspkMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListSSHPublicKeysResponse
-    -- ** Response constructor
     , listSSHPublicKeysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lspkrsSSHPublicKeys
     , lspkrsMarker
     , lspkrsIsTruncated
@@ -177,6 +175,6 @@ lspkrsMarker = lens _lspkrsMarker (\ s a -> s{_lspkrsMarker = a});
 lspkrsIsTruncated :: Lens' ListSSHPublicKeysResponse (Maybe Bool)
 lspkrsIsTruncated = lens _lspkrsIsTruncated (\ s a -> s{_lspkrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lspkrsStatus :: Lens' ListSSHPublicKeysResponse Int
 lspkrsStatus = lens _lspkrsStatus (\ s a -> s{_lspkrsStatus = a});

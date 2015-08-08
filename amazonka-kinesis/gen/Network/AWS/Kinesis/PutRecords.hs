@@ -77,22 +77,20 @@
 -- Data records are accessible for only 24 hours from the time that they
 -- are added to an Amazon Kinesis stream.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html AWS API Reference> for PutRecords.
 module Network.AWS.Kinesis.PutRecords
     (
-    -- * Request
+    -- * Creating a Request
       PutRecords
-    -- ** Request constructor
     , putRecords
-    -- ** Request lenses
+    -- * Request Lenses
     , pRecordEntries
     , pStreamName
 
-    -- * Response
+    -- * Destructuring the Response
     , PutRecordsResponse
-    -- ** Response constructor
     , putRecordsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , prsFailedRecordCount
     , prsStatus
     , prsRecords
@@ -196,7 +194,7 @@ putRecordsResponse pStatus_ pRecords_ =
 prsFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)
 prsFailedRecordCount = lens _prsFailedRecordCount (\ s a -> s{_prsFailedRecordCount = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prsStatus :: Lens' PutRecordsResponse Int
 prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});
 

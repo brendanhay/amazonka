@@ -19,23 +19,21 @@
 --
 -- Disables single-sign on for a directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableSso.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableSso.html AWS API Reference> for DisableSso.
 module Network.AWS.DirectoryService.DisableSso
     (
-    -- * Request
+    -- * Creating a Request
       DisableSso
-    -- ** Request constructor
     , disableSso
-    -- ** Request lenses
+    -- * Request Lenses
     , disUserName
     , disPassword
     , disDirectoryId
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableSsoResponse
-    -- ** Response constructor
     , disableSsoResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStatus
     ) where
 
@@ -142,6 +140,6 @@ disableSsoResponse pStatus_ =
     { _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DisableSsoResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -24,21 +24,19 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.EC2.DeleteTags
     (
-    -- * Request
+    -- * Creating a Request
       DeleteTags
-    -- ** Request constructor
     , deleteTags
-    -- ** Request lenses
+    -- * Request Lenses
     , dtsDryRun
     , dtsTags
     , dtsResources
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteTagsResponse
-    -- ** Response constructor
     , deleteTagsResponse
     ) where
 

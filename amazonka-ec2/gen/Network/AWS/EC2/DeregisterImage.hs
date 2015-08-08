@@ -22,20 +22,18 @@
 --
 -- This command does not delete the AMI.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html AWS API Reference> for DeregisterImage.
 module Network.AWS.EC2.DeregisterImage
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterImage
-    -- ** Request constructor
     , deregisterImage
-    -- ** Request lenses
+    -- * Request Lenses
     , diDryRun
     , diImageId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterImageResponse
-    -- ** Response constructor
     , deregisterImageResponse
     ) where
 

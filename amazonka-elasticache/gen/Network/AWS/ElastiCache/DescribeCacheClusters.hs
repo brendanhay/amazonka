@@ -42,24 +42,22 @@
 -- If cache nodes are currently being removed from the cache cluster, no
 -- endpoint information for the removed nodes is displayed.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html AWS API Reference> for DescribeCacheClusters.
 module Network.AWS.ElastiCache.DescribeCacheClusters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCacheClusters
-    -- ** Request constructor
     , describeCacheClusters
-    -- ** Request lenses
+    -- * Request Lenses
     , dCacheClusterId
     , dMaxRecords
     , dMarker
     , dShowCacheNodeInfo
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCacheClustersResponse
-    -- ** Response constructor
     , describeCacheClustersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsCacheClusters
     , drsMarker
     , drsStatus
@@ -199,6 +197,6 @@ drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . 
 drsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeCacheClustersResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

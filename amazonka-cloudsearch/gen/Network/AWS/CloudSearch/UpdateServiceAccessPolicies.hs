@@ -21,22 +21,20 @@
 -- document and search endpoints. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain>.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateServiceAccessPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateServiceAccessPolicies.html AWS API Reference> for UpdateServiceAccessPolicies.
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     (
-    -- * Request
+    -- * Creating a Request
       UpdateServiceAccessPolicies
-    -- ** Request constructor
     , updateServiceAccessPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , usapDomainName
     , usapAccessPolicies
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateServiceAccessPoliciesResponse
-    -- ** Response constructor
     , updateServiceAccessPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , usaprsStatus
     , usaprsAccessPolicies
     ) where
@@ -70,7 +68,7 @@ updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
     , _usapAccessPolicies = pAccessPolicies_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usapDomainName :: Lens' UpdateServiceAccessPolicies Text
 usapDomainName = lens _usapDomainName (\ s a -> s{_usapDomainName = a});
 
@@ -129,7 +127,7 @@ updateServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
     , _usaprsAccessPolicies = pAccessPolicies_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usaprsStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
 usaprsStatus = lens _usaprsStatus (\ s a -> s{_usaprsStatus = a});
 

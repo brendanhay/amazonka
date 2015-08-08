@@ -32,21 +32,19 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentityPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentityPolicies.html AWS API Reference> for ListIdentityPolicies.
 module Network.AWS.SES.ListIdentityPolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListIdentityPolicies
-    -- ** Request constructor
     , listIdentityPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , lipIdentity
 
-    -- * Response
+    -- * Destructuring the Response
     , ListIdentityPoliciesResponse
-    -- ** Response constructor
     , listIdentityPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , liprsStatus
     , liprsPolicyNames
     ) where
@@ -134,7 +132,7 @@ listIdentityPoliciesResponse pStatus_ =
     , _liprsPolicyNames = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 liprsStatus :: Lens' ListIdentityPoliciesResponse Int
 liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
 

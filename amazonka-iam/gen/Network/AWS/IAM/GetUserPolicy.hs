@@ -29,22 +29,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html AWS API Reference> for GetUserPolicy.
 module Network.AWS.IAM.GetUserPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetUserPolicy
-    -- ** Request constructor
     , getUserPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gupUserName
     , gupPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetUserPolicyResponse
-    -- ** Response constructor
     , getUserPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , guprsStatus
     , guprsUserName
     , guprsPolicyName
@@ -140,7 +138,7 @@ getUserPolicyResponse pStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
     , _guprsPolicyDocument = pPolicyDocument_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 guprsStatus :: Lens' GetUserPolicyResponse Int
 guprsStatus = lens _guprsStatus (\ s a -> s{_guprsStatus = a});
 

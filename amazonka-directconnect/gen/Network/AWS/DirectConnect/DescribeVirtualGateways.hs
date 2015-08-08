@@ -25,19 +25,17 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway>
 -- action.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html AWS API Reference> for DescribeVirtualGateways.
 module Network.AWS.DirectConnect.DescribeVirtualGateways
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVirtualGateways
-    -- ** Request constructor
     , describeVirtualGateways
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVirtualGatewaysResponse
-    -- ** Response constructor
     , describeVirtualGatewaysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvgrsVirtualGateways
     , dvgrsStatus
     ) where
@@ -113,6 +111,6 @@ describeVirtualGatewaysResponse pStatus_ =
 dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvgrsStatus :: Lens' DescribeVirtualGatewaysResponse Int
 dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});

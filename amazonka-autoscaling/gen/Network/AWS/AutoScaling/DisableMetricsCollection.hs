@@ -20,20 +20,18 @@
 -- Disables monitoring of the specified metrics for the specified Auto
 -- Scaling group.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html AWS API Reference> for DisableMetricsCollection.
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
-    -- * Request
+    -- * Creating a Request
       DisableMetricsCollection
-    -- ** Request constructor
     , disableMetricsCollection
-    -- ** Request lenses
+    -- * Request Lenses
     , dmcMetrics
     , dmcAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableMetricsCollectionResponse
-    -- ** Response constructor
     , disableMetricsCollectionResponse
     ) where
 

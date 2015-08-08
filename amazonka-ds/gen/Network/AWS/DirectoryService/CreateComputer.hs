@@ -20,25 +20,23 @@
 -- Creates a computer account in the specified directory, and joins the
 -- computer to the directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateComputer.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateComputer.html AWS API Reference> for CreateComputer.
 module Network.AWS.DirectoryService.CreateComputer
     (
-    -- * Request
+    -- * Creating a Request
       CreateComputer
-    -- ** Request constructor
     , createComputer
-    -- ** Request lenses
+    -- * Request Lenses
     , ccComputerAttributes
     , ccOrganizationalUnitDistinguishedName
     , ccDirectoryId
     , ccComputerName
     , ccPassword
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateComputerResponse
-    -- ** Response constructor
     , createComputerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccrsComputer
     , ccrsStatus
     ) where
@@ -167,6 +165,6 @@ createComputerResponse pStatus_ =
 ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccrsStatus :: Lens' CreateComputerResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

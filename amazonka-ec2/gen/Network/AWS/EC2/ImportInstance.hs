@@ -25,25 +25,23 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html AWS API Reference> for ImportInstance.
 module Network.AWS.EC2.ImportInstance
     (
-    -- * Request
+    -- * Creating a Request
       ImportInstance
-    -- ** Request constructor
     , importInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , iiLaunchSpecification
     , iiDiskImages
     , iiDryRun
     , iiDescription
     , iiPlatform
 
-    -- * Response
+    -- * Destructuring the Response
     , ImportInstanceResponse
-    -- ** Response constructor
     , importInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , iirsConversionTask
     , iirsStatus
     ) where
@@ -159,6 +157,6 @@ importInstanceResponse pStatus_ =
 iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 iirsStatus :: Lens' ImportInstanceResponse Int
 iirsStatus = lens _iirsStatus (\ s a -> s{_iirsStatus = a});

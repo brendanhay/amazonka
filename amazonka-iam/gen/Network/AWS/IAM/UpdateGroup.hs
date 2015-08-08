@@ -31,21 +31,19 @@
 -- information about permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html AWS API Reference> for UpdateGroup.
 module Network.AWS.IAM.UpdateGroup
     (
-    -- * Request
+    -- * Creating a Request
       UpdateGroup
-    -- ** Request constructor
     , updateGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ugNewGroupName
     , ugNewPath
     , ugGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateGroupResponse
-    -- ** Response constructor
     , updateGroupResponse
     ) where
 

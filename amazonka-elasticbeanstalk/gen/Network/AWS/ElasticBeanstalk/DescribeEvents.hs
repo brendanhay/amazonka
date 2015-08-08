@@ -23,14 +23,13 @@
 -- This action returns the most recent 1,000 events from the specified
 -- @NextToken@.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
 module Network.AWS.ElasticBeanstalk.DescribeEvents
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEvents
-    -- ** Request constructor
     , describeEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , deRequestId
     , deTemplateName
     , deStartTime
@@ -43,11 +42,10 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , deApplicationName
     , deEnvironmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEventsResponse
-    -- ** Response constructor
     , describeEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dersNextToken
     , dersEvents
     , dersStatus
@@ -251,6 +249,6 @@ dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
 dersEvents :: Lens' DescribeEventsResponse [EventDescription]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dersStatus :: Lens' DescribeEventsResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

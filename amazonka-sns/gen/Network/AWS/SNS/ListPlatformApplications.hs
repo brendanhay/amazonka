@@ -27,21 +27,19 @@
 -- to return, NextToken will be null. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html AWS API Reference> for ListPlatformApplications.
 module Network.AWS.SNS.ListPlatformApplications
     (
-    -- * Request
+    -- * Creating a Request
       ListPlatformApplications
-    -- ** Request constructor
     , listPlatformApplications
-    -- ** Request lenses
+    -- * Request Lenses
     , lpaNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPlatformApplicationsResponse
-    -- ** Response constructor
     , listPlatformApplicationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lparsPlatformApplications
     , lparsNextToken
     , lparsStatus
@@ -148,6 +146,6 @@ lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPl
 lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lparsStatus :: Lens' ListPlatformApplicationsResponse Int
 lparsStatus = lens _lparsStatus (\ s a -> s{_lparsStatus = a});

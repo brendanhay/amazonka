@@ -20,14 +20,13 @@
 -- The /DescribeReservedCacheNodesOfferings/ action lists available
 -- reserved cache node offerings.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html AWS API Reference> for DescribeReservedCacheNodesOfferings.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedCacheNodesOfferings
-    -- ** Request constructor
     , describeReservedCacheNodesOfferings
-    -- ** Request lenses
+    -- * Request Lenses
     , drcnoCacheNodeType
     , drcnoProductDescription
     , drcnoMaxRecords
@@ -36,11 +35,10 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     , drcnoDuration
     , drcnoReservedCacheNodesOfferingId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedCacheNodesOfferingsResponse
-    -- ** Response constructor
     , describeReservedCacheNodesOfferingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drcnorsMarker
     , drcnorsReservedCacheNodesOfferings
     , drcnorsStatus
@@ -260,6 +258,6 @@ drcnorsMarker = lens _drcnorsMarker (\ s a -> s{_drcnorsMarker = a});
 drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
 drcnorsReservedCacheNodesOfferings = lens _drcnorsReservedCacheNodesOfferings (\ s a -> s{_drcnorsReservedCacheNodesOfferings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drcnorsStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
 drcnorsStatus = lens _drcnorsStatus (\ s a -> s{_drcnorsStatus = a});

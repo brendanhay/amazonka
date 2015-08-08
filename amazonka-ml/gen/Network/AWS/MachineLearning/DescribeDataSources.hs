@@ -20,14 +20,13 @@
 -- Returns a list of @DataSource@ that match the search criteria in the
 -- request.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeDataSources.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeDataSources.html AWS API Reference> for DescribeDataSources.
 module Network.AWS.MachineLearning.DescribeDataSources
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDataSources
-    -- ** Request constructor
     , describeDataSources
-    -- ** Request lenses
+    -- * Request Lenses
     , ddsEQ
     , ddsGE
     , ddsPrefix
@@ -40,11 +39,10 @@ module Network.AWS.MachineLearning.DescribeDataSources
     , ddsFilterVariable
     , ddsLE
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDataSourcesResponse
-    -- ** Response constructor
     , describeDataSourcesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddssrsResults
     , ddssrsNextToken
     , ddssrsStatus
@@ -279,6 +277,6 @@ ddssrsResults = lens _ddssrsResults (\ s a -> s{_ddssrsResults = a}) . _Default 
 ddssrsNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
 ddssrsNextToken = lens _ddssrsNextToken (\ s a -> s{_ddssrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddssrsStatus :: Lens' DescribeDataSourcesResponse Int
 ddssrsStatus = lens _ddssrsStatus (\ s a -> s{_ddssrsStatus = a});

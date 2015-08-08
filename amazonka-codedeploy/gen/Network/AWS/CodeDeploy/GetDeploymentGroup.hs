@@ -19,22 +19,20 @@
 --
 -- Gets information about a deployment group.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html AWS API Reference> for GetDeploymentGroup.
 module Network.AWS.CodeDeploy.GetDeploymentGroup
     (
-    -- * Request
+    -- * Creating a Request
       GetDeploymentGroup
-    -- ** Request constructor
     , getDeploymentGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , gdgApplicationName
     , gdgDeploymentGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDeploymentGroupResponse
-    -- ** Response constructor
     , getDeploymentGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdgrsDeploymentGroupInfo
     , gdgrsStatus
     ) where
@@ -135,6 +133,6 @@ getDeploymentGroupResponse pStatus_ =
 gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
 gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdgrsStatus :: Lens' GetDeploymentGroupResponse Int
 gdgrsStatus = lens _gdgrsStatus (\ s a -> s{_gdgrsStatus = a});

@@ -51,23 +51,21 @@
 -- vault lock is in the @InProgress@ state you must call AbortVaultLock
 -- before you can initiate a new vault lock policy.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateVaultLock.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateVaultLock.html AWS API Reference> for InitiateVaultLock.
 module Network.AWS.Glacier.InitiateVaultLock
     (
-    -- * Request
+    -- * Creating a Request
       InitiateVaultLock
-    -- ** Request constructor
     , initiateVaultLock
-    -- ** Request lenses
+    -- * Request Lenses
     , ivlPolicy
     , ivlAccountId
     , ivlVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , InitiateVaultLockResponse
-    -- ** Response constructor
     , initiateVaultLockResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ivlrsLockId
     , ivlrsStatus
     ) where
@@ -174,6 +172,6 @@ initiateVaultLockResponse pStatus_ =
 ivlrsLockId :: Lens' InitiateVaultLockResponse (Maybe Text)
 ivlrsLockId = lens _ivlrsLockId (\ s a -> s{_ivlrsLockId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ivlrsStatus :: Lens' InitiateVaultLockResponse Int
 ivlrsStatus = lens _ivlrsStatus (\ s a -> s{_ivlrsStatus = a});

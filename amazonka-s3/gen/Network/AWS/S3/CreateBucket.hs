@@ -19,14 +19,13 @@
 --
 -- Creates a new bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateBucket.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateBucket.html AWS API Reference> for CreateBucket.
 module Network.AWS.S3.CreateBucket
     (
-    -- * Request
+    -- * Creating a Request
       CreateBucket
-    -- ** Request constructor
     , createBucket
-    -- ** Request lenses
+    -- * Request Lenses
     , cbGrantReadACP
     , cbGrantWriteACP
     , cbGrantRead
@@ -36,11 +35,10 @@ module Network.AWS.S3.CreateBucket
     , cbACL
     , cbBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateBucketResponse
-    -- ** Response constructor
     , createBucketResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cbrsLocation
     , cbrsStatus
     ) where
@@ -111,7 +109,7 @@ cbGrantRead = lens _cbGrantRead (\ s a -> s{_cbGrantRead = a});
 cbGrantFullControl :: Lens' CreateBucket (Maybe Text)
 cbGrantFullControl = lens _cbGrantFullControl (\ s a -> s{_cbGrantFullControl = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cbCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
 cbCreateBucketConfiguration = lens _cbCreateBucketConfiguration (\ s a -> s{_cbCreateBucketConfiguration = a});
 
@@ -124,7 +122,7 @@ cbGrantWrite = lens _cbGrantWrite (\ s a -> s{_cbGrantWrite = a});
 cbACL :: Lens' CreateBucket (Maybe BucketCannedACL)
 cbACL = lens _cbACL (\ s a -> s{_cbACL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cbBucket :: Lens' CreateBucket BucketName
 cbBucket = lens _cbBucket (\ s a -> s{_cbBucket = a});
 
@@ -182,10 +180,10 @@ createBucketResponse pStatus_ =
     , _cbrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrsLocation = lens _cbrsLocation (\ s a -> s{_cbrsLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cbrsStatus :: Lens' CreateBucketResponse Int
 cbrsStatus = lens _cbrsStatus (\ s a -> s{_cbrsStatus = a});

@@ -19,19 +19,17 @@
 --
 -- Disables rotation of the specified key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html AWS API Reference> for DisableKeyRotation.
 module Network.AWS.KMS.DisableKeyRotation
     (
-    -- * Request
+    -- * Creating a Request
       DisableKeyRotation
-    -- ** Request constructor
     , disableKeyRotation
-    -- ** Request lenses
+    -- * Request Lenses
     , dkrKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableKeyRotationResponse
-    -- ** Response constructor
     , disableKeyRotationResponse
     ) where
 

@@ -29,25 +29,23 @@
 -- Recently terminated instances might appear in the returned results. This
 -- interval is usually less than one hour.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html AWS API Reference> for DescribeInstances.
 module Network.AWS.EC2.DescribeInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeInstances
-    -- ** Request constructor
     , describeInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , diiFilters
     , diiNextToken
     , diiInstanceIds
     , diiDryRun
     , diiMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeInstancesResponse
-    -- ** Response constructor
     , describeInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dirsNextToken
     , dirsReservations
     , dirsStatus
@@ -436,6 +434,6 @@ dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
 dirsReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsStatus :: Lens' DescribeInstancesResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

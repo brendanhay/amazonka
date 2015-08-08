@@ -32,23 +32,21 @@
 -- with a filter to look for instances where the instance lifecycle is
 -- @spot@.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html AWS API Reference> for DescribeSpotInstanceRequests.
 module Network.AWS.EC2.DescribeSpotInstanceRequests
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSpotInstanceRequests
-    -- ** Request constructor
     , describeSpotInstanceRequests
-    -- ** Request lenses
+    -- * Request Lenses
     , dsirFilters
     , dsirSpotInstanceRequestIds
     , dsirDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSpotInstanceRequestsResponse
-    -- ** Response constructor
     , describeSpotInstanceRequestsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsirrsSpotInstanceRequests
     , dsirrsStatus
     ) where
@@ -275,6 +273,6 @@ describeSpotInstanceRequestsResponse pStatus_ =
 dsirrsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
 dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirrsSpotInstanceRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsirrsStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
 dsirrsStatus = lens _dsirrsStatus (\ s a -> s{_dsirrsStatus = a});

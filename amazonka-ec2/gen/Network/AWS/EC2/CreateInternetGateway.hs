@@ -23,21 +23,19 @@
 -- For more information about your VPC and Internet gateway, see the
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInternetGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInternetGateway.html AWS API Reference> for CreateInternetGateway.
 module Network.AWS.EC2.CreateInternetGateway
     (
-    -- * Request
+    -- * Creating a Request
       CreateInternetGateway
-    -- ** Request constructor
     , createInternetGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , cigDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateInternetGatewayResponse
-    -- ** Response constructor
     , createInternetGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cigrsInternetGateway
     , cigrsStatus
     ) where
@@ -118,6 +116,6 @@ createInternetGatewayResponse pStatus_ =
 cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGateway = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cigrsStatus :: Lens' CreateInternetGatewayResponse Int
 cigrsStatus = lens _cigrsStatus (\ s a -> s{_cigrsStatus = a});

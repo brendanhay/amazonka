@@ -28,19 +28,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignInstance.html AWS API Reference> for UnassignInstance.
 module Network.AWS.OpsWorks.UnassignInstance
     (
-    -- * Request
+    -- * Creating a Request
       UnassignInstance
-    -- ** Request constructor
     , unassignInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , uInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , UnassignInstanceResponse
-    -- ** Response constructor
     , unassignInstanceResponse
     ) where
 

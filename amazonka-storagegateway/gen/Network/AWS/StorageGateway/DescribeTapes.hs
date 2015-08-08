@@ -21,24 +21,22 @@
 -- virtual tapes. If a @TapeARN@ is not specified, returns a description of
 -- all virtual tapes associated with the specified gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html AWS API Reference> for DescribeTapes.
 module Network.AWS.StorageGateway.DescribeTapes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTapes
-    -- ** Request constructor
     , describeTapes
-    -- ** Request lenses
+    -- * Request Lenses
     , dtMarker
     , dtLimit
     , dtTapeARNs
     , dtGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTapesResponse
-    -- ** Response constructor
     , describeTapesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtsrsMarker
     , dtsrsTapes
     , dtsrsStatus
@@ -101,7 +99,7 @@ dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
 dtTapeARNs :: Lens' DescribeTapes [Text]
 dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtGatewayARN :: Lens' DescribeTapes Text
 dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a});
 
@@ -184,6 +182,6 @@ dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
 dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtsrsStatus :: Lens' DescribeTapesResponse Int
 dtsrsStatus = lens _dtsrsStatus (\ s a -> s{_dtsrsStatus = a});

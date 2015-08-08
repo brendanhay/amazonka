@@ -19,20 +19,18 @@
 --
 -- Changes an existing application\'s name.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
 module Network.AWS.CodeDeploy.UpdateApplication
     (
-    -- * Request
+    -- * Creating a Request
       UpdateApplication
-    -- ** Request constructor
     , updateApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , uaNewApplicationName
     , uaApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateApplicationResponse
-    -- ** Response constructor
     , updateApplicationResponse
     ) where
 

@@ -25,22 +25,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html AWS API Reference> for ApplySecurityGroupsToLoadBalancer.
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       ApplySecurityGroupsToLoadBalancer
-    -- ** Request constructor
     , applySecurityGroupsToLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , asgtlbLoadBalancerName
     , asgtlbSecurityGroups
 
-    -- * Response
+    -- * Destructuring the Response
     , ApplySecurityGroupsToLoadBalancerResponse
-    -- ** Response constructor
     , applySecurityGroupsToLoadBalancerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , asgtlbrsSecurityGroups
     , asgtlbrsStatus
     ) where
@@ -137,6 +135,6 @@ applySecurityGroupsToLoadBalancerResponse pStatus_ =
 asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asgtlbrsStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
 asgtlbrsStatus = lens _asgtlbrsStatus (\ s a -> s{_asgtlbrsStatus = a});

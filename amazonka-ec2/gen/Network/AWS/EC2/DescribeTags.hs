@@ -23,24 +23,22 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.EC2.DescribeTags
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTags
-    -- ** Request constructor
     , describeTags
-    -- ** Request lenses
+    -- * Request Lenses
     , dtFilters
     , dtNextToken
     , dtDryRun
     , dtMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTagsResponse
-    -- ** Response constructor
     , describeTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsNextToken
     , dtrsTags
     , dtrsStatus
@@ -185,6 +183,6 @@ dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

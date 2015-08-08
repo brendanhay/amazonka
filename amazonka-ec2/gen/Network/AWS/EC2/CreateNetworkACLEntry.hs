@@ -37,14 +37,13 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkACLEntry.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkACLEntry.html AWS API Reference> for CreateNetworkACLEntry.
 module Network.AWS.EC2.CreateNetworkACLEntry
     (
-    -- * Request
+    -- * Creating a Request
       CreateNetworkACLEntry
-    -- ** Request constructor
     , createNetworkACLEntry
-    -- ** Request lenses
+    -- * Request Lenses
     , cnaeICMPTypeCode
     , cnaePortRange
     , cnaeDryRun
@@ -55,9 +54,8 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     , cnaeEgress
     , cnaeCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateNetworkACLEntryResponse
-    -- ** Response constructor
     , createNetworkACLEntryResponse
     ) where
 

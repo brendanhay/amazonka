@@ -26,14 +26,13 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateApp.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateApp.html AWS API Reference> for CreateApp.
 module Network.AWS.OpsWorks.CreateApp
     (
-    -- * Request
+    -- * Creating a Request
       CreateApp
-    -- ** Request constructor
     , createApp
-    -- ** Request lenses
+    -- * Request Lenses
     , caSSLConfiguration
     , caShortname
     , caEnableSSL
@@ -47,11 +46,10 @@ module Network.AWS.OpsWorks.CreateApp
     , caName
     , caType
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAppResponse
-    -- ** Response constructor
     , createAppResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , carsAppId
     , carsStatus
     ) where
@@ -256,6 +254,6 @@ createAppResponse pStatus_ =
 carsAppId :: Lens' CreateAppResponse (Maybe Text)
 carsAppId = lens _carsAppId (\ s a -> s{_carsAppId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 carsStatus :: Lens' CreateAppResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

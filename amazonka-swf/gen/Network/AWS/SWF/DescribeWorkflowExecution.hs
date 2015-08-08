@@ -41,22 +41,20 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowExecution.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowExecution.html AWS API Reference> for DescribeWorkflowExecution.
 module Network.AWS.SWF.DescribeWorkflowExecution
     (
-    -- * Request
+    -- * Creating a Request
       DescribeWorkflowExecution
-    -- ** Request constructor
     , describeWorkflowExecution
-    -- ** Request lenses
+    -- * Request Lenses
     , dweDomain
     , dweExecution
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeWorkflowExecutionResponse
-    -- ** Response constructor
     , describeWorkflowExecutionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dwersLatestActivityTaskTimestamp
     , dwersLatestExecutionContext
     , dwersStatus
@@ -187,7 +185,7 @@ dwersLatestActivityTaskTimestamp = lens _dwersLatestActivityTaskTimestamp (\ s a
 dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dwersStatus :: Lens' DescribeWorkflowExecutionResponse Int
 dwersStatus = lens _dwersStatus (\ s a -> s{_dwersStatus = a});
 

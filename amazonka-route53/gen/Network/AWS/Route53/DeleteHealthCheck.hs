@@ -29,21 +29,19 @@
 -- with a @HealthCheckInUse@ error. For information about disassociating
 -- the records from your health check, see ChangeResourceRecordSets.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html AWS API Reference> for DeleteHealthCheck.
 module Network.AWS.Route53.DeleteHealthCheck
     (
-    -- * Request
+    -- * Creating a Request
       DeleteHealthCheck
-    -- ** Request constructor
     , deleteHealthCheck
-    -- ** Request lenses
+    -- * Request Lenses
     , dhcHealthCheckId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteHealthCheckResponse
-    -- ** Response constructor
     , deleteHealthCheckResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dhcrsStatus
     ) where
 
@@ -113,6 +111,6 @@ deleteHealthCheckResponse pStatus_ =
     { _dhcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhcrsStatus :: Lens' DeleteHealthCheckResponse Int
 dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});

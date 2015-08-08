@@ -28,14 +28,13 @@
 -- case, the instance becomes a mirrored deployment and not a single-AZ
 -- deployment.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html AWS API Reference> for RestoreDBInstanceToPointInTime.
 module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     (
-    -- * Request
+    -- * Creating a Request
       RestoreDBInstanceToPointInTime
-    -- ** Request constructor
     , restoreDBInstanceToPointInTime
-    -- ** Request lenses
+    -- * Request Lenses
     , rditpitDBSecurityGroups
     , rditpitUseLatestRestorableTime
     , rditpitAutoMinorVersionUpgrade
@@ -61,11 +60,10 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rditpitSourceDBInstanceIdentifier
     , rditpitTargetDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreDBInstanceToPointInTimeResponse
-    -- ** Response constructor
     , restoreDBInstanceToPointInTimeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rditpitrsDBInstance
     , rditpitrsStatus
     ) where
@@ -344,7 +342,7 @@ rditpitCopyTagsToSnapshot = lens _rditpitCopyTagsToSnapshot (\ s a -> s{_rditpit
 rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
 rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a}) . _Default . _Coerce;
 
@@ -471,10 +469,10 @@ restoreDBInstanceToPointInTimeResponse pStatus_ =
     , _rditpitrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rditpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
 rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rditpitrsStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
 rditpitrsStatus = lens _rditpitrsStatus (\ s a -> s{_rditpitrsStatus = a});

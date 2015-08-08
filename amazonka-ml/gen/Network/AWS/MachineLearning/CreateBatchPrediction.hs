@@ -33,25 +33,23 @@
 -- @COMPLETED@ status appears, the results are available in the location
 -- specified by the @OutputUri@ parameter.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateBatchPrediction.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateBatchPrediction.html AWS API Reference> for CreateBatchPrediction.
 module Network.AWS.MachineLearning.CreateBatchPrediction
     (
-    -- * Request
+    -- * Creating a Request
       CreateBatchPrediction
-    -- ** Request constructor
     , createBatchPrediction
-    -- ** Request lenses
+    -- * Request Lenses
     , cbpBatchPredictionName
     , cbpBatchPredictionId
     , cbpMLModelId
     , cbpBatchPredictionDataSourceId
     , cbpOutputURI
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateBatchPredictionResponse
-    -- ** Response constructor
     , createBatchPredictionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cbprsBatchPredictionId
     , cbprsStatus
     ) where
@@ -193,6 +191,6 @@ createBatchPredictionResponse pStatus_ =
 cbprsBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
 cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPredictionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cbprsStatus :: Lens' CreateBatchPredictionResponse Int
 cbprsStatus = lens _cbprsStatus (\ s a -> s{_cbprsStatus = a});

@@ -20,24 +20,22 @@
 -- Creates a new DB subnet group. DB subnet groups must contain at least
 -- one subnet in at least two AZs in the region.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html AWS API Reference> for CreateDBSubnetGroup.
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBSubnetGroup
-    -- ** Request constructor
     , createDBSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cdbsgTags
     , cdbsgDBSubnetGroupName
     , cdbsgDBSubnetGroupDescription
     , cdbsgSubnetIds
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBSubnetGroupResponse
-    -- ** Response constructor
     , createDBSubnetGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdsgrsDBSubnetGroup
     , cdsgrsStatus
     ) where
@@ -77,7 +75,7 @@ createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
     , _cdbsgSubnetIds = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
 cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 
@@ -148,10 +146,10 @@ createDBSubnetGroupResponse pStatus_ =
     , _cdsgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsgrsStatus :: Lens' CreateDBSubnetGroupResponse Int
 cdsgrsStatus = lens _cdsgrsStatus (\ s a -> s{_cdsgrsStatus = a});

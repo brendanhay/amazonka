@@ -42,23 +42,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesListings.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesListings.html AWS API Reference> for DescribeReservedInstancesListings.
 module Network.AWS.EC2.DescribeReservedInstancesListings
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedInstancesListings
-    -- ** Request constructor
     , describeReservedInstancesListings
-    -- ** Request lenses
+    -- * Request Lenses
     , drilFilters
     , drilReservedInstancesId
     , drilReservedInstancesListingId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedInstancesListingsResponse
-    -- ** Response constructor
     , describeReservedInstancesListingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drilrsReservedInstancesListings
     , drilrsStatus
     ) where
@@ -173,6 +171,6 @@ describeReservedInstancesListingsResponse pStatus_ =
 drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drilrsStatus :: Lens' DescribeReservedInstancesListingsResponse Int
 drilrsStatus = lens _drilrsStatus (\ s a -> s{_drilrsStatus = a});

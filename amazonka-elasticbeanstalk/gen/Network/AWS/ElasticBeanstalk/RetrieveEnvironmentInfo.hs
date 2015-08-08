@@ -24,23 +24,21 @@
 --
 -- -   RequestEnvironmentInfo
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html AWS API Reference> for RetrieveEnvironmentInfo.
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     (
-    -- * Request
+    -- * Creating a Request
       RetrieveEnvironmentInfo
-    -- ** Request constructor
     , retrieveEnvironmentInfo
-    -- ** Request lenses
+    -- * Request Lenses
     , rEnvironmentName
     , rEnvironmentId
     , rInfoType
 
-    -- * Response
+    -- * Destructuring the Response
     , RetrieveEnvironmentInfoResponse
-    -- ** Response constructor
     , retrieveEnvironmentInfoResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , reirsEnvironmentInfo
     , reirsStatus
     ) where
@@ -158,6 +156,6 @@ retrieveEnvironmentInfoResponse pStatus_ =
 reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 reirsStatus :: Lens' RetrieveEnvironmentInfoResponse Int
 reirsStatus = lens _reirsStatus (\ s a -> s{_reirsStatus = a});

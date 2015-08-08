@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -34,26 +35,207 @@
 -- <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html Developer Guide for Android>
 -- and the
 -- <http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html Developer Guide for iOS>.
+--
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CognitoSync
-    ( module Export
+    (
+    -- * Service Description
+      CognitoSync
+
+    -- * Error Matchers
+    -- $errors
+    , _InvalidParameterException
+    , _NotAuthorizedException
+    , _InternalErrorException
+    , _InvalidConfigurationException
+    , _DuplicateRequestException
+    , _LambdaThrottledException
+    , _AlreadyStreamedException
+    , _InvalidLambdaFunctionOutputException
+    , _ConcurrentModificationException
+    , _TooManyRequestsException
+    , _ResourceConflictException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+
+    -- * Operations
+    -- $operations
+
+    -- ** DescribeDataset
+    , module Network.AWS.CognitoSync.DescribeDataset
+
+    -- ** DescribeIdentityPoolUsage
+    , module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
+
+    -- ** SetCognitoEvents
+    , module Network.AWS.CognitoSync.SetCognitoEvents
+
+    -- ** ListIdentityPoolUsage
+    , module Network.AWS.CognitoSync.ListIdentityPoolUsage
+
+    -- ** GetBulkPublishDetails
+    , module Network.AWS.CognitoSync.GetBulkPublishDetails
+
+    -- ** SetIdentityPoolConfiguration
+    , module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
+
+    -- ** DeleteDataset
+    , module Network.AWS.CognitoSync.DeleteDataset
+
+    -- ** DescribeIdentityUsage
+    , module Network.AWS.CognitoSync.DescribeIdentityUsage
+
+    -- ** GetCognitoEvents
+    , module Network.AWS.CognitoSync.GetCognitoEvents
+
+    -- ** RegisterDevice
+    , module Network.AWS.CognitoSync.RegisterDevice
+
+    -- ** SubscribeToDataset
+    , module Network.AWS.CognitoSync.SubscribeToDataset
+
+    -- ** GetIdentityPoolConfiguration
+    , module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
+
+    -- ** ListRecords
+    , module Network.AWS.CognitoSync.ListRecords
+
+    -- ** UnsubscribeFromDataset
+    , module Network.AWS.CognitoSync.UnsubscribeFromDataset
+
+    -- ** UpdateRecords
+    , module Network.AWS.CognitoSync.UpdateRecords
+
+    -- ** ListDatasets
+    , module Network.AWS.CognitoSync.ListDatasets
+
+    -- ** BulkPublish
+    , module Network.AWS.CognitoSync.BulkPublish
+
+    -- * Types
+
+    -- ** BulkPublishStatus
+    , BulkPublishStatus (..)
+
+    -- ** Operation
+    , Operation (..)
+
+    -- ** Platform
+    , Platform (..)
+
+    -- ** StreamingStatus
+    , StreamingStatus (..)
+
+    -- ** CognitoStreams
+    , CognitoStreams
+    , cognitoStreams
+    , csStreamingStatus
+    , csStreamName
+    , csRoleARN
+
+    -- ** Dataset
+    , Dataset
+    , dataset
+    , dLastModifiedDate
+    , dNumRecords
+    , dDataStorage
+    , dDatasetName
+    , dCreationDate
+    , dLastModifiedBy
+    , dIdentityId
+
+    -- ** IdentityPoolUsage
+    , IdentityPoolUsage
+    , identityPoolUsage
+    , ipuLastModifiedDate
+    , ipuIdentityPoolId
+    , ipuDataStorage
+    , ipuSyncSessionsCount
+
+    -- ** IdentityUsage
+    , IdentityUsage
+    , identityUsage
+    , iuLastModifiedDate
+    , iuIdentityPoolId
+    , iuDatasetCount
+    , iuDataStorage
+    , iuIdentityId
+
+    -- ** PushSync
+    , PushSync
+    , pushSync
+    , psApplicationARNs
+    , psRoleARN
+
+    -- ** Record
+    , Record
+    , record
+    , rSyncCount
+    , rLastModifiedDate
+    , rDeviceLastModifiedDate
+    , rValue
+    , rKey
+    , rLastModifiedBy
+
+    -- ** RecordPatch
+    , RecordPatch
+    , recordPatch
+    , rpDeviceLastModifiedDate
+    , rpValue
+    , rpOp
+    , rpKey
+    , rpSyncCount
     ) where
 
-import           Network.AWS.CognitoSync.BulkPublish                  as Export
-import           Network.AWS.CognitoSync.DeleteDataset                as Export
-import           Network.AWS.CognitoSync.DescribeDataset              as Export
-import           Network.AWS.CognitoSync.DescribeIdentityPoolUsage    as Export
-import           Network.AWS.CognitoSync.DescribeIdentityUsage        as Export
-import           Network.AWS.CognitoSync.GetBulkPublishDetails        as Export
-import           Network.AWS.CognitoSync.GetCognitoEvents             as Export
-import           Network.AWS.CognitoSync.GetIdentityPoolConfiguration as Export
-import           Network.AWS.CognitoSync.ListDatasets                 as Export
-import           Network.AWS.CognitoSync.ListIdentityPoolUsage        as Export
-import           Network.AWS.CognitoSync.ListRecords                  as Export
-import           Network.AWS.CognitoSync.RegisterDevice               as Export
-import           Network.AWS.CognitoSync.SetCognitoEvents             as Export
-import           Network.AWS.CognitoSync.SetIdentityPoolConfiguration as Export
-import           Network.AWS.CognitoSync.SubscribeToDataset           as Export
-import           Network.AWS.CognitoSync.Types                        as Export
-import           Network.AWS.CognitoSync.UnsubscribeFromDataset       as Export
-import           Network.AWS.CognitoSync.UpdateRecords                as Export
-import           Network.AWS.CognitoSync.Waiters                      as Export
+import           Network.AWS.CognitoSync.BulkPublish
+import           Network.AWS.CognitoSync.DeleteDataset
+import           Network.AWS.CognitoSync.DescribeDataset
+import           Network.AWS.CognitoSync.DescribeIdentityPoolUsage
+import           Network.AWS.CognitoSync.DescribeIdentityUsage
+import           Network.AWS.CognitoSync.GetBulkPublishDetails
+import           Network.AWS.CognitoSync.GetCognitoEvents
+import           Network.AWS.CognitoSync.GetIdentityPoolConfiguration
+import           Network.AWS.CognitoSync.ListDatasets
+import           Network.AWS.CognitoSync.ListIdentityPoolUsage
+import           Network.AWS.CognitoSync.ListRecords
+import           Network.AWS.CognitoSync.RegisterDevice
+import           Network.AWS.CognitoSync.SetCognitoEvents
+import           Network.AWS.CognitoSync.SetIdentityPoolConfiguration
+import           Network.AWS.CognitoSync.SubscribeToDataset
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.UnsubscribeFromDataset
+import           Network.AWS.CognitoSync.UpdateRecords
+import           Network.AWS.CognitoSync.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'CognitoSync'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

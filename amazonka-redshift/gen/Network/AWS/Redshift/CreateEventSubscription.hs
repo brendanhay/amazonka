@@ -42,14 +42,13 @@
 -- sources belonging to your AWS account. You must specify a source type if
 -- you specify a source ID.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEventSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEventSubscription.html AWS API Reference> for CreateEventSubscription.
 module Network.AWS.Redshift.CreateEventSubscription
     (
-    -- * Request
+    -- * Creating a Request
       CreateEventSubscription
-    -- ** Request constructor
     , createEventSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , cesEnabled
     , cesSourceType
     , cesSeverity
@@ -59,11 +58,10 @@ module Network.AWS.Redshift.CreateEventSubscription
     , cesSubscriptionName
     , cesSNSTopicARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateEventSubscriptionResponse
-    -- ** Response constructor
     , createEventSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cesrsEventSubscription
     , cesrsStatus
     ) where
@@ -238,10 +236,10 @@ createEventSubscriptionResponse pStatus_ =
     , _cesrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 cesrsEventSubscription = lens _cesrsEventSubscription (\ s a -> s{_cesrsEventSubscription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cesrsStatus :: Lens' CreateEventSubscriptionResponse Int
 cesrsStatus = lens _cesrsStatus (\ s a -> s{_cesrsStatus = a});

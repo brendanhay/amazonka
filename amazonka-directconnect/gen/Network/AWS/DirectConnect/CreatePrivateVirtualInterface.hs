@@ -21,22 +21,20 @@
 -- that transports AWS Direct Connect traffic. A private virtual interface
 -- supports sending traffic to a single virtual private cloud (VPC).
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html AWS API Reference> for CreatePrivateVirtualInterface.
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     (
-    -- * Request
+    -- * Creating a Request
       CreatePrivateVirtualInterface
-    -- ** Request constructor
     , createPrivateVirtualInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , creConnectionId
     , creNewPrivateVirtualInterface
 
-    -- * Response
+    -- * Destructuring the Response
     , VirtualInterface
-    -- ** Response constructor
     , virtualInterface
-    -- ** Response lenses
+    -- * Response Lenses
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress
@@ -82,7 +80,7 @@ createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
     , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 creConnectionId :: Lens' CreatePrivateVirtualInterface Text
 creConnectionId = lens _creConnectionId (\ s a -> s{_creConnectionId = a});
 

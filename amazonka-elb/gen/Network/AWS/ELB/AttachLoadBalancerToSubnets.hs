@@ -25,22 +25,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html AWS API Reference> for AttachLoadBalancerToSubnets.
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
-    -- * Request
+    -- * Creating a Request
       AttachLoadBalancerToSubnets
-    -- ** Request constructor
     , attachLoadBalancerToSubnets
-    -- ** Request lenses
+    -- * Request Lenses
     , albtsLoadBalancerName
     , albtsSubnets
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachLoadBalancerToSubnetsResponse
-    -- ** Response constructor
     , attachLoadBalancerToSubnetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , albtsrsSubnets
     , albtsrsStatus
     ) where
@@ -132,6 +130,6 @@ attachLoadBalancerToSubnetsResponse pStatus_ =
 albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 albtsrsStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
 albtsrsStatus = lens _albtsrsStatus (\ s a -> s{_albtsrsStatus = a});

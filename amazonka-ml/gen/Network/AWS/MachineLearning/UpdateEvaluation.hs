@@ -22,22 +22,20 @@
 -- You can use the GetEvaluation operation to view the contents of the
 -- updated data element.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateEvaluation.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateEvaluation.html AWS API Reference> for UpdateEvaluation.
 module Network.AWS.MachineLearning.UpdateEvaluation
     (
-    -- * Request
+    -- * Creating a Request
       UpdateEvaluation
-    -- ** Request constructor
     , updateEvaluation
-    -- ** Request lenses
+    -- * Request Lenses
     , ueEvaluationId
     , ueEvaluationName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateEvaluationResponse
-    -- ** Response constructor
     , updateEvaluationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uersEvaluationId
     , uersStatus
     ) where
@@ -136,6 +134,6 @@ updateEvaluationResponse pStatus_ =
 uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uersStatus :: Lens' UpdateEvaluationResponse Int
 uersStatus = lens _uersStatus (\ s a -> s{_uersStatus = a});

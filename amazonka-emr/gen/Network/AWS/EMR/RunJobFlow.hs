@@ -44,14 +44,13 @@
 -- For long running job flows, we recommend that you periodically store
 -- your results.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html AWS API Reference> for RunJobFlow.
 module Network.AWS.EMR.RunJobFlow
     (
-    -- * Request
+    -- * Creating a Request
       RunJobFlow
-    -- ** Request constructor
     , runJobFlow
-    -- ** Request lenses
+    -- * Request Lenses
     , rjfAMIVersion
     , rjfAdditionalInfo
     , rjfConfigurations
@@ -69,11 +68,10 @@ module Network.AWS.EMR.RunJobFlow
     , rjfName
     , rjfInstances
 
-    -- * Response
+    -- * Destructuring the Response
     , RunJobFlowResponse
-    -- ** Response constructor
     , runJobFlowResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rjfrsJobFlowId
     , rjfrsStatus
     ) where
@@ -360,6 +358,6 @@ runJobFlowResponse pStatus_ =
 rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrsJobFlowId = lens _rjfrsJobFlowId (\ s a -> s{_rjfrsJobFlowId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rjfrsStatus :: Lens' RunJobFlowResponse Int
 rjfrsStatus = lens _rjfrsStatus (\ s a -> s{_rjfrsStatus = a});

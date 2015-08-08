@@ -44,24 +44,22 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListDomains.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListDomains.html AWS API Reference> for ListDomains.
 module Network.AWS.SWF.ListDomains
     (
-    -- * Request
+    -- * Creating a Request
       ListDomains
-    -- ** Request constructor
     , listDomains
-    -- ** Request lenses
+    -- * Request Lenses
     , ldNextPageToken
     , ldReverseOrder
     , ldMaximumPageSize
     , ldRegistrationStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDomainsResponse
-    -- ** Response constructor
     , listDomainsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsNextPageToken
     , ldrsStatus
     , ldrsDomainInfos
@@ -209,7 +207,7 @@ listDomainsResponse pStatus_ =
 ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageToken = lens _ldrsNextPageToken (\ s a -> s{_ldrsNextPageToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDomainsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 

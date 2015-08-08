@@ -20,14 +20,13 @@
 -- Returns a list of @BatchPrediction@ operations that match the search
 -- criteria in the request.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeBatchPredictions.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeBatchPredictions.html AWS API Reference> for DescribeBatchPredictions.
 module Network.AWS.MachineLearning.DescribeBatchPredictions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeBatchPredictions
-    -- ** Request constructor
     , describeBatchPredictions
-    -- ** Request lenses
+    -- * Request Lenses
     , dbpEQ
     , dbpGE
     , dbpPrefix
@@ -40,11 +39,10 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     , dbpFilterVariable
     , dbpLE
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeBatchPredictionsResponse
-    -- ** Response constructor
     , describeBatchPredictionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsResults
     , drsNextToken
     , drsStatus
@@ -285,6 +283,6 @@ drsResults = lens _drsResults (\ s a -> s{_drsResults = a}) . _Default . _Coerce
 drsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeBatchPredictionsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

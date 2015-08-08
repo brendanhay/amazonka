@@ -23,21 +23,19 @@
 -- This operation requires permission for the
 -- @lambda:GetEventSourceMapping@ action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html AWS API Reference> for GetEventSourceMapping.
 module Network.AWS.Lambda.GetEventSourceMapping
     (
-    -- * Request
+    -- * Creating a Request
       GetEventSourceMapping
-    -- ** Request constructor
     , getEventSourceMapping
-    -- ** Request lenses
+    -- * Request Lenses
     , gesmUUId
 
-    -- * Response
+    -- * Destructuring the Response
     , EventSourceMappingConfiguration
-    -- ** Response constructor
     , eventSourceMappingConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , esmcEventSourceARN
     , esmcFunctionARN
     , esmcState

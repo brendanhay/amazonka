@@ -23,25 +23,23 @@
 -- requirement that an encrypted key be made available without exposing the
 -- plaintext copy of that key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html AWS API Reference> for GenerateDataKeyWithoutPlaintext.
 module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     (
-    -- * Request
+    -- * Creating a Request
       GenerateDataKeyWithoutPlaintext
-    -- ** Request constructor
     , generateDataKeyWithoutPlaintext
-    -- ** Request lenses
+    -- * Request Lenses
     , gdkwpKeySpec
     , gdkwpEncryptionContext
     , gdkwpNumberOfBytes
     , gdkwpGrantTokens
     , gdkwpKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , GenerateDataKeyWithoutPlaintextResponse
-    -- ** Response constructor
     , generateDataKeyWithoutPlaintextResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdkwprsKeyId
     , gdkwprsCiphertextBlob
     , gdkwprsStatus
@@ -197,6 +195,6 @@ gdkwprsKeyId = lens _gdkwprsKeyId (\ s a -> s{_gdkwprsKeyId = a});
 gdkwprsCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe ByteString)
 gdkwprsCiphertextBlob = lens _gdkwprsCiphertextBlob (\ s a -> s{_gdkwprsCiphertextBlob = a}) . mapping _Base64;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdkwprsStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
 gdkwprsStatus = lens _gdkwprsStatus (\ s a -> s{_gdkwprsStatus = a});

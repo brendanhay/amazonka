@@ -35,21 +35,19 @@
 -- lock is in the @InProgress@ state, the operation throws an
 -- @InvalidParameter@ error.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CompleteVaultLock.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CompleteVaultLock.html AWS API Reference> for CompleteVaultLock.
 module Network.AWS.Glacier.CompleteVaultLock
     (
-    -- * Request
+    -- * Creating a Request
       CompleteVaultLock
-    -- ** Request constructor
     , completeVaultLock
-    -- ** Request lenses
+    -- * Request Lenses
     , cvlAccountId
     , cvlVaultName
     , cvlLockId
 
-    -- * Response
+    -- * Destructuring the Response
     , CompleteVaultLockResponse
-    -- ** Response constructor
     , completeVaultLockResponse
     ) where
 

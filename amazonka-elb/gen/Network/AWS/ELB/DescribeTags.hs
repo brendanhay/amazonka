@@ -19,21 +19,19 @@
 --
 -- Describes the tags associated with the specified load balancers.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeTags.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.ELB.DescribeTags
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTags
-    -- ** Request constructor
     , describeTags
-    -- ** Request lenses
+    -- * Request Lenses
     , dtLoadBalancerNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTagsResponse
-    -- ** Response constructor
     , describeTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsTagDescriptions
     , dtrsStatus
     ) where
@@ -113,6 +111,6 @@ describeTagsResponse pStatus_ =
 dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

@@ -28,21 +28,19 @@
 --
 -- The result of the @DeleteBatchPrediction@ operation is irreversible.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteBatchPrediction.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteBatchPrediction.html AWS API Reference> for DeleteBatchPrediction.
 module Network.AWS.MachineLearning.DeleteBatchPrediction
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBatchPrediction
-    -- ** Request constructor
     , deleteBatchPrediction
-    -- ** Request lenses
+    -- * Request Lenses
     , dbpBatchPredictionId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBatchPredictionResponse
-    -- ** Response constructor
     , deleteBatchPredictionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dbprsBatchPredictionId
     , dbprsStatus
     ) where
@@ -136,6 +134,6 @@ deleteBatchPredictionResponse pStatus_ =
 dbprsBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
 dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPredictionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbprsStatus :: Lens' DeleteBatchPredictionResponse Int
 dbprsStatus = lens _dbprsStatus (\ s a -> s{_dbprsStatus = a});

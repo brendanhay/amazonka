@@ -32,23 +32,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html AWS API Reference> for CopyClusterSnapshot.
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CopyClusterSnapshot
-    -- ** Request constructor
     , copyClusterSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , ccsSourceSnapshotClusterIdentifier
     , ccsSourceSnapshotIdentifier
     , ccsTargetSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CopyClusterSnapshotResponse
-    -- ** Response constructor
     , copyClusterSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccsrsSnapshot
     , ccsrsStatus
     ) where
@@ -165,10 +163,10 @@ copyClusterSnapshotResponse pStatus_ =
     , _ccsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccsrsStatus :: Lens' CopyClusterSnapshotResponse Int
 ccsrsStatus = lens _ccsrsStatus (\ s a -> s{_ccsrsStatus = a});

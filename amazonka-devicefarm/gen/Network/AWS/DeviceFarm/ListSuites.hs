@@ -19,22 +19,20 @@
 --
 -- Gets information about suites.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListSuites.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListSuites.html AWS API Reference> for ListSuites.
 module Network.AWS.DeviceFarm.ListSuites
     (
-    -- * Request
+    -- * Creating a Request
       ListSuites
-    -- ** Request constructor
     , listSuites
-    -- ** Request lenses
+    -- * Request Lenses
     , lNextToken
     , lArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListSuitesResponse
-    -- ** Response constructor
     , listSuitesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrsNextToken
     , lrsSuites
     , lrsStatus
@@ -143,6 +141,6 @@ lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 lrsSuites :: Lens' ListSuitesResponse [Suite]
 lrsSuites = lens _lrsSuites (\ s a -> s{_lrsSuites = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrsStatus :: Lens' ListSuitesResponse Int
 lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

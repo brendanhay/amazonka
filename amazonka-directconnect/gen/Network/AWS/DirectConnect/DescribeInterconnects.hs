@@ -22,21 +22,19 @@
 -- If an interconnect ID is provided, it will only return this particular
 -- interconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html AWS API Reference> for DescribeInterconnects.
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
-    -- * Request
+    -- * Creating a Request
       DescribeInterconnects
-    -- ** Request constructor
     , describeInterconnects
-    -- ** Request lenses
+    -- * Request Lenses
     , diInterconnectId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeInterconnectsResponse
-    -- ** Response constructor
     , describeInterconnectsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dirsInterconnects
     , dirsStatus
     ) where
@@ -64,7 +62,7 @@ describeInterconnects =
     { _diInterconnectId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a});
 
@@ -126,6 +124,6 @@ describeInterconnectsResponse pStatus_ =
 dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsStatus :: Lens' DescribeInterconnectsResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

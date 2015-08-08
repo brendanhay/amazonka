@@ -27,21 +27,19 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html AWS API Reference> for UpdateVolume.
 module Network.AWS.OpsWorks.UpdateVolume
     (
-    -- * Request
+    -- * Creating a Request
       UpdateVolume
-    -- ** Request constructor
     , updateVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , uName
     , uMountPoint
     , uVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateVolumeResponse
-    -- ** Response constructor
     , updateVolumeResponse
     ) where
 

@@ -26,22 +26,20 @@
 -- artifacts. Additionally, this API returns any secret values defined for
 -- the action.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetThirdPartyJobDetails.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetThirdPartyJobDetails.html AWS API Reference> for GetThirdPartyJobDetails.
 module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     (
-    -- * Request
+    -- * Creating a Request
       GetThirdPartyJobDetails
-    -- ** Request constructor
     , getThirdPartyJobDetails
-    -- ** Request lenses
+    -- * Request Lenses
     , gtpjdJobId
     , gtpjdClientToken
 
-    -- * Response
+    -- * Destructuring the Response
     , GetThirdPartyJobDetailsResponse
-    -- ** Response constructor
     , getThirdPartyJobDetailsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gtpjdrsJobDetails
     , gtpjdrsStatus
     ) where
@@ -143,6 +141,6 @@ getThirdPartyJobDetailsResponse pStatus_ =
 gtpjdrsJobDetails :: Lens' GetThirdPartyJobDetailsResponse (Maybe ThirdPartyJobDetails)
 gtpjdrsJobDetails = lens _gtpjdrsJobDetails (\ s a -> s{_gtpjdrsJobDetails = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gtpjdrsStatus :: Lens' GetThirdPartyJobDetailsResponse Int
 gtpjdrsStatus = lens _gtpjdrsStatus (\ s a -> s{_gtpjdrsStatus = a});

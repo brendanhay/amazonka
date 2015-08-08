@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html AWS API Reference> for RegisterTaskDefinition.
 module Network.AWS.ECS.RegisterTaskDefinition
     (
-    -- * Request
+    -- * Creating a Request
       RegisterTaskDefinition
-    -- ** Request constructor
     , registerTaskDefinition
-    -- ** Request lenses
+    -- * Request Lenses
     , rtdVolumes
     , rtdFamily
     , rtdContainerDefinitions
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterTaskDefinitionResponse
-    -- ** Response constructor
     , registerTaskDefinitionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtdrsTaskDefinition
     , rtdrsStatus
     ) where
@@ -145,10 +143,10 @@ registerTaskDefinitionResponse pStatus_ =
     , _rtdrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtdrsTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
 rtdrsTaskDefinition = lens _rtdrsTaskDefinition (\ s a -> s{_rtdrsTaskDefinition = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtdrsStatus :: Lens' RegisterTaskDefinitionResponse Int
 rtdrsStatus = lens _rtdrsStatus (\ s a -> s{_rtdrsStatus = a});

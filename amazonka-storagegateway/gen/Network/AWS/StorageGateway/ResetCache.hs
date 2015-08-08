@@ -31,21 +31,19 @@
 -- you must configure at least one new cache disk for your gateway to
 -- function properly.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ResetCache.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ResetCache.html AWS API Reference> for ResetCache.
 module Network.AWS.StorageGateway.ResetCache
     (
-    -- * Request
+    -- * Creating a Request
       ResetCache
-    -- ** Request constructor
     , resetCache
-    -- ** Request lenses
+    -- * Request Lenses
     , rcGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ResetCacheResponse
-    -- ** Response constructor
     , resetCacheResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rcrsGatewayARN
     , rcrsStatus
     ) where
@@ -71,7 +69,7 @@ resetCache pGatewayARN_ =
     { _rcGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcGatewayARN :: Lens' ResetCache Text
 rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a});
 
@@ -124,10 +122,10 @@ resetCacheResponse pStatus_ =
     , _rcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
 rcrsGatewayARN = lens _rcrsGatewayARN (\ s a -> s{_rcrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcrsStatus :: Lens' ResetCacheResponse Int
 rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

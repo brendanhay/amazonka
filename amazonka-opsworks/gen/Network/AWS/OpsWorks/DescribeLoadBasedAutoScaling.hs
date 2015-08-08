@@ -27,21 +27,19 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.html AWS API Reference> for DescribeLoadBasedAutoScaling.
 module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLoadBasedAutoScaling
-    -- ** Request constructor
     , describeLoadBasedAutoScaling
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbasLayerIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLoadBasedAutoScalingResponse
-    -- ** Response constructor
     , describeLoadBasedAutoScalingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbasrsLoadBasedAutoScalingConfigurations
     , dlbasrsStatus
     ) where
@@ -132,6 +130,6 @@ describeLoadBasedAutoScalingResponse pStatus_ =
 dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
 dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbasrsStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
 dlbasrsStatus = lens _dlbasrsStatus (\ s a -> s{_dlbasrsStatus = a});

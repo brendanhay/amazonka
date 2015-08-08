@@ -40,14 +40,13 @@
 -- Rule changes are propagated to affected instances as quickly as
 -- possible. However, a small delay might occur.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html AWS API Reference> for AuthorizeSecurityGroupEgress.
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     (
-    -- * Request
+    -- * Creating a Request
       AuthorizeSecurityGroupEgress
-    -- ** Request constructor
     , authorizeSecurityGroupEgress
-    -- ** Request lenses
+    -- * Request Lenses
     , asgeFromPort
     , asgeIPPermissions
     , asgeIPProtocol
@@ -58,9 +57,8 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     , asgeDryRun
     , asgeGroupId
 
-    -- * Response
+    -- * Destructuring the Response
     , AuthorizeSecurityGroupEgressResponse
-    -- ** Response constructor
     , authorizeSecurityGroupEgressResponse
     ) where
 

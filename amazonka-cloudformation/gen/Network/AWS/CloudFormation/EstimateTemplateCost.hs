@@ -21,23 +21,21 @@
 -- AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html AWS API Reference> for EstimateTemplateCost.
 module Network.AWS.CloudFormation.EstimateTemplateCost
     (
-    -- * Request
+    -- * Creating a Request
       EstimateTemplateCost
-    -- ** Request constructor
     , estimateTemplateCost
-    -- ** Request lenses
+    -- * Request Lenses
     , etcParameters
     , etcTemplateBody
     , etcTemplateURL
 
-    -- * Response
+    -- * Destructuring the Response
     , EstimateTemplateCostResponse
-    -- ** Response constructor
     , estimateTemplateCostResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , etcrsURL
     , etcrsStatus
     ) where
@@ -150,6 +148,6 @@ estimateTemplateCostResponse pStatus_ =
 etcrsURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrsURL = lens _etcrsURL (\ s a -> s{_etcrsURL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 etcrsStatus :: Lens' EstimateTemplateCostResponse Int
 etcrsStatus = lens _etcrsStatus (\ s a -> s{_etcrsStatus = a});

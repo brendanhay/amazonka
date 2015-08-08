@@ -19,22 +19,20 @@
 --
 -- Retrieves information about an HSM client.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeLunaClient.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeLunaClient.html AWS API Reference> for DescribeLunaClient.
 module Network.AWS.CloudHSM.DescribeLunaClient
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLunaClient
-    -- ** Request constructor
     , describeLunaClient
-    -- ** Request lenses
+    -- * Request Lenses
     , dlcClientARN
     , dlcCertificateFingerprint
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLunaClientResponse
-    -- ** Response constructor
     , describeLunaClientResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsClientARN
     , drsCertificateFingerprint
     , drsLastModifiedTimestamp
@@ -171,6 +169,6 @@ drsCertificate = lens _drsCertificate (\ s a -> s{_drsCertificate = a});
 drsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeLunaClientResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

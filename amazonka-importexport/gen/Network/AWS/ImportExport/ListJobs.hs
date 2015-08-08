@@ -23,23 +23,21 @@
 -- Test2 was created 2010Feb05, the ListJobs operation would return Test2
 -- followed by Test1.
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html AWS API Reference> for ListJobs.
 module Network.AWS.ImportExport.ListJobs
     (
-    -- * Request
+    -- * Creating a Request
       ListJobs
-    -- ** Request constructor
     , listJobs
-    -- ** Request lenses
+    -- * Request Lenses
     , ljAPIVersion
     , ljMarker
     , ljMaxJobs
 
-    -- * Response
+    -- * Destructuring the Response
     , ListJobsResponse
-    -- ** Response constructor
     , listJobsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ljrsJobs
     , ljrsIsTruncated
     , ljrsStatus
@@ -77,15 +75,15 @@ listJobs =
     , _ljMaxJobs = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljAPIVersion :: Lens' ListJobs (Maybe Text)
 ljAPIVersion = lens _ljAPIVersion (\ s a -> s{_ljAPIVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljMarker :: Lens' ListJobs (Maybe Text)
 ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljMaxJobs :: Lens' ListJobs (Maybe Int)
 ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
 
@@ -152,14 +150,14 @@ listJobsResponse pStatus_ =
     , _ljrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljrsJobs :: Lens' ListJobsResponse [Job]
 ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljrsStatus :: Lens' ListJobsResponse Int
 ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

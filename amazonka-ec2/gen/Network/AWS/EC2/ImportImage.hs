@@ -20,14 +20,13 @@
 -- Import single or multi-volume disk images or EBS snapshots into an
 -- Amazon Machine Image (AMI).
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportImage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportImage.html AWS API Reference> for ImportImage.
 module Network.AWS.EC2.ImportImage
     (
-    -- * Request
+    -- * Creating a Request
       ImportImage
-    -- ** Request constructor
     , importImage
-    -- ** Request lenses
+    -- * Request Lenses
     , impHypervisor
     , impPlatform
     , impClientToken
@@ -39,11 +38,10 @@ module Network.AWS.EC2.ImportImage
     , impClientData
     , impDiskContainers
 
-    -- * Response
+    -- * Destructuring the Response
     , ImportImageResponse
-    -- ** Response constructor
     , importImageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , irsHypervisor
     , irsPlatform
     , irsProgress
@@ -312,6 +310,6 @@ irsArchitecture = lens _irsArchitecture (\ s a -> s{_irsArchitecture = a});
 irsDescription :: Lens' ImportImageResponse (Maybe Text)
 irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 irsStatus :: Lens' ImportImageResponse Int
 irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a});

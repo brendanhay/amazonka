@@ -48,23 +48,21 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_SignalWorkflowExecution.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_SignalWorkflowExecution.html AWS API Reference> for SignalWorkflowExecution.
 module Network.AWS.SWF.SignalWorkflowExecution
     (
-    -- * Request
+    -- * Creating a Request
       SignalWorkflowExecution
-    -- ** Request constructor
     , signalWorkflowExecution
-    -- ** Request lenses
+    -- * Request Lenses
     , sweInput
     , sweRunId
     , sweDomain
     , sweWorkflowId
     , sweSignalName
 
-    -- * Response
+    -- * Destructuring the Response
     , SignalWorkflowExecutionResponse
-    -- ** Response constructor
     , signalWorkflowExecutionResponse
     ) where
 

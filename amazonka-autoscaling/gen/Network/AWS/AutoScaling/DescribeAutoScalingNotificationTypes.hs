@@ -19,19 +19,17 @@
 --
 -- Describes the notification types that are supported by Auto Scaling.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html AWS API Reference> for DescribeAutoScalingNotificationTypes.
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAutoScalingNotificationTypes
-    -- ** Request constructor
     , describeAutoScalingNotificationTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAutoScalingNotificationTypesResponse
-    -- ** Response constructor
     , describeAutoScalingNotificationTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dasntrsAutoScalingNotificationTypes
     , dasntrsStatus
     ) where
@@ -119,6 +117,6 @@ describeAutoScalingNotificationTypesResponse pStatus_ =
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
 dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasntrsStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
 dasntrsStatus = lens _dasntrsStatus (\ s a -> s{_dasntrsStatus = a});

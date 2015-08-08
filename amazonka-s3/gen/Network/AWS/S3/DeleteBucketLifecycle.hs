@@ -19,19 +19,17 @@
 --
 -- Deletes the lifecycle configuration from the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketLifecycle.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketLifecycle.html AWS API Reference> for DeleteBucketLifecycle.
 module Network.AWS.S3.DeleteBucketLifecycle
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBucketLifecycle
-    -- ** Request constructor
     , deleteBucketLifecycle
-    -- ** Request lenses
+    -- * Request Lenses
     , dblBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBucketLifecycleResponse
-    -- ** Response constructor
     , deleteBucketLifecycleResponse
     ) where
 
@@ -56,7 +54,7 @@ deleteBucketLifecycle pBucket_ =
     { _dblBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
 dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a});
 

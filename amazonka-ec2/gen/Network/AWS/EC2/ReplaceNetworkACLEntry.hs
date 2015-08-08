@@ -22,14 +22,13 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkACLEntry.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkACLEntry.html AWS API Reference> for ReplaceNetworkACLEntry.
 module Network.AWS.EC2.ReplaceNetworkACLEntry
     (
-    -- * Request
+    -- * Creating a Request
       ReplaceNetworkACLEntry
-    -- ** Request constructor
     , replaceNetworkACLEntry
-    -- ** Request lenses
+    -- * Request Lenses
     , rnaeICMPTypeCode
     , rnaePortRange
     , rnaeDryRun
@@ -40,9 +39,8 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     , rnaeEgress
     , rnaeCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , ReplaceNetworkACLEntryResponse
-    -- ** Response constructor
     , replaceNetworkACLEntryResponse
     ) where
 

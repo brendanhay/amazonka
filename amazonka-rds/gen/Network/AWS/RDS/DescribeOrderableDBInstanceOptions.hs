@@ -20,14 +20,13 @@
 -- Returns a list of orderable DB instance options for the specified
 -- engine.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOrderableDBInstanceOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOrderableDBInstanceOptions.html AWS API Reference> for DescribeOrderableDBInstanceOptions.
 module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeOrderableDBInstanceOptions
-    -- ** Request constructor
     , describeOrderableDBInstanceOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , dodioEngineVersion
     , dodioFilters
     , dodioDBInstanceClass
@@ -37,11 +36,10 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     , dodioVPC
     , dodioEngine
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeOrderableDBInstanceOptionsResponse
-    -- ** Response constructor
     , describeOrderableDBInstanceOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dodiorsOrderableDBInstanceOptions
     , dodiorsMarker
     , dodiorsStatus
@@ -233,6 +231,6 @@ dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\ s
 dodiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodiorsMarker = lens _dodiorsMarker (\ s a -> s{_dodiorsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dodiorsStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
 dodiorsStatus = lens _dodiorsStatus (\ s a -> s{_dodiorsStatus = a});

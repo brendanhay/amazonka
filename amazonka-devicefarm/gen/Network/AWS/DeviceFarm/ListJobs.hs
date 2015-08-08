@@ -19,22 +19,20 @@
 --
 -- Gets information about jobs.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListJobs.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListJobs.html AWS API Reference> for ListJobs.
 module Network.AWS.DeviceFarm.ListJobs
     (
-    -- * Request
+    -- * Creating a Request
       ListJobs
-    -- ** Request constructor
     , listJobs
-    -- ** Request lenses
+    -- * Request Lenses
     , ljNextToken
     , ljArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListJobsResponse
-    -- ** Response constructor
     , listJobsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ljrsJobs
     , ljrsNextToken
     , ljrsStatus
@@ -144,6 +142,6 @@ ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
 ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljrsStatus :: Lens' ListJobsResponse Int
 ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

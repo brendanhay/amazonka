@@ -20,22 +20,20 @@
 -- Sets the versioning state of an existing bucket. To set the versioning
 -- state, you must be the bucket owner.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketVersioning.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketVersioning.html AWS API Reference> for PutBucketVersioning.
 module Network.AWS.S3.PutBucketVersioning
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketVersioning
-    -- ** Request constructor
     , putBucketVersioning
-    -- ** Request lenses
+    -- * Request Lenses
     , pbvMFA
     , pbvContentMD5
     , pbvBucket
     , pbvVersioningConfiguration
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketVersioningResponse
-    -- ** Response constructor
     , putBucketVersioningResponse
     ) where
 
@@ -77,15 +75,15 @@ putBucketVersioning pBucket_ pVersioningConfiguration_ =
 pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
 pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
 pbvContentMD5 = lens _pbvContentMD5 (\ s a -> s{_pbvContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbvBucket :: Lens' PutBucketVersioning BucketName
 pbvBucket = lens _pbvBucket (\ s a -> s{_pbvBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
 pbvVersioningConfiguration = lens _pbvVersioningConfiguration (\ s a -> s{_pbvVersioningConfiguration = a});
 

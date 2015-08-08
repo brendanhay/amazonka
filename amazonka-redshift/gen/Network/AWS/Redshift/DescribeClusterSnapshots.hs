@@ -35,14 +35,13 @@
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html AWS API Reference> for DescribeClusterSnapshots.
 module Network.AWS.Redshift.DescribeClusterSnapshots
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusterSnapshots
-    -- ** Request constructor
     , describeClusterSnapshots
-    -- ** Request lenses
+    -- * Request Lenses
     , dcssSnapshotIdentifier
     , dcssTagValues
     , dcssStartTime
@@ -54,11 +53,10 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     , dcssMarker
     , dcssOwnerAccount
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClusterSnapshotsResponse
-    -- ** Response constructor
     , describeClusterSnapshotsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcssrsSnapshots
     , dcssrsMarker
     , dcssrsStatus
@@ -289,6 +287,6 @@ dcssrsSnapshots = lens _dcssrsSnapshots (\ s a -> s{_dcssrsSnapshots = a}) . _De
 dcssrsMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 dcssrsMarker = lens _dcssrsMarker (\ s a -> s{_dcssrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcssrsStatus :: Lens' DescribeClusterSnapshotsResponse Int
 dcssrsStatus = lens _dcssrsStatus (\ s a -> s{_dcssrsStatus = a});

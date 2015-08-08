@@ -20,19 +20,17 @@
 -- To retrieve a count of all your hosted zones, send a @GET@ request to
 -- the @2013-04-01\/hostedzonecount@ resource.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html AWS API Reference> for GetHostedZoneCount.
 module Network.AWS.Route53.GetHostedZoneCount
     (
-    -- * Request
+    -- * Creating a Request
       GetHostedZoneCount
-    -- ** Request constructor
     , getHostedZoneCount
 
-    -- * Response
+    -- * Destructuring the Response
     , GetHostedZoneCountResponse
-    -- ** Response constructor
     , getHostedZoneCountResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ghzcrsStatus
     , ghzcrsHostedZoneCount
     ) where
@@ -97,7 +95,7 @@ getHostedZoneCountResponse pStatus_ pHostedZoneCount_ =
     , _ghzcrsHostedZoneCount = pHostedZoneCount_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ghzcrsStatus :: Lens' GetHostedZoneCountResponse Int
 ghzcrsStatus = lens _ghzcrsStatus (\ s a -> s{_ghzcrsStatus = a});
 

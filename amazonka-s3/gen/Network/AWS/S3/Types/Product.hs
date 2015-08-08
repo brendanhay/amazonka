@@ -46,7 +46,7 @@ accessControlPolicy =
 acpGrants :: Lens' AccessControlPolicy [Grant]
 acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\ s a -> s{_acpOwner = a});
 
@@ -105,7 +105,7 @@ bucketLoggingStatus =
     { _blsLoggingEnabled = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
 blsLoggingEnabled = lens _blsLoggingEnabled (\ s a -> s{_blsLoggingEnabled = a});
 
@@ -129,7 +129,7 @@ corsConfiguration =
     { _ccCORSRules = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccCORSRules :: Lens' CORSConfiguration [CORSRule]
 ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Default . _Coerce;
 
@@ -233,7 +233,7 @@ commonPrefix =
     { _cpPrefix = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpPrefix :: Lens' CommonPrefix (Maybe Text)
 cpPrefix = lens _cpPrefix (\ s a -> s{_cpPrefix = a});
 
@@ -256,7 +256,7 @@ completedMultipartUpload =
     { _cmuParts = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmuParts :: Lens' CompletedMultipartUpload (Maybe (NonEmpty CompletedPart))
 cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . mapping _List1;
 
@@ -370,11 +370,11 @@ copyObjectResult =
     , _corLastModified = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 corETag :: Lens' CopyObjectResult (Maybe ETag)
 corETag = lens _corETag (\ s a -> s{_corETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 corLastModified :: Lens' CopyObjectResult (Maybe UTCTime)
 corLastModified = lens _corLastModified (\ s a -> s{_corLastModified = a}) . mapping _Time;
 
@@ -467,7 +467,7 @@ delete' =
 dQuiet :: Lens' Delete (Maybe Bool)
 dQuiet = lens _dQuiet (\ s a -> s{_dQuiet = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\ s a -> s{_dObjects = a}) . _Coerce;
 
@@ -517,7 +517,7 @@ dmeVersionId = lens _dmeVersionId (\ s a -> s{_dmeVersionId = a});
 dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
 dmeIsLatest = lens _dmeIsLatest (\ s a -> s{_dmeIsLatest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner = lens _dmeOwner (\ s a -> s{_dmeOwner = a});
 
@@ -565,19 +565,19 @@ deletedObject =
     , _dKey = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
 dVersionId = lens _dVersionId (\ s a -> s{_dVersionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDeleteMarker :: Lens' DeletedObject (Maybe Bool)
 dDeleteMarker = lens _dDeleteMarker (\ s a -> s{_dDeleteMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
 dDeleteMarkerVersionId = lens _dDeleteMarkerVersionId (\ s a -> s{_dDeleteMarkerVersionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dKey :: Lens' DeletedObject (Maybe ObjectKey)
 dKey = lens _dKey (\ s a -> s{_dKey = a});
 
@@ -666,7 +666,7 @@ grant =
 gPermission :: Lens' Grant (Maybe Permission)
 gPermission = lens _gPermission (\ s a -> s{_gPermission = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gGrantee :: Lens' Grant (Maybe Grantee)
 gGrantee = lens _gGrantee (\ s a -> s{_gGrantee = a});
 
@@ -839,7 +839,7 @@ lambdaFunctionConfiguration pLambdaFunctionARN_ =
     , _lfcEvents = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lfcId :: Lens' LambdaFunctionConfiguration (Maybe Text)
 lfcId = lens _lfcId (\ s a -> s{_lfcId = a});
 
@@ -848,7 +848,7 @@ lfcId = lens _lfcId (\ s a -> s{_lfcId = a});
 lfcLambdaFunctionARN :: Lens' LambdaFunctionConfiguration Text
 lfcLambdaFunctionARN = lens _lfcLambdaFunctionARN (\ s a -> s{_lfcLambdaFunctionARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lfcEvents :: Lens' LambdaFunctionConfiguration [Event]
 lfcEvents = lens _lfcEvents (\ s a -> s{_lfcEvents = a}) . _Coerce;
 
@@ -881,7 +881,7 @@ lifecycleConfiguration =
     { _lcRules = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lcRules :: Lens' LifecycleConfiguration [Rule]
 lcRules = lens _lcRules (\ s a -> s{_lcRules = a}) . _Coerce;
 
@@ -961,7 +961,7 @@ loggingEnabled =
 leTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 leTargetBucket = lens _leTargetBucket (\ s a -> s{_leTargetBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
 leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a}) . _Default . _Coerce;
 
@@ -1030,7 +1030,7 @@ muInitiated = lens _muInitiated (\ s a -> s{_muInitiated = a}) . mapping _Time;
 muInitiator :: Lens' MultipartUpload (Maybe Initiator)
 muInitiator = lens _muInitiator (\ s a -> s{_muInitiator = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 muOwner :: Lens' MultipartUpload (Maybe Owner)
 muOwner = lens _muOwner (\ s a -> s{_muOwner = a});
 
@@ -1170,15 +1170,15 @@ notificationConfiguration =
     , _ncLambdaFunctionConfigurations = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
 ncQueueConfigurations = lens _ncQueueConfigurations (\ s a -> s{_ncQueueConfigurations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ncTopicConfigurations :: Lens' NotificationConfiguration [TopicConfiguration]
 ncTopicConfigurations = lens _ncTopicConfigurations (\ s a -> s{_ncTopicConfigurations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration [LambdaFunctionConfiguration]
 ncLambdaFunctionConfigurations = lens _ncLambdaFunctionConfigurations (\ s a -> s{_ncLambdaFunctionConfigurations = a}) . _Default . _Coerce;
 
@@ -1239,19 +1239,19 @@ object' pETag_ pSize_ pKey_ pStorageClass_ pLastModified_ =
     , _oLastModified = _Time # pLastModified_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oOwner :: Lens' Object (Maybe Owner)
 oOwner = lens _oOwner (\ s a -> s{_oOwner = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oETag :: Lens' Object ETag
 oETag = lens _oETag (\ s a -> s{_oETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oSize :: Lens' Object Int
 oSize = lens _oSize (\ s a -> s{_oSize = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oKey :: Lens' Object ObjectKey
 oKey = lens _oKey (\ s a -> s{_oKey = a});
 
@@ -1259,7 +1259,7 @@ oKey = lens _oKey (\ s a -> s{_oKey = a});
 oStorageClass :: Lens' Object ObjectStorageClass
 oStorageClass = lens _oStorageClass (\ s a -> s{_oStorageClass = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oLastModified :: Lens' Object UTCTime
 oLastModified = lens _oLastModified (\ s a -> s{_oLastModified = a}) . _Time;
 
@@ -1352,7 +1352,7 @@ objectVersion =
 ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
 ovVersionId = lens _ovVersionId (\ s a -> s{_ovVersionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ovETag :: Lens' ObjectVersion (Maybe ETag)
 ovETag = lens _ovETag (\ s a -> s{_ovETag = a});
 
@@ -1365,7 +1365,7 @@ ovSize = lens _ovSize (\ s a -> s{_ovSize = a});
 ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
 ovIsLatest = lens _ovIsLatest (\ s a -> s{_ovIsLatest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ovOwner :: Lens' ObjectVersion (Maybe Owner)
 ovOwner = lens _ovOwner (\ s a -> s{_ovOwner = a});
 
@@ -1412,11 +1412,11 @@ owner =
     , _oDisplayName = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oId :: Lens' Owner (Maybe Text)
 oId = lens _oId (\ s a -> s{_oId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oDisplayName :: Lens' Owner (Maybe Text)
 oDisplayName = lens _oDisplayName (\ s a -> s{_oDisplayName = a});
 
@@ -1508,7 +1508,7 @@ queueConfiguration pQueueARN_ =
     , _qcEvents = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 qcId :: Lens' QueueConfiguration (Maybe Text)
 qcId = lens _qcId (\ s a -> s{_qcId = a});
 
@@ -1517,7 +1517,7 @@ qcId = lens _qcId (\ s a -> s{_qcId = a});
 qcQueueARN :: Lens' QueueConfiguration Text
 qcQueueARN = lens _qcQueueARN (\ s a -> s{_qcQueueARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 qcEvents :: Lens' QueueConfiguration [Event]
 qcEvents = lens _qcEvents (\ s a -> s{_qcEvents = a}) . _Coerce;
 
@@ -1737,7 +1737,7 @@ rrPrefix = lens _rrPrefix (\ s a -> s{_rrPrefix = a});
 rrStatus :: Lens' ReplicationRule ReplicationRuleStatus
 rrStatus = lens _rrStatus (\ s a -> s{_rrStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rrDestination :: Lens' ReplicationRule Destination
 rrDestination = lens _rrDestination (\ s a -> s{_rrDestination = a});
 
@@ -1887,19 +1887,19 @@ rule pPrefix_ pStatus_ =
     , _rStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
 rNoncurrentVersionExpiration = lens _rNoncurrentVersionExpiration (\ s a -> s{_rNoncurrentVersionExpiration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rTransition :: Lens' Rule (Maybe Transition)
 rTransition = lens _rTransition (\ s a -> s{_rTransition = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rExpiration :: Lens' Rule (Maybe LifecycleExpiration)
 rExpiration = lens _rExpiration (\ s a -> s{_rExpiration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
 rNoncurrentVersionTransition = lens _rNoncurrentVersionTransition (\ s a -> s{_rNoncurrentVersionTransition = a});
 
@@ -1968,19 +1968,19 @@ s3ServiceError =
     , _sseMessage = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sseVersionId :: Lens' S3ServiceError (Maybe ObjectVersionId)
 sseVersionId = lens _sseVersionId (\ s a -> s{_sseVersionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sseKey :: Lens' S3ServiceError (Maybe ObjectKey)
 sseKey = lens _sseKey (\ s a -> s{_sseKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sseCode :: Lens' S3ServiceError (Maybe Text)
 sseCode = lens _sseCode (\ s a -> s{_sseCode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sseMessage :: Lens' S3ServiceError (Maybe Text)
 sseMessage = lens _sseMessage (\ s a -> s{_sseMessage = a});
 
@@ -2042,7 +2042,7 @@ tagging =
     { _tTagSet = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tTagSet :: Lens' Tagging [Tag]
 tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a}) . _Coerce;
 
@@ -2074,7 +2074,7 @@ targetGrant =
 tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
 tgPermission = lens _tgPermission (\ s a -> s{_tgPermission = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tgGrantee :: Lens' TargetGrant (Maybe Grantee)
 tgGrantee = lens _tgGrantee (\ s a -> s{_tgGrantee = a});
 
@@ -2117,7 +2117,7 @@ topicConfiguration pTopicARN_ =
     , _tcEvents = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tcId :: Lens' TopicConfiguration (Maybe Text)
 tcId = lens _tcId (\ s a -> s{_tcId = a});
 
@@ -2126,7 +2126,7 @@ tcId = lens _tcId (\ s a -> s{_tcId = a});
 tcTopicARN :: Lens' TopicConfiguration Text
 tcTopicARN = lens _tcTopicARN (\ s a -> s{_tcTopicARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tcEvents :: Lens' TopicConfiguration [Event]
 tcEvents = lens _tcEvents (\ s a -> s{_tcEvents = a}) . _Coerce;
 
@@ -2256,19 +2256,19 @@ websiteConfiguration =
     , _wcIndexDocument = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
 wcRedirectAllRequestsTo = lens _wcRedirectAllRequestsTo (\ s a -> s{_wcRedirectAllRequestsTo = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
 wcErrorDocument = lens _wcErrorDocument (\ s a -> s{_wcErrorDocument = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
 wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
 wcIndexDocument = lens _wcIndexDocument (\ s a -> s{_wcIndexDocument = a});
 

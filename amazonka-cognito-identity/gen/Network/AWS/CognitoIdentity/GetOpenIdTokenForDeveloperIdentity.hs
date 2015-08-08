@@ -35,24 +35,22 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html AWS API Reference> for GetOpenIdTokenForDeveloperIdentity.
 module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     (
-    -- * Request
+    -- * Creating a Request
       GetOpenIdTokenForDeveloperIdentity
-    -- ** Request constructor
     , getOpenIdTokenForDeveloperIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , goitfdiTokenDuration
     , goitfdiIdentityId
     , goitfdiIdentityPoolId
     , goitfdiLogins
 
-    -- * Response
+    -- * Destructuring the Response
     , GetOpenIdTokenForDeveloperIdentityResponse
-    -- ** Response constructor
     , getOpenIdTokenForDeveloperIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , goitfdirsToken
     , goitfdirsIdentityId
     , goitfdirsStatus
@@ -203,6 +201,6 @@ goitfdirsToken = lens _goitfdirsToken (\ s a -> s{_goitfdirsToken = a});
 goitfdirsIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirsIdentityId = lens _goitfdirsIdentityId (\ s a -> s{_goitfdirsIdentityId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goitfdirsStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
 goitfdirsStatus = lens _goitfdirsStatus (\ s a -> s{_goitfdirsStatus = a});

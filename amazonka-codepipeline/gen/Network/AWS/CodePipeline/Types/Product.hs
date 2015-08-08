@@ -516,11 +516,11 @@ asRevisionURL = lens _asRevisionURL (\ s a -> s{_asRevisionURL = a});
 asActionName :: Lens' ActionState (Maybe Text)
 asActionName = lens _asActionName (\ s a -> s{_asActionName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asCurrentRevision :: Lens' ActionState (Maybe ActionRevision)
 asCurrentRevision = lens _asCurrentRevision (\ s a -> s{_asCurrentRevision = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asLatestExecution :: Lens' ActionState (Maybe ActionExecution)
 asLatestExecution = lens _asLatestExecution (\ s a -> s{_asLatestExecution = a});
 
@@ -576,7 +576,7 @@ atSettings = lens _atSettings (\ s a -> s{_atSettings = a});
 atActionConfigurationProperties :: Lens' ActionType [ActionConfigurationProperty]
 atActionConfigurationProperties = lens _atActionConfigurationProperties (\ s a -> s{_atActionConfigurationProperties = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 atId :: Lens' ActionType ActionTypeId
 atId = lens _atId (\ s a -> s{_atId = a});
 
@@ -1267,15 +1267,15 @@ jdContinuationToken = lens _jdContinuationToken (\ s a -> s{_jdContinuationToken
 jdOutputArtifacts :: Lens' JobData [Artifact]
 jdOutputArtifacts = lens _jdOutputArtifacts (\ s a -> s{_jdOutputArtifacts = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jdArtifactCredentials :: Lens' JobData (Maybe AWSSessionCredentials)
 jdArtifactCredentials = lens _jdArtifactCredentials (\ s a -> s{_jdArtifactCredentials = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jdPipelineContext :: Lens' JobData (Maybe PipelineContext)
 jdPipelineContext = lens _jdPipelineContext (\ s a -> s{_jdPipelineContext = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jdActionTypeId :: Lens' JobData (Maybe ActionTypeId)
 jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 
@@ -1283,7 +1283,7 @@ jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 jdInputArtifacts :: Lens' JobData [Artifact]
 jdInputArtifacts = lens _jdInputArtifacts (\ s a -> s{_jdInputArtifacts = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jdActionConfiguration :: Lens' JobData (Maybe ActionConfiguration)
 jdActionConfiguration = lens _jdActionConfiguration (\ s a -> s{_jdActionConfiguration = a});
 
@@ -1326,7 +1326,7 @@ jobDetails =
     , _jdId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jdData :: Lens' JobDetails (Maybe JobData)
 jdData = lens _jdData (\ s a -> s{_jdData = a});
 
@@ -1421,7 +1421,7 @@ pcStage = lens _pcStage (\ s a -> s{_pcStage = a});
 pcPipelineName :: Lens' PipelineContext (Maybe Text)
 pcPipelineName = lens _pcPipelineName (\ s a -> s{_pcPipelineName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pcAction :: Lens' PipelineContext (Maybe ActionContext)
 pcAction = lens _pcAction (\ s a -> s{_pcAction = a});
 
@@ -1484,7 +1484,7 @@ pdName = lens _pdName (\ s a -> s{_pdName = a});
 pdRoleARN :: Lens' PipelineDeclaration Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pdArtifactStore :: Lens' PipelineDeclaration ArtifactStore
 pdArtifactStore = lens _pdArtifactStore (\ s a -> s{_pdArtifactStore = a});
 
@@ -1824,15 +1824,15 @@ tpjdContinuationToken = lens _tpjdContinuationToken (\ s a -> s{_tpjdContinuatio
 tpjdOutputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdOutputArtifacts = lens _tpjdOutputArtifacts (\ s a -> s{_tpjdOutputArtifacts = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tpjdArtifactCredentials :: Lens' ThirdPartyJobData (Maybe AWSSessionCredentials)
 tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifactCredentials = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tpjdActionTypeId :: Lens' ThirdPartyJobData (Maybe ActionTypeId)
 tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 
@@ -1844,7 +1844,7 @@ tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 tpjdInputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdInputArtifacts = lens _tpjdInputArtifacts (\ s a -> s{_tpjdInputArtifacts = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tpjdActionConfiguration :: Lens' ThirdPartyJobData (Maybe ActionConfiguration)
 tpjdActionConfiguration = lens _tpjdActionConfiguration (\ s a -> s{_tpjdActionConfiguration = a});
 

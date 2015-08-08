@@ -20,21 +20,19 @@
 -- Lists the deployment configurations with the applicable IAM user or AWS
 -- account.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html AWS API Reference> for ListDeploymentConfigs.
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
-    -- * Request
+    -- * Creating a Request
       ListDeploymentConfigs
-    -- ** Request constructor
     , listDeploymentConfigs
-    -- ** Request lenses
+    -- * Request Lenses
     , ldcNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDeploymentConfigsResponse
-    -- ** Response constructor
     , listDeploymentConfigsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldcrsNextToken
     , ldcrsDeploymentConfigsList
     , ldcrsStatus
@@ -140,6 +138,6 @@ ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
 ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldcrsStatus :: Lens' ListDeploymentConfigsResponse Int
 ldcrsStatus = lens _ldcrsStatus (\ s a -> s{_ldcrsStatus = a});

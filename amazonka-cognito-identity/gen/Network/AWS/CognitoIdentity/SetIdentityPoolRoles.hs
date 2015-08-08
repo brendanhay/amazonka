@@ -22,20 +22,18 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_SetIdentityPoolRoles.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_SetIdentityPoolRoles.html AWS API Reference> for SetIdentityPoolRoles.
 module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     (
-    -- * Request
+    -- * Creating a Request
       SetIdentityPoolRoles
-    -- ** Request constructor
     , setIdentityPoolRoles
-    -- ** Request lenses
+    -- * Request Lenses
     , siprIdentityPoolId
     , siprRoles
 
-    -- * Response
+    -- * Destructuring the Response
     , SetIdentityPoolRolesResponse
-    -- ** Response constructor
     , setIdentityPoolRolesResponse
     ) where
 

@@ -27,21 +27,19 @@
 --
 -- This configuration overwrites an existing configuration.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html AWS API Reference> for PutNotificationConfiguration.
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       PutNotificationConfiguration
-    -- ** Request constructor
     , putNotificationConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , pncAutoScalingGroupName
     , pncTopicARN
     , pncNotificationTypes
 
-    -- * Response
+    -- * Destructuring the Response
     , PutNotificationConfigurationResponse
-    -- ** Response constructor
     , putNotificationConfigurationResponse
     ) where
 

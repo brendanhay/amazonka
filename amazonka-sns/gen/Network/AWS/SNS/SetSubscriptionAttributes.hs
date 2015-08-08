@@ -20,21 +20,19 @@
 -- Allows a subscription owner to set an attribute of the topic to a new
 -- value.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html AWS API Reference> for SetSubscriptionAttributes.
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
-    -- * Request
+    -- * Creating a Request
       SetSubscriptionAttributes
-    -- ** Request constructor
     , setSubscriptionAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , ssaAttributeValue
     , ssaSubscriptionARN
     , ssaAttributeName
 
-    -- * Response
+    -- * Destructuring the Response
     , SetSubscriptionAttributesResponse
-    -- ** Response constructor
     , setSubscriptionAttributesResponse
     ) where
 

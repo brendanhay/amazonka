@@ -32,23 +32,21 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html AWS API Reference> for CreatePolicyVersion.
 module Network.AWS.IAM.CreatePolicyVersion
     (
-    -- * Request
+    -- * Creating a Request
       CreatePolicyVersion
-    -- ** Request constructor
     , createPolicyVersion
-    -- ** Request lenses
+    -- * Request Lenses
     , cpvSetAsDefault
     , cpvPolicyARN
     , cpvPolicyDocument
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePolicyVersionResponse
-    -- ** Response constructor
     , createPolicyVersionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cpvrsPolicyVersion
     , cpvrsStatus
     ) where
@@ -94,7 +92,7 @@ createPolicyVersion pPolicyARN_ pPolicyDocument_ =
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
 cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpvPolicyARN :: Lens' CreatePolicyVersion Text
 cpvPolicyARN = lens _cpvPolicyARN (\ s a -> s{_cpvPolicyARN = a});
 
@@ -154,6 +152,6 @@ createPolicyVersionResponse pStatus_ =
 cpvrsPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
 cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\ s a -> s{_cpvrsPolicyVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpvrsStatus :: Lens' CreatePolicyVersionResponse Int
 cpvrsStatus = lens _cpvrsStatus (\ s a -> s{_cpvrsStatus = a});

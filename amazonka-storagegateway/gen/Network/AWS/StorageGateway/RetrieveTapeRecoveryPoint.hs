@@ -27,22 +27,20 @@
 -- tape is read-only. The virtual tape can be retrieved to only a
 -- gateway-VTL. There is no charge for retrieving recovery points.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html AWS API Reference> for RetrieveTapeRecoveryPoint.
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
-    -- * Request
+    -- * Creating a Request
       RetrieveTapeRecoveryPoint
-    -- ** Request constructor
     , retrieveTapeRecoveryPoint
-    -- ** Request lenses
+    -- * Request Lenses
     , rtrpTapeARN
     , rtrpGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , RetrieveTapeRecoveryPointResponse
-    -- ** Response constructor
     , retrieveTapeRecoveryPointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtrprsTapeARN
     , rtrprsStatus
     ) where
@@ -79,7 +77,7 @@ retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpTapeARN = lens _rtrpTapeARN (\ s a -> s{_rtrpTapeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpGatewayARN = lens _rtrpGatewayARN (\ s a -> s{_rtrpGatewayARN = a});
 
@@ -143,6 +141,6 @@ retrieveTapeRecoveryPointResponse pStatus_ =
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtrprsStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
 rtrprsStatus = lens _rtrprsStatus (\ s a -> s{_rtrprsStatus = a});

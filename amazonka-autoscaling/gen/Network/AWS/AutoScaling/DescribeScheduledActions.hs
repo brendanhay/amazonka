@@ -21,14 +21,13 @@
 -- haven\'t run. To describe the actions that have already run, use
 -- DescribeScalingActivities.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html AWS API Reference> for DescribeScheduledActions.
 module Network.AWS.AutoScaling.DescribeScheduledActions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeScheduledActions
-    -- ** Request constructor
     , describeScheduledActions
-    -- ** Request lenses
+    -- * Request Lenses
     , dsasStartTime
     , dsasNextToken
     , dsasMaxRecords
@@ -36,11 +35,10 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     , dsasAutoScalingGroupName
     , dsasScheduledActionNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeScheduledActionsResponse
-    -- ** Response constructor
     , describeScheduledActionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsarsScheduledUpdateGroupActions
     , dsarsNextToken
     , dsarsStatus
@@ -198,6 +196,6 @@ dsarsScheduledUpdateGroupActions = lens _dsarsScheduledUpdateGroupActions (\ s a
 dsarsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsarsStatus :: Lens' DescribeScheduledActionsResponse Int
 dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});

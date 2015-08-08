@@ -22,19 +22,17 @@
 -- A deployment configuration cannot be deleted if it is currently in use.
 -- Also, predefined configurations cannot be deleted.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html AWS API Reference> for DeleteDeploymentConfig.
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDeploymentConfig
-    -- ** Request constructor
     , deleteDeploymentConfig
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcDeploymentConfigName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDeploymentConfigResponse
-    -- ** Response constructor
     , deleteDeploymentConfigResponse
     ) where
 

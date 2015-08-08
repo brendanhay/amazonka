@@ -37,23 +37,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/ .
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html AWS API Reference> for DeleteCluster.
 module Network.AWS.Redshift.DeleteCluster
     (
-    -- * Request
+    -- * Creating a Request
       DeleteCluster
-    -- ** Request constructor
     , deleteCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , dSkipFinalClusterSnapshot
     , dFinalClusterSnapshotIdentifier
     , dClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteClusterResponse
-    -- ** Response constructor
     , deleteClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsCluster
     , drsStatus
     ) where
@@ -171,10 +169,10 @@ deleteClusterResponse pStatus_ =
     , _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteClusterResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

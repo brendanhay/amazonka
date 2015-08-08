@@ -26,14 +26,13 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html AWS API Reference> for PutScheduledUpdateGroupAction.
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
-    -- * Request
+    -- * Creating a Request
       PutScheduledUpdateGroupAction
-    -- ** Request constructor
     , putScheduledUpdateGroupAction
-    -- ** Request lenses
+    -- * Request Lenses
     , psugaTime
     , psugaStartTime
     , psugaMaxSize
@@ -44,9 +43,8 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     , psugaAutoScalingGroupName
     , psugaScheduledActionName
 
-    -- * Response
+    -- * Destructuring the Response
     , PutScheduledUpdateGroupActionResponse
-    -- ** Response constructor
     , putScheduledUpdateGroupActionResponse
     ) where
 

@@ -24,14 +24,13 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html AWS API Reference> for ModifyDBCluster.
 module Network.AWS.RDS.ModifyDBCluster
     (
-    -- * Request
+    -- * Creating a Request
       ModifyDBCluster
-    -- ** Request constructor
     , modifyDBCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , mdcDBClusterIdentifier
     , mdcMasterUserPassword
     , mdcPreferredMaintenanceWindow
@@ -44,11 +43,10 @@ module Network.AWS.RDS.ModifyDBCluster
     , mdcNewDBClusterIdentifier
     , mdcPort
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyDBClusterResponse
-    -- ** Response constructor
     , modifyDBClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mdcrsDBCluster
     , mdcrsStatus
     ) where
@@ -297,10 +295,10 @@ modifyDBClusterResponse pStatus_ =
     , _mdcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mdcrsDBCluster :: Lens' ModifyDBClusterResponse (Maybe DBCluster)
 mdcrsDBCluster = lens _mdcrsDBCluster (\ s a -> s{_mdcrsDBCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mdcrsStatus :: Lens' ModifyDBClusterResponse Int
 mdcrsStatus = lens _mdcrsStatus (\ s a -> s{_mdcrsStatus = a});

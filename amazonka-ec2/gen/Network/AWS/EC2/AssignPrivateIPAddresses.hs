@@ -31,22 +31,20 @@
 --
 -- AssignPrivateIpAddresses is available only in EC2-VPC.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIPAddresses.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIPAddresses.html AWS API Reference> for AssignPrivateIPAddresses.
 module Network.AWS.EC2.AssignPrivateIPAddresses
     (
-    -- * Request
+    -- * Creating a Request
       AssignPrivateIPAddresses
-    -- ** Request constructor
     , assignPrivateIPAddresses
-    -- ** Request lenses
+    -- * Request Lenses
     , apiaPrivateIPAddresses
     , apiaAllowReassignment
     , apiaSecondaryPrivateIPAddressCount
     , apiaNetworkInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , AssignPrivateIPAddressesResponse
-    -- ** Response constructor
     , assignPrivateIPAddressesResponse
     ) where
 

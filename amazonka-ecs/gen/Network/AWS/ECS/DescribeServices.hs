@@ -19,22 +19,20 @@
 --
 -- Describes the specified services running in your cluster.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html AWS API Reference> for DescribeServices.
 module Network.AWS.ECS.DescribeServices
     (
-    -- * Request
+    -- * Creating a Request
       DescribeServices
-    -- ** Request constructor
     , describeServices
-    -- ** Request lenses
+    -- * Request Lenses
     , dCluster
     , dServices
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeServicesResponse
-    -- ** Response constructor
     , describeServicesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dssrsFailures
     , dssrsServices
     , dssrsStatus
@@ -138,6 +136,6 @@ dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default 
 dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
 dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStatus :: Lens' DescribeServicesResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

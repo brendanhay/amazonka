@@ -22,21 +22,19 @@
 -- subscriptions, a @NextToken@ is also returned. Use the @NextToken@
 -- parameter in a new @ListSubscriptions@ call to get further results.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html AWS API Reference> for ListSubscriptions.
 module Network.AWS.SNS.ListSubscriptions
     (
-    -- * Request
+    -- * Creating a Request
       ListSubscriptions
-    -- ** Request constructor
     , listSubscriptions
-    -- ** Request lenses
+    -- * Request Lenses
     , lsNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListSubscriptionsResponse
-    -- ** Response constructor
     , listSubscriptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrsNextToken
     , lsrsSubscriptions
     , lsrsStatus
@@ -138,6 +136,6 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrsStatus :: Lens' ListSubscriptionsResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

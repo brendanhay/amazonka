@@ -27,22 +27,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineIndexField.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineIndexField.html AWS API Reference> for DefineIndexField.
 module Network.AWS.CloudSearch.DefineIndexField
     (
-    -- * Request
+    -- * Creating a Request
       DefineIndexField
-    -- ** Request constructor
     , defineIndexField
-    -- ** Request lenses
+    -- * Request Lenses
     , defeDomainName
     , defeIndexField
 
-    -- * Response
+    -- * Destructuring the Response
     , DefineIndexFieldResponse
-    -- ** Response constructor
     , defineIndexFieldResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , defrsStatus
     , defrsIndexField
     ) where
@@ -76,7 +74,7 @@ defineIndexField pDomainName_ pIndexField_ =
     , _defeIndexField = pIndexField_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 defeDomainName :: Lens' DefineIndexField Text
 defeDomainName = lens _defeDomainName (\ s a -> s{_defeDomainName = a});
 
@@ -131,10 +129,10 @@ defineIndexFieldResponse pStatus_ pIndexField_ =
     , _defrsIndexField = pIndexField_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 defrsStatus :: Lens' DefineIndexFieldResponse Int
 defrsStatus = lens _defrsStatus (\ s a -> s{_defrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 defrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 defrsIndexField = lens _defrsIndexField (\ s a -> s{_defrsIndexField = a});

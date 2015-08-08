@@ -31,23 +31,21 @@
 -- destination. To enable that, the destination owner must call
 -- @PutDestinationPolicy@ after PutDestination.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html AWS API Reference> for PutDestination.
 module Network.AWS.CloudWatchLogs.PutDestination
     (
-    -- * Request
+    -- * Creating a Request
       PutDestination
-    -- ** Request constructor
     , putDestination
-    -- ** Request lenses
+    -- * Request Lenses
     , pdDestinationName
     , pdTargetARN
     , pdRoleARN
 
-    -- * Response
+    -- * Destructuring the Response
     , PutDestinationResponse
-    -- ** Response constructor
     , putDestinationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , pdrsDestination
     , pdrsStatus
     ) where
@@ -145,10 +143,10 @@ putDestinationResponse pStatus_ =
     , _pdrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
 pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pdrsStatus :: Lens' PutDestinationResponse Int
 pdrsStatus = lens _pdrsStatus (\ s a -> s{_pdrsStatus = a});

@@ -19,20 +19,18 @@
 --
 -- Registers an on-premises instance.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterOnPremisesInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterOnPremisesInstance.html AWS API Reference> for RegisterOnPremisesInstance.
 module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     (
-    -- * Request
+    -- * Creating a Request
       RegisterOnPremisesInstance
-    -- ** Request constructor
     , registerOnPremisesInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , ropiInstanceName
     , ropiIamUserARN
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterOnPremisesInstanceResponse
-    -- ** Response constructor
     , registerOnPremisesInstanceResponse
     ) where
 

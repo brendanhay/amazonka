@@ -28,23 +28,21 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html AWS API Reference> for BundleInstance.
 module Network.AWS.EC2.BundleInstance
     (
-    -- * Request
+    -- * Creating a Request
       BundleInstance
-    -- ** Request constructor
     , bundleInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , biDryRun
     , biInstanceId
     , biStorage
 
-    -- * Response
+    -- * Destructuring the Response
     , BundleInstanceResponse
-    -- ** Response constructor
     , bundleInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , birsBundleTask
     , birsStatus
     ) where
@@ -150,6 +148,6 @@ bundleInstanceResponse pStatus_ =
 birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 birsStatus :: Lens' BundleInstanceResponse Int
 birsStatus = lens _birsStatus (\ s a -> s{_birsStatus = a});

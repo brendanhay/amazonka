@@ -61,14 +61,13 @@
 -- numbers are used by the DescribeCases operation to retrieve existing AWS
 -- Support cases.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html AWS API Reference> for CreateCase.
 module Network.AWS.Support.CreateCase
     (
-    -- * Request
+    -- * Creating a Request
       CreateCase
-    -- ** Request constructor
     , createCase
-    -- ** Request lenses
+    -- * Request Lenses
     , ccSeverityCode
     , ccIssueType
     , ccCcEmailAddresses
@@ -79,11 +78,10 @@ module Network.AWS.Support.CreateCase
     , ccSubject
     , ccCommunicationBody
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCaseResponse
-    -- ** Response constructor
     , createCaseResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccrsCaseId
     , ccrsStatus
     ) where
@@ -257,6 +255,6 @@ createCaseResponse pStatus_ =
 ccrsCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrsCaseId = lens _ccrsCaseId (\ s a -> s{_ccrsCaseId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccrsStatus :: Lens' CreateCaseResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

@@ -28,19 +28,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteLayer.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteLayer.html AWS API Reference> for DeleteLayer.
 module Network.AWS.OpsWorks.DeleteLayer
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLayer
-    -- ** Request constructor
     , deleteLayer
-    -- ** Request lenses
+    -- * Request Lenses
     , dlLayerId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLayerResponse
-    -- ** Response constructor
     , deleteLayerResponse
     ) where
 

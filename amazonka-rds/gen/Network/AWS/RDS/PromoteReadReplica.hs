@@ -24,23 +24,21 @@
 -- during the promotion process. Once the instance is promoted to a primary
 -- instance, backups are taken based on your backup settings.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html AWS API Reference> for PromoteReadReplica.
 module Network.AWS.RDS.PromoteReadReplica
     (
-    -- * Request
+    -- * Creating a Request
       PromoteReadReplica
-    -- ** Request constructor
     , promoteReadReplica
-    -- ** Request lenses
+    -- * Request Lenses
     , prrPreferredBackupWindow
     , prrBackupRetentionPeriod
     , prrDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , PromoteReadReplicaResponse
-    -- ** Response constructor
     , promoteReadReplicaResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , prrrsDBInstance
     , prrrsStatus
     ) where
@@ -165,10 +163,10 @@ promoteReadReplicaResponse pStatus_ =
     , _prrrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prrrsStatus :: Lens' PromoteReadReplicaResponse Int
 prrrsStatus = lens _prrrsStatus (\ s a -> s{_prrrsStatus = a});

@@ -21,22 +21,20 @@
 -- cache parameter group. You can modify up to 20 parameters in a single
 -- request by submitting a list parameter name and value pairs.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html AWS API Reference> for ModifyCacheParameterGroup.
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyCacheParameterGroup
-    -- ** Request constructor
     , modifyCacheParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mcpgCacheParameterGroupName
     , mcpgParameterNameValues
 
-    -- * Response
+    -- * Destructuring the Response
     , CacheParameterGroupNameMessage
-    -- ** Response constructor
     , cacheParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , cpgnmCacheParameterGroupName
     ) where
 

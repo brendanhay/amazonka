@@ -707,7 +707,7 @@ tacrTimestamp = lens _tacrTimestamp (\ s a -> s{_tacrTimestamp = a});
 tacrStatus :: Lens' TrustedAdvisorCheckResult Text
 tacrStatus = lens _tacrStatus (\ s a -> s{_tacrStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tacrResourcesSummary :: Lens' TrustedAdvisorCheckResult TrustedAdvisorResourcesSummary
 tacrResourcesSummary = lens _tacrResourcesSummary (\ s a -> s{_tacrResourcesSummary = a});
 
@@ -787,7 +787,7 @@ tacsTimestamp = lens _tacsTimestamp (\ s a -> s{_tacsTimestamp = a});
 tacsStatus :: Lens' TrustedAdvisorCheckSummary Text
 tacsStatus = lens _tacsStatus (\ s a -> s{_tacsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tacsResourcesSummary :: Lens' TrustedAdvisorCheckSummary TrustedAdvisorResourcesSummary
 tacsResourcesSummary = lens _tacsResourcesSummary (\ s a -> s{_tacsResourcesSummary = a});
 

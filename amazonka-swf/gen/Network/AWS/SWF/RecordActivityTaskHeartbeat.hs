@@ -66,22 +66,20 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RecordActivityTaskHeartbeat.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RecordActivityTaskHeartbeat.html AWS API Reference> for RecordActivityTaskHeartbeat.
 module Network.AWS.SWF.RecordActivityTaskHeartbeat
     (
-    -- * Request
+    -- * Creating a Request
       RecordActivityTaskHeartbeat
-    -- ** Request constructor
     , recordActivityTaskHeartbeat
-    -- ** Request lenses
+    -- * Request Lenses
     , rathDetails
     , rathTaskToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RecordActivityTaskHeartbeatResponse
-    -- ** Response constructor
     , recordActivityTaskHeartbeatResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rathrsStatus
     , rathrsCancelRequested
     ) where
@@ -179,7 +177,7 @@ recordActivityTaskHeartbeatResponse pStatus_ pCancelRequested_ =
     , _rathrsCancelRequested = pCancelRequested_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rathrsStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
 rathrsStatus = lens _rathrsStatus (\ s a -> s{_rathrsStatus = a});
 

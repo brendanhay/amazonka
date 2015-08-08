@@ -59,25 +59,23 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-UploadArchive.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-UploadArchive.html AWS API Reference> for UploadArchive.
 module Network.AWS.Glacier.UploadArchive
     (
-    -- * Request
+    -- * Creating a Request
       UploadArchive
-    -- ** Request constructor
     , uploadArchive
-    -- ** Request lenses
+    -- * Request Lenses
     , uaChecksum
     , uaArchiveDescription
     , uaVaultName
     , uaAccountId
     , uaBody
 
-    -- * Response
+    -- * Destructuring the Response
     , ArchiveCreationOutput
-    -- ** Response constructor
     , archiveCreationOutput
-    -- ** Response lenses
+    -- * Response Lenses
     , acoArchiveId
     , acoChecksum
     , acoLocation

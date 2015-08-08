@@ -27,22 +27,20 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachLoadBalancers.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachLoadBalancers.html AWS API Reference> for AttachLoadBalancers.
 module Network.AWS.AutoScaling.AttachLoadBalancers
     (
-    -- * Request
+    -- * Creating a Request
       AttachLoadBalancers
-    -- ** Request constructor
     , attachLoadBalancers
-    -- ** Request lenses
+    -- * Request Lenses
     , albAutoScalingGroupName
     , albLoadBalancerNames
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachLoadBalancersResponse
-    -- ** Response constructor
     , attachLoadBalancersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , albrsStatus
     ) where
 
@@ -121,6 +119,6 @@ attachLoadBalancersResponse pStatus_ =
     { _albrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 albrsStatus :: Lens' AttachLoadBalancersResponse Int
 albrsStatus = lens _albrsStatus (\ s a -> s{_albrsStatus = a});

@@ -23,24 +23,22 @@
 -- when instances become available to Amazon EMR to use for jobs, and the
 -- IP addresses for cluster instances, etc.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html AWS API Reference> for ListInstances.
 module Network.AWS.EMR.ListInstances
     (
-    -- * Request
+    -- * Creating a Request
       ListInstances
-    -- ** Request constructor
     , listInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , liInstanceGroupTypes
     , liMarker
     , liInstanceGroupId
     , liClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListInstancesResponse
-    -- ** Response constructor
     , listInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lirsInstances
     , lirsMarker
     , lirsStatus
@@ -173,6 +171,6 @@ lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default 
 lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lirsStatus :: Lens' ListInstancesResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

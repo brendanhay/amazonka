@@ -21,19 +21,17 @@
 -- disabled the alarm\'s state may change, but none of the alarm\'s actions
 -- will execute.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.html AWS API Reference> for DisableAlarmActions.
 module Network.AWS.CloudWatch.DisableAlarmActions
     (
-    -- * Request
+    -- * Creating a Request
       DisableAlarmActions
-    -- ** Request constructor
     , disableAlarmActions
-    -- ** Request lenses
+    -- * Request Lenses
     , daaAlarmNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableAlarmActionsResponse
-    -- ** Response constructor
     , disableAlarmActionsResponse
     ) where
 

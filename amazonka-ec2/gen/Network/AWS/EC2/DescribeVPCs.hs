@@ -19,23 +19,21 @@
 --
 -- Describes one or more of your VPCs.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCs.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCs.html AWS API Reference> for DescribeVPCs.
 module Network.AWS.EC2.DescribeVPCs
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPCs
-    -- ** Request constructor
     , describeVPCs
-    -- ** Request lenses
+    -- * Request Lenses
     , dvsFilters
     , dvsVPCIds
     , dvsDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPCsResponse
-    -- ** Response constructor
     , describeVPCsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvrsVPCs
     , dvrsStatus
     ) where
@@ -165,6 +163,6 @@ describeVPCsResponse pStatus_ =
 dvrsVPCs :: Lens' DescribeVPCsResponse [VPC]
 dvrsVPCs = lens _dvrsVPCs (\ s a -> s{_dvrsVPCs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvrsStatus :: Lens' DescribeVPCsResponse Int
 dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

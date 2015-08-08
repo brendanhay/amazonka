@@ -39,21 +39,19 @@
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have been completely rebuilt.
 --
--- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebuildWorkspaces.html>
+-- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebuildWorkspaces.html AWS API Reference> for RebuildWorkspaces.
 module Network.AWS.WorkSpaces.RebuildWorkspaces
     (
-    -- * Request
+    -- * Creating a Request
       RebuildWorkspaces
-    -- ** Request constructor
     , rebuildWorkspaces
-    -- ** Request lenses
+    -- * Request Lenses
     , rwRebuildWorkspaceRequests
 
-    -- * Response
+    -- * Destructuring the Response
     , RebuildWorkspacesResponse
-    -- ** Response constructor
     , rebuildWorkspacesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rwrsFailedRequests
     , rwrsStatus
     ) where
@@ -145,6 +143,6 @@ rebuildWorkspacesResponse pStatus_ =
 rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
 rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rwrsStatus :: Lens' RebuildWorkspacesResponse Int
 rwrsStatus = lens _rwrsStatus (\ s a -> s{_rwrsStatus = a});

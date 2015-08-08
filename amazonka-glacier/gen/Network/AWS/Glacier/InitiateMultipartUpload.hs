@@ -55,24 +55,22 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html Initiate Multipart Upload>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateMultipartUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateMultipartUpload.html AWS API Reference> for InitiateMultipartUpload.
 module Network.AWS.Glacier.InitiateMultipartUpload
     (
-    -- * Request
+    -- * Creating a Request
       InitiateMultipartUpload
-    -- ** Request constructor
     , initiateMultipartUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , imuPartSize
     , imuArchiveDescription
     , imuAccountId
     , imuVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , InitiateMultipartUploadResponse
-    -- ** Response constructor
     , initiateMultipartUploadResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , imursLocation
     , imursUploadId
     , imursStatus
@@ -207,6 +205,6 @@ imursLocation = lens _imursLocation (\ s a -> s{_imursLocation = a});
 imursUploadId :: Lens' InitiateMultipartUploadResponse (Maybe Text)
 imursUploadId = lens _imursUploadId (\ s a -> s{_imursUploadId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 imursStatus :: Lens' InitiateMultipartUploadResponse Int
 imursStatus = lens _imursStatus (\ s a -> s{_imursStatus = a});

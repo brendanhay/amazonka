@@ -20,23 +20,21 @@
 -- Lists the associations for the specified configuration document or
 -- instance.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html AWS API Reference> for ListAssociations.
 module Network.AWS.SSM.ListAssociations
     (
-    -- * Request
+    -- * Creating a Request
       ListAssociations
-    -- ** Request constructor
     , listAssociations
-    -- ** Request lenses
+    -- * Request Lenses
     , laNextToken
     , laMaxResults
     , laAssociationFilterList
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAssociationsResponse
-    -- ** Response constructor
     , listAssociationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , larsNextToken
     , larsAssociations
     , larsStatus
@@ -154,6 +152,6 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsAssociations :: Lens' ListAssociationsResponse [Association]
 larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 larsStatus :: Lens' ListAssociationsResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

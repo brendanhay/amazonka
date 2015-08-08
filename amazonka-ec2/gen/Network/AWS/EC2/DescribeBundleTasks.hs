@@ -24,23 +24,21 @@
 -- it. Just use @RegisterImage@ with the Amazon S3 bucket name and image
 -- manifest name you provided to the bundle task.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeBundleTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeBundleTasks.html AWS API Reference> for DescribeBundleTasks.
 module Network.AWS.EC2.DescribeBundleTasks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeBundleTasks
-    -- ** Request constructor
     , describeBundleTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , dbtBundleIds
     , dbtFilters
     , dbtDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeBundleTasksResponse
-    -- ** Response constructor
     , describeBundleTasksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dbtrsBundleTasks
     , dbtrsStatus
     ) where
@@ -167,6 +165,6 @@ describeBundleTasksResponse pStatus_ =
 dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbtrsStatus :: Lens' DescribeBundleTasksResponse Int
 dbtrsStatus = lens _dbtrsStatus (\ s a -> s{_dbtrsStatus = a});

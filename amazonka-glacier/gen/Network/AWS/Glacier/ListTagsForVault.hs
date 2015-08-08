@@ -22,22 +22,20 @@
 -- tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListTagsForVault.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListTagsForVault.html AWS API Reference> for ListTagsForVault.
 module Network.AWS.Glacier.ListTagsForVault
     (
-    -- * Request
+    -- * Creating a Request
       ListTagsForVault
-    -- ** Request constructor
     , listTagsForVault
-    -- ** Request lenses
+    -- * Request Lenses
     , ltfvAccountId
     , ltfvVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTagsForVaultResponse
-    -- ** Response constructor
     , listTagsForVaultResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltfvrsTags
     , ltfvrsStatus
     ) where
@@ -130,6 +128,6 @@ listTagsForVaultResponse pStatus_ =
 ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
 ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltfvrsStatus :: Lens' ListTagsForVaultResponse Int
 ltfvrsStatus = lens _ltfvrsStatus (\ s a -> s{_ltfvrsStatus = a});

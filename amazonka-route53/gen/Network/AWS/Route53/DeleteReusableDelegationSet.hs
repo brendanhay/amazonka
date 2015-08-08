@@ -28,21 +28,19 @@
 -- contains associated hosted zones, Route 53 will deny your request with a
 -- @DelegationSetInUse@ error.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html AWS API Reference> for DeleteReusableDelegationSet.
 module Network.AWS.Route53.DeleteReusableDelegationSet
     (
-    -- * Request
+    -- * Creating a Request
       DeleteReusableDelegationSet
-    -- ** Request constructor
     , deleteReusableDelegationSet
-    -- ** Request lenses
+    -- * Request Lenses
     , drdsId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteReusableDelegationSetResponse
-    -- ** Response constructor
     , deleteReusableDelegationSetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drdsrsStatus
     ) where
 
@@ -113,6 +111,6 @@ deleteReusableDelegationSetResponse pStatus_ =
     { _drdsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drdsrsStatus :: Lens' DeleteReusableDelegationSetResponse Int
 drdsrsStatus = lens _drdsrsStatus (\ s a -> s{_drdsrsStatus = a});

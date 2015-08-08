@@ -20,19 +20,17 @@
 -- Marks a key as enabled, thereby permitting its use. You can have up to
 -- 25 enabled keys at one time.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html AWS API Reference> for EnableKey.
 module Network.AWS.KMS.EnableKey
     (
-    -- * Request
+    -- * Creating a Request
       EnableKey
-    -- ** Request constructor
     , enableKey
-    -- ** Request lenses
+    -- * Request Lenses
     , ekKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableKeyResponse
-    -- ** Response constructor
     , enableKeyResponse
     ) where
 

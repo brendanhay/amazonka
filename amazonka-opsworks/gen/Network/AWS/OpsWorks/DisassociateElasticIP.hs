@@ -27,19 +27,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DisassociateElasticIP.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DisassociateElasticIP.html AWS API Reference> for DisassociateElasticIP.
 module Network.AWS.OpsWorks.DisassociateElasticIP
     (
-    -- * Request
+    -- * Creating a Request
       DisassociateElasticIP
-    -- ** Request constructor
     , disassociateElasticIP
-    -- ** Request lenses
+    -- * Request Lenses
     , deiElasticIP
 
-    -- * Response
+    -- * Destructuring the Response
     , DisassociateElasticIPResponse
-    -- ** Response constructor
     , disassociateElasticIPResponse
     ) where
 

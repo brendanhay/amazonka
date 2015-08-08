@@ -21,22 +21,20 @@
 --
 -- You cannot take snapshots of extended or connected directories.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.DirectoryService.CreateSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CreateSnapshot
-    -- ** Request constructor
     , createSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , csName
     , csDirectoryId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSnapshotResponse
-    -- ** Response constructor
     , createSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsSnapshotId
     , csrsStatus
     ) where
@@ -133,6 +131,6 @@ createSnapshotResponse pStatus_ =
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' CreateSnapshotResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

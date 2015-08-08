@@ -24,19 +24,17 @@
 -- permissions. For more information on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateMyUserProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateMyUserProfile.html AWS API Reference> for UpdateMyUserProfile.
 module Network.AWS.OpsWorks.UpdateMyUserProfile
     (
-    -- * Request
+    -- * Creating a Request
       UpdateMyUserProfile
-    -- ** Request constructor
     , updateMyUserProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , umupSSHPublicKey
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateMyUserProfileResponse
-    -- ** Response constructor
     , updateMyUserProfileResponse
     ) where
 

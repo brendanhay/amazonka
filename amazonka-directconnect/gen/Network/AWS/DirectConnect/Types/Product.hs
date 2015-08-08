@@ -72,23 +72,23 @@ connection =
     , _cConnectionState = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cVlan :: Lens' Connection (Maybe Int)
 cVlan = lens _cVlan (\ s a -> s{_cVlan = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cLocation :: Lens' Connection (Maybe Text)
 cLocation = lens _cLocation (\ s a -> s{_cLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cConnectionId :: Lens' Connection (Maybe Text)
 cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cConnectionName :: Lens' Connection (Maybe Text)
 cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cPartnerName :: Lens' Connection (Maybe Text)
 cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a});
 
@@ -101,15 +101,15 @@ cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a});
 cBandwidth :: Lens' Connection (Maybe Text)
 cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cRegion :: Lens' Connection (Maybe Text)
 cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cOwnerAccount :: Lens' Connection (Maybe Text)
 cOwnerAccount = lens _cOwnerAccount (\ s a -> s{_cOwnerAccount = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cConnectionState :: Lens' Connection (Maybe ConnectionState)
 cConnectionState = lens _cConnectionState (\ s a -> s{_cConnectionState = a});
 
@@ -204,27 +204,27 @@ interconnect =
     , _iRegion = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 iInterconnectId :: Lens' Interconnect (Maybe Text)
 iInterconnectId = lens _iInterconnectId (\ s a -> s{_iInterconnectId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 iInterconnectName :: Lens' Interconnect (Maybe Text)
 iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 iLocation :: Lens' Interconnect (Maybe Text)
 iLocation = lens _iLocation (\ s a -> s{_iLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 iBandwidth :: Lens' Interconnect (Maybe Text)
 iBandwidth = lens _iBandwidth (\ s a -> s{_iBandwidth = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 iInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
 iInterconnectState = lens _iInterconnectState (\ s a -> s{_iInterconnectState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 iRegion :: Lens' Interconnect (Maybe Text)
 iRegion = lens _iRegion (\ s a -> s{_iRegion = a});
 
@@ -322,31 +322,31 @@ newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId
     , _nVirtualGatewayId = pVirtualGatewayId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 nCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nCustomerAddress = lens _nCustomerAddress (\ s a -> s{_nCustomerAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 nAmazonAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 nAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nAuthKey = lens _nAuthKey (\ s a -> s{_nAuthKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 nVirtualInterfaceName :: Lens' NewPrivateVirtualInterface Text
 nVirtualInterfaceName = lens _nVirtualInterfaceName (\ s a -> s{_nVirtualInterfaceName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 nVlan :: Lens' NewPrivateVirtualInterface Int
 nVlan = lens _nVlan (\ s a -> s{_nVlan = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 nAsn :: Lens' NewPrivateVirtualInterface Int
 nAsn = lens _nAsn (\ s a -> s{_nAsn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 nVirtualGatewayId :: Lens' NewPrivateVirtualInterface Text
 nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
 
@@ -399,27 +399,27 @@ newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
     , _npviaAsn = pAsn_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviaCustomerAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
 npviaCustomerAddress = lens _npviaCustomerAddress (\ s a -> s{_npviaCustomerAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviaAmazonAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
 npviaAmazonAddress = lens _npviaAmazonAddress (\ s a -> s{_npviaAmazonAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviaAuthKey :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
 npviaAuthKey = lens _npviaAuthKey (\ s a -> s{_npviaAuthKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviaVirtualInterfaceName :: Lens' NewPrivateVirtualInterfaceAllocation Text
 npviaVirtualInterfaceName = lens _npviaVirtualInterfaceName (\ s a -> s{_npviaVirtualInterfaceName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviaVlan :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaVlan = lens _npviaVlan (\ s a -> s{_npviaVlan = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviaAsn :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaAsn = lens _npviaAsn (\ s a -> s{_npviaAsn = a});
 
@@ -475,31 +475,31 @@ newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pC
     , _npviRouteFilterPrefixes = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
 npviAuthKey = lens _npviAuthKey (\ s a -> s{_npviAuthKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviVirtualInterfaceName :: Lens' NewPublicVirtualInterface Text
 npviVirtualInterfaceName = lens _npviVirtualInterfaceName (\ s a -> s{_npviVirtualInterfaceName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviVlan :: Lens' NewPublicVirtualInterface Int
 npviVlan = lens _npviVlan (\ s a -> s{_npviVlan = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviAsn :: Lens' NewPublicVirtualInterface Int
 npviAsn = lens _npviAsn (\ s a -> s{_npviAsn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviAmazonAddress :: Lens' NewPublicVirtualInterface Text
 npviAmazonAddress = lens _npviAmazonAddress (\ s a -> s{_npviAmazonAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviCustomerAddress :: Lens' NewPublicVirtualInterface Text
 npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
 npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Coerce;
 
@@ -556,31 +556,31 @@ newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonA
     , _newRouteFilterPrefixes = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 newAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
 newAuthKey = lens _newAuthKey (\ s a -> s{_newAuthKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 newVirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation Text
 newVirtualInterfaceName = lens _newVirtualInterfaceName (\ s a -> s{_newVirtualInterfaceName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 newVlan :: Lens' NewPublicVirtualInterfaceAllocation Int
 newVlan = lens _newVlan (\ s a -> s{_newVlan = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 newAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
 newAsn = lens _newAsn (\ s a -> s{_newAsn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 newAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
 newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 newCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
 newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
 newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Coerce;
 
@@ -657,11 +657,11 @@ virtualGateway =
     , _vgVirtualGatewayState = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vgVirtualGatewayId :: Lens' VirtualGateway (Maybe Text)
 vgVirtualGatewayId = lens _vgVirtualGatewayId (\ s a -> s{_vgVirtualGatewayId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vgVirtualGatewayState :: Lens' VirtualGateway (Maybe Text)
 vgVirtualGatewayState = lens _vgVirtualGatewayState (\ s a -> s{_vgVirtualGatewayState = a});
 
@@ -748,47 +748,47 @@ virtualInterface =
     , _viVirtualInterfaceId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
 viVirtualGatewayId = lens _viVirtualGatewayId (\ s a -> s{_viVirtualGatewayId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
 viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viCustomerAddress :: Lens' VirtualInterface (Maybe Text)
 viCustomerAddress = lens _viCustomerAddress (\ s a -> s{_viCustomerAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVlan :: Lens' VirtualInterface (Maybe Int)
 viVlan = lens _viVlan (\ s a -> s{_viVlan = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viLocation :: Lens' VirtualInterface (Maybe Text)
 viLocation = lens _viLocation (\ s a -> s{_viLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viAmazonAddress :: Lens' VirtualInterface (Maybe Text)
 viAmazonAddress = lens _viAmazonAddress (\ s a -> s{_viAmazonAddress = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVirtualInterfaceState :: Lens' VirtualInterface (Maybe VirtualInterfaceState)
 viVirtualInterfaceState = lens _viVirtualInterfaceState (\ s a -> s{_viVirtualInterfaceState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viConnectionId :: Lens' VirtualInterface (Maybe Text)
 viConnectionId = lens _viConnectionId (\ s a -> s{_viConnectionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viAsn :: Lens' VirtualInterface (Maybe Int)
 viAsn = lens _viAsn (\ s a -> s{_viAsn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVirtualInterfaceType :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceType = lens _viVirtualInterfaceType (\ s a -> s{_viVirtualInterfaceType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viAuthKey :: Lens' VirtualInterface (Maybe Text)
 viAuthKey = lens _viAuthKey (\ s a -> s{_viAuthKey = a});
 
@@ -796,15 +796,15 @@ viAuthKey = lens _viAuthKey (\ s a -> s{_viAuthKey = a});
 viCustomerRouterConfig :: Lens' VirtualInterface (Maybe Text)
 viCustomerRouterConfig = lens _viCustomerRouterConfig (\ s a -> s{_viCustomerRouterConfig = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viOwnerAccount :: Lens' VirtualInterface (Maybe Text)
 viOwnerAccount = lens _viOwnerAccount (\ s a -> s{_viOwnerAccount = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVirtualInterfaceName :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceName = lens _viVirtualInterfaceName (\ s a -> s{_viVirtualInterfaceName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 viVirtualInterfaceId :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceId = lens _viVirtualInterfaceId (\ s a -> s{_viVirtualInterfaceId = a});
 

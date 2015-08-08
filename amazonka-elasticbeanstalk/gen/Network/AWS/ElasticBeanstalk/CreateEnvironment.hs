@@ -20,14 +20,13 @@
 -- Launches an environment for the specified application using the
 -- specified configuration.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html AWS API Reference> for CreateEnvironment.
 module Network.AWS.ElasticBeanstalk.CreateEnvironment
     (
-    -- * Request
+    -- * Creating a Request
       CreateEnvironment
-    -- ** Request constructor
     , createEnvironment
-    -- ** Request lenses
+    -- * Request Lenses
     , ceCNAMEPrefix
     , ceTemplateName
     , ceOptionsToRemove
@@ -40,11 +39,10 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     , ceApplicationName
     , ceEnvironmentName
 
-    -- * Response
+    -- * Destructuring the Response
     , EnvironmentDescription
-    -- ** Response constructor
     , environmentDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , eCNAME
     , eStatus
     , eTemplateName

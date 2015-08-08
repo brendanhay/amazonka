@@ -40,20 +40,18 @@
 -- be idempotent so that receiving a particular message more than once is
 -- not a problem.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html AWS API Reference> for DeleteMessage.
 module Network.AWS.SQS.DeleteMessage
     (
-    -- * Request
+    -- * Creating a Request
       DeleteMessage
-    -- ** Request constructor
     , deleteMessage
-    -- ** Request lenses
+    -- * Request Lenses
     , dmQueueURL
     , dmReceiptHandle
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteMessageResponse
-    -- ** Response constructor
     , deleteMessageResponse
     ) where
 

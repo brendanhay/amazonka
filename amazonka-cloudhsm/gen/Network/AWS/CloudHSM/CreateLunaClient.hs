@@ -19,22 +19,20 @@
 --
 -- Creates an HSM client.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateLunaClient.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateLunaClient.html AWS API Reference> for CreateLunaClient.
 module Network.AWS.CloudHSM.CreateLunaClient
     (
-    -- * Request
+    -- * Creating a Request
       CreateLunaClient
-    -- ** Request constructor
     , createLunaClient
-    -- ** Request lenses
+    -- * Request Lenses
     , clcLabel
     , clcCertificate
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLunaClientResponse
-    -- ** Response constructor
     , createLunaClientResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clcrsClientARN
     , clcrsStatus
     ) where
@@ -133,6 +131,6 @@ createLunaClientResponse pStatus_ =
 clcrsClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
 clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clcrsStatus :: Lens' CreateLunaClientResponse Int
 clcrsStatus = lens _clcrsStatus (\ s a -> s{_clcrsStatus = a});

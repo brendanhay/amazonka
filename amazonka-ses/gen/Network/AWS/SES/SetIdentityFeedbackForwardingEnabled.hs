@@ -31,22 +31,20 @@
 -- For more information about using notifications with Amazon SES, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html AWS API Reference> for SetIdentityFeedbackForwardingEnabled.
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     (
-    -- * Request
+    -- * Creating a Request
       SetIdentityFeedbackForwardingEnabled
-    -- ** Request constructor
     , setIdentityFeedbackForwardingEnabled
-    -- ** Request lenses
+    -- * Request Lenses
     , siffeIdentity
     , siffeForwardingEnabled
 
-    -- * Response
+    -- * Destructuring the Response
     , SetIdentityFeedbackForwardingEnabledResponse
-    -- ** Response constructor
     , setIdentityFeedbackForwardingEnabledResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , siffersStatus
     ) where
 
@@ -141,6 +139,6 @@ setIdentityFeedbackForwardingEnabledResponse pStatus_ =
     { _siffersStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 siffersStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
 siffersStatus = lens _siffersStatus (\ s a -> s{_siffersStatus = a});

@@ -30,14 +30,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating Amazon EBS-Backed Linux AMIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html AWS API Reference> for CreateImage.
 module Network.AWS.EC2.CreateImage
     (
-    -- * Request
+    -- * Creating a Request
       CreateImage
-    -- ** Request constructor
     , createImage
-    -- ** Request lenses
+    -- * Request Lenses
     , ciiNoReboot
     , ciiBlockDeviceMappings
     , ciiDryRun
@@ -45,11 +44,10 @@ module Network.AWS.EC2.CreateImage
     , ciiInstanceId
     , ciiName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateImageResponse
-    -- ** Response constructor
     , createImageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cirsImageId
     , cirsStatus
     ) where
@@ -184,6 +182,6 @@ createImageResponse pStatus_ =
 cirsImageId :: Lens' CreateImageResponse (Maybe Text)
 cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cirsStatus :: Lens' CreateImageResponse Int
 cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

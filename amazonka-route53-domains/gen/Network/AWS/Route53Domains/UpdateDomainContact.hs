@@ -26,24 +26,22 @@
 -- request is not completed successfully, the domain registrant will be
 -- notified by email.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContact.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContact.html AWS API Reference> for UpdateDomainContact.
 module Network.AWS.Route53Domains.UpdateDomainContact
     (
-    -- * Request
+    -- * Creating a Request
       UpdateDomainContact
-    -- ** Request constructor
     , updateDomainContact
-    -- ** Request lenses
+    -- * Request Lenses
     , udcRegistrantContact
     , udcAdminContact
     , udcTechContact
     , udcDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateDomainContactResponse
-    -- ** Response constructor
     , updateDomainContactResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , udcrsStatus
     , udcrsOperationId
     ) where
@@ -190,7 +188,7 @@ updateDomainContactResponse pStatus_ pOperationId_ =
     , _udcrsOperationId = pOperationId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udcrsStatus :: Lens' UpdateDomainContactResponse Int
 udcrsStatus = lens _udcrsStatus (\ s a -> s{_udcrsStatus = a});
 

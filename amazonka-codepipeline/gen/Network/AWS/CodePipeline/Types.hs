@@ -13,10 +13,10 @@
 --
 module Network.AWS.CodePipeline.Types
     (
-    -- * Service
+    -- * Service Decription
       CodePipeline
 
-    -- * Errors
+    -- * Error Matchers
     , _ValidationException
     , _InvalidClientTokenException
     , _InvalidNonceException

@@ -20,19 +20,17 @@
 -- Deletes the specified user. The user must not belong to any groups, have
 -- any keys or signing certificates, or have any attached policies.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html AWS API Reference> for DeleteUser.
 module Network.AWS.IAM.DeleteUser
     (
-    -- * Request
+    -- * Creating a Request
       DeleteUser
-    -- ** Request constructor
     , deleteUser
-    -- ** Request lenses
+    -- * Request Lenses
     , duUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteUserResponse
-    -- ** Response constructor
     , deleteUserResponse
     ) where
 

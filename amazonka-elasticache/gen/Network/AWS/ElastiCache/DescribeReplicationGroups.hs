@@ -22,23 +22,21 @@
 -- /DescribeReplicationGroups/ returns information about all replication
 -- groups.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html AWS API Reference> for DescribeReplicationGroups.
 module Network.AWS.ElastiCache.DescribeReplicationGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReplicationGroups
-    -- ** Request constructor
     , describeReplicationGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , drgsMaxRecords
     , drgsMarker
     , drgsReplicationGroupId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReplicationGroupsResponse
-    -- ** Response constructor
     , describeReplicationGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drgrsMarker
     , drgrsReplicationGroups
     , drgrsStatus
@@ -173,6 +171,6 @@ drgrsMarker = lens _drgrsMarker (\ s a -> s{_drgrsMarker = a});
 drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
 drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drgrsStatus :: Lens' DescribeReplicationGroupsResponse Int
 drgrsStatus = lens _drgrsStatus (\ s a -> s{_drgrsStatus = a});

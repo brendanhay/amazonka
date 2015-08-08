@@ -17,21 +17,19 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- FIXME: Undocumented operation.
+-- Undocumented operation.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketReplication.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketReplication.html AWS API Reference> for DeleteBucketReplication.
 module Network.AWS.S3.DeleteBucketReplication
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBucketReplication
-    -- ** Request constructor
     , deleteBucketReplication
-    -- ** Request lenses
+    -- * Request Lenses
     , dbrBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBucketReplicationResponse
-    -- ** Response constructor
     , deleteBucketReplicationResponse
     ) where
 
@@ -56,7 +54,7 @@ deleteBucketReplication pBucket_ =
     { _dbrBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbrBucket :: Lens' DeleteBucketReplication BucketName
 dbrBucket = lens _dbrBucket (\ s a -> s{_dbrBucket = a});
 

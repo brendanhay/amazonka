@@ -22,19 +22,17 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html AWS API Reference> for DeleteAccountAlias.
 module Network.AWS.IAM.DeleteAccountAlias
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAccountAlias
-    -- ** Request constructor
     , deleteAccountAlias
-    -- ** Request lenses
+    -- * Request Lenses
     , daaAccountAlias
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAccountAliasResponse
-    -- ** Response constructor
     , deleteAccountAliasResponse
     ) where
 

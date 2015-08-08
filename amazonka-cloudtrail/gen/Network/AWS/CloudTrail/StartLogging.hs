@@ -19,21 +19,19 @@
 --
 -- Starts the recording of AWS API calls and log file delivery for a trail.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html AWS API Reference> for StartLogging.
 module Network.AWS.CloudTrail.StartLogging
     (
-    -- * Request
+    -- * Creating a Request
       StartLogging
-    -- ** Request constructor
     , startLogging
-    -- ** Request lenses
+    -- * Request Lenses
     , sName
 
-    -- * Response
+    -- * Destructuring the Response
     , StartLoggingResponse
-    -- ** Response constructor
     , startLoggingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsStatus
     ) where
 
@@ -111,6 +109,6 @@ startLoggingResponse pStatus_ =
     { _srsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' StartLoggingResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

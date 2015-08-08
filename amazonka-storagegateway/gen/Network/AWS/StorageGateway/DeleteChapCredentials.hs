@@ -20,22 +20,20 @@
 -- This operation deletes Challenge-Handshake Authentication Protocol
 -- (CHAP) credentials for a specified iSCSI target and initiator pair.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html AWS API Reference> for DeleteChapCredentials.
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
-    -- * Request
+    -- * Creating a Request
       DeleteChapCredentials
-    -- ** Request constructor
     , deleteChapCredentials
-    -- ** Request lenses
+    -- * Request Lenses
     , dTargetARN
     , dInitiatorName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteChapCredentialsResponse
-    -- ** Response constructor
     , deleteChapCredentialsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsTargetARN
     , drsInitiatorName
     , drsStatus
@@ -149,6 +147,6 @@ drsTargetARN = lens _drsTargetARN (\ s a -> s{_drsTargetARN = a});
 drsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteChapCredentialsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

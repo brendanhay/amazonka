@@ -43,22 +43,20 @@
 -- DescribeDBClusterParameters command to verify that your DB cluster
 -- parameter group has been created or modified.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterParameterGroup.html AWS API Reference> for ModifyDBClusterParameterGroup.
 module Network.AWS.RDS.ModifyDBClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyDBClusterParameterGroup
-    -- ** Request constructor
     , modifyDBClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mdcpgDBClusterParameterGroupName
     , mdcpgParameters
 
-    -- * Response
+    -- * Destructuring the Response
     , DBClusterParameterGroupNameMessage
-    -- ** Response constructor
     , dbClusterParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , dcpgnmDBClusterParameterGroupName
     ) where
 

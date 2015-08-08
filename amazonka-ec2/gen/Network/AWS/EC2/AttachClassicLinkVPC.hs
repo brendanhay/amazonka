@@ -31,24 +31,22 @@
 -- Linking your instance to a VPC is sometimes referred to as /attaching/
 -- your instance.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachClassicLinkVPC.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachClassicLinkVPC.html AWS API Reference> for AttachClassicLinkVPC.
 module Network.AWS.EC2.AttachClassicLinkVPC
     (
-    -- * Request
+    -- * Creating a Request
       AttachClassicLinkVPC
-    -- ** Request constructor
     , attachClassicLinkVPC
-    -- ** Request lenses
+    -- * Request Lenses
     , aclvDryRun
     , aclvInstanceId
     , aclvVPCId
     , aclvGroups
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachClassicLinkVPCResponse
-    -- ** Response constructor
     , attachClassicLinkVPCResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , aclvrsReturn
     , aclvrsStatus
     ) where
@@ -158,6 +156,6 @@ attachClassicLinkVPCResponse pStatus_ =
 aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
 aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aclvrsStatus :: Lens' AttachClassicLinkVPCResponse Int
 aclvrsStatus = lens _aclvrsStatus (\ s a -> s{_aclvrsStatus = a});

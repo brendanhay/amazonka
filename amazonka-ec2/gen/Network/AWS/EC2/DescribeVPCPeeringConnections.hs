@@ -19,23 +19,21 @@
 --
 -- Describes one or more of your VPC peering connections.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCPeeringConnections.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCPeeringConnections.html AWS API Reference> for DescribeVPCPeeringConnections.
 module Network.AWS.EC2.DescribeVPCPeeringConnections
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPCPeeringConnections
-    -- ** Request constructor
     , describeVPCPeeringConnections
-    -- ** Request lenses
+    -- * Request Lenses
     , dvpcpcFilters
     , dvpcpcVPCPeeringConnectionIds
     , dvpcpcDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPCPeeringConnectionsResponse
-    -- ** Response constructor
     , describeVPCPeeringConnectionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvpcpcrsVPCPeeringConnections
     , dvpcpcrsStatus
     ) where
@@ -185,6 +183,6 @@ describeVPCPeeringConnectionsResponse pStatus_ =
 dvpcpcrsVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
 dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{_dvpcpcrsVPCPeeringConnections = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvpcpcrsStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
 dvpcpcrsStatus = lens _dvpcpcrsStatus (\ s a -> s{_dvpcpcrsStatus = a});

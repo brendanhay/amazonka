@@ -25,21 +25,19 @@
 -- overwritten. For more information about tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AddTagsToVault.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AddTagsToVault.html AWS API Reference> for AddTagsToVault.
 module Network.AWS.Glacier.AddTagsToVault
     (
-    -- * Request
+    -- * Creating a Request
       AddTagsToVault
-    -- ** Request constructor
     , addTagsToVault
-    -- ** Request lenses
+    -- * Request Lenses
     , attvTags
     , attvAccountId
     , attvVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , AddTagsToVaultResponse
-    -- ** Response constructor
     , addTagsToVaultResponse
     ) where
 

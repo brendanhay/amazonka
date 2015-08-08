@@ -26,22 +26,20 @@
 -- @NextToken@ response member contains a token that you pass in the next
 -- call to this operation to retrieve the next set of items.
 --
--- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceDirectories.html>
+-- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceDirectories.html AWS API Reference> for DescribeWorkspaceDirectories.
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     (
-    -- * Request
+    -- * Creating a Request
       DescribeWorkspaceDirectories
-    -- ** Request constructor
     , describeWorkspaceDirectories
-    -- ** Request lenses
+    -- * Request Lenses
     , dwdNextToken
     , dwdDirectoryIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeWorkspaceDirectoriesResponse
-    -- ** Response constructor
     , describeWorkspaceDirectoriesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dwdrsDirectories
     , dwdrsNextToken
     , dwdrsStatus
@@ -157,6 +155,6 @@ dwdrsDirectories = lens _dwdrsDirectories (\ s a -> s{_dwdrsDirectories = a}) . 
 dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dwdrsStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
 dwdrsStatus = lens _dwdrsStatus (\ s a -> s{_dwdrsStatus = a});

@@ -19,19 +19,17 @@
 --
 -- Deletes an application.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.CodeDeploy.DeleteApplication
     (
-    -- * Request
+    -- * Creating a Request
       DeleteApplication
-    -- ** Request constructor
     , deleteApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , daApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteApplicationResponse
-    -- ** Response constructor
     , deleteApplicationResponse
     ) where
 

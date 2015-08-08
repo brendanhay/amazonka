@@ -20,21 +20,19 @@
 -- Disables multi-factor authentication (MFA) with Remote Authentication
 -- Dial In User Service (RADIUS) for an AD Connector directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableRadius.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableRadius.html AWS API Reference> for DisableRadius.
 module Network.AWS.DirectoryService.DisableRadius
     (
-    -- * Request
+    -- * Creating a Request
       DisableRadius
-    -- ** Request constructor
     , disableRadius
-    -- ** Request lenses
+    -- * Request Lenses
     , drDirectoryId
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableRadiusResponse
-    -- ** Response constructor
     , disableRadiusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drrsStatus
     ) where
 
@@ -112,6 +110,6 @@ disableRadiusResponse pStatus_ =
     { _drrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drrsStatus :: Lens' DisableRadiusResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

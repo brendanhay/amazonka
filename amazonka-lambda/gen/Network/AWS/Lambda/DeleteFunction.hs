@@ -25,19 +25,17 @@
 -- This operation requires permission for the @lambda:DeleteFunction@
 -- action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html AWS API Reference> for DeleteFunction.
 module Network.AWS.Lambda.DeleteFunction
     (
-    -- * Request
+    -- * Creating a Request
       DeleteFunction
-    -- ** Request constructor
     , deleteFunction
-    -- ** Request lenses
+    -- * Request Lenses
     , dfFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteFunctionResponse
-    -- ** Response constructor
     , deleteFunctionResponse
     ) where
 

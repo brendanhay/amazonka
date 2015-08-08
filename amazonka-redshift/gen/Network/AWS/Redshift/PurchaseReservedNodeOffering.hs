@@ -28,22 +28,20 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html AWS API Reference> for PurchaseReservedNodeOffering.
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
-    -- * Request
+    -- * Creating a Request
       PurchaseReservedNodeOffering
-    -- ** Request constructor
     , purchaseReservedNodeOffering
-    -- ** Request lenses
+    -- * Request Lenses
     , prnoNodeCount
     , prnoReservedNodeOfferingId
 
-    -- * Response
+    -- * Destructuring the Response
     , PurchaseReservedNodeOfferingResponse
-    -- ** Response constructor
     , purchaseReservedNodeOfferingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , prnorsReservedNode
     , prnorsStatus
     ) where
@@ -135,10 +133,10 @@ purchaseReservedNodeOfferingResponse pStatus_ =
     , _prnorsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prnorsStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
 prnorsStatus = lens _prnorsStatus (\ s a -> s{_prnorsStatus = a});

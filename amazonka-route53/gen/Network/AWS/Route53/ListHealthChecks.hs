@@ -28,22 +28,20 @@
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html AWS API Reference> for ListHealthChecks.
 module Network.AWS.Route53.ListHealthChecks
     (
-    -- * Request
+    -- * Creating a Request
       ListHealthChecks
-    -- ** Request constructor
     , listHealthChecks
-    -- ** Request lenses
+    -- * Request Lenses
     , lhcMaxItems
     , lhcMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListHealthChecksResponse
-    -- ** Response constructor
     , listHealthChecksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lhcrsNextMarker
     , lhcrsStatus
     , lhcrsHealthChecks
@@ -178,7 +176,7 @@ listHealthChecksResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
 lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lhcrsStatus :: Lens' ListHealthChecksResponse Int
 lhcrsStatus = lens _lhcrsStatus (\ s a -> s{_lhcrsStatus = a});
 

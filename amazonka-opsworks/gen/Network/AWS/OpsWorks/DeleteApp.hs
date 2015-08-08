@@ -25,19 +25,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteApp.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteApp.html AWS API Reference> for DeleteApp.
 module Network.AWS.OpsWorks.DeleteApp
     (
-    -- * Request
+    -- * Creating a Request
       DeleteApp
-    -- ** Request constructor
     , deleteApp
-    -- ** Request lenses
+    -- * Request Lenses
     , daAppId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAppResponse
-    -- ** Response constructor
     , deleteAppResponse
     ) where
 

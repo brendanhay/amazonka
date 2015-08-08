@@ -20,23 +20,21 @@
 -- Applies a pending maintenance action to a resource (for example, to a DB
 -- instance).
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ApplyPendingMaintenanceAction.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ApplyPendingMaintenanceAction.html AWS API Reference> for ApplyPendingMaintenanceAction.
 module Network.AWS.RDS.ApplyPendingMaintenanceAction
     (
-    -- * Request
+    -- * Creating a Request
       ApplyPendingMaintenanceAction
-    -- ** Request constructor
     , applyPendingMaintenanceAction
-    -- ** Request lenses
+    -- * Request Lenses
     , apmaResourceIdentifier
     , apmaApplyAction
     , apmaOptInType
 
-    -- * Response
+    -- * Destructuring the Response
     , ApplyPendingMaintenanceActionResponse
-    -- ** Response constructor
     , applyPendingMaintenanceActionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , apmarsResourcePendingMaintenanceActions
     , apmarsStatus
     ) where
@@ -147,10 +145,10 @@ applyPendingMaintenanceActionResponse pStatus_ =
     , _apmarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 apmarsResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
 apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenanceActions (\ s a -> s{_apmarsResourcePendingMaintenanceActions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 apmarsStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
 apmarsStatus = lens _apmarsStatus (\ s a -> s{_apmarsStatus = a});

@@ -19,22 +19,20 @@
 --
 -- Provides more detail about the cluster step.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeStep.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeStep.html AWS API Reference> for DescribeStep.
 module Network.AWS.EMR.DescribeStep
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStep
-    -- ** Request constructor
     , describeStep
-    -- ** Request lenses
+    -- * Request Lenses
     , dsClusterId
     , dsStepId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStepResponse
-    -- ** Response constructor
     , describeStepResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsStep
     , dsrsStatus
     ) where
@@ -130,6 +128,6 @@ describeStepResponse pStatus_ =
 dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DescribeStepResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

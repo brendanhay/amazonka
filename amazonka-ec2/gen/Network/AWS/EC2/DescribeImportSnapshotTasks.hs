@@ -19,25 +19,23 @@
 --
 -- Describes your import snapshot tasks.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportSnapshotTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportSnapshotTasks.html AWS API Reference> for DescribeImportSnapshotTasks.
 module Network.AWS.EC2.DescribeImportSnapshotTasks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeImportSnapshotTasks
-    -- ** Request constructor
     , describeImportSnapshotTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , distFilters
     , distImportTaskIds
     , distNextToken
     , distDryRun
     , distMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeImportSnapshotTasksResponse
-    -- ** Response constructor
     , describeImportSnapshotTasksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , distrsNextToken
     , distrsImportSnapshotTasks
     , distrsStatus
@@ -170,6 +168,6 @@ distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
 distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
 distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 distrsStatus :: Lens' DescribeImportSnapshotTasksResponse Int
 distrsStatus = lens _distrsStatus (\ s a -> s{_distrsStatus = a});

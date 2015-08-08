@@ -23,21 +23,19 @@
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetBulkPublishDetails.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetBulkPublishDetails.html AWS API Reference> for GetBulkPublishDetails.
 module Network.AWS.CognitoSync.GetBulkPublishDetails
     (
-    -- * Request
+    -- * Creating a Request
       GetBulkPublishDetails
-    -- ** Request constructor
     , getBulkPublishDetails
-    -- ** Request lenses
+    -- * Request Lenses
     , gbpdIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBulkPublishDetailsResponse
-    -- ** Response constructor
     , getBulkPublishDetailsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbpdrsBulkPublishStartTime
     , gbpdrsIdentityPoolId
     , gbpdrsBulkPublishCompleteTime
@@ -182,6 +180,6 @@ gbpdrsFailureMessage = lens _gbpdrsFailureMessage (\ s a -> s{_gbpdrsFailureMess
 gbpdrsBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
 gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkPublishStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbpdrsStatus :: Lens' GetBulkPublishDetailsResponse Int
 gbpdrsStatus = lens _gbpdrsStatus (\ s a -> s{_gbpdrsStatus = a});

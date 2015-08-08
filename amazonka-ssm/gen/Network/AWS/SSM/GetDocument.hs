@@ -19,21 +19,19 @@
 --
 -- Gets the contents of the specified configuration document.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_GetDocument.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_GetDocument.html AWS API Reference> for GetDocument.
 module Network.AWS.SSM.GetDocument
     (
-    -- * Request
+    -- * Creating a Request
       GetDocument
-    -- ** Request constructor
     , getDocument
-    -- ** Request lenses
+    -- * Request Lenses
     , gdName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDocumentResponse
-    -- ** Response constructor
     , getDocumentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdrsContent
     , gdrsName
     , gdrsStatus
@@ -125,6 +123,6 @@ gdrsContent = lens _gdrsContent (\ s a -> s{_gdrsContent = a});
 gdrsName :: Lens' GetDocumentResponse (Maybe Text)
 gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdrsStatus :: Lens' GetDocumentResponse Int
 gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

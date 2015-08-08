@@ -25,20 +25,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html AWS API Reference> for DeactivateMFADevice.
 module Network.AWS.IAM.DeactivateMFADevice
     (
-    -- * Request
+    -- * Creating a Request
       DeactivateMFADevice
-    -- ** Request constructor
     , deactivateMFADevice
-    -- ** Request lenses
+    -- * Request Lenses
     , dmdUserName
     , dmdSerialNumber
 
-    -- * Response
+    -- * Destructuring the Response
     , DeactivateMFADeviceResponse
-    -- ** Response constructor
     , deactivateMFADeviceResponse
     ) where
 

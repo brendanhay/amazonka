@@ -13,10 +13,10 @@
 --
 module Network.AWS.DataPipeline.Types
     (
-    -- * Service
+    -- * Service Decription
       DataPipeline
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidRequestException
     , _InternalServiceError
     , _PipelineDeletedException

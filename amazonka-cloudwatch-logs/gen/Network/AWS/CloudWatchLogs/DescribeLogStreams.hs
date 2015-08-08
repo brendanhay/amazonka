@@ -28,14 +28,13 @@
 -- request. This operation has a limit of five transactions per second,
 -- after which transactions are throttled.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html AWS API Reference> for DescribeLogStreams.
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLogStreams
-    -- ** Request constructor
     , describeLogStreams
-    -- ** Request lenses
+    -- * Request Lenses
     , dlssOrderBy
     , dlssDescending
     , dlssNextToken
@@ -43,11 +42,10 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     , dlssLimit
     , dlssLogGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLogStreamsResponse
-    -- ** Response constructor
     , describeLogStreamsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlsrsNextToken
     , dlsrsLogStreams
     , dlsrsStatus
@@ -190,14 +188,14 @@ describeLogStreamsResponse pStatus_ =
     , _dlsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlsrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrsNextToken = lens _dlsrsNextToken (\ s a -> s{_dlsrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlsrsStatus :: Lens' DescribeLogStreamsResponse Int
 dlsrsStatus = lens _dlsrsStatus (\ s a -> s{_dlsrsStatus = a});

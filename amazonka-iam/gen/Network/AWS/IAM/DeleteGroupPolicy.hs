@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html AWS API Reference> for DeleteGroupPolicy.
 module Network.AWS.IAM.DeleteGroupPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteGroupPolicy
-    -- ** Request constructor
     , deleteGroupPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dGroupName
     , dPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteGroupPolicyResponse
-    -- ** Response constructor
     , deleteGroupPolicyResponse
     ) where
 

@@ -26,14 +26,13 @@
 -- Use of this action does not change the value returned by
 -- DescribeInstanceStatus.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReportInstanceStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReportInstanceStatus.html AWS API Reference> for ReportInstanceStatus.
 module Network.AWS.EC2.ReportInstanceStatus
     (
-    -- * Request
+    -- * Creating a Request
       ReportInstanceStatus
-    -- ** Request constructor
     , reportInstanceStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , risStartTime
     , risEndTime
     , risDryRun
@@ -42,9 +41,8 @@ module Network.AWS.EC2.ReportInstanceStatus
     , risStatus
     , risReasonCodes
 
-    -- * Response
+    -- * Destructuring the Response
     , ReportInstanceStatusResponse
-    -- ** Response constructor
     , reportInstanceStatusResponse
     ) where
 

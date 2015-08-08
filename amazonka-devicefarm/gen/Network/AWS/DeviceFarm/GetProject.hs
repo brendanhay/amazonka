@@ -19,21 +19,19 @@
 --
 -- Gets information about a project.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetProject.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetProject.html AWS API Reference> for GetProject.
 module Network.AWS.DeviceFarm.GetProject
     (
-    -- * Request
+    -- * Creating a Request
       GetProject
-    -- ** Request constructor
     , getProject
-    -- ** Request lenses
+    -- * Request Lenses
     , gpArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetProjectResponse
-    -- ** Response constructor
     , getProjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gprsProject
     , gprsStatus
     ) where
@@ -115,10 +113,10 @@ getProjectResponse pStatus_ =
     , _gprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gprsProject :: Lens' GetProjectResponse (Maybe Project)
 gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gprsStatus :: Lens' GetProjectResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

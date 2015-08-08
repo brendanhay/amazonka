@@ -20,21 +20,19 @@
 -- This operation returns the current status of an operation that is not
 -- completed.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetOperationDetail.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetOperationDetail.html AWS API Reference> for GetOperationDetail.
 module Network.AWS.Route53Domains.GetOperationDetail
     (
-    -- * Request
+    -- * Creating a Request
       GetOperationDetail
-    -- ** Request constructor
     , getOperationDetail
-    -- ** Request lenses
+    -- * Request Lenses
     , godOperationId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetOperationDetailResponse
-    -- ** Response constructor
     , getOperationDetailResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , godrsSubmittedDate
     , godrsDomainName
     , godrsOperationId
@@ -179,6 +177,6 @@ godrsType = lens _godrsType (\ s a -> s{_godrsType = a});
 godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 godrsStatus :: Lens' GetOperationDetailResponse Int
 godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a});

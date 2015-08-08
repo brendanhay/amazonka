@@ -20,24 +20,22 @@
 -- Lists the set of CA certificates provided by Amazon RDS for this AWS
 -- account.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeCertificates.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeCertificates.html AWS API Reference> for DescribeCertificates.
 module Network.AWS.RDS.DescribeCertificates
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCertificates
-    -- ** Request constructor
     , describeCertificates
-    -- ** Request lenses
+    -- * Request Lenses
     , dcFilters
     , dcCertificateIdentifier
     , dcMaxRecords
     , dcMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCertificatesResponse
-    -- ** Response constructor
     , describeCertificatesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsCertificates
     , dcrsMarker
     , dcrsStatus
@@ -177,6 +175,6 @@ dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . 
 dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsStatus :: Lens' DescribeCertificatesResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

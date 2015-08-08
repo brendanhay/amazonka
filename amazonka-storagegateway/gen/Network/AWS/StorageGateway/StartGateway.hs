@@ -31,21 +31,19 @@
 -- To specify which gateway to start, use the Amazon Resource Name (ARN) of
 -- the gateway in your request.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartGateway.html AWS API Reference> for StartGateway.
 module Network.AWS.StorageGateway.StartGateway
     (
-    -- * Request
+    -- * Creating a Request
       StartGateway
-    -- ** Request constructor
     , startGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , sgGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , StartGatewayResponse
-    -- ** Response constructor
     , startGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsGatewayARN
     , srsStatus
     ) where
@@ -73,7 +71,7 @@ startGateway pGatewayARN_ =
     { _sgGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sgGatewayARN :: Lens' StartGateway Text
 sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a});
 
@@ -129,10 +127,10 @@ startGatewayResponse pStatus_ =
     , _srsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' StartGatewayResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

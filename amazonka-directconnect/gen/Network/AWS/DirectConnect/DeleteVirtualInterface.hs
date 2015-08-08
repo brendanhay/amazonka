@@ -19,21 +19,19 @@
 --
 -- Deletes a virtual interface.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html AWS API Reference> for DeleteVirtualInterface.
 module Network.AWS.DirectConnect.DeleteVirtualInterface
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVirtualInterface
-    -- ** Request constructor
     , deleteVirtualInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , dVirtualInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVirtualInterfaceResponse
-    -- ** Response constructor
     , deleteVirtualInterfaceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvirsVirtualInterfaceState
     , dvirsStatus
     ) where
@@ -61,7 +59,7 @@ deleteVirtualInterface pVirtualInterfaceId_ =
     { _dVirtualInterfaceId = pVirtualInterfaceId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
 dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a});
 
@@ -120,10 +118,10 @@ deleteVirtualInterfaceResponse pStatus_ =
     , _dvirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirsVirtualInterfaceState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvirsStatus :: Lens' DeleteVirtualInterfaceResponse Int
 dvirsStatus = lens _dvirsStatus (\ s a -> s{_dvirsStatus = a});

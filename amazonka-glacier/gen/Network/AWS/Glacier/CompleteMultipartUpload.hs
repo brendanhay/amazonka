@@ -65,25 +65,23 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-complete-upload.html Complete Multipart Upload>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CompleteMultipartUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CompleteMultipartUpload.html AWS API Reference> for CompleteMultipartUpload.
 module Network.AWS.Glacier.CompleteMultipartUpload
     (
-    -- * Request
+    -- * Creating a Request
       CompleteMultipartUpload
-    -- ** Request constructor
     , completeMultipartUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , cmuChecksum
     , cmuArchiveSize
     , cmuAccountId
     , cmuVaultName
     , cmuUploadId
 
-    -- * Response
+    -- * Destructuring the Response
     , ArchiveCreationOutput
-    -- ** Response constructor
     , archiveCreationOutput
-    -- ** Response lenses
+    -- * Response Lenses
     , acoArchiveId
     , acoChecksum
     , acoLocation

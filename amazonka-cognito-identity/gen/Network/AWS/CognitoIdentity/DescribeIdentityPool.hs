@@ -22,21 +22,19 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentityPool.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentityPool.html AWS API Reference> for DescribeIdentityPool.
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
     (
-    -- * Request
+    -- * Creating a Request
       DescribeIdentityPool
-    -- ** Request constructor
     , describeIdentityPool
-    -- ** Request lenses
+    -- * Request Lenses
     , dipIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , IdentityPool
-    -- ** Response constructor
     , identityPool
-    -- ** Response lenses
+    -- * Response Lenses
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs

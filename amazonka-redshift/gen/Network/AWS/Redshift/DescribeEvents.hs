@@ -23,14 +23,13 @@
 -- providing the name as a parameter. By default, the past hour of events
 -- are returned.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
 module Network.AWS.Redshift.DescribeEvents
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEvents
-    -- ** Request constructor
     , describeEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , deStartTime
     , deSourceType
     , deSourceIdentifier
@@ -39,11 +38,10 @@ module Network.AWS.Redshift.DescribeEvents
     , deMarker
     , deDuration
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEventsResponse
-    -- ** Response constructor
     , describeEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dersEvents
     , dersMarker
     , dersStatus
@@ -255,6 +253,6 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dersStatus :: Lens' DescribeEventsResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

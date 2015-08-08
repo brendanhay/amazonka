@@ -30,23 +30,21 @@
 -- use this action to manage root credentials even if the AWS account has
 -- no associated users.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html AWS API Reference> for ListSigningCertificates.
 module Network.AWS.IAM.ListSigningCertificates
     (
-    -- * Request
+    -- * Creating a Request
       ListSigningCertificates
-    -- ** Request constructor
     , listSigningCertificates
-    -- ** Request lenses
+    -- * Request Lenses
     , lUserName
     , lMaxItems
     , lMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListSigningCertificatesResponse
-    -- ** Response constructor
     , listSigningCertificatesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrsMarker
     , lrsIsTruncated
     , lrsStatus
@@ -180,7 +178,7 @@ lrsMarker = lens _lrsMarker (\ s a -> s{_lrsMarker = a});
 lrsIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrsStatus :: Lens' ListSigningCertificatesResponse Int
 lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
 

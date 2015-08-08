@@ -24,20 +24,18 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html AWS API Reference> for ResumeProcesses.
 module Network.AWS.AutoScaling.ResumeProcesses
     (
-    -- * Request
+    -- * Creating a Request
       ResumeProcesses
-    -- ** Request constructor
     , resumeProcesses
-    -- ** Request lenses
+    -- * Request Lenses
     , rpScalingProcesses
     , rpAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ResumeProcessesResponse
-    -- ** Response constructor
     , resumeProcessesResponse
     ) where
 

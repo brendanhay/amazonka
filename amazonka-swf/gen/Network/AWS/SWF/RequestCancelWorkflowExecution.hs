@@ -49,21 +49,19 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RequestCancelWorkflowExecution.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RequestCancelWorkflowExecution.html AWS API Reference> for RequestCancelWorkflowExecution.
 module Network.AWS.SWF.RequestCancelWorkflowExecution
     (
-    -- * Request
+    -- * Creating a Request
       RequestCancelWorkflowExecution
-    -- ** Request constructor
     , requestCancelWorkflowExecution
-    -- ** Request lenses
+    -- * Request Lenses
     , rcweRunId
     , rcweDomain
     , rcweWorkflowId
 
-    -- * Response
+    -- * Destructuring the Response
     , RequestCancelWorkflowExecutionResponse
-    -- ** Response constructor
     , requestCancelWorkflowExecutionResponse
     ) where
 

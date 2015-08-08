@@ -24,22 +24,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html Configure Health Checks>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html AWS API Reference> for ConfigureHealthCheck.
 module Network.AWS.ELB.ConfigureHealthCheck
     (
-    -- * Request
+    -- * Creating a Request
       ConfigureHealthCheck
-    -- ** Request constructor
     , configureHealthCheck
-    -- ** Request lenses
+    -- * Request Lenses
     , chcLoadBalancerName
     , chcHealthCheck
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfigureHealthCheckResponse
-    -- ** Response constructor
     , configureHealthCheckResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , chcrsHealthCheck
     , chcrsStatus
     ) where
@@ -126,6 +124,6 @@ configureHealthCheckResponse pStatus_ =
 chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chcrsStatus :: Lens' ConfigureHealthCheckResponse Int
 chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});

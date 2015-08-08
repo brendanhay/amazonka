@@ -35,22 +35,20 @@
 --
 -- @&Attribute.2=that@
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html AWS API Reference> for ChangeMessageVisibilityBatch.
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
-    -- * Request
+    -- * Creating a Request
       ChangeMessageVisibilityBatch
-    -- ** Request constructor
     , changeMessageVisibilityBatch
-    -- ** Request lenses
+    -- * Request Lenses
     , cmvbQueueURL
     , cmvbEntries
 
-    -- * Response
+    -- * Destructuring the Response
     , ChangeMessageVisibilityBatchResponse
-    -- ** Response constructor
     , changeMessageVisibilityBatchResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cmvbrsStatus
     , cmvbrsSuccessful
     , cmvbrsFailed
@@ -152,7 +150,7 @@ changeMessageVisibilityBatchResponse pStatus_ =
     , _cmvbrsFailed = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmvbrsStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
 cmvbrsStatus = lens _cmvbrsStatus (\ s a -> s{_cmvbrsStatus = a});
 

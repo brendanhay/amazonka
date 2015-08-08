@@ -20,20 +20,18 @@
 -- Unassigns one or more secondary private IP addresses from a network
 -- interface.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIPAddresses.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIPAddresses.html AWS API Reference> for UnassignPrivateIPAddresses.
 module Network.AWS.EC2.UnassignPrivateIPAddresses
     (
-    -- * Request
+    -- * Creating a Request
       UnassignPrivateIPAddresses
-    -- ** Request constructor
     , unassignPrivateIPAddresses
-    -- ** Request lenses
+    -- * Request Lenses
     , upiaNetworkInterfaceId
     , upiaPrivateIPAddresses
 
-    -- * Response
+    -- * Destructuring the Response
     , UnassignPrivateIPAddressesResponse
-    -- ** Response constructor
     , unassignPrivateIPAddressesResponse
     ) where
 

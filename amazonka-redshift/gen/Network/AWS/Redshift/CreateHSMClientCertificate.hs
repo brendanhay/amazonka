@@ -29,22 +29,20 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
 -- in the Amazon Redshift Cluster Management Guide.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHSMClientCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHSMClientCertificate.html AWS API Reference> for CreateHSMClientCertificate.
 module Network.AWS.Redshift.CreateHSMClientCertificate
     (
-    -- * Request
+    -- * Creating a Request
       CreateHSMClientCertificate
-    -- ** Request constructor
     , createHSMClientCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , chccTags
     , chccHSMClientCertificateIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateHSMClientCertificateResponse
-    -- ** Response constructor
     , createHSMClientCertificateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , chccrsHSMClientCertificate
     , chccrsStatus
     ) where
@@ -135,10 +133,10 @@ createHSMClientCertificateResponse pStatus_ =
     , _chccrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
 chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccrsHSMClientCertificate = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chccrsStatus :: Lens' CreateHSMClientCertificateResponse Int
 chccrsStatus = lens _chccrsStatus (\ s a -> s{_chccrsStatus = a});

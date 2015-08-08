@@ -28,14 +28,13 @@
 -- In your request, you must also specify an IAM role that has permission
 -- to publish logs to CloudWatch Logs.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateFlowLogs.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateFlowLogs.html AWS API Reference> for CreateFlowLogs.
 module Network.AWS.EC2.CreateFlowLogs
     (
-    -- * Request
+    -- * Creating a Request
       CreateFlowLogs
-    -- ** Request constructor
     , createFlowLogs
-    -- ** Request lenses
+    -- * Request Lenses
     , cflClientToken
     , cflResourceIds
     , cflResourceType
@@ -43,11 +42,10 @@ module Network.AWS.EC2.CreateFlowLogs
     , cflLogGroupName
     , cflDeliverLogsPermissionARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateFlowLogsResponse
-    -- ** Response constructor
     , createFlowLogsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cflrsUnsuccessful
     , cflrsClientToken
     , cflrsFlowLogIds
@@ -198,6 +196,6 @@ cflrsClientToken = lens _cflrsClientToken (\ s a -> s{_cflrsClientToken = a});
 cflrsFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
 cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cflrsStatus :: Lens' CreateFlowLogsResponse Int
 cflrsStatus = lens _cflrsStatus (\ s a -> s{_cflrsStatus = a});

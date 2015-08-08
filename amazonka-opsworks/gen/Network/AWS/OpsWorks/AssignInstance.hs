@@ -31,20 +31,18 @@
 -- information on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignInstance.html AWS API Reference> for AssignInstance.
 module Network.AWS.OpsWorks.AssignInstance
     (
-    -- * Request
+    -- * Creating a Request
       AssignInstance
-    -- ** Request constructor
     , assignInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , aiInstanceId
     , aiLayerIds
 
-    -- * Response
+    -- * Destructuring the Response
     , AssignInstanceResponse
-    -- ** Response constructor
     , assignInstanceResponse
     ) where
 

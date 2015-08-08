@@ -36,25 +36,23 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html AWS API Reference> for UploadServerCertificate.
 module Network.AWS.IAM.UploadServerCertificate
     (
-    -- * Request
+    -- * Creating a Request
       UploadServerCertificate
-    -- ** Request constructor
     , uploadServerCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , uscPath
     , uscCertificateChain
     , uscServerCertificateName
     , uscCertificateBody
     , uscPrivateKey
 
-    -- * Response
+    -- * Destructuring the Response
     , UploadServerCertificateResponse
-    -- ** Response constructor
     , uploadServerCertificateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ursServerCertificateMetadata
     , ursStatus
     ) where
@@ -186,6 +184,6 @@ uploadServerCertificateResponse pStatus_ =
 ursServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
 ursServerCertificateMetadata = lens _ursServerCertificateMetadata (\ s a -> s{_ursServerCertificateMetadata = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ursStatus :: Lens' UploadServerCertificateResponse Int
 ursStatus = lens _ursStatus (\ s a -> s{_ursStatus = a});

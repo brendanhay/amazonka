@@ -29,24 +29,22 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html AWS API Reference> for CreatePolicy.
 module Network.AWS.IAM.CreatePolicy
     (
-    -- * Request
+    -- * Creating a Request
       CreatePolicy
-    -- ** Request constructor
     , createPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , cpPath
     , cpDescription
     , cpPolicyName
     , cpPolicyDocument
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePolicyResponse
-    -- ** Response constructor
     , createPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cprsPolicy
     , cprsStatus
     ) where
@@ -164,6 +162,6 @@ createPolicyResponse pStatus_ =
 cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
 cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cprsStatus :: Lens' CreatePolicyResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

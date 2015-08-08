@@ -28,24 +28,22 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html AWS API Reference> for DescribeOrderableClusterOptions.
 module Network.AWS.Redshift.DescribeOrderableClusterOptions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeOrderableClusterOptions
-    -- ** Request constructor
     , describeOrderableClusterOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , docoMaxRecords
     , docoMarker
     , docoClusterVersion
     , docoNodeType
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeOrderableClusterOptionsResponse
-    -- ** Response constructor
     , describeOrderableClusterOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , docorsMarker
     , docorsOrderableClusterOptions
     , docorsStatus
@@ -208,6 +206,6 @@ docorsMarker = lens _docorsMarker (\ s a -> s{_docorsMarker = a});
 docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
 docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 docorsStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
 docorsStatus = lens _docorsStatus (\ s a -> s{_docorsStatus = a});

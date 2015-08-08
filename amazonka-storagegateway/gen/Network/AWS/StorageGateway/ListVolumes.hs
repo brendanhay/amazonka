@@ -29,23 +29,21 @@
 -- includes a Marker field. You can use this Marker value in your
 -- subsequent request to retrieve the next set of volumes.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html AWS API Reference> for ListVolumes.
 module Network.AWS.StorageGateway.ListVolumes
     (
-    -- * Request
+    -- * Creating a Request
       ListVolumes
-    -- ** Request constructor
     , listVolumes
-    -- ** Request lenses
+    -- * Request Lenses
     , lvMarker
     , lvLimit
     , lvGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListVolumesResponse
-    -- ** Response constructor
     , listVolumesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lvrsGatewayARN
     , lvrsMarker
     , lvrsVolumeInfos
@@ -98,7 +96,7 @@ lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
 lvLimit :: Lens' ListVolumes (Maybe Natural)
 lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvGatewayARN :: Lens' ListVolumes Text
 lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
 
@@ -171,18 +169,18 @@ listVolumesResponse pStatus_ =
     , _lvrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
 lvrsGatewayARN = lens _lvrsGatewayARN (\ s a -> s{_lvrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrsMarker :: Lens' ListVolumesResponse (Maybe Text)
 lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrsStatus :: Lens' ListVolumesResponse Int
 lvrsStatus = lens _lvrsStatus (\ s a -> s{_lvrsStatus = a});

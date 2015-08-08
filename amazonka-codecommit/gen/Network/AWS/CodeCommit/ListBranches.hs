@@ -19,22 +19,20 @@
 --
 -- Gets information about one or more branches in a repository.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_ListBranches.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_ListBranches.html AWS API Reference> for ListBranches.
 module Network.AWS.CodeCommit.ListBranches
     (
-    -- * Request
+    -- * Creating a Request
       ListBranches
-    -- ** Request constructor
     , listBranches
-    -- ** Request lenses
+    -- * Request Lenses
     , lbNextToken
     , lbRepositoryName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListBranchesResponse
-    -- ** Response constructor
     , listBranchesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lbrsBranches
     , lbrsNextToken
     , lbrsStatus
@@ -141,6 +139,6 @@ lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default . _
 lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
 lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lbrsStatus :: Lens' ListBranchesResponse Int
 lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});

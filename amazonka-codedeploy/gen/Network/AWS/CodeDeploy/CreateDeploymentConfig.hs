@@ -19,22 +19,20 @@
 --
 -- Creates a new deployment configuration.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentConfig.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentConfig.html AWS API Reference> for CreateDeploymentConfig.
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
     (
-    -- * Request
+    -- * Creating a Request
       CreateDeploymentConfig
-    -- ** Request constructor
     , createDeploymentConfig
-    -- ** Request lenses
+    -- * Request Lenses
     , cdcMinimumHealthyHosts
     , cdcDeploymentConfigName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDeploymentConfigResponse
-    -- ** Response constructor
     , createDeploymentConfigResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdcrsDeploymentConfigId
     , cdcrsStatus
     ) where
@@ -150,6 +148,6 @@ createDeploymentConfigResponse pStatus_ =
 cdcrsDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrsDeploymentConfigId = lens _cdcrsDeploymentConfigId (\ s a -> s{_cdcrsDeploymentConfigId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcrsStatus :: Lens' CreateDeploymentConfigResponse Int
 cdcrsStatus = lens _cdcrsStatus (\ s a -> s{_cdcrsStatus = a});

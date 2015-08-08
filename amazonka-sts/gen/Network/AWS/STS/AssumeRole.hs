@@ -96,14 +96,13 @@
 -- hardware or virtual MFA device. The @TokenCode@ is the time-based
 -- one-time password (TOTP) that the MFA devices produces.
 --
--- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>
+-- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AWS API Reference> for AssumeRole.
 module Network.AWS.STS.AssumeRole
     (
-    -- * Request
+    -- * Creating a Request
       AssumeRole
-    -- ** Request constructor
     , assumeRole
-    -- ** Request lenses
+    -- * Request Lenses
     , arTokenCode
     , arDurationSeconds
     , arExternalId
@@ -112,11 +111,10 @@ module Network.AWS.STS.AssumeRole
     , arRoleARN
     , arRoleSessionName
 
-    -- * Response
+    -- * Destructuring the Response
     , AssumeRoleResponse
-    -- ** Response constructor
     , assumeRoleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , arrsPackedPolicySize
     , arrsCredentials
     , arrsAssumedRoleUser
@@ -324,6 +322,6 @@ arrsCredentials = lens _arrsCredentials (\ s a -> s{_arrsCredentials = a});
 arrsAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arrsAssumedRoleUser = lens _arrsAssumedRoleUser (\ s a -> s{_arrsAssumedRoleUser = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 arrsStatus :: Lens' AssumeRoleResponse Int
 arrsStatus = lens _arrsStatus (\ s a -> s{_arrsStatus = a});

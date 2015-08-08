@@ -36,24 +36,22 @@
 -- You can use the GetEvaluation operation to check progress of the
 -- evaluation during the creation operation.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateEvaluation.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateEvaluation.html AWS API Reference> for CreateEvaluation.
 module Network.AWS.MachineLearning.CreateEvaluation
     (
-    -- * Request
+    -- * Creating a Request
       CreateEvaluation
-    -- ** Request constructor
     , createEvaluation
-    -- ** Request lenses
+    -- * Request Lenses
     , ceEvaluationName
     , ceEvaluationId
     , ceMLModelId
     , ceEvaluationDataSourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateEvaluationResponse
-    -- ** Response constructor
     , createEvaluationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cersEvaluationId
     , cersStatus
     ) where
@@ -178,6 +176,6 @@ createEvaluationResponse pStatus_ =
 cersEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
 cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cersStatus :: Lens' CreateEvaluationResponse Int
 cersStatus = lens _cersStatus (\ s a -> s{_cersStatus = a});

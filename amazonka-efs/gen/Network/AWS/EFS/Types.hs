@@ -13,10 +13,10 @@
 --
 module Network.AWS.EFS.Types
     (
-    -- * Service
+    -- * Service Decription
       EFS
 
-    -- * Errors
+    -- * Error Matchers
     , _MountTargetNotFound
     , _SecurityGroupLimitExceeded
     , _MountTargetConflict

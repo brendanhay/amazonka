@@ -17,23 +17,21 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- FIXME: Undocumented operation.
+-- Undocumented operation.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketReplication.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketReplication.html AWS API Reference> for GetBucketReplication.
 module Network.AWS.S3.GetBucketReplication
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketReplication
-    -- ** Request constructor
     , getBucketReplication
-    -- ** Request lenses
+    -- * Request Lenses
     , gbrBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketReplicationResponse
-    -- ** Response constructor
     , getBucketReplicationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbrrsReplicationConfiguration
     , gbrrsStatus
     ) where
@@ -59,7 +57,7 @@ getBucketReplication pBucket_ =
     { _gbrBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbrBucket :: Lens' GetBucketReplication BucketName
 gbrBucket = lens _gbrBucket (\ s a -> s{_gbrBucket = a});
 
@@ -104,10 +102,10 @@ getBucketReplicationResponse pStatus_ =
     , _gbrrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
 gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{_gbrrsReplicationConfiguration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbrrsStatus :: Lens' GetBucketReplicationResponse Int
 gbrrsStatus = lens _gbrrsStatus (\ s a -> s{_gbrrsStatus = a});

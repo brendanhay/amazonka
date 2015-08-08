@@ -32,22 +32,20 @@
 -- This practice ensures that you always have the most recent set of
 -- service and category codes.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeServices.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeServices.html AWS API Reference> for DescribeServices.
 module Network.AWS.Support.DescribeServices
     (
-    -- * Request
+    -- * Creating a Request
       DescribeServices
-    -- ** Request constructor
     , describeServices
-    -- ** Request lenses
+    -- * Request Lenses
     , dsServiceCodeList
     , dsLanguage
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeServicesResponse
-    -- ** Response constructor
     , describeServicesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsServices
     , dsrsStatus
     ) where
@@ -147,6 +145,6 @@ describeServicesResponse pStatus_ =
 dsrsServices :: Lens' DescribeServicesResponse [SupportService]
 dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DescribeServicesResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

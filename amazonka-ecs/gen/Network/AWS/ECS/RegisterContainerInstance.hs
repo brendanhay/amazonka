@@ -23,14 +23,13 @@
 -- Registers an Amazon EC2 instance into the specified cluster. This
 -- instance will become available to place containers on.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterContainerInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterContainerInstance.html AWS API Reference> for RegisterContainerInstance.
 module Network.AWS.ECS.RegisterContainerInstance
     (
-    -- * Request
+    -- * Creating a Request
       RegisterContainerInstance
-    -- ** Request constructor
     , registerContainerInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , rciInstanceIdentityDocumentSignature
     , rciCluster
     , rciInstanceIdentityDocument
@@ -38,11 +37,10 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rciVersionInfo
     , rciTotalResources
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterContainerInstanceResponse
-    -- ** Response constructor
     , registerContainerInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rcirsContainerInstance
     , rcirsStatus
     ) where
@@ -181,10 +179,10 @@ registerContainerInstanceResponse pStatus_ =
     , _rcirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
 rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContainerInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcirsStatus :: Lens' RegisterContainerInstanceResponse Int
 rcirsStatus = lens _rcirsStatus (\ s a -> s{_rcirsStatus = a});

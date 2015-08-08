@@ -19,19 +19,17 @@
 --
 -- Deletes the specified cluster subnet group.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html AWS API Reference> for DeleteClusterSubnetGroup.
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteClusterSubnetGroup
-    -- ** Request constructor
     , deleteClusterSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsgClusterSubnetGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteClusterSubnetGroupResponse
-    -- ** Response constructor
     , deleteClusterSubnetGroupResponse
     ) where
 

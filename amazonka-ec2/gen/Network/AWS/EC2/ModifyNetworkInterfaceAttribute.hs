@@ -20,14 +20,13 @@
 -- Modifies the specified network interface attribute. You can specify only
 -- one attribute at a time.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyNetworkInterfaceAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyNetworkInterfaceAttribute.html AWS API Reference> for ModifyNetworkInterfaceAttribute.
 module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ModifyNetworkInterfaceAttribute
-    -- ** Request constructor
     , modifyNetworkInterfaceAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , mniaGroups
     , mniaSourceDestCheck
     , mniaAttachment
@@ -35,9 +34,8 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , mniaDescription
     , mniaNetworkInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyNetworkInterfaceAttributeResponse
-    -- ** Response constructor
     , modifyNetworkInterfaceAttributeResponse
     ) where
 

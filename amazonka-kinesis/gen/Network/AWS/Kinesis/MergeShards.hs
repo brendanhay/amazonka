@@ -58,21 +58,19 @@
 --
 -- @MergeShards@ has limit of 5 transactions per second per account.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html AWS API Reference> for MergeShards.
 module Network.AWS.Kinesis.MergeShards
     (
-    -- * Request
+    -- * Creating a Request
       MergeShards
-    -- ** Request constructor
     , mergeShards
-    -- ** Request lenses
+    -- * Request Lenses
     , msStreamName
     , msShardToMerge
     , msAdjacentShardToMerge
 
-    -- * Response
+    -- * Destructuring the Response
     , MergeShardsResponse
-    -- ** Response constructor
     , mergeShardsResponse
     ) where
 

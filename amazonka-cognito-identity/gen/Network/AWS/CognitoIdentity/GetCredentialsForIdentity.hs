@@ -24,22 +24,20 @@
 --
 -- This is a public API. You do not need any credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html AWS API Reference> for GetCredentialsForIdentity.
 module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     (
-    -- * Request
+    -- * Creating a Request
       GetCredentialsForIdentity
-    -- ** Request constructor
     , getCredentialsForIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , gcfiLogins
     , gcfiIdentityId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetCredentialsForIdentityResponse
-    -- ** Response constructor
     , getCredentialsForIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcfirsCredentials
     , gcfirsIdentityId
     , gcfirsStatus
@@ -150,6 +148,6 @@ gcfirsCredentials = lens _gcfirsCredentials (\ s a -> s{_gcfirsCredentials = a})
 gcfirsIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcfirsStatus :: Lens' GetCredentialsForIdentityResponse Int
 gcfirsStatus = lens _gcfirsStatus (\ s a -> s{_gcfirsStatus = a});

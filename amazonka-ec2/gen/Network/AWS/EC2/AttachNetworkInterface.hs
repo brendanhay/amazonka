@@ -19,24 +19,22 @@
 --
 -- Attaches a network interface to an instance.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html AWS API Reference> for AttachNetworkInterface.
 module Network.AWS.EC2.AttachNetworkInterface
     (
-    -- * Request
+    -- * Creating a Request
       AttachNetworkInterface
-    -- ** Request constructor
     , attachNetworkInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , aniDryRun
     , aniNetworkInterfaceId
     , aniInstanceId
     , aniDeviceIndex
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachNetworkInterfaceResponse
-    -- ** Response constructor
     , attachNetworkInterfaceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , anirsAttachmentId
     , anirsStatus
     ) where
@@ -145,6 +143,6 @@ attachNetworkInterfaceResponse pStatus_ =
 anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 anirsStatus :: Lens' AttachNetworkInterfaceResponse Int
 anirsStatus = lens _anirsStatus (\ s a -> s{_anirsStatus = a});

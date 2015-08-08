@@ -19,22 +19,20 @@
 --
 -- List origin access identities.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListCloudFrontOriginAccessIdentities.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListCloudFrontOriginAccessIdentities.html AWS API Reference> for ListCloudFrontOriginAccessIdentities.
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     (
-    -- * Request
+    -- * Creating a Request
       ListCloudFrontOriginAccessIdentities
-    -- ** Request constructor
     , listCloudFrontOriginAccessIdentities
-    -- ** Request lenses
+    -- * Request Lenses
     , lcfoaiMaxItems
     , lcfoaiMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListCloudFrontOriginAccessIdentitiesResponse
-    -- ** Response constructor
     , listCloudFrontOriginAccessIdentitiesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lcfoairsStatus
     , lcfoairsCloudFrontOriginAccessIdentityList
     ) where
@@ -131,7 +129,7 @@ listCloudFrontOriginAccessIdentitiesResponse pStatus_ pCloudFrontOriginAccessIde
     , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lcfoairsStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
 lcfoairsStatus = lens _lcfoairsStatus (\ s a -> s{_lcfoairsStatus = a});
 

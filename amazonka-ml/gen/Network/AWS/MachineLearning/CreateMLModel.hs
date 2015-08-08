@@ -37,14 +37,13 @@
 -- CreateDataSourceFromRDS, CreateDataSourceFromS3, or
 -- CreateDataSourceFromRedshift operations.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateMLModel.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateMLModel.html AWS API Reference> for CreateMLModel.
 module Network.AWS.MachineLearning.CreateMLModel
     (
-    -- * Request
+    -- * Creating a Request
       CreateMLModel
-    -- ** Request constructor
     , createMLModel
-    -- ** Request lenses
+    -- * Request Lenses
     , cmlmRecipe
     , cmlmRecipeURI
     , cmlmMLModelName
@@ -53,11 +52,10 @@ module Network.AWS.MachineLearning.CreateMLModel
     , cmlmMLModelType
     , cmlmTrainingDataSourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateMLModelResponse
-    -- ** Response constructor
     , createMLModelResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cmlmrsMLModelId
     , cmlmrsStatus
     ) where
@@ -253,6 +251,6 @@ createMLModelResponse pStatus_ =
 cmlmrsMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
 cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmlmrsStatus :: Lens' CreateMLModelResponse Int
 cmlmrsStatus = lens _cmlmrsStatus (\ s a -> s{_cmlmrsStatus = a});

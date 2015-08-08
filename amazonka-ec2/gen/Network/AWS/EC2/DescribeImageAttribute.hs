@@ -20,23 +20,21 @@
 -- Describes the specified attribute of the specified AMI. You can specify
 -- only one attribute at a time.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html AWS API Reference> for DescribeImageAttribute.
 module Network.AWS.EC2.DescribeImageAttribute
     (
-    -- * Request
+    -- * Creating a Request
       DescribeImageAttribute
-    -- ** Request constructor
     , describeImageAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , diaiDryRun
     , diaiImageId
     , diaiAttribute
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeImageAttributeResponse
-    -- ** Response constructor
     , describeImageAttributeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , diarsLaunchPermissions
     , diarsRAMDiskId
     , diarsKernelId
@@ -198,7 +196,7 @@ diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a});
 diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a});
 
@@ -218,6 +216,6 @@ diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBloc
 diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diarsStatus :: Lens' DescribeImageAttributeResponse Int
 diarsStatus = lens _diarsStatus (\ s a -> s{_diarsStatus = a});

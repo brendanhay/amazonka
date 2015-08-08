@@ -52,14 +52,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_TerminateWorkflowExecution.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_TerminateWorkflowExecution.html AWS API Reference> for TerminateWorkflowExecution.
 module Network.AWS.SWF.TerminateWorkflowExecution
     (
-    -- * Request
+    -- * Creating a Request
       TerminateWorkflowExecution
-    -- ** Request constructor
     , terminateWorkflowExecution
-    -- ** Request lenses
+    -- * Request Lenses
     , tweRunId
     , tweReason
     , tweDetails
@@ -67,9 +66,8 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     , tweDomain
     , tweWorkflowId
 
-    -- * Response
+    -- * Destructuring the Response
     , TerminateWorkflowExecutionResponse
-    -- ** Response constructor
     , terminateWorkflowExecutionResponse
     ) where
 

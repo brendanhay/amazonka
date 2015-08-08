@@ -19,21 +19,19 @@
 --
 -- Returns the versioning state of a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketVersioning.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketVersioning.html AWS API Reference> for GetBucketVersioning.
 module Network.AWS.S3.GetBucketVersioning
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketVersioning
-    -- ** Request constructor
     , getBucketVersioning
-    -- ** Request lenses
+    -- * Request Lenses
     , gbvBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketVersioningResponse
-    -- ** Response constructor
     , getBucketVersioningResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbvrsMFADelete
     , gbvrsStatus
     ) where
@@ -59,7 +57,7 @@ getBucketVersioning pBucket_ =
     { _gbvBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbvBucket :: Lens' GetBucketVersioning BucketName
 gbvBucket = lens _gbvBucket (\ s a -> s{_gbvBucket = a});
 
@@ -111,6 +109,6 @@ getBucketVersioningResponse pStatus_ =
 gbvrsMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbvrsStatus :: Lens' GetBucketVersioningResponse Int
 gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});

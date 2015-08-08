@@ -26,23 +26,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances>
 -- in the Amazon Elastic Compute Cloud User Guide.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html AWS API Reference> for DescribeReservedInstancesModifications.
 module Network.AWS.EC2.DescribeReservedInstancesModifications
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedInstancesModifications
-    -- ** Request constructor
     , describeReservedInstancesModifications
-    -- ** Request lenses
+    -- * Request Lenses
     , drimFilters
     , drimReservedInstancesModificationIds
     , drimNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedInstancesModificationsResponse
-    -- ** Response constructor
     , describeReservedInstancesModificationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drimrsNextToken
     , drimrsReservedInstancesModifications
     , drimrsStatus
@@ -206,6 +204,6 @@ drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drimrsStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
 drimrsStatus = lens _drimrsStatus (\ s a -> s{_drimrsStatus = a});

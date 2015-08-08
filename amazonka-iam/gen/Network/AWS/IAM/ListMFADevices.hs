@@ -25,23 +25,21 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html AWS API Reference> for ListMFADevices.
 module Network.AWS.IAM.ListMFADevices
     (
-    -- * Request
+    -- * Creating a Request
       ListMFADevices
-    -- ** Request constructor
     , listMFADevices
-    -- ** Request lenses
+    -- * Request Lenses
     , lmdUserName
     , lmdMaxItems
     , lmdMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListMFADevicesResponse
-    -- ** Response constructor
     , listMFADevicesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lmdrsMarker
     , lmdrsIsTruncated
     , lmdrsStatus
@@ -174,7 +172,7 @@ lmdrsMarker = lens _lmdrsMarker (\ s a -> s{_lmdrsMarker = a});
 lmdrsIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmdrsIsTruncated = lens _lmdrsIsTruncated (\ s a -> s{_lmdrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lmdrsStatus :: Lens' ListMFADevicesResponse Int
 lmdrsStatus = lens _lmdrsStatus (\ s a -> s{_lmdrsStatus = a});
 

@@ -31,14 +31,13 @@
 -- stack, and monitoring the progress of the update, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html Updating a Stack>.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html AWS API Reference> for UpdateStack.
 module Network.AWS.CloudFormation.UpdateStack
     (
-    -- * Request
+    -- * Creating a Request
       UpdateStack
-    -- ** Request constructor
     , updateStack
-    -- ** Request lenses
+    -- * Request Lenses
     , usUsePreviousTemplate
     , usNotificationARNs
     , usStackPolicyBody
@@ -51,11 +50,10 @@ module Network.AWS.CloudFormation.UpdateStack
     , usCapabilities
     , usStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateStackResponse
-    -- ** Response constructor
     , updateStackResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , usrsStackId
     , usrsStatus
     ) where
@@ -296,6 +294,6 @@ updateStackResponse pStatus_ =
 usrsStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrsStackId = lens _usrsStackId (\ s a -> s{_usrsStackId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usrsStatus :: Lens' UpdateStackResponse Int
 usrsStatus = lens _usrsStatus (\ s a -> s{_usrsStatus = a});

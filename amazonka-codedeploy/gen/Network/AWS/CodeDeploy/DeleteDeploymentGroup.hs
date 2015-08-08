@@ -19,22 +19,20 @@
 --
 -- Deletes a deployment group.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html AWS API Reference> for DeleteDeploymentGroup.
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDeploymentGroup
-    -- ** Request constructor
     , deleteDeploymentGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ddgApplicationName
     , ddgDeploymentGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDeploymentGroupResponse
-    -- ** Response constructor
     , deleteDeploymentGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddgrsHooksNotCleanedUp
     , ddgrsStatus
     ) where
@@ -140,6 +138,6 @@ deleteDeploymentGroupResponse pStatus_ =
 ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddgrsStatus :: Lens' DeleteDeploymentGroupResponse Int
 ddgrsStatus = lens _ddgrsStatus (\ s a -> s{_ddgrsStatus = a});

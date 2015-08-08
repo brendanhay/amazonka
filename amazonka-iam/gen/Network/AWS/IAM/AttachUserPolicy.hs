@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html AWS API Reference> for AttachUserPolicy.
 module Network.AWS.IAM.AttachUserPolicy
     (
-    -- * Request
+    -- * Creating a Request
       AttachUserPolicy
-    -- ** Request constructor
     , attachUserPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , aupUserName
     , aupPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachUserPolicyResponse
-    -- ** Response constructor
     , attachUserPolicyResponse
     ) where
 
@@ -72,7 +70,7 @@ attachUserPolicy pUserName_ pPolicyARN_ =
 aupUserName :: Lens' AttachUserPolicy Text
 aupUserName = lens _aupUserName (\ s a -> s{_aupUserName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aupPolicyARN :: Lens' AttachUserPolicy Text
 aupPolicyARN = lens _aupPolicyARN (\ s a -> s{_aupPolicyARN = a});
 

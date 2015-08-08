@@ -33,21 +33,19 @@
 -- request with a @HostedZoneNotEmpty@ error. For information about
 -- deleting records from your hosted zone, see ChangeResourceRecordSets.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html AWS API Reference> for DeleteHostedZone.
 module Network.AWS.Route53.DeleteHostedZone
     (
-    -- * Request
+    -- * Creating a Request
       DeleteHostedZone
-    -- ** Request constructor
     , deleteHostedZone
-    -- ** Request lenses
+    -- * Request Lenses
     , dhzId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteHostedZoneResponse
-    -- ** Response constructor
     , deleteHostedZoneResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dhzrsStatus
     , dhzrsChangeInfo
     ) where
@@ -122,7 +120,7 @@ deleteHostedZoneResponse pStatus_ pChangeInfo_ =
     , _dhzrsChangeInfo = pChangeInfo_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhzrsStatus :: Lens' DeleteHostedZoneResponse Int
 dhzrsStatus = lens _dhzrsStatus (\ s a -> s{_dhzrsStatus = a});
 

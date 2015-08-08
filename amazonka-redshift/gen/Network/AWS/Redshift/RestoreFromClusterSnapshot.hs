@@ -34,14 +34,13 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html AWS API Reference> for RestoreFromClusterSnapshot.
 module Network.AWS.Redshift.RestoreFromClusterSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       RestoreFromClusterSnapshot
-    -- ** Request constructor
     , restoreFromClusterSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , rfcsPubliclyAccessible
     , rfcsHSMConfigurationIdentifier
     , rfcsSnapshotClusterIdentifier
@@ -62,11 +61,10 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , rfcsClusterIdentifier
     , rfcsSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreFromClusterSnapshotResponse
-    -- ** Response constructor
     , restoreFromClusterSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rfcsrsCluster
     , rfcsrsStatus
     ) where
@@ -405,10 +403,10 @@ restoreFromClusterSnapshotResponse pStatus_ =
     , _rfcsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rfcsrsCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrsCluster = lens _rfcsrsCluster (\ s a -> s{_rfcsrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rfcsrsStatus :: Lens' RestoreFromClusterSnapshotResponse Int
 rfcsrsStatus = lens _rfcsrsStatus (\ s a -> s{_rfcsrsStatus = a});

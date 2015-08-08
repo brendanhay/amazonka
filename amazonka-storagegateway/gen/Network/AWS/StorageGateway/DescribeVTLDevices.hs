@@ -23,24 +23,22 @@
 --
 -- The list of VTL devices must be from one gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html AWS API Reference> for DescribeVTLDevices.
 module Network.AWS.StorageGateway.DescribeVTLDevices
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVTLDevices
-    -- ** Request constructor
     , describeVTLDevices
-    -- ** Request lenses
+    -- * Request Lenses
     , dvtldMarker
     , dvtldLimit
     , dvtldVTLDeviceARNs
     , dvtldGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVTLDevicesResponse
-    -- ** Response constructor
     , describeVTLDevicesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvtldrsGatewayARN
     , dvtldrsVTLDevices
     , dvtldrsMarker
@@ -102,7 +100,7 @@ dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat;
 dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
 dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvtldGatewayARN :: Lens' DescribeVTLDevices Text
 dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
 
@@ -180,7 +178,7 @@ describeVTLDevicesResponse pStatus_ =
     , _dvtldrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvtldrsGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrsGatewayARN = lens _dvtldrsGatewayARN (\ s a -> s{_dvtldrsGatewayARN = a});
 
@@ -197,6 +195,6 @@ dvtldrsVTLDevices = lens _dvtldrsVTLDevices (\ s a -> s{_dvtldrsVTLDevices = a})
 dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvtldrsStatus :: Lens' DescribeVTLDevicesResponse Int
 dvtldrsStatus = lens _dvtldrsStatus (\ s a -> s{_dvtldrsStatus = a});

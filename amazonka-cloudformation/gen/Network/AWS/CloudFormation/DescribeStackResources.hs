@@ -38,23 +38,21 @@
 -- A @ValidationError@ is returned if you specify both @StackName@ and
 -- @PhysicalResourceId@ in the same request.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html AWS API Reference> for DescribeStackResources.
 module Network.AWS.CloudFormation.DescribeStackResources
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStackResources
-    -- ** Request constructor
     , describeStackResources
-    -- ** Request lenses
+    -- * Request Lenses
     , dsrLogicalResourceId
     , dsrPhysicalResourceId
     , dsrStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStackResourcesResponse
-    -- ** Response constructor
     , describeStackResourcesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStackResources
     , drsStatus
     ) where
@@ -180,6 +178,6 @@ describeStackResourcesResponse pStatus_ =
 drsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeStackResourcesResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

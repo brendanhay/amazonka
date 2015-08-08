@@ -26,24 +26,22 @@
 -- filters returned in the response by specifying the @limit@ parameter in
 -- the request.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html AWS API Reference> for DescribeMetricFilters.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMetricFilters
-    -- ** Request constructor
     , describeMetricFilters
-    -- ** Request lenses
+    -- * Request Lenses
     , dmfFilterNamePrefix
     , dmfNextToken
     , dmfLimit
     , dmfLogGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMetricFiltersResponse
-    -- ** Response constructor
     , describeMetricFiltersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmfrsNextToken
     , dmfrsMetricFilters
     , dmfrsStatus
@@ -163,14 +161,14 @@ describeMetricFiltersResponse pStatus_ =
     , _dmfrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrsNextToken = lens _dmfrsNextToken (\ s a -> s{_dmfrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmfrsStatus :: Lens' DescribeMetricFiltersResponse Int
 dmfrsStatus = lens _dmfrsStatus (\ s a -> s{_dmfrsStatus = a});

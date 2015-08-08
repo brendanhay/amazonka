@@ -23,21 +23,19 @@
 -- the progress and completion of the action. If the request is not
 -- completed successfully, the domain registrant will be notified by email.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainTransferLock.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainTransferLock.html AWS API Reference> for EnableDomainTransferLock.
 module Network.AWS.Route53Domains.EnableDomainTransferLock
     (
-    -- * Request
+    -- * Creating a Request
       EnableDomainTransferLock
-    -- ** Request constructor
     , enableDomainTransferLock
-    -- ** Request lenses
+    -- * Request Lenses
     , edtlDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableDomainTransferLockResponse
-    -- ** Response constructor
     , enableDomainTransferLockResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , edtlrsStatus
     , edtlrsOperationId
     ) where
@@ -132,7 +130,7 @@ enableDomainTransferLockResponse pStatus_ pOperationId_ =
     , _edtlrsOperationId = pOperationId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 edtlrsStatus :: Lens' EnableDomainTransferLockResponse Int
 edtlrsStatus = lens _edtlrsStatus (\ s a -> s{_edtlrsStatus = a});
 

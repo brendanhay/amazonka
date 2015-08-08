@@ -19,23 +19,21 @@
 --
 -- Describes one or more of your Internet gateways.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInternetGateways.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInternetGateways.html AWS API Reference> for DescribeInternetGateways.
 module Network.AWS.EC2.DescribeInternetGateways
     (
-    -- * Request
+    -- * Creating a Request
       DescribeInternetGateways
-    -- ** Request constructor
     , describeInternetGateways
-    -- ** Request lenses
+    -- * Request Lenses
     , dFilters
     , dInternetGatewayIds
     , dDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeInternetGatewaysResponse
-    -- ** Response constructor
     , describeInternetGatewaysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , digrsInternetGateways
     , digrsStatus
     ) where
@@ -163,6 +161,6 @@ describeInternetGatewaysResponse pStatus_ =
 digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGateways = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 digrsStatus :: Lens' DescribeInternetGatewaysResponse Int
 digrsStatus = lens _digrsStatus (\ s a -> s{_digrsStatus = a});

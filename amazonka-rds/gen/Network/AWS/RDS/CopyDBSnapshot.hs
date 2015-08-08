@@ -20,24 +20,22 @@
 -- Copies the specified DBSnapshot. The source DBSnapshot must be in the
 -- \"available\" state.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBSnapshot.html AWS API Reference> for CopyDBSnapshot.
 module Network.AWS.RDS.CopyDBSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CopyDBSnapshot
-    -- ** Request constructor
     , copyDBSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , cdsCopyTags
     , cdsTags
     , cdsSourceDBSnapshotIdentifier
     , cdsTargetDBSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CopyDBSnapshotResponse
-    -- ** Response constructor
     , copyDBSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdsrsDBSnapshot
     , cdsrsStatus
     ) where
@@ -81,7 +79,7 @@ copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
 cdsCopyTags :: Lens' CopyDBSnapshot (Maybe Bool)
 cdsCopyTags = lens _cdsCopyTags (\ s a -> s{_cdsCopyTags = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsTags :: Lens' CopyDBSnapshot [Tag]
 cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default . _Coerce;
 
@@ -164,10 +162,10 @@ copyDBSnapshotResponse pStatus_ =
     , _cdsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsrsDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdsrsDBSnapshot = lens _cdsrsDBSnapshot (\ s a -> s{_cdsrsDBSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsrsStatus :: Lens' CopyDBSnapshotResponse Int
 cdsrsStatus = lens _cdsrsStatus (\ s a -> s{_cdsrsStatus = a});

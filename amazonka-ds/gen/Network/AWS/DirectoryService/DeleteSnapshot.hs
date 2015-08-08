@@ -19,21 +19,19 @@
 --
 -- Deletes a directory snapshot.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteSnapshot.html AWS API Reference> for DeleteSnapshot.
 module Network.AWS.DirectoryService.DeleteSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSnapshot
-    -- ** Request constructor
     , deleteSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , dsSnapshotId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSnapshotResponse
-    -- ** Response constructor
     , deleteSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsSnapshotId
     , dsrsStatus
     ) where
@@ -121,6 +119,6 @@ deleteSnapshotResponse pStatus_ =
 dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
 dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DeleteSnapshotResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

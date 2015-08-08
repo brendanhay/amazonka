@@ -19,14 +19,13 @@
 --
 -- Creates a Simple AD directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html AWS API Reference> for CreateDirectory.
 module Network.AWS.DirectoryService.CreateDirectory
     (
-    -- * Request
+    -- * Creating a Request
       CreateDirectory
-    -- ** Request constructor
     , createDirectory
-    -- ** Request lenses
+    -- * Request Lenses
     , cShortName
     , cVPCSettings
     , cDescription
@@ -34,11 +33,10 @@ module Network.AWS.DirectoryService.CreateDirectory
     , cPassword
     , cSize
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDirectoryResponse
-    -- ** Response constructor
     , createDirectoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsDirectoryId
     , crsStatus
     ) where
@@ -173,6 +171,6 @@ createDirectoryResponse pStatus_ =
 crsDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
 crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CreateDirectoryResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

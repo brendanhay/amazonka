@@ -22,21 +22,19 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentities.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentities.html AWS API Reference> for DeleteIdentities.
 module Network.AWS.CognitoIdentity.DeleteIdentities
     (
-    -- * Request
+    -- * Creating a Request
       DeleteIdentities
-    -- ** Request constructor
     , deleteIdentities
-    -- ** Request lenses
+    -- * Request Lenses
     , diIdentityIdsToDelete
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteIdentitiesResponse
-    -- ** Response constructor
     , deleteIdentitiesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dirsUnprocessedIdentityIds
     , dirsStatus
     ) where
@@ -127,6 +125,6 @@ deleteIdentitiesResponse pStatus_ =
 dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
 dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsStatus :: Lens' DeleteIdentitiesResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

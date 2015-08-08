@@ -19,21 +19,19 @@
 --
 -- Retrieves information about the specified server certificate.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html AWS API Reference> for GetServerCertificate.
 module Network.AWS.IAM.GetServerCertificate
     (
-    -- * Request
+    -- * Creating a Request
       GetServerCertificate
-    -- ** Request constructor
     , getServerCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , gscServerCertificateName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetServerCertificateResponse
-    -- ** Response constructor
     , getServerCertificateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gscrsStatus
     , gscrsServerCertificate
     ) where
@@ -110,7 +108,7 @@ getServerCertificateResponse pStatus_ pServerCertificate_ =
     , _gscrsServerCertificate = pServerCertificate_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gscrsStatus :: Lens' GetServerCertificateResponse Int
 gscrsStatus = lens _gscrsStatus (\ s a -> s{_gscrsStatus = a});
 

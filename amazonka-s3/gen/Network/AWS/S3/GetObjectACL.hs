@@ -19,24 +19,22 @@
 --
 -- Returns the access control list (ACL) of an object.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectACL.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectACL.html AWS API Reference> for GetObjectACL.
 module Network.AWS.S3.GetObjectACL
     (
-    -- * Request
+    -- * Creating a Request
       GetObjectACL
-    -- ** Request constructor
     , getObjectACL
-    -- ** Request lenses
+    -- * Request Lenses
     , goaVersionId
     , goaRequestPayer
     , goaBucket
     , goaKey
 
-    -- * Response
+    -- * Destructuring the Response
     , GetObjectACLResponse
-    -- ** Response constructor
     , getObjectACLResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , goarsRequestCharged
     , goarsGrants
     , goarsOwner
@@ -80,15 +78,15 @@ getObjectACL pBucket_ pKey_ =
 goaVersionId :: Lens' GetObjectACL (Maybe ObjectVersionId)
 goaVersionId = lens _goaVersionId (\ s a -> s{_goaVersionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goaRequestPayer :: Lens' GetObjectACL (Maybe RequestPayer)
 goaRequestPayer = lens _goaRequestPayer (\ s a -> s{_goaRequestPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goaBucket :: Lens' GetObjectACL BucketName
 goaBucket = lens _goaBucket (\ s a -> s{_goaBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goaKey :: Lens' GetObjectACL ObjectKey
 goaKey = lens _goaKey (\ s a -> s{_goaKey = a});
 
@@ -146,7 +144,7 @@ getObjectACLResponse pStatus_ =
     , _goarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goarsRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
 goarsRequestCharged = lens _goarsRequestCharged (\ s a -> s{_goarsRequestCharged = a});
 
@@ -154,10 +152,10 @@ goarsRequestCharged = lens _goarsRequestCharged (\ s a -> s{_goarsRequestCharged
 goarsGrants :: Lens' GetObjectACLResponse [Grant]
 goarsGrants = lens _goarsGrants (\ s a -> s{_goarsGrants = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goarsOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goarsStatus :: Lens' GetObjectACLResponse Int
 goarsStatus = lens _goarsStatus (\ s a -> s{_goarsStatus = a});

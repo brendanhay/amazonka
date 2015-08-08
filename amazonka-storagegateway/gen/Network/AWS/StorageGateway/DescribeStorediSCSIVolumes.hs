@@ -22,21 +22,19 @@
 -- one gateway. In the response Amazon Storage Gateway returns volume
 -- information sorted by volume ARNs.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html AWS API Reference> for DescribeStorediSCSIVolumes.
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStorediSCSIVolumes
-    -- ** Request constructor
     , describeStorediSCSIVolumes
-    -- ** Request lenses
+    -- * Request Lenses
     , dsscsivVolumeARNs
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStorediSCSIVolumesResponse
-    -- ** Response constructor
     , describeStorediSCSIVolumesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsscsivrsStorediSCSIVolumes
     , dsscsivrsStatus
     ) where
@@ -123,10 +121,10 @@ describeStorediSCSIVolumesResponse pStatus_ =
     , _dsscsivrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
 dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsscsivrsStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
 dsscsivrsStatus = lens _dsscsivrsStatus (\ s a -> s{_dsscsivrsStatus = a});

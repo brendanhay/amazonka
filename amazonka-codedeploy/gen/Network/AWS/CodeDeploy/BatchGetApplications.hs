@@ -19,21 +19,19 @@
 --
 -- Gets information about one or more applications.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplications.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplications.html AWS API Reference> for BatchGetApplications.
 module Network.AWS.CodeDeploy.BatchGetApplications
     (
-    -- * Request
+    -- * Creating a Request
       BatchGetApplications
-    -- ** Request constructor
     , batchGetApplications
-    -- ** Request lenses
+    -- * Request Lenses
     , bgaApplicationNames
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchGetApplicationsResponse
-    -- ** Response constructor
     , batchGetApplicationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bgarsApplicationsInfo
     , bgarsStatus
     ) where
@@ -124,6 +122,6 @@ batchGetApplicationsResponse pStatus_ =
 bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bgarsStatus :: Lens' BatchGetApplicationsResponse Int
 bgarsStatus = lens _bgarsStatus (\ s a -> s{_bgarsStatus = a});

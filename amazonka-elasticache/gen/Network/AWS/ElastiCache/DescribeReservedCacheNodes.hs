@@ -21,14 +21,13 @@
 -- reserved cache nodes for this account, or about a specified reserved
 -- cache node.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html AWS API Reference> for DescribeReservedCacheNodes.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedCacheNodes
-    -- ** Request constructor
     , describeReservedCacheNodes
-    -- ** Request lenses
+    -- * Request Lenses
     , drcnCacheNodeType
     , drcnProductDescription
     , drcnMaxRecords
@@ -38,11 +37,10 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     , drcnDuration
     , drcnReservedCacheNodesOfferingId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedCacheNodesResponse
-    -- ** Response constructor
     , describeReservedCacheNodesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drcnrsMarker
     , drcnrsReservedCacheNodes
     , drcnrsStatus
@@ -261,6 +259,6 @@ drcnrsMarker = lens _drcnrsMarker (\ s a -> s{_drcnrsMarker = a});
 drcnrsReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
 drcnrsReservedCacheNodes = lens _drcnrsReservedCacheNodes (\ s a -> s{_drcnrsReservedCacheNodes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drcnrsStatus :: Lens' DescribeReservedCacheNodesResponse Int
 drcnrsStatus = lens _drcnrsStatus (\ s a -> s{_drcnrsStatus = a});

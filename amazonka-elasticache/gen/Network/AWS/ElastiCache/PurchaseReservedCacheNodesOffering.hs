@@ -20,23 +20,21 @@
 -- The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a
 -- reserved cache node offering.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html AWS API Reference> for PurchaseReservedCacheNodesOffering.
 module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     (
-    -- * Request
+    -- * Creating a Request
       PurchaseReservedCacheNodesOffering
-    -- ** Request constructor
     , purchaseReservedCacheNodesOffering
-    -- ** Request lenses
+    -- * Request Lenses
     , prcnoCacheNodeCount
     , prcnoReservedCacheNodeId
     , prcnoReservedCacheNodesOfferingId
 
-    -- * Response
+    -- * Destructuring the Response
     , PurchaseReservedCacheNodesOfferingResponse
-    -- ** Response constructor
     , purchaseReservedCacheNodesOfferingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , prcnorsReservedCacheNode
     , prcnorsStatus
     ) where
@@ -144,10 +142,10 @@ purchaseReservedCacheNodesOfferingResponse pStatus_ =
     , _prcnorsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
 prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsReservedCacheNode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prcnorsStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
 prcnorsStatus = lens _prcnorsStatus (\ s a -> s{_prcnorsStatus = a});

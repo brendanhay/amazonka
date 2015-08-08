@@ -19,22 +19,20 @@
 --
 -- Creates a new, empty repository.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_CreateRepository.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_CreateRepository.html AWS API Reference> for CreateRepository.
 module Network.AWS.CodeCommit.CreateRepository
     (
-    -- * Request
+    -- * Creating a Request
       CreateRepository
-    -- ** Request constructor
     , createRepository
-    -- ** Request lenses
+    -- * Request Lenses
     , crRepositoryDescription
     , crRepositoryName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateRepositoryResponse
-    -- ** Response constructor
     , createRepositoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crrsRepositoryMetadata
     , crrsStatus
     ) where
@@ -136,6 +134,6 @@ createRepositoryResponse pStatus_ =
 crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
 crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositoryMetadata = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crrsStatus :: Lens' CreateRepositoryResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

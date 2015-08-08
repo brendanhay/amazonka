@@ -19,20 +19,18 @@
 --
 -- Adds tags to on-premises instances.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_AddTagsToOnPremisesInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_AddTagsToOnPremisesInstances.html AWS API Reference> for AddTagsToOnPremisesInstances.
 module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     (
-    -- * Request
+    -- * Creating a Request
       AddTagsToOnPremisesInstances
-    -- ** Request constructor
     , addTagsToOnPremisesInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , attopiTags
     , attopiInstanceNames
 
-    -- * Response
+    -- * Destructuring the Response
     , AddTagsToOnPremisesInstancesResponse
-    -- ** Response constructor
     , addTagsToOnPremisesInstancesResponse
     ) where
 

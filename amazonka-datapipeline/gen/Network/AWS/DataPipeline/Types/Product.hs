@@ -524,7 +524,7 @@ selector =
     , _sFieldName = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sOperator :: Lens' Selector (Maybe Operator)
 sOperator = lens _sOperator (\ s a -> s{_sOperator = a});
 

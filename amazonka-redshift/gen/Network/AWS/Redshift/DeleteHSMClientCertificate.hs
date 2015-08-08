@@ -19,19 +19,17 @@
 --
 -- Deletes the specified HSM client certificate.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMClientCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMClientCertificate.html AWS API Reference> for DeleteHSMClientCertificate.
 module Network.AWS.Redshift.DeleteHSMClientCertificate
     (
-    -- * Request
+    -- * Creating a Request
       DeleteHSMClientCertificate
-    -- ** Request constructor
     , deleteHSMClientCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , dhsmccHSMClientCertificateIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteHSMClientCertificateResponse
-    -- ** Response constructor
     , deleteHSMClientCertificateResponse
     ) where
 

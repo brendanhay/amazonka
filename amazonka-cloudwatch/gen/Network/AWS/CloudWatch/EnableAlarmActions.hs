@@ -19,19 +19,17 @@
 --
 -- Enables actions for the specified alarms.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.html AWS API Reference> for EnableAlarmActions.
 module Network.AWS.CloudWatch.EnableAlarmActions
     (
-    -- * Request
+    -- * Creating a Request
       EnableAlarmActions
-    -- ** Request constructor
     , enableAlarmActions
-    -- ** Request lenses
+    -- * Request Lenses
     , eaaAlarmNames
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableAlarmActionsResponse
-    -- ** Response constructor
     , enableAlarmActionsResponse
     ) where
 

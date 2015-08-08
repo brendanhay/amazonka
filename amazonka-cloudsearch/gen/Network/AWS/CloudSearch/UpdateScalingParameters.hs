@@ -27,22 +27,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateScalingParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateScalingParameters.html AWS API Reference> for UpdateScalingParameters.
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
-    -- * Request
+    -- * Creating a Request
       UpdateScalingParameters
-    -- ** Request constructor
     , updateScalingParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , uspDomainName
     , uspScalingParameters
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateScalingParametersResponse
-    -- ** Response constructor
     , updateScalingParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , usprsStatus
     , usprsScalingParameters
     ) where
@@ -76,11 +74,11 @@ updateScalingParameters pDomainName_ pScalingParameters_ =
     , _uspScalingParameters = pScalingParameters_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uspDomainName :: Lens' UpdateScalingParameters Text
 uspDomainName = lens _uspDomainName (\ s a -> s{_uspDomainName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters = lens _uspScalingParameters (\ s a -> s{_uspScalingParameters = a});
 
@@ -133,10 +131,10 @@ updateScalingParametersResponse pStatus_ pScalingParameters_ =
     , _usprsScalingParameters = pScalingParameters_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usprsStatus :: Lens' UpdateScalingParametersResponse Int
 usprsStatus = lens _usprsStatus (\ s a -> s{_usprsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprsScalingParameters = lens _usprsScalingParameters (\ s a -> s{_usprsScalingParameters = a});

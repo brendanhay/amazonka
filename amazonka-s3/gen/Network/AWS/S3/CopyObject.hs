@@ -19,14 +19,13 @@
 --
 -- Creates a copy of an object that is already stored in Amazon S3.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/CopyObject.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CopyObject.html AWS API Reference> for CopyObject.
 module Network.AWS.S3.CopyObject
     (
-    -- * Request
+    -- * Creating a Request
       CopyObject
-    -- ** Request constructor
     , copyObject
-    -- ** Request lenses
+    -- * Request Lenses
     , coCopySourceIfModifiedSince
     , coCopySourceIfUnmodifiedSince
     , coCopySourceSSECustomerKeyMD5
@@ -59,11 +58,10 @@ module Network.AWS.S3.CopyObject
     , coCopySource
     , coKey
 
-    -- * Response
+    -- * Destructuring the Response
     , CopyObjectResponse
-    -- ** Response constructor
     , copyObjectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , corsRequestCharged
     , corsExpiration
     , corsSSECustomerAlgorithm
@@ -261,7 +259,7 @@ coGrantReadACP = lens _coGrantReadACP (\ s a -> s{_coGrantReadACP = a});
 coSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coSSECustomerKey = lens _coSSECustomerKey (\ s a -> s{_coSSECustomerKey = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 coRequestPayer :: Lens' CopyObject (Maybe RequestPayer)
 coRequestPayer = lens _coRequestPayer (\ s a -> s{_coRequestPayer = a});
 
@@ -352,7 +350,7 @@ coServerSideEncryption = lens _coServerSideEncryption (\ s a -> s{_coServerSideE
 coContentType :: Lens' CopyObject (Maybe Text)
 coContentType = lens _coContentType (\ s a -> s{_coContentType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 coBucket :: Lens' CopyObject BucketName
 coBucket = lens _coBucket (\ s a -> s{_coBucket = a});
 
@@ -361,7 +359,7 @@ coBucket = lens _coBucket (\ s a -> s{_coBucket = a});
 coCopySource :: Lens' CopyObject Text
 coCopySource = lens _coCopySource (\ s a -> s{_coCopySource = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 coKey :: Lens' CopyObject ObjectKey
 coKey = lens _coKey (\ s a -> s{_coKey = a});
 
@@ -488,7 +486,7 @@ copyObjectResponse pStatus_ =
     , _corsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 corsRequestCharged :: Lens' CopyObjectResponse (Maybe RequestCharged)
 corsRequestCharged = lens _corsRequestCharged (\ s a -> s{_corsRequestCharged = a});
 
@@ -503,7 +501,7 @@ corsExpiration = lens _corsExpiration (\ s a -> s{_corsExpiration = a});
 corsSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
 corsSSECustomerAlgorithm = lens _corsSSECustomerAlgorithm (\ s a -> s{_corsSSECustomerAlgorithm = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 corsCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
 corsCopySourceVersionId = lens _corsCopySourceVersionId (\ s a -> s{_corsCopySourceVersionId = a});
 
@@ -523,10 +521,10 @@ corsSSECustomerKeyMD5 = lens _corsSSECustomerKeyMD5 (\ s a -> s{_corsSSECustomer
 corsServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
 corsServerSideEncryption = lens _corsServerSideEncryption (\ s a -> s{_corsServerSideEncryption = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 corsCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corsCopyObjectResult = lens _corsCopyObjectResult (\ s a -> s{_corsCopyObjectResult = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 corsStatus :: Lens' CopyObjectResponse Int
 corsStatus = lens _corsStatus (\ s a -> s{_corsStatus = a});

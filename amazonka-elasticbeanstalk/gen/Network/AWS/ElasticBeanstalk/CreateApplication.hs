@@ -20,22 +20,20 @@
 -- Creates an application that has one configuration template named
 -- @default@ and no application versions.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
-    -- * Request
+    -- * Creating a Request
       CreateApplication
-    -- ** Request constructor
     , createApplication
-    -- ** Request lenses
+    -- * Request Lenses
     , caDescription
     , caApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , ApplicationDescriptionMessage
-    -- ** Response constructor
     , applicationDescriptionMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , admApplication
     ) where
 

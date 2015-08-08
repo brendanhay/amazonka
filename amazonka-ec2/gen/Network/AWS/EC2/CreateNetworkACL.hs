@@ -25,22 +25,20 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkACL.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkACL.html AWS API Reference> for CreateNetworkACL.
 module Network.AWS.EC2.CreateNetworkACL
     (
-    -- * Request
+    -- * Creating a Request
       CreateNetworkACL
-    -- ** Request constructor
     , createNetworkACL
-    -- ** Request lenses
+    -- * Request Lenses
     , cnaDryRun
     , cnaVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateNetworkACLResponse
-    -- ** Response constructor
     , createNetworkACLResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cnarsNetworkACL
     , cnarsStatus
     ) where
@@ -128,6 +126,6 @@ createNetworkACLResponse pStatus_ =
 cnarsNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
 cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cnarsStatus :: Lens' CreateNetworkACLResponse Int
 cnarsStatus = lens _cnarsStatus (\ s a -> s{_cnarsStatus = a});

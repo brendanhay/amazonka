@@ -28,22 +28,20 @@
 -- Canceling a Spot Instance request does not terminate running Spot
 -- Instances associated with the request.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html AWS API Reference> for CancelSpotInstanceRequests.
 module Network.AWS.EC2.CancelSpotInstanceRequests
     (
-    -- * Request
+    -- * Creating a Request
       CancelSpotInstanceRequests
-    -- ** Request constructor
     , cancelSpotInstanceRequests
-    -- ** Request lenses
+    -- * Request Lenses
     , csirDryRun
     , csirSpotInstanceRequestIds
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelSpotInstanceRequestsResponse
-    -- ** Response constructor
     , cancelSpotInstanceRequestsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csirrsCancelledSpotInstanceRequests
     , csirrsStatus
     ) where
@@ -141,6 +139,6 @@ cancelSpotInstanceRequestsResponse pStatus_ =
 csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csirrsStatus :: Lens' CancelSpotInstanceRequestsResponse Int
 csirrsStatus = lens _csirrsStatus (\ s a -> s{_csirrsStatus = a});

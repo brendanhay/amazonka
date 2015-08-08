@@ -20,24 +20,22 @@
 -- This operation enables you to delete multiple objects from a bucket
 -- using a single HTTP request. You may specify up to 1000 keys.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObjects.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObjects.html AWS API Reference> for DeleteObjects.
 module Network.AWS.S3.DeleteObjects
     (
-    -- * Request
+    -- * Creating a Request
       DeleteObjects
-    -- ** Request constructor
     , deleteObjects
-    -- ** Request lenses
+    -- * Request Lenses
     , dosMFA
     , dosRequestPayer
     , dosBucket
     , dosDelete
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteObjectsResponse
-    -- ** Response constructor
     , deleteObjectsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsRequestCharged
     , drsDeleted
     , drsErrors
@@ -82,15 +80,15 @@ deleteObjects pBucket_ pDelete_ =
 dosMFA :: Lens' DeleteObjects (Maybe Text)
 dosMFA = lens _dosMFA (\ s a -> s{_dosMFA = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dosRequestPayer :: Lens' DeleteObjects (Maybe RequestPayer)
 dosRequestPayer = lens _dosRequestPayer (\ s a -> s{_dosRequestPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dosBucket :: Lens' DeleteObjects BucketName
 dosBucket = lens _dosBucket (\ s a -> s{_dosBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dosDelete :: Lens' DeleteObjects Delete
 dosDelete = lens _dosDelete (\ s a -> s{_dosDelete = a});
 
@@ -155,18 +153,18 @@ deleteObjectsResponse pStatus_ =
     , _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsRequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
 drsRequestCharged = lens _drsRequestCharged (\ s a -> s{_drsRequestCharged = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
 drsDeleted = lens _drsDeleted (\ s a -> s{_drsDeleted = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteObjectsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

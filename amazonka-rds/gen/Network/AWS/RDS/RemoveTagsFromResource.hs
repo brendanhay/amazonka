@@ -22,20 +22,18 @@
 -- For an overview on tagging an Amazon RDS resource, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.RDS.RemoveTagsFromResource
     (
-    -- * Request
+    -- * Creating a Request
       RemoveTagsFromResource
-    -- ** Request constructor
     , removeTagsFromResource
-    -- ** Request lenses
+    -- * Request Lenses
     , rtfrResourceName
     , rtfrTagKeys
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveTagsFromResourceResponse
-    -- ** Response constructor
     , removeTagsFromResourceResponse
     ) where
 

@@ -19,22 +19,20 @@
 --
 -- Gets information about uploads.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListUploads.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListUploads.html AWS API Reference> for ListUploads.
 module Network.AWS.DeviceFarm.ListUploads
     (
-    -- * Request
+    -- * Creating a Request
       ListUploads
-    -- ** Request constructor
     , listUploads
-    -- ** Request lenses
+    -- * Request Lenses
     , luNextToken
     , luArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListUploadsResponse
-    -- ** Response constructor
     , listUploadsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lursNextToken
     , lursUploads
     , lursStatus
@@ -144,6 +142,6 @@ lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a});
 lursUploads :: Lens' ListUploadsResponse [Upload]
 lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lursStatus :: Lens' ListUploadsResponse Int
 lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});

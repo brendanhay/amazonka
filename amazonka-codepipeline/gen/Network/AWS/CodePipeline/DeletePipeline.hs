@@ -19,19 +19,17 @@
 --
 -- Deletes the specified pipeline.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DeletePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.CodePipeline.DeletePipeline
     (
-    -- * Request
+    -- * Creating a Request
       DeletePipeline
-    -- ** Request constructor
     , deletePipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , dpName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePipelineResponse
-    -- ** Response constructor
     , deletePipelineResponse
     ) where
 

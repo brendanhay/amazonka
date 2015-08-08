@@ -13,10 +13,10 @@
 --
 module Network.AWS.SSM.Types
     (
-    -- * Service
+    -- * Service Decription
       SSM
 
-    -- * Errors
+    -- * Error Matchers
     , _AssociatedInstances
     , _InvalidNextToken
     , _InvalidInstanceId

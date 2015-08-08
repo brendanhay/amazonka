@@ -20,14 +20,13 @@
 -- Retrieves all alarms for a single metric. Specify a statistic, period,
 -- or unit to filter the set of alarms further.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html AWS API Reference> for DescribeAlarmsForMetric.
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAlarmsForMetric
-    -- ** Request constructor
     , describeAlarmsForMetric
-    -- ** Request lenses
+    -- * Request Lenses
     , dafmPeriod
     , dafmDimensions
     , dafmStatistic
@@ -35,11 +34,10 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , dafmMetricName
     , dafmNamespace
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAlarmsForMetricResponse
-    -- ** Response constructor
     , describeAlarmsForMetricResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dafmrsMetricAlarms
     , dafmrsStatus
     ) where
@@ -167,6 +165,6 @@ describeAlarmsForMetricResponse pStatus_ =
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dafmrsStatus :: Lens' DescribeAlarmsForMetricResponse Int
 dafmrsStatus = lens _dafmrsStatus (\ s a -> s{_dafmrsStatus = a});

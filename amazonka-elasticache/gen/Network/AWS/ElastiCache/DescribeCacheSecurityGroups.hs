@@ -21,23 +21,21 @@
 -- security group descriptions. If a cache security group name is
 -- specified, the list will contain only the description of that group.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html AWS API Reference> for DescribeCacheSecurityGroups.
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCacheSecurityGroups
-    -- ** Request constructor
     , describeCacheSecurityGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsgsCacheSecurityGroupName
     , dcsgsMaxRecords
     , dcsgsMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCacheSecurityGroupsResponse
-    -- ** Response constructor
     , describeCacheSecurityGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcsgsrsCacheSecurityGroups
     , dcsgsrsMarker
     , dcsgsrsStatus
@@ -170,6 +168,6 @@ dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgs
 dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsgsrsStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
 dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});

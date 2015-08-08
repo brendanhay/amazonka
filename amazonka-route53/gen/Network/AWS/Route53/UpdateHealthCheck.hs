@@ -25,14 +25,13 @@
 -- The response returns an @UpdateHealthCheckResponse@ element, which
 -- contains metadata about the health check.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html AWS API Reference> for UpdateHealthCheck.
 module Network.AWS.Route53.UpdateHealthCheck
     (
-    -- * Request
+    -- * Creating a Request
       UpdateHealthCheck
-    -- ** Request constructor
     , updateHealthCheck
-    -- ** Request lenses
+    -- * Request Lenses
     , uhcIPAddress
     , uhcFailureThreshold
     , uhcSearchString
@@ -42,11 +41,10 @@ module Network.AWS.Route53.UpdateHealthCheck
     , uhcPort
     , uhcHealthCheckId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateHealthCheckResponse
-    -- ** Response constructor
     , updateHealthCheckResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uhcrsStatus
     , uhcrsHealthCheck
     ) where
@@ -222,10 +220,10 @@ updateHealthCheckResponse pStatus_ pHealthCheck_ =
     , _uhcrsHealthCheck = pHealthCheck_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uhcrsStatus :: Lens' UpdateHealthCheckResponse Int
 uhcrsStatus = lens _uhcrsStatus (\ s a -> s{_uhcrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrsHealthCheck = lens _uhcrsHealthCheck (\ s a -> s{_uhcrsHealthCheck = a});

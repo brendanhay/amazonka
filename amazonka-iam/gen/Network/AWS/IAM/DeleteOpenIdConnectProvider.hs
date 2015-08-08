@@ -26,19 +26,17 @@
 -- This action is idempotent; it does not fail or return an error if you
 -- call the action for a provider that was already deleted.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteOpenIdConnectProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteOpenIdConnectProvider.html AWS API Reference> for DeleteOpenIdConnectProvider.
 module Network.AWS.IAM.DeleteOpenIdConnectProvider
     (
-    -- * Request
+    -- * Creating a Request
       DeleteOpenIdConnectProvider
-    -- ** Request constructor
     , deleteOpenIdConnectProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , doicpOpenIdConnectProviderARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteOpenIdConnectProviderResponse
-    -- ** Response constructor
     , deleteOpenIdConnectProviderResponse
     ) where
 

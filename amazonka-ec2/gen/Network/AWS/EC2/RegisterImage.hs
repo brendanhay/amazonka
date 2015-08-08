@@ -45,14 +45,13 @@
 -- You can\'t register an image where a secondary (non-root) snapshot has
 -- AWS Marketplace product codes.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html AWS API Reference> for RegisterImage.
 module Network.AWS.EC2.RegisterImage
     (
-    -- * Request
+    -- * Creating a Request
       RegisterImage
-    -- ** Request constructor
     , registerImage
-    -- ** Request lenses
+    -- * Request Lenses
     , riVirtualizationType
     , riImageLocation
     , riRAMDiskId
@@ -65,11 +64,10 @@ module Network.AWS.EC2.RegisterImage
     , riDescription
     , riName
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterImageResponse
-    -- ** Response constructor
     , registerImageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rirsImageId
     , rirsStatus
     ) where
@@ -256,6 +254,6 @@ registerImageResponse pStatus_ =
 rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rirsStatus :: Lens' RegisterImageResponse Int
 rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});

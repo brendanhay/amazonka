@@ -20,19 +20,17 @@
 -- This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html AWS API Reference> for HeadBucket.
 module Network.AWS.S3.HeadBucket
     (
-    -- * Request
+    -- * Creating a Request
       HeadBucket
-    -- ** Request constructor
     , headBucket
-    -- ** Request lenses
+    -- * Request Lenses
     , hbBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , HeadBucketResponse
-    -- ** Response constructor
     , headBucketResponse
     ) where
 
@@ -57,7 +55,7 @@ headBucket pBucket_ =
     { _hbBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 hbBucket :: Lens' HeadBucket BucketName
 hbBucket = lens _hbBucket (\ s a -> s{_hbBucket = a});
 

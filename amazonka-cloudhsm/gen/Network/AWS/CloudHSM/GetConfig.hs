@@ -20,23 +20,21 @@
 -- Gets the configuration files necessary to connect to all high
 -- availability partition groups the client is associated with.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html AWS API Reference> for GetConfig.
 module Network.AWS.CloudHSM.GetConfig
     (
-    -- * Request
+    -- * Creating a Request
       GetConfig
-    -- ** Request constructor
     , getConfig
-    -- ** Request lenses
+    -- * Request Lenses
     , gcClientARN
     , gcClientVersion
     , gcHAPGList
 
-    -- * Response
+    -- * Destructuring the Response
     , GetConfigResponse
-    -- ** Response constructor
     , getConfigResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcrsConfigFile
     , gcrsConfigCred
     , gcrsConfigType
@@ -159,6 +157,6 @@ gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a});
 gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
 gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcrsStatus :: Lens' GetConfigResponse Int
 gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});

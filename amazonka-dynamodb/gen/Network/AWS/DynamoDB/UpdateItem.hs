@@ -28,14 +28,13 @@
 -- You can also return the item\'s attribute values in the same
 -- /UpdateItem/ operation using the /ReturnValues/ parameter.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html AWS API Reference> for UpdateItem.
 module Network.AWS.DynamoDB.UpdateItem
     (
-    -- * Request
+    -- * Creating a Request
       UpdateItem
-    -- ** Request constructor
     , updateItem
-    -- ** Request lenses
+    -- * Request Lenses
     , uiReturnValues
     , uiExpressionAttributeNames
     , uiUpdateExpression
@@ -49,11 +48,10 @@ module Network.AWS.DynamoDB.UpdateItem
     , uiTableName
     , uiKey
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateItemResponse
-    -- ** Response constructor
     , updateItemResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uirsConsumedCapacity
     , uirsItemCollectionMetrics
     , uirsAttributes
@@ -378,7 +376,7 @@ uiUpdateExpression = lens _uiUpdateExpression (\ s a -> s{_uiUpdateExpression = 
 uiAttributeUpdates :: Lens' UpdateItem (HashMap Text AttributeValueUpdate)
 uiAttributeUpdates = lens _uiAttributeUpdates (\ s a -> s{_uiAttributeUpdates = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
 uiReturnConsumedCapacity = lens _uiReturnConsumedCapacity (\ s a -> s{_uiReturnConsumedCapacity = a});
 
@@ -772,11 +770,11 @@ updateItemResponse pStatus_ =
     , _uirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uirsConsumedCapacity :: Lens' UpdateItemResponse (Maybe ConsumedCapacity)
 uirsConsumedCapacity = lens _uirsConsumedCapacity (\ s a -> s{_uirsConsumedCapacity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uirsItemCollectionMetrics :: Lens' UpdateItemResponse (Maybe ItemCollectionMetrics)
 uirsItemCollectionMetrics = lens _uirsItemCollectionMetrics (\ s a -> s{_uirsItemCollectionMetrics = a});
 
@@ -787,6 +785,6 @@ uirsItemCollectionMetrics = lens _uirsItemCollectionMetrics (\ s a -> s{_uirsIte
 uirsAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
 uirsAttributes = lens _uirsAttributes (\ s a -> s{_uirsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uirsStatus :: Lens' UpdateItemResponse Int
 uirsStatus = lens _uirsStatus (\ s a -> s{_uirsStatus = a});

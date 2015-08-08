@@ -25,14 +25,13 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateStack.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateStack.html AWS API Reference> for UpdateStack.
 module Network.AWS.OpsWorks.UpdateStack
     (
-    -- * Request
+    -- * Creating a Request
       UpdateStack
-    -- ** Request constructor
     , updateStack
-    -- ** Request lenses
+    -- * Request Lenses
     , usDefaultInstanceProfileARN
     , usServiceRoleARN
     , usDefaultRootDeviceType
@@ -52,9 +51,8 @@ module Network.AWS.OpsWorks.UpdateStack
     , usHostnameTheme
     , usStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateStackResponse
-    -- ** Response constructor
     , updateStackResponse
     ) where
 
@@ -216,7 +214,7 @@ usDefaultSSHKeyName = lens _usDefaultSSHKeyName (\ s a -> s{_usDefaultSSHKeyName
 usCustomJSON :: Lens' UpdateStack (Maybe Text)
 usCustomJSON = lens _usCustomJSON (\ s a -> s{_usCustomJSON = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 usCustomCookbooksSource :: Lens' UpdateStack (Maybe Source)
 usCustomCookbooksSource = lens _usCustomCookbooksSource (\ s a -> s{_usCustomCookbooksSource = a});
 

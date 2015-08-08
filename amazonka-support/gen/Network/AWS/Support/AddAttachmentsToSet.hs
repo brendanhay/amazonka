@@ -29,22 +29,20 @@
 -- indicates when the set expires. The maximum number of attachments in a
 -- set is 3, and the maximum size of any attachment in the set is 5 MB.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddAttachmentsToSet.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddAttachmentsToSet.html AWS API Reference> for AddAttachmentsToSet.
 module Network.AWS.Support.AddAttachmentsToSet
     (
-    -- * Request
+    -- * Creating a Request
       AddAttachmentsToSet
-    -- ** Request constructor
     , addAttachmentsToSet
-    -- ** Request lenses
+    -- * Request Lenses
     , aatsAttachmentSetId
     , aatsAttachments
 
-    -- * Response
+    -- * Destructuring the Response
     , AddAttachmentsToSetResponse
-    -- ** Response constructor
     , addAttachmentsToSetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , aatsrsExpiryTime
     , aatsrsAttachmentSetId
     , aatsrsStatus
@@ -159,6 +157,6 @@ aatsrsExpiryTime = lens _aatsrsExpiryTime (\ s a -> s{_aatsrsExpiryTime = a});
 aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmentSetId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aatsrsStatus :: Lens' AddAttachmentsToSetResponse Int
 aatsrsStatus = lens _aatsrsStatus (\ s a -> s{_aatsrsStatus = a});

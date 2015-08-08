@@ -26,24 +26,22 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html AWS API Reference> for DescribeSecurityGroups.
 module Network.AWS.EC2.DescribeSecurityGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSecurityGroups
-    -- ** Request constructor
     , describeSecurityGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dsgsGroupNames
     , dsgsFilters
     , dsgsGroupIds
     , dsgsDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSecurityGroupsResponse
-    -- ** Response constructor
     , describeSecurityGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsgrsSecurityGroups
     , dsgrsStatus
     ) where
@@ -203,6 +201,6 @@ describeSecurityGroupsResponse pStatus_ =
 dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsgrsStatus :: Lens' DescribeSecurityGroupsResponse Int
 dsgrsStatus = lens _dsgrsStatus (\ s a -> s{_dsgrsStatus = a});

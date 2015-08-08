@@ -25,22 +25,20 @@
 -- API is useful in cases where you want to send signals from anywhere
 -- other than an Amazon EC2 instance.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html AWS API Reference> for SignalResource.
 module Network.AWS.CloudFormation.SignalResource
     (
-    -- * Request
+    -- * Creating a Request
       SignalResource
-    -- ** Request constructor
     , signalResource
-    -- ** Request lenses
+    -- * Request Lenses
     , sigStackName
     , sigLogicalResourceId
     , sigUniqueId
     , sigStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , SignalResourceResponse
-    -- ** Response constructor
     , signalResourceResponse
     ) where
 

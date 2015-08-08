@@ -38,22 +38,20 @@
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, in /Amazon Elastic Compute Cloud API Reference/.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html AWS API Reference> for CreateSnapshotFromVolumeRecoveryPoint.
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (
-    -- * Request
+    -- * Creating a Request
       CreateSnapshotFromVolumeRecoveryPoint
-    -- ** Request constructor
     , createSnapshotFromVolumeRecoveryPoint
-    -- ** Request lenses
+    -- * Request Lenses
     , csfvrpVolumeARN
     , csfvrpSnapshotDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
-    -- ** Response constructor
     , createSnapshotFromVolumeRecoveryPointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csfvrprsVolumeRecoveryPointTime
     , csfvrprsVolumeARN
     , csfvrprsSnapshotId
@@ -85,11 +83,11 @@ createSnapshotFromVolumeRecoveryPoint pVolumeARN_ pSnapshotDescription_ =
     , _csfvrpSnapshotDescription = pSnapshotDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpVolumeARN = lens _csfvrpVolumeARN (\ s a -> s{_csfvrpVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a});
 
@@ -163,18 +161,18 @@ createSnapshotFromVolumeRecoveryPointResponse pStatus_ =
     , _csfvrprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprsVolumeRecoveryPointTime = lens _csfvrprsVolumeRecoveryPointTime (\ s a -> s{_csfvrprsVolumeRecoveryPointTime = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csfvrprsVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprsVolumeARN = lens _csfvrprsVolumeARN (\ s a -> s{_csfvrprsVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csfvrprsStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
 csfvrprsStatus = lens _csfvrprsStatus (\ s a -> s{_csfvrprsStatus = a});

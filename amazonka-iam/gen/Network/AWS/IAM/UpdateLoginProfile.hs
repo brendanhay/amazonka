@@ -24,21 +24,19 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html AWS API Reference> for UpdateLoginProfile.
 module Network.AWS.IAM.UpdateLoginProfile
     (
-    -- * Request
+    -- * Creating a Request
       UpdateLoginProfile
-    -- ** Request constructor
     , updateLoginProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , ulpPassword
     , ulpPasswordResetRequired
     , ulpUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateLoginProfileResponse
-    -- ** Response constructor
     , updateLoginProfileResponse
     ) where
 

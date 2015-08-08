@@ -262,7 +262,7 @@ attachedPolicy =
 apPolicyName :: Lens' AttachedPolicy (Maybe Text)
 apPolicyName = lens _apPolicyName (\ s a -> s{_apPolicyName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 apPolicyARN :: Lens' AttachedPolicy (Maybe Text)
 apPolicyARN = lens _apPolicyARN (\ s a -> s{_apPolicyARN = a});
 
@@ -395,7 +395,7 @@ groupDetail =
     , _gdAttachedManagedPolicies = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdARN :: Lens' GroupDetail (Maybe Text)
 gdARN = lens _gdARN (\ s a -> s{_gdARN = a});
 
@@ -703,7 +703,7 @@ managedPolicyDetail =
 mpdPolicyName :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdPolicyName = lens _mpdPolicyName (\ s a -> s{_mpdPolicyName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mpdARN :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdARN = lens _mpdARN (\ s a -> s{_mpdARN = a});
 
@@ -802,7 +802,7 @@ openIdConnectProviderListEntry =
     { _oicpleARN = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 oicpleARN :: Lens' OpenIdConnectProviderListEntry (Maybe Text)
 oicpleARN = lens _oicpleARN (\ s a -> s{_oicpleARN = a});
 
@@ -991,7 +991,7 @@ policy =
 pPolicyName :: Lens' Policy (Maybe Text)
 pPolicyName = lens _pPolicyName (\ s a -> s{_pPolicyName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pARN :: Lens' Policy (Maybe Text)
 pARN = lens _pARN (\ s a -> s{_pARN = a});
 
@@ -1416,7 +1416,7 @@ roleDetail =
 rdAssumeRolePolicyDocument :: Lens' RoleDetail (Maybe Text)
 rdAssumeRolePolicyDocument = lens _rdAssumeRolePolicyDocument (\ s a -> s{_rdAssumeRolePolicyDocument = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdARN :: Lens' RoleDetail (Maybe Text)
 rdARN = lens _rdARN (\ s a -> s{_rdARN = a});
 
@@ -1426,7 +1426,7 @@ rdARN = lens _rdARN (\ s a -> s{_rdARN = a});
 rdPath :: Lens' RoleDetail (Maybe Text)
 rdPath = lens _rdPath (\ s a -> s{_rdPath = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdInstanceProfileList :: Lens' RoleDetail [InstanceProfile]
 rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfileList = a}) . _Default . _Coerce;
 
@@ -2013,7 +2013,7 @@ userDetail =
     , _udAttachedManagedPolicies = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udARN :: Lens' UserDetail (Maybe Text)
 udARN = lens _udARN (\ s a -> s{_udARN = a});
 
@@ -2117,7 +2117,7 @@ vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping (_Se
 vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64);
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vmdUser :: Lens' VirtualMFADevice (Maybe User)
 vmdUser = lens _vmdUser (\ s a -> s{_vmdUser = a});
 

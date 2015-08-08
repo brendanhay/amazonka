@@ -20,21 +20,19 @@
 -- Deletes an HSM. Once complete, this operation cannot be undone and your
 -- key material cannot be recovered.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHSM.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHSM.html AWS API Reference> for DeleteHSM.
 module Network.AWS.CloudHSM.DeleteHSM
     (
-    -- * Request
+    -- * Creating a Request
       DeleteHSM
-    -- ** Request constructor
     , deleteHSM
-    -- ** Request lenses
+    -- * Request Lenses
     , dhHSMARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteHSMResponse
-    -- ** Response constructor
     , deleteHSMResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dhsmrsStatus
     ) where
 
@@ -111,6 +109,6 @@ deleteHSMResponse pStatus_ =
     { _dhsmrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhsmrsStatus :: Lens' DeleteHSMResponse Int
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});

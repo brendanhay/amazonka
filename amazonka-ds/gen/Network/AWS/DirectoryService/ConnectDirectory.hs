@@ -19,14 +19,13 @@
 --
 -- Creates an AD Connector to connect an on-premises directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ConnectDirectory.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ConnectDirectory.html AWS API Reference> for ConnectDirectory.
 module Network.AWS.DirectoryService.ConnectDirectory
     (
-    -- * Request
+    -- * Creating a Request
       ConnectDirectory
-    -- ** Request constructor
     , connectDirectory
-    -- ** Request lenses
+    -- * Request Lenses
     , cdShortName
     , cdDescription
     , cdName
@@ -34,11 +33,10 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , cdSize
     , cdConnectSettings
 
-    -- * Response
+    -- * Destructuring the Response
     , ConnectDirectoryResponse
-    -- ** Response constructor
     , connectDirectoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdrsDirectoryId
     , cdrsStatus
     ) where
@@ -172,6 +170,6 @@ connectDirectoryResponse pStatus_ =
 cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdrsStatus :: Lens' ConnectDirectoryResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

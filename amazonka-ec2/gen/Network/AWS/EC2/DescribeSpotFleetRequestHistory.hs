@@ -24,14 +24,13 @@
 -- described. This ensures that you can query by the last evaluated time
 -- and not miss a recorded event.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequestHistory.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequestHistory.html AWS API Reference> for DescribeSpotFleetRequestHistory.
 module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSpotFleetRequestHistory
-    -- ** Request constructor
     , describeSpotFleetRequestHistory
-    -- ** Request lenses
+    -- * Request Lenses
     , dsfrhNextToken
     , dsfrhEventType
     , dsfrhDryRun
@@ -39,11 +38,10 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     , dsfrhSpotFleetRequestId
     , dsfrhStartTime
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSpotFleetRequestHistoryResponse
-    -- ** Response constructor
     , describeSpotFleetRequestHistoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsfrhrsNextToken
     , dsfrhrsStatus
     , dsfrhrsSpotFleetRequestId
@@ -208,7 +206,7 @@ describeSpotFleetRequestHistoryResponse pStatus_ pSpotFleetRequestId_ pStartTime
 dsfrhrsNextToken :: Lens' DescribeSpotFleetRequestHistoryResponse (Maybe Text)
 dsfrhrsNextToken = lens _dsfrhrsNextToken (\ s a -> s{_dsfrhrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfrhrsStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
 dsfrhrsStatus = lens _dsfrhrsStatus (\ s a -> s{_dsfrhrsStatus = a});
 

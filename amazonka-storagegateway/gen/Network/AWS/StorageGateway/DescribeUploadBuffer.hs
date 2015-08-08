@@ -25,21 +25,19 @@
 -- space, and it includes the amount of upload buffer space allocated and
 -- used.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html AWS API Reference> for DescribeUploadBuffer.
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
-    -- * Request
+    -- * Creating a Request
       DescribeUploadBuffer
-    -- ** Request constructor
     , describeUploadBuffer
-    -- ** Request lenses
+    -- * Request Lenses
     , dubGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeUploadBufferResponse
-    -- ** Response constructor
     , describeUploadBufferResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dubrsUploadBufferAllocatedInBytes
     , dubrsGatewayARN
     , dubrsDiskIds
@@ -68,7 +66,7 @@ describeUploadBuffer pGatewayARN_ =
     { _dubGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
 dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a});
 
@@ -139,22 +137,22 @@ describeUploadBufferResponse pStatus_ =
     , _dubrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\ s a -> s{_dubrsUploadBufferAllocatedInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dubrsGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
 dubrsGatewayARN = lens _dubrsGatewayARN (\ s a -> s{_dubrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
 dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dubrsStatus :: Lens' DescribeUploadBufferResponse Int
 dubrsStatus = lens _dubrsStatus (\ s a -> s{_dubrsStatus = a});

@@ -22,14 +22,13 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html AWS API Reference> for CreateDBCluster.
 module Network.AWS.RDS.CreateDBCluster
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBCluster
-    -- ** Request constructor
     , createDBCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , cdcEngineVersion
     , cdcDBClusterIdentifier
     , cdcMasterUserPassword
@@ -48,11 +47,10 @@ module Network.AWS.RDS.CreateDBCluster
     , cdcTags
     , cdcPort
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBClusterResponse
-    -- ** Response constructor
     , createDBClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdcrsDBCluster
     , cdcrsStatus
     ) where
@@ -281,7 +279,7 @@ cdcDBClusterParameterGroupName = lens _cdcDBClusterParameterGroupName (\ s a -> 
 cdcOptionGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcOptionGroupName = lens _cdcOptionGroupName (\ s a -> s{_cdcOptionGroupName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcTags :: Lens' CreateDBCluster [Tag]
 cdcTags = lens _cdcTags (\ s a -> s{_cdcTags = a}) . _Default . _Coerce;
 
@@ -359,10 +357,10 @@ createDBClusterResponse pStatus_ =
     , _cdcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcrsDBCluster :: Lens' CreateDBClusterResponse (Maybe DBCluster)
 cdcrsDBCluster = lens _cdcrsDBCluster (\ s a -> s{_cdcrsDBCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcrsStatus :: Lens' CreateDBClusterResponse Int
 cdcrsStatus = lens _cdcrsStatus (\ s a -> s{_cdcrsStatus = a});

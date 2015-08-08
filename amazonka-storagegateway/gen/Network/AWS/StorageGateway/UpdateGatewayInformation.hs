@@ -21,23 +21,21 @@
 -- gateway\'s name and time zone. To specify which gateway to update, use
 -- the Amazon Resource Name (ARN) of the gateway in your request.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewayInformation.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewayInformation.html AWS API Reference> for UpdateGatewayInformation.
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
-    -- * Request
+    -- * Creating a Request
       UpdateGatewayInformation
-    -- ** Request constructor
     , updateGatewayInformation
-    -- ** Request lenses
+    -- * Request Lenses
     , ugiGatewayName
     , ugiGatewayTimezone
     , ugiGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateGatewayInformationResponse
-    -- ** Response constructor
     , updateGatewayInformationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ugirsGatewayARN
     , ugirsStatus
     ) where
@@ -71,15 +69,15 @@ updateGatewayInformation pGatewayARN_ =
     , _ugiGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayName = lens _ugiGatewayName (\ s a -> s{_ugiGatewayName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugiGatewayARN :: Lens' UpdateGatewayInformation Text
 ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a});
 
@@ -139,10 +137,10 @@ updateGatewayInformationResponse pStatus_ =
     , _ugirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ugirsStatus :: Lens' UpdateGatewayInformationResponse Int
 ugirsStatus = lens _ugirsStatus (\ s a -> s{_ugirsStatus = a});

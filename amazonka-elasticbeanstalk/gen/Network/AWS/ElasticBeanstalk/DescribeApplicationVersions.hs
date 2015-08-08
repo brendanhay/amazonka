@@ -19,22 +19,20 @@
 --
 -- Returns descriptions for existing application versions.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html AWS API Reference> for DescribeApplicationVersions.
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeApplicationVersions
-    -- ** Request constructor
     , describeApplicationVersions
-    -- ** Request lenses
+    -- * Request Lenses
     , davsVersionLabels
     , davsApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeApplicationVersionsResponse
-    -- ** Response constructor
     , describeApplicationVersionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , davrsApplicationVersions
     , davrsStatus
     ) where
@@ -134,6 +132,6 @@ describeApplicationVersionsResponse pStatus_ =
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 davrsStatus :: Lens' DescribeApplicationVersionsResponse Int
 davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});

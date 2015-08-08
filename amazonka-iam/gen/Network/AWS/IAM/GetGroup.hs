@@ -20,23 +20,21 @@
 -- Returns a list of users that are in the specified group. You can
 -- paginate the results using the @MaxItems@ and @Marker@ parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html AWS API Reference> for GetGroup.
 module Network.AWS.IAM.GetGroup
     (
-    -- * Request
+    -- * Creating a Request
       GetGroup
-    -- ** Request constructor
     , getGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ggMaxItems
     , ggMarker
     , ggGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetGroupResponse
-    -- ** Response constructor
     , getGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ggrsMarker
     , ggrsIsTruncated
     , ggrsStatus
@@ -174,7 +172,7 @@ ggrsMarker = lens _ggrsMarker (\ s a -> s{_ggrsMarker = a});
 ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ggrsStatus :: Lens' GetGroupResponse Int
 ggrsStatus = lens _ggrsStatus (\ s a -> s{_ggrsStatus = a});
 

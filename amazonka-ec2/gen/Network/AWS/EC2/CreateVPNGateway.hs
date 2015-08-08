@@ -25,23 +25,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPNGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPNGateway.html AWS API Reference> for CreateVPNGateway.
 module Network.AWS.EC2.CreateVPNGateway
     (
-    -- * Request
+    -- * Creating a Request
       CreateVPNGateway
-    -- ** Request constructor
     , createVPNGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , cvgAvailabilityZone
     , cvgDryRun
     , cvgType
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateVPNGatewayResponse
-    -- ** Response constructor
     , createVPNGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cvgrsVPNGateway
     , cvgrsStatus
     ) where
@@ -138,6 +136,6 @@ createVPNGatewayResponse pStatus_ =
 cvgrsVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
 cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cvgrsStatus :: Lens' CreateVPNGatewayResponse Int
 cvgrsStatus = lens _cvgrsStatus (\ s a -> s{_cvgrsStatus = a});

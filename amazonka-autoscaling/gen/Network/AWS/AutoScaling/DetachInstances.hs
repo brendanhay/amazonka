@@ -25,23 +25,21 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html AWS API Reference> for DetachInstances.
 module Network.AWS.AutoScaling.DetachInstances
     (
-    -- * Request
+    -- * Creating a Request
       DetachInstances
-    -- ** Request constructor
     , detachInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , diInstanceIds
     , diAutoScalingGroupName
     , diShouldDecrementDesiredCapacity
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachInstancesResponse
-    -- ** Response constructor
     , detachInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dirsActivities
     , dirsStatus
     ) where
@@ -142,6 +140,6 @@ detachInstancesResponse pStatus_ =
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
 dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsStatus :: Lens' DetachInstancesResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

@@ -44,19 +44,17 @@
 --
 -- -   @ec2:DeleteNetworkInterface@
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteMountTarget.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteMountTarget.html AWS API Reference> for DeleteMountTarget.
 module Network.AWS.EFS.DeleteMountTarget
     (
-    -- * Request
+    -- * Creating a Request
       DeleteMountTarget
-    -- ** Request constructor
     , deleteMountTarget
-    -- ** Request lenses
+    -- * Request Lenses
     , dmtMountTargetId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteMountTargetResponse
-    -- ** Response constructor
     , deleteMountTargetResponse
     ) where
 

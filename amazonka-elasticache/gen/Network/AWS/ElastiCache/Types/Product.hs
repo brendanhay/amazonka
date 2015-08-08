@@ -204,7 +204,7 @@ ccAutoMinorVersionUpgrade = lens _ccAutoMinorVersionUpgrade (\ s a -> s{_ccAutoM
 ccSecurityGroups :: Lens' CacheCluster [SecurityGroupMembership]
 ccSecurityGroups = lens _ccSecurityGroups (\ s a -> s{_ccSecurityGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccNotificationConfiguration :: Lens' CacheCluster (Maybe NotificationConfiguration)
 ccNotificationConfiguration = lens _ccNotificationConfiguration (\ s a -> s{_ccNotificationConfiguration = a});
 
@@ -220,7 +220,7 @@ ccSnapshotWindow = lens _ccSnapshotWindow (\ s a -> s{_ccSnapshotWindow = a});
 ccCacheClusterId :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterId = lens _ccCacheClusterId (\ s a -> s{_ccCacheClusterId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
 ccConfigurationEndpoint = lens _ccConfigurationEndpoint (\ s a -> s{_ccConfigurationEndpoint = a});
 
@@ -273,7 +273,7 @@ ccCacheClusterStatus = lens _ccCacheClusterStatus (\ s a -> s{_ccCacheClusterSta
 ccPreferredAvailabilityZone :: Lens' CacheCluster (Maybe Text)
 ccPreferredAvailabilityZone = lens _ccPreferredAvailabilityZone (\ s a -> s{_ccPreferredAvailabilityZone = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccCacheParameterGroup :: Lens' CacheCluster (Maybe CacheParameterGroupStatus)
 ccCacheParameterGroup = lens _ccCacheParameterGroup (\ s a -> s{_ccCacheParameterGroup = a});
 
@@ -294,7 +294,7 @@ ccSnapshotRetentionLimit = lens _ccSnapshotRetentionLimit (\ s a -> s{_ccSnapsho
 ccReplicationGroupId :: Lens' CacheCluster (Maybe Text)
 ccReplicationGroupId = lens _ccReplicationGroupId (\ s a -> s{_ccReplicationGroupId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccPendingModifiedValues :: Lens' CacheCluster (Maybe PendingModifiedValues)
 ccPendingModifiedValues = lens _ccPendingModifiedValues (\ s a -> s{_ccPendingModifiedValues = a});
 
@@ -1165,7 +1165,7 @@ nodeGroup =
 ngStatus :: Lens' NodeGroup (Maybe Text)
 ngStatus = lens _ngStatus (\ s a -> s{_ngStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
 ngPrimaryEndpoint = lens _ngPrimaryEndpoint (\ s a -> s{_ngPrimaryEndpoint = a});
 
@@ -1239,7 +1239,7 @@ ngmPreferredAvailabilityZone = lens _ngmPreferredAvailabilityZone (\ s a -> s{_n
 ngmCurrentRole :: Lens' NodeGroupMember (Maybe Text)
 ngmCurrentRole = lens _ngmCurrentRole (\ s a -> s{_ngmCurrentRole = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ngmReadEndpoint :: Lens' NodeGroupMember (Maybe Endpoint)
 ngmReadEndpoint = lens _ngmReadEndpoint (\ s a -> s{_ngmReadEndpoint = a});
 

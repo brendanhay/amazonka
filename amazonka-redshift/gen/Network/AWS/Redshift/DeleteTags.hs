@@ -20,20 +20,18 @@
 -- Deletes a tag or tags from a resource. You must provide the ARN of the
 -- resource from which you want to delete the tag or tags.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.Redshift.DeleteTags
     (
-    -- * Request
+    -- * Creating a Request
       DeleteTags
-    -- ** Request constructor
     , deleteTags
-    -- ** Request lenses
+    -- * Request Lenses
     , dResourceName
     , dTagKeys
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteTagsResponse
-    -- ** Response constructor
     , deleteTagsResponse
     ) where
 

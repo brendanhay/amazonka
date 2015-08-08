@@ -39,22 +39,20 @@
 -- /DescribeDBParameters/ command to verify that your DB parameter group
 -- has been created or modified.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBParameterGroup.html AWS API Reference> for ModifyDBParameterGroup.
 module Network.AWS.RDS.ModifyDBParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyDBParameterGroup
-    -- ** Request constructor
     , modifyDBParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mdpgDBParameterGroupName
     , mdpgParameters
 
-    -- * Response
+    -- * Destructuring the Response
     , DBParameterGroupNameMessage
-    -- ** Response constructor
     , dbParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , dpgnmDBParameterGroupName
     ) where
 

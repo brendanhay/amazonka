@@ -35,23 +35,21 @@
 -- AWS resources by creating a virtual interface on their connection, using
 -- the VLAN assigned to them by the AWS Direct Connect partner.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html AWS API Reference> for CreateInterconnect.
 module Network.AWS.DirectConnect.CreateInterconnect
     (
-    -- * Request
+    -- * Creating a Request
       CreateInterconnect
-    -- ** Request constructor
     , createInterconnect
-    -- ** Request lenses
+    -- * Request Lenses
     , ciInterconnectName
     , ciBandwidth
     , ciLocation
 
-    -- * Response
+    -- * Destructuring the Response
     , Interconnect
-    -- ** Response constructor
     , interconnect
-    -- ** Response lenses
+    -- * Response Lenses
     , iInterconnectId
     , iInterconnectName
     , iLocation

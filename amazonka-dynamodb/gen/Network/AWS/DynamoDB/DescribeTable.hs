@@ -27,21 +27,19 @@
 -- metadata for your table might not be available at that moment. Wait for
 -- a few seconds, and then try the DescribeTable request again.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html AWS API Reference> for DescribeTable.
 module Network.AWS.DynamoDB.DescribeTable
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTable
-    -- ** Request constructor
     , describeTable
-    -- ** Request lenses
+    -- * Request Lenses
     , dTableName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTableResponse
-    -- ** Response constructor
     , describeTableResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsTable
     , drsStatus
     ) where
@@ -124,10 +122,10 @@ describeTableResponse pStatus_ =
     , _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeTableResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -54,22 +54,20 @@
 -- -   One billion attributes per domain
 -- -   10 GB of total user data storage per domain
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_PutAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_PutAttributes.html AWS API Reference> for PutAttributes.
 module Network.AWS.SDB.PutAttributes
     (
-    -- * Request
+    -- * Creating a Request
       PutAttributes
-    -- ** Request constructor
     , putAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , paExpected
     , paDomainName
     , paItemName
     , paAttributes
 
-    -- * Response
+    -- * Destructuring the Response
     , PutAttributesResponse
-    -- ** Response constructor
     , putAttributesResponse
     ) where
 

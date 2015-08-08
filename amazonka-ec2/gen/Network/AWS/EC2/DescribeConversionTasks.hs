@@ -22,23 +22,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeConversionTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeConversionTasks.html AWS API Reference> for DescribeConversionTasks.
 module Network.AWS.EC2.DescribeConversionTasks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeConversionTasks
-    -- ** Request constructor
     , describeConversionTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , dctConversionTaskIds
     , dctFilters
     , dctDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeConversionTasksResponse
-    -- ** Response constructor
     , describeConversionTasksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dctrsConversionTasks
     , dctrsStatus
     ) where
@@ -141,6 +139,6 @@ describeConversionTasksResponse pStatus_ =
 dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dctrsStatus :: Lens' DescribeConversionTasksResponse Int
 dctrsStatus = lens _dctrsStatus (\ s a -> s{_dctrsStatus = a});

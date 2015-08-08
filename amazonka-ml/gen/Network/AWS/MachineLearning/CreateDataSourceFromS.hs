@@ -52,24 +52,22 @@
 -- provides answers to these questions. For more information, see the
 -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromS.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromS.html AWS API Reference> for CreateDataSourceFromS.
 module Network.AWS.MachineLearning.CreateDataSourceFromS
     (
-    -- * Request
+    -- * Creating a Request
       CreateDataSourceFromS
-    -- ** Request constructor
     , createDataSourceFromS
-    -- ** Request lenses
+    -- * Request Lenses
     , cdsfsDataSourceName
     , cdsfsComputeStatistics
     , cdsfsDataSourceId
     , cdsfsDataSpec
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDataSourceFromSResponse
-    -- ** Response constructor
     , createDataSourceFromSResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdsfsrsDataSourceId
     , cdsfsrsStatus
     ) where
@@ -209,6 +207,6 @@ createDataSourceFromSResponse pStatus_ =
 cdsfsrsDataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
 cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\ s a -> s{_cdsfsrsDataSourceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsfsrsStatus :: Lens' CreateDataSourceFromSResponse Int
 cdsfsrsStatus = lens _cdsfsrsStatus (\ s a -> s{_cdsfsrsStatus = a});

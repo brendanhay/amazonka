@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPNConnections.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPNConnections.html AWS API Reference> for DescribeVPNConnections.
 module Network.AWS.EC2.DescribeVPNConnections
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPNConnections
-    -- ** Request constructor
     , describeVPNConnections
-    -- ** Request lenses
+    -- * Request Lenses
     , dvpncFilters
     , dvpncVPNConnectionIds
     , dvpncDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPNConnectionsResponse
-    -- ** Response constructor
     , describeVPNConnectionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvcrsVPNConnections
     , dvcrsStatus
     ) where
@@ -187,6 +185,6 @@ describeVPNConnectionsResponse pStatus_ =
 dvcrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
 dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvcrsStatus :: Lens' DescribeVPNConnectionsResponse Int
 dvcrsStatus = lens _dvcrsStatus (\ s a -> s{_dvcrsStatus = a});

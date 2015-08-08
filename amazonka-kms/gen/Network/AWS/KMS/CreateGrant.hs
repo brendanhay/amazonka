@@ -28,14 +28,13 @@
 -- 2.  RetireGrant
 -- 3.  RevokeGrant
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html AWS API Reference> for CreateGrant.
 module Network.AWS.KMS.CreateGrant
     (
-    -- * Request
+    -- * Creating a Request
       CreateGrant
-    -- ** Request constructor
     , createGrant
-    -- ** Request lenses
+    -- * Request Lenses
     , cgRetiringPrincipal
     , cgConstraints
     , cgGrantTokens
@@ -43,11 +42,10 @@ module Network.AWS.KMS.CreateGrant
     , cgKeyId
     , cgGranteePrincipal
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateGrantResponse
-    -- ** Response constructor
     , createGrantResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cgrsGrantId
     , cgrsGrantToken
     , cgrsStatus
@@ -207,6 +205,6 @@ cgrsGrantId = lens _cgrsGrantId (\ s a -> s{_cgrsGrantId = a});
 cgrsGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cgrsStatus :: Lens' CreateGrantResponse Int
 cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});

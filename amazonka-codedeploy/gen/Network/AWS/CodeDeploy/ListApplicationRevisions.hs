@@ -19,14 +19,13 @@
 --
 -- Lists information about revisions for an application.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplicationRevisions.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplicationRevisions.html AWS API Reference> for ListApplicationRevisions.
 module Network.AWS.CodeDeploy.ListApplicationRevisions
     (
-    -- * Request
+    -- * Creating a Request
       ListApplicationRevisions
-    -- ** Request constructor
     , listApplicationRevisions
-    -- ** Request lenses
+    -- * Request Lenses
     , larS3KeyPrefix
     , larDeployed
     , larNextToken
@@ -35,11 +34,10 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     , larSortBy
     , larApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListApplicationRevisionsResponse
-    -- ** Response constructor
     , listApplicationRevisionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , larrsNextToken
     , larrsRevisions
     , larrsStatus
@@ -227,6 +225,6 @@ larrsNextToken = lens _larrsNextToken (\ s a -> s{_larrsNextToken = a});
 larrsRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 larrsStatus :: Lens' ListApplicationRevisionsResponse Int
 larrsStatus = lens _larrsStatus (\ s a -> s{_larrsStatus = a});

@@ -24,22 +24,20 @@
 -- verbose format adds the schema description and the list of files pointed
 -- to by the DataSource to the normal format.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetDataSource.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetDataSource.html AWS API Reference> for GetDataSource.
 module Network.AWS.MachineLearning.GetDataSource
     (
-    -- * Request
+    -- * Creating a Request
       GetDataSource
-    -- ** Request constructor
     , getDataSource
-    -- ** Request lenses
+    -- * Request Lenses
     , gdsVerbose
     , gdsDataSourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDataSourceResponse
-    -- ** Response constructor
     , getDataSourceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdsrsNumberOfFiles
     , gdsrsLastUpdatedAt
     , gdsrsCreatedAt
@@ -240,7 +238,7 @@ gdsrsLastUpdatedAt = lens _gdsrsLastUpdatedAt (\ s a -> s{_gdsrsLastUpdatedAt = 
 gdsrsCreatedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
 gdsrsCreatedAt = lens _gdsrsCreatedAt (\ s a -> s{_gdsrsCreatedAt = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdsrsRDSMetadata :: Lens' GetDataSourceResponse (Maybe RDSMetadata)
 gdsrsRDSMetadata = lens _gdsrsRDSMetadata (\ s a -> s{_gdsrsRDSMetadata = a});
 
@@ -291,11 +289,11 @@ gdsrsComputeStatistics = lens _gdsrsComputeStatistics (\ s a -> s{_gdsrsComputeS
 gdsrsMessage :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsMessage = lens _gdsrsMessage (\ s a -> s{_gdsrsMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdsrsRedshiftMetadata :: Lens' GetDataSourceResponse (Maybe RedshiftMetadata)
 gdsrsRedshiftMetadata = lens _gdsrsRedshiftMetadata (\ s a -> s{_gdsrsRedshiftMetadata = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdsrsRoleARN :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
 
@@ -304,6 +302,6 @@ gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
 gdsrsDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrsDataRearrangement = lens _gdsrsDataRearrangement (\ s a -> s{_gdsrsDataRearrangement = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdsrsStatus :: Lens' GetDataSourceResponse Int
 gdsrsStatus = lens _gdsrsStatus (\ s a -> s{_gdsrsStatus = a});

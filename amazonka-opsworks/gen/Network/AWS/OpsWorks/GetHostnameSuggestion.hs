@@ -26,21 +26,19 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GetHostnameSuggestion.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GetHostnameSuggestion.html AWS API Reference> for GetHostnameSuggestion.
 module Network.AWS.OpsWorks.GetHostnameSuggestion
     (
-    -- * Request
+    -- * Creating a Request
       GetHostnameSuggestion
-    -- ** Request constructor
     , getHostnameSuggestion
-    -- ** Request lenses
+    -- * Request Lenses
     , ghsLayerId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetHostnameSuggestionResponse
-    -- ** Response constructor
     , getHostnameSuggestionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ghsrsHostname
     , ghsrsLayerId
     , ghsrsStatus
@@ -137,6 +135,6 @@ ghsrsHostname = lens _ghsrsHostname (\ s a -> s{_ghsrsHostname = a});
 ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ghsrsStatus :: Lens' GetHostnameSuggestionResponse Int
 ghsrsStatus = lens _ghsrsStatus (\ s a -> s{_ghsrsStatus = a});

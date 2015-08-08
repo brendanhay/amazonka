@@ -21,22 +21,20 @@
 --
 -- This is a public API. You do not need any credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentityPools.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentityPools.html AWS API Reference> for ListIdentityPools.
 module Network.AWS.CognitoIdentity.ListIdentityPools
     (
-    -- * Request
+    -- * Creating a Request
       ListIdentityPools
-    -- ** Request constructor
     , listIdentityPools
-    -- ** Request lenses
+    -- * Request Lenses
     , lipNextToken
     , lipMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListIdentityPoolsResponse
-    -- ** Response constructor
     , listIdentityPoolsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , liprsIdentityPools
     , liprsNextToken
     , liprsStatus
@@ -145,6 +143,6 @@ liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = 
 liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 liprsStatus :: Lens' ListIdentityPoolsResponse Int
 liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});

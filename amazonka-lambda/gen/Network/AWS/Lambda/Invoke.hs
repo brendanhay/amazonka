@@ -22,25 +22,23 @@
 -- This operation requires permission for the @lambda:InvokeFunction@
 -- action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS API Reference> for Invoke.
 module Network.AWS.Lambda.Invoke
     (
-    -- * Request
+    -- * Creating a Request
       Invoke
-    -- ** Request constructor
     , invoke
-    -- ** Request lenses
+    -- * Request Lenses
     , iInvocationType
     , iPayload
     , iLogType
     , iClientContext
     , iFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , InvokeResponse
-    -- ** Response constructor
     , invokeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , irsFunctionError
     , irsLogResult
     , irsPayload

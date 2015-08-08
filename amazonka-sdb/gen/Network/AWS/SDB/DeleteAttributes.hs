@@ -28,22 +28,20 @@
 -- operation (read) immediately after a @DeleteAttributes@ or PutAttributes
 -- operation (write) might not return updated item data.
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html AWS API Reference> for DeleteAttributes.
 module Network.AWS.SDB.DeleteAttributes
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAttributes
-    -- ** Request constructor
     , deleteAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , daAttributes
     , daExpected
     , daDomainName
     , daItemName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAttributesResponse
-    -- ** Response constructor
     , deleteAttributesResponse
     ) where
 

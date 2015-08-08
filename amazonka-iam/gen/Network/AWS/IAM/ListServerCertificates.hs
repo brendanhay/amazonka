@@ -23,23 +23,21 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html AWS API Reference> for ListServerCertificates.
 module Network.AWS.IAM.ListServerCertificates
     (
-    -- * Request
+    -- * Creating a Request
       ListServerCertificates
-    -- ** Request constructor
     , listServerCertificates
-    -- ** Request lenses
+    -- * Request Lenses
     , lscPathPrefix
     , lscMaxItems
     , lscMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListServerCertificatesResponse
-    -- ** Response constructor
     , listServerCertificatesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lscrsMarker
     , lscrsIsTruncated
     , lscrsStatus
@@ -179,7 +177,7 @@ lscrsMarker = lens _lscrsMarker (\ s a -> s{_lscrsMarker = a});
 lscrsIsTruncated :: Lens' ListServerCertificatesResponse (Maybe Bool)
 lscrsIsTruncated = lens _lscrsIsTruncated (\ s a -> s{_lscrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lscrsStatus :: Lens' ListServerCertificatesResponse Int
 lscrsStatus = lens _lscrsStatus (\ s a -> s{_lscrsStatus = a});
 

@@ -21,23 +21,21 @@
 -- context of the specified object. For example, a task runner can evaluate
 -- SQL queries stored in Amazon S3.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html AWS API Reference> for EvaluateExpression.
 module Network.AWS.DataPipeline.EvaluateExpression
     (
-    -- * Request
+    -- * Creating a Request
       EvaluateExpression
-    -- ** Request constructor
     , evaluateExpression
-    -- ** Request lenses
+    -- * Request Lenses
     , eePipelineId
     , eeObjectId
     , eeExpression
 
-    -- * Response
+    -- * Destructuring the Response
     , EvaluateExpressionResponse
-    -- ** Response constructor
     , evaluateExpressionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , eersStatus
     , eersEvaluatedExpression
     ) where
@@ -141,7 +139,7 @@ evaluateExpressionResponse pStatus_ pEvaluatedExpression_ =
     , _eersEvaluatedExpression = pEvaluatedExpression_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 eersStatus :: Lens' EvaluateExpressionResponse Int
 eersStatus = lens _eersStatus (\ s a -> s{_eersStatus = a});
 

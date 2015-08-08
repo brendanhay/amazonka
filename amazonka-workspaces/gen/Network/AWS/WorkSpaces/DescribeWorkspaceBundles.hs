@@ -28,23 +28,21 @@
 -- @NextToken@ response member contains a token that you pass in the next
 -- call to this operation to retrieve the next set of items.
 --
--- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceBundles.html>
+-- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceBundles.html AWS API Reference> for DescribeWorkspaceBundles.
 module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     (
-    -- * Request
+    -- * Creating a Request
       DescribeWorkspaceBundles
-    -- ** Request constructor
     , describeWorkspaceBundles
-    -- ** Request lenses
+    -- * Request Lenses
     , dwbBundleIds
     , dwbOwner
     , dwbNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeWorkspaceBundlesResponse
-    -- ** Response constructor
     , describeWorkspaceBundlesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dwbrsBundles
     , dwbrsNextToken
     , dwbrsStatus
@@ -174,6 +172,6 @@ dwbrsBundles = lens _dwbrsBundles (\ s a -> s{_dwbrsBundles = a}) . _Default . _
 dwbrsNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrsNextToken = lens _dwbrsNextToken (\ s a -> s{_dwbrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dwbrsStatus :: Lens' DescribeWorkspaceBundlesResponse Int
 dwbrsStatus = lens _dwbrsStatus (\ s a -> s{_dwbrsStatus = a});

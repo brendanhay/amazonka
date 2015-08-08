@@ -21,19 +21,17 @@
 -- would not expire if they belong to log groups without a retention
 -- policy.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html AWS API Reference> for DeleteRetentionPolicy.
 module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteRetentionPolicy
-    -- ** Request constructor
     , deleteRetentionPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , drpLogGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteRetentionPolicyResponse
-    -- ** Response constructor
     , deleteRetentionPolicyResponse
     ) where
 

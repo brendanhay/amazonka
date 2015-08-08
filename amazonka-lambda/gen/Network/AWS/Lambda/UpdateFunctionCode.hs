@@ -24,25 +24,23 @@
 -- This operation requires permission for the @lambda:UpdateFunctionCode@
 -- action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionCode.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionCode.html AWS API Reference> for UpdateFunctionCode.
 module Network.AWS.Lambda.UpdateFunctionCode
     (
-    -- * Request
+    -- * Creating a Request
       UpdateFunctionCode
-    -- ** Request constructor
     , updateFunctionCode
-    -- ** Request lenses
+    -- * Request Lenses
     , uS3ObjectVersion
     , uS3Key
     , uZipFile
     , uS3Bucket
     , uFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , FunctionConfiguration
-    -- ** Response constructor
     , functionConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , fcRuntime
     , fcMemorySize
     , fcFunctionARN

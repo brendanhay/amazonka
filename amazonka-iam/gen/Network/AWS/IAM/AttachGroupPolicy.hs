@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html AWS API Reference> for AttachGroupPolicy.
 module Network.AWS.IAM.AttachGroupPolicy
     (
-    -- * Request
+    -- * Creating a Request
       AttachGroupPolicy
-    -- ** Request constructor
     , attachGroupPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , agpGroupName
     , agpPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachGroupPolicyResponse
-    -- ** Response constructor
     , attachGroupPolicyResponse
     ) where
 
@@ -72,7 +70,7 @@ attachGroupPolicy pGroupName_ pPolicyARN_ =
 agpGroupName :: Lens' AttachGroupPolicy Text
 agpGroupName = lens _agpGroupName (\ s a -> s{_agpGroupName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 agpPolicyARN :: Lens' AttachGroupPolicy Text
 agpPolicyARN = lens _agpPolicyARN (\ s a -> s{_agpPolicyARN = a});
 

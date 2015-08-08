@@ -38,25 +38,23 @@
 -- table returns to the @ACTIVE@ state, the /UpdateTable/ operation is
 -- complete.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html AWS API Reference> for UpdateTable.
 module Network.AWS.DynamoDB.UpdateTable
     (
-    -- * Request
+    -- * Creating a Request
       UpdateTable
-    -- ** Request constructor
     , updateTable
-    -- ** Request lenses
+    -- * Request Lenses
     , utProvisionedThroughput
     , utAttributeDefinitions
     , utGlobalSecondaryIndexUpdates
     , utStreamSpecification
     , utTableName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateTableResponse
-    -- ** Response constructor
     , updateTableResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , utrsTableDescription
     , utrsStatus
     ) where
@@ -100,7 +98,7 @@ updateTable pTableName_ =
     , _utTableName = pTableName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
 utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a});
 
@@ -195,10 +193,10 @@ updateTableResponse pStatus_ =
     , _utrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 utrsStatus :: Lens' UpdateTableResponse Int
 utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});

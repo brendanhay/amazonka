@@ -2713,7 +2713,7 @@ sSubnetStatus = lens _sSubnetStatus (\ s a -> s{_sSubnetStatus = a});
 sSubnetIdentifier :: Lens' Subnet (Maybe Text)
 sSubnetIdentifier = lens _sSubnetIdentifier (\ s a -> s{_sSubnetIdentifier = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
 sSubnetAvailabilityZone = lens _sSubnetAvailabilityZone (\ s a -> s{_sSubnetAvailabilityZone = a});
 
@@ -2844,11 +2844,11 @@ vpcSecurityGroupMembership =
     , _vsgmVPCSecurityGroupId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
 vsgmStatus = lens _vsgmStatus (\ s a -> s{_vsgmStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vsgmVPCSecurityGroupId :: Lens' VPCSecurityGroupMembership (Maybe Text)
 vsgmVPCSecurityGroupId = lens _vsgmVPCSecurityGroupId (\ s a -> s{_vsgmVPCSecurityGroupId = a});
 

@@ -42,21 +42,19 @@
 -- (using DeleteGateway) to no longer pay software charges associated with
 -- the gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html AWS API Reference> for ShutdownGateway.
 module Network.AWS.StorageGateway.ShutdownGateway
     (
-    -- * Request
+    -- * Creating a Request
       ShutdownGateway
-    -- ** Request constructor
     , shutdownGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , sGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ShutdownGatewayResponse
-    -- ** Response constructor
     , shutdownGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , sgrsGatewayARN
     , sgrsStatus
     ) where
@@ -84,7 +82,7 @@ shutdownGateway pGatewayARN_ =
     { _sGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sGatewayARN :: Lens' ShutdownGateway Text
 sGatewayARN = lens _sGatewayARN (\ s a -> s{_sGatewayARN = a});
 
@@ -140,10 +138,10 @@ shutdownGatewayResponse pStatus_ =
     , _sgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sgrsStatus :: Lens' ShutdownGatewayResponse Int
 sgrsStatus = lens _sgrsStatus (\ s a -> s{_sgrsStatus = a});

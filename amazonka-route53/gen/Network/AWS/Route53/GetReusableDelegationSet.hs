@@ -20,21 +20,19 @@
 -- To retrieve the reusable delegation set, send a @GET@ request to the
 -- @2013-04-01\/delegationset\/delegation set ID@ resource.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html AWS API Reference> for GetReusableDelegationSet.
 module Network.AWS.Route53.GetReusableDelegationSet
     (
-    -- * Request
+    -- * Creating a Request
       GetReusableDelegationSet
-    -- ** Request constructor
     , getReusableDelegationSet
-    -- ** Request lenses
+    -- * Request Lenses
     , grdsId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetReusableDelegationSetResponse
-    -- ** Response constructor
     , getReusableDelegationSetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grdsrsStatus
     , grdsrsDelegationSet
     ) where
@@ -112,7 +110,7 @@ getReusableDelegationSetResponse pStatus_ pDelegationSet_ =
     , _grdsrsDelegationSet = pDelegationSet_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grdsrsStatus :: Lens' GetReusableDelegationSetResponse Int
 grdsrsStatus = lens _grdsrsStatus (\ s a -> s{_grdsrsStatus = a});
 

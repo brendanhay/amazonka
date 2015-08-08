@@ -31,14 +31,13 @@
 -- Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
 -- initiators can use to connect to the volume target.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateStorediSCSIVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateStorediSCSIVolume.html AWS API Reference> for CreateStorediSCSIVolume.
 module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     (
-    -- * Request
+    -- * Creating a Request
       CreateStorediSCSIVolume
-    -- ** Request constructor
     , createStorediSCSIVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , csscsivSnapshotId
     , csscsivGatewayARN
     , csscsivDiskId
@@ -46,11 +45,10 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     , csscsivTargetName
     , csscsivNetworkInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateStorediSCSIVolumeResponse
-    -- ** Response constructor
     , createStorediSCSIVolumeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csscsivrsTargetARN
     , csscsivrsVolumeARN
     , csscsivrsVolumeSizeInBytes
@@ -115,7 +113,7 @@ createStorediSCSIVolume pGatewayARN_ pDiskId_ pPreserveExistingData_ pTargetName
 csscsivSnapshotId :: Lens' CreateStorediSCSIVolume (Maybe Text)
 csscsivSnapshotId = lens _csscsivSnapshotId (\ s a -> s{_csscsivSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csscsivGatewayARN :: Lens' CreateStorediSCSIVolume Text
 csscsivGatewayARN = lens _csscsivGatewayARN (\ s a -> s{_csscsivGatewayARN = a});
 
@@ -232,6 +230,6 @@ csscsivrsVolumeARN = lens _csscsivrsVolumeARN (\ s a -> s{_csscsivrsVolumeARN = 
 csscsivrsVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integer)
 csscsivrsVolumeSizeInBytes = lens _csscsivrsVolumeSizeInBytes (\ s a -> s{_csscsivrsVolumeSizeInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csscsivrsStatus :: Lens' CreateStorediSCSIVolumeResponse Int
 csscsivrsStatus = lens _csscsivrsStatus (\ s a -> s{_csscsivrsStatus = a});

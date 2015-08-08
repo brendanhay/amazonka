@@ -24,25 +24,23 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html AWS API Reference> for ImportVolume.
 module Network.AWS.EC2.ImportVolume
     (
-    -- * Request
+    -- * Creating a Request
       ImportVolume
-    -- ** Request constructor
     , importVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , ivDryRun
     , ivDescription
     , ivAvailabilityZone
     , ivImage
     , ivVolume
 
-    -- * Response
+    -- * Destructuring the Response
     , ImportVolumeResponse
-    -- ** Response constructor
     , importVolumeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ivrsConversionTask
     , ivrsStatus
     ) where
@@ -157,6 +155,6 @@ importVolumeResponse pStatus_ =
 ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ivrsStatus :: Lens' ImportVolumeResponse Int
 ivrsStatus = lens _ivrsStatus (\ s a -> s{_ivrsStatus = a});

@@ -24,21 +24,19 @@
 -- This operation requires permission for the
 -- @lambda:GetFunctionConfiguration@ operation.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html AWS API Reference> for GetFunctionConfiguration.
 module Network.AWS.Lambda.GetFunctionConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       GetFunctionConfiguration
-    -- ** Request constructor
     , getFunctionConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , gfcFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , FunctionConfiguration
-    -- ** Response constructor
     , functionConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , fcRuntime
     , fcMemorySize
     , fcFunctionARN

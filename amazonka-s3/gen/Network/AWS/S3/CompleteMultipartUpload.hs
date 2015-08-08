@@ -19,25 +19,23 @@
 --
 -- Completes a multipart upload by assembling previously uploaded parts.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/CompleteMultipartUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CompleteMultipartUpload.html AWS API Reference> for CompleteMultipartUpload.
 module Network.AWS.S3.CompleteMultipartUpload
     (
-    -- * Request
+    -- * Creating a Request
       CompleteMultipartUpload
-    -- ** Request constructor
     , completeMultipartUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , cRequestPayer
     , cMultipartUpload
     , cBucket
     , cKey
     , cUploadId
 
-    -- * Response
+    -- * Destructuring the Response
     , CompleteMultipartUploadResponse
-    -- ** Response constructor
     , completeMultipartUploadResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsVersionId
     , crsETag
     , crsRequestCharged
@@ -87,23 +85,23 @@ completeMultipartUpload pBucket_ pKey_ pUploadId_ =
     , _cUploadId = pUploadId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
 cRequestPayer = lens _cRequestPayer (\ s a -> s{_cRequestPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
 cMultipartUpload = lens _cMultipartUpload (\ s a -> s{_cMultipartUpload = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cBucket :: Lens' CompleteMultipartUpload BucketName
 cBucket = lens _cBucket (\ s a -> s{_cBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cKey :: Lens' CompleteMultipartUpload ObjectKey
 cKey = lens _cKey (\ s a -> s{_cKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cUploadId :: Lens' CompleteMultipartUpload Text
 cUploadId = lens _cUploadId (\ s a -> s{_cUploadId = a});
 
@@ -206,11 +204,11 @@ crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a});
 crsETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
 crsETag = lens _crsETag (\ s a -> s{_crsETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
 crsRequestCharged = lens _crsRequestCharged (\ s a -> s{_crsRequestCharged = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 crsLocation = lens _crsLocation (\ s a -> s{_crsLocation = a});
 
@@ -220,11 +218,11 @@ crsLocation = lens _crsLocation (\ s a -> s{_crsLocation = a});
 crsExpiration :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 crsExpiration = lens _crsExpiration (\ s a -> s{_crsExpiration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
 crsBucket = lens _crsBucket (\ s a -> s{_crsBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
 crsKey = lens _crsKey (\ s a -> s{_crsKey = a});
 
@@ -238,6 +236,6 @@ crsSSEKMSKeyId = lens _crsSSEKMSKeyId (\ s a -> s{_crsSSEKMSKeyId = a}) . mappin
 crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CompleteMultipartUploadResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

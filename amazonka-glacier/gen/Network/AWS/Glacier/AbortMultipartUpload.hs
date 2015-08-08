@@ -40,21 +40,19 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html Abort Multipart Upload>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortMultipartUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortMultipartUpload.html AWS API Reference> for AbortMultipartUpload.
 module Network.AWS.Glacier.AbortMultipartUpload
     (
-    -- * Request
+    -- * Creating a Request
       AbortMultipartUpload
-    -- ** Request constructor
     , abortMultipartUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , amuAccountId
     , amuVaultName
     , amuUploadId
 
-    -- * Response
+    -- * Destructuring the Response
     , AbortMultipartUploadResponse
-    -- ** Response constructor
     , abortMultipartUploadResponse
     ) where
 

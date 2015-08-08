@@ -27,21 +27,19 @@
 --
 -- The results of the @DeleteDataSource@ operation are irreversible.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteDataSource.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteDataSource.html AWS API Reference> for DeleteDataSource.
 module Network.AWS.MachineLearning.DeleteDataSource
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDataSource
-    -- ** Request constructor
     , deleteDataSource
-    -- ** Request lenses
+    -- * Request Lenses
     , ddsDataSourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDataSourceResponse
-    -- ** Response constructor
     , deleteDataSourceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddsrsDataSourceId
     , ddsrsStatus
     ) where
@@ -127,6 +125,6 @@ deleteDataSourceResponse pStatus_ =
 ddsrsDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
 ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddsrsStatus :: Lens' DeleteDataSourceResponse Int
 ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});

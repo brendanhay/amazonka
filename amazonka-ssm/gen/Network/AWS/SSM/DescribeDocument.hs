@@ -19,21 +19,19 @@
 --
 -- Describes the specified configuration document.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeDocument.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeDocument.html AWS API Reference> for DescribeDocument.
 module Network.AWS.SSM.DescribeDocument
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDocument
-    -- ** Request constructor
     , describeDocument
-    -- ** Request lenses
+    -- * Request Lenses
     , ddName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDocumentResponse
-    -- ** Response constructor
     , describeDocumentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsDocument
     , drsStatus
     ) where
@@ -116,6 +114,6 @@ describeDocumentResponse pStatus_ =
 drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeDocumentResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -25,20 +25,18 @@
 -- UpdateAutoScalingGroup to set the minimum and maximum size of the Auto
 -- Scaling group to zero.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html AWS API Reference> for DeleteAutoScalingGroup.
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAutoScalingGroup
-    -- ** Request constructor
     , deleteAutoScalingGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dasgForceDelete
     , dasgAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAutoScalingGroupResponse
-    -- ** Response constructor
     , deleteAutoScalingGroupResponse
     ) where
 

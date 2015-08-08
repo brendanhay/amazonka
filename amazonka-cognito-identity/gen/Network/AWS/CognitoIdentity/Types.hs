@@ -13,10 +13,10 @@
 --
 module Network.AWS.CognitoIdentity.Types
     (
-    -- * Service
+    -- * Service Decription
       CognitoIdentity
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidIdentityPoolConfigurationException
     , _InvalidParameterException
     , _NotAuthorizedException

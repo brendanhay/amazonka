@@ -20,21 +20,19 @@
 -- Retrieves settings for the trail associated with the current region for
 -- your account.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html AWS API Reference> for DescribeTrails.
 module Network.AWS.CloudTrail.DescribeTrails
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTrails
-    -- ** Request constructor
     , describeTrails
-    -- ** Request lenses
+    -- * Request Lenses
     , dtTrailNameList
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTrailsResponse
-    -- ** Response constructor
     , describeTrailsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsTrailList
     , dtrsStatus
     ) where
@@ -124,6 +122,6 @@ describeTrailsResponse pStatus_ =
 dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DescribeTrailsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

@@ -19,24 +19,22 @@
 --
 -- Describes the running instances for the specified Spot fleet.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetInstances.html AWS API Reference> for DescribeSpotFleetInstances.
 module Network.AWS.EC2.DescribeSpotFleetInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSpotFleetInstances
-    -- ** Request constructor
     , describeSpotFleetInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , dsfiNextToken
     , dsfiDryRun
     , dsfiMaxResults
     , dsfiSpotFleetRequestId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSpotFleetInstancesResponse
-    -- ** Response constructor
     , describeSpotFleetInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsfirsNextToken
     , dsfirsStatus
     , dsfirsSpotFleetRequestId
@@ -167,7 +165,7 @@ describeSpotFleetInstancesResponse pStatus_ pSpotFleetRequestId_ =
 dsfirsNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
 dsfirsNextToken = lens _dsfirsNextToken (\ s a -> s{_dsfirsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsfirsStatus :: Lens' DescribeSpotFleetInstancesResponse Int
 dsfirsStatus = lens _dsfirsStatus (\ s a -> s{_dsfirsStatus = a});
 

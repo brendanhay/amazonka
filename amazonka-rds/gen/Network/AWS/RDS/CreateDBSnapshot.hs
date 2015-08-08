@@ -20,23 +20,21 @@
 -- Creates a DBSnapshot. The source DBInstance must be in \"available\"
 -- state.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html AWS API Reference> for CreateDBSnapshot.
 module Network.AWS.RDS.CreateDBSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBSnapshot
-    -- ** Request constructor
     , createDBSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , cdbsTags
     , cdbsDBSnapshotIdentifier
     , cdbsDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBSnapshotResponse
-    -- ** Response constructor
     , createDBSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdbsrsDBSnapshot
     , cdbsrsStatus
     ) where
@@ -72,7 +70,7 @@ createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
     , _cdbsDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbsTags :: Lens' CreateDBSnapshot [Tag]
 cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce;
 
@@ -145,10 +143,10 @@ createDBSnapshotResponse pStatus_ =
     , _cdbsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbsrsStatus :: Lens' CreateDBSnapshotResponse Int
 cdbsrsStatus = lens _cdbsrsStatus (\ s a -> s{_cdbsrsStatus = a});

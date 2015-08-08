@@ -21,21 +21,19 @@
 --
 -- The productCodes attribute can\'t be reset.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html AWS API Reference> for ResetImageAttribute.
 module Network.AWS.EC2.ResetImageAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ResetImageAttribute
-    -- ** Request constructor
     , resetImageAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , resDryRun
     , resImageId
     , resAttribute
 
-    -- * Response
+    -- * Destructuring the Response
     , ResetImageAttributeResponse
-    -- ** Response constructor
     , resetImageAttributeResponse
     ) where
 

@@ -22,21 +22,19 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html AWS API Reference> for VerifyEmailIdentity.
 module Network.AWS.SES.VerifyEmailIdentity
     (
-    -- * Request
+    -- * Creating a Request
       VerifyEmailIdentity
-    -- ** Request constructor
     , verifyEmailIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , veiEmailAddress
 
-    -- * Response
+    -- * Destructuring the Response
     , VerifyEmailIdentityResponse
-    -- ** Response constructor
     , verifyEmailIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , veirsStatus
     ) where
 
@@ -110,6 +108,6 @@ verifyEmailIdentityResponse pStatus_ =
     { _veirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 veirsStatus :: Lens' VerifyEmailIdentityResponse Int
 veirsStatus = lens _veirsStatus (\ s a -> s{_veirsStatus = a});

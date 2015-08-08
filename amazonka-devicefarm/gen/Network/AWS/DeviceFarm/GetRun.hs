@@ -19,21 +19,19 @@
 --
 -- Gets information about a run.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetRun.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetRun.html AWS API Reference> for GetRun.
 module Network.AWS.DeviceFarm.GetRun
     (
-    -- * Request
+    -- * Creating a Request
       GetRun
-    -- ** Request constructor
     , getRun
-    -- ** Request lenses
+    -- * Request Lenses
     , grArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetRunResponse
-    -- ** Response constructor
     , getRunResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grrsRun
     , grrsStatus
     ) where
@@ -115,10 +113,10 @@ getRunResponse pStatus_ =
     , _grrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grrsRun :: Lens' GetRunResponse (Maybe Run)
 grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grrsStatus :: Lens' GetRunResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

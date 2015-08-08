@@ -20,22 +20,20 @@
 -- The /CreateSnapshot/ action creates a copy of an entire cache cluster at
 -- a specific moment in time.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.ElastiCache.CreateSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CreateSnapshot
-    -- ** Request constructor
     , createSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , csCacheClusterId
     , csSnapshotName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSnapshotResponse
-    -- ** Response constructor
     , createSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crersSnapshot
     , crersStatus
     ) where
@@ -120,10 +118,10 @@ createSnapshotResponse pStatus_ =
     , _crersStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crersSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crersStatus :: Lens' CreateSnapshotResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

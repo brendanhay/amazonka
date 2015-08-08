@@ -39,14 +39,13 @@
 -- will be notified of events generated from all RDS sources belonging to
 -- your customer account.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateEventSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateEventSubscription.html AWS API Reference> for CreateEventSubscription.
 module Network.AWS.RDS.CreateEventSubscription
     (
-    -- * Request
+    -- * Creating a Request
       CreateEventSubscription
-    -- ** Request constructor
     , createEventSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , cesEnabled
     , cesSourceType
     , cesEventCategories
@@ -55,11 +54,10 @@ module Network.AWS.RDS.CreateEventSubscription
     , cesSubscriptionName
     , cesSNSTopicARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateEventSubscriptionResponse
-    -- ** Response constructor
     , createEventSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cesrsEventSubscription
     , cesrsStatus
     ) where
@@ -154,7 +152,7 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 cesSourceIds :: Lens' CreateEventSubscription [Text]
 cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cesTags :: Lens' CreateEventSubscription [Tag]
 cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default . _Coerce;
 
@@ -225,10 +223,10 @@ createEventSubscriptionResponse pStatus_ =
     , _cesrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 cesrsEventSubscription = lens _cesrsEventSubscription (\ s a -> s{_cesrsEventSubscription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cesrsStatus :: Lens' CreateEventSubscriptionResponse Int
 cesrsStatus = lens _cesrsStatus (\ s a -> s{_cesrsStatus = a});

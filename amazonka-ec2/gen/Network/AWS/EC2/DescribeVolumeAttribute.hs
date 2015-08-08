@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeAttribute.html AWS API Reference> for DescribeVolumeAttribute.
 module Network.AWS.EC2.DescribeVolumeAttribute
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVolumeAttribute
-    -- ** Request constructor
     , describeVolumeAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , dvaAttribute
     , dvaDryRun
     , dvaVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVolumeAttributeResponse
-    -- ** Response constructor
     , describeVolumeAttributeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvarsProductCodes
     , dvarsVolumeId
     , dvarsAutoEnableIO
@@ -161,6 +159,6 @@ dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvarsStatus :: Lens' DescribeVolumeAttributeResponse Int
 dvarsStatus = lens _dvarsStatus (\ s a -> s{_dvarsStatus = a});

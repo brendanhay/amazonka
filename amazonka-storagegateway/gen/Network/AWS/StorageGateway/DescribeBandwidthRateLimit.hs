@@ -27,21 +27,19 @@
 -- which gateway to describe, use the Amazon Resource Name (ARN) of the
 -- gateway in your request.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html AWS API Reference> for DescribeBandwidthRateLimit.
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
-    -- * Request
+    -- * Creating a Request
       DescribeBandwidthRateLimit
-    -- ** Request constructor
     , describeBandwidthRateLimit
-    -- ** Request lenses
+    -- * Request Lenses
     , dbrlGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeBandwidthRateLimitResponse
-    -- ** Response constructor
     , describeBandwidthRateLimitResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dbrlrsGatewayARN
     , dbrlrsAverageUploadRateLimitInBitsPerSec
     , dbrlrsAverageDownloadRateLimitInBitsPerSec
@@ -71,7 +69,7 @@ describeBandwidthRateLimit pGatewayARN_ =
     { _dbrlGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
 dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a});
 
@@ -139,7 +137,7 @@ describeBandwidthRateLimitResponse pStatus_ =
     , _dbrlrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbrlrsGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
 dbrlrsGatewayARN = lens _dbrlrsGatewayARN (\ s a -> s{_dbrlrsGatewayARN = a});
 
@@ -153,6 +151,6 @@ dbrlrsAverageUploadRateLimitInBitsPerSec = lens _dbrlrsAverageUploadRateLimitInB
 dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
 dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbrlrsStatus :: Lens' DescribeBandwidthRateLimitResponse Int
 dbrlrsStatus = lens _dbrlrsStatus (\ s a -> s{_dbrlrsStatus = a});

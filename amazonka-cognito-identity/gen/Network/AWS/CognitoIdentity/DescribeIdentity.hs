@@ -22,21 +22,19 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentity.html AWS API Reference> for DescribeIdentity.
 module Network.AWS.CognitoIdentity.DescribeIdentity
     (
-    -- * Request
+    -- * Creating a Request
       DescribeIdentity
-    -- ** Request constructor
     , describeIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , diIdentityId
 
-    -- * Response
+    -- * Destructuring the Response
     , IdentityDescription
-    -- ** Response constructor
     , identityDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , idLastModifiedDate
     , idCreationDate
     , idLogins

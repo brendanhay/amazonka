@@ -19,21 +19,19 @@
 --
 -- Creates a pipeline.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreatePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreatePipeline.html AWS API Reference> for CreatePipeline.
 module Network.AWS.CodePipeline.CreatePipeline
     (
-    -- * Request
+    -- * Creating a Request
       CreatePipeline
-    -- ** Request constructor
     , createPipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , cpPipeline
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePipelineResponse
-    -- ** Response constructor
     , createPipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cprsPipeline
     , cprsStatus
     ) where
@@ -61,7 +59,7 @@ createPipeline pPipeline_ =
     { _cpPipeline = pPipeline_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpPipeline :: Lens' CreatePipeline PipelineDeclaration
 cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
 
@@ -117,10 +115,10 @@ createPipelineResponse pStatus_ =
     , _cprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
 cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cprsStatus :: Lens' CreatePipelineResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

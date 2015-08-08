@@ -23,22 +23,20 @@
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html AWS API Reference> for DescribeIdentityUsage.
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (
-    -- * Request
+    -- * Creating a Request
       DescribeIdentityUsage
-    -- ** Request constructor
     , describeIdentityUsage
-    -- ** Request lenses
+    -- * Request Lenses
     , diuIdentityPoolId
     , diuIdentityId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeIdentityUsageResponse
-    -- ** Response constructor
     , describeIdentityUsageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , diursIdentityUsage
     , diursStatus
     ) where
@@ -135,6 +133,6 @@ describeIdentityUsageResponse pStatus_ =
 diursIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
 diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diursStatus :: Lens' DescribeIdentityUsageResponse Int
 diursStatus = lens _diursStatus (\ s a -> s{_diursStatus = a});

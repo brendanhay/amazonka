@@ -24,23 +24,21 @@
 -- @elasticfilesystem:DescribeMountTargets@ action on the file system
 -- @FileSystemId@.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargets.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargets.html AWS API Reference> for DescribeMountTargets.
 module Network.AWS.EFS.DescribeMountTargets
     (
-    -- * Request
+    -- * Creating a Request
       DescribeMountTargets
-    -- ** Request constructor
     , describeMountTargets
-    -- ** Request lenses
+    -- * Request Lenses
     , dmtMaxItems
     , dmtMarker
     , dmtFileSystemId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeMountTargetsResponse
-    -- ** Response constructor
     , describeMountTargetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmtrsMountTargets
     , dmtrsMarker
     , dmtrsNextMarker
@@ -161,6 +159,6 @@ dmtrsMarker = lens _dmtrsMarker (\ s a -> s{_dmtrsMarker = a});
 dmtrsNextMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrsNextMarker = lens _dmtrsNextMarker (\ s a -> s{_dmtrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmtrsStatus :: Lens' DescribeMountTargetsResponse Int
 dmtrsStatus = lens _dmtrsStatus (\ s a -> s{_dmtrsStatus = a});

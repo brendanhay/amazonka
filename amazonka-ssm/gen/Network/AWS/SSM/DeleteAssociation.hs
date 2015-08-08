@@ -26,22 +26,20 @@
 -- configuration document, you must create a new configuration document
 -- with the desired configuration and associate it with the instance.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteAssociation.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteAssociation.html AWS API Reference> for DeleteAssociation.
 module Network.AWS.SSM.DeleteAssociation
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAssociation
-    -- ** Request constructor
     , deleteAssociation
-    -- ** Request lenses
+    -- * Request Lenses
     , delName
     , delInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAssociationResponse
-    -- ** Response constructor
     , deleteAssociationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delrsStatus
     ) where
 
@@ -123,6 +121,6 @@ deleteAssociationResponse pStatus_ =
     { _delrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsStatus :: Lens' DeleteAssociationResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

@@ -19,21 +19,19 @@
 --
 -- Gets information about an upload.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetUpload.html AWS API Reference> for GetUpload.
 module Network.AWS.DeviceFarm.GetUpload
     (
-    -- * Request
+    -- * Creating a Request
       GetUpload
-    -- ** Request constructor
     , getUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , guArn
 
-    -- * Response
+    -- * Destructuring the Response
     , GetUploadResponse
-    -- ** Response constructor
     , getUploadResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gursUpload
     , gursStatus
     ) where
@@ -115,10 +113,10 @@ getUploadResponse pStatus_ =
     , _gursStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gursUpload :: Lens' GetUploadResponse (Maybe Upload)
 gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gursStatus :: Lens' GetUploadResponse Int
 gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});

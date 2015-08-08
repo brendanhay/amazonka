@@ -19,14 +19,13 @@
 --
 -- Modifies an existing Amazon Redshift event notification subscription.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html AWS API Reference> for ModifyEventSubscription.
 module Network.AWS.Redshift.ModifyEventSubscription
     (
-    -- * Request
+    -- * Creating a Request
       ModifyEventSubscription
-    -- ** Request constructor
     , modifyEventSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , mesSNSTopicARN
     , mesEnabled
     , mesSourceType
@@ -35,11 +34,10 @@ module Network.AWS.Redshift.ModifyEventSubscription
     , mesSourceIds
     , mesSubscriptionName
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyEventSubscriptionResponse
-    -- ** Response constructor
     , modifyEventSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mesrsEventSubscription
     , mesrsStatus
     ) where
@@ -198,10 +196,10 @@ modifyEventSubscriptionResponse pStatus_ =
     , _mesrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSubscription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mesrsStatus :: Lens' ModifyEventSubscriptionResponse Int
 mesrsStatus = lens _mesrsStatus (\ s a -> s{_mesrsStatus = a});

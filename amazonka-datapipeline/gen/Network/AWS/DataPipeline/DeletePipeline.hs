@@ -26,19 +26,17 @@
 -- it, call SetStatus with the status set to @PAUSE@ on individual
 -- components. Components that are paused by SetStatus can be resumed.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.DataPipeline.DeletePipeline
     (
-    -- * Request
+    -- * Creating a Request
       DeletePipeline
-    -- ** Request constructor
     , deletePipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , dpPipelineId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePipelineResponse
-    -- ** Response constructor
     , deletePipelineResponse
     ) where
 

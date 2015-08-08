@@ -47,21 +47,19 @@
 -- -   The requested resource.
 -- -   The values of condition keys in the context of the user\'s request.
 --
--- <http://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html>
+-- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html AWS API Reference> for DecodeAuthorizationMessage.
 module Network.AWS.STS.DecodeAuthorizationMessage
     (
-    -- * Request
+    -- * Creating a Request
       DecodeAuthorizationMessage
-    -- ** Request constructor
     , decodeAuthorizationMessage
-    -- ** Request lenses
+    -- * Request Lenses
     , damEncodedMessage
 
-    -- * Response
+    -- * Destructuring the Response
     , DecodeAuthorizationMessageResponse
-    -- ** Response constructor
     , decodeAuthorizationMessageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , damrsDecodedMessage
     , damrsStatus
     ) where
@@ -146,6 +144,6 @@ decodeAuthorizationMessageResponse pStatus_ =
 damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 damrsStatus :: Lens' DecodeAuthorizationMessageResponse Int
 damrsStatus = lens _damrsStatus (\ s a -> s{_damrsStatus = a});

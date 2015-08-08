@@ -23,20 +23,18 @@
 -- virtual private gateway if you plan to delete and recreate the VPN
 -- connection between your VPC and your network.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNGateway.html AWS API Reference> for DeleteVPNGateway.
 module Network.AWS.EC2.DeleteVPNGateway
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVPNGateway
-    -- ** Request constructor
     , deleteVPNGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , dvgDryRun
     , dvgVPNGatewayId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVPNGatewayResponse
-    -- ** Response constructor
     , deleteVPNGatewayResponse
     ) where
 

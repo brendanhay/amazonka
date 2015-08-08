@@ -31,23 +31,21 @@
 -- For information on how to construct select expressions, see Using Select
 -- to Create Amazon SimpleDB Queries in the Developer Guide.
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html AWS API Reference> for Select.
 module Network.AWS.SDB.Select
     (
-    -- * Request
+    -- * Creating a Request
       Select
-    -- ** Request constructor
     , select
-    -- ** Request lenses
+    -- * Request Lenses
     , sConsistentRead
     , sNextToken
     , sSelectExpression
 
-    -- * Response
+    -- * Destructuring the Response
     , SelectResponse
-    -- ** Response constructor
     , selectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srsItems
     , srsNextToken
     , srsStatus
@@ -167,6 +165,6 @@ srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default . _Coerce;
 srsNextToken :: Lens' SelectResponse (Maybe Text)
 srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srsStatus :: Lens' SelectResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

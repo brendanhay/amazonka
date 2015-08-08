@@ -666,7 +666,7 @@ listenerDescription =
 ldPolicyNames :: Lens' ListenerDescription [Text]
 ldPolicyNames = lens _ldPolicyNames (\ s a -> s{_ldPolicyNames = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldListener :: Lens' ListenerDescription (Maybe Listener)
 ldListener = lens _ldListener (\ s a -> s{_ldListener = a});
 

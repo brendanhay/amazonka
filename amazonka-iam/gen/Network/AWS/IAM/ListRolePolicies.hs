@@ -30,23 +30,21 @@
 -- parameters. If there are no inline policies embedded with the specified
 -- role, the action returns an empty list.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html AWS API Reference> for ListRolePolicies.
 module Network.AWS.IAM.ListRolePolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListRolePolicies
-    -- ** Request constructor
     , listRolePolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , lrpMaxItems
     , lrpMarker
     , lrpRoleName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListRolePoliciesResponse
-    -- ** Response constructor
     , listRolePoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrprsMarker
     , lrprsIsTruncated
     , lrprsStatus
@@ -179,7 +177,7 @@ lrprsMarker = lens _lrprsMarker (\ s a -> s{_lrprsMarker = a});
 lrprsIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
 lrprsIsTruncated = lens _lrprsIsTruncated (\ s a -> s{_lrprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrprsStatus :: Lens' ListRolePoliciesResponse Int
 lrprsStatus = lens _lrprsStatus (\ s a -> s{_lrprsStatus = a});
 

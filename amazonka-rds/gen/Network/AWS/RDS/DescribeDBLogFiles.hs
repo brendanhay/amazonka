@@ -19,14 +19,13 @@
 --
 -- Returns a list of DB log files for the DB instance.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBLogFiles.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBLogFiles.html AWS API Reference> for DescribeDBLogFiles.
 module Network.AWS.RDS.DescribeDBLogFiles
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBLogFiles
-    -- ** Request constructor
     , describeDBLogFiles
-    -- ** Request lenses
+    -- * Request Lenses
     , ddlfFilenameContains
     , ddlfFileSize
     , ddlfFileLastWritten
@@ -35,11 +34,10 @@ module Network.AWS.RDS.DescribeDBLogFiles
     , ddlfMarker
     , ddlfDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBLogFilesResponse
-    -- ** Response constructor
     , describeDBLogFilesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddlfrsDescribeDBLogFiles
     , ddlfrsMarker
     , ddlfrsStatus
@@ -212,6 +210,6 @@ ddlfrsDescribeDBLogFiles = lens _ddlfrsDescribeDBLogFiles (\ s a -> s{_ddlfrsDes
 ddlfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddlfrsStatus :: Lens' DescribeDBLogFilesResponse Int
 ddlfrsStatus = lens _ddlfrsStatus (\ s a -> s{_ddlfrsStatus = a});

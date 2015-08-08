@@ -36,21 +36,19 @@
 -- secret key is lost, you can delete the access keys for the associated
 -- user and then create new keys.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html AWS API Reference> for CreateAccessKey.
 module Network.AWS.IAM.CreateAccessKey
     (
-    -- * Request
+    -- * Creating a Request
       CreateAccessKey
-    -- ** Request constructor
     , createAccessKey
-    -- ** Request lenses
+    -- * Request Lenses
     , cakUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAccessKeyResponse
-    -- ** Response constructor
     , createAccessKeyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cakrsStatus
     , cakrsAccessKey
     ) where
@@ -125,7 +123,7 @@ createAccessKeyResponse pStatus_ pAccessKey_ =
     , _cakrsAccessKey = pAccessKey_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cakrsStatus :: Lens' CreateAccessKeyResponse Int
 cakrsStatus = lens _cakrsStatus (\ s a -> s{_cakrsStatus = a});
 

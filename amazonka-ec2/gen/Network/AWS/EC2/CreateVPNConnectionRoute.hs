@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPNConnectionRoute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPNConnectionRoute.html AWS API Reference> for CreateVPNConnectionRoute.
 module Network.AWS.EC2.CreateVPNConnectionRoute
     (
-    -- * Request
+    -- * Creating a Request
       CreateVPNConnectionRoute
-    -- ** Request constructor
     , createVPNConnectionRoute
-    -- ** Request lenses
+    -- * Request Lenses
     , cvcrVPNConnectionId
     , cvcrDestinationCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateVPNConnectionRouteResponse
-    -- ** Response constructor
     , createVPNConnectionRouteResponse
     ) where
 

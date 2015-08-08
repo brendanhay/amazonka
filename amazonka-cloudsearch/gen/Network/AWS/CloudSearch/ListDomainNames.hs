@@ -19,19 +19,17 @@
 --
 -- Lists all search domains owned by an account.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html AWS API Reference> for ListDomainNames.
 module Network.AWS.CloudSearch.ListDomainNames
     (
-    -- * Request
+    -- * Creating a Request
       ListDomainNames
-    -- ** Request constructor
     , listDomainNames
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDomainNamesResponse
-    -- ** Response constructor
     , listDomainNamesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldnrsDomainNames
     , ldnrsStatus
     ) where
@@ -102,6 +100,6 @@ listDomainNamesResponse pStatus_ =
 ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldnrsStatus :: Lens' ListDomainNamesResponse Int
 ldnrsStatus = lens _ldnrsStatus (\ s a -> s{_ldnrsStatus = a});

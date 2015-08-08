@@ -25,20 +25,18 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html AWS API Reference> for DetachElasticLoadBalancer.
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       DetachElasticLoadBalancer
-    -- ** Request constructor
     , detachElasticLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , delbElasticLoadBalancerName
     , delbLayerId
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachElasticLoadBalancerResponse
-    -- ** Response constructor
     , detachElasticLoadBalancerResponse
     ) where
 

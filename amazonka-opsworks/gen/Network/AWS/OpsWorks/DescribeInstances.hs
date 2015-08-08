@@ -27,23 +27,21 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeInstances.html AWS API Reference> for DescribeInstances.
 module Network.AWS.OpsWorks.DescribeInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeInstances
-    -- ** Request constructor
     , describeInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , diInstanceIds
     , diStackId
     , diLayerId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeInstancesResponse
-    -- ** Response constructor
     , describeInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dirsInstances
     , dirsStatus
     ) where
@@ -152,6 +150,6 @@ describeInstancesResponse pStatus_ =
 dirsInstances :: Lens' DescribeInstancesResponse [Instance]
 dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsStatus :: Lens' DescribeInstancesResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

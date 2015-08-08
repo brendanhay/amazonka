@@ -19,21 +19,19 @@
 --
 -- Gets a summary of all of the pipelines associated with your account.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ListPipelines.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ListPipelines.html AWS API Reference> for ListPipelines.
 module Network.AWS.CodePipeline.ListPipelines
     (
-    -- * Request
+    -- * Creating a Request
       ListPipelines
-    -- ** Request constructor
     , listPipelines
-    -- ** Request lenses
+    -- * Request Lenses
     , lpNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPipelinesResponse
-    -- ** Response constructor
     , listPipelinesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lprsPipelines
     , lprsNextToken
     , lprsStatus
@@ -135,6 +133,6 @@ lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default 
 lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsStatus :: Lens' ListPipelinesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

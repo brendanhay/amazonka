@@ -22,22 +22,20 @@
 -- gateway-VTL. This operation enables you to select a different type of
 -- medium changer after a gateway-VTL is activated.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateVTLDeviceType.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateVTLDeviceType.html AWS API Reference> for UpdateVTLDeviceType.
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
     (
-    -- * Request
+    -- * Creating a Request
       UpdateVTLDeviceType
-    -- ** Request constructor
     , updateVTLDeviceType
-    -- ** Request lenses
+    -- * Request Lenses
     , uvtldtVTLDeviceARN
     , uvtldtDeviceType
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateVTLDeviceTypeResponse
-    -- ** Response constructor
     , updateVTLDeviceTypeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uvtldtrsVTLDeviceARN
     , uvtldtrsStatus
     ) where
@@ -138,6 +136,6 @@ updateVTLDeviceTypeResponse pStatus_ =
 uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uvtldtrsStatus :: Lens' UpdateVTLDeviceTypeResponse Int
 uvtldtrsStatus = lens _uvtldtrsStatus (\ s a -> s{_uvtldtrsStatus = a});

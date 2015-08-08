@@ -24,22 +24,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html AWS API Reference> for ResyncMFADevice.
 module Network.AWS.IAM.ResyncMFADevice
     (
-    -- * Request
+    -- * Creating a Request
       ResyncMFADevice
-    -- ** Request constructor
     , resyncMFADevice
-    -- ** Request lenses
+    -- * Request Lenses
     , rmdUserName
     , rmdSerialNumber
     , rmdAuthenticationCode1
     , rmdAuthenticationCode2
 
-    -- * Response
+    -- * Destructuring the Response
     , ResyncMFADeviceResponse
-    -- ** Response constructor
     , resyncMFADeviceResponse
     ) where
 

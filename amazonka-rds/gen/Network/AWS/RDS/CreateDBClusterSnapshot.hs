@@ -22,23 +22,21 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterSnapshot.html AWS API Reference> for CreateDBClusterSnapshot.
 module Network.AWS.RDS.CreateDBClusterSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBClusterSnapshot
-    -- ** Request constructor
     , createDBClusterSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , cdcsTags
     , cdcsDBClusterSnapshotIdentifier
     , cdcsDBClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBClusterSnapshotResponse
-    -- ** Response constructor
     , createDBClusterSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdbcsrsDBClusterSnapshot
     , cdbcsrsStatus
     ) where
@@ -152,10 +150,10 @@ createDBClusterSnapshotResponse pStatus_ =
     , _cdbcsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbcsrsDBClusterSnapshot :: Lens' CreateDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 cdbcsrsDBClusterSnapshot = lens _cdbcsrsDBClusterSnapshot (\ s a -> s{_cdbcsrsDBClusterSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbcsrsStatus :: Lens' CreateDBClusterSnapshotResponse Int
 cdbcsrsStatus = lens _cdbcsrsStatus (\ s a -> s{_cdbcsrsStatus = a});

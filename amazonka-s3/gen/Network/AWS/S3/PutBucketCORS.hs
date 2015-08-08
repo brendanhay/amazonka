@@ -19,21 +19,19 @@
 --
 -- Sets the cors configuration for a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketCORS.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketCORS.html AWS API Reference> for PutBucketCORS.
 module Network.AWS.S3.PutBucketCORS
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketCORS
-    -- ** Request constructor
     , putBucketCORS
-    -- ** Request lenses
+    -- * Request Lenses
     , pbcContentMD5
     , pbcCORSConfiguration
     , pbcBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketCORSResponse
-    -- ** Response constructor
     , putBucketCORSResponse
     ) where
 
@@ -66,15 +64,15 @@ putBucketCORS pBucket_ =
     , _pbcBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbcContentMD5 :: Lens' PutBucketCORS (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\ s a -> s{_pbcContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbcCORSConfiguration :: Lens' PutBucketCORS (Maybe CORSConfiguration)
 pbcCORSConfiguration = lens _pbcCORSConfiguration (\ s a -> s{_pbcCORSConfiguration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbcBucket :: Lens' PutBucketCORS BucketName
 pbcBucket = lens _pbcBucket (\ s a -> s{_pbcBucket = a});
 

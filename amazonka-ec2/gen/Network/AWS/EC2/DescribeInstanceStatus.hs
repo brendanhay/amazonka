@@ -42,14 +42,13 @@
 --     in the /Amazon Elastic Compute Cloud User Guide/.
 --
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html AWS API Reference> for DescribeInstanceStatus.
 module Network.AWS.EC2.DescribeInstanceStatus
     (
-    -- * Request
+    -- * Creating a Request
       DescribeInstanceStatus
-    -- ** Request constructor
     , describeInstanceStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , disIncludeAllInstances
     , disFilters
     , disNextToken
@@ -57,11 +56,10 @@ module Network.AWS.EC2.DescribeInstanceStatus
     , disDryRun
     , disMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeInstanceStatusResponse
-    -- ** Response constructor
     , describeInstanceStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , disrsInstanceStatuses
     , disrsNextToken
     , disrsStatus
@@ -263,6 +261,6 @@ disrsInstanceStatuses = lens _disrsInstanceStatuses (\ s a -> s{_disrsInstanceSt
 disrsNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrsNextToken = lens _disrsNextToken (\ s a -> s{_disrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 disrsStatus :: Lens' DescribeInstanceStatusResponse Int
 disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});

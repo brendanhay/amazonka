@@ -19,21 +19,19 @@
 --
 -- Describes one or more of your export tasks.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeExportTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeExportTasks.html AWS API Reference> for DescribeExportTasks.
 module Network.AWS.EC2.DescribeExportTasks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeExportTasks
-    -- ** Request constructor
     , describeExportTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , detExportTaskIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeExportTasksResponse
-    -- ** Response constructor
     , describeExportTasksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , detrsExportTasks
     , detrsStatus
     ) where
@@ -114,6 +112,6 @@ describeExportTasksResponse pStatus_ =
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 detrsStatus :: Lens' DescribeExportTasksResponse Int
 detrsStatus = lens _detrsStatus (\ s a -> s{_detrsStatus = a});

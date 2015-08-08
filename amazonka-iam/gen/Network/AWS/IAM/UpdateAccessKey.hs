@@ -31,21 +31,19 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing Keys and Certificates>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html AWS API Reference> for UpdateAccessKey.
 module Network.AWS.IAM.UpdateAccessKey
     (
-    -- * Request
+    -- * Creating a Request
       UpdateAccessKey
-    -- ** Request constructor
     , updateAccessKey
-    -- ** Request lenses
+    -- * Request Lenses
     , uakUserName
     , uakAccessKeyId
     , uakStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAccessKeyResponse
-    -- ** Response constructor
     , updateAccessKeyResponse
     ) where
 

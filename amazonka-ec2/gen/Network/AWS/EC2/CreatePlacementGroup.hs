@@ -25,21 +25,19 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreatePlacementGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreatePlacementGroup.html AWS API Reference> for CreatePlacementGroup.
 module Network.AWS.EC2.CreatePlacementGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreatePlacementGroup
-    -- ** Request constructor
     , createPlacementGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cpgDryRun
     , cpgGroupName
     , cpgStrategy
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePlacementGroupResponse
-    -- ** Response constructor
     , createPlacementGroupResponse
     ) where
 

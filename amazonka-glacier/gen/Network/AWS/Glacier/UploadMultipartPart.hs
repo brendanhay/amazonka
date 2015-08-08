@@ -66,14 +66,13 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html Upload Part>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-UploadMultipartPart.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-UploadMultipartPart.html AWS API Reference> for UploadMultipartPart.
 module Network.AWS.Glacier.UploadMultipartPart
     (
-    -- * Request
+    -- * Creating a Request
       UploadMultipartPart
-    -- ** Request constructor
     , uploadMultipartPart
-    -- ** Request lenses
+    -- * Request Lenses
     , umpChecksum
     , umpRange
     , umpAccountId
@@ -81,11 +80,10 @@ module Network.AWS.Glacier.UploadMultipartPart
     , umpUploadId
     , umpBody
 
-    -- * Response
+    -- * Destructuring the Response
     , UploadMultipartPartResponse
-    -- ** Response constructor
     , uploadMultipartPartResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , umprsChecksum
     , umprsStatus
     ) where
@@ -222,6 +220,6 @@ uploadMultipartPartResponse pStatus_ =
 umprsChecksum :: Lens' UploadMultipartPartResponse (Maybe Text)
 umprsChecksum = lens _umprsChecksum (\ s a -> s{_umprsChecksum = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 umprsStatus :: Lens' UploadMultipartPartResponse Int
 umprsStatus = lens _umprsStatus (\ s a -> s{_umprsStatus = a});

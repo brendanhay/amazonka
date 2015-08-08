@@ -25,19 +25,17 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html AWS API Reference> for GetSendStatistics.
 module Network.AWS.SES.GetSendStatistics
     (
-    -- * Request
+    -- * Creating a Request
       GetSendStatistics
-    -- ** Request constructor
     , getSendStatistics
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSendStatisticsResponse
-    -- ** Response constructor
     , getSendStatisticsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gssrsSendDataPoints
     , gssrsStatus
     ) where
@@ -109,6 +107,6 @@ getSendStatisticsResponse pStatus_ =
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gssrsStatus :: Lens' GetSendStatisticsResponse Int
 gssrsStatus = lens _gssrsStatus (\ s a -> s{_gssrsStatus = a});

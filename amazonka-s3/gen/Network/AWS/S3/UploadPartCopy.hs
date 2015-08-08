@@ -19,14 +19,13 @@
 --
 -- Uploads a part by copying data from an existing object as data source.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPartCopy.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPartCopy.html AWS API Reference> for UploadPartCopy.
 module Network.AWS.S3.UploadPartCopy
     (
-    -- * Request
+    -- * Creating a Request
       UploadPartCopy
-    -- ** Request constructor
     , uploadPartCopy
-    -- ** Request lenses
+    -- * Request Lenses
     , upcCopySourceIfModifiedSince
     , upcCopySourceIfUnmodifiedSince
     , upcCopySourceRange
@@ -45,11 +44,10 @@ module Network.AWS.S3.UploadPartCopy
     , upcPartNumber
     , upcUploadId
 
-    -- * Response
+    -- * Destructuring the Response
     , UploadPartCopyResponse
-    -- ** Response constructor
     , uploadPartCopyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , upcrsRequestCharged
     , upcrsCopyPartResult
     , upcrsSSECustomerAlgorithm
@@ -187,7 +185,7 @@ upcCopySourceIfNoneMatch = lens _upcCopySourceIfNoneMatch (\ s a -> s{_upcCopySo
 upcSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
 upcSSECustomerKey = lens _upcSSECustomerKey (\ s a -> s{_upcSSECustomerKey = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upcRequestPayer :: Lens' UploadPartCopy (Maybe RequestPayer)
 upcRequestPayer = lens _upcRequestPayer (\ s a -> s{_upcRequestPayer = a});
 
@@ -212,7 +210,7 @@ upcCopySourceSSECustomerKey = lens _upcCopySourceSSECustomerKey (\ s a -> s{_upc
 upcCopySourceSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceSSECustomerAlgorithm = lens _upcCopySourceSSECustomerAlgorithm (\ s a -> s{_upcCopySourceSSECustomerAlgorithm = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upcBucket :: Lens' UploadPartCopy BucketName
 upcBucket = lens _upcBucket (\ s a -> s{_upcBucket = a});
 
@@ -221,7 +219,7 @@ upcBucket = lens _upcBucket (\ s a -> s{_upcBucket = a});
 upcCopySource :: Lens' UploadPartCopy Text
 upcCopySource = lens _upcCopySource (\ s a -> s{_upcCopySource = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upcKey :: Lens' UploadPartCopy ObjectKey
 upcKey = lens _upcKey (\ s a -> s{_upcKey = a});
 
@@ -335,11 +333,11 @@ uploadPartCopyResponse pStatus_ =
     , _upcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upcrsRequestCharged :: Lens' UploadPartCopyResponse (Maybe RequestCharged)
 upcrsRequestCharged = lens _upcrsRequestCharged (\ s a -> s{_upcrsRequestCharged = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upcrsCopyPartResult :: Lens' UploadPartCopyResponse (Maybe CopyPartResult)
 upcrsCopyPartResult = lens _upcrsCopyPartResult (\ s a -> s{_upcrsCopyPartResult = a});
 
@@ -370,6 +368,6 @@ upcrsSSECustomerKeyMD5 = lens _upcrsSSECustomerKeyMD5 (\ s a -> s{_upcrsSSECusto
 upcrsServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncryption)
 upcrsServerSideEncryption = lens _upcrsServerSideEncryption (\ s a -> s{_upcrsServerSideEncryption = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upcrsStatus :: Lens' UploadPartCopyResponse Int
 upcrsStatus = lens _upcrsStatus (\ s a -> s{_upcrsStatus = a});

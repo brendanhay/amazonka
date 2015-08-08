@@ -60,25 +60,23 @@
 -- effects of that change will be visible in a subsequent call to
 -- ListResourceRecordSets by that process.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html AWS API Reference> for ListResourceRecordSets.
 module Network.AWS.Route53.ListResourceRecordSets
     (
-    -- * Request
+    -- * Creating a Request
       ListResourceRecordSets
-    -- ** Request constructor
     , listResourceRecordSets
-    -- ** Request lenses
+    -- * Request Lenses
     , lrrsStartRecordName
     , lrrsStartRecordType
     , lrrsStartRecordIdentifier
     , lrrsMaxItems
     , lrrsHostedZoneId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListResourceRecordSetsResponse
-    -- ** Response constructor
     , listResourceRecordSetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrrsrsNextRecordType
     , lrrsrsNextRecordName
     , lrrsrsNextRecordIdentifier
@@ -277,7 +275,7 @@ lrrsrsNextRecordName = lens _lrrsrsNextRecordName (\ s a -> s{_lrrsrsNextRecordN
 lrrsrsNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordIdentifier = lens _lrrsrsNextRecordIdentifier (\ s a -> s{_lrrsrsNextRecordIdentifier = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrrsrsStatus :: Lens' ListResourceRecordSetsResponse Int
 lrrsrsStatus = lens _lrrsrsStatus (\ s a -> s{_lrrsrsStatus = a});
 

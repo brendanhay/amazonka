@@ -20,20 +20,18 @@
 -- Revokes a grant. You can revoke a grant to actively deny operations that
 -- depend on it.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html AWS API Reference> for RevokeGrant.
 module Network.AWS.KMS.RevokeGrant
     (
-    -- * Request
+    -- * Creating a Request
       RevokeGrant
-    -- ** Request constructor
     , revokeGrant
-    -- ** Request lenses
+    -- * Request Lenses
     , rKeyId
     , rGrantId
 
-    -- * Response
+    -- * Destructuring the Response
     , RevokeGrantResponse
-    -- ** Response constructor
     , revokeGrantResponse
     ) where
 

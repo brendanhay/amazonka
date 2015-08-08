@@ -20,21 +20,19 @@
 -- Sets lifecycle configuration for your bucket. If a lifecycle
 -- configuration exists, it replaces it.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLifecycle.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLifecycle.html AWS API Reference> for PutBucketLifecycle.
 module Network.AWS.S3.PutBucketLifecycle
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketLifecycle
-    -- ** Request constructor
     , putBucketLifecycle
-    -- ** Request lenses
+    -- * Request Lenses
     , pContentMD5
     , pLifecycleConfiguration
     , pBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketLifecycleResponse
-    -- ** Response constructor
     , putBucketLifecycleResponse
     ) where
 
@@ -67,15 +65,15 @@ putBucketLifecycle pBucket_ =
     , _pBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
 pContentMD5 = lens _pContentMD5 (\ s a -> s{_pContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
 pLifecycleConfiguration = lens _pLifecycleConfiguration (\ s a -> s{_pLifecycleConfiguration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pBucket :: Lens' PutBucketLifecycle BucketName
 pBucket = lens _pBucket (\ s a -> s{_pBucket = a});
 

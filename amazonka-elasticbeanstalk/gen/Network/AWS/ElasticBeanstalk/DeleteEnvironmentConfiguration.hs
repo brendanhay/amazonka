@@ -26,20 +26,18 @@
 -- indicates whether the deployment is in process or has failed. The draft
 -- configuration remains in existence until it is deleted with this action.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html AWS API Reference> for DeleteEnvironmentConfiguration.
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       DeleteEnvironmentConfiguration
-    -- ** Request constructor
     , deleteEnvironmentConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , decApplicationName
     , decEnvironmentName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteEnvironmentConfigurationResponse
-    -- ** Response constructor
     , deleteEnvironmentConfigurationResponse
     ) where
 

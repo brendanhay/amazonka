@@ -22,22 +22,20 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html AWS API Reference> for MonitorInstances.
 module Network.AWS.EC2.MonitorInstances
     (
-    -- * Request
+    -- * Creating a Request
       MonitorInstances
-    -- ** Request constructor
     , monitorInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , miDryRun
     , miInstanceIds
 
-    -- * Response
+    -- * Destructuring the Response
     , MonitorInstancesResponse
-    -- ** Response constructor
     , monitorInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mirsInstanceMonitorings
     , mirsStatus
     ) where
@@ -128,6 +126,6 @@ monitorInstancesResponse pStatus_ =
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mirsStatus :: Lens' MonitorInstancesResponse Int
 mirsStatus = lens _mirsStatus (\ s a -> s{_mirsStatus = a});

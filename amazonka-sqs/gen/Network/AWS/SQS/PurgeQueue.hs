@@ -29,19 +29,17 @@
 -- before @PurgeQueue@ was called may be received, but will be deleted
 -- within the next minute.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_PurgeQueue.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_PurgeQueue.html AWS API Reference> for PurgeQueue.
 module Network.AWS.SQS.PurgeQueue
     (
-    -- * Request
+    -- * Creating a Request
       PurgeQueue
-    -- ** Request constructor
     , purgeQueue
-    -- ** Request lenses
+    -- * Request Lenses
     , pqQueueURL
 
-    -- * Response
+    -- * Destructuring the Response
     , PurgeQueueResponse
-    -- ** Response constructor
     , purgeQueueResponse
     ) where
 

@@ -20,14 +20,13 @@
 -- Creates a new custom action that can be used in all pipelines associated
 -- with the AWS account. Only used for custom actions.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreateCustomActionType.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreateCustomActionType.html AWS API Reference> for CreateCustomActionType.
 module Network.AWS.CodePipeline.CreateCustomActionType
     (
-    -- * Request
+    -- * Creating a Request
       CreateCustomActionType
-    -- ** Request constructor
     , createCustomActionType
-    -- ** Request lenses
+    -- * Request Lenses
     , ccatSettings
     , ccatConfigurationProperties
     , ccatCategory
@@ -36,11 +35,10 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     , ccatInputArtifactDetails
     , ccatOutputArtifactDetails
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCustomActionTypeResponse
-    -- ** Response constructor
     , createCustomActionTypeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccatrsStatus
     , ccatrsActionType
     ) where
@@ -92,7 +90,7 @@ createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pO
     , _ccatOutputArtifactDetails = pOutputArtifactDetails_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccatSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
 ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 
@@ -117,11 +115,11 @@ ccatProvider = lens _ccatProvider (\ s a -> s{_ccatProvider = a});
 ccatVersion :: Lens' CreateCustomActionType Text
 ccatVersion = lens _ccatVersion (\ s a -> s{_ccatVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccatInputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
 ccatInputArtifactDetails = lens _ccatInputArtifactDetails (\ s a -> s{_ccatInputArtifactDetails = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccatOutputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
 ccatOutputArtifactDetails = lens _ccatOutputArtifactDetails (\ s a -> s{_ccatOutputArtifactDetails = a});
 
@@ -187,10 +185,10 @@ createCustomActionTypeResponse pStatus_ pActionType_ =
     , _ccatrsActionType = pActionType_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccatrsStatus :: Lens' CreateCustomActionTypeResponse Int
 ccatrsStatus = lens _ccatrsStatus (\ s a -> s{_ccatrsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType
 ccatrsActionType = lens _ccatrsActionType (\ s a -> s{_ccatrsActionType = a});

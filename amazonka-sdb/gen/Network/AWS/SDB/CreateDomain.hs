@@ -27,19 +27,17 @@
 -- If the client requires additional domains, go to
 -- <http://aws.amazon.com/contact-us/simpledb-limit-request/>.
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_CreateDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_CreateDomain.html AWS API Reference> for CreateDomain.
 module Network.AWS.SDB.CreateDomain
     (
-    -- * Request
+    -- * Creating a Request
       CreateDomain
-    -- ** Request constructor
     , createDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , cdDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDomainResponse
-    -- ** Response constructor
     , createDomainResponse
     ) where
 

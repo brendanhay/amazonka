@@ -19,21 +19,19 @@
 --
 -- Detaches a network interface from an instance.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachNetworkInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachNetworkInterface.html AWS API Reference> for DetachNetworkInterface.
 module Network.AWS.EC2.DetachNetworkInterface
     (
-    -- * Request
+    -- * Creating a Request
       DetachNetworkInterface
-    -- ** Request constructor
     , detachNetworkInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , dniForce
     , dniDryRun
     , dniAttachmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachNetworkInterfaceResponse
-    -- ** Response constructor
     , detachNetworkInterfaceResponse
     ) where
 

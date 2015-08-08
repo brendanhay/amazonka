@@ -44,14 +44,13 @@
 -- transfer doesn\'t complete successfully, the domain registrant will be
 -- notified by email.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-TransferDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-TransferDomain.html AWS API Reference> for TransferDomain.
 module Network.AWS.Route53Domains.TransferDomain
     (
-    -- * Request
+    -- * Creating a Request
       TransferDomain
-    -- ** Request constructor
     , transferDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , tdPrivacyProtectTechContact
     , tdPrivacyProtectRegistrantContact
     , tdAutoRenew
@@ -65,11 +64,10 @@ module Network.AWS.Route53Domains.TransferDomain
     , tdRegistrantContact
     , tdTechContact
 
-    -- * Response
+    -- * Destructuring the Response
     , TransferDomainResponse
-    -- ** Response constructor
     , transferDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , tdrsStatus
     , tdrsOperationId
     ) where
@@ -353,7 +351,7 @@ transferDomainResponse pStatus_ pOperationId_ =
     , _tdrsOperationId = pOperationId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 tdrsStatus :: Lens' TransferDomainResponse Int
 tdrsStatus = lens _tdrsStatus (\ s a -> s{_tdrsStatus = a});
 

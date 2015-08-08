@@ -37,21 +37,19 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html AWS API Reference> for PutUserPolicy.
 module Network.AWS.IAM.PutUserPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutUserPolicy
-    -- ** Request constructor
     , putUserPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , pupUserName
     , pupPolicyName
     , pupPolicyDocument
 
-    -- * Response
+    -- * Destructuring the Response
     , PutUserPolicyResponse
-    -- ** Response constructor
     , putUserPolicyResponse
     ) where
 

@@ -52,25 +52,23 @@
 -- these questions. For more information, see the Amazon Machine Learning
 -- Developer Guide.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRedshift.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRedshift.html AWS API Reference> for CreateDataSourceFromRedshift.
 module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     (
-    -- * Request
+    -- * Creating a Request
       CreateDataSourceFromRedshift
-    -- ** Request constructor
     , createDataSourceFromRedshift
-    -- ** Request lenses
+    -- * Request Lenses
     , cdsfrDataSourceName
     , cdsfrComputeStatistics
     , cdsfrDataSourceId
     , cdsfrDataSpec
     , cdsfrRoleARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDataSourceFromRedshiftResponse
-    -- ** Response constructor
     , createDataSourceFromRedshiftResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdsfrrsDataSourceId
     , cdsfrrsStatus
     ) where
@@ -243,6 +241,6 @@ createDataSourceFromRedshiftResponse pStatus_ =
 cdsfrrsDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse (Maybe Text)
 cdsfrrsDataSourceId = lens _cdsfrrsDataSourceId (\ s a -> s{_cdsfrrsDataSourceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdsfrrsStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
 cdsfrrsStatus = lens _cdsfrrsStatus (\ s a -> s{_cdsfrrsStatus = a});

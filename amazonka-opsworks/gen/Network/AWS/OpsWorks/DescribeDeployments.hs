@@ -27,23 +27,21 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeDeployments.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeDeployments.html AWS API Reference> for DescribeDeployments.
 module Network.AWS.OpsWorks.DescribeDeployments
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDeployments
-    -- ** Request constructor
     , describeDeployments
-    -- ** Request lenses
+    -- * Request Lenses
     , ddAppId
     , ddDeploymentIds
     , ddStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDeploymentsResponse
-    -- ** Response constructor
     , describeDeploymentsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddrsDeployments
     , ddrsStatus
     ) where
@@ -155,6 +153,6 @@ describeDeploymentsResponse pStatus_ =
 ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsStatus :: Lens' DescribeDeploymentsResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

@@ -21,22 +21,20 @@
 --
 -- Grants RDP access to a Windows instance for a specified time period.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GrantAccess.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GrantAccess.html AWS API Reference> for GrantAccess.
 module Network.AWS.OpsWorks.GrantAccess
     (
-    -- * Request
+    -- * Creating a Request
       GrantAccess
-    -- ** Request constructor
     , grantAccess
-    -- ** Request lenses
+    -- * Request Lenses
     , gaValidForInMinutes
     , gaInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , GrantAccessResponse
-    -- ** Response constructor
     , grantAccessResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , garsTemporaryCredential
     , garsStatus
     ) where
@@ -137,6 +135,6 @@ grantAccessResponse pStatus_ =
 garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 garsStatus :: Lens' GrantAccessResponse Int
 garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

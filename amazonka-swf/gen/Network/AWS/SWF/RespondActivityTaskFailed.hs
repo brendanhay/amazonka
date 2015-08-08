@@ -47,21 +47,19 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskFailed.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RespondActivityTaskFailed.html AWS API Reference> for RespondActivityTaskFailed.
 module Network.AWS.SWF.RespondActivityTaskFailed
     (
-    -- * Request
+    -- * Creating a Request
       RespondActivityTaskFailed
-    -- ** Request constructor
     , respondActivityTaskFailed
-    -- ** Request lenses
+    -- * Request Lenses
     , ratfReason
     , ratfDetails
     , ratfTaskToken
 
-    -- * Response
+    -- * Destructuring the Response
     , RespondActivityTaskFailedResponse
-    -- ** Response constructor
     , respondActivityTaskFailedResponse
     ) where
 

@@ -25,20 +25,18 @@
 -- For an overview on tagging Amazon RDS resources, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.RDS.AddTagsToResource
     (
-    -- * Request
+    -- * Creating a Request
       AddTagsToResource
-    -- ** Request constructor
     , addTagsToResource
-    -- ** Request lenses
+    -- * Request Lenses
     , attrResourceName
     , attrTags
 
-    -- * Response
+    -- * Destructuring the Response
     , AddTagsToResourceResponse
-    -- ** Response constructor
     , addTagsToResourceResponse
     ) where
 

@@ -33,14 +33,13 @@
 -- conditions are met. If those conditions are met, DynamoDB performs the
 -- delete. Otherwise, the item is not deleted.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html AWS API Reference> for DeleteItem.
 module Network.AWS.DynamoDB.DeleteItem
     (
-    -- * Request
+    -- * Creating a Request
       DeleteItem
-    -- ** Request constructor
     , deleteItem
-    -- ** Request lenses
+    -- * Request Lenses
     , diReturnValues
     , diExpressionAttributeNames
     , diReturnConsumedCapacity
@@ -52,11 +51,10 @@ module Network.AWS.DynamoDB.DeleteItem
     , diTableName
     , diKey
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteItemResponse
-    -- ** Response constructor
     , deleteItemResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dirsConsumedCapacity
     , dirsItemCollectionMetrics
     , dirsAttributes
@@ -175,7 +173,7 @@ diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
 diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
 diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnConsumedCapacity = a});
 
@@ -567,7 +565,7 @@ deleteItemResponse pStatus_ =
     , _dirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
 dirsConsumedCapacity = lens _dirsConsumedCapacity (\ s a -> s{_dirsConsumedCapacity = a});
 
@@ -602,6 +600,6 @@ dirsItemCollectionMetrics = lens _dirsItemCollectionMetrics (\ s a -> s{_dirsIte
 dirsAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
 dirsAttributes = lens _dirsAttributes (\ s a -> s{_dirsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsStatus :: Lens' DeleteItemResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

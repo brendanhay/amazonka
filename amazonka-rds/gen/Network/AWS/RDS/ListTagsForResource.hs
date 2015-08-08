@@ -22,22 +22,20 @@
 -- For an overview on tagging an Amazon RDS resource, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.RDS.ListTagsForResource
     (
-    -- * Request
+    -- * Creating a Request
       ListTagsForResource
-    -- ** Request constructor
     , listTagsForResource
-    -- ** Request lenses
+    -- * Request Lenses
     , ltfrFilters
     , ltfrResourceName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTagsForResourceResponse
-    -- ** Response constructor
     , listTagsForResourceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltfrrsTagList
     , ltfrrsStatus
     ) where
@@ -133,6 +131,6 @@ listTagsForResourceResponse pStatus_ =
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});

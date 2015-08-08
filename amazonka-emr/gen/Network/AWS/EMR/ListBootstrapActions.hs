@@ -20,22 +20,20 @@
 -- Provides information about the bootstrap actions associated with a
 -- cluster.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListBootstrapActions.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListBootstrapActions.html AWS API Reference> for ListBootstrapActions.
 module Network.AWS.EMR.ListBootstrapActions
     (
-    -- * Request
+    -- * Creating a Request
       ListBootstrapActions
-    -- ** Request constructor
     , listBootstrapActions
-    -- ** Request lenses
+    -- * Request Lenses
     , lbaMarker
     , lbaClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListBootstrapActionsResponse
-    -- ** Response constructor
     , listBootstrapActionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lbarsBootstrapActions
     , lbarsMarker
     , lbarsStatus
@@ -155,6 +153,6 @@ lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapA
 lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lbarsStatus :: Lens' ListBootstrapActionsResponse Int
 lbarsStatus = lens _lbarsStatus (\ s a -> s{_lbarsStatus = a});

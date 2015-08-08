@@ -49,24 +49,22 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBS Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html AWS API Reference> for AttachVolume.
 module Network.AWS.EC2.AttachVolume
     (
-    -- * Request
+    -- * Creating a Request
       AttachVolume
-    -- ** Request constructor
     , attachVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , avDryRun
     , avVolumeId
     , avInstanceId
     , avDevice
 
-    -- * Response
+    -- * Destructuring the Response
     , VolumeAttachment
-    -- ** Response constructor
     , volumeAttachment
-    -- ** Response lenses
+    -- * Response Lenses
     , volInstanceId
     , volDeleteOnTermination
     , volState

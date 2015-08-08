@@ -19,19 +19,17 @@
 --
 -- Deletes the tags from the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketTagging.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketTagging.html AWS API Reference> for DeleteBucketTagging.
 module Network.AWS.S3.DeleteBucketTagging
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBucketTagging
-    -- ** Request constructor
     , deleteBucketTagging
-    -- ** Request lenses
+    -- * Request Lenses
     , dbtBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBucketTaggingResponse
-    -- ** Response constructor
     , deleteBucketTaggingResponse
     ) where
 
@@ -56,7 +54,7 @@ deleteBucketTagging pBucket_ =
     { _dbtBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbtBucket :: Lens' DeleteBucketTagging BucketName
 dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a});
 

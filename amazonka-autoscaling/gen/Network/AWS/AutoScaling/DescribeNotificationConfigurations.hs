@@ -20,23 +20,21 @@
 -- Describes the notification actions associated with the specified Auto
 -- Scaling group.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html AWS API Reference> for DescribeNotificationConfigurations.
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     (
-    -- * Request
+    -- * Creating a Request
       DescribeNotificationConfigurations
-    -- ** Request constructor
     , describeNotificationConfigurations
-    -- ** Request lenses
+    -- * Request Lenses
     , dncAutoScalingGroupNames
     , dncNextToken
     , dncMaxRecords
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeNotificationConfigurationsResponse
-    -- ** Response constructor
     , describeNotificationConfigurationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dncrsNextToken
     , dncrsStatus
     , dncrsNotificationConfigurations
@@ -160,7 +158,7 @@ describeNotificationConfigurationsResponse pStatus_ =
 dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dncrsStatus :: Lens' DescribeNotificationConfigurationsResponse Int
 dncrsStatus = lens _dncrsStatus (\ s a -> s{_dncrsStatus = a});
 

@@ -25,21 +25,19 @@
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have rebooted.
 --
--- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebootWorkspaces.html>
+-- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebootWorkspaces.html AWS API Reference> for RebootWorkspaces.
 module Network.AWS.WorkSpaces.RebootWorkspaces
     (
-    -- * Request
+    -- * Creating a Request
       RebootWorkspaces
-    -- ** Request constructor
     , rebootWorkspaces
-    -- ** Request lenses
+    -- * Request Lenses
     , rwRebootWorkspaceRequests
 
-    -- * Response
+    -- * Destructuring the Response
     , RebootWorkspacesResponse
-    -- ** Response constructor
     , rebootWorkspacesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rrsFailedRequests
     , rrsStatus
     ) where
@@ -130,6 +128,6 @@ rebootWorkspacesResponse pStatus_ =
 rrsFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
 rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rrsStatus :: Lens' RebootWorkspacesResponse Int
 rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

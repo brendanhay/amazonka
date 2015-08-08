@@ -35,20 +35,18 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS Snapshot>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html AWS API Reference> for DeleteSnapshot.
 module Network.AWS.EC2.DeleteSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSnapshot
-    -- ** Request constructor
     , deleteSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , deleDryRun
     , deleSnapshotId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSnapshotResponse
-    -- ** Response constructor
     , deleteSnapshotResponse
     ) where
 

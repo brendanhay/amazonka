@@ -28,23 +28,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRouteTables.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRouteTables.html AWS API Reference> for DescribeRouteTables.
 module Network.AWS.EC2.DescribeRouteTables
     (
-    -- * Request
+    -- * Creating a Request
       DescribeRouteTables
-    -- ** Request constructor
     , describeRouteTables
-    -- ** Request lenses
+    -- * Request Lenses
     , drtsFilters
     , drtsDryRun
     , drtsRouteTableIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeRouteTablesResponse
-    -- ** Response constructor
     , describeRouteTablesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drtrsRouteTables
     , drtrsStatus
     ) where
@@ -206,6 +204,6 @@ describeRouteTablesResponse pStatus_ =
 drtrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrsRouteTables = lens _drtrsRouteTables (\ s a -> s{_drtrsRouteTables = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drtrsStatus :: Lens' DescribeRouteTablesResponse Int
 drtrsStatus = lens _drtrsStatus (\ s a -> s{_drtrsStatus = a});

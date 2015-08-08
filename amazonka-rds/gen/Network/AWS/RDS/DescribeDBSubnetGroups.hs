@@ -24,24 +24,22 @@
 -- For an overview of CIDR ranges, go to the
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html AWS API Reference> for DescribeDBSubnetGroups.
 module Network.AWS.RDS.DescribeDBSubnetGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBSubnetGroups
-    -- ** Request constructor
     , describeDBSubnetGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , ddsgDBSubnetGroupName
     , ddsgFilters
     , ddsgMaxRecords
     , ddsgMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBSubnetGroupsResponse
-    -- ** Response constructor
     , describeDBSubnetGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddsgrsDBSubnetGroups
     , ddsgrsMarker
     , ddsgrsStatus
@@ -185,6 +183,6 @@ ddsgrsDBSubnetGroups = lens _ddsgrsDBSubnetGroups (\ s a -> s{_ddsgrsDBSubnetGro
 ddsgrsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddsgrsMarker = lens _ddsgrsMarker (\ s a -> s{_ddsgrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddsgrsStatus :: Lens' DescribeDBSubnetGroupsResponse Int
 ddsgrsStatus = lens _ddsgrsStatus (\ s a -> s{_ddsgrsStatus = a});

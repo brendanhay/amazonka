@@ -22,22 +22,20 @@
 -- You can use the GetDataSource operation to view the contents of the
 -- updated data element.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateDataSource.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateDataSource.html AWS API Reference> for UpdateDataSource.
 module Network.AWS.MachineLearning.UpdateDataSource
     (
-    -- * Request
+    -- * Creating a Request
       UpdateDataSource
-    -- ** Request constructor
     , updateDataSource
-    -- ** Request lenses
+    -- * Request Lenses
     , udsDataSourceId
     , udsDataSourceName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateDataSourceResponse
-    -- ** Response constructor
     , updateDataSourceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , udsrsDataSourceId
     , udsrsStatus
     ) where
@@ -137,6 +135,6 @@ updateDataSourceResponse pStatus_ =
 udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udsrsStatus :: Lens' UpdateDataSourceResponse Int
 udsrsStatus = lens _udsrsStatus (\ s a -> s{_udsrsStatus = a});

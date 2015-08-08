@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding an IPsec Hardware VPN to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPNGateways.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPNGateways.html AWS API Reference> for DescribeVPNGateways.
 module Network.AWS.EC2.DescribeVPNGateways
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPNGateways
-    -- ** Request constructor
     , describeVPNGateways
-    -- ** Request lenses
+    -- * Request Lenses
     , dvgsFilters
     , dvgsDryRun
     , dvgsVPNGatewayIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPNGatewaysResponse
-    -- ** Response constructor
     , describeVPNGatewaysResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvgrsVPNGateways
     , dvgrsStatus
     ) where
@@ -175,6 +173,6 @@ describeVPNGatewaysResponse pStatus_ =
 dvgrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
 dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvgrsStatus :: Lens' DescribeVPNGatewaysResponse Int
 dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});

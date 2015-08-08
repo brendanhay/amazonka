@@ -31,20 +31,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html AWS API Reference> for AttachRolePolicy.
 module Network.AWS.IAM.AttachRolePolicy
     (
-    -- * Request
+    -- * Creating a Request
       AttachRolePolicy
-    -- ** Request constructor
     , attachRolePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , arpRoleName
     , arpPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachRolePolicyResponse
-    -- ** Response constructor
     , attachRolePolicyResponse
     ) where
 
@@ -77,7 +75,7 @@ attachRolePolicy pRoleName_ pPolicyARN_ =
 arpRoleName :: Lens' AttachRolePolicy Text
 arpRoleName = lens _arpRoleName (\ s a -> s{_arpRoleName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 arpPolicyARN :: Lens' AttachRolePolicy Text
 arpPolicyARN = lens _arpPolicyARN (\ s a -> s{_arpPolicyARN = a});
 

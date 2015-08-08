@@ -22,21 +22,19 @@
 -- UpdatePipeline to provide the full structure of the pipeline. Updating
 -- the pipeline increases the version number of the pipeline by 1.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_UpdatePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_UpdatePipeline.html AWS API Reference> for UpdatePipeline.
 module Network.AWS.CodePipeline.UpdatePipeline
     (
-    -- * Request
+    -- * Creating a Request
       UpdatePipeline
-    -- ** Request constructor
     , updatePipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , upPipeline
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdatePipelineResponse
-    -- ** Response constructor
     , updatePipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uprsPipeline
     , uprsStatus
     ) where
@@ -124,6 +122,6 @@ updatePipelineResponse pStatus_ =
 uprsPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uprsStatus :: Lens' UpdatePipelineResponse Int
 uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});

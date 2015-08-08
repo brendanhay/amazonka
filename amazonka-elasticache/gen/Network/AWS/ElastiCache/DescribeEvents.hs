@@ -25,14 +25,13 @@
 -- By default, only the events occurring within the last hour are returned;
 -- however, you can retrieve up to 14 days\' worth of events if necessary.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
 module Network.AWS.ElastiCache.DescribeEvents
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEvents
-    -- ** Request constructor
     , describeEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , deStartTime
     , deSourceType
     , deSourceIdentifier
@@ -41,11 +40,10 @@ module Network.AWS.ElastiCache.DescribeEvents
     , deMarker
     , deDuration
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEventsResponse
-    -- ** Response constructor
     , describeEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dersEvents
     , dersMarker
     , dersStatus
@@ -216,6 +214,6 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dersStatus :: Lens' DescribeEventsResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

@@ -36,23 +36,21 @@
 -- provider that this action creates, it is a best practice to limit access
 -- to the CreateOpenIDConnectProvider action to highly-privileged users.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIdConnectProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIdConnectProvider.html AWS API Reference> for CreateOpenIdConnectProvider.
 module Network.AWS.IAM.CreateOpenIdConnectProvider
     (
-    -- * Request
+    -- * Creating a Request
       CreateOpenIdConnectProvider
-    -- ** Request constructor
     , createOpenIdConnectProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , coicpClientIdList
     , coicpURL
     , coicpThumbprintList
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateOpenIdConnectProviderResponse
-    -- ** Response constructor
     , createOpenIdConnectProviderResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , coicprsOpenIdConnectProviderARN
     , coicprsStatus
     ) where
@@ -199,6 +197,6 @@ createOpenIdConnectProviderResponse pStatus_ =
 coicprsOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Maybe Text)
 coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -> s{_coicprsOpenIdConnectProviderARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 coicprsStatus :: Lens' CreateOpenIdConnectProviderResponse Int
 coicprsStatus = lens _coicprsStatus (\ s a -> s{_coicprsStatus = a});

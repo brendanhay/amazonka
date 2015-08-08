@@ -23,21 +23,19 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceHealth.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceHealth.html AWS API Reference> for SetInstanceHealth.
 module Network.AWS.AutoScaling.SetInstanceHealth
     (
-    -- * Request
+    -- * Creating a Request
       SetInstanceHealth
-    -- ** Request constructor
     , setInstanceHealth
-    -- ** Request lenses
+    -- * Request Lenses
     , sihShouldRespectGracePeriod
     , sihInstanceId
     , sihHealthStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , SetInstanceHealthResponse
-    -- ** Response constructor
     , setInstanceHealthResponse
     ) where
 

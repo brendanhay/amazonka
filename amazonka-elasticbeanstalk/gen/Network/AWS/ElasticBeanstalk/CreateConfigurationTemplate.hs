@@ -27,14 +27,13 @@
 -- -   DescribeConfigurationSettings
 -- -   ListAvailableSolutionStacks
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html AWS API Reference> for CreateConfigurationTemplate.
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
-    -- * Request
+    -- * Creating a Request
       CreateConfigurationTemplate
-    -- ** Request constructor
     , createConfigurationTemplate
-    -- ** Request lenses
+    -- * Request Lenses
     , cctOptionSettings
     , cctSourceConfiguration
     , cctEnvironmentId
@@ -43,11 +42,10 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , cctApplicationName
     , cctTemplateName
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfigurationSettingsDescription
-    -- ** Response constructor
     , configurationSettingsDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , csdTemplateName
     , csdOptionSettings
     , csdDateUpdated

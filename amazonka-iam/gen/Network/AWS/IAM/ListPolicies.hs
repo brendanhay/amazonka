@@ -33,25 +33,23 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html AWS API Reference> for ListPolicies.
 module Network.AWS.IAM.ListPolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListPolicies
-    -- ** Request constructor
     , listPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , lpPathPrefix
     , lpOnlyAttached
     , lpScope
     , lpMaxItems
     , lpMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPoliciesResponse
-    -- ** Response constructor
     , listPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lprsMarker
     , lprsIsTruncated
     , lprsPolicies
@@ -219,6 +217,6 @@ lprsIsTruncated = lens _lprsIsTruncated (\ s a -> s{_lprsIsTruncated = a});
 lprsPolicies :: Lens' ListPoliciesResponse [Policy]
 lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsStatus :: Lens' ListPoliciesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

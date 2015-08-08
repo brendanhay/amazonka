@@ -23,21 +23,19 @@
 -- currently supported. The response contains a
 -- TrustedAdvisorCheckDescription for each check.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html AWS API Reference> for DescribeTrustedAdvisorChecks.
 module Network.AWS.Support.DescribeTrustedAdvisorChecks
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTrustedAdvisorChecks
-    -- ** Request constructor
     , describeTrustedAdvisorChecks
-    -- ** Request lenses
+    -- * Request Lenses
     , dtacLanguage
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTrustedAdvisorChecksResponse
-    -- ** Response constructor
     , describeTrustedAdvisorChecksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtacrsStatus
     , dtacrsChecks
     ) where
@@ -125,7 +123,7 @@ describeTrustedAdvisorChecksResponse pStatus_ =
     , _dtacrsChecks = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtacrsStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
 dtacrsStatus = lens _dtacrsStatus (\ s a -> s{_dtacrsStatus = a});
 

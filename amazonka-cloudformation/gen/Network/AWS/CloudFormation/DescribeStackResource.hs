@@ -22,22 +22,20 @@
 -- For deleted stacks, DescribeStackResource returns resource information
 -- for up to 90 days after the stack has been deleted.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html AWS API Reference> for DescribeStackResource.
 module Network.AWS.CloudFormation.DescribeStackResource
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStackResource
-    -- ** Request constructor
     , describeStackResource
-    -- ** Request lenses
+    -- * Request Lenses
     , desStackName
     , desLogicalResourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStackResourceResponse
-    -- ** Response constructor
     , describeStackResourceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrrsStackResourceDetail
     , dsrrsStatus
     ) where
@@ -139,6 +137,6 @@ describeStackResourceResponse pStatus_ =
 dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrrsStatus :: Lens' DescribeStackResourceResponse Int
 dsrrsStatus = lens _dsrrsStatus (\ s a -> s{_dsrrsStatus = a});

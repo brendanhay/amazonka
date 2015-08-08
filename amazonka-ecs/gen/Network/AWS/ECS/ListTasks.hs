@@ -22,14 +22,13 @@
 -- desired status of the task with the @family@, @containerInstance@, and
 -- @desiredStatus@ parameters.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html AWS API Reference> for ListTasks.
 module Network.AWS.ECS.ListTasks
     (
-    -- * Request
+    -- * Creating a Request
       ListTasks
-    -- ** Request constructor
     , listTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , ltDesiredStatus
     , ltCluster
     , ltFamily
@@ -39,11 +38,10 @@ module Network.AWS.ECS.ListTasks
     , ltContainerInstance
     , ltMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTasksResponse
-    -- ** Response constructor
     , listTasksResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltrsNextToken
     , ltrsTaskARNs
     , ltrsStatus
@@ -238,6 +236,6 @@ ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 ltrsTaskARNs :: Lens' ListTasksResponse [Text]
 ltrsTaskARNs = lens _ltrsTaskARNs (\ s a -> s{_ltrsTaskARNs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltrsStatus :: Lens' ListTasksResponse Int
 ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

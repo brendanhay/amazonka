@@ -29,22 +29,20 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterElasticIP.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterElasticIP.html AWS API Reference> for RegisterElasticIP.
 module Network.AWS.OpsWorks.RegisterElasticIP
     (
-    -- * Request
+    -- * Creating a Request
       RegisterElasticIP
-    -- ** Request constructor
     , registerElasticIP
-    -- ** Request lenses
+    -- * Request Lenses
     , reiElasticIP
     , reiStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterElasticIPResponse
-    -- ** Response constructor
     , registerElasticIPResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , reirsElasticIP
     , reirsStatus
     ) where
@@ -140,6 +138,6 @@ registerElasticIPResponse pStatus_ =
 reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
 reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 reirsStatus :: Lens' RegisterElasticIPResponse Int
 reirsStatus = lens _reirsStatus (\ s a -> s{_reirsStatus = a});

@@ -23,23 +23,21 @@
 -- can use this call to detect when the task runner application has failed
 -- and restart a new instance.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskRunnerHeartbeat.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskRunnerHeartbeat.html AWS API Reference> for ReportTaskRunnerHeartbeat.
 module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     (
-    -- * Request
+    -- * Creating a Request
       ReportTaskRunnerHeartbeat
-    -- ** Request constructor
     , reportTaskRunnerHeartbeat
-    -- ** Request lenses
+    -- * Request Lenses
     , rtrhHostname
     , rtrhWorkerGroup
     , rtrhTaskrunnerId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReportTaskRunnerHeartbeatResponse
-    -- ** Response constructor
     , reportTaskRunnerHeartbeatResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtrhrsStatus
     , rtrhrsTerminate
     ) where
@@ -152,7 +150,7 @@ reportTaskRunnerHeartbeatResponse pStatus_ pTerminate_ =
     , _rtrhrsTerminate = pTerminate_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtrhrsStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
 rtrhrsStatus = lens _rtrhrsStatus (\ s a -> s{_rtrhrsStatus = a});
 

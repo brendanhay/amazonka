@@ -24,19 +24,17 @@
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteUserProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteUserProfile.html AWS API Reference> for DeleteUserProfile.
 module Network.AWS.OpsWorks.DeleteUserProfile
     (
-    -- * Request
+    -- * Creating a Request
       DeleteUserProfile
-    -- ** Request constructor
     , deleteUserProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , dupIAMUserARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteUserProfileResponse
-    -- ** Response constructor
     , deleteUserProfileResponse
     ) where
 

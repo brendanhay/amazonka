@@ -20,14 +20,13 @@
 -- The CreatePipeline operation creates a pipeline with settings that you
 -- specify.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePipeline.html AWS API Reference> for CreatePipeline.
 module Network.AWS.ElasticTranscoder.CreatePipeline
     (
-    -- * Request
+    -- * Creating a Request
       CreatePipeline
-    -- ** Request constructor
     , createPipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , cContentConfig
     , cOutputBucket
     , cAWSKMSKeyARN
@@ -37,11 +36,10 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     , cInputBucket
     , cRole
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePipelineResponse
-    -- ** Response constructor
     , createPipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsWarnings
     , crsPipeline
     , crsStatus
@@ -365,6 +363,6 @@ crsWarnings = lens _crsWarnings (\ s a -> s{_crsWarnings = a}) . _Default . _Coe
 crsPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 crsPipeline = lens _crsPipeline (\ s a -> s{_crsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CreatePipelineResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

@@ -32,22 +32,20 @@
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html AWS API Reference> for GetRolePolicy.
 module Network.AWS.IAM.GetRolePolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetRolePolicy
-    -- ** Request constructor
     , getRolePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , grpRoleName
     , grpPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetRolePolicyResponse
-    -- ** Response constructor
     , getRolePolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grprsStatus
     , grprsRoleName
     , grprsPolicyName
@@ -143,7 +141,7 @@ getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
     , _grprsPolicyDocument = pPolicyDocument_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grprsStatus :: Lens' GetRolePolicyResponse Int
 grprsStatus = lens _grprsStatus (\ s a -> s{_grprsStatus = a});
 

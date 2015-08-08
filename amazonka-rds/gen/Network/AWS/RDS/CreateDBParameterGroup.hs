@@ -41,24 +41,22 @@
 -- /DescribeDBParameters/ command to verify that your DB parameter group
 -- has been created or modified.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html AWS API Reference> for CreateDBParameterGroup.
 module Network.AWS.RDS.CreateDBParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBParameterGroup
-    -- ** Request constructor
     , createDBParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cdbpgTags
     , cdbpgDBParameterGroupName
     , cdbpgDBParameterGroupFamily
     , cdbpgDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBParameterGroupResponse
-    -- ** Response constructor
     , createDBParameterGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdpgrsDBParameterGroup
     , cdpgrsStatus
     ) where
@@ -98,7 +96,7 @@ createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescript
     , _cdbpgDescription = pDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
 cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default . _Coerce;
 
@@ -174,10 +172,10 @@ createDBParameterGroupResponse pStatus_ =
     , _cdpgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
 cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdpgrsStatus :: Lens' CreateDBParameterGroupResponse Int
 cdpgrsStatus = lens _cdpgrsStatus (\ s a -> s{_cdpgrsStatus = a});

@@ -19,25 +19,23 @@
 --
 -- Describes all available options.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroupOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroupOptions.html AWS API Reference> for DescribeOptionGroupOptions.
 module Network.AWS.RDS.DescribeOptionGroupOptions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeOptionGroupOptions
-    -- ** Request constructor
     , describeOptionGroupOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , dogoFilters
     , dogoMajorEngineVersion
     , dogoMaxRecords
     , dogoMarker
     , dogoEngineName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeOptionGroupOptionsResponse
-    -- ** Response constructor
     , describeOptionGroupOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dogorsOptionGroupOptions
     , dogorsMarker
     , dogorsStatus
@@ -181,7 +179,7 @@ describeOptionGroupOptionsResponse pStatus_ =
     , _dogorsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
 dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOptionGroupOptions = a}) . _Default . _Coerce;
 
@@ -191,6 +189,6 @@ dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOpt
 dogorsMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 dogorsMarker = lens _dogorsMarker (\ s a -> s{_dogorsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dogorsStatus :: Lens' DescribeOptionGroupOptionsResponse Int
 dogorsStatus = lens _dogorsStatus (\ s a -> s{_dogorsStatus = a});

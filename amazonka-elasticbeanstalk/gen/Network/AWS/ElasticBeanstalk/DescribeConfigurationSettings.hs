@@ -31,23 +31,21 @@
 --
 -- -   DeleteEnvironmentConfiguration
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html AWS API Reference> for DescribeConfigurationSettings.
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
-    -- * Request
+    -- * Creating a Request
       DescribeConfigurationSettings
-    -- ** Request constructor
     , describeConfigurationSettings
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsTemplateName
     , dcsEnvironmentName
     , dcsApplicationName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeConfigurationSettingsResponse
-    -- ** Response constructor
     , describeConfigurationSettingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcsrsConfigurationSettings
     , dcsrsStatus
     ) where
@@ -167,6 +165,6 @@ describeConfigurationSettingsResponse pStatus_ =
 dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsrsStatus :: Lens' DescribeConfigurationSettingsResponse Int
 dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

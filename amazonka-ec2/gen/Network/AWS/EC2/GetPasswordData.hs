@@ -33,22 +33,20 @@
 -- that you wait up to 15 minutes after launching an instance before trying
 -- to retrieve the generated password.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html AWS API Reference> for GetPasswordData.
 module Network.AWS.EC2.GetPasswordData
     (
-    -- * Request
+    -- * Creating a Request
       GetPasswordData
-    -- ** Request constructor
     , getPasswordData
-    -- ** Request lenses
+    -- * Request Lenses
     , gpdDryRun
     , gpdInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPasswordDataResponse
-    -- ** Response constructor
     , getPasswordDataResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gpdrsStatus
     , gpdrsInstanceId
     , gpdrsPasswordData
@@ -145,7 +143,7 @@ getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
     , _gpdrsTimestamp = _Time # pTimestamp_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gpdrsStatus :: Lens' GetPasswordDataResponse Int
 gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});
 

@@ -21,25 +21,23 @@
 -- You can filter the results by family name with the @familyPrefix@
 -- parameter or by status with the @status@ parameter.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitions.html AWS API Reference> for ListTaskDefinitions.
 module Network.AWS.ECS.ListTaskDefinitions
     (
-    -- * Request
+    -- * Creating a Request
       ListTaskDefinitions
-    -- ** Request constructor
     , listTaskDefinitions
-    -- ** Request lenses
+    -- * Request Lenses
     , ltdStatus
     , ltdFamilyPrefix
     , ltdNextToken
     , ltdSort
     , ltdMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTaskDefinitionsResponse
-    -- ** Response constructor
     , listTaskDefinitionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltdrsTaskDefinitionARNs
     , ltdrsNextToken
     , ltdrsStatus
@@ -207,6 +205,6 @@ ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\ s a -> s{_ltdrsTaskDe
 ltdrsNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
 ltdrsNextToken = lens _ltdrsNextToken (\ s a -> s{_ltdrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltdrsStatus :: Lens' ListTaskDefinitionsResponse Int
 ltdrsStatus = lens _ltdrsStatus (\ s a -> s{_ltdrsStatus = a});

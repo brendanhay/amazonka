@@ -22,21 +22,19 @@
 -- most recent failure. Send a @GET@ request to the
 -- @2013-04-01\/healthcheck\/health check ID\/lastfailurereason@ resource.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html AWS API Reference> for GetHealthCheckLastFailureReason.
 module Network.AWS.Route53.GetHealthCheckLastFailureReason
     (
-    -- * Request
+    -- * Creating a Request
       GetHealthCheckLastFailureReason
-    -- ** Request constructor
     , getHealthCheckLastFailureReason
-    -- ** Request lenses
+    -- * Request Lenses
     , ghclfrHealthCheckId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetHealthCheckLastFailureReasonResponse
-    -- ** Response constructor
     , getHealthCheckLastFailureReasonResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ghclfrrsStatus
     , ghclfrrsHealthCheckObservations
     ) where
@@ -121,7 +119,7 @@ getHealthCheckLastFailureReasonResponse pStatus_ =
     , _ghclfrrsHealthCheckObservations = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ghclfrrsStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
 ghclfrrsStatus = lens _ghclfrrsStatus (\ s a -> s{_ghclfrrsStatus = a});
 

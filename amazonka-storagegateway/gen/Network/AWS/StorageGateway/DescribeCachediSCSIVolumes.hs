@@ -25,21 +25,19 @@
 -- the response Amazon Storage Gateway returns volume information sorted by
 -- volume Amazon Resource Name (ARN).
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCachediSCSIVolumes.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCachediSCSIVolumes.html AWS API Reference> for DescribeCachediSCSIVolumes.
 module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCachediSCSIVolumes
-    -- ** Request constructor
     , describeCachediSCSIVolumes
-    -- ** Request lenses
+    -- * Request Lenses
     , dcscsivVolumeARNs
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCachediSCSIVolumesResponse
-    -- ** Response constructor
     , describeCachediSCSIVolumesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcscsivrsCachediSCSIVolumes
     , dcscsivrsStatus
     ) where
@@ -65,7 +63,7 @@ describeCachediSCSIVolumes =
     { _dcscsivVolumeARNs = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
 dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a}) . _Coerce;
 
@@ -128,6 +126,6 @@ describeCachediSCSIVolumesResponse pStatus_ =
 dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
 dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcscsivrsStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
 dcscsivrsStatus = lens _dcscsivrsStatus (\ s a -> s{_dcscsivrsStatus = a});

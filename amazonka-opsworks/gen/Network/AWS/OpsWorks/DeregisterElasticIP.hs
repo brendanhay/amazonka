@@ -27,19 +27,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterElasticIP.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterElasticIP.html AWS API Reference> for DeregisterElasticIP.
 module Network.AWS.OpsWorks.DeregisterElasticIP
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterElasticIP
-    -- ** Request constructor
     , deregisterElasticIP
-    -- ** Request lenses
+    -- * Request Lenses
     , deipElasticIP
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterElasticIPResponse
-    -- ** Response constructor
     , deregisterElasticIPResponse
     ) where
 

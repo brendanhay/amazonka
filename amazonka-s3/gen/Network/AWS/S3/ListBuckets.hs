@@ -20,19 +20,17 @@
 -- Returns a list of all buckets owned by the authenticated sender of the
 -- request.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListBuckets.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListBuckets.html AWS API Reference> for ListBuckets.
 module Network.AWS.S3.ListBuckets
     (
-    -- * Request
+    -- * Creating a Request
       ListBuckets
-    -- ** Request constructor
     , listBuckets
 
-    -- * Response
+    -- * Destructuring the Response
     , ListBucketsResponse
-    -- ** Response constructor
     , listBucketsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lbrsBuckets
     , lbrsOwner
     , lbrsStatus
@@ -98,14 +96,14 @@ listBucketsResponse pStatus_ =
     , _lbrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
 lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lbrsStatus :: Lens' ListBucketsResponse Int
 lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});

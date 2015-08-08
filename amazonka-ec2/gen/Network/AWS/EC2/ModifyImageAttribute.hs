@@ -23,14 +23,13 @@
 -- AWS Marketplace product codes cannot be modified. Images with an AWS
 -- Marketplace product code cannot be made public.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyImageAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyImageAttribute.html AWS API Reference> for ModifyImageAttribute.
 module Network.AWS.EC2.ModifyImageAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ModifyImageAttribute
-    -- ** Request constructor
     , modifyImageAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , miaAttribute
     , miaUserIds
     , miaUserGroups
@@ -42,9 +41,8 @@ module Network.AWS.EC2.ModifyImageAttribute
     , miaDescription
     , miaImageId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyImageAttributeResponse
-    -- ** Response constructor
     , modifyImageAttributeResponse
     ) where
 

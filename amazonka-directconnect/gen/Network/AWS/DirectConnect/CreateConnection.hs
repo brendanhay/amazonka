@@ -29,23 +29,21 @@
 -- regions, but a connection in one region does not provide connectivity to
 -- other regions.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html AWS API Reference> for CreateConnection.
 module Network.AWS.DirectConnect.CreateConnection
     (
-    -- * Request
+    -- * Creating a Request
       CreateConnection
-    -- ** Request constructor
     , createConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , ccLocation
     , ccBandwidth
     , ccConnectionName
 
-    -- * Response
+    -- * Destructuring the Response
     , Connection
-    -- ** Response constructor
     , connection
-    -- ** Response lenses
+    -- * Response Lenses
     , cVlan
     , cLocation
     , cConnectionId
@@ -88,15 +86,15 @@ createConnection pLocation_ pBandwidth_ pConnectionName_ =
     , _ccConnectionName = pConnectionName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccLocation :: Lens' CreateConnection Text
 ccLocation = lens _ccLocation (\ s a -> s{_ccLocation = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccBandwidth :: Lens' CreateConnection Text
 ccBandwidth = lens _ccBandwidth (\ s a -> s{_ccBandwidth = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccConnectionName :: Lens' CreateConnection Text
 ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a});
 

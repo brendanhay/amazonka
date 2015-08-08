@@ -25,14 +25,13 @@
 --
 -- Currently, only endpoints to Amazon S3 are supported.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCEndpoint.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCEndpoint.html AWS API Reference> for CreateVPCEndpoint.
 module Network.AWS.EC2.CreateVPCEndpoint
     (
-    -- * Request
+    -- * Creating a Request
       CreateVPCEndpoint
-    -- ** Request constructor
     , createVPCEndpoint
-    -- ** Request lenses
+    -- * Request Lenses
     , cvePolicyDocument
     , cveClientToken
     , cveDryRun
@@ -40,11 +39,10 @@ module Network.AWS.EC2.CreateVPCEndpoint
     , cveVPCId
     , cveServiceName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateVPCEndpointResponse
-    -- ** Response constructor
     , createVPCEndpointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cversClientToken
     , cversVPCEndpoint
     , cversStatus
@@ -187,6 +185,6 @@ cversClientToken = lens _cversClientToken (\ s a -> s{_cversClientToken = a});
 cversVPCEndpoint :: Lens' CreateVPCEndpointResponse (Maybe VPCEndpoint)
 cversVPCEndpoint = lens _cversVPCEndpoint (\ s a -> s{_cversVPCEndpoint = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cversStatus :: Lens' CreateVPCEndpointResponse Int
 cversStatus = lens _cversStatus (\ s a -> s{_cversStatus = a});

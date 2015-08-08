@@ -93,14 +93,13 @@
 --     of how to use web identity federation to get access to content in
 --     Amazon S3.
 --
--- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AWS API Reference> for AssumeRoleWithWebIdentity.
 module Network.AWS.STS.AssumeRoleWithWebIdentity
     (
-    -- * Request
+    -- * Creating a Request
       AssumeRoleWithWebIdentity
-    -- ** Request constructor
     , assumeRoleWithWebIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , arwwiProviderId
     , arwwiDurationSeconds
     , arwwiPolicy
@@ -108,11 +107,10 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     , arwwiRoleSessionName
     , arwwiWebIdentityToken
 
-    -- * Response
+    -- * Destructuring the Response
     , AssumeRoleWithWebIdentityResponse
-    -- ** Response constructor
     , assumeRoleWithWebIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , arwwirsAudience
     , arwwirsSubjectFromWebIdentityToken
     , arwwirsPackedPolicySize
@@ -344,6 +342,6 @@ arwwirsAssumedRoleUser = lens _arwwirsAssumedRoleUser (\ s a -> s{_arwwirsAssume
 arwwirsProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirsProvider = lens _arwwirsProvider (\ s a -> s{_arwwirsProvider = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 arwwirsStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
 arwwirsStatus = lens _arwwirsStatus (\ s a -> s{_arwwirsStatus = a});

@@ -20,23 +20,21 @@
 -- Updates the status of the configuration document associated with the
 -- specified instance.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html AWS API Reference> for UpdateAssociationStatus.
 module Network.AWS.SSM.UpdateAssociationStatus
     (
-    -- * Request
+    -- * Creating a Request
       UpdateAssociationStatus
-    -- ** Request constructor
     , updateAssociationStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , uasName
     , uasInstanceId
     , uasAssociationStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAssociationStatusResponse
-    -- ** Response constructor
     , updateAssociationStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uasrsAssociationDescription
     , uasrsStatus
     ) where
@@ -139,6 +137,6 @@ updateAssociationStatusResponse pStatus_ =
 uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
 uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uasrsStatus :: Lens' UpdateAssociationStatusResponse Int
 uasrsStatus = lens _uasrsStatus (\ s a -> s{_uasrsStatus = a});

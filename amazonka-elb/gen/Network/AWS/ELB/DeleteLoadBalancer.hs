@@ -28,21 +28,19 @@
 -- If the load balancer does not exist or has already been deleted, the
 -- call to @DeleteLoadBalancer@ still succeeds.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html AWS API Reference> for DeleteLoadBalancer.
 module Network.AWS.ELB.DeleteLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLoadBalancer
-    -- ** Request constructor
     , deleteLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbLoadBalancerName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLoadBalancerResponse
-    -- ** Response constructor
     , deleteLoadBalancerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStatus
     ) where
 
@@ -110,6 +108,6 @@ deleteLoadBalancerResponse pStatus_ =
     { _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteLoadBalancerResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

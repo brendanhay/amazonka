@@ -24,21 +24,19 @@
 -- on requester pays buckets can be found at
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/RequesterPaysBuckets.html
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketRequestPayment.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketRequestPayment.html AWS API Reference> for PutBucketRequestPayment.
 module Network.AWS.S3.PutBucketRequestPayment
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketRequestPayment
-    -- ** Request constructor
     , putBucketRequestPayment
-    -- ** Request lenses
+    -- * Request Lenses
     , pbrpContentMD5
     , pbrpBucket
     , pbrpRequestPaymentConfiguration
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketRequestPaymentResponse
-    -- ** Response constructor
     , putBucketRequestPaymentResponse
     ) where
 
@@ -71,15 +69,15 @@ putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
     , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
 pbrpContentMD5 = lens _pbrpContentMD5 (\ s a -> s{_pbrpContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbrpBucket :: Lens' PutBucketRequestPayment BucketName
 pbrpBucket = lens _pbrpBucket (\ s a -> s{_pbrpBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
 pbrpRequestPaymentConfiguration = lens _pbrpRequestPaymentConfiguration (\ s a -> s{_pbrpRequestPaymentConfiguration = a});
 

@@ -21,22 +21,20 @@
 -- user name. When enabled, the MFA device is required for every subsequent
 -- login by the user name associated with the device.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html AWS API Reference> for EnableMFADevice.
 module Network.AWS.IAM.EnableMFADevice
     (
-    -- * Request
+    -- * Creating a Request
       EnableMFADevice
-    -- ** Request constructor
     , enableMFADevice
-    -- ** Request lenses
+    -- * Request Lenses
     , emdUserName
     , emdSerialNumber
     , emdAuthenticationCode1
     , emdAuthenticationCode2
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableMFADeviceResponse
-    -- ** Response constructor
     , enableMFADeviceResponse
     ) where
 

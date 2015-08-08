@@ -28,19 +28,17 @@
 -- job flow, it may take up to 5-20 minutes for the job flow to completely
 -- terminate and release allocated resources, such as Amazon EC2 instances.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_TerminateJobFlows.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_TerminateJobFlows.html AWS API Reference> for TerminateJobFlows.
 module Network.AWS.EMR.TerminateJobFlows
     (
-    -- * Request
+    -- * Creating a Request
       TerminateJobFlows
-    -- ** Request constructor
     , terminateJobFlows
-    -- ** Request lenses
+    -- * Request Lenses
     , tjfJobFlowIds
 
-    -- * Response
+    -- * Destructuring the Response
     , TerminateJobFlowsResponse
-    -- ** Response constructor
     , terminateJobFlowsResponse
     ) where
 

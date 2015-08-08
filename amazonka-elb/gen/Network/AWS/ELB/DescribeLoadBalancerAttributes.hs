@@ -19,21 +19,19 @@
 --
 -- Describes the attributes for the specified load balancer.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerAttributes.html AWS API Reference> for DescribeLoadBalancerAttributes.
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLoadBalancerAttributes
-    -- ** Request constructor
     , describeLoadBalancerAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbaLoadBalancerName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLoadBalancerAttributesResponse
-    -- ** Response constructor
     , describeLoadBalancerAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbarsLoadBalancerAttributes
     , dlbarsStatus
     ) where
@@ -116,6 +114,6 @@ describeLoadBalancerAttributesResponse pStatus_ =
 dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_dlbarsLoadBalancerAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbarsStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
 dlbarsStatus = lens _dlbarsStatus (\ s a -> s{_dlbarsStatus = a});

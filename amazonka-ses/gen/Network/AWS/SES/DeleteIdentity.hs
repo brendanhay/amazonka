@@ -22,21 +22,19 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html AWS API Reference> for DeleteIdentity.
 module Network.AWS.SES.DeleteIdentity
     (
-    -- * Request
+    -- * Creating a Request
       DeleteIdentity
-    -- ** Request constructor
     , deleteIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , diIdentity
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteIdentityResponse
-    -- ** Response constructor
     , deleteIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dirsStatus
     ) where
 
@@ -110,6 +108,6 @@ deleteIdentityResponse pStatus_ =
     { _dirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dirsStatus :: Lens' DeleteIdentityResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

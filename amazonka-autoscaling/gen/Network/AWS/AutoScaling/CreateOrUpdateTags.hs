@@ -34,19 +34,17 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html AWS API Reference> for CreateOrUpdateTags.
 module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
-    -- * Request
+    -- * Creating a Request
       CreateOrUpdateTags
-    -- ** Request constructor
     , createOrUpdateTags
-    -- ** Request lenses
+    -- * Request Lenses
     , coutTags
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateOrUpdateTagsResponse
-    -- ** Response constructor
     , createOrUpdateTagsResponse
     ) where
 

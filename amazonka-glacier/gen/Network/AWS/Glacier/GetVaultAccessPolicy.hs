@@ -25,22 +25,20 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultAccessPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultAccessPolicy.html AWS API Reference> for GetVaultAccessPolicy.
 module Network.AWS.Glacier.GetVaultAccessPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetVaultAccessPolicy
-    -- ** Request constructor
     , getVaultAccessPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , gvapAccountId
     , gvapVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetVaultAccessPolicyResponse
-    -- ** Response constructor
     , getVaultAccessPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gvaprsPolicy
     , gvaprsStatus
     ) where
@@ -133,6 +131,6 @@ getVaultAccessPolicyResponse pStatus_ =
 gvaprsPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
 gvaprsPolicy = lens _gvaprsPolicy (\ s a -> s{_gvaprsPolicy = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gvaprsStatus :: Lens' GetVaultAccessPolicyResponse Int
 gvaprsStatus = lens _gvaprsStatus (\ s a -> s{_gvaprsStatus = a});

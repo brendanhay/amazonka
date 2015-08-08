@@ -41,23 +41,21 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html List Vaults>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListVaults.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListVaults.html AWS API Reference> for ListVaults.
 module Network.AWS.Glacier.ListVaults
     (
-    -- * Request
+    -- * Creating a Request
       ListVaults
-    -- ** Request constructor
     , listVaults
-    -- ** Request lenses
+    -- * Request Lenses
     , lvMarker
     , lvLimit
     , lvAccountId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListVaultsResponse
-    -- ** Response constructor
     , listVaultsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lvrsMarker
     , lvrsVaultList
     , lvrsStatus
@@ -174,6 +172,6 @@ lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 lvrsVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
 lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvrsStatus :: Lens' ListVaultsResponse Int
 lvrsStatus = lens _lvrsStatus (\ s a -> s{_lvrsStatus = a});

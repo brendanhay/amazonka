@@ -1,4 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -24,46 +25,569 @@
 -- In addition, through integration with Amazon CloudWatch, customers get
 -- enhanced visibility into the key performance statistics associated with
 -- their cache and can receive alarms if a part of their cache runs hot.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ElastiCache
-    ( module Export
+    (
+    -- * Service Description
+      ElastiCache
+
+    -- * Error Matchers
+    -- $errors
+    , _CacheSubnetGroupAlreadyExistsFault
+    , _CacheSubnetGroupInUse
+    , _CacheSecurityGroupNotFoundFault
+    , _ReservedCacheNodeAlreadyExistsFault
+    , _AuthorizationAlreadyExistsFault
+    , _ReservedCacheNodeQuotaExceededFault
+    , _CacheSubnetGroupQuotaExceededFault
+    , _ReplicationGroupNotFoundFault
+    , _ReservedCacheNodesOfferingNotFoundFault
+    , _TagQuotaPerResourceExceeded
+    , _InvalidSubnet
+    , _SnapshotNotFoundFault
+    , _InsufficientCacheClusterCapacityFault
+    , _InvalidSnapshotStateFault
+    , _SnapshotAlreadyExistsFault
+    , _TagNotFoundFault
+    , _SnapshotQuotaExceededFault
+    , _CacheParameterGroupAlreadyExistsFault
+    , _NodeQuotaForClusterExceededFault
+    , _SnapshotFeatureNotSupportedFault
+    , _CacheSubnetGroupNotFoundFault
+    , _ReservedCacheNodeNotFoundFault
+    , _InvalidParameterValueException
+    , _InvalidVPCNetworkStateFault
+    , _CacheClusterNotFoundFault
+    , _InvalidReplicationGroupStateFault
+    , _ReplicationGroupAlreadyExistsFault
+    , _SubnetInUse
+    , _CacheClusterAlreadyExistsFault
+    , _ClusterQuotaForCustomerExceededFault
+    , _AuthorizationNotFoundFault
+    , _CacheSecurityGroupQuotaExceededFault
+    , _InvalidCacheClusterStateFault
+    , _CacheParameterGroupQuotaExceededFault
+    , _NodeQuotaForCustomerExceededFault
+    , _CacheSubnetQuotaExceededFault
+    , _CacheParameterGroupNotFoundFault
+    , _InvalidParameterCombinationException
+    , _InvalidARNFault
+    , _InvalidCacheParameterGroupStateFault
+    , _CacheSecurityGroupAlreadyExistsFault
+    , _InvalidCacheSecurityGroupStateFault
+
+    -- * Waiters
+    -- $waiters
+    , cacheClusterAvailable
+    , cacheClusterDeleted
+    , replicationGroupDeleted
+    , replicationGroupAvailable
+
+    -- * Operations
+    -- $operations
+
+    -- ** DeleteCacheSecurityGroup
+    , module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
+
+    -- ** CreateReplicationGroup
+    , module Network.AWS.ElastiCache.CreateReplicationGroup
+
+    -- ** DeleteCacheCluster
+    , module Network.AWS.ElastiCache.DeleteCacheCluster
+
+    -- ** RebootCacheCluster
+    , module Network.AWS.ElastiCache.RebootCacheCluster
+
+    -- ** RevokeCacheSecurityGroupIngress
+    , module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
+
+    -- ** DescribeEvents (Paginated)
+    , module Network.AWS.ElastiCache.DescribeEvents
+    -- $pager
+
+    -- ** DescribeEngineDefaultParameters (Paginated)
+    , module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
+    -- $pager
+
+    -- ** ModifyCacheParameterGroup
+    , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
+
+    -- ** CreateCacheCluster
+    , module Network.AWS.ElastiCache.CreateCacheCluster
+
+    -- ** ListTagsForResource
+    , module Network.AWS.ElastiCache.ListTagsForResource
+
+    -- ** DeleteReplicationGroup
+    , module Network.AWS.ElastiCache.DeleteReplicationGroup
+
+    -- ** PurchaseReservedCacheNodesOffering
+    , module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
+
+    -- ** DescribeCacheClusters (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheClusters
+    -- $pager
+
+    -- ** ModifyReplicationGroup
+    , module Network.AWS.ElastiCache.ModifyReplicationGroup
+
+    -- ** RemoveTagsFromResource
+    , module Network.AWS.ElastiCache.RemoveTagsFromResource
+
+    -- ** DescribeCacheParameters (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheParameters
+    -- $pager
+
+    -- ** DescribeCacheSubnetGroups (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
+    -- $pager
+
+    -- ** CreateCacheSecurityGroup
+    , module Network.AWS.ElastiCache.CreateCacheSecurityGroup
+
+    -- ** AddTagsToResource
+    , module Network.AWS.ElastiCache.AddTagsToResource
+
+    -- ** AuthorizeCacheSecurityGroupIngress
+    , module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
+
+    -- ** CopySnapshot
+    , module Network.AWS.ElastiCache.CopySnapshot
+
+    -- ** CreateCacheSubnetGroup
+    , module Network.AWS.ElastiCache.CreateCacheSubnetGroup
+
+    -- ** DescribeCacheParameterGroups (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheParameterGroups
+    -- $pager
+
+    -- ** ResetCacheParameterGroup
+    , module Network.AWS.ElastiCache.ResetCacheParameterGroup
+
+    -- ** DescribeSnapshots (Paginated)
+    , module Network.AWS.ElastiCache.DescribeSnapshots
+    -- $pager
+
+    -- ** DescribeReservedCacheNodesOfferings (Paginated)
+    , module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
+    -- $pager
+
+    -- ** DeleteSnapshot
+    , module Network.AWS.ElastiCache.DeleteSnapshot
+
+    -- ** DescribeReplicationGroups (Paginated)
+    , module Network.AWS.ElastiCache.DescribeReplicationGroups
+    -- $pager
+
+    -- ** ModifyCacheSubnetGroup
+    , module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
+
+    -- ** CreateSnapshot
+    , module Network.AWS.ElastiCache.CreateSnapshot
+
+    -- ** DescribeCacheSecurityGroups (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
+    -- $pager
+
+    -- ** DeleteCacheParameterGroup
+    , module Network.AWS.ElastiCache.DeleteCacheParameterGroup
+
+    -- ** DescribeReservedCacheNodes (Paginated)
+    , module Network.AWS.ElastiCache.DescribeReservedCacheNodes
+    -- $pager
+
+    -- ** DescribeCacheEngineVersions (Paginated)
+    , module Network.AWS.ElastiCache.DescribeCacheEngineVersions
+    -- $pager
+
+    -- ** ModifyCacheCluster
+    , module Network.AWS.ElastiCache.ModifyCacheCluster
+
+    -- ** CreateCacheParameterGroup
+    , module Network.AWS.ElastiCache.CreateCacheParameterGroup
+
+    -- ** DeleteCacheSubnetGroup
+    , module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
+
+    -- * Types
+
+    -- ** AZMode
+    , AZMode (..)
+
+    -- ** AutomaticFailoverStatus
+    , AutomaticFailoverStatus (..)
+
+    -- ** PendingAutomaticFailoverStatus
+    , PendingAutomaticFailoverStatus (..)
+
+    -- ** SourceType
+    , SourceType (..)
+
+    -- ** AvailabilityZone
+    , AvailabilityZone
+    , availabilityZone
+    , azName
+
+    -- ** CacheCluster
+    , CacheCluster
+    , cacheCluster
+    , ccCacheNodeType
+    , ccEngineVersion
+    , ccCacheNodes
+    , ccCacheClusterCreateTime
+    , ccAutoMinorVersionUpgrade
+    , ccSecurityGroups
+    , ccNotificationConfiguration
+    , ccSnapshotWindow
+    , ccCacheClusterId
+    , ccConfigurationEndpoint
+    , ccEngine
+    , ccCacheSecurityGroups
+    , ccClientDownloadLandingPage
+    , ccPreferredMaintenanceWindow
+    , ccCacheSubnetGroupName
+    , ccCacheClusterStatus
+    , ccPreferredAvailabilityZone
+    , ccCacheParameterGroup
+    , ccSnapshotRetentionLimit
+    , ccReplicationGroupId
+    , ccPendingModifiedValues
+    , ccNumCacheNodes
+
+    -- ** CacheEngineVersion
+    , CacheEngineVersion
+    , cacheEngineVersion
+    , cevCacheEngineDescription
+    , cevCacheParameterGroupFamily
+    , cevEngineVersion
+    , cevCacheEngineVersionDescription
+    , cevEngine
+
+    -- ** CacheNode
+    , CacheNode
+    , cacheNode
+    , cnSourceCacheNodeId
+    , cnParameterGroupStatus
+    , cnCacheNodeCreateTime
+    , cnCustomerAvailabilityZone
+    , cnCacheNodeId
+    , cnCacheNodeStatus
+    , cnEndpoint
+
+    -- ** CacheNodeTypeSpecificParameter
+    , CacheNodeTypeSpecificParameter
+    , cacheNodeTypeSpecificParameter
+    , cntspCacheNodeTypeSpecificValues
+    , cntspMinimumEngineVersion
+    , cntspSource
+    , cntspIsModifiable
+    , cntspAllowedValues
+    , cntspDataType
+    , cntspParameterName
+    , cntspDescription
+
+    -- ** CacheNodeTypeSpecificValue
+    , CacheNodeTypeSpecificValue
+    , cacheNodeTypeSpecificValue
+    , cntsvCacheNodeType
+    , cntsvValue
+
+    -- ** CacheParameterGroup
+    , CacheParameterGroup
+    , cacheParameterGroup
+    , cpgCacheParameterGroupFamily
+    , cpgCacheParameterGroupName
+    , cpgDescription
+
+    -- ** CacheParameterGroupNameMessage
+    , CacheParameterGroupNameMessage
+    , cacheParameterGroupNameMessage
+    , cpgnmCacheParameterGroupName
+
+    -- ** CacheParameterGroupStatus
+    , CacheParameterGroupStatus
+    , cacheParameterGroupStatus
+    , cpgsCacheParameterGroupName
+    , cpgsCacheNodeIdsToReboot
+    , cpgsParameterApplyStatus
+
+    -- ** CacheSecurityGroup
+    , CacheSecurityGroup
+    , cacheSecurityGroup
+    , csgCacheSecurityGroupName
+    , csgOwnerId
+    , csgEC2SecurityGroups
+    , csgDescription
+
+    -- ** CacheSecurityGroupMembership
+    , CacheSecurityGroupMembership
+    , cacheSecurityGroupMembership
+    , csgmStatus
+    , csgmCacheSecurityGroupName
+
+    -- ** CacheSubnetGroup
+    , CacheSubnetGroup
+    , cacheSubnetGroup
+    , csgVPCId
+    , csgSubnets
+    , csgCacheSubnetGroupName
+    , csgCacheSubnetGroupDescription
+
+    -- ** EC2SecurityGroup
+    , EC2SecurityGroup
+    , ec2SecurityGroup
+    , esgStatus
+    , esgEC2SecurityGroupOwnerId
+    , esgEC2SecurityGroupName
+
+    -- ** Endpoint
+    , Endpoint
+    , endpoint
+    , eAddress
+    , ePort
+
+    -- ** EngineDefaults
+    , EngineDefaults
+    , engineDefaults
+    , edCacheParameterGroupFamily
+    , edCacheNodeTypeSpecificParameters
+    , edParameters
+    , edMarker
+
+    -- ** Event
+    , Event
+    , event
+    , eSourceType
+    , eSourceIdentifier
+    , eDate
+    , eMessage
+
+    -- ** NodeGroup
+    , NodeGroup
+    , nodeGroup
+    , ngStatus
+    , ngPrimaryEndpoint
+    , ngNodeGroupMembers
+    , ngNodeGroupId
+
+    -- ** NodeGroupMember
+    , NodeGroupMember
+    , nodeGroupMember
+    , ngmCacheClusterId
+    , ngmCacheNodeId
+    , ngmPreferredAvailabilityZone
+    , ngmCurrentRole
+    , ngmReadEndpoint
+
+    -- ** NodeSnapshot
+    , NodeSnapshot
+    , nodeSnapshot
+    , nsCacheNodeCreateTime
+    , nsCacheNodeId
+    , nsSnapshotCreateTime
+    , nsCacheSize
+
+    -- ** NotificationConfiguration
+    , NotificationConfiguration
+    , notificationConfiguration
+    , ncTopicStatus
+    , ncTopicARN
+
+    -- ** Parameter
+    , Parameter
+    , parameter
+    , pParameterValue
+    , pMinimumEngineVersion
+    , pSource
+    , pIsModifiable
+    , pAllowedValues
+    , pDataType
+    , pParameterName
+    , pDescription
+
+    -- ** ParameterNameValue
+    , ParameterNameValue
+    , parameterNameValue
+    , pnvParameterValue
+    , pnvParameterName
+
+    -- ** PendingModifiedValues
+    , PendingModifiedValues
+    , pendingModifiedValues
+    , pmvEngineVersion
+    , pmvCacheNodeIdsToRemove
+    , pmvNumCacheNodes
+
+    -- ** RecurringCharge
+    , RecurringCharge
+    , recurringCharge
+    , rcRecurringChargeFrequency
+    , rcRecurringChargeAmount
+
+    -- ** ReplicationGroup
+    , ReplicationGroup
+    , replicationGroup
+    , rgNodeGroups
+    , rgStatus
+    , rgSnapshottingClusterId
+    , rgMemberClusters
+    , rgReplicationGroupId
+    , rgPendingModifiedValues
+    , rgDescription
+    , rgAutomaticFailover
+
+    -- ** ReplicationGroupPendingModifiedValues
+    , ReplicationGroupPendingModifiedValues
+    , replicationGroupPendingModifiedValues
+    , rgpmvPrimaryClusterId
+    , rgpmvAutomaticFailoverStatus
+
+    -- ** ReservedCacheNode
+    , ReservedCacheNode
+    , reservedCacheNode
+    , rcnCacheNodeType
+    , rcnState
+    , rcnProductDescription
+    , rcnStartTime
+    , rcnCacheNodeCount
+    , rcnReservedCacheNodeId
+    , rcnOfferingType
+    , rcnUsagePrice
+    , rcnRecurringCharges
+    , rcnFixedPrice
+    , rcnDuration
+    , rcnReservedCacheNodesOfferingId
+
+    -- ** ReservedCacheNodesOffering
+    , ReservedCacheNodesOffering
+    , reservedCacheNodesOffering
+    , rcnoCacheNodeType
+    , rcnoProductDescription
+    , rcnoOfferingType
+    , rcnoUsagePrice
+    , rcnoRecurringCharges
+    , rcnoFixedPrice
+    , rcnoDuration
+    , rcnoReservedCacheNodesOfferingId
+
+    -- ** SecurityGroupMembership
+    , SecurityGroupMembership
+    , securityGroupMembership
+    , sgmStatus
+    , sgmSecurityGroupId
+
+    -- ** Snapshot
+    , Snapshot
+    , snapshot
+    , sCacheNodeType
+    , sEngineVersion
+    , sCacheClusterCreateTime
+    , sAutoMinorVersionUpgrade
+    , sCacheParameterGroupName
+    , sSnapshotStatus
+    , sSnapshotWindow
+    , sVPCId
+    , sCacheClusterId
+    , sEngine
+    , sPreferredMaintenanceWindow
+    , sTopicARN
+    , sCacheSubnetGroupName
+    , sNodeSnapshots
+    , sPreferredAvailabilityZone
+    , sSnapshotRetentionLimit
+    , sSnapshotName
+    , sSnapshotSource
+    , sNumCacheNodes
+    , sPort
+
+    -- ** Subnet
+    , Subnet
+    , subnet
+    , sSubnetIdentifier
+    , sSubnetAvailabilityZone
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- ** TagListMessage
+    , TagListMessage
+    , tagListMessage
+    , tlmTagList
     ) where
 
-import           Network.AWS.ElastiCache.AddTagsToResource                   as Export
-import           Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress  as Export
-import           Network.AWS.ElastiCache.CopySnapshot                        as Export
-import           Network.AWS.ElastiCache.CreateCacheCluster                  as Export
-import           Network.AWS.ElastiCache.CreateCacheParameterGroup           as Export
-import           Network.AWS.ElastiCache.CreateCacheSecurityGroup            as Export
-import           Network.AWS.ElastiCache.CreateCacheSubnetGroup              as Export
-import           Network.AWS.ElastiCache.CreateReplicationGroup              as Export
-import           Network.AWS.ElastiCache.CreateSnapshot                      as Export
-import           Network.AWS.ElastiCache.DeleteCacheCluster                  as Export
-import           Network.AWS.ElastiCache.DeleteCacheParameterGroup           as Export
-import           Network.AWS.ElastiCache.DeleteCacheSecurityGroup            as Export
-import           Network.AWS.ElastiCache.DeleteCacheSubnetGroup              as Export
-import           Network.AWS.ElastiCache.DeleteReplicationGroup              as Export
-import           Network.AWS.ElastiCache.DeleteSnapshot                      as Export
-import           Network.AWS.ElastiCache.DescribeCacheClusters               as Export
-import           Network.AWS.ElastiCache.DescribeCacheEngineVersions         as Export
-import           Network.AWS.ElastiCache.DescribeCacheParameterGroups        as Export
-import           Network.AWS.ElastiCache.DescribeCacheParameters             as Export
-import           Network.AWS.ElastiCache.DescribeCacheSecurityGroups         as Export
-import           Network.AWS.ElastiCache.DescribeCacheSubnetGroups           as Export
-import           Network.AWS.ElastiCache.DescribeEngineDefaultParameters     as Export
-import           Network.AWS.ElastiCache.DescribeEvents                      as Export
-import           Network.AWS.ElastiCache.DescribeReplicationGroups           as Export
-import           Network.AWS.ElastiCache.DescribeReservedCacheNodes          as Export
-import           Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings as Export
-import           Network.AWS.ElastiCache.DescribeSnapshots                   as Export
-import           Network.AWS.ElastiCache.ListTagsForResource                 as Export
-import           Network.AWS.ElastiCache.ModifyCacheCluster                  as Export
-import           Network.AWS.ElastiCache.ModifyCacheParameterGroup           as Export
-import           Network.AWS.ElastiCache.ModifyCacheSubnetGroup              as Export
-import           Network.AWS.ElastiCache.ModifyReplicationGroup              as Export
-import           Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering  as Export
-import           Network.AWS.ElastiCache.RebootCacheCluster                  as Export
-import           Network.AWS.ElastiCache.RemoveTagsFromResource              as Export
-import           Network.AWS.ElastiCache.ResetCacheParameterGroup            as Export
-import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress     as Export
-import           Network.AWS.ElastiCache.Types                               as Export
-import           Network.AWS.ElastiCache.Waiters                             as Export
+import           Network.AWS.ElastiCache.AddTagsToResource
+import           Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
+import           Network.AWS.ElastiCache.CopySnapshot
+import           Network.AWS.ElastiCache.CreateCacheCluster
+import           Network.AWS.ElastiCache.CreateCacheParameterGroup
+import           Network.AWS.ElastiCache.CreateCacheSecurityGroup
+import           Network.AWS.ElastiCache.CreateCacheSubnetGroup
+import           Network.AWS.ElastiCache.CreateReplicationGroup
+import           Network.AWS.ElastiCache.CreateSnapshot
+import           Network.AWS.ElastiCache.DeleteCacheCluster
+import           Network.AWS.ElastiCache.DeleteCacheParameterGroup
+import           Network.AWS.ElastiCache.DeleteCacheSecurityGroup
+import           Network.AWS.ElastiCache.DeleteCacheSubnetGroup
+import           Network.AWS.ElastiCache.DeleteReplicationGroup
+import           Network.AWS.ElastiCache.DeleteSnapshot
+import           Network.AWS.ElastiCache.DescribeCacheClusters
+import           Network.AWS.ElastiCache.DescribeCacheEngineVersions
+import           Network.AWS.ElastiCache.DescribeCacheParameterGroups
+import           Network.AWS.ElastiCache.DescribeCacheParameters
+import           Network.AWS.ElastiCache.DescribeCacheSecurityGroups
+import           Network.AWS.ElastiCache.DescribeCacheSubnetGroups
+import           Network.AWS.ElastiCache.DescribeEngineDefaultParameters
+import           Network.AWS.ElastiCache.DescribeEvents
+import           Network.AWS.ElastiCache.DescribeReplicationGroups
+import           Network.AWS.ElastiCache.DescribeReservedCacheNodes
+import           Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
+import           Network.AWS.ElastiCache.DescribeSnapshots
+import           Network.AWS.ElastiCache.ListTagsForResource
+import           Network.AWS.ElastiCache.ModifyCacheCluster
+import           Network.AWS.ElastiCache.ModifyCacheParameterGroup
+import           Network.AWS.ElastiCache.ModifyCacheSubnetGroup
+import           Network.AWS.ElastiCache.ModifyReplicationGroup
+import           Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
+import           Network.AWS.ElastiCache.RebootCacheCluster
+import           Network.AWS.ElastiCache.RemoveTagsFromResource
+import           Network.AWS.ElastiCache.ResetCacheParameterGroup
+import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Waiters
+
+{- $errors
+Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
+library functions provided by the "Control.Exception.Lens" module. This allows
+the user to catch (and rethrow) service specific errors returned by 'ElastiCache'.
+-}
+
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+-}
+
+{- $pager
+This operation can return paginated results.
+-}

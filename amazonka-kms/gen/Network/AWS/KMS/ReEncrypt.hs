@@ -31,25 +31,23 @@
 -- must be included manually when you set a policy by using the
 -- PutKeyPolicy function.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html AWS API Reference> for ReEncrypt.
 module Network.AWS.KMS.ReEncrypt
     (
-    -- * Request
+    -- * Creating a Request
       ReEncrypt
-    -- ** Request constructor
     , reEncrypt
-    -- ** Request lenses
+    -- * Request Lenses
     , reDestinationEncryptionContext
     , reSourceEncryptionContext
     , reGrantTokens
     , reCiphertextBlob
     , reDestinationKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReEncryptResponse
-    -- ** Response constructor
     , reEncryptResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rersSourceKeyId
     , rersKeyId
     , rersCiphertextBlob
@@ -205,6 +203,6 @@ rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a});
 rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
 rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rersStatus :: Lens' ReEncryptResponse Int
 rersStatus = lens _rersStatus (\ s a -> s{_rersStatus = a});

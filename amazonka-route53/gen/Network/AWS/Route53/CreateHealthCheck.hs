@@ -25,22 +25,20 @@
 -- the @CreateHealthCheckResponse@ element that contains metadata about the
 -- health check.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html AWS API Reference> for CreateHealthCheck.
 module Network.AWS.Route53.CreateHealthCheck
     (
-    -- * Request
+    -- * Creating a Request
       CreateHealthCheck
-    -- ** Request constructor
     , createHealthCheck
-    -- ** Request lenses
+    -- * Request Lenses
     , chcCallerReference
     , chcHealthCheckConfig
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateHealthCheckResponse
-    -- ** Response constructor
     , createHealthCheckResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , chcrsStatus
     , chcrsHealthCheck
     , chcrsLocation
@@ -149,7 +147,7 @@ createHealthCheckResponse pStatus_ pHealthCheck_ pLocation_ =
     , _chcrsLocation = pLocation_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chcrsStatus :: Lens' CreateHealthCheckResponse Int
 chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});
 

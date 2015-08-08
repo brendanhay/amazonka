@@ -19,22 +19,20 @@
 --
 -- Gets information about runs.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListRuns.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListRuns.html AWS API Reference> for ListRuns.
 module Network.AWS.DeviceFarm.ListRuns
     (
-    -- * Request
+    -- * Creating a Request
       ListRuns
-    -- ** Request constructor
     , listRuns
-    -- ** Request lenses
+    -- * Request Lenses
     , lrNextToken
     , lrArn
 
-    -- * Response
+    -- * Destructuring the Response
     , ListRunsResponse
-    -- ** Response constructor
     , listRunsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrrsRuns
     , lrrsNextToken
     , lrrsStatus
@@ -144,6 +142,6 @@ lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default . _Coerce;
 lrrsNextToken :: Lens' ListRunsResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrrsStatus :: Lens' ListRunsResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

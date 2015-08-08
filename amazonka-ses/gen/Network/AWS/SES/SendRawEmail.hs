@@ -69,14 +69,13 @@
 --     authorization, see the
 --     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html AWS API Reference> for SendRawEmail.
 module Network.AWS.SES.SendRawEmail
     (
-    -- * Request
+    -- * Creating a Request
       SendRawEmail
-    -- ** Request constructor
     , sendRawEmail
-    -- ** Request lenses
+    -- * Request Lenses
     , sreSourceARN
     , sreDestinations
     , sreReturnPathARN
@@ -84,11 +83,10 @@ module Network.AWS.SES.SendRawEmail
     , sreFromARN
     , sreRawMessage
 
-    -- * Response
+    -- * Destructuring the Response
     , SendRawEmailResponse
-    -- ** Response constructor
     , sendRawEmailResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , srersStatus
     , srersMessageId
     ) where
@@ -289,7 +287,7 @@ sendRawEmailResponse pStatus_ pMessageId_ =
     , _srersMessageId = pMessageId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 srersStatus :: Lens' SendRawEmailResponse Int
 srersStatus = lens _srersStatus (\ s a -> s{_srersStatus = a});
 

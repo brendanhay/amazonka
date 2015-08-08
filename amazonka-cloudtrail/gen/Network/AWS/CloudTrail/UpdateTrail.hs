@@ -25,14 +25,13 @@
 -- has previously been a target for CloudTrail log files, an IAM policy
 -- exists for the bucket.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html AWS API Reference> for UpdateTrail.
 module Network.AWS.CloudTrail.UpdateTrail
     (
-    -- * Request
+    -- * Creating a Request
       UpdateTrail
-    -- ** Request constructor
     , updateTrail
-    -- ** Request lenses
+    -- * Request Lenses
     , utS3KeyPrefix
     , utSNSTopicName
     , utCloudWatchLogsLogGroupARN
@@ -41,11 +40,10 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utS3BucketName
     , utName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateTrailResponse
-    -- ** Response constructor
     , updateTrailResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , utrsS3KeyPrefix
     , utrsSNSTopicName
     , utrsCloudWatchLogsLogGroupARN
@@ -263,6 +261,6 @@ utrsCloudWatchLogsRoleARN = lens _utrsCloudWatchLogsRoleARN (\ s a -> s{_utrsClo
 utrsS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3BucketName = lens _utrsS3BucketName (\ s a -> s{_utrsS3BucketName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 utrsStatus :: Lens' UpdateTrailResponse Int
 utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});

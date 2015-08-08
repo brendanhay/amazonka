@@ -32,14 +32,13 @@
 -- Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
 -- initiators can use to connect to the volume target.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html AWS API Reference> for CreateCachediSCSIVolume.
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
-    -- * Request
+    -- * Creating a Request
       CreateCachediSCSIVolume
-    -- ** Request constructor
     , createCachediSCSIVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , ccscsivSnapshotId
     , ccscsivGatewayARN
     , ccscsivVolumeSizeInBytes
@@ -47,11 +46,10 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     , ccscsivNetworkInterfaceId
     , ccscsivClientToken
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCachediSCSIVolumeResponse
-    -- ** Response constructor
     , createCachediSCSIVolumeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccscsivrsTargetARN
     , ccscsivrsVolumeARN
     , ccscsivrsStatus
@@ -98,27 +96,27 @@ createCachediSCSIVolume pGatewayARN_ pVolumeSizeInBytes_ pTargetName_ pNetworkIn
     , _ccscsivClientToken = pClientToken_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivSnapshotId :: Lens' CreateCachediSCSIVolume (Maybe Text)
 ccscsivSnapshotId = lens _ccscsivSnapshotId (\ s a -> s{_ccscsivSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivGatewayARN :: Lens' CreateCachediSCSIVolume Text
 ccscsivGatewayARN = lens _ccscsivGatewayARN (\ s a -> s{_ccscsivGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivVolumeSizeInBytes :: Lens' CreateCachediSCSIVolume Integer
 ccscsivVolumeSizeInBytes = lens _ccscsivVolumeSizeInBytes (\ s a -> s{_ccscsivVolumeSizeInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivTargetName :: Lens' CreateCachediSCSIVolume Text
 ccscsivTargetName = lens _ccscsivTargetName (\ s a -> s{_ccscsivTargetName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivNetworkInterfaceId :: Lens' CreateCachediSCSIVolume Text
 ccscsivNetworkInterfaceId = lens _ccscsivNetworkInterfaceId (\ s a -> s{_ccscsivNetworkInterfaceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
 ccscsivClientToken = lens _ccscsivClientToken (\ s a -> s{_ccscsivClientToken = a});
 
@@ -184,14 +182,14 @@ createCachediSCSIVolumeResponse pStatus_ =
     , _ccscsivrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivrsTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrsTargetARN = lens _ccscsivrsTargetARN (\ s a -> s{_ccscsivrsTargetARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivrsVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrsVolumeARN = lens _ccscsivrsVolumeARN (\ s a -> s{_ccscsivrsVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccscsivrsStatus :: Lens' CreateCachediSCSIVolumeResponse Int
 ccscsivrsStatus = lens _ccscsivrsStatus (\ s a -> s{_ccscsivrsStatus = a});

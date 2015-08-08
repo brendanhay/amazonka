@@ -20,25 +20,23 @@
 -- Lists the deployments within a deployment group for an application
 -- registered with the applicable IAM user or AWS account.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html AWS API Reference> for ListDeployments.
 module Network.AWS.CodeDeploy.ListDeployments
     (
-    -- * Request
+    -- * Creating a Request
       ListDeployments
-    -- ** Request constructor
     , listDeployments
-    -- ** Request lenses
+    -- * Request Lenses
     , ldCreateTimeRange
     , ldNextToken
     , ldIncludeOnlyStatuses
     , ldApplicationName
     , ldDeploymentGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDeploymentsResponse
-    -- ** Response constructor
     , listDeploymentsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldrsNextToken
     , ldrsDeployments
     , ldrsStatus
@@ -186,6 +184,6 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
 ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldrsStatus :: Lens' ListDeploymentsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

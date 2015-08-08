@@ -23,22 +23,20 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html AWS API Reference> for ExitStandby.
 module Network.AWS.AutoScaling.ExitStandby
     (
-    -- * Request
+    -- * Creating a Request
       ExitStandby
-    -- ** Request constructor
     , exitStandby
-    -- ** Request lenses
+    -- * Request Lenses
     , eInstanceIds
     , eAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ExitStandbyResponse
-    -- ** Response constructor
     , exitStandbyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ersActivities
     , ersStatus
     ) where
@@ -127,6 +125,6 @@ exitStandbyResponse pStatus_ =
 ersActivities :: Lens' ExitStandbyResponse [Activity]
 ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ersStatus :: Lens' ExitStandbyResponse Int
 ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});

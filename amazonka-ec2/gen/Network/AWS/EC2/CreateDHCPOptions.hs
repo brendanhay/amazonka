@@ -57,22 +57,20 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateDHCPOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateDHCPOptions.html AWS API Reference> for CreateDHCPOptions.
 module Network.AWS.EC2.CreateDHCPOptions
     (
-    -- * Request
+    -- * Creating a Request
       CreateDHCPOptions
-    -- ** Request constructor
     , createDHCPOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , cdoDryRun
     , cdoDHCPConfigurations
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDHCPOptionsResponse
-    -- ** Response constructor
     , createDHCPOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdorsDHCPOptions
     , cdorsStatus
     ) where
@@ -161,6 +159,6 @@ createDHCPOptionsResponse pStatus_ =
 cdorsDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
 cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdorsStatus :: Lens' CreateDHCPOptionsResponse Int
 cdorsStatus = lens _cdorsStatus (\ s a -> s{_cdorsStatus = a});

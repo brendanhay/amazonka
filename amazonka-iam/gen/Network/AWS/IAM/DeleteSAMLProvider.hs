@@ -26,19 +26,17 @@
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html AWS API Reference> for DeleteSAMLProvider.
 module Network.AWS.IAM.DeleteSAMLProvider
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSAMLProvider
-    -- ** Request constructor
     , deleteSAMLProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , dsamlpSAMLProviderARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSAMLProviderResponse
-    -- ** Response constructor
     , deleteSAMLProviderResponse
     ) where
 

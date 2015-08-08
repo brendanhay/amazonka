@@ -21,19 +21,17 @@
 --
 -- This location is used to store user log files.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateStorageLocation.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateStorageLocation.html AWS API Reference> for CreateStorageLocation.
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
-    -- * Request
+    -- * Creating a Request
       CreateStorageLocation
-    -- ** Request constructor
     , createStorageLocation
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateStorageLocationResponse
-    -- ** Response constructor
     , createStorageLocationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cslrsS3Bucket
     , cslrsStatus
     ) where
@@ -102,6 +100,6 @@ createStorageLocationResponse pStatus_ =
 cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cslrsStatus :: Lens' CreateStorageLocationResponse Int
 cslrsStatus = lens _cslrsStatus (\ s a -> s{_cslrsStatus = a});

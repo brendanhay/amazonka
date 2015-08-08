@@ -21,14 +21,13 @@
 -- the cache cluster run the same protocol-compliant cache engine software,
 -- either Memcached or Redis.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html AWS API Reference> for CreateCacheCluster.
 module Network.AWS.ElastiCache.CreateCacheCluster
     (
-    -- * Request
+    -- * Creating a Request
       CreateCacheCluster
-    -- ** Request constructor
     , createCacheCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , cccCacheNodeType
     , cccEngineVersion
     , cccSecurityGroupIds
@@ -52,11 +51,10 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , cccPort
     , cccCacheClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateCacheClusterResponse
-    -- ** Response constructor
     , createCacheClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cccrsCacheCluster
     , cccrsStatus
     ) where
@@ -495,10 +493,10 @@ createCacheClusterResponse pStatus_ =
     , _cccrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cccrsCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrsCacheCluster = lens _cccrsCacheCluster (\ s a -> s{_cccrsCacheCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cccrsStatus :: Lens' CreateCacheClusterResponse Int
 cccrsStatus = lens _cccrsStatus (\ s a -> s{_cccrsStatus = a});

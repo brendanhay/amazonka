@@ -40,19 +40,17 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicy.html AWS API Reference> for DeletePolicy.
 module Network.AWS.IAM.DeletePolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeletePolicy
-    -- ** Request constructor
     , deletePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dpPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeletePolicyResponse
-    -- ** Response constructor
     , deletePolicyResponse
     ) where
 
@@ -77,7 +75,7 @@ deletePolicy pPolicyARN_ =
     { _dpPolicyARN = pPolicyARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dpPolicyARN :: Lens' DeletePolicy Text
 dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
 

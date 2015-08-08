@@ -44,11 +44,11 @@ accessPoliciesStatus pOptions_ pStatus_ =
     , _apsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 apsOptions :: Lens' AccessPoliciesStatus Text
 apsOptions = lens _apsOptions (\ s a -> s{_apsOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 apsStatus :: Lens' AccessPoliciesStatus OptionStatus
 apsStatus = lens _apsStatus (\ s a -> s{_apsStatus = a});
 
@@ -186,15 +186,15 @@ analysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ =
     , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
 asAnalysisOptions = lens _asAnalysisOptions (\ s a -> s{_asAnalysisOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asAnalysisSchemeName :: Lens' AnalysisScheme Text
 asAnalysisSchemeName = lens _asAnalysisSchemeName (\ s a -> s{_asAnalysisSchemeName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 asAnalysisSchemeLanguage :: Lens' AnalysisScheme AnalysisSchemeLanguage
 asAnalysisSchemeLanguage = lens _asAnalysisSchemeLanguage (\ s a -> s{_asAnalysisSchemeLanguage = a});
 
@@ -235,11 +235,11 @@ analysisSchemeStatus pOptions_ pStatus_ =
     , _assStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 assOptions :: Lens' AnalysisSchemeStatus AnalysisScheme
 assOptions = lens _assOptions (\ s a -> s{_assOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 assStatus :: Lens' AnalysisSchemeStatus OptionStatus
 assStatus = lens _assStatus (\ s a -> s{_assStatus = a});
 
@@ -274,7 +274,7 @@ availabilityOptionsStatus pOptions_ pStatus_ =
 aosOptions :: Lens' AvailabilityOptionsStatus Bool
 aosOptions = lens _aosOptions (\ s a -> s{_aosOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 aosStatus :: Lens' AvailabilityOptionsStatus OptionStatus
 aosStatus = lens _aosStatus (\ s a -> s{_aosStatus = a});
 
@@ -398,7 +398,7 @@ dateOptions =
     , _doDefaultValue = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 doSourceField :: Lens' DateOptions (Maybe Text)
 doSourceField = lens _doSourceField (\ s a -> s{_doSourceField = a});
 
@@ -579,7 +579,7 @@ dsSearchInstanceCount = lens _dsSearchInstanceCount (\ s a -> s{_dsSearchInstanc
 dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
 dsSearchInstanceType = lens _dsSearchInstanceType (\ s a -> s{_dsSearchInstanceType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsARN :: Lens' DomainStatus (Maybe Text)
 dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 
@@ -598,7 +598,7 @@ dsCreated = lens _dsCreated (\ s a -> s{_dsCreated = a});
 dsSearchService :: Lens' DomainStatus (Maybe ServiceEndpoint)
 dsSearchService = lens _dsSearchService (\ s a -> s{_dsSearchService = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsLimits :: Lens' DomainStatus (Maybe Limits)
 dsLimits = lens _dsLimits (\ s a -> s{_dsLimits = a});
 
@@ -619,11 +619,11 @@ dsDeleted = lens _dsDeleted (\ s a -> s{_dsDeleted = a});
 dsProcessing :: Lens' DomainStatus (Maybe Bool)
 dsProcessing = lens _dsProcessing (\ s a -> s{_dsProcessing = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsDomainId :: Lens' DomainStatus Text
 dsDomainId = lens _dsDomainId (\ s a -> s{_dsDomainId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsDomainName :: Lens' DomainStatus Text
 dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
 
@@ -832,11 +832,11 @@ expression pExpressionName_ pExpressionValue_ =
     , _eExpressionValue = pExpressionValue_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 eExpressionName :: Lens' Expression Text
 eExpressionName = lens _eExpressionName (\ s a -> s{_eExpressionName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 eExpressionValue :: Lens' Expression Text
 eExpressionValue = lens _eExpressionValue (\ s a -> s{_eExpressionValue = a});
 
@@ -878,7 +878,7 @@ expressionStatus pOptions_ pStatus_ =
 esOptions :: Lens' ExpressionStatus Expression
 esOptions = lens _esOptions (\ s a -> s{_esOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 esStatus :: Lens' ExpressionStatus OptionStatus
 esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
 
@@ -954,47 +954,47 @@ indexField pIndexFieldName_ pIndexFieldType_ =
     , _ifIndexFieldType = pIndexFieldType_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifDateOptions :: Lens' IndexField (Maybe DateOptions)
 ifDateOptions = lens _ifDateOptions (\ s a -> s{_ifDateOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifTextArrayOptions :: Lens' IndexField (Maybe TextArrayOptions)
 ifTextArrayOptions = lens _ifTextArrayOptions (\ s a -> s{_ifTextArrayOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifDoubleArrayOptions :: Lens' IndexField (Maybe DoubleArrayOptions)
 ifDoubleArrayOptions = lens _ifDoubleArrayOptions (\ s a -> s{_ifDoubleArrayOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifDoubleOptions :: Lens' IndexField (Maybe DoubleOptions)
 ifDoubleOptions = lens _ifDoubleOptions (\ s a -> s{_ifDoubleOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifTextOptions :: Lens' IndexField (Maybe TextOptions)
 ifTextOptions = lens _ifTextOptions (\ s a -> s{_ifTextOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifLatLonOptions :: Lens' IndexField (Maybe LatLonOptions)
 ifLatLonOptions = lens _ifLatLonOptions (\ s a -> s{_ifLatLonOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifIntArrayOptions :: Lens' IndexField (Maybe IntArrayOptions)
 ifIntArrayOptions = lens _ifIntArrayOptions (\ s a -> s{_ifIntArrayOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifLiteralArrayOptions :: Lens' IndexField (Maybe LiteralArrayOptions)
 ifLiteralArrayOptions = lens _ifLiteralArrayOptions (\ s a -> s{_ifLiteralArrayOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifDateArrayOptions :: Lens' IndexField (Maybe DateArrayOptions)
 ifDateArrayOptions = lens _ifDateArrayOptions (\ s a -> s{_ifDateArrayOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifLiteralOptions :: Lens' IndexField (Maybe LiteralOptions)
 ifLiteralOptions = lens _ifLiteralOptions (\ s a -> s{_ifLiteralOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifIntOptions :: Lens' IndexField (Maybe IntOptions)
 ifIntOptions = lens _ifIntOptions (\ s a -> s{_ifIntOptions = a});
 
@@ -1016,7 +1016,7 @@ ifIntOptions = lens _ifIntOptions (\ s a -> s{_ifIntOptions = a});
 ifIndexFieldName :: Lens' IndexField Text
 ifIndexFieldName = lens _ifIndexFieldName (\ s a -> s{_ifIndexFieldName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifIndexFieldType :: Lens' IndexField IndexFieldType
 ifIndexFieldType = lens _ifIndexFieldType (\ s a -> s{_ifIndexFieldType = a});
 
@@ -1075,11 +1075,11 @@ indexFieldStatus pOptions_ pStatus_ =
     , _ifsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifsOptions :: Lens' IndexFieldStatus IndexField
 ifsOptions = lens _ifsOptions (\ s a -> s{_ifsOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ifsStatus :: Lens' IndexFieldStatus OptionStatus
 ifsStatus = lens _ifsStatus (\ s a -> s{_ifsStatus = a});
 
@@ -1288,7 +1288,7 @@ latLonOptions =
     , _lloDefaultValue = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lloSourceField :: Lens' LatLonOptions (Maybe Text)
 lloSourceField = lens _lloSourceField (\ s a -> s{_lloSourceField = a});
 
@@ -1352,11 +1352,11 @@ limits pMaximumReplicationCount_ pMaximumPartitionCount_ =
     , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lMaximumReplicationCount :: Lens' Limits Natural
 lMaximumReplicationCount = lens _lMaximumReplicationCount (\ s a -> s{_lMaximumReplicationCount = a}) . _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lMaximumPartitionCount :: Lens' Limits Natural
 lMaximumPartitionCount = lens _lMaximumPartitionCount (\ s a -> s{_lMaximumPartitionCount = a}) . _Nat;
 
@@ -1479,7 +1479,7 @@ literalOptions =
     , _loDefaultValue = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 loSourceField :: Lens' LiteralOptions (Maybe Text)
 loSourceField = lens _loSourceField (\ s a -> s{_loSourceField = a});
 
@@ -1675,11 +1675,11 @@ scalingParametersStatus pOptions_ pStatus_ =
     , _spsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 spsOptions :: Lens' ScalingParametersStatus ScalingParameters
 spsOptions = lens _spsOptions (\ s a -> s{_spsOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 spsStatus :: Lens' ScalingParametersStatus OptionStatus
 spsStatus = lens _spsStatus (\ s a -> s{_spsStatus = a});
 
@@ -1706,7 +1706,7 @@ serviceEndpoint =
     { _seEndpoint = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 seEndpoint :: Lens' ServiceEndpoint (Maybe Text)
 seEndpoint = lens _seEndpoint (\ s a -> s{_seEndpoint = a});
 
@@ -1738,11 +1738,11 @@ suggester pSuggesterName_ pDocumentSuggesterOptions_ =
     , _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sSuggesterName :: Lens' Suggester Text
 sSuggesterName = lens _sSuggesterName (\ s a -> s{_sSuggesterName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sDocumentSuggesterOptions :: Lens' Suggester DocumentSuggesterOptions
 sDocumentSuggesterOptions = lens _sDocumentSuggesterOptions (\ s a -> s{_sDocumentSuggesterOptions = a});
 
@@ -1781,11 +1781,11 @@ suggesterStatus pOptions_ pStatus_ =
     , _ssStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ssOptions :: Lens' SuggesterStatus Suggester
 ssOptions = lens _ssOptions (\ s a -> s{_ssOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ssStatus :: Lens' SuggesterStatus OptionStatus
 ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
 
@@ -1909,7 +1909,7 @@ textOptions =
     , _toDefaultValue = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 toSourceField :: Lens' TextOptions (Maybe Text)
 toSourceField = lens _toSourceField (\ s a -> s{_toSourceField = a});
 

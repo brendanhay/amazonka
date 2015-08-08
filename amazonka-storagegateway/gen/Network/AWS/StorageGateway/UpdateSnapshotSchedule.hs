@@ -29,24 +29,22 @@
 -- when you want the snapshot to begin on a day and the frequency (in
 -- hours) of snapshots.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html AWS API Reference> for UpdateSnapshotSchedule.
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
-    -- * Request
+    -- * Creating a Request
       UpdateSnapshotSchedule
-    -- ** Request constructor
     , updateSnapshotSchedule
-    -- ** Request lenses
+    -- * Request Lenses
     , ussDescription
     , ussVolumeARN
     , ussStartAt
     , ussRecurrenceInHours
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateSnapshotScheduleResponse
-    -- ** Response constructor
     , updateSnapshotScheduleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ussrsVolumeARN
     , ussrsStatus
     ) where
@@ -168,10 +166,10 @@ updateSnapshotScheduleResponse pStatus_ =
     , _ussrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ussrsStatus :: Lens' UpdateSnapshotScheduleResponse Int
 ussrsStatus = lens _ussrsStatus (\ s a -> s{_ussrsStatus = a});

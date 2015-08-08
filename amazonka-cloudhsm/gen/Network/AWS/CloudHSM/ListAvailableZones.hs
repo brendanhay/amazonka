@@ -19,19 +19,17 @@
 --
 -- Lists the Availability Zones that have available AWS CloudHSM capacity.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListAvailableZones.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListAvailableZones.html AWS API Reference> for ListAvailableZones.
 module Network.AWS.CloudHSM.ListAvailableZones
     (
-    -- * Request
+    -- * Creating a Request
       ListAvailableZones
-    -- ** Request constructor
     , listAvailableZones
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAvailableZonesResponse
-    -- ** Response constructor
     , listAvailableZonesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lazrsAZList
     , lazrsStatus
     ) where
@@ -107,6 +105,6 @@ listAvailableZonesResponse pStatus_ =
 lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
 lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lazrsStatus :: Lens' ListAvailableZonesResponse Int
 lazrsStatus = lens _lazrsStatus (\ s a -> s{_lazrsStatus = a});

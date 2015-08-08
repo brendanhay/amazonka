@@ -21,21 +21,19 @@
 -- user. If the user has not been assigned a password, the action returns a
 -- 404 (@NoSuchEntity@) error.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html AWS API Reference> for GetLoginProfile.
 module Network.AWS.IAM.GetLoginProfile
     (
-    -- * Request
+    -- * Creating a Request
       GetLoginProfile
-    -- ** Request constructor
     , getLoginProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , glpUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetLoginProfileResponse
-    -- ** Response constructor
     , getLoginProfileResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , glprsStatus
     , glprsLoginProfile
     ) where
@@ -110,7 +108,7 @@ getLoginProfileResponse pStatus_ pLoginProfile_ =
     , _glprsLoginProfile = pLoginProfile_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 glprsStatus :: Lens' GetLoginProfileResponse Int
 glprsStatus = lens _glprsStatus (\ s a -> s{_glprsStatus = a});
 

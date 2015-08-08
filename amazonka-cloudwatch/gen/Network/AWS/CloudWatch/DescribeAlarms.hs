@@ -22,14 +22,13 @@
 -- a prefix for the alarm name, the alarm state, or a prefix for any
 -- action.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html AWS API Reference> for DescribeAlarms.
 module Network.AWS.CloudWatch.DescribeAlarms
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAlarms
-    -- ** Request constructor
     , describeAlarms
-    -- ** Request lenses
+    -- * Request Lenses
     , daAlarmNamePrefix
     , daActionPrefix
     , daNextToken
@@ -37,11 +36,10 @@ module Network.AWS.CloudWatch.DescribeAlarms
     , daAlarmNames
     , daMaxRecords
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAlarmsResponse
-    -- ** Response constructor
     , describeAlarmsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , darsMetricAlarms
     , darsNextToken
     , darsStatus
@@ -188,6 +186,6 @@ darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . 
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 darsStatus :: Lens' DescribeAlarmsResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

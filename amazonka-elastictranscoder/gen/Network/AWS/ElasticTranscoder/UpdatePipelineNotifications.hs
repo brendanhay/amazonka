@@ -23,22 +23,20 @@
 -- When you update notifications for a pipeline, Elastic Transcoder returns
 -- the values that you specified in the request.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineNotifications.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineNotifications.html AWS API Reference> for UpdatePipelineNotifications.
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     (
-    -- * Request
+    -- * Creating a Request
       UpdatePipelineNotifications
-    -- ** Request constructor
     , updatePipelineNotifications
-    -- ** Request lenses
+    -- * Request Lenses
     , upnId
     , upnNotifications
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdatePipelineNotificationsResponse
-    -- ** Response constructor
     , updatePipelineNotificationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , upnrsPipeline
     , upnrsStatus
     ) where
@@ -153,6 +151,6 @@ updatePipelineNotificationsResponse pStatus_ =
 upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upnrsStatus :: Lens' UpdatePipelineNotificationsResponse Int
 upnrsStatus = lens _upnrsStatus (\ s a -> s{_upnrsStatus = a});

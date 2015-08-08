@@ -22,21 +22,19 @@
 -- You can use these policy types with CreateLoadBalancerPolicy to create
 -- policy configurations for a load balancer.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html AWS API Reference> for DescribeLoadBalancerPolicyTypes.
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLoadBalancerPolicyTypes
-    -- ** Request constructor
     , describeLoadBalancerPolicyTypes
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbptPolicyTypeNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLoadBalancerPolicyTypesResponse
-    -- ** Response constructor
     , describeLoadBalancerPolicyTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbptrsPolicyTypeDescriptions
     , dlbptrsStatus
     ) where
@@ -124,6 +122,6 @@ describeLoadBalancerPolicyTypesResponse pStatus_ =
 dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbptrsStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
 dlbptrsStatus = lens _dlbptrsStatus (\ s a -> s{_dlbptrsStatus = a});

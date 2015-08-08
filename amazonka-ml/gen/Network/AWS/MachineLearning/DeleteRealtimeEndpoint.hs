@@ -19,21 +19,19 @@
 --
 -- Deletes a real time endpoint of an @MLModel@.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteRealtimeEndpoint.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteRealtimeEndpoint.html AWS API Reference> for DeleteRealtimeEndpoint.
 module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     (
-    -- * Request
+    -- * Creating a Request
       DeleteRealtimeEndpoint
-    -- ** Request constructor
     , deleteRealtimeEndpoint
-    -- ** Request lenses
+    -- * Request Lenses
     , dreMLModelId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteRealtimeEndpointResponse
-    -- ** Response constructor
     , deleteRealtimeEndpointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drersRealtimeEndpointInfo
     , drersMLModelId
     , drersStatus
@@ -135,6 +133,6 @@ drersRealtimeEndpointInfo = lens _drersRealtimeEndpointInfo (\ s a -> s{_drersRe
 drersMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
 drersMLModelId = lens _drersMLModelId (\ s a -> s{_drersMLModelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drersStatus :: Lens' DeleteRealtimeEndpointResponse Int
 drersStatus = lens _drersStatus (\ s a -> s{_drersStatus = a});

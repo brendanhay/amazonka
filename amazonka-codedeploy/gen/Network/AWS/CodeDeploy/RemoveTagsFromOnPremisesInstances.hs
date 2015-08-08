@@ -19,20 +19,18 @@
 --
 -- Removes one or more tags from one or more on-premises instances.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.html AWS API Reference> for RemoveTagsFromOnPremisesInstances.
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     (
-    -- * Request
+    -- * Creating a Request
       RemoveTagsFromOnPremisesInstances
-    -- ** Request constructor
     , removeTagsFromOnPremisesInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , rtfopiTags
     , rtfopiInstanceNames
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveTagsFromOnPremisesInstancesResponse
-    -- ** Response constructor
     , removeTagsFromOnPremisesInstancesResponse
     ) where
 

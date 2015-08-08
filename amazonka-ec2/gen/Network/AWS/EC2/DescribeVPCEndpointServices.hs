@@ -20,23 +20,21 @@
 -- Describes all supported AWS services that can be specified when creating
 -- a VPC endpoint.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpointServices.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpointServices.html AWS API Reference> for DescribeVPCEndpointServices.
 module Network.AWS.EC2.DescribeVPCEndpointServices
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVPCEndpointServices
-    -- ** Request constructor
     , describeVPCEndpointServices
-    -- ** Request lenses
+    -- * Request Lenses
     , dvesNextToken
     , dvesDryRun
     , dvesMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVPCEndpointServicesResponse
-    -- ** Response constructor
     , describeVPCEndpointServicesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dvesrsServiceNames
     , dvesrsNextToken
     , dvesrsStatus
@@ -155,6 +153,6 @@ dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = 
 dvesrsNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
 dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dvesrsStatus :: Lens' DescribeVPCEndpointServicesResponse Int
 dvesrsStatus = lens _dvesrsStatus (\ s a -> s{_dvesrsStatus = a});

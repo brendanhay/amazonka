@@ -29,20 +29,18 @@
 -- using the new configuration information returned with the new VPN
 -- connection ID.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNConnection.html AWS API Reference> for DeleteVPNConnection.
 module Network.AWS.EC2.DeleteVPNConnection
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVPNConnection
-    -- ** Request constructor
     , deleteVPNConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , dvcDryRun
     , dvcVPNConnectionId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVPNConnectionResponse
-    -- ** Response constructor
     , deleteVPNConnectionResponse
     ) where
 

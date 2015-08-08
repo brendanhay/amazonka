@@ -28,14 +28,13 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
 -- in the Amazon Redshift Cluster Management Guide.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHSMConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHSMConfiguration.html AWS API Reference> for CreateHSMConfiguration.
 module Network.AWS.Redshift.CreateHSMConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       CreateHSMConfiguration
-    -- ** Request constructor
     , createHSMConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , chcTags
     , chcHSMConfigurationIdentifier
     , chcDescription
@@ -44,11 +43,10 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     , chcHSMPartitionPassword
     , chcHSMServerPublicCertificate
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateHSMConfigurationResponse
-    -- ** Response constructor
     , createHSMConfigurationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , chcrsHSMConfiguration
     , chcrsStatus
     ) where
@@ -185,10 +183,10 @@ createHSMConfigurationResponse pStatus_ =
     , _chcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chcrsHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfiguration)
 chcrsHSMConfiguration = lens _chcrsHSMConfiguration (\ s a -> s{_chcrsHSMConfiguration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 chcrsStatus :: Lens' CreateHSMConfigurationResponse Int
 chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});

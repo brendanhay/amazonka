@@ -26,22 +26,20 @@
 -- jobs, you have more time to get the job IDs for the jobs that you want
 -- to cancel, and to send a CancelJob request.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineStatus.html AWS API Reference> for UpdatePipelineStatus.
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
-    -- * Request
+    -- * Creating a Request
       UpdatePipelineStatus
-    -- ** Request constructor
     , updatePipelineStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , upsId
     , upsStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdatePipelineStatusResponse
-    -- ** Response constructor
     , updatePipelineStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , upsrsPipeline
     , upsrsStatus
     ) where
@@ -138,6 +136,6 @@ updatePipelineStatusResponse pStatus_ =
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 upsrsStatus :: Lens' UpdatePipelineStatusResponse Int
 upsrsStatus = lens _upsrsStatus (\ s a -> s{_upsrsStatus = a});

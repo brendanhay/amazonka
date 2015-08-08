@@ -20,6 +20,8 @@ import           Network.AWS.Route53.GetChange
 import           Network.AWS.Route53.Types
 import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.Route53.GetChange' every 30 seconds until a
+-- successful state is reached. An error is returned after 60 failed checks.
 resourceRecordSetsChanged :: Wait GetChange
 resourceRecordSetsChanged =
     Wait
@@ -29,5 +31,5 @@ resourceRecordSetsChanged =
     , _waitAcceptors = [ matchAll
                              "INSYNC"
                              AcceptSuccess
-                             (gcrsChangeInfo . ciStatus . to toText)]
+                             (gcrsChangeInfo . ciStatus . to toTextCI)]
     }

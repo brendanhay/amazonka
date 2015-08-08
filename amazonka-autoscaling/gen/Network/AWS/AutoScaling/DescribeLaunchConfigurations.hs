@@ -20,23 +20,21 @@
 -- Describes one or more launch configurations. If you omit the list of
 -- names, then the call describes all launch configurations.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html AWS API Reference> for DescribeLaunchConfigurations.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLaunchConfigurations
-    -- ** Request constructor
     , describeLaunchConfigurations
-    -- ** Request lenses
+    -- * Request Lenses
     , dlcLaunchConfigurationNames
     , dlcNextToken
     , dlcMaxRecords
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLaunchConfigurationsResponse
-    -- ** Response constructor
     , describeLaunchConfigurationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlcrsNextToken
     , dlcrsStatus
     , dlcrsLaunchConfigurations
@@ -156,7 +154,7 @@ describeLaunchConfigurationsResponse pStatus_ =
 dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlcrsStatus :: Lens' DescribeLaunchConfigurationsResponse Int
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
 

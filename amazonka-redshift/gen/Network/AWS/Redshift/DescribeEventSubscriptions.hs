@@ -21,23 +21,21 @@
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html AWS API Reference> for DescribeEventSubscriptions.
 module Network.AWS.Redshift.DescribeEventSubscriptions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEventSubscriptions
-    -- ** Request constructor
     , describeEventSubscriptions
-    -- ** Request lenses
+    -- * Request Lenses
     , dSubscriptionName
     , dMaxRecords
     , dMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEventSubscriptionsResponse
-    -- ** Response constructor
     , describeEventSubscriptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , desrsEventSubscriptionsList
     , desrsMarker
     , desrsStatus
@@ -177,6 +175,6 @@ desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_des
 desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 desrsStatus :: Lens' DescribeEventSubscriptionsResponse Int
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

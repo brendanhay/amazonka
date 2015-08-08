@@ -27,21 +27,19 @@
 -- - @INSYNC@ indicates that the changes have replicated to all Amazon
 -- Route 53 DNS servers.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html AWS API Reference> for GetChange.
 module Network.AWS.Route53.GetChange
     (
-    -- * Request
+    -- * Creating a Request
       GetChange
-    -- ** Request constructor
     , getChange
-    -- ** Request lenses
+    -- * Request Lenses
     , gcId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetChangeResponse
-    -- ** Response constructor
     , getChangeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcrsStatus
     , gcrsChangeInfo
     ) where
@@ -117,7 +115,7 @@ getChangeResponse pStatus_ pChangeInfo_ =
     , _gcrsChangeInfo = pChangeInfo_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcrsStatus :: Lens' GetChangeResponse Int
 gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});
 

@@ -25,21 +25,19 @@
 -- completion of the action. If the request is not completed successfully,
 -- the domain registrant will be notified by email.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainTransferLock.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainTransferLock.html AWS API Reference> for DisableDomainTransferLock.
 module Network.AWS.Route53Domains.DisableDomainTransferLock
     (
-    -- * Request
+    -- * Creating a Request
       DisableDomainTransferLock
-    -- ** Request constructor
     , disableDomainTransferLock
-    -- ** Request lenses
+    -- * Request Lenses
     , ddtlDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableDomainTransferLockResponse
-    -- ** Response constructor
     , disableDomainTransferLockResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddtlrsStatus
     , ddtlrsOperationId
     ) where
@@ -134,7 +132,7 @@ disableDomainTransferLockResponse pStatus_ pOperationId_ =
     , _ddtlrsOperationId = pOperationId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddtlrsStatus :: Lens' DisableDomainTransferLockResponse Int
 ddtlrsStatus = lens _ddtlrsStatus (\ s a -> s{_ddtlrsStatus = a});
 

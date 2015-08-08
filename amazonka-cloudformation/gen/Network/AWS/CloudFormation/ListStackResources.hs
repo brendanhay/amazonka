@@ -22,22 +22,20 @@
 -- For deleted stacks, ListStackResources returns resource information for
 -- up to 90 days after the stack has been deleted.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html AWS API Reference> for ListStackResources.
 module Network.AWS.CloudFormation.ListStackResources
     (
-    -- * Request
+    -- * Creating a Request
       ListStackResources
-    -- ** Request constructor
     , listStackResources
-    -- ** Request lenses
+    -- * Request Lenses
     , lsrNextToken
     , lsrStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListStackResourcesResponse
-    -- ** Response constructor
     , listStackResourcesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrrsNextToken
     , lsrrsStackResourceSummaries
     , lsrrsStatus
@@ -159,6 +157,6 @@ lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a});
 lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
 lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsrrsStackResourceSummaries = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrrsStatus :: Lens' ListStackResourcesResponse Int
 lsrrsStatus = lens _lsrrsStatus (\ s a -> s{_lsrrsStatus = a});

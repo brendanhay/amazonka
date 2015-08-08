@@ -25,22 +25,20 @@
 -- the load balancer balances the traffic among the remaining routable
 -- subnets.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnets.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnets.html AWS API Reference> for DetachLoadBalancerFromSubnets.
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
-    -- * Request
+    -- * Creating a Request
       DetachLoadBalancerFromSubnets
-    -- ** Request constructor
     , detachLoadBalancerFromSubnets
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbfsLoadBalancerName
     , dlbfsSubnets
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachLoadBalancerFromSubnetsResponse
-    -- ** Response constructor
     , detachLoadBalancerFromSubnetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbfsrsSubnets
     , dlbfsrsStatus
     ) where
@@ -133,6 +131,6 @@ detachLoadBalancerFromSubnetsResponse pStatus_ =
 dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbfsrsStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
 dlbfsrsStatus = lens _dlbfsrsStatus (\ s a -> s{_dlbfsrsStatus = a});

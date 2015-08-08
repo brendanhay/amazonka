@@ -27,23 +27,21 @@
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
 -- in the /AWS CodeCommit User Guide/.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSSHPublicKey.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSSHPublicKey.html AWS API Reference> for GetSSHPublicKey.
 module Network.AWS.IAM.GetSSHPublicKey
     (
-    -- * Request
+    -- * Creating a Request
       GetSSHPublicKey
-    -- ** Request constructor
     , getSSHPublicKey
-    -- ** Request lenses
+    -- * Request Lenses
     , gspkUserName
     , gspkSSHPublicKeyId
     , gspkEncoding
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSSHPublicKeyResponse
-    -- ** Response constructor
     , getSSHPublicKeyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gspkrsSSHPublicKey
     , gspkrsStatus
     ) where
@@ -142,6 +140,6 @@ getSSHPublicKeyResponse pStatus_ =
 gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
 gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gspkrsStatus :: Lens' GetSSHPublicKeyResponse Int
 gspkrsStatus = lens _gspkrsStatus (\ s a -> s{_gspkrsStatus = a});

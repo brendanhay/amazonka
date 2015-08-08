@@ -22,14 +22,13 @@
 -- @desiredCount@, Amazon ECS will spawn another instantiation of the task
 -- in the specified cluster.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html AWS API Reference> for CreateService.
 module Network.AWS.ECS.CreateService
     (
-    -- * Request
+    -- * Creating a Request
       CreateService
-    -- ** Request constructor
     , createService
-    -- ** Request lenses
+    -- * Request Lenses
     , cCluster
     , cClientToken
     , cLoadBalancers
@@ -38,11 +37,10 @@ module Network.AWS.ECS.CreateService
     , cTaskDefinition
     , cDesiredCount
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateServiceResponse
-    -- ** Response constructor
     , createServiceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsService
     , csrsStatus
     ) where
@@ -194,6 +192,6 @@ createServiceResponse pStatus_ =
 csrsService :: Lens' CreateServiceResponse (Maybe ContainerService)
 csrsService = lens _csrsService (\ s a -> s{_csrsService = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' CreateServiceResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

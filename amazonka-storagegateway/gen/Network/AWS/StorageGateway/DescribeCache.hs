@@ -23,21 +23,19 @@
 -- The response includes disk IDs that are configured as cache, and it
 -- includes the amount of cache allocated and used.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCache.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCache.html AWS API Reference> for DescribeCache.
 module Network.AWS.StorageGateway.DescribeCache
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCache
-    -- ** Request constructor
     , describeCache
-    -- ** Request lenses
+    -- * Request Lenses
     , dcGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCacheResponse
-    -- ** Response constructor
     , describeCacheResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsGatewayARN
     , dcrsDiskIds
     , dcrsCacheUsedPercentage
@@ -69,7 +67,7 @@ describeCache pGatewayARN_ =
     { _dcGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcGatewayARN :: Lens' DescribeCache Text
 dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a});
 
@@ -153,34 +151,34 @@ describeCacheResponse pStatus_ =
     , _dcrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
 dcrsGatewayARN = lens _dcrsGatewayARN (\ s a -> s{_dcrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
 dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheUsedPercentage = lens _dcrsCacheUsedPercentage (\ s a -> s{_dcrsCacheUsedPercentage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheHitPercentage = lens _dcrsCacheHitPercentage (\ s a -> s{_dcrsCacheHitPercentage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheMissPercentage = lens _dcrsCacheMissPercentage (\ s a -> s{_dcrsCacheMissPercentage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
 dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCacheAllocatedInBytes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsStatus :: Lens' DescribeCacheResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

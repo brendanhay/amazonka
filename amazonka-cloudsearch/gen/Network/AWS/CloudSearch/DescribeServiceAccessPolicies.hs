@@ -25,22 +25,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeServiceAccessPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeServiceAccessPolicies.html AWS API Reference> for DescribeServiceAccessPolicies.
 module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     (
-    -- * Request
+    -- * Creating a Request
       DescribeServiceAccessPolicies
-    -- ** Request constructor
     , describeServiceAccessPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , dsapDeployed
     , dsapDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeServiceAccessPoliciesResponse
-    -- ** Response constructor
     , describeServiceAccessPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsaprsStatus
     , dsaprsAccessPolicies
     ) where
@@ -135,7 +133,7 @@ describeServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
     , _dsaprsAccessPolicies = pAccessPolicies_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsaprsStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
 dsaprsStatus = lens _dsaprsStatus (\ s a -> s{_dsaprsStatus = a});
 

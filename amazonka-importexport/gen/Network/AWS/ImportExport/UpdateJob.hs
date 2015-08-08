@@ -23,25 +23,23 @@
 -- can only use the operation after a CreateJob request but before the data
 -- transfer starts and you can only use it on jobs you own.
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html AWS API Reference> for UpdateJob.
 module Network.AWS.ImportExport.UpdateJob
     (
-    -- * Request
+    -- * Creating a Request
       UpdateJob
-    -- ** Request constructor
     , updateJob
-    -- ** Request lenses
+    -- * Request Lenses
     , ujAPIVersion
     , ujJobId
     , ujManifest
     , ujJobType
     , ujValidateOnly
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateJobResponse
-    -- ** Response constructor
     , updateJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ujrsSuccess
     , ujrsWarningMessage
     , ujrsArtifactList
@@ -87,23 +85,23 @@ updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
     , _ujValidateOnly = pValidateOnly_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujAPIVersion :: Lens' UpdateJob (Maybe Text)
 ujAPIVersion = lens _ujAPIVersion (\ s a -> s{_ujAPIVersion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujJobId :: Lens' UpdateJob Text
 ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujManifest :: Lens' UpdateJob Text
 ujManifest = lens _ujManifest (\ s a -> s{_ujManifest = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujJobType :: Lens' UpdateJob JobType
 ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujValidateOnly :: Lens' UpdateJob Bool
 ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a});
 
@@ -166,18 +164,18 @@ updateJobResponse pStatus_ =
     , _ujrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
 ujrsSuccess = lens _ujrsSuccess (\ s a -> s{_ujrsSuccess = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ujrsStatus :: Lens' UpdateJobResponse Int
 ujrsStatus = lens _ujrsStatus (\ s a -> s{_ujrsStatus = a});

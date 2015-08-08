@@ -20,21 +20,19 @@
 -- Retrieves a Boolean value that indicates whether key rotation is enabled
 -- for the specified key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html AWS API Reference> for GetKeyRotationStatus.
 module Network.AWS.KMS.GetKeyRotationStatus
     (
-    -- * Request
+    -- * Creating a Request
       GetKeyRotationStatus
-    -- ** Request constructor
     , getKeyRotationStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , gkrsKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetKeyRotationStatusResponse
-    -- ** Response constructor
     , getKeyRotationStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gkrsrsKeyRotationEnabled
     , gkrsrsStatus
     ) where
@@ -124,6 +122,6 @@ getKeyRotationStatusResponse pStatus_ =
 gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
 gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKeyRotationEnabled = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gkrsrsStatus :: Lens' GetKeyRotationStatusResponse Int
 gkrsrsStatus = lens _gkrsrsStatus (\ s a -> s{_gkrsrsStatus = a});

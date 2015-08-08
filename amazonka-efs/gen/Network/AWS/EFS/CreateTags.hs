@@ -27,20 +27,18 @@
 -- This operation requires permission for the
 -- @elasticfilesystem:CreateTags@ action.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateTags.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.EFS.CreateTags
     (
-    -- * Request
+    -- * Creating a Request
       CreateTags
-    -- ** Request constructor
     , createTags
-    -- ** Request lenses
+    -- * Request Lenses
     , ctFileSystemId
     , ctTags
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateTagsResponse
-    -- ** Response constructor
     , createTagsResponse
     ) where
 

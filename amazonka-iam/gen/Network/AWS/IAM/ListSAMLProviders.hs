@@ -22,19 +22,17 @@
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html AWS API Reference> for ListSAMLProviders.
 module Network.AWS.IAM.ListSAMLProviders
     (
-    -- * Request
+    -- * Creating a Request
       ListSAMLProviders
-    -- ** Request constructor
     , listSAMLProviders
 
-    -- * Response
+    -- * Destructuring the Response
     , ListSAMLProvidersResponse
-    -- ** Response constructor
     , listSAMLProvidersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsamlprsSAMLProviderList
     , lsamlprsStatus
     ) where
@@ -104,6 +102,6 @@ listSAMLProvidersResponse pStatus_ =
 lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsamlprsStatus :: Lens' ListSAMLProvidersResponse Int
 lsamlprsStatus = lens _lsamlprsStatus (\ s a -> s{_lsamlprsStatus = a});

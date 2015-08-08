@@ -33,14 +33,13 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html AWS API Reference> for CreateLayer.
 module Network.AWS.OpsWorks.CreateLayer
     (
-    -- * Request
+    -- * Creating a Request
       CreateLayer
-    -- ** Request constructor
     , createLayer
-    -- ** Request lenses
+    -- * Request Lenses
     , clCustomInstanceProfileARN
     , clInstallUpdatesOnBoot
     , clCustomSecurityGroupIds
@@ -59,11 +58,10 @@ module Network.AWS.OpsWorks.CreateLayer
     , clName
     , clShortname
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLayerResponse
-    -- ** Response constructor
     , createLayerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , clrsLayerId
     , clrsStatus
     ) where
@@ -329,6 +327,6 @@ createLayerResponse pStatus_ =
 clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrsLayerId = lens _clrsLayerId (\ s a -> s{_clrsLayerId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 clrsStatus :: Lens' CreateLayerResponse Int
 clrsStatus = lens _clrsStatus (\ s a -> s{_clrsStatus = a});

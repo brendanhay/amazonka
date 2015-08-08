@@ -22,22 +22,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteExpression.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteExpression.html AWS API Reference> for DeleteExpression.
 module Network.AWS.CloudSearch.DeleteExpression
     (
-    -- * Request
+    -- * Creating a Request
       DeleteExpression
-    -- ** Request constructor
     , deleteExpression
-    -- ** Request lenses
+    -- * Request Lenses
     , delDomainName
     , delExpressionName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteExpressionResponse
-    -- ** Response constructor
     , deleteExpressionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delrsStatus
     , delrsExpression
     ) where
@@ -71,7 +69,7 @@ deleteExpression pDomainName_ pExpressionName_ =
     , _delExpressionName = pExpressionName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delDomainName :: Lens' DeleteExpression Text
 delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a});
 
@@ -126,7 +124,7 @@ deleteExpressionResponse pStatus_ pExpression_ =
     , _delrsExpression = pExpression_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsStatus :: Lens' DeleteExpressionResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
 

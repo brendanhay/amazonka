@@ -23,21 +23,19 @@
 -- For more information about using dead letter queues, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html AWS API Reference> for ListDeadLetterSourceQueues.
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
-    -- * Request
+    -- * Creating a Request
       ListDeadLetterSourceQueues
-    -- ** Request constructor
     , listDeadLetterSourceQueues
-    -- ** Request lenses
+    -- * Request Lenses
     , ldlsqQueueURL
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDeadLetterSourceQueuesResponse
-    -- ** Response constructor
     , listDeadLetterSourceQueuesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldlsqrsStatus
     , ldlsqrsQueueURLs
     ) where
@@ -115,7 +113,7 @@ listDeadLetterSourceQueuesResponse pStatus_ =
     , _ldlsqrsQueueURLs = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldlsqrsStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
 ldlsqrsStatus = lens _ldlsqrsStatus (\ s a -> s{_ldlsqrsStatus = a});
 

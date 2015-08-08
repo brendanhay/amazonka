@@ -20,14 +20,13 @@
 -- Returns a list of @DescribeEvaluations@ that match the search criteria
 -- in the request.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeEvaluations.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeEvaluations.html AWS API Reference> for DescribeEvaluations.
 module Network.AWS.MachineLearning.DescribeEvaluations
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEvaluations
-    -- ** Request constructor
     , describeEvaluations
-    -- ** Request lenses
+    -- * Request Lenses
     , deEQ
     , deGE
     , dePrefix
@@ -40,11 +39,10 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     , deFilterVariable
     , deLE
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEvaluationsResponse
-    -- ** Response constructor
     , describeEvaluationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , desrsResults
     , desrsNextToken
     , desrsStatus
@@ -283,6 +281,6 @@ desrsResults = lens _desrsResults (\ s a -> s{_desrsResults = a}) . _Default . _
 desrsNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
 desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 desrsStatus :: Lens' DescribeEvaluationsResponse Int
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

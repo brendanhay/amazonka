@@ -19,21 +19,19 @@
 --
 -- Deletes an AWS Directory Service directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteDirectory.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteDirectory.html AWS API Reference> for DeleteDirectory.
 module Network.AWS.DirectoryService.DeleteDirectory
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDirectory
-    -- ** Request constructor
     , deleteDirectory
-    -- ** Request lenses
+    -- * Request Lenses
     , dDirectoryId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDirectoryResponse
-    -- ** Response constructor
     , deleteDirectoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , delrsDirectoryId
     , delrsStatus
     ) where
@@ -121,6 +119,6 @@ deleteDirectoryResponse pStatus_ =
 delrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
 delrsDirectoryId = lens _delrsDirectoryId (\ s a -> s{_delrsDirectoryId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 delrsStatus :: Lens' DeleteDirectoryResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

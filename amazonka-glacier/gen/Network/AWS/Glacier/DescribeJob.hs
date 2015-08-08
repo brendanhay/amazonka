@@ -41,23 +41,21 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html Working with Archives in Amazon Glacier>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeJob.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeJob.html AWS API Reference> for DescribeJob.
 module Network.AWS.Glacier.DescribeJob
     (
-    -- * Request
+    -- * Creating a Request
       DescribeJob
-    -- ** Request constructor
     , describeJob
-    -- ** Request lenses
+    -- * Request Lenses
     , djAccountId
     , djVaultName
     , djJobId
 
-    -- * Response
+    -- * Destructuring the Response
     , GlacierJobDescription
-    -- ** Response constructor
     , glacierJobDescription
-    -- ** Response lenses
+    -- * Response Lenses
     , gjdArchiveId
     , gjdSHA256TreeHash
     , gjdJobId

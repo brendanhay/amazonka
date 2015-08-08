@@ -21,21 +21,19 @@
 -- Support case. The severity level for a case is also a field in the
 -- CaseDetails data type included in any CreateCase request.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeSeverityLevels.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeSeverityLevels.html AWS API Reference> for DescribeSeverityLevels.
 module Network.AWS.Support.DescribeSeverityLevels
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSeverityLevels
-    -- ** Request constructor
     , describeSeverityLevels
-    -- ** Request lenses
+    -- * Request Lenses
     , dslLanguage
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSeverityLevelsResponse
-    -- ** Response constructor
     , describeSeverityLevelsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dslrsSeverityLevels
     , dslrsStatus
     ) where
@@ -128,6 +126,6 @@ describeSeverityLevelsResponse pStatus_ =
 dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dslrsStatus :: Lens' DescribeSeverityLevelsResponse Int
 dslrsStatus = lens _dslrsStatus (\ s a -> s{_dslrsStatus = a});

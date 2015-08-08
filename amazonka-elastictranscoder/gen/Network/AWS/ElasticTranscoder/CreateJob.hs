@@ -26,14 +26,13 @@
 -- 4s), you currently must use the Elastic Transcoder API to list the jobs
 -- (as opposed to the AWS Console).
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreateJob.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreateJob.html AWS API Reference> for CreateJob.
 module Network.AWS.ElasticTranscoder.CreateJob
     (
-    -- * Request
+    -- * Creating a Request
       CreateJob
-    -- ** Request constructor
     , createJob
-    -- ** Request lenses
+    -- * Request Lenses
     , cjOutputs
     , cjUserMetadata
     , cjOutput
@@ -42,11 +41,10 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , cjPipelineId
     , cjInput
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateJobResponse
-    -- ** Response constructor
     , createJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cjrsJob
     , cjrsStatus
     ) where
@@ -112,7 +110,7 @@ cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
 cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjOutput :: Lens' CreateJob (Maybe CreateJobOutput)
 cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a});
 
@@ -198,6 +196,6 @@ createJobResponse pStatus_ =
 cjrsJob :: Lens' CreateJobResponse (Maybe Job')
 cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cjrsStatus :: Lens' CreateJobResponse Int
 cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});

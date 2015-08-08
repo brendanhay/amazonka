@@ -32,21 +32,19 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html AWS API Reference> for UpdateServerCertificate.
 module Network.AWS.IAM.UpdateServerCertificate
     (
-    -- * Request
+    -- * Creating a Request
       UpdateServerCertificate
-    -- ** Request constructor
     , updateServerCertificate
-    -- ** Request lenses
+    -- * Request Lenses
     , uNewServerCertificateName
     , uNewPath
     , uServerCertificateName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateServerCertificateResponse
-    -- ** Response constructor
     , updateServerCertificateResponse
     ) where
 

@@ -27,14 +27,13 @@
 --
 -- The source DB instance must have backup retention enabled.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html AWS API Reference> for CreateDBInstanceReadReplica.
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBInstanceReadReplica
-    -- ** Request constructor
     , createDBInstanceReadReplica
-    -- ** Request lenses
+    -- * Request Lenses
     , cdirrAutoMinorVersionUpgrade
     , cdirrPubliclyAccessible
     , cdirrDBSubnetGroupName
@@ -49,11 +48,10 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrDBInstanceIdentifier
     , cdirrSourceDBInstanceIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBInstanceReadReplicaResponse
-    -- ** Response constructor
     , createDBInstanceReadReplicaResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdirrrsDBInstance
     , cdirrrsStatus
     ) where
@@ -208,7 +206,7 @@ cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupN
 cdirrCopyTagsToSnapshot :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdirrCopyTagsToSnapshot = lens _cdirrCopyTagsToSnapshot (\ s a -> s{_cdirrCopyTagsToSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
 cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default . _Coerce;
 
@@ -319,10 +317,10 @@ createDBInstanceReadReplicaResponse pStatus_ =
     , _cdirrrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdirrrsDBInstance = lens _cdirrrsDBInstance (\ s a -> s{_cdirrrsDBInstance = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdirrrsStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
 cdirrrsStatus = lens _cdirrrsStatus (\ s a -> s{_cdirrrsStatus = a});

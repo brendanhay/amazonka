@@ -24,21 +24,19 @@
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityPoolUsage.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityPoolUsage.html AWS API Reference> for DescribeIdentityPoolUsage.
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     (
-    -- * Request
+    -- * Creating a Request
       DescribeIdentityPoolUsage
-    -- ** Request constructor
     , describeIdentityPoolUsage
-    -- ** Request lenses
+    -- * Request Lenses
     , dipuIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeIdentityPoolUsageResponse
-    -- ** Response constructor
     , describeIdentityPoolUsageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dipursIdentityPoolUsage
     , dipursStatus
     ) where
@@ -124,6 +122,6 @@ describeIdentityPoolUsageResponse pStatus_ =
 dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
 dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dipursStatus :: Lens' DescribeIdentityPoolUsageResponse Int
 dipursStatus = lens _dipursStatus (\ s a -> s{_dipursStatus = a});

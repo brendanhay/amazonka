@@ -21,20 +21,18 @@
 -- you to configure the number of days you want to retain log events in the
 -- specified log group.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html AWS API Reference> for PutRetentionPolicy.
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutRetentionPolicy
-    -- ** Request constructor
     , putRetentionPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , prpLogGroupName
     , prpRetentionInDays
 
-    -- * Response
+    -- * Destructuring the Response
     , PutRetentionPolicyResponse
-    -- ** Response constructor
     , putRetentionPolicyResponse
     ) where
 
@@ -67,7 +65,7 @@ putRetentionPolicy pLogGroupName_ pRetentionInDays_ =
 prpLogGroupName :: Lens' PutRetentionPolicy Text
 prpLogGroupName = lens _prpLogGroupName (\ s a -> s{_prpLogGroupName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prpRetentionInDays :: Lens' PutRetentionPolicy Int
 prpRetentionInDays = lens _prpRetentionInDays (\ s a -> s{_prpRetentionInDays = a});
 

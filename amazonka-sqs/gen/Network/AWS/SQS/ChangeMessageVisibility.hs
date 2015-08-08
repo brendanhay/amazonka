@@ -52,21 +52,19 @@
 -- is received reverts to the original timeout value, not the value you set
 -- with the @ChangeMessageVisibility@ action.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html AWS API Reference> for ChangeMessageVisibility.
 module Network.AWS.SQS.ChangeMessageVisibility
     (
-    -- * Request
+    -- * Creating a Request
       ChangeMessageVisibility
-    -- ** Request constructor
     , changeMessageVisibility
-    -- ** Request lenses
+    -- * Request Lenses
     , cmvQueueURL
     , cmvReceiptHandle
     , cmvVisibilityTimeout
 
-    -- * Response
+    -- * Destructuring the Response
     , ChangeMessageVisibilityResponse
-    -- ** Response constructor
     , changeMessageVisibilityResponse
     ) where
 

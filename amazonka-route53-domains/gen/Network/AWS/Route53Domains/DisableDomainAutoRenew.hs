@@ -25,21 +25,19 @@
 -- renewed when the expiration date passes, and you will lose control of
 -- the domain name.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainAutoRenew.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainAutoRenew.html AWS API Reference> for DisableDomainAutoRenew.
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
     (
-    -- * Request
+    -- * Creating a Request
       DisableDomainAutoRenew
-    -- ** Request constructor
     , disableDomainAutoRenew
-    -- ** Request lenses
+    -- * Request Lenses
     , ddarDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableDomainAutoRenewResponse
-    -- ** Response constructor
     , disableDomainAutoRenewResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddarrsStatus
     ) where
 
@@ -64,7 +62,7 @@ disableDomainAutoRenew pDomainName_ =
     { _ddarDomainName = pDomainName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
 ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a});
 
@@ -115,6 +113,6 @@ disableDomainAutoRenewResponse pStatus_ =
     { _ddarrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddarrsStatus :: Lens' DisableDomainAutoRenewResponse Int
 ddarrsStatus = lens _ddarrsStatus (\ s a -> s{_ddarrsStatus = a});

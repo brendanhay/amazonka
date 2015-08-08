@@ -19,22 +19,20 @@
 --
 -- Gets information about projects.
 --
--- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListProjects.html>
+-- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListProjects.html AWS API Reference> for ListProjects.
 module Network.AWS.DeviceFarm.ListProjects
     (
-    -- * Request
+    -- * Creating a Request
       ListProjects
-    -- ** Request constructor
     , listProjects
-    -- ** Request lenses
+    -- * Request Lenses
     , lpArn
     , lpNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListProjectsResponse
-    -- ** Response constructor
     , listProjectsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lprsNextToken
     , lprsProjects
     , lprsStatus
@@ -144,6 +142,6 @@ lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 lprsProjects :: Lens' ListProjectsResponse [Project]
 lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsStatus :: Lens' ListProjectsResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

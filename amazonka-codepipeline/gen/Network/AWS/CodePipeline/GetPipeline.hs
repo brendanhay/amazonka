@@ -22,22 +22,20 @@
 -- which can then be modified and used to update the pipeline structure
 -- with UpdatePipeline.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetPipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetPipeline.html AWS API Reference> for GetPipeline.
 module Network.AWS.CodePipeline.GetPipeline
     (
-    -- * Request
+    -- * Creating a Request
       GetPipeline
-    -- ** Request constructor
     , getPipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , gpVersion
     , gpName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetPipelineResponse
-    -- ** Response constructor
     , getPipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gprsPipeline
     , gprsStatus
     ) where
@@ -130,10 +128,10 @@ getPipelineResponse pStatus_ =
     , _gprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
 gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gprsStatus :: Lens' GetPipelineResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

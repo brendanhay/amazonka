@@ -25,21 +25,19 @@
 --
 -- If the template does not exist, a @ValidationError@ is returned.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html AWS API Reference> for GetTemplate.
 module Network.AWS.CloudFormation.GetTemplate
     (
-    -- * Request
+    -- * Creating a Request
       GetTemplate
-    -- ** Request constructor
     , getTemplate
-    -- ** Request lenses
+    -- * Request Lenses
     , gtStackName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetTemplateResponse
-    -- ** Response constructor
     , getTemplateResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gtrsTemplateBody
     , gtrsStatus
     ) where
@@ -129,6 +127,6 @@ getTemplateResponse pStatus_ =
 gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gtrsStatus :: Lens' GetTemplateResponse Int
 gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});

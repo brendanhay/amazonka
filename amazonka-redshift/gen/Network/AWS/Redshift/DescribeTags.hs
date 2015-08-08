@@ -40,14 +40,13 @@
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTags.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.Redshift.DescribeTags
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTags
-    -- ** Request constructor
     , describeTags
-    -- ** Request lenses
+    -- * Request Lenses
     , dtResourceType
     , dtTagValues
     , dtResourceName
@@ -55,11 +54,10 @@ module Network.AWS.Redshift.DescribeTags
     , dtMaxRecords
     , dtMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTagsResponse
-    -- ** Response constructor
     , describeTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsMarker
     , dtrsTaggedResources
     , dtrsStatus
@@ -240,6 +238,6 @@ dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 dtrsTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
 dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

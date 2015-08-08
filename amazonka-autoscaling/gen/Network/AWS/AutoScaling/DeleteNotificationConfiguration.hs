@@ -19,20 +19,18 @@
 --
 -- Deletes the specified notification.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteNotificationConfiguration.html AWS API Reference> for DeleteNotificationConfiguration.
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       DeleteNotificationConfiguration
-    -- ** Request constructor
     , deleteNotificationConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , dncAutoScalingGroupName
     , dncTopicARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteNotificationConfigurationResponse
-    -- ** Response constructor
     , deleteNotificationConfigurationResponse
     ) where
 

@@ -13,10 +13,10 @@
 --
 module Network.AWS.ELB.Types
     (
-    -- * Service
+    -- * Service Decription
       ELB
 
-    -- * Errors
+    -- * Error Matchers
     , _PolicyNotFoundException
     , _AccessPointNotFoundException
     , _DuplicatePolicyNameException

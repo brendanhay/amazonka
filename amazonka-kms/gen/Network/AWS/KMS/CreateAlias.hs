@@ -31,20 +31,18 @@
 -- Note that you cannot create or update an alias that represents a key in
 -- another account.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.KMS.CreateAlias
     (
-    -- * Request
+    -- * Creating a Request
       CreateAlias
-    -- ** Request constructor
     , createAlias
-    -- ** Request lenses
+    -- * Request Lenses
     , caAliasName
     , caTargetKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAliasResponse
-    -- ** Response constructor
     , createAliasResponse
     ) where
 

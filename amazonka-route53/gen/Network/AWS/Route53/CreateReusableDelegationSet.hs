@@ -28,22 +28,20 @@
 -- If the optional parameter HostedZoneId is specified, it marks the
 -- delegationSet associated with that particular hosted zone as reusable.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html AWS API Reference> for CreateReusableDelegationSet.
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
-    -- * Request
+    -- * Creating a Request
       CreateReusableDelegationSet
-    -- ** Request constructor
     , createReusableDelegationSet
-    -- ** Request lenses
+    -- * Request Lenses
     , crdsHostedZoneId
     , crdsCallerReference
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateReusableDelegationSetResponse
-    -- ** Response constructor
     , createReusableDelegationSetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crdsrsStatus
     , crdsrsDelegationSet
     , crdsrsLocation
@@ -148,7 +146,7 @@ createReusableDelegationSetResponse pStatus_ pDelegationSet_ pLocation_ =
     , _crdsrsLocation = pLocation_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crdsrsStatus :: Lens' CreateReusableDelegationSetResponse Int
 crdsrsStatus = lens _crdsrsStatus (\ s a -> s{_crdsrsStatus = a});
 

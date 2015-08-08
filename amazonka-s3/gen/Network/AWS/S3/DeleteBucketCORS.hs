@@ -19,19 +19,17 @@
 --
 -- Deletes the cors configuration information set for the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketCORS.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketCORS.html AWS API Reference> for DeleteBucketCORS.
 module Network.AWS.S3.DeleteBucketCORS
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBucketCORS
-    -- ** Request constructor
     , deleteBucketCORS
-    -- ** Request lenses
+    -- * Request Lenses
     , dbcBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBucketCORSResponse
-    -- ** Response constructor
     , deleteBucketCORSResponse
     ) where
 
@@ -56,7 +54,7 @@ deleteBucketCORS pBucket_ =
     { _dbcBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbcBucket :: Lens' DeleteBucketCORS BucketName
 dbcBucket = lens _dbcBucket (\ s a -> s{_dbcBucket = a});
 

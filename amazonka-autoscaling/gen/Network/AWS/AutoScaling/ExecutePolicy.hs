@@ -19,23 +19,21 @@
 --
 -- Executes the specified policy.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExecutePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExecutePolicy.html AWS API Reference> for ExecutePolicy.
 module Network.AWS.AutoScaling.ExecutePolicy
     (
-    -- * Request
+    -- * Creating a Request
       ExecutePolicy
-    -- ** Request constructor
     , executePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , epHonorCooldown
     , epMetricValue
     , epAutoScalingGroupName
     , epBreachThreshold
     , epPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , ExecutePolicyResponse
-    -- ** Response constructor
     , executePolicyResponse
     ) where
 

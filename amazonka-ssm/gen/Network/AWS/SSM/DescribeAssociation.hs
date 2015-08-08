@@ -20,22 +20,20 @@
 -- Describes the associations for the specified configuration document or
 -- instance.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeAssociation.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeAssociation.html AWS API Reference> for DescribeAssociation.
 module Network.AWS.SSM.DescribeAssociation
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAssociation
-    -- ** Request constructor
     , describeAssociation
-    -- ** Request lenses
+    -- * Request Lenses
     , daName
     , daInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAssociationResponse
-    -- ** Response constructor
     , describeAssociationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , darsAssociationDescription
     , darsStatus
     ) where
@@ -129,6 +127,6 @@ describeAssociationResponse pStatus_ =
 darsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
 darsAssociationDescription = lens _darsAssociationDescription (\ s a -> s{_darsAssociationDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 darsStatus :: Lens' DescribeAssociationResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

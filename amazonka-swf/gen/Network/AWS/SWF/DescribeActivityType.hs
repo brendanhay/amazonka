@@ -44,22 +44,20 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeActivityType.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeActivityType.html AWS API Reference> for DescribeActivityType.
 module Network.AWS.SWF.DescribeActivityType
     (
-    -- * Request
+    -- * Creating a Request
       DescribeActivityType
-    -- ** Request constructor
     , describeActivityType
-    -- ** Request lenses
+    -- * Request Lenses
     , datDomain
     , datActivityType
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeActivityTypeResponse
-    -- ** Response constructor
     , describeActivityTypeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , datrsStatus
     , datrsTypeInfo
     , datrsConfiguration
@@ -160,7 +158,7 @@ describeActivityTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     , _datrsConfiguration = pConfiguration_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 datrsStatus :: Lens' DescribeActivityTypeResponse Int
 datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});
 

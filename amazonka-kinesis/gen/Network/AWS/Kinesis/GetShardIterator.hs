@@ -59,24 +59,22 @@
 -- GetShardIterator has a limit of 5 transactions per second per account
 -- per open shard.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html AWS API Reference> for GetShardIterator.
 module Network.AWS.Kinesis.GetShardIterator
     (
-    -- * Request
+    -- * Creating a Request
       GetShardIterator
-    -- ** Request constructor
     , getShardIterator
-    -- ** Request lenses
+    -- * Request Lenses
     , gsiStartingSequenceNumber
     , gsiStreamName
     , gsiShardId
     , gsiShardIteratorType
 
-    -- * Response
+    -- * Destructuring the Response
     , GetShardIteratorResponse
-    -- ** Response constructor
     , getShardIteratorResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsirsShardIterator
     , gsirsStatus
     ) where
@@ -207,6 +205,6 @@ getShardIteratorResponse pStatus_ =
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsirsStatus :: Lens' GetShardIteratorResponse Int
 gsirsStatus = lens _gsirsStatus (\ s a -> s{_gsirsStatus = a});

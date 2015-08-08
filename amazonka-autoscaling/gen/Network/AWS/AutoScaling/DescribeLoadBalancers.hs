@@ -19,23 +19,21 @@
 --
 -- Describes the load balancers for the specified Auto Scaling group.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLoadBalancers.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLoadBalancers.html AWS API Reference> for DescribeLoadBalancers.
 module Network.AWS.AutoScaling.DescribeLoadBalancers
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLoadBalancers
-    -- ** Request constructor
     , describeLoadBalancers
-    -- ** Request lenses
+    -- * Request Lenses
     , dlbNextToken
     , dlbMaxRecords
     , dlbAutoScalingGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLoadBalancersResponse
-    -- ** Response constructor
     , describeLoadBalancersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlbrsLoadBalancers
     , dlbrsNextToken
     , dlbrsStatus
@@ -145,6 +143,6 @@ dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = 
 dlbrsNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});

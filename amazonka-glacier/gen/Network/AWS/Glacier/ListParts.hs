@@ -45,25 +45,23 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html List Parts>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListParts.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListParts.html AWS API Reference> for ListParts.
 module Network.AWS.Glacier.ListParts
     (
-    -- * Request
+    -- * Creating a Request
       ListParts
-    -- ** Request constructor
     , listParts
-    -- ** Request lenses
+    -- * Request Lenses
     , lpMarker
     , lpLimit
     , lpAccountId
     , lpVaultName
     , lpUploadId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListPartsResponse
-    -- ** Response constructor
     , listPartsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lprsParts
     , lprsMultipartUploadId
     , lprsArchiveDescription
@@ -254,6 +252,6 @@ lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 lprsCreationDate :: Lens' ListPartsResponse (Maybe Text)
 lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lprsStatus :: Lens' ListPartsResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

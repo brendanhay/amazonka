@@ -19,20 +19,18 @@
 --
 -- Delete a distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html AWS API Reference> for DeleteDistribution.
 module Network.AWS.CloudFront.DeleteDistribution
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDistribution
-    -- ** Request constructor
     , deleteDistribution
-    -- ** Request lenses
+    -- * Request Lenses
     , ddIfMatch
     , ddId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDistributionResponse
-    -- ** Response constructor
     , deleteDistributionResponse
     ) where
 

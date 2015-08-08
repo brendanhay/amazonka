@@ -21,22 +21,20 @@
 -- a gateway after the retrieval process is initiated. The virtual tape is
 -- returned to the VTS.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelRetrieval.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelRetrieval.html AWS API Reference> for CancelRetrieval.
 module Network.AWS.StorageGateway.CancelRetrieval
     (
-    -- * Request
+    -- * Creating a Request
       CancelRetrieval
-    -- ** Request constructor
     , cancelRetrieval
-    -- ** Request lenses
+    -- * Request Lenses
     , crGatewayARN
     , crTapeARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CancelRetrievalResponse
-    -- ** Response constructor
     , cancelRetrievalResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crrsTapeARN
     , crrsStatus
     ) where
@@ -68,7 +66,7 @@ cancelRetrieval pGatewayARN_ pTapeARN_ =
     , _crTapeARN = pTapeARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crGatewayARN :: Lens' CancelRetrieval Text
 crGatewayARN = lens _crGatewayARN (\ s a -> s{_crGatewayARN = a});
 
@@ -136,6 +134,6 @@ cancelRetrievalResponse pStatus_ =
 crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crrsStatus :: Lens' CancelRetrievalResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

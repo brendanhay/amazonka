@@ -22,21 +22,19 @@
 -- @QueueNamePrefix@ parameter, only queues with a name beginning with the
 -- specified value are returned.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html AWS API Reference> for ListQueues.
 module Network.AWS.SQS.ListQueues
     (
-    -- * Request
+    -- * Creating a Request
       ListQueues
-    -- ** Request constructor
     , listQueues
-    -- ** Request lenses
+    -- * Request Lenses
     , lqQueueNamePrefix
 
-    -- * Response
+    -- * Destructuring the Response
     , ListQueuesResponse
-    -- ** Response constructor
     , listQueuesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lqrsQueueURLs
     , lqrsStatus
     ) where
@@ -117,6 +115,6 @@ listQueuesResponse pStatus_ =
 lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lqrsStatus :: Lens' ListQueuesResponse Int
 lqrsStatus = lens _lqrsStatus (\ s a -> s{_lqrsStatus = a});

@@ -22,22 +22,20 @@
 -- list of available agent versions for the specified stack or
 -- configuration manager.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeAgentVersions.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeAgentVersions.html AWS API Reference> for DescribeAgentVersions.
 module Network.AWS.OpsWorks.DescribeAgentVersions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAgentVersions
-    -- ** Request constructor
     , describeAgentVersions
-    -- ** Request lenses
+    -- * Request Lenses
     , davConfigurationManager
     , davStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAgentVersionsResponse
-    -- ** Response constructor
     , describeAgentVersionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , davrsAgentVersions
     , davrsStatus
     ) where
@@ -137,6 +135,6 @@ describeAgentVersionsResponse pStatus_ =
 davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
 davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 davrsStatus :: Lens' DescribeAgentVersionsResponse Int
 davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});

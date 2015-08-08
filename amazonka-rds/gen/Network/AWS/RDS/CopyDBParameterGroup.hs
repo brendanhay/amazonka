@@ -19,24 +19,22 @@
 --
 -- Copies the specified DB parameter group.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html AWS API Reference> for CopyDBParameterGroup.
 module Network.AWS.RDS.CopyDBParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       CopyDBParameterGroup
-    -- ** Request constructor
     , copyDBParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cdpgTags
     , cdpgSourceDBParameterGroupIdentifier
     , cdpgTargetDBParameterGroupIdentifier
     , cdpgTargetDBParameterGroupDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CopyDBParameterGroupResponse
-    -- ** Response constructor
     , copyDBParameterGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdbpgrsDBParameterGroup
     , cdbpgrsStatus
     ) where
@@ -76,7 +74,7 @@ copyDBParameterGroup pSourceDBParameterGroupIdentifier_ pTargetDBParameterGroupI
     , _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdpgTags :: Lens' CopyDBParameterGroup [Tag]
 cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default . _Coerce;
 
@@ -163,10 +161,10 @@ copyDBParameterGroupResponse pStatus_ =
     , _cdbpgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
 cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBParameterGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdbpgrsStatus :: Lens' CopyDBParameterGroupResponse Int
 cdbpgrsStatus = lens _cdbpgrsStatus (\ s a -> s{_cdbpgrsStatus = a});

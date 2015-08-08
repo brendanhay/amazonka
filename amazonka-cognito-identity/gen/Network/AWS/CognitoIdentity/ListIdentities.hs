@@ -21,24 +21,22 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentities.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentities.html AWS API Reference> for ListIdentities.
 module Network.AWS.CognitoIdentity.ListIdentities
     (
-    -- * Request
+    -- * Creating a Request
       ListIdentities
-    -- ** Request constructor
     , listIdentities
-    -- ** Request lenses
+    -- * Request Lenses
     , liHideDisabled
     , liNextToken
     , liIdentityPoolId
     , liMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListIdentitiesResponse
-    -- ** Response constructor
     , listIdentitiesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lirsIdentityPoolId
     , lirsNextToken
     , lirsIdentities
@@ -176,6 +174,6 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lirsStatus :: Lens' ListIdentitiesResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

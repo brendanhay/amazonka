@@ -28,22 +28,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html Tag Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AddTags.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.ELB.AddTags
     (
-    -- * Request
+    -- * Creating a Request
       AddTags
-    -- ** Request constructor
     , addTags
-    -- ** Request lenses
+    -- * Request Lenses
     , atLoadBalancerNames
     , atTags
 
-    -- * Response
+    -- * Destructuring the Response
     , AddTagsResponse
-    -- ** Response constructor
     , addTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , atrsStatus
     ) where
 
@@ -119,6 +117,6 @@ addTagsResponse pStatus_ =
     { _atrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 atrsStatus :: Lens' AddTagsResponse Int
 atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

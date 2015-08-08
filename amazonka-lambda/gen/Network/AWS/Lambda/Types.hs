@@ -13,10 +13,10 @@
 --
 module Network.AWS.Lambda.Types
     (
-    -- * Service
+    -- * Service Decription
       Lambda
 
-    -- * Errors
+    -- * Error Matchers
     , _PolicyLengthExceededException
     , _UnsupportedMediaTypeException
     , _InvalidRequestContentException

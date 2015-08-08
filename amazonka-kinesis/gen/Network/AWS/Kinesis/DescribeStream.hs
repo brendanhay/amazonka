@@ -41,23 +41,21 @@
 --
 -- DescribeStream has a limit of 10 transactions per second per account.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html AWS API Reference> for DescribeStream.
 module Network.AWS.Kinesis.DescribeStream
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStream
-    -- ** Request constructor
     , describeStream
-    -- ** Request lenses
+    -- * Request Lenses
     , dExclusiveStartShardId
     , dLimit
     , dStreamName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStreamResponse
-    -- ** Response constructor
     , describeStreamResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsStatus
     , dsrsStreamDescription
     ) where
@@ -174,7 +172,7 @@ describeStreamResponse pStatus_ pStreamDescription_ =
     , _dsrsStreamDescription = pStreamDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DescribeStreamResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
 

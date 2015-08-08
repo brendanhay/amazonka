@@ -23,20 +23,18 @@
 -- This action is idempotent; it does not fail or return an error if you
 -- try to remove a client ID that was removed previously.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveClientIdFromOpenIdConnectProvider.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveClientIdFromOpenIdConnectProvider.html AWS API Reference> for RemoveClientIdFromOpenIdConnectProvider.
 module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
     (
-    -- * Request
+    -- * Creating a Request
       RemoveClientIdFromOpenIdConnectProvider
-    -- ** Request constructor
     , removeClientIdFromOpenIdConnectProvider
-    -- ** Request lenses
+    -- * Request Lenses
     , rcifoicpOpenIdConnectProviderARN
     , rcifoicpClientId
 
-    -- * Response
+    -- * Destructuring the Response
     , RemoveClientIdFromOpenIdConnectProviderResponse
-    -- ** Response constructor
     , removeClientIdFromOpenIdConnectProviderResponse
     ) where
 

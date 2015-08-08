@@ -27,14 +27,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html AWS API Reference> for DescribeReservedInstancesOfferings.
 module Network.AWS.EC2.DescribeReservedInstancesOfferings
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedInstancesOfferings
-    -- ** Request constructor
     , describeReservedInstancesOfferings
-    -- ** Request lenses
+    -- * Request Lenses
     , drioMaxDuration
     , drioProductDescription
     , drioIncludeMarketplace
@@ -50,11 +49,10 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     , drioMaxResults
     , drioMaxInstanceCount
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedInstancesOfferingsResponse
-    -- ** Response constructor
     , describeReservedInstancesOfferingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , driorsNextToken
     , driorsReservedInstancesOfferings
     , driorsStatus
@@ -343,6 +341,6 @@ driorsNextToken = lens _driorsNextToken (\ s a -> s{_driorsNextToken = a});
 driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
 driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 driorsStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
 driorsStatus = lens _driorsStatus (\ s a -> s{_driorsStatus = a});

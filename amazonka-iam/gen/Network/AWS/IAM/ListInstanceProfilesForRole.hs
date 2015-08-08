@@ -25,23 +25,21 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html AWS API Reference> for ListInstanceProfilesForRole.
 module Network.AWS.IAM.ListInstanceProfilesForRole
     (
-    -- * Request
+    -- * Creating a Request
       ListInstanceProfilesForRole
-    -- ** Request constructor
     , listInstanceProfilesForRole
-    -- ** Request lenses
+    -- * Request Lenses
     , lipfrMaxItems
     , lipfrMarker
     , lipfrRoleName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListInstanceProfilesForRoleResponse
-    -- ** Response constructor
     , listInstanceProfilesForRoleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lipfrrsMarker
     , lipfrrsIsTruncated
     , lipfrrsStatus
@@ -179,7 +177,7 @@ lipfrrsMarker = lens _lipfrrsMarker (\ s a -> s{_lipfrrsMarker = a});
 lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
 lipfrrsIsTruncated = lens _lipfrrsIsTruncated (\ s a -> s{_lipfrrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lipfrrsStatus :: Lens' ListInstanceProfilesForRoleResponse Int
 lipfrrsStatus = lens _lipfrrsStatus (\ s a -> s{_lipfrrsStatus = a});
 

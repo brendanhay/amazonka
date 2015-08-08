@@ -49,22 +49,20 @@
 -- The sum of the number of characters (including spaces) in all @Value@
 -- elements in a request cannot exceed 32,000 characters.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html AWS API Reference> for ChangeResourceRecordSets.
 module Network.AWS.Route53.ChangeResourceRecordSets
     (
-    -- * Request
+    -- * Creating a Request
       ChangeResourceRecordSets
-    -- ** Request constructor
     , changeResourceRecordSets
-    -- ** Request lenses
+    -- * Request Lenses
     , crrsHostedZoneId
     , crrsChangeBatch
 
-    -- * Response
+    -- * Destructuring the Response
     , ChangeResourceRecordSetsResponse
-    -- ** Response constructor
     , changeResourceRecordSetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crrsrsStatus
     , crrsrsChangeInfo
     ) where
@@ -160,7 +158,7 @@ changeResourceRecordSetsResponse pStatus_ pChangeInfo_ =
     , _crrsrsChangeInfo = pChangeInfo_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crrsrsStatus :: Lens' ChangeResourceRecordSetsResponse Int
 crrsrsStatus = lens _crrsrsStatus (\ s a -> s{_crrsrsStatus = a});
 

@@ -52,25 +52,23 @@
 -- the key. The encryption context is logged by CloudTrail, and you can use
 -- this log to help track the use of particular data.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html AWS API Reference> for GenerateDataKey.
 module Network.AWS.KMS.GenerateDataKey
     (
-    -- * Request
+    -- * Creating a Request
       GenerateDataKey
-    -- ** Request constructor
     , generateDataKey
-    -- ** Request lenses
+    -- * Request Lenses
     , gdkKeySpec
     , gdkEncryptionContext
     , gdkNumberOfBytes
     , gdkGrantTokens
     , gdkKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , GenerateDataKeyResponse
-    -- ** Response constructor
     , generateDataKeyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdkrsKeyId
     , gdkrsPlaintext
     , gdkrsCiphertextBlob
@@ -236,6 +234,6 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mappin
 gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe ByteString)
 gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . mapping _Base64;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdkrsStatus :: Lens' GenerateDataKeyResponse Int
 gdkrsStatus = lens _gdkrsStatus (\ s a -> s{_gdkrsStatus = a});

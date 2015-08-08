@@ -21,20 +21,18 @@
 -- Scaling group, load balancer, etc.) for a specified environment and
 -- forces a restart.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html AWS API Reference> for RebuildEnvironment.
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     (
-    -- * Request
+    -- * Creating a Request
       RebuildEnvironment
-    -- ** Request constructor
     , rebuildEnvironment
-    -- ** Request lenses
+    -- * Request Lenses
     , reEnvironmentName
     , reEnvironmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , RebuildEnvironmentResponse
-    -- ** Response constructor
     , rebuildEnvironmentResponse
     ) where
 

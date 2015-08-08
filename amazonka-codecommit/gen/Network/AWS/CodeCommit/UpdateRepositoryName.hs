@@ -19,20 +19,18 @@
 --
 -- Renames a repository.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateRepositoryName.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateRepositoryName.html AWS API Reference> for UpdateRepositoryName.
 module Network.AWS.CodeCommit.UpdateRepositoryName
     (
-    -- * Request
+    -- * Creating a Request
       UpdateRepositoryName
-    -- ** Request constructor
     , updateRepositoryName
-    -- ** Request lenses
+    -- * Request Lenses
     , urnOldName
     , urnNewName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateRepositoryNameResponse
-    -- ** Response constructor
     , updateRepositoryNameResponse
     ) where
 
@@ -63,11 +61,11 @@ updateRepositoryName pOldName_ pNewName_ =
     , _urnNewName = pNewName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 urnOldName :: Lens' UpdateRepositoryName Text
 urnOldName = lens _urnOldName (\ s a -> s{_urnOldName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 urnNewName :: Lens' UpdateRepositoryName Text
 urnNewName = lens _urnNewName (\ s a -> s{_urnNewName = a});
 

@@ -21,24 +21,22 @@
 -- logs (the log streams for the network interfaces), you must use the
 -- CloudWatch Logs console or the CloudWatch Logs API.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeFlowLogs.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeFlowLogs.html AWS API Reference> for DescribeFlowLogs.
 module Network.AWS.EC2.DescribeFlowLogs
     (
-    -- * Request
+    -- * Creating a Request
       DescribeFlowLogs
-    -- ** Request constructor
     , describeFlowLogs
-    -- ** Request lenses
+    -- * Request Lenses
     , dNextToken
     , dFilter
     , dFlowLogIds
     , dMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeFlowLogsResponse
-    -- ** Response constructor
     , describeFlowLogsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dflsrsNextToken
     , dflsrsFlowLogs
     , dflsrsStatus
@@ -172,6 +170,6 @@ dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
 dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
 dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dflsrsStatus :: Lens' DescribeFlowLogsResponse Int
 dflsrsStatus = lens _dflsrsStatus (\ s a -> s{_dflsrsStatus = a});

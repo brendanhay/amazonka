@@ -19,20 +19,18 @@
 --
 -- Updates the description of a key.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html AWS API Reference> for UpdateKeyDescription.
 module Network.AWS.KMS.UpdateKeyDescription
     (
-    -- * Request
+    -- * Creating a Request
       UpdateKeyDescription
-    -- ** Request constructor
     , updateKeyDescription
-    -- ** Request lenses
+    -- * Request Lenses
     , ukdKeyId
     , ukdDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateKeyDescriptionResponse
-    -- ** Response constructor
     , updateKeyDescriptionResponse
     ) where
 

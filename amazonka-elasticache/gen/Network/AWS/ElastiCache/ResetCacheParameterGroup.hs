@@ -23,23 +23,21 @@
 -- the entire cache parameter group, specify the /ResetAllParameters/ and
 -- /CacheParameterGroupName/ parameters.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html AWS API Reference> for ResetCacheParameterGroup.
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ResetCacheParameterGroup
-    -- ** Request constructor
     , resetCacheParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , rcpgResetAllParameters
     , rcpgCacheParameterGroupName
     , rcpgParameterNameValues
 
-    -- * Response
+    -- * Destructuring the Response
     , CacheParameterGroupNameMessage
-    -- ** Response constructor
     , cacheParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , cpgnmCacheParameterGroupName
     ) where
 

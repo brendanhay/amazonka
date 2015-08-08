@@ -66,22 +66,20 @@
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch>
 -- in the /Amazon Kinesis Developer Guide/.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html AWS API Reference> for GetRecords.
 module Network.AWS.Kinesis.GetRecords
     (
-    -- * Request
+    -- * Creating a Request
       GetRecords
-    -- ** Request constructor
     , getRecords
-    -- ** Request lenses
+    -- * Request Lenses
     , grLimit
     , grShardIterator
 
-    -- * Response
+    -- * Destructuring the Response
     , GetRecordsResponse
-    -- ** Response constructor
     , getRecordsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grrsMillisBehindLatest
     , grrsNextShardIterator
     , grrsStatus
@@ -204,7 +202,7 @@ grrsMillisBehindLatest = lens _grrsMillisBehindLatest (\ s a -> s{_grrsMillisBeh
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grrsStatus :: Lens' GetRecordsResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
 

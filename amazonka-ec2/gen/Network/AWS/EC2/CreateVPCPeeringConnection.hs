@@ -30,24 +30,22 @@
 -- CIDR blocks results in the VPC peering connection having a status of
 -- @failed@.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCPeeringConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCPeeringConnection.html AWS API Reference> for CreateVPCPeeringConnection.
 module Network.AWS.EC2.CreateVPCPeeringConnection
     (
-    -- * Request
+    -- * Creating a Request
       CreateVPCPeeringConnection
-    -- ** Request constructor
     , createVPCPeeringConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , cvpcPeerVPCId
     , cvpcVPCId
     , cvpcPeerOwnerId
     , cvpcDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateVPCPeeringConnectionResponse
-    -- ** Response constructor
     , createVPCPeeringConnectionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cvpcrsVPCPeeringConnection
     , cvpcrsStatus
     ) where
@@ -159,6 +157,6 @@ createVPCPeeringConnectionResponse pStatus_ =
 cvpcrsVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 cvpcrsVPCPeeringConnection = lens _cvpcrsVPCPeeringConnection (\ s a -> s{_cvpcrsVPCPeeringConnection = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cvpcrsStatus :: Lens' CreateVPCPeeringConnectionResponse Int
 cvpcrsStatus = lens _cvpcrsStatus (\ s a -> s{_cvpcrsStatus = a});

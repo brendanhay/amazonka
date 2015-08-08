@@ -25,14 +25,13 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateInstance.html AWS API Reference> for UpdateInstance.
 module Network.AWS.OpsWorks.UpdateInstance
     (
-    -- * Request
+    -- * Creating a Request
       UpdateInstance
-    -- ** Request constructor
     , updateInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , uiInstallUpdatesOnBoot
     , uiHostname
     , uiSSHKeyName
@@ -46,9 +45,8 @@ module Network.AWS.OpsWorks.UpdateInstance
     , uiAMIId
     , uiInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateInstanceResponse
-    -- ** Response constructor
     , updateInstanceResponse
     ) where
 

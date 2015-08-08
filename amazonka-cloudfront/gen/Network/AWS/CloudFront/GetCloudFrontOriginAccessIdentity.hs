@@ -19,21 +19,19 @@
 --
 -- Get the information about an origin access identity.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentity.html AWS API Reference> for GetCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     (
-    -- * Request
+    -- * Creating a Request
       GetCloudFrontOriginAccessIdentity
-    -- ** Request constructor
     , getCloudFrontOriginAccessIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , gcfoaiId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetCloudFrontOriginAccessIdentityResponse
-    -- ** Response constructor
     , getCloudFrontOriginAccessIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcfoairsETag
     , gcfoairsCloudFrontOriginAccessIdentity
     , gcfoairsStatus
@@ -130,6 +128,6 @@ gcfoairsETag = lens _gcfoairsETag (\ s a -> s{_gcfoairsETag = a});
 gcfoairsCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 gcfoairsCloudFrontOriginAccessIdentity = lens _gcfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_gcfoairsCloudFrontOriginAccessIdentity = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcfoairsStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
 gcfoairsStatus = lens _gcfoairsStatus (\ s a -> s{_gcfoairsStatus = a});

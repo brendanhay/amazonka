@@ -31,24 +31,22 @@
 -- no policies attached to the specified group (or none that match the
 -- specified path prefix), the action returns an empty list.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedGroupPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedGroupPolicies.html AWS API Reference> for ListAttachedGroupPolicies.
 module Network.AWS.IAM.ListAttachedGroupPolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListAttachedGroupPolicies
-    -- ** Request constructor
     , listAttachedGroupPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , lagpPathPrefix
     , lagpMaxItems
     , lagpMarker
     , lagpGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAttachedGroupPoliciesResponse
-    -- ** Response constructor
     , listAttachedGroupPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lagprsAttachedPolicies
     , lagprsMarker
     , lagprsIsTruncated
@@ -191,6 +189,6 @@ lagprsMarker = lens _lagprsMarker (\ s a -> s{_lagprsMarker = a});
 lagprsIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprsIsTruncated = lens _lagprsIsTruncated (\ s a -> s{_lagprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lagprsStatus :: Lens' ListAttachedGroupPoliciesResponse Int
 lagprsStatus = lens _lagprsStatus (\ s a -> s{_lagprsStatus = a});

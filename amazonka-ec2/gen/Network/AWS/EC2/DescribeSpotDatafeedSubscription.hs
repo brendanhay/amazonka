@@ -21,21 +21,19 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotDatafeedSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotDatafeedSubscription.html AWS API Reference> for DescribeSpotDatafeedSubscription.
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSpotDatafeedSubscription
-    -- ** Request constructor
     , describeSpotDatafeedSubscription
-    -- ** Request lenses
+    -- * Request Lenses
     , dsdsDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSpotDatafeedSubscriptionResponse
-    -- ** Response constructor
     , describeSpotDatafeedSubscriptionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsdsrsSpotDatafeedSubscription
     , dsdsrsStatus
     ) where
@@ -126,6 +124,6 @@ describeSpotDatafeedSubscriptionResponse pStatus_ =
 dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> s{_dsdsrsSpotDatafeedSubscription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsdsrsStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
 dsdsrsStatus = lens _dsdsrsStatus (\ s a -> s{_dsdsrsStatus = a});

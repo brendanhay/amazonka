@@ -19,20 +19,18 @@
 --
 -- Modifies a subnet attribute.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySubnetAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySubnetAttribute.html AWS API Reference> for ModifySubnetAttribute.
 module Network.AWS.EC2.ModifySubnetAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ModifySubnetAttribute
-    -- ** Request constructor
     , modifySubnetAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , msaMapPublicIPOnLaunch
     , msaSubnetId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifySubnetAttributeResponse
-    -- ** Response constructor
     , modifySubnetAttributeResponse
     ) where
 

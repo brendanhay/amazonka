@@ -21,21 +21,19 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html AWS API Reference> for VerifyDomainIdentity.
 module Network.AWS.SES.VerifyDomainIdentity
     (
-    -- * Request
+    -- * Creating a Request
       VerifyDomainIdentity
-    -- ** Request constructor
     , verifyDomainIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , vdiDomain
 
-    -- * Response
+    -- * Destructuring the Response
     , VerifyDomainIdentityResponse
-    -- ** Response constructor
     , verifyDomainIdentityResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , vdirsStatus
     , vdirsVerificationToken
     ) where
@@ -114,7 +112,7 @@ verifyDomainIdentityResponse pStatus_ pVerificationToken_ =
     , _vdirsVerificationToken = pVerificationToken_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vdirsStatus :: Lens' VerifyDomainIdentityResponse Int
 vdirsStatus = lens _vdirsStatus (\ s a -> s{_vdirsStatus = a});
 

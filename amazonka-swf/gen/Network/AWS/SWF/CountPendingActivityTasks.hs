@@ -42,22 +42,20 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountPendingActivityTasks.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountPendingActivityTasks.html AWS API Reference> for CountPendingActivityTasks.
 module Network.AWS.SWF.CountPendingActivityTasks
     (
-    -- * Request
+    -- * Creating a Request
       CountPendingActivityTasks
-    -- ** Request constructor
     , countPendingActivityTasks
-    -- ** Request lenses
+    -- * Request Lenses
     , cpatDomain
     , cpatTaskList
 
-    -- * Response
+    -- * Destructuring the Response
     , PendingTaskCount
-    -- ** Response constructor
     , pendingTaskCount
-    -- ** Response lenses
+    -- * Response Lenses
     , ptcTruncated
     , ptcCount
     ) where

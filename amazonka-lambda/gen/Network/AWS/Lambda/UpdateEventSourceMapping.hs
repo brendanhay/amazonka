@@ -26,24 +26,22 @@
 -- This operation requires permission for the
 -- @lambda:UpdateEventSourceMapping@ action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateEventSourceMapping.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateEventSourceMapping.html AWS API Reference> for UpdateEventSourceMapping.
 module Network.AWS.Lambda.UpdateEventSourceMapping
     (
-    -- * Request
+    -- * Creating a Request
       UpdateEventSourceMapping
-    -- ** Request constructor
     , updateEventSourceMapping
-    -- ** Request lenses
+    -- * Request Lenses
     , uesmEnabled
     , uesmBatchSize
     , uesmFunctionName
     , uesmUUId
 
-    -- * Response
+    -- * Destructuring the Response
     , EventSourceMappingConfiguration
-    -- ** Response constructor
     , eventSourceMappingConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , esmcEventSourceARN
     , esmcFunctionARN
     , esmcState

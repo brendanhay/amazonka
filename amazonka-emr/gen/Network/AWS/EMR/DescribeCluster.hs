@@ -21,21 +21,19 @@
 -- configuration, VPC settings, and so on. For information about the
 -- cluster steps, see ListSteps.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeCluster.html AWS API Reference> for DescribeCluster.
 module Network.AWS.EMR.DescribeCluster
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCluster
-    -- ** Request constructor
     , describeCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , dcClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClusterResponse
-    -- ** Response constructor
     , describeClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsStatus
     , dcrsCluster
     ) where
@@ -118,7 +116,7 @@ describeClusterResponse pStatus_ pCluster_ =
     , _dcrsCluster = pCluster_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsStatus :: Lens' DescribeClusterResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
 

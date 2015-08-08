@@ -39,22 +39,20 @@
 -- information, see DescribeSnapshots or DeleteSnapshot in the
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html EC2 API reference>.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.StorageGateway.CreateSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CreateSnapshot
-    -- ** Request constructor
     , createSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , csVolumeARN
     , csSnapshotDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSnapshotResponse
-    -- ** Response constructor
     , createSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsVolumeARN
     , csrsSnapshotId
     , csrsStatus
@@ -173,6 +171,6 @@ csrsVolumeARN = lens _csrsVolumeARN (\ s a -> s{_csrsVolumeARN = a});
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' CreateSnapshotResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

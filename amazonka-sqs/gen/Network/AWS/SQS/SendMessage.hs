@@ -31,24 +31,22 @@
 -- #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to
 -- #x10FFFF]
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html AWS API Reference> for SendMessage.
 module Network.AWS.SQS.SendMessage
     (
-    -- * Request
+    -- * Creating a Request
       SendMessage
-    -- ** Request constructor
     , sendMessage
-    -- ** Request lenses
+    -- * Request Lenses
     , smMessageAttributes
     , smDelaySeconds
     , smQueueURL
     , smMessageBody
 
-    -- * Response
+    -- * Destructuring the Response
     , SendMessageResponse
-    -- ** Response constructor
     , sendMessageResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , smrsMessageId
     , smrsMD5OfMessageBody
     , smrsMD5OfMessageAttributes
@@ -191,6 +189,6 @@ smrsMD5OfMessageBody = lens _smrsMD5OfMessageBody (\ s a -> s{_smrsMD5OfMessageB
 smrsMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrsMD5OfMessageAttributes = lens _smrsMD5OfMessageAttributes (\ s a -> s{_smrsMD5OfMessageAttributes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 smrsStatus :: Lens' SendMessageResponse Int
 smrsStatus = lens _smrsStatus (\ s a -> s{_smrsStatus = a});

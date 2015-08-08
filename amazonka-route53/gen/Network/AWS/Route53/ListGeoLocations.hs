@@ -33,24 +33,22 @@
 -- @StartContinentCode, StartCountryCode, StartSubdivisionCode@ to control
 -- the geo location that the list begins with.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html AWS API Reference> for ListGeoLocations.
 module Network.AWS.Route53.ListGeoLocations
     (
-    -- * Request
+    -- * Creating a Request
       ListGeoLocations
-    -- ** Request constructor
     , listGeoLocations
-    -- ** Request lenses
+    -- * Request Lenses
     , lglStartSubdivisionCode
     , lglMaxItems
     , lglStartCountryCode
     , lglStartContinentCode
 
-    -- * Response
+    -- * Destructuring the Response
     , ListGeoLocationsResponse
-    -- ** Response constructor
     , listGeoLocationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lglrsNextContinentCode
     , lglrsNextCountryCode
     , lglrsNextSubdivisionCode
@@ -222,7 +220,7 @@ lglrsNextCountryCode = lens _lglrsNextCountryCode (\ s a -> s{_lglrsNextCountryC
 lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextSubdivisionCode = lens _lglrsNextSubdivisionCode (\ s a -> s{_lglrsNextSubdivisionCode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lglrsStatus :: Lens' ListGeoLocationsResponse Int
 lglrsStatus = lens _lglrsStatus (\ s a -> s{_lglrsStatus = a});
 

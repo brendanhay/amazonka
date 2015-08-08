@@ -21,21 +21,19 @@
 -- volume. The snapshot schedule information includes intervals at which
 -- snapshots are automatically initiated on the volume.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeSnapshotSchedule.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeSnapshotSchedule.html AWS API Reference> for DescribeSnapshotSchedule.
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
-    -- * Request
+    -- * Creating a Request
       DescribeSnapshotSchedule
-    -- ** Request constructor
     , describeSnapshotSchedule
-    -- ** Request lenses
+    -- * Request Lenses
     , dssVolumeARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeSnapshotScheduleResponse
-    -- ** Response constructor
     , describeSnapshotScheduleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dssrsVolumeARN
     , dssrsStartAt
     , dssrsRecurrenceInHours
@@ -144,26 +142,26 @@ describeSnapshotScheduleResponse pStatus_ =
     , _dssrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrsStartAt = lens _dssrsStartAt (\ s a -> s{_dssrsStartAt = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrsRecurrenceInHours = lens _dssrsRecurrenceInHours (\ s a -> s{_dssrsRecurrenceInHours = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsTimezone = lens _dssrsTimezone (\ s a -> s{_dssrsTimezone = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dssrsStatus :: Lens' DescribeSnapshotScheduleResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

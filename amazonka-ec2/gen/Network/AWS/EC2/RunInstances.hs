@@ -54,14 +54,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html Troubleshooting Connecting to Your Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html AWS API Reference> for RunInstances.
 module Network.AWS.EC2.RunInstances
     (
-    -- * Request
+    -- * Creating a Request
       RunInstances
-    -- ** Request constructor
     , runInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , rSecurityGroupIds
     , rAdditionalInfo
     , rSecurityGroups
@@ -86,11 +85,10 @@ module Network.AWS.EC2.RunInstances
     , rMinCount
     , rMaxCount
 
-    -- * Response
+    -- * Destructuring the Response
     , Reservation
-    -- ** Response constructor
     , reservation
-    -- ** Response lenses
+    -- * Response Lenses
     , rGroups
     , rInstances
     , rRequesterId

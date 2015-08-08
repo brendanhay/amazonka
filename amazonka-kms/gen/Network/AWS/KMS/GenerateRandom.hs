@@ -19,21 +19,19 @@
 --
 -- Generates an unpredictable byte string.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html AWS API Reference> for GenerateRandom.
 module Network.AWS.KMS.GenerateRandom
     (
-    -- * Request
+    -- * Creating a Request
       GenerateRandom
-    -- ** Request constructor
     , generateRandom
-    -- ** Request lenses
+    -- * Request Lenses
     , grNumberOfBytes
 
-    -- * Response
+    -- * Destructuring the Response
     , GenerateRandomResponse
-    -- ** Response constructor
     , generateRandomResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grrsPlaintext
     , grrsStatus
     ) where
@@ -117,6 +115,6 @@ generateRandomResponse pStatus_ =
 grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
 grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grrsStatus :: Lens' GenerateRandomResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

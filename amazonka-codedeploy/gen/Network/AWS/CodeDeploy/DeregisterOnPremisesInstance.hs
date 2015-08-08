@@ -19,19 +19,17 @@
 --
 -- Deregisters an on-premises instance.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.html AWS API Reference> for DeregisterOnPremisesInstance.
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterOnPremisesInstance
-    -- ** Request constructor
     , deregisterOnPremisesInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , dopiInstanceName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterOnPremisesInstanceResponse
-    -- ** Response constructor
     , deregisterOnPremisesInstanceResponse
     ) where
 

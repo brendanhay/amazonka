@@ -22,22 +22,20 @@
 -- After you create a configuration document, you can use CreateAssociation
 -- to associate it with one or more running instances.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateDocument.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateDocument.html AWS API Reference> for CreateDocument.
 module Network.AWS.SSM.CreateDocument
     (
-    -- * Request
+    -- * Creating a Request
       CreateDocument
-    -- ** Request constructor
     , createDocument
-    -- ** Request lenses
+    -- * Request Lenses
     , cdContent
     , cdName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDocumentResponse
-    -- ** Response constructor
     , createDocumentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdrsDocumentDescription
     , cdrsStatus
     ) where
@@ -131,6 +129,6 @@ createDocumentResponse pStatus_ =
 cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdrsStatus :: Lens' CreateDocumentResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

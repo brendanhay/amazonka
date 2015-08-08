@@ -26,19 +26,17 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html AWS API Reference> for DeleteClusterSecurityGroup.
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteClusterSecurityGroup
-    -- ** Request constructor
     , deleteClusterSecurityGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dClusterSecurityGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteClusterSecurityGroupResponse
-    -- ** Response constructor
     , deleteClusterSecurityGroupResponse
     ) where
 

@@ -50,14 +50,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListClosedWorkflowExecutions.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListClosedWorkflowExecutions.html AWS API Reference> for ListClosedWorkflowExecutions.
 module Network.AWS.SWF.ListClosedWorkflowExecutions
     (
-    -- * Request
+    -- * Creating a Request
       ListClosedWorkflowExecutions
-    -- ** Request constructor
     , listClosedWorkflowExecutions
-    -- ** Request lenses
+    -- * Request Lenses
     , lcweNextPageToken
     , lcweCloseStatusFilter
     , lcweExecutionFilter
@@ -69,11 +68,10 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     , lcweMaximumPageSize
     , lcweDomain
 
-    -- * Response
+    -- * Destructuring the Response
     , WorkflowExecutionInfos
-    -- ** Response constructor
     , workflowExecutionInfos
-    -- ** Response lenses
+    -- * Response Lenses
     , weiNextPageToken
     , weiExecutionInfos
     ) where

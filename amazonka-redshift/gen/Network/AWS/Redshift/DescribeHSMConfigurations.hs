@@ -31,25 +31,23 @@
 -- connections are returned regardless of whether they have tag keys or
 -- values associated with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMConfigurations.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMConfigurations.html AWS API Reference> for DescribeHSMConfigurations.
 module Network.AWS.Redshift.DescribeHSMConfigurations
     (
-    -- * Request
+    -- * Creating a Request
       DescribeHSMConfigurations
-    -- ** Request constructor
     , describeHSMConfigurations
-    -- ** Request lenses
+    -- * Request Lenses
     , dhsmcTagValues
     , dhsmcHSMConfigurationIdentifier
     , dhsmcTagKeys
     , dhsmcMaxRecords
     , dhsmcMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeHSMConfigurationsResponse
-    -- ** Response constructor
     , describeHSMConfigurationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dhcrsMarker
     , dhcrsHSMConfigurations
     , dhcrsStatus
@@ -223,6 +221,6 @@ dhcrsMarker = lens _dhcrsMarker (\ s a -> s{_dhcrsMarker = a});
 dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
 dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dhcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int
 dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});

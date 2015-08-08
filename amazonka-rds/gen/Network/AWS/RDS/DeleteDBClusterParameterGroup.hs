@@ -24,19 +24,17 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterParameterGroup.html AWS API Reference> for DeleteDBClusterParameterGroup.
 module Network.AWS.RDS.DeleteDBClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDBClusterParameterGroup
-    -- ** Request constructor
     , deleteDBClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ddbcpgDBClusterParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDBClusterParameterGroupResponse
-    -- ** Response constructor
     , deleteDBClusterParameterGroupResponse
     ) where
 

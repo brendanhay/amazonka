@@ -23,19 +23,17 @@
 -- You must have created at least one delivery channel to successfully
 -- start the configuration recorder.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html AWS API Reference> for StartConfigurationRecorder.
 module Network.AWS.Config.StartConfigurationRecorder
     (
-    -- * Request
+    -- * Creating a Request
       StartConfigurationRecorder
-    -- ** Request constructor
     , startConfigurationRecorder
-    -- ** Request lenses
+    -- * Request Lenses
     , sConfigurationRecorderName
 
-    -- * Response
+    -- * Destructuring the Response
     , StartConfigurationRecorderResponse
-    -- ** Response constructor
     , startConfigurationRecorderResponse
     ) where
 

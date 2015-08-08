@@ -25,22 +25,20 @@
 -- the action requires access to that Amazon S3 bucket for input or output
 -- artifacts.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PollForThirdPartyJobs.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PollForThirdPartyJobs.html AWS API Reference> for PollForThirdPartyJobs.
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
     (
-    -- * Request
+    -- * Creating a Request
       PollForThirdPartyJobs
-    -- ** Request constructor
     , pollForThirdPartyJobs
-    -- ** Request lenses
+    -- * Request Lenses
     , pftpjMaxBatchSize
     , pftpjActionTypeId
 
-    -- * Response
+    -- * Destructuring the Response
     , PollForThirdPartyJobsResponse
-    -- ** Response constructor
     , pollForThirdPartyJobsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , pftpjrsJobs
     , pftpjrsStatus
     ) where
@@ -76,7 +74,7 @@ pollForThirdPartyJobs pActionTypeId_ =
 pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
 pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
 pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a});
 
@@ -139,6 +137,6 @@ pollForThirdPartyJobsResponse pStatus_ =
 pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
 pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pftpjrsStatus :: Lens' PollForThirdPartyJobsResponse Int
 pftpjrsStatus = lens _pftpjrsStatus (\ s a -> s{_pftpjrsStatus = a});

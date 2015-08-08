@@ -21,19 +21,17 @@
 -- about using a password policy, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html AWS API Reference> for GetAccountPasswordPolicy.
 module Network.AWS.IAM.GetAccountPasswordPolicy
     (
-    -- * Request
+    -- * Creating a Request
       GetAccountPasswordPolicy
-    -- ** Request constructor
     , getAccountPasswordPolicy
 
-    -- * Response
+    -- * Destructuring the Response
     , GetAccountPasswordPolicyResponse
-    -- ** Response constructor
     , getAccountPasswordPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gapprsStatus
     , gapprsPasswordPolicy
     ) where
@@ -99,10 +97,10 @@ getAccountPasswordPolicyResponse pStatus_ pPasswordPolicy_ =
     , _gapprsPasswordPolicy = pPasswordPolicy_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gapprsStatus :: Lens' GetAccountPasswordPolicyResponse Int
 gapprsStatus = lens _gapprsStatus (\ s a -> s{_gapprsStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a});

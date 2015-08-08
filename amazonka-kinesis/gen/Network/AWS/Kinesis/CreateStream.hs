@@ -60,20 +60,18 @@
 --
 -- CreateStream has a limit of 5 transactions per second per account.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html AWS API Reference> for CreateStream.
 module Network.AWS.Kinesis.CreateStream
     (
-    -- * Request
+    -- * Creating a Request
       CreateStream
-    -- ** Request constructor
     , createStream
-    -- ** Request lenses
+    -- * Request Lenses
     , csStreamName
     , csShardCount
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateStreamResponse
-    -- ** Response constructor
     , createStreamResponse
     ) where
 

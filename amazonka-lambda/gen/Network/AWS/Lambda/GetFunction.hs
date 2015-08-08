@@ -25,21 +25,19 @@
 --
 -- This operation requires permission for the @lambda:GetFunction@ action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html AWS API Reference> for GetFunction.
 module Network.AWS.Lambda.GetFunction
     (
-    -- * Request
+    -- * Creating a Request
       GetFunction
-    -- ** Request constructor
     , getFunction
-    -- ** Request lenses
+    -- * Request Lenses
     , gfFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetFunctionResponse
-    -- ** Response constructor
     , getFunctionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gfrsCode
     , gfrsConfiguration
     , gfrsStatus
@@ -129,14 +127,14 @@ getFunctionResponse pStatus_ =
     , _gfrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gfrsCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
 gfrsCode = lens _gfrsCode (\ s a -> s{_gfrsCode = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gfrsConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gfrsStatus :: Lens' GetFunctionResponse Int
 gfrsStatus = lens _gfrsStatus (\ s a -> s{_gfrsStatus = a});

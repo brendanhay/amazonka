@@ -19,22 +19,20 @@
 --
 -- List streaming distributions.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListStreamingDistributions.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListStreamingDistributions.html AWS API Reference> for ListStreamingDistributions.
 module Network.AWS.CloudFront.ListStreamingDistributions
     (
-    -- * Request
+    -- * Creating a Request
       ListStreamingDistributions
-    -- ** Request constructor
     , listStreamingDistributions
-    -- ** Request lenses
+    -- * Request Lenses
     , lsdMaxItems
     , lsdMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListStreamingDistributionsResponse
-    -- ** Response constructor
     , listStreamingDistributionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsdrsStatus
     , lsdrsStreamingDistributionList
     ) where
@@ -123,7 +121,7 @@ listStreamingDistributionsResponse pStatus_ pStreamingDistributionList_ =
     , _lsdrsStreamingDistributionList = pStreamingDistributionList_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsdrsStatus :: Lens' ListStreamingDistributionsResponse Int
 lsdrsStatus = lens _lsdrsStatus (\ s a -> s{_lsdrsStatus = a});
 

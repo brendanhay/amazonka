@@ -27,19 +27,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html >.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterEcsCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterEcsCluster.html AWS API Reference> for DeregisterEcsCluster.
 module Network.AWS.OpsWorks.DeregisterEcsCluster
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterEcsCluster
-    -- ** Request constructor
     , deregisterEcsCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , decEcsClusterARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterEcsClusterResponse
-    -- ** Response constructor
     , deregisterEcsClusterResponse
     ) where
 

@@ -24,23 +24,21 @@
 -- description of all virtual tapes found in the VTS associated with your
 -- account.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html AWS API Reference> for DescribeTapeArchives.
 module Network.AWS.StorageGateway.DescribeTapeArchives
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTapeArchives
-    -- ** Request constructor
     , describeTapeArchives
-    -- ** Request lenses
+    -- * Request Lenses
     , dtaMarker
     , dtaLimit
     , dtaTapeARNs
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTapeArchivesResponse
-    -- ** Response constructor
     , describeTapeArchivesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtarsTapeArchives
     , dtarsMarker
     , dtarsStatus
@@ -177,6 +175,6 @@ dtarsTapeArchives = lens _dtarsTapeArchives (\ s a -> s{_dtarsTapeArchives = a})
 dtarsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtarsStatus :: Lens' DescribeTapeArchivesResponse Int
 dtarsStatus = lens _dtarsStatus (\ s a -> s{_dtarsStatus = a});

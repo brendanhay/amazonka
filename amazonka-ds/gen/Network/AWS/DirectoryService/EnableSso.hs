@@ -19,23 +19,21 @@
 --
 -- Enables single-sign on for a directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableSso.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableSso.html AWS API Reference> for EnableSso.
 module Network.AWS.DirectoryService.EnableSso
     (
-    -- * Request
+    -- * Creating a Request
       EnableSso
-    -- ** Request constructor
     , enableSso
-    -- ** Request lenses
+    -- * Request Lenses
     , esUserName
     , esPassword
     , esDirectoryId
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableSsoResponse
-    -- ** Response constructor
     , enableSsoResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , esrsStatus
     ) where
 
@@ -142,6 +140,6 @@ enableSsoResponse pStatus_ =
     { _esrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 esrsStatus :: Lens' EnableSsoResponse Int
 esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});

@@ -33,14 +33,13 @@
 -- 2.  One or more @NextToken@ values, which specify where to paginate the
 --     returned records represented by the @CaseDetails@ objects.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html AWS API Reference> for DescribeCases.
 module Network.AWS.Support.DescribeCases
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCases
-    -- ** Request constructor
     , describeCases
-    -- ** Request lenses
+    -- * Request Lenses
     , dcIncludeResolvedCases
     , dcCaseIdList
     , dcAfterTime
@@ -51,11 +50,10 @@ module Network.AWS.Support.DescribeCases
     , dcLanguage
     , dcMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCasesResponse
-    -- ** Response constructor
     , describeCasesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsCases
     , drsNextToken
     , drsStatus
@@ -241,6 +239,6 @@ drsCases = lens _drsCases (\ s a -> s{_drsCases = a}) . _Default . _Coerce;
 drsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DescribeCasesResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

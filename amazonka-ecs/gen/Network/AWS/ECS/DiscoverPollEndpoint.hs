@@ -23,22 +23,20 @@
 -- Returns an endpoint for the Amazon EC2 Container Service agent to poll
 -- for updates.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DiscoverPollEndpoint.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DiscoverPollEndpoint.html AWS API Reference> for DiscoverPollEndpoint.
 module Network.AWS.ECS.DiscoverPollEndpoint
     (
-    -- * Request
+    -- * Creating a Request
       DiscoverPollEndpoint
-    -- ** Request constructor
     , discoverPollEndpoint
-    -- ** Request lenses
+    -- * Request Lenses
     , dpeCluster
     , dpeContainerInstance
 
-    -- * Response
+    -- * Destructuring the Response
     , DiscoverPollEndpointResponse
-    -- ** Response constructor
     , discoverPollEndpointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dpersTelemetryEndpoint
     , dpersEndpoint
     , dpersStatus
@@ -148,6 +146,6 @@ dpersTelemetryEndpoint = lens _dpersTelemetryEndpoint (\ s a -> s{_dpersTelemetr
 dpersEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
 dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dpersStatus :: Lens' DiscoverPollEndpointResponse Int
 dpersStatus = lens _dpersStatus (\ s a -> s{_dpersStatus = a});

@@ -39,14 +39,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListWorkflowTypes.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListWorkflowTypes.html AWS API Reference> for ListWorkflowTypes.
 module Network.AWS.SWF.ListWorkflowTypes
     (
-    -- * Request
+    -- * Creating a Request
       ListWorkflowTypes
-    -- ** Request constructor
     , listWorkflowTypes
-    -- ** Request lenses
+    -- * Request Lenses
     , lwtNextPageToken
     , lwtReverseOrder
     , lwtName
@@ -54,11 +53,10 @@ module Network.AWS.SWF.ListWorkflowTypes
     , lwtDomain
     , lwtRegistrationStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , ListWorkflowTypesResponse
-    -- ** Response constructor
     , listWorkflowTypesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lwtrsNextPageToken
     , lwtrsStatus
     , lwtrsTypeInfos
@@ -226,7 +224,7 @@ listWorkflowTypesResponse pStatus_ =
 lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 lwtrsNextPageToken = lens _lwtrsNextPageToken (\ s a -> s{_lwtrsNextPageToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lwtrsStatus :: Lens' ListWorkflowTypesResponse Int
 lwtrsStatus = lens _lwtrsStatus (\ s a -> s{_lwtrsStatus = a});
 

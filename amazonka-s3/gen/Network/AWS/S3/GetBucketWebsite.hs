@@ -19,21 +19,19 @@
 --
 -- Returns the website configuration for a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketWebsite.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketWebsite.html AWS API Reference> for GetBucketWebsite.
 module Network.AWS.S3.GetBucketWebsite
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketWebsite
-    -- ** Request constructor
     , getBucketWebsite
-    -- ** Request lenses
+    -- * Request Lenses
     , gbwBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketWebsiteResponse
-    -- ** Response constructor
     , getBucketWebsiteResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbwrsRedirectAllRequestsTo
     , gbwrsErrorDocument
     , gbwrsRoutingRules
@@ -62,7 +60,7 @@ getBucketWebsite pBucket_ =
     { _gbwBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbwBucket :: Lens' GetBucketWebsite BucketName
 gbwBucket = lens _gbwBucket (\ s a -> s{_gbwBucket = a});
 
@@ -124,22 +122,22 @@ getBucketWebsiteResponse pStatus_ =
     , _gbwrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
 gbwrsRedirectAllRequestsTo = lens _gbwrsRedirectAllRequestsTo (\ s a -> s{_gbwrsRedirectAllRequestsTo = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbwrsStatus :: Lens' GetBucketWebsiteResponse Int
 gbwrsStatus = lens _gbwrsStatus (\ s a -> s{_gbwrsStatus = a});

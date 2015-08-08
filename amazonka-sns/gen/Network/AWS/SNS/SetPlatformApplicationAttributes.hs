@@ -22,20 +22,18 @@
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html AWS API Reference> for SetPlatformApplicationAttributes.
 module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
-    -- * Request
+    -- * Creating a Request
       SetPlatformApplicationAttributes
-    -- ** Request constructor
     , setPlatformApplicationAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , spaaPlatformApplicationARN
     , spaaAttributes
 
-    -- * Response
+    -- * Destructuring the Response
     , SetPlatformApplicationAttributesResponse
-    -- ** Response constructor
     , setPlatformApplicationAttributesResponse
     ) where
 

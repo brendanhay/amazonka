@@ -22,19 +22,17 @@
 -- target instance count for the group and the instance group ID. The call
 -- will either succeed or fail atomically.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html AWS API Reference> for ModifyInstanceGroups.
 module Network.AWS.EMR.ModifyInstanceGroups
     (
-    -- * Request
+    -- * Creating a Request
       ModifyInstanceGroups
-    -- ** Request constructor
     , modifyInstanceGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , migInstanceGroups
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyInstanceGroupsResponse
-    -- ** Response constructor
     , modifyInstanceGroupsResponse
     ) where
 

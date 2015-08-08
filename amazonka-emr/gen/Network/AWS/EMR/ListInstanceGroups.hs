@@ -19,22 +19,20 @@
 --
 -- Provides all available details about the instance groups in a cluster.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstanceGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstanceGroups.html AWS API Reference> for ListInstanceGroups.
 module Network.AWS.EMR.ListInstanceGroups
     (
-    -- * Request
+    -- * Creating a Request
       ListInstanceGroups
-    -- ** Request constructor
     , listInstanceGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , ligMarker
     , ligClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListInstanceGroupsResponse
-    -- ** Response constructor
     , listInstanceGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ligrsMarker
     , ligrsInstanceGroups
     , ligrsStatus
@@ -152,6 +150,6 @@ ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a});
 ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ligrsStatus :: Lens' ListInstanceGroupsResponse Int
 ligrsStatus = lens _ligrsStatus (\ s a -> s{_ligrsStatus = a});

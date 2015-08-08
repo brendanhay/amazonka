@@ -20,19 +20,17 @@
 -- Deletes the specified alias. To associate an alias with a different key,
 -- call UpdateAlias.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html AWS API Reference> for DeleteAlias.
 module Network.AWS.KMS.DeleteAlias
     (
-    -- * Request
+    -- * Creating a Request
       DeleteAlias
-    -- ** Request constructor
     , deleteAlias
-    -- ** Request lenses
+    -- * Request Lenses
     , daAliasName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteAliasResponse
-    -- ** Response constructor
     , deleteAliasResponse
     ) where
 

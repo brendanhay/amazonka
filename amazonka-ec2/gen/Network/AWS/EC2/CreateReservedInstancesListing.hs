@@ -40,24 +40,22 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html AWS API Reference> for CreateReservedInstancesListing.
 module Network.AWS.EC2.CreateReservedInstancesListing
     (
-    -- * Request
+    -- * Creating a Request
       CreateReservedInstancesListing
-    -- ** Request constructor
     , createReservedInstancesListing
-    -- ** Request lenses
+    -- * Request Lenses
     , crilReservedInstancesId
     , crilInstanceCount
     , crilPriceSchedules
     , crilClientToken
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateReservedInstancesListingResponse
-    -- ** Response constructor
     , createReservedInstancesListingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crersReservedInstancesListings
     , crersStatus
     ) where
@@ -174,6 +172,6 @@ createReservedInstancesListingResponse pStatus_ =
 crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crersStatus :: Lens' CreateReservedInstancesListingResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

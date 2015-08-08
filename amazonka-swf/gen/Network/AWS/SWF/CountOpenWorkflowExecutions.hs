@@ -48,25 +48,23 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountOpenWorkflowExecutions.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountOpenWorkflowExecutions.html AWS API Reference> for CountOpenWorkflowExecutions.
 module Network.AWS.SWF.CountOpenWorkflowExecutions
     (
-    -- * Request
+    -- * Creating a Request
       CountOpenWorkflowExecutions
-    -- ** Request constructor
     , countOpenWorkflowExecutions
-    -- ** Request lenses
+    -- * Request Lenses
     , coweExecutionFilter
     , coweTypeFilter
     , coweTagFilter
     , coweDomain
     , coweStartTimeFilter
 
-    -- * Response
+    -- * Destructuring the Response
     , WorkflowExecutionCount
-    -- ** Response constructor
     , workflowExecutionCount
-    -- ** Response lenses
+    -- * Response Lenses
     , wecTruncated
     , wecCount
     ) where

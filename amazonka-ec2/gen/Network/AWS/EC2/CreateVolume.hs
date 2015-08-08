@@ -37,14 +37,13 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating or Restoring an Amazon EBS Volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html AWS API Reference> for CreateVolume.
 module Network.AWS.EC2.CreateVolume
     (
-    -- * Request
+    -- * Creating a Request
       CreateVolume
-    -- ** Request constructor
     , createVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , creSize
     , creIOPS
     , creEncrypted
@@ -54,11 +53,10 @@ module Network.AWS.EC2.CreateVolume
     , creSnapshotId
     , creAvailabilityZone
 
-    -- * Response
+    -- * Destructuring the Response
     , Volume
-    -- ** Response constructor
     , volume
-    -- ** Response lenses
+    -- * Response Lenses
     , vAttachments
     , vIOPS
     , vKMSKeyId

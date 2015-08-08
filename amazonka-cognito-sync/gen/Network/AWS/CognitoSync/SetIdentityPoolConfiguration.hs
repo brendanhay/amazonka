@@ -23,23 +23,21 @@
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetIdentityPoolConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetIdentityPoolConfiguration.html AWS API Reference> for SetIdentityPoolConfiguration.
 module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       SetIdentityPoolConfiguration
-    -- ** Request constructor
     , setIdentityPoolConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , sipcCognitoStreams
     , sipcPushSync
     , sipcIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , SetIdentityPoolConfigurationResponse
-    -- ** Response constructor
     , setIdentityPoolConfigurationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , sipcrsIdentityPoolId
     , sipcrsCognitoStreams
     , sipcrsPushSync
@@ -171,6 +169,6 @@ sipcrsCognitoStreams = lens _sipcrsCognitoStreams (\ s a -> s{_sipcrsCognitoStre
 sipcrsPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sipcrsStatus :: Lens' SetIdentityPoolConfigurationResponse Int
 sipcrsStatus = lens _sipcrsStatus (\ s a -> s{_sipcrsStatus = a});

@@ -24,21 +24,19 @@
 -- After a repository is deleted, all future push calls to the deleted
 -- repository will fail.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_DeleteRepository.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_DeleteRepository.html AWS API Reference> for DeleteRepository.
 module Network.AWS.CodeCommit.DeleteRepository
     (
-    -- * Request
+    -- * Creating a Request
       DeleteRepository
-    -- ** Request constructor
     , deleteRepository
-    -- ** Request lenses
+    -- * Request Lenses
     , drRepositoryName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteRepositoryResponse
-    -- ** Response constructor
     , deleteRepositoryResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drrsRepositoryId
     , drrsStatus
     ) where
@@ -126,6 +124,6 @@ deleteRepositoryResponse pStatus_ =
 drrsRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
 drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drrsStatus :: Lens' DeleteRepositoryResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

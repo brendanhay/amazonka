@@ -19,21 +19,19 @@
 --
 -- Gets information about a deployment configuration.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentConfig.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentConfig.html AWS API Reference> for GetDeploymentConfig.
 module Network.AWS.CodeDeploy.GetDeploymentConfig
     (
-    -- * Request
+    -- * Creating a Request
       GetDeploymentConfig
-    -- ** Request constructor
     , getDeploymentConfig
-    -- ** Request lenses
+    -- * Request Lenses
     , gdcDeploymentConfigName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDeploymentConfigResponse
-    -- ** Response constructor
     , getDeploymentConfigResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdcrsDeploymentConfigInfo
     , gdcrsStatus
     ) where
@@ -125,6 +123,6 @@ getDeploymentConfigResponse pStatus_ =
 gdcrsDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
 gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDeploymentConfigInfo = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdcrsStatus :: Lens' GetDeploymentConfigResponse Int
 gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});

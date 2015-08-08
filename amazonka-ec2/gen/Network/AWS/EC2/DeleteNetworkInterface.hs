@@ -20,20 +20,18 @@
 -- Deletes the specified network interface. You must detach the network
 -- interface before you can delete it.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkInterface.html AWS API Reference> for DeleteNetworkInterface.
 module Network.AWS.EC2.DeleteNetworkInterface
     (
-    -- * Request
+    -- * Creating a Request
       DeleteNetworkInterface
-    -- ** Request constructor
     , deleteNetworkInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , dninDryRun
     , dninNetworkInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteNetworkInterfaceResponse
-    -- ** Response constructor
     , deleteNetworkInterfaceResponse
     ) where
 

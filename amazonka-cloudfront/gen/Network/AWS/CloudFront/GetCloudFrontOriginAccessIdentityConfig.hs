@@ -19,21 +19,19 @@
 --
 -- Get the configuration information about an origin access identity.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentityConfig.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentityConfig.html AWS API Reference> for GetCloudFrontOriginAccessIdentityConfig.
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     (
-    -- * Request
+    -- * Creating a Request
       GetCloudFrontOriginAccessIdentityConfig
-    -- ** Request constructor
     , getCloudFrontOriginAccessIdentityConfig
-    -- ** Request lenses
+    -- * Request Lenses
     , gcfoaicId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetCloudFrontOriginAccessIdentityConfigResponse
-    -- ** Response constructor
     , getCloudFrontOriginAccessIdentityConfigResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gcfoaicrsCloudFrontOriginAccessIdentityConfig
     , gcfoaicrsETag
     , gcfoaicrsStatus
@@ -129,6 +127,6 @@ gcfoaicrsCloudFrontOriginAccessIdentityConfig = lens _gcfoaicrsCloudFrontOriginA
 gcfoaicrsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
 gcfoaicrsETag = lens _gcfoaicrsETag (\ s a -> s{_gcfoaicrsETag = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gcfoaicrsStatus :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse Int
 gcfoaicrsStatus = lens _gcfoaicrsStatus (\ s a -> s{_gcfoaicrsStatus = a});

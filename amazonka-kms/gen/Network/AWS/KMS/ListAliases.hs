@@ -19,22 +19,20 @@
 --
 -- Lists all of the key aliases in the account.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html AWS API Reference> for ListAliases.
 module Network.AWS.KMS.ListAliases
     (
-    -- * Request
+    -- * Creating a Request
       ListAliases
-    -- ** Request constructor
     , listAliases
-    -- ** Request lenses
+    -- * Request Lenses
     , laMarker
     , laLimit
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAliasesResponse
-    -- ** Response constructor
     , listAliasesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , larsTruncated
     , larsAliases
     , larsNextMarker
@@ -156,6 +154,6 @@ larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coe
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 larsStatus :: Lens' ListAliasesResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

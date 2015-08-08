@@ -26,21 +26,19 @@
 -- description field in any application that uses this API to display the
 -- repository description on a web page.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_BatchGetRepositories.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_BatchGetRepositories.html AWS API Reference> for BatchGetRepositories.
 module Network.AWS.CodeCommit.BatchGetRepositories
     (
-    -- * Request
+    -- * Creating a Request
       BatchGetRepositories
-    -- ** Request constructor
     , batchGetRepositories
-    -- ** Request lenses
+    -- * Request Lenses
     , bgrRepositoryNames
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchGetRepositoriesResponse
-    -- ** Response constructor
     , batchGetRepositoriesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bgrrsRepositories
     , bgrrsRepositoriesNotFound
     , bgrrsStatus
@@ -141,6 +139,6 @@ bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a})
 bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
 bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bgrrsStatus :: Lens' BatchGetRepositoriesResponse Int
 bgrrsStatus = lens _bgrrsStatus (\ s a -> s{_bgrrsStatus = a});

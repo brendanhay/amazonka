@@ -24,22 +24,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html AWS API Reference> for CreateUser.
 module Network.AWS.IAM.CreateUser
     (
-    -- * Request
+    -- * Creating a Request
       CreateUser
-    -- ** Request constructor
     , createUser
-    -- ** Request lenses
+    -- * Request Lenses
     , cuPath
     , cuUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateUserResponse
-    -- ** Response constructor
     , createUserResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cursUser
     , cursStatus
     ) where
@@ -131,6 +129,6 @@ createUserResponse pStatus_ =
 cursUser :: Lens' CreateUserResponse (Maybe User)
 cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cursStatus :: Lens' CreateUserResponse Int
 cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});

@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html AWS API Reference> for DeleteVolume.
 module Network.AWS.EC2.DeleteVolume
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVolume
-    -- ** Request constructor
     , deleteVolume
-    -- ** Request lenses
+    -- * Request Lenses
     , dvvDryRun
     , dvvVolumeId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVolumeResponse
-    -- ** Response constructor
     , deleteVolumeResponse
     ) where
 

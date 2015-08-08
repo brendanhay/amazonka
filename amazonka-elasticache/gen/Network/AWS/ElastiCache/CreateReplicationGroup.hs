@@ -30,14 +30,13 @@
 --
 -- __Note:__ This action is valid only for Redis.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html AWS API Reference> for CreateReplicationGroup.
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateReplicationGroup
-    -- ** Request constructor
     , createReplicationGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , crgAutomaticFailoverEnabled
     , crgCacheNodeType
     , crgEngineVersion
@@ -61,11 +60,10 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , crgReplicationGroupId
     , crgReplicationGroupDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateReplicationGroupResponse
-    -- ** Response constructor
     , createReplicationGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crgrsReplicationGroup
     , crgrsStatus
     ) where
@@ -485,10 +483,10 @@ createReplicationGroupResponse pStatus_ =
     , _crgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crgrsReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 crgrsReplicationGroup = lens _crgrsReplicationGroup (\ s a -> s{_crgrsReplicationGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crgrsStatus :: Lens' CreateReplicationGroupResponse Int
 crgrsStatus = lens _crgrsStatus (\ s a -> s{_crgrsStatus = a});

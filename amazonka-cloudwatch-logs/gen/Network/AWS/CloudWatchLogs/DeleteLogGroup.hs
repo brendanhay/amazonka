@@ -20,19 +20,17 @@
 -- Deletes the log group with the specified name and permanently deletes
 -- all the archived log events associated with it.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html AWS API Reference> for DeleteLogGroup.
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteLogGroup
-    -- ** Request constructor
     , deleteLogGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dlgLogGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteLogGroupResponse
-    -- ** Response constructor
     , deleteLogGroupResponse
     ) where
 

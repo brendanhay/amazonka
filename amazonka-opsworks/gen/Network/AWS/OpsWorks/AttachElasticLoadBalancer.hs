@@ -32,20 +32,18 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AttachElasticLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AttachElasticLoadBalancer.html AWS API Reference> for AttachElasticLoadBalancer.
 module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       AttachElasticLoadBalancer
-    -- ** Request constructor
     , attachElasticLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , aelbElasticLoadBalancerName
     , aelbLayerId
 
-    -- * Response
+    -- * Destructuring the Response
     , AttachElasticLoadBalancerResponse
-    -- ** Response constructor
     , attachElasticLoadBalancerResponse
     ) where
 

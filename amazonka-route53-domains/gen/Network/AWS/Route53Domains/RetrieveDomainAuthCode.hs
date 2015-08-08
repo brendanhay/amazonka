@@ -20,21 +20,19 @@
 -- This operation returns the AuthCode for the domain. To transfer a domain
 -- to another registrar, you provide this value to the new registrar.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RetrieveDomainAuthCode.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RetrieveDomainAuthCode.html AWS API Reference> for RetrieveDomainAuthCode.
 module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     (
-    -- * Request
+    -- * Creating a Request
       RetrieveDomainAuthCode
-    -- ** Request constructor
     , retrieveDomainAuthCode
-    -- ** Request lenses
+    -- * Request Lenses
     , rdacDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , RetrieveDomainAuthCodeResponse
-    -- ** Response constructor
     , retrieveDomainAuthCodeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdacrsStatus
     , rdacrsAuthCode
     ) where
@@ -129,7 +127,7 @@ retrieveDomainAuthCodeResponse pStatus_ pAuthCode_ =
     , _rdacrsAuthCode = _Sensitive # pAuthCode_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdacrsStatus :: Lens' RetrieveDomainAuthCodeResponse Int
 rdacrsStatus = lens _rdacrsStatus (\ s a -> s{_rdacrsStatus = a});
 

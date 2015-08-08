@@ -28,14 +28,13 @@
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html AWS API Reference> for PutScalingPolicy.
 module Network.AWS.AutoScaling.PutScalingPolicy
     (
-    -- * Request
+    -- * Creating a Request
       PutScalingPolicy
-    -- ** Request constructor
     , putScalingPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , pspEstimatedInstanceWarmup
     , pspMinAdjustmentStep
     , pspPolicyType
@@ -48,11 +47,10 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , pspPolicyName
     , pspAdjustmentType
 
-    -- * Response
+    -- * Destructuring the Response
     , PutScalingPolicyResponse
-    -- ** Response constructor
     , putScalingPolicyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , psprsPolicyARN
     , psprsStatus
     ) where
@@ -259,6 +257,6 @@ putScalingPolicyResponse pStatus_ =
 psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprsPolicyARN = lens _psprsPolicyARN (\ s a -> s{_psprsPolicyARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 psprsStatus :: Lens' PutScalingPolicyResponse Int
 psprsStatus = lens _psprsStatus (\ s a -> s{_psprsStatus = a});

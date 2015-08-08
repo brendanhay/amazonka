@@ -46,14 +46,13 @@
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html Working with Items>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html AWS API Reference> for PutItem.
 module Network.AWS.DynamoDB.PutItem
     (
-    -- * Request
+    -- * Creating a Request
       PutItem
-    -- ** Request constructor
     , putItem
-    -- ** Request lenses
+    -- * Request Lenses
     , piReturnValues
     , piExpressionAttributeNames
     , piReturnConsumedCapacity
@@ -65,11 +64,10 @@ module Network.AWS.DynamoDB.PutItem
     , piTableName
     , piItem
 
-    -- * Response
+    -- * Destructuring the Response
     , PutItemResponse
-    -- ** Response constructor
     , putItemResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , pirsConsumedCapacity
     , pirsItemCollectionMetrics
     , pirsAttributes
@@ -190,7 +188,7 @@ piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
 piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExpressionAttributeNames = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
 piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnConsumedCapacity = a});
 
@@ -593,7 +591,7 @@ putItemResponse pStatus_ =
     , _pirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pirsConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
 pirsConsumedCapacity = lens _pirsConsumedCapacity (\ s a -> s{_pirsConsumedCapacity = a});
 
@@ -627,6 +625,6 @@ pirsItemCollectionMetrics = lens _pirsItemCollectionMetrics (\ s a -> s{_pirsIte
 pirsAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
 pirsAttributes = lens _pirsAttributes (\ s a -> s{_pirsAttributes = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pirsStatus :: Lens' PutItemResponse Int
 pirsStatus = lens _pirsStatus (\ s a -> s{_pirsStatus = a});

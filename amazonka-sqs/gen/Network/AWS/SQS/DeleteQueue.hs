@@ -36,19 +36,17 @@
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work>
 -- in the /Amazon SQS Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html AWS API Reference> for DeleteQueue.
 module Network.AWS.SQS.DeleteQueue
     (
-    -- * Request
+    -- * Creating a Request
       DeleteQueue
-    -- ** Request constructor
     , deleteQueue
-    -- ** Request lenses
+    -- * Request Lenses
     , dqQueueURL
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteQueueResponse
-    -- ** Response constructor
     , deleteQueueResponse
     ) where
 

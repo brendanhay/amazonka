@@ -21,21 +21,19 @@
 -- You can use this operation to determine whether a volume is being used
 -- or not.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeInitiators.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeInitiators.html AWS API Reference> for ListVolumeInitiators.
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
-    -- * Request
+    -- * Creating a Request
       ListVolumeInitiators
-    -- ** Request constructor
     , listVolumeInitiators
-    -- ** Request lenses
+    -- * Request Lenses
     , lviVolumeARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ListVolumeInitiatorsResponse
-    -- ** Response constructor
     , listVolumeInitiatorsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lvirsInitiators
     , lvirsStatus
     ) where
@@ -127,6 +125,6 @@ listVolumeInitiatorsResponse pStatus_ =
 lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lvirsStatus :: Lens' ListVolumeInitiatorsResponse Int
 lvirsStatus = lens _lvirsStatus (\ s a -> s{_lvirsStatus = a});

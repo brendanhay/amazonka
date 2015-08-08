@@ -22,23 +22,21 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html AWS API Reference> for ListGroupsForUser.
 module Network.AWS.IAM.ListGroupsForUser
     (
-    -- * Request
+    -- * Creating a Request
       ListGroupsForUser
-    -- ** Request constructor
     , listGroupsForUser
-    -- ** Request lenses
+    -- * Request Lenses
     , lgfuMaxItems
     , lgfuMarker
     , lgfuUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListGroupsForUserResponse
-    -- ** Response constructor
     , listGroupsForUserResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lgfursMarker
     , lgfursIsTruncated
     , lgfursStatus
@@ -171,7 +169,7 @@ lgfursMarker = lens _lgfursMarker (\ s a -> s{_lgfursMarker = a});
 lgfursIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
 lgfursIsTruncated = lens _lgfursIsTruncated (\ s a -> s{_lgfursIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lgfursStatus :: Lens' ListGroupsForUserResponse Int
 lgfursStatus = lens _lgfursStatus (\ s a -> s{_lgfursStatus = a});
 

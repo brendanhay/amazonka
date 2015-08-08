@@ -19,21 +19,19 @@
 --
 -- Deletes a trail.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html AWS API Reference> for DeleteTrail.
 module Network.AWS.CloudTrail.DeleteTrail
     (
-    -- * Request
+    -- * Creating a Request
       DeleteTrail
-    -- ** Request constructor
     , deleteTrail
-    -- ** Request lenses
+    -- * Request Lenses
     , dtName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteTrailResponse
-    -- ** Response constructor
     , deleteTrailResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsStatus
     ) where
 
@@ -111,6 +109,6 @@ deleteTrailResponse pStatus_ =
     { _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteTrailResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

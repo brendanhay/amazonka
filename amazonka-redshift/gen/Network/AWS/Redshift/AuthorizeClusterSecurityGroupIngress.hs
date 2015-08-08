@@ -37,24 +37,22 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Working with Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html AWS API Reference> for AuthorizeClusterSecurityGroupIngress.
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     (
-    -- * Request
+    -- * Creating a Request
       AuthorizeClusterSecurityGroupIngress
-    -- ** Request constructor
     , authorizeClusterSecurityGroupIngress
-    -- ** Request lenses
+    -- * Request Lenses
     , acsgiEC2SecurityGroupOwnerId
     , acsgiEC2SecurityGroupName
     , acsgiCIdRIP
     , acsgiClusterSecurityGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , AuthorizeClusterSecurityGroupIngressResponse
-    -- ** Response constructor
     , authorizeClusterSecurityGroupIngressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , acsgirsClusterSecurityGroup
     , acsgirsStatus
     ) where
@@ -172,10 +170,10 @@ authorizeClusterSecurityGroupIngressResponse pStatus_ =
     , _acsgirsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 acsgirsClusterSecurityGroup = lens _acsgirsClusterSecurityGroup (\ s a -> s{_acsgirsClusterSecurityGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 acsgirsStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
 acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});

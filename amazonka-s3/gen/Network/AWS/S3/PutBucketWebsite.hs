@@ -19,21 +19,19 @@
 --
 -- Set the website configuration for a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketWebsite.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketWebsite.html AWS API Reference> for PutBucketWebsite.
 module Network.AWS.S3.PutBucketWebsite
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketWebsite
-    -- ** Request constructor
     , putBucketWebsite
-    -- ** Request lenses
+    -- * Request Lenses
     , pbwContentMD5
     , pbwBucket
     , pbwWebsiteConfiguration
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketWebsiteResponse
-    -- ** Response constructor
     , putBucketWebsiteResponse
     ) where
 
@@ -66,15 +64,15 @@ putBucketWebsite pBucket_ pWebsiteConfiguration_ =
     , _pbwWebsiteConfiguration = pWebsiteConfiguration_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
 pbwContentMD5 = lens _pbwContentMD5 (\ s a -> s{_pbwContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbwBucket :: Lens' PutBucketWebsite BucketName
 pbwBucket = lens _pbwBucket (\ s a -> s{_pbwBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
 pbwWebsiteConfiguration = lens _pbwWebsiteConfiguration (\ s a -> s{_pbwWebsiteConfiguration = a});
 

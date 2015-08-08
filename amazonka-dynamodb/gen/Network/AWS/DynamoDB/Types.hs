@@ -13,10 +13,10 @@
 --
 module Network.AWS.DynamoDB.Types
     (
-    -- * Service
+    -- * Service Decription
       DynamoDB
 
-    -- * Errors
+    -- * Error Matchers
     , _ProvisionedThroughputExceededException
     , _ConditionalCheckFailedException
     , _ItemCollectionSizeLimitExceededException

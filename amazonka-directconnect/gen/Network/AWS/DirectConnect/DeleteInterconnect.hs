@@ -19,21 +19,19 @@
 --
 -- Deletes the specified interconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html AWS API Reference> for DeleteInterconnect.
 module Network.AWS.DirectConnect.DeleteInterconnect
     (
-    -- * Request
+    -- * Creating a Request
       DeleteInterconnect
-    -- ** Request constructor
     , deleteInterconnect
-    -- ** Request lenses
+    -- * Request Lenses
     , dInterconnectId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteInterconnectResponse
-    -- ** Response constructor
     , deleteInterconnectResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drsInterconnectState
     , drsStatus
     ) where
@@ -61,7 +59,7 @@ deleteInterconnect pInterconnectId_ =
     { _dInterconnectId = pInterconnectId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dInterconnectId :: Lens' DeleteInterconnect Text
 dInterconnectId = lens _dInterconnectId (\ s a -> s{_dInterconnectId = a});
 
@@ -117,10 +115,10 @@ deleteInterconnectResponse pStatus_ =
     , _drsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
 drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drsStatus :: Lens' DeleteInterconnectResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

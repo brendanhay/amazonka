@@ -20,23 +20,21 @@
 -- Represents the success of a third party job as returned to the pipeline
 -- by a job worker. Only used for partner actions.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobSuccessResult.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobSuccessResult.html AWS API Reference> for PutThirdPartyJobSuccessResult.
 module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
     (
-    -- * Request
+    -- * Creating a Request
       PutThirdPartyJobSuccessResult
-    -- ** Request constructor
     , putThirdPartyJobSuccessResult
-    -- ** Request lenses
+    -- * Request Lenses
     , ptpjsrContinuationToken
     , ptpjsrExecutionDetails
     , ptpjsrCurrentRevision
     , ptpjsrJobId
     , ptpjsrClientToken
 
-    -- * Response
+    -- * Destructuring the Response
     , PutThirdPartyJobSuccessResultResponse
-    -- ** Response constructor
     , putThirdPartyJobSuccessResultResponse
     ) where
 
@@ -84,11 +82,11 @@ putThirdPartyJobSuccessResult pJobId_ pClientToken_ =
 ptpjsrContinuationToken :: Lens' PutThirdPartyJobSuccessResult (Maybe Text)
 ptpjsrContinuationToken = lens _ptpjsrContinuationToken (\ s a -> s{_ptpjsrContinuationToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ptpjsrExecutionDetails :: Lens' PutThirdPartyJobSuccessResult (Maybe ExecutionDetails)
 ptpjsrExecutionDetails = lens _ptpjsrExecutionDetails (\ s a -> s{_ptpjsrExecutionDetails = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ptpjsrCurrentRevision :: Lens' PutThirdPartyJobSuccessResult (Maybe CurrentRevision)
 ptpjsrCurrentRevision = lens _ptpjsrCurrentRevision (\ s a -> s{_ptpjsrCurrentRevision = a});
 

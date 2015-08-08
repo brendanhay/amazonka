@@ -25,19 +25,17 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopStack.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopStack.html AWS API Reference> for StopStack.
 module Network.AWS.OpsWorks.StopStack
     (
-    -- * Request
+    -- * Creating a Request
       StopStack
-    -- ** Request constructor
     , stopStack
-    -- ** Request lenses
+    -- * Request Lenses
     , stoStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , StopStackResponse
-    -- ** Response constructor
     , stopStackResponse
     ) where
 

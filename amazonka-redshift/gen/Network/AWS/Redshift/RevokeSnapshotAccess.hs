@@ -25,23 +25,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html AWS API Reference> for RevokeSnapshotAccess.
 module Network.AWS.Redshift.RevokeSnapshotAccess
     (
-    -- * Request
+    -- * Creating a Request
       RevokeSnapshotAccess
-    -- ** Request constructor
     , revokeSnapshotAccess
-    -- ** Request lenses
+    -- * Request Lenses
     , rsaSnapshotClusterIdentifier
     , rsaSnapshotIdentifier
     , rsaAccountWithRestoreAccess
 
-    -- * Response
+    -- * Destructuring the Response
     , RevokeSnapshotAccessResponse
-    -- ** Response constructor
     , revokeSnapshotAccessResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rsarsSnapshot
     , rsarsStatus
     ) where
@@ -141,10 +139,10 @@ revokeSnapshotAccessResponse pStatus_ =
     , _rsarsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rsarsStatus :: Lens' RevokeSnapshotAccessResponse Int
 rsarsStatus = lens _rsarsStatus (\ s a -> s{_rsarsStatus = a});

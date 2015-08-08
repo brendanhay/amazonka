@@ -24,19 +24,17 @@
 --
 -- This command does not take any parameters.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeAccountAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeAccountAttributes.html AWS API Reference> for DescribeAccountAttributes.
 module Network.AWS.RDS.DescribeAccountAttributes
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAccountAttributes
-    -- ** Request constructor
     , describeAccountAttributes
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAccountAttributesResponse
-    -- ** Response constructor
     , describeAccountAttributesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , daarsAccountQuotas
     , daarsStatus
     ) where
@@ -112,6 +110,6 @@ describeAccountAttributesResponse pStatus_ =
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 daarsStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});

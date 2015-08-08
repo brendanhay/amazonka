@@ -33,14 +33,13 @@
 -- in the request. can be used to specify the maximum number of events to
 -- return in a page.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html AWS API Reference> for FilterLogEvents.
 module Network.AWS.CloudWatchLogs.FilterLogEvents
     (
-    -- * Request
+    -- * Creating a Request
       FilterLogEvents
-    -- ** Request constructor
     , filterLogEvents
-    -- ** Request lenses
+    -- * Request Lenses
     , fleStartTime
     , fleLogStreamNames
     , fleNextToken
@@ -50,11 +49,10 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , fleInterleaved
     , fleLogGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , FilterLogEventsResponse
-    -- ** Response constructor
     , filterLogEventsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , flersSearchedLogStreams
     , flersNextToken
     , flersEvents
@@ -237,6 +235,6 @@ flersNextToken = lens _flersNextToken (\ s a -> s{_flersNextToken = a});
 flersEvents :: Lens' FilterLogEventsResponse [FilteredLogEvent]
 flersEvents = lens _flersEvents (\ s a -> s{_flersEvents = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 flersStatus :: Lens' FilterLogEventsResponse Int
 flersStatus = lens _flersStatus (\ s a -> s{_flersStatus = a});

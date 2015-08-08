@@ -20,24 +20,22 @@
 -- The /DescribeCacheParameters/ action returns the detailed parameter list
 -- for a particular cache parameter group.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html AWS API Reference> for DescribeCacheParameters.
 module Network.AWS.ElastiCache.DescribeCacheParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCacheParameters
-    -- ** Request constructor
     , describeCacheParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , dcpMaxRecords
     , dcpMarker
     , dcpSource
     , dcpCacheParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCacheParametersResponse
-    -- ** Response constructor
     , describeCacheParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcprsCacheNodeTypeSpecificParameters
     , dcprsParameters
     , dcprsMarker
@@ -192,6 +190,6 @@ dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _De
 dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcprsStatus :: Lens' DescribeCacheParametersResponse Int
 dcprsStatus = lens _dcprsStatus (\ s a -> s{_dcprsStatus = a});

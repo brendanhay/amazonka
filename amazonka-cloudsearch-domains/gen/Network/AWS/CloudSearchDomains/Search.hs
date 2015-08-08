@@ -43,14 +43,13 @@
 -- service @DescribeDomains@ action. A domain\'s endpoints are also
 -- displayed on the domain dashboard in the Amazon CloudSearch console.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Search.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Search.html AWS API Reference> for Search.
 module Network.AWS.CloudSearchDomains.Search
     (
-    -- * Request
+    -- * Creating a Request
       Search
-    -- ** Request constructor
     , search
-    -- ** Request lenses
+    -- * Request Lenses
     , seaExpr
     , seaCursor
     , seaFilterQuery
@@ -65,11 +64,10 @@ module Network.AWS.CloudSearchDomains.Search
     , seaPartial
     , seaQuery
 
-    -- * Response
+    -- * Destructuring the Response
     , SearchResponse
-    -- ** Response constructor
     , searchResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , searsFacets
     , searsHits
     , searsStatus
@@ -551,6 +549,6 @@ searsFacets = lens _searsFacets (\ s a -> s{_searsFacets = a}) . _Default . _Map
 searsHits :: Lens' SearchResponse (Maybe Hits)
 searsHits = lens _searsHits (\ s a -> s{_searsHits = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 searsStatus :: Lens' SearchResponse Int
 searsStatus = lens _searsStatus (\ s a -> s{_searsStatus = a});

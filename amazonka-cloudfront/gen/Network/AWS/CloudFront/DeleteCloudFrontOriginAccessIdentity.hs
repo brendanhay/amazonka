@@ -19,20 +19,18 @@
 --
 -- Delete an origin access identity.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html AWS API Reference> for DeleteCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
-    -- * Request
+    -- * Creating a Request
       DeleteCloudFrontOriginAccessIdentity
-    -- ** Request constructor
     , deleteCloudFrontOriginAccessIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , dcfoaiIfMatch
     , dcfoaiId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteCloudFrontOriginAccessIdentityResponse
-    -- ** Response constructor
     , deleteCloudFrontOriginAccessIdentityResponse
     ) where
 

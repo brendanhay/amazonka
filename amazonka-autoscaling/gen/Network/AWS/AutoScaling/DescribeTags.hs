@@ -28,23 +28,21 @@
 -- for a particular tag only if it matches all the filters. If there\'s no
 -- match, no special message is returned.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.AutoScaling.DescribeTags
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTags
-    -- ** Request constructor
     , describeTags
-    -- ** Request lenses
+    -- * Request Lenses
     , dtFilters
     , dtNextToken
     , dtMaxRecords
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTagsResponse
-    -- ** Response constructor
     , describeTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsNextToken
     , dtrsTags
     , dtrsStatus
@@ -162,6 +160,6 @@ dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

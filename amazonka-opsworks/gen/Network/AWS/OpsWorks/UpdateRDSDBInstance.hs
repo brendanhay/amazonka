@@ -25,21 +25,19 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateRDSDBInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateRDSDBInstance.html AWS API Reference> for UpdateRDSDBInstance.
 module Network.AWS.OpsWorks.UpdateRDSDBInstance
     (
-    -- * Request
+    -- * Creating a Request
       UpdateRDSDBInstance
-    -- ** Request constructor
     , updateRDSDBInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , urdiDBUser
     , urdiDBPassword
     , urdiRDSDBInstanceARN
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateRDSDBInstanceResponse
-    -- ** Response constructor
     , updateRDSDBInstanceResponse
     ) where
 

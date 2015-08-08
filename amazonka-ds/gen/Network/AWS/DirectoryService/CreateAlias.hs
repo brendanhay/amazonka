@@ -24,22 +24,20 @@
 -- After an alias has been created, it cannot be deleted or reused, so this
 -- operation should only be used when absolutely necessary.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateAlias.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.DirectoryService.CreateAlias
     (
-    -- * Request
+    -- * Creating a Request
       CreateAlias
-    -- ** Request constructor
     , createAlias
-    -- ** Request lenses
+    -- * Request Lenses
     , caDirectoryId
     , caAlias
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateAliasResponse
-    -- ** Response constructor
     , createAliasResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , carsDirectoryId
     , carsAlias
     , carsStatus
@@ -150,6 +148,6 @@ carsDirectoryId = lens _carsDirectoryId (\ s a -> s{_carsDirectoryId = a});
 carsAlias :: Lens' CreateAliasResponse (Maybe Text)
 carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 carsStatus :: Lens' CreateAliasResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

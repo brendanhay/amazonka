@@ -19,21 +19,19 @@
 --
 -- Returns the request payment configuration of a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketRequestPayment.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketRequestPayment.html AWS API Reference> for GetBucketRequestPayment.
 module Network.AWS.S3.GetBucketRequestPayment
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketRequestPayment
-    -- ** Request constructor
     , getBucketRequestPayment
-    -- ** Request lenses
+    -- * Request Lenses
     , gbrpBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketRequestPaymentResponse
-    -- ** Response constructor
     , getBucketRequestPaymentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gbrprsPayer
     , gbrprsStatus
     ) where
@@ -59,7 +57,7 @@ getBucketRequestPayment pBucket_ =
     { _gbrpBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbrpBucket :: Lens' GetBucketRequestPayment BucketName
 gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a});
 
@@ -108,6 +106,6 @@ getBucketRequestPaymentResponse pStatus_ =
 gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gbrprsStatus :: Lens' GetBucketRequestPaymentResponse Int
 gbrprsStatus = lens _gbrprsStatus (\ s a -> s{_gbrprsStatus = a});

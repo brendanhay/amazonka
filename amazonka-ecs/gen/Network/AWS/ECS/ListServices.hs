@@ -19,23 +19,21 @@
 --
 -- Lists the services that are running in a specified cluster.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html AWS API Reference> for ListServices.
 module Network.AWS.ECS.ListServices
     (
-    -- * Request
+    -- * Creating a Request
       ListServices
-    -- ** Request constructor
     , listServices
-    -- ** Request lenses
+    -- * Request Lenses
     , lsCluster
     , lsNextToken
     , lsMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListServicesResponse
-    -- ** Response constructor
     , listServicesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrsServiceARNs
     , lsrsNextToken
     , lsrsStatus
@@ -174,6 +172,6 @@ lsrsServiceARNs = lens _lsrsServiceARNs (\ s a -> s{_lsrsServiceARNs = a}) . _De
 lsrsNextToken :: Lens' ListServicesResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrsStatus :: Lens' ListServicesResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

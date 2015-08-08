@@ -19,21 +19,19 @@
 --
 -- The ReadJob operation returns detailed information about a job.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadJob.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadJob.html AWS API Reference> for ReadJob.
 module Network.AWS.ElasticTranscoder.ReadJob
     (
-    -- * Request
+    -- * Creating a Request
       ReadJob
-    -- ** Request constructor
     , readJob
-    -- ** Request lenses
+    -- * Request Lenses
     , rjId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReadJobResponse
-    -- ** Response constructor
     , readJobResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rjrsStatus
     , rjrsJob
     ) where
@@ -108,7 +106,7 @@ readJobResponse pStatus_ pJob_ =
     , _rjrsJob = pJob_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rjrsStatus :: Lens' ReadJobResponse Int
 rjrsStatus = lens _rjrsStatus (\ s a -> s{_rjrsStatus = a});
 

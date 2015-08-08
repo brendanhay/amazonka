@@ -25,23 +25,21 @@
 -- This operation requires permission for the
 -- @elasticfilesystem:DescribeTags@ action.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeTags.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.EFS.DescribeTags
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTags
-    -- ** Request constructor
     , describeTags
-    -- ** Request lenses
+    -- * Request Lenses
     , dtMaxItems
     , dtMarker
     , dtFileSystemId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTagsResponse
-    -- ** Response constructor
     , describeTagsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtrsMarker
     , dtrsNextMarker
     , dtrsStatus
@@ -157,7 +155,7 @@ dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 dtrsNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextMarker = lens _dtrsNextMarker (\ s a -> s{_dtrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
 

@@ -19,21 +19,19 @@
 --
 -- Gets information about one or more deployments.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html AWS API Reference> for BatchGetDeployments.
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
-    -- * Request
+    -- * Creating a Request
       BatchGetDeployments
-    -- ** Request constructor
     , batchGetDeployments
-    -- ** Request lenses
+    -- * Request Lenses
     , bgdDeploymentIds
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchGetDeploymentsResponse
-    -- ** Response constructor
     , batchGetDeploymentsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , bgdrsDeploymentsInfo
     , bgdrsStatus
     ) where
@@ -124,6 +122,6 @@ batchGetDeploymentsResponse pStatus_ =
 bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 bgdrsStatus :: Lens' BatchGetDeploymentsResponse Int
 bgdrsStatus = lens _bgdrsStatus (\ s a -> s{_bgdrsStatus = a});

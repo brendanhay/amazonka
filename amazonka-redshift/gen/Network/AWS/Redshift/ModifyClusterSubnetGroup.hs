@@ -21,23 +21,21 @@
 -- subnets. The operation replaces the existing list of subnets with the
 -- new list of subnets.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html AWS API Reference> for ModifyClusterSubnetGroup.
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       ModifyClusterSubnetGroup
-    -- ** Request constructor
     , modifyClusterSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , mcsgDescription
     , mcsgClusterSubnetGroupName
     , mcsgSubnetIds
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyClusterSubnetGroupResponse
-    -- ** Response constructor
     , modifyClusterSubnetGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mcsgrsClusterSubnetGroup
     , mcsgrsStatus
     ) where
@@ -135,10 +133,10 @@ modifyClusterSubnetGroupResponse pStatus_ =
     , _mcsgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\ s a -> s{_mcsgrsClusterSubnetGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mcsgrsStatus :: Lens' ModifyClusterSubnetGroupResponse Int
 mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});

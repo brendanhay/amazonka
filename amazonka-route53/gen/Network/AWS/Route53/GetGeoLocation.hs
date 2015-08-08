@@ -21,23 +21,21 @@
 -- @2013-04-01\/geolocation@ resource with one of these options:
 -- continentcode | countrycode | countrycode and subdivisioncode.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html AWS API Reference> for GetGeoLocation.
 module Network.AWS.Route53.GetGeoLocation
     (
-    -- * Request
+    -- * Creating a Request
       GetGeoLocation
-    -- ** Request constructor
     , getGeoLocation
-    -- ** Request lenses
+    -- * Request Lenses
     , gglSubdivisionCode
     , gglCountryCode
     , gglContinentCode
 
-    -- * Response
+    -- * Destructuring the Response
     , GetGeoLocationResponse
-    -- ** Response constructor
     , getGeoLocationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gglrsStatus
     , gglrsGeoLocationDetails
     ) where
@@ -146,7 +144,7 @@ getGeoLocationResponse pStatus_ pGeoLocationDetails_ =
     , _gglrsGeoLocationDetails = pGeoLocationDetails_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gglrsStatus :: Lens' GetGeoLocationResponse Int
 gglrsStatus = lens _gglrsStatus (\ s a -> s{_gglrsStatus = a});
 

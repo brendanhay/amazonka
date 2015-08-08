@@ -22,22 +22,20 @@
 -- You can use the GetBatchPrediction operation to view the contents of the
 -- updated data element.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateBatchPrediction.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateBatchPrediction.html AWS API Reference> for UpdateBatchPrediction.
 module Network.AWS.MachineLearning.UpdateBatchPrediction
     (
-    -- * Request
+    -- * Creating a Request
       UpdateBatchPrediction
-    -- ** Request constructor
     , updateBatchPrediction
-    -- ** Request lenses
+    -- * Request Lenses
     , ubpBatchPredictionId
     , ubpBatchPredictionName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateBatchPredictionResponse
-    -- ** Response constructor
     , updateBatchPredictionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ubprsBatchPredictionId
     , ubprsStatus
     ) where
@@ -139,6 +137,6 @@ updateBatchPredictionResponse pStatus_ =
 ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ubprsStatus :: Lens' UpdateBatchPredictionResponse Int
 ubprsStatus = lens _ubprsStatus (\ s a -> s{_ubprsStatus = a});

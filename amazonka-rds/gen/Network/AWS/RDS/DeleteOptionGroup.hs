@@ -19,19 +19,17 @@
 --
 -- Deletes an existing option group.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html AWS API Reference> for DeleteOptionGroup.
 module Network.AWS.RDS.DeleteOptionGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteOptionGroup
-    -- ** Request constructor
     , deleteOptionGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dOptionGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteOptionGroupResponse
-    -- ** Response constructor
     , deleteOptionGroupResponse
     ) where
 

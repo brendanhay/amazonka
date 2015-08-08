@@ -20,23 +20,21 @@
 -- Lists the instances for a deployment associated with the applicable IAM
 -- user or AWS account.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html AWS API Reference> for ListDeploymentInstances.
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
-    -- * Request
+    -- * Creating a Request
       ListDeploymentInstances
-    -- ** Request constructor
     , listDeploymentInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , ldiInstanceStatusFilter
     , ldiNextToken
     , ldiDeploymentId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListDeploymentInstancesResponse
-    -- ** Response constructor
     , listDeploymentInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ldirsNextToken
     , ldirsInstancesList
     , ldirsStatus
@@ -173,6 +171,6 @@ ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 ldirsInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ldirsStatus :: Lens' ListDeploymentInstancesResponse Int
 ldirsStatus = lens _ldirsStatus (\ s a -> s{_ldirsStatus = a});

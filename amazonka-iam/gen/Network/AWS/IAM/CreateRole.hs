@@ -28,23 +28,21 @@
 -- The policy in the following example grants permission to an EC2 instance
 -- to assume the role.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html AWS API Reference> for CreateRole.
 module Network.AWS.IAM.CreateRole
     (
-    -- * Request
+    -- * Creating a Request
       CreateRole
-    -- ** Request constructor
     , createRole
-    -- ** Request lenses
+    -- * Request Lenses
     , crPath
     , crRoleName
     , crAssumeRolePolicyDocument
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateRoleResponse
-    -- ** Response constructor
     , createRoleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crrsStatus
     , crrsRole
     ) where
@@ -142,7 +140,7 @@ createRoleResponse pStatus_ pRole_ =
     , _crrsRole = pRole_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crrsStatus :: Lens' CreateRoleResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
 

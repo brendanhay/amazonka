@@ -26,14 +26,13 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateInstance.html AWS API Reference> for CreateInstance.
 module Network.AWS.OpsWorks.CreateInstance
     (
-    -- * Request
+    -- * Creating a Request
       CreateInstance
-    -- ** Request constructor
     , createInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , ciInstallUpdatesOnBoot
     , ciVirtualizationType
     , ciHostname
@@ -52,11 +51,10 @@ module Network.AWS.OpsWorks.CreateInstance
     , ciLayerIds
     , ciInstanceType
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateInstanceResponse
-    -- ** Response constructor
     , createInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cirsInstanceId
     , cirsStatus
     ) where
@@ -342,6 +340,6 @@ createInstanceResponse pStatus_ =
 cirsInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirsInstanceId = lens _cirsInstanceId (\ s a -> s{_cirsInstanceId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cirsStatus :: Lens' CreateInstanceResponse Int
 cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

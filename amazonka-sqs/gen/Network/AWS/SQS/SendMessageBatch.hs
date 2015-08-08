@@ -49,22 +49,20 @@
 --
 -- @&Attribute.2=that@
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html AWS API Reference> for SendMessageBatch.
 module Network.AWS.SQS.SendMessageBatch
     (
-    -- * Request
+    -- * Creating a Request
       SendMessageBatch
-    -- ** Request constructor
     , sendMessageBatch
-    -- ** Request lenses
+    -- * Request Lenses
     , smbQueueURL
     , smbEntries
 
-    -- * Response
+    -- * Destructuring the Response
     , SendMessageBatchResponse
-    -- ** Response constructor
     , sendMessageBatchResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , smbrsStatus
     , smbrsSuccessful
     , smbrsFailed
@@ -158,7 +156,7 @@ sendMessageBatchResponse pStatus_ =
     , _smbrsFailed = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 smbrsStatus :: Lens' SendMessageBatchResponse Int
 smbrsStatus = lens _smbrsStatus (\ s a -> s{_smbrsStatus = a});
 

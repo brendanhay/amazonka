@@ -19,20 +19,18 @@
 --
 -- Adds the specified user to the specified group.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html AWS API Reference> for AddUserToGroup.
 module Network.AWS.IAM.AddUserToGroup
     (
-    -- * Request
+    -- * Creating a Request
       AddUserToGroup
-    -- ** Request constructor
     , addUserToGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , autgGroupName
     , autgUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , AddUserToGroupResponse
-    -- ** Response constructor
     , addUserToGroupResponse
     ) where
 

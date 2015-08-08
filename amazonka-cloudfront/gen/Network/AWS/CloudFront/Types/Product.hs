@@ -155,7 +155,7 @@ allowedMethods pQuantity_ =
     , _amItems = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 amCachedMethods :: Lens' AllowedMethods (Maybe CachedMethods)
 amCachedMethods = lens _amCachedMethods (\ s a -> s{_amCachedMethods = a});
 
@@ -253,7 +253,7 @@ cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ 
     , _cbMinTTL = pMinTTL_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cbAllowedMethods :: Lens' CacheBehavior (Maybe AllowedMethods)
 cbAllowedMethods = lens _cbAllowedMethods (\ s a -> s{_cbAllowedMethods = a});
 
@@ -1022,7 +1022,7 @@ defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewer
     , _dcbMinTTL = pMinTTL_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcbAllowedMethods :: Lens' DefaultCacheBehavior (Maybe AllowedMethods)
 dcbAllowedMethods = lens _dcbAllowedMethods (\ s a -> s{_dcbAllowedMethods = a});
 
@@ -1306,11 +1306,11 @@ dcCustomErrorResponses = lens _dcCustomErrorResponses (\ s a -> s{_dcCustomError
 dcPriceClass :: Lens' DistributionConfig (Maybe PriceClass)
 dcPriceClass = lens _dcPriceClass (\ s a -> s{_dcPriceClass = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcViewerCertificate :: Lens' DistributionConfig (Maybe ViewerCertificate)
 dcViewerCertificate = lens _dcViewerCertificate (\ s a -> s{_dcViewerCertificate = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcRestrictions :: Lens' DistributionConfig (Maybe Restrictions)
 dcRestrictions = lens _dcRestrictions (\ s a -> s{_dcRestrictions = a});
 
@@ -1587,7 +1587,7 @@ dsCustomErrorResponses = lens _dsCustomErrorResponses (\ s a -> s{_dsCustomError
 dsComment :: Lens' DistributionSummary Text
 dsComment = lens _dsComment (\ s a -> s{_dsComment = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsPriceClass :: Lens' DistributionSummary PriceClass
 dsPriceClass = lens _dsPriceClass (\ s a -> s{_dsPriceClass = a});
 
@@ -1596,11 +1596,11 @@ dsPriceClass = lens _dsPriceClass (\ s a -> s{_dsPriceClass = a});
 dsEnabled :: Lens' DistributionSummary Bool
 dsEnabled = lens _dsEnabled (\ s a -> s{_dsEnabled = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsViewerCertificate :: Lens' DistributionSummary ViewerCertificate
 dsViewerCertificate = lens _dsViewerCertificate (\ s a -> s{_dsViewerCertificate = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsRestrictions :: Lens' DistributionSummary Restrictions
 dsRestrictions = lens _dsRestrictions (\ s a -> s{_dsRestrictions = a});
 
@@ -2032,7 +2032,7 @@ invalidationSummary pId_ pCreateTime_ pStatus_ =
 isId :: Lens' InvalidationSummary Text
 isId = lens _isId (\ s a -> s{_isId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 isCreateTime :: Lens' InvalidationSummary UTCTime
 isCreateTime = lens _isCreateTime (\ s a -> s{_isCreateTime = a}) . _Time;
 
@@ -2356,7 +2356,7 @@ restrictions pGeoRestriction_ =
     { _rGeoRestriction = pGeoRestriction_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rGeoRestriction :: Lens' Restrictions GeoRestriction
 rGeoRestriction = lens _rGeoRestriction (\ s a -> s{_rGeoRestriction = a});
 
@@ -2887,7 +2887,7 @@ sdsTrustedSigners = lens _sdsTrustedSigners (\ s a -> s{_sdsTrustedSigners = a})
 sdsComment :: Lens' StreamingDistributionSummary Text
 sdsComment = lens _sdsComment (\ s a -> s{_sdsComment = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 sdsPriceClass :: Lens' StreamingDistributionSummary PriceClass
 sdsPriceClass = lens _sdsPriceClass (\ s a -> s{_sdsPriceClass = a});
 

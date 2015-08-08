@@ -23,21 +23,19 @@
 --
 -- Currently, you can specify only one configuration recorder per account.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html AWS API Reference> for DescribeConfigurationRecorderStatus.
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
     (
-    -- * Request
+    -- * Creating a Request
       DescribeConfigurationRecorderStatus
-    -- ** Request constructor
     , describeConfigurationRecorderStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , dcrsConfigurationRecorderNames
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeConfigurationRecorderStatusResponse
-    -- ** Response constructor
     , describeConfigurationRecorderStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsrsConfigurationRecordersStatus
     , dcrsrsStatus
     ) where
@@ -137,6 +135,6 @@ describeConfigurationRecorderStatusResponse pStatus_ =
 dcrsrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
 dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsrsStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
 dcrsrsStatus = lens _dcrsrsStatus (\ s a -> s{_dcrsrsStatus = a});

@@ -20,20 +20,18 @@
 -- Disables a virtual private gateway (VGW) from propagating routes to a
 -- specified route table of a VPC.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVGWRoutePropagation.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVGWRoutePropagation.html AWS API Reference> for DisableVGWRoutePropagation.
 module Network.AWS.EC2.DisableVGWRoutePropagation
     (
-    -- * Request
+    -- * Creating a Request
       DisableVGWRoutePropagation
-    -- ** Request constructor
     , disableVGWRoutePropagation
-    -- ** Request lenses
+    -- * Request Lenses
     , dvrpRouteTableId
     , dvrpGatewayId
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableVGWRoutePropagationResponse
-    -- ** Response constructor
     , disableVGWRoutePropagationResponse
     ) where
 

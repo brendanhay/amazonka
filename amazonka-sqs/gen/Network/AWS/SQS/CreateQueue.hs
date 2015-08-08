@@ -47,22 +47,20 @@
 --
 -- @&Attribute.2=that@
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html AWS API Reference> for CreateQueue.
 module Network.AWS.SQS.CreateQueue
     (
-    -- * Request
+    -- * Creating a Request
       CreateQueue
-    -- ** Request constructor
     , createQueue
-    -- ** Request lenses
+    -- * Request Lenses
     , cqAttributes
     , cqQueueName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateQueueResponse
-    -- ** Response constructor
     , createQueueResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cqrsQueueURL
     , cqrsStatus
     ) where
@@ -179,6 +177,6 @@ createQueueResponse pStatus_ =
 cqrsQueueURL :: Lens' CreateQueueResponse (Maybe Text)
 cqrsQueueURL = lens _cqrsQueueURL (\ s a -> s{_cqrsQueueURL = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cqrsStatus :: Lens' CreateQueueResponse Int
 cqrsStatus = lens _cqrsStatus (\ s a -> s{_cqrsStatus = a});

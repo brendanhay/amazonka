@@ -24,24 +24,22 @@
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateUserProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateUserProfile.html AWS API Reference> for CreateUserProfile.
 module Network.AWS.OpsWorks.CreateUserProfile
     (
-    -- * Request
+    -- * Creating a Request
       CreateUserProfile
-    -- ** Request constructor
     , createUserProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , cupSSHUsername
     , cupSSHPublicKey
     , cupAllowSelfManagement
     , cupIAMUserARN
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateUserProfileResponse
-    -- ** Response constructor
     , createUserProfileResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cuprsIAMUserARN
     , cuprsStatus
     ) where
@@ -161,6 +159,6 @@ createUserProfileResponse pStatus_ =
 cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cuprsStatus :: Lens' CreateUserProfileResponse Int
 cuprsStatus = lens _cuprsStatus (\ s a -> s{_cuprsStatus = a});

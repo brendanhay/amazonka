@@ -22,23 +22,21 @@
 -- any @ACTIVE@ task definitions). You can filter the results with the
 -- @familyPrefix@ parameter.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitionFamilies.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitionFamilies.html AWS API Reference> for ListTaskDefinitionFamilies.
 module Network.AWS.ECS.ListTaskDefinitionFamilies
     (
-    -- * Request
+    -- * Creating a Request
       ListTaskDefinitionFamilies
-    -- ** Request constructor
     , listTaskDefinitionFamilies
-    -- ** Request lenses
+    -- * Request Lenses
     , ltdfFamilyPrefix
     , ltdfNextToken
     , ltdfMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListTaskDefinitionFamiliesResponse
-    -- ** Response constructor
     , listTaskDefinitionFamiliesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ltdfrsFamilies
     , ltdfrsNextToken
     , ltdfrsStatus
@@ -180,6 +178,6 @@ ltdfrsFamilies = lens _ltdfrsFamilies (\ s a -> s{_ltdfrsFamilies = a}) . _Defau
 ltdfrsNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
 ltdfrsNextToken = lens _ltdfrsNextToken (\ s a -> s{_ltdfrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ltdfrsStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
 ltdfrsStatus = lens _ltdfrsStatus (\ s a -> s{_ltdfrsStatus = a});

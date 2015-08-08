@@ -24,21 +24,19 @@
 -- any services or charges for cross-connects or network circuits that
 -- connect you to the AWS Direct Connect location.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteConnection.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteConnection.html AWS API Reference> for DeleteConnection.
 module Network.AWS.DirectConnect.DeleteConnection
     (
-    -- * Request
+    -- * Creating a Request
       DeleteConnection
-    -- ** Request constructor
     , deleteConnection
-    -- ** Request lenses
+    -- * Request Lenses
     , dcConnectionId
 
-    -- * Response
+    -- * Destructuring the Response
     , Connection
-    -- ** Response constructor
     , connection
-    -- ** Response lenses
+    -- * Response Lenses
     , cVlan
     , cLocation
     , cConnectionId
@@ -73,7 +71,7 @@ deleteConnection pConnectionId_ =
     { _dcConnectionId = pConnectionId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcConnectionId :: Lens' DeleteConnection Text
 dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a});
 

@@ -28,24 +28,22 @@
 -- This operation requires permission for the
 -- @lambda:ListEventSourceMappings@ action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSourceMappings.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSourceMappings.html AWS API Reference> for ListEventSourceMappings.
 module Network.AWS.Lambda.ListEventSourceMappings
     (
-    -- * Request
+    -- * Creating a Request
       ListEventSourceMappings
-    -- ** Request constructor
     , listEventSourceMappings
-    -- ** Request lenses
+    -- * Request Lenses
     , lesmEventSourceARN
     , lesmMaxItems
     , lesmMarker
     , lesmFunctionName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListEventSourceMappingsResponse
-    -- ** Response constructor
     , listEventSourceMappingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lesmrsEventSourceMappings
     , lesmrsNextMarker
     , lesmrsStatus
@@ -181,6 +179,6 @@ lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsE
 lesmrsNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
 lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lesmrsStatus :: Lens' ListEventSourceMappingsResponse Int
 lesmrsStatus = lens _lesmrsStatus (\ s a -> s{_lesmrsStatus = a});

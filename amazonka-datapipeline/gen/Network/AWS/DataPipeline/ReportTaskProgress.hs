@@ -30,22 +30,20 @@
 -- reassigns the task in a subsequent response to PollForTask. Task runners
 -- should call @ReportTaskProgress@ every 60 seconds.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html AWS API Reference> for ReportTaskProgress.
 module Network.AWS.DataPipeline.ReportTaskProgress
     (
-    -- * Request
+    -- * Creating a Request
       ReportTaskProgress
-    -- ** Request constructor
     , reportTaskProgress
-    -- ** Request lenses
+    -- * Request Lenses
     , rtpFields
     , rtpTaskId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReportTaskProgressResponse
-    -- ** Response constructor
     , reportTaskProgressResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rtprsStatus
     , rtprsCanceled
     ) where
@@ -140,7 +138,7 @@ reportTaskProgressResponse pStatus_ pCanceled_ =
     , _rtprsCanceled = pCanceled_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rtprsStatus :: Lens' ReportTaskProgressResponse Int
 rtprsStatus = lens _rtprsStatus (\ s a -> s{_rtprsStatus = a});
 

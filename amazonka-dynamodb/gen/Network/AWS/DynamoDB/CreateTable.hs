@@ -36,14 +36,13 @@
 --
 -- You can use the /DescribeTable/ API to check the table status.
 --
--- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html>
+-- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html AWS API Reference> for CreateTable.
 module Network.AWS.DynamoDB.CreateTable
     (
-    -- * Request
+    -- * Creating a Request
       CreateTable
-    -- ** Request constructor
     , createTable
-    -- ** Request lenses
+    -- * Request Lenses
     , ctGlobalSecondaryIndexes
     , ctLocalSecondaryIndexes
     , ctStreamSpecification
@@ -52,11 +51,10 @@ module Network.AWS.DynamoDB.CreateTable
     , ctKeySchema
     , ctProvisionedThroughput
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateTableResponse
-    -- ** Response constructor
     , createTableResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ctrsTableDescription
     , ctrsStatus
     ) where
@@ -251,7 +249,7 @@ ctTableName = lens _ctTableName (\ s a -> s{_ctTableName = a});
 ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
 ctKeySchema = lens _ctKeySchema (\ s a -> s{_ctKeySchema = a}) . _List1;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ctProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
 ctProvisionedThroughput = lens _ctProvisionedThroughput (\ s a -> s{_ctProvisionedThroughput = a});
 
@@ -314,10 +312,10 @@ createTableResponse pStatus_ =
     , _ctrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ctrsStatus :: Lens' CreateTableResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

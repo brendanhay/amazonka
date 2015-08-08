@@ -26,20 +26,18 @@
 -- that calls this action, we recommend that you structure your code so
 -- that it can handle new attributes gracefully.
 --
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html AWS API Reference> for SetQueueAttributes.
 module Network.AWS.SQS.SetQueueAttributes
     (
-    -- * Request
+    -- * Creating a Request
       SetQueueAttributes
-    -- ** Request constructor
     , setQueueAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , sqaQueueURL
     , sqaAttributes
 
-    -- * Response
+    -- * Destructuring the Response
     , SetQueueAttributesResponse
-    -- ** Response constructor
     , setQueueAttributesResponse
     ) where
 

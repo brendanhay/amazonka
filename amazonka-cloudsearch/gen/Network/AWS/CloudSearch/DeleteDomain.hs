@@ -22,21 +22,19 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html Deleting a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteDomain.html AWS API Reference> for DeleteDomain.
 module Network.AWS.CloudSearch.DeleteDomain
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDomain
-    -- ** Request constructor
     , deleteDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , dddDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDomainResponse
-    -- ** Response constructor
     , deleteDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddrsDomainStatus
     , ddrsStatus
     ) where
@@ -116,10 +114,10 @@ deleteDomainResponse pStatus_ =
     , _ddrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddrsStatus :: Lens' DeleteDomainResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

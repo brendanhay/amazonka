@@ -30,24 +30,22 @@
 -- progress and completion of the action. If the request is not completed
 -- successfully, the domain registrant will be notified by email.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContactPrivacy.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContactPrivacy.html AWS API Reference> for UpdateDomainContactPrivacy.
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     (
-    -- * Request
+    -- * Creating a Request
       UpdateDomainContactPrivacy
-    -- ** Request constructor
     , updateDomainContactPrivacy
-    -- ** Request lenses
+    -- * Request Lenses
     , udcpTechPrivacy
     , udcpRegistrantPrivacy
     , udcpAdminPrivacy
     , udcpDomainName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateDomainContactPrivacyResponse
-    -- ** Response constructor
     , updateDomainContactPrivacyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , udcprsStatus
     , udcprsOperationId
     ) where
@@ -203,7 +201,7 @@ updateDomainContactPrivacyResponse pStatus_ pOperationId_ =
     , _udcprsOperationId = pOperationId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udcprsStatus :: Lens' UpdateDomainContactPrivacyResponse Int
 udcprsStatus = lens _udcprsStatus (\ s a -> s{_udcprsStatus = a});
 

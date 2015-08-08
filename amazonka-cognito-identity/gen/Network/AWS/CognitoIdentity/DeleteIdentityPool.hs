@@ -22,19 +22,17 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentityPool.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentityPool.html AWS API Reference> for DeleteIdentityPool.
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
     (
-    -- * Request
+    -- * Creating a Request
       DeleteIdentityPool
-    -- ** Request constructor
     , deleteIdentityPool
-    -- ** Request lenses
+    -- * Request Lenses
     , dIdentityPoolId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteIdentityPoolResponse
-    -- ** Response constructor
     , deleteIdentityPoolResponse
     ) where
 

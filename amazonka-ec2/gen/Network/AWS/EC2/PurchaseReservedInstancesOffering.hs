@@ -33,24 +33,22 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html AWS API Reference> for PurchaseReservedInstancesOffering.
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
-    -- * Request
+    -- * Creating a Request
       PurchaseReservedInstancesOffering
-    -- ** Request constructor
     , purchaseReservedInstancesOffering
-    -- ** Request lenses
+    -- * Request Lenses
     , prioLimitPrice
     , prioDryRun
     , prioReservedInstancesOfferingId
     , prioInstanceCount
 
-    -- * Response
+    -- * Destructuring the Response
     , PurchaseReservedInstancesOfferingResponse
-    -- ** Response constructor
     , purchaseReservedInstancesOfferingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , priorsReservedInstancesId
     , priorsStatus
     ) where
@@ -167,6 +165,6 @@ purchaseReservedInstancesOfferingResponse pStatus_ =
 priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 priorsStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
 priorsStatus = lens _priorsStatus (\ s a -> s{_priorsStatus = a});

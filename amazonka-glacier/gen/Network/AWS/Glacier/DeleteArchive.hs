@@ -44,21 +44,19 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html Delete Archive>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteArchive.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteArchive.html AWS API Reference> for DeleteArchive.
 module Network.AWS.Glacier.DeleteArchive
     (
-    -- * Request
+    -- * Creating a Request
       DeleteArchive
-    -- ** Request constructor
     , deleteArchive
-    -- ** Request lenses
+    -- * Request Lenses
     , daAccountId
     , daVaultName
     , daArchiveId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteArchiveResponse
-    -- ** Response constructor
     , deleteArchiveResponse
     ) where
 

@@ -19,21 +19,19 @@
 --
 -- Get the configuration information about a distribution.
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistributionConfig.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistributionConfig.html AWS API Reference> for GetDistributionConfig.
 module Network.AWS.CloudFront.GetDistributionConfig
     (
-    -- * Request
+    -- * Creating a Request
       GetDistributionConfig
-    -- ** Request constructor
     , getDistributionConfig
-    -- ** Request lenses
+    -- * Request Lenses
     , gdcId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetDistributionConfigResponse
-    -- ** Response constructor
     , getDistributionConfigResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gdcrsETag
     , gdcrsDistributionConfig
     , gdcrsStatus
@@ -123,6 +121,6 @@ gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a});
 gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
 gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gdcrsStatus :: Lens' GetDistributionConfigResponse Int
 gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});

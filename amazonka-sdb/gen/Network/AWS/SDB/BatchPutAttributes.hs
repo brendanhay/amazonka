@@ -66,20 +66,18 @@
 -- -   10 GB of total user data storage per domain
 -- -   25 item limit per @BatchPutAttributes@ operation
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchPutAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchPutAttributes.html AWS API Reference> for BatchPutAttributes.
 module Network.AWS.SDB.BatchPutAttributes
     (
-    -- * Request
+    -- * Creating a Request
       BatchPutAttributes
-    -- ** Request constructor
     , batchPutAttributes
-    -- ** Request lenses
+    -- * Request Lenses
     , bpaDomainName
     , bpaItems
 
-    -- * Response
+    -- * Destructuring the Response
     , BatchPutAttributesResponse
-    -- ** Response constructor
     , batchPutAttributesResponse
     ) where
 

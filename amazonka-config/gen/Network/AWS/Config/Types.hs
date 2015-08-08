@@ -13,10 +13,10 @@
 --
 module Network.AWS.Config.Types
     (
-    -- * Service
+    -- * Service Decription
       Config
 
-    -- * Errors
+    -- * Error Matchers
     , _ValidationException
     , _InvalidTimeRangeException
     , _InvalidRecordingGroupException

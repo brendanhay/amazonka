@@ -25,22 +25,20 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html AWS API Reference> for ListAccountAliases.
 module Network.AWS.IAM.ListAccountAliases
     (
-    -- * Request
+    -- * Creating a Request
       ListAccountAliases
-    -- ** Request constructor
     , listAccountAliases
-    -- ** Request lenses
+    -- * Request Lenses
     , laaMaxItems
     , laaMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAccountAliasesResponse
-    -- ** Response constructor
     , listAccountAliasesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , laarsMarker
     , laarsIsTruncated
     , laarsStatus
@@ -165,7 +163,7 @@ laarsMarker = lens _laarsMarker (\ s a -> s{_laarsMarker = a});
 laarsIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarsIsTruncated = lens _laarsIsTruncated (\ s a -> s{_laarsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 laarsStatus :: Lens' ListAccountAliasesResponse Int
 laarsStatus = lens _laarsStatus (\ s a -> s{_laarsStatus = a});
 

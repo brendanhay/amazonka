@@ -19,21 +19,19 @@
 --
 -- Rotates the encryption keys for a cluster.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html AWS API Reference> for RotateEncryptionKey.
 module Network.AWS.Redshift.RotateEncryptionKey
     (
-    -- * Request
+    -- * Creating a Request
       RotateEncryptionKey
-    -- ** Request constructor
     , rotateEncryptionKey
-    -- ** Request lenses
+    -- * Request Lenses
     , rekClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , RotateEncryptionKeyResponse
-    -- ** Response constructor
     , rotateEncryptionKeyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rekrsCluster
     , rekrsStatus
     ) where
@@ -113,10 +111,10 @@ rotateEncryptionKeyResponse pStatus_ =
     , _rekrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rekrsStatus :: Lens' RotateEncryptionKeyResponse Int
 rekrsStatus = lens _rekrsStatus (\ s a -> s{_rekrsStatus = a});

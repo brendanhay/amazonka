@@ -27,23 +27,21 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeCommands.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeCommands.html AWS API Reference> for DescribeCommands.
 module Network.AWS.OpsWorks.DescribeCommands
     (
-    -- * Request
+    -- * Creating a Request
       DescribeCommands
-    -- ** Request constructor
     , describeCommands
-    -- ** Request lenses
+    -- * Request Lenses
     , dcInstanceId
     , dcDeploymentId
     , dcCommandIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeCommandsResponse
-    -- ** Response constructor
     , describeCommandsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsCommands
     , dcrsStatus
     ) where
@@ -155,6 +153,6 @@ describeCommandsResponse pStatus_ =
 dcrsCommands :: Lens' DescribeCommandsResponse [Command]
 dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsStatus :: Lens' DescribeCommandsResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

@@ -29,21 +29,19 @@
 -- To list or delete a snapshot, you must use the Amazon EC2 API. in
 -- /Amazon Elastic Compute Cloud API Reference/.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html AWS API Reference> for DeleteSnapshotSchedule.
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSnapshotSchedule
-    -- ** Request constructor
     , deleteSnapshotSchedule
-    -- ** Request lenses
+    -- * Request Lenses
     , dVolumeARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSnapshotScheduleResponse
-    -- ** Response constructor
     , deleteSnapshotScheduleResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsssrsVolumeARN
     , dsssrsStatus
     ) where
@@ -69,7 +67,7 @@ deleteSnapshotSchedule pVolumeARN_ =
     { _dVolumeARN = pVolumeARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dVolumeARN :: Lens' DeleteSnapshotSchedule Text
 dVolumeARN = lens _dVolumeARN (\ s a -> s{_dVolumeARN = a});
 
@@ -124,10 +122,10 @@ deleteSnapshotScheduleResponse pStatus_ =
     , _dsssrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsssrsStatus :: Lens' DeleteSnapshotScheduleResponse Int
 dsssrsStatus = lens _dsssrsStatus (\ s a -> s{_dsssrsStatus = a});

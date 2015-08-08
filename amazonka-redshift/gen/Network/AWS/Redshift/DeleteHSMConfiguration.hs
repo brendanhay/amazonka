@@ -19,19 +19,17 @@
 --
 -- Deletes the specified Amazon Redshift HSM configuration.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMConfiguration.html AWS API Reference> for DeleteHSMConfiguration.
 module Network.AWS.Redshift.DeleteHSMConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       DeleteHSMConfiguration
-    -- ** Request constructor
     , deleteHSMConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , dhcHSMConfigurationIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteHSMConfigurationResponse
-    -- ** Response constructor
     , deleteHSMConfigurationResponse
     ) where
 

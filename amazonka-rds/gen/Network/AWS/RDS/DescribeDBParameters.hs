@@ -19,25 +19,23 @@
 --
 -- Returns the detailed parameter list for a particular DB parameter group.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameters.html AWS API Reference> for DescribeDBParameters.
 module Network.AWS.RDS.DescribeDBParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDBParameters
-    -- ** Request constructor
     , describeDBParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , ddpFilters
     , ddpMaxRecords
     , ddpMarker
     , ddpSource
     , ddpDBParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDBParametersResponse
-    -- ** Response constructor
     , describeDBParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddprsParameters
     , ddprsMarker
     , ddprsStatus
@@ -196,6 +194,6 @@ ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _De
 ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddprsMarker = lens _ddprsMarker (\ s a -> s{_ddprsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddprsStatus :: Lens' DescribeDBParametersResponse Int
 ddprsStatus = lens _ddprsStatus (\ s a -> s{_ddprsStatus = a});

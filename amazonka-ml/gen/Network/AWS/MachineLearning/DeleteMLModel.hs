@@ -26,21 +26,19 @@
 --
 -- The result of the @DeleteMLModel@ operation is irreversible.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteMLModel.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteMLModel.html AWS API Reference> for DeleteMLModel.
 module Network.AWS.MachineLearning.DeleteMLModel
     (
-    -- * Request
+    -- * Creating a Request
       DeleteMLModel
-    -- ** Request constructor
     , deleteMLModel
-    -- ** Request lenses
+    -- * Request Lenses
     , dmlmMLModelId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteMLModelResponse
-    -- ** Response constructor
     , deleteMLModelResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dmlmrsMLModelId
     , dmlmrsStatus
     ) where
@@ -129,6 +127,6 @@ deleteMLModelResponse pStatus_ =
 dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dmlmrsStatus :: Lens' DeleteMLModelResponse Int
 dmlmrsStatus = lens _dmlmrsStatus (\ s a -> s{_dmlmrsStatus = a});

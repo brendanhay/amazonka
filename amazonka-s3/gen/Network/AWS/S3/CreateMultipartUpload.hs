@@ -25,14 +25,13 @@
 -- either complete or abort multipart upload, Amazon S3 frees up the parts
 -- storage and stops charging you for the parts storage.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateMultipartUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateMultipartUpload.html AWS API Reference> for CreateMultipartUpload.
 module Network.AWS.S3.CreateMultipartUpload
     (
-    -- * Request
+    -- * Creating a Request
       CreateMultipartUpload
-    -- ** Request constructor
     , createMultipartUpload
-    -- ** Request lenses
+    -- * Request Lenses
     , cmuExpires
     , cmuSSECustomerAlgorithm
     , cmuGrantReadACP
@@ -56,11 +55,10 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmuBucket
     , cmuKey
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateMultipartUploadResponse
-    -- ** Response constructor
     , createMultipartUploadResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cmursRequestCharged
     , cmursSSECustomerAlgorithm
     , cmursBucket
@@ -198,7 +196,7 @@ cmuGrantReadACP = lens _cmuGrantReadACP (\ s a -> s{_cmuGrantReadACP = a});
 cmuSSECustomerKey :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKey = lens _cmuSSECustomerKey (\ s a -> s{_cmuSSECustomerKey = a}) . mapping _Sensitive;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmuRequestPayer :: Lens' CreateMultipartUpload (Maybe RequestPayer)
 cmuRequestPayer = lens _cmuRequestPayer (\ s a -> s{_cmuRequestPayer = a});
 
@@ -274,11 +272,11 @@ cmuServerSideEncryption = lens _cmuServerSideEncryption (\ s a -> s{_cmuServerSi
 cmuContentType :: Lens' CreateMultipartUpload (Maybe Text)
 cmuContentType = lens _cmuContentType (\ s a -> s{_cmuContentType = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmuBucket :: Lens' CreateMultipartUpload BucketName
 cmuBucket = lens _cmuBucket (\ s a -> s{_cmuBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmuKey :: Lens' CreateMultipartUpload ObjectKey
 cmuKey = lens _cmuKey (\ s a -> s{_cmuKey = a});
 
@@ -390,7 +388,7 @@ createMultipartUploadResponse pStatus_ =
     , _cmursStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmursRequestCharged :: Lens' CreateMultipartUploadResponse (Maybe RequestCharged)
 cmursRequestCharged = lens _cmursRequestCharged (\ s a -> s{_cmursRequestCharged = a});
 
@@ -428,6 +426,6 @@ cmursUploadId = lens _cmursUploadId (\ s a -> s{_cmursUploadId = a});
 cmursServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
 cmursServerSideEncryption = lens _cmursServerSideEncryption (\ s a -> s{_cmursServerSideEncryption = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cmursStatus :: Lens' CreateMultipartUploadResponse Int
 cmursStatus = lens _cmursStatus (\ s a -> s{_cmursStatus = a});

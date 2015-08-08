@@ -20,22 +20,20 @@
 -- Adds a statement to a topic\'s access control policy, granting access
 -- for the specified AWS accounts to the specified actions.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.SNS.AddPermission
     (
-    -- * Request
+    -- * Creating a Request
       AddPermission
-    -- ** Request constructor
     , addPermission
-    -- ** Request lenses
+    -- * Request Lenses
     , apTopicARN
     , apLabel
     , apAWSAccountId
     , apActionName
 
-    -- * Response
+    -- * Destructuring the Response
     , AddPermissionResponse
-    -- ** Response constructor
     , addPermissionResponse
     ) where
 

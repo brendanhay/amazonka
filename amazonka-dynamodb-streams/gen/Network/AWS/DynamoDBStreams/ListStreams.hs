@@ -23,23 +23,21 @@
 --
 -- You can call /ListStreams/ at a maximum rate of 5 times per second.
 --
--- <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_ListStreams.html>
+-- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_ListStreams.html AWS API Reference> for ListStreams.
 module Network.AWS.DynamoDBStreams.ListStreams
     (
-    -- * Request
+    -- * Creating a Request
       ListStreams
-    -- ** Request constructor
     , listStreams
-    -- ** Request lenses
+    -- * Request Lenses
     , lsExclusiveStartStreamARN
     , lsLimit
     , lsTableName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListStreamsResponse
-    -- ** Response constructor
     , listStreamsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrsLastEvaluatedStreamARN
     , lsrsStreams
     , lsrsStatus
@@ -171,6 +169,6 @@ lsrsLastEvaluatedStreamARN = lens _lsrsLastEvaluatedStreamARN (\ s a -> s{_lsrsL
 lsrsStreams :: Lens' ListStreamsResponse [Stream]
 lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrsStatus :: Lens' ListStreamsResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

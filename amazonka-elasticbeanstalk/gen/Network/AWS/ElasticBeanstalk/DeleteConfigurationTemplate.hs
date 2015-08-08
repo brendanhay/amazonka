@@ -24,20 +24,18 @@
 -- environment\'s copy of the template without affecting the running
 -- environment.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html AWS API Reference> for DeleteConfigurationTemplate.
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
-    -- * Request
+    -- * Creating a Request
       DeleteConfigurationTemplate
-    -- ** Request constructor
     , deleteConfigurationTemplate
-    -- ** Request lenses
+    -- * Request Lenses
     , dctApplicationName
     , dctTemplateName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteConfigurationTemplateResponse
-    -- ** Response constructor
     , deleteConfigurationTemplateResponse
     ) where
 

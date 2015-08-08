@@ -19,21 +19,19 @@
 --
 -- Sets the tags for a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html AWS API Reference> for PutBucketTagging.
 module Network.AWS.S3.PutBucketTagging
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketTagging
-    -- ** Request constructor
     , putBucketTagging
-    -- ** Request lenses
+    -- * Request Lenses
     , pbtContentMD5
     , pbtBucket
     , pbtTagging
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketTaggingResponse
-    -- ** Response constructor
     , putBucketTaggingResponse
     ) where
 
@@ -66,15 +64,15 @@ putBucketTagging pBucket_ pTagging_ =
     , _pbtTagging = pTagging_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
 pbtContentMD5 = lens _pbtContentMD5 (\ s a -> s{_pbtContentMD5 = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbtBucket :: Lens' PutBucketTagging BucketName
 pbtBucket = lens _pbtBucket (\ s a -> s{_pbtBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
 

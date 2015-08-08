@@ -24,21 +24,19 @@
 -- fails with @InvalidGroup.InUse@ in EC2-Classic or @DependencyViolation@
 -- in EC2-VPC.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html AWS API Reference> for DeleteSecurityGroup.
 module Network.AWS.EC2.DeleteSecurityGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSecurityGroup
-    -- ** Request constructor
     , deleteSecurityGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , dsgGroupId
     , dsgGroupName
     , dsgDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSecurityGroupResponse
-    -- ** Response constructor
     , deleteSecurityGroupResponse
     ) where
 

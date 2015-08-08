@@ -26,22 +26,20 @@
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
 -- in the /AWS CodeCommit User Guide/.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSSHPublicKey.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSSHPublicKey.html AWS API Reference> for UploadSSHPublicKey.
 module Network.AWS.IAM.UploadSSHPublicKey
     (
-    -- * Request
+    -- * Creating a Request
       UploadSSHPublicKey
-    -- ** Request constructor
     , uploadSSHPublicKey
-    -- ** Request lenses
+    -- * Request Lenses
     , usshpkUserName
     , usshpkSSHPublicKeyBody
 
-    -- * Response
+    -- * Destructuring the Response
     , UploadSSHPublicKeyResponse
-    -- ** Response constructor
     , uploadSSHPublicKeyResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uspkrsSSHPublicKey
     , uspkrsStatus
     ) where
@@ -131,6 +129,6 @@ uploadSSHPublicKeyResponse pStatus_ =
 uspkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
 uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\ s a -> s{_uspkrsSSHPublicKey = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uspkrsStatus :: Lens' UploadSSHPublicKeyResponse Int
 uspkrsStatus = lens _uspkrsStatus (\ s a -> s{_uspkrsStatus = a});

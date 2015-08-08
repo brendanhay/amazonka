@@ -21,21 +21,19 @@
 -- receive a successful response from this action, ElastiCache immediately
 -- begins deleting the snapshot; you cannot cancel or revert this action.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html AWS API Reference> for DeleteSnapshot.
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       DeleteSnapshot
-    -- ** Request constructor
     , deleteSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , dSnapshotName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteSnapshotResponse
-    -- ** Response constructor
     , deleteSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsSnapshot
     , dsrsStatus
     ) where
@@ -110,10 +108,10 @@ deleteSnapshotResponse pStatus_ =
     , _dsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DeleteSnapshotResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

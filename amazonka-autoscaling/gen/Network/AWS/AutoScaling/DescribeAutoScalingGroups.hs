@@ -20,23 +20,21 @@
 -- Describes one or more Auto Scaling groups. If a list of names is not
 -- provided, the call describes all Auto Scaling groups.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html AWS API Reference> for DescribeAutoScalingGroups.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAutoScalingGroups
-    -- ** Request constructor
     , describeAutoScalingGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dasgAutoScalingGroupNames
     , dasgNextToken
     , dasgMaxRecords
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAutoScalingGroupsResponse
-    -- ** Response constructor
     , describeAutoScalingGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dasgrsNextToken
     , dasgrsStatus
     , dasgrsAutoScalingGroups
@@ -153,7 +151,7 @@ describeAutoScalingGroupsResponse pStatus_ =
 dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dasgrsStatus :: Lens' DescribeAutoScalingGroupsResponse Int
 dasgrsStatus = lens _dasgrsStatus (\ s a -> s{_dasgrsStatus = a});
 

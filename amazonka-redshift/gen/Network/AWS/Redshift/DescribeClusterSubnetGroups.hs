@@ -32,25 +32,23 @@
 -- are returned regardless of whether they have tag keys or values
 -- associated with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html AWS API Reference> for DescribeClusterSubnetGroups.
 module Network.AWS.Redshift.DescribeClusterSubnetGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusterSubnetGroups
-    -- ** Request constructor
     , describeClusterSubnetGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dcsgsTagValues
     , dcsgsTagKeys
     , dcsgsClusterSubnetGroupName
     , dcsgsMaxRecords
     , dcsgsMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClusterSubnetGroupsResponse
-    -- ** Response constructor
     , describeClusterSubnetGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcsgrsClusterSubnetGroups
     , dcsgrsMarker
     , dcsgrsStatus
@@ -222,6 +220,6 @@ dcsgrsClusterSubnetGroups = lens _dcsgrsClusterSubnetGroups (\ s a -> s{_dcsgrsC
 dcsgrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcsgrsStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
 dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});

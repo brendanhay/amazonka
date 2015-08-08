@@ -30,24 +30,22 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html AWS API Reference> for CreateClusterParameterGroup.
 module Network.AWS.Redshift.CreateClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateClusterParameterGroup
-    -- ** Request constructor
     , createClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ccpgTags
     , ccpgParameterGroupName
     , ccpgParameterGroupFamily
     , ccpgDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateClusterParameterGroupResponse
-    -- ** Response constructor
     , createClusterParameterGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccpgrsClusterParameterGroup
     , ccpgrsStatus
     ) where
@@ -171,10 +169,10 @@ createClusterParameterGroupResponse pStatus_ =
     , _ccpgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccpgrsClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
 ccpgrsClusterParameterGroup = lens _ccpgrsClusterParameterGroup (\ s a -> s{_ccpgrsClusterParameterGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccpgrsStatus :: Lens' CreateClusterParameterGroupResponse Int
 ccpgrsStatus = lens _ccpgrsStatus (\ s a -> s{_ccpgrsStatus = a});

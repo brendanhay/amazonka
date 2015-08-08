@@ -20,21 +20,19 @@
 -- Returns the logging status of a bucket and the permissions users have to
 -- view and modify that status. To use GET, you must be the bucket owner.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLogging.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLogging.html AWS API Reference> for GetBucketLogging.
 module Network.AWS.S3.GetBucketLogging
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketLogging
-    -- ** Request constructor
     , getBucketLogging
-    -- ** Request lenses
+    -- * Request Lenses
     , getBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketLoggingResponse
-    -- ** Response constructor
     , getBucketLoggingResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , grsLoggingEnabled
     , grsStatus
     ) where
@@ -60,7 +58,7 @@ getBucketLogging pBucket_ =
     { _getBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 getBucket :: Lens' GetBucketLogging BucketName
 getBucket = lens _getBucket (\ s a -> s{_getBucket = a});
 
@@ -104,10 +102,10 @@ getBucketLoggingResponse pStatus_ =
     , _grsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 grsLoggingEnabled = lens _grsLoggingEnabled (\ s a -> s{_grsLoggingEnabled = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 grsStatus :: Lens' GetBucketLoggingResponse Int
 grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});

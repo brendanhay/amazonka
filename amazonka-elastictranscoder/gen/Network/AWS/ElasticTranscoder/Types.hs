@@ -13,10 +13,10 @@
 --
 module Network.AWS.ElasticTranscoder.Types
     (
-    -- * Service
+    -- * Service Decription
       ElasticTranscoder
 
-    -- * Errors
+    -- * Error Matchers
     , _ValidationException
     , _IncompatibleVersionException
     , _AccessDeniedException

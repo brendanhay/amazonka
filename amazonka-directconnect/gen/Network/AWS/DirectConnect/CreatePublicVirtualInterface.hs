@@ -22,22 +22,20 @@
 -- supports sending traffic to public services of AWS such as Amazon Simple
 -- Storage Service (Amazon S3).
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html AWS API Reference> for CreatePublicVirtualInterface.
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
-    -- * Request
+    -- * Creating a Request
       CreatePublicVirtualInterface
-    -- ** Request constructor
     , createPublicVirtualInterface
-    -- ** Request lenses
+    -- * Request Lenses
     , cpviConnectionId
     , cpviNewPublicVirtualInterface
 
-    -- * Response
+    -- * Destructuring the Response
     , VirtualInterface
-    -- ** Response constructor
     , virtualInterface
-    -- ** Response lenses
+    -- * Response Lenses
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress
@@ -83,7 +81,7 @@ createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ =
     , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpviConnectionId :: Lens' CreatePublicVirtualInterface Text
 cpviConnectionId = lens _cpviConnectionId (\ s a -> s{_cpviConnectionId = a});
 

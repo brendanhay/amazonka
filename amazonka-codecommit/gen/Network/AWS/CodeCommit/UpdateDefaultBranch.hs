@@ -23,20 +23,18 @@
 -- current default branch name, a success message is returned even though
 -- the default branch did not change.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateDefaultBranch.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateDefaultBranch.html AWS API Reference> for UpdateDefaultBranch.
 module Network.AWS.CodeCommit.UpdateDefaultBranch
     (
-    -- * Request
+    -- * Creating a Request
       UpdateDefaultBranch
-    -- ** Request constructor
     , updateDefaultBranch
-    -- ** Request lenses
+    -- * Request Lenses
     , udbRepositoryName
     , udbDefaultBranchName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateDefaultBranchResponse
-    -- ** Response constructor
     , updateDefaultBranchResponse
     ) where
 

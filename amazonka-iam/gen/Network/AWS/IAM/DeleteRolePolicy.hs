@@ -26,20 +26,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html AWS API Reference> for DeleteRolePolicy.
 module Network.AWS.IAM.DeleteRolePolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteRolePolicy
-    -- ** Request constructor
     , deleteRolePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , delRoleName
     , delPolicyName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteRolePolicyResponse
-    -- ** Response constructor
     , deleteRolePolicyResponse
     ) where
 

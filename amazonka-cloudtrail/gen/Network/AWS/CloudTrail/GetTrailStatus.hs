@@ -21,21 +21,19 @@
 -- Fields include information on delivery errors, Amazon SNS and Amazon S3
 -- errors, and start and stop logging times for each trail.
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html AWS API Reference> for GetTrailStatus.
 module Network.AWS.CloudTrail.GetTrailStatus
     (
-    -- * Request
+    -- * Creating a Request
       GetTrailStatus
-    -- ** Request constructor
     , getTrailStatus
-    -- ** Request lenses
+    -- * Request Lenses
     , gtsName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetTrailStatusResponse
-    -- ** Response constructor
     , getTrailStatusResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gtsrsLatestDeliveryError
     , gtsrsStartLoggingTime
     , gtsrsLatestNotificationError
@@ -219,6 +217,6 @@ gtsrsLatestNotificationTime = lens _gtsrsLatestNotificationTime (\ s a -> s{_gts
 gtsrsStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrsStopLoggingTime = lens _gtsrsStopLoggingTime (\ s a -> s{_gtsrsStopLoggingTime = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gtsrsStatus :: Lens' GetTrailStatusResponse Int
 gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});

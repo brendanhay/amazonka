@@ -25,21 +25,19 @@
 -- response contains a token that you pass in the next call to ListHsms to
 -- retrieve the next set of items.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHSMs.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHSMs.html AWS API Reference> for ListHSMs.
 module Network.AWS.CloudHSM.ListHSMs
     (
-    -- * Request
+    -- * Creating a Request
       ListHSMs
-    -- ** Request constructor
     , listHSMs
-    -- ** Request lenses
+    -- * Request Lenses
     , lhsmNextToken
 
-    -- * Response
+    -- * Destructuring the Response
     , ListHSMsResponse
-    -- ** Response constructor
     , listHSMsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lhsmrsNextToken
     , lhsmrsHSMList
     , lhsmrsStatus
@@ -136,6 +134,6 @@ lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 lhsmrsHSMList :: Lens' ListHSMsResponse [Text]
 lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lhsmrsStatus :: Lens' ListHSMsResponse Int
 lhsmrsStatus = lens _lhsmrsStatus (\ s a -> s{_lhsmrsStatus = a});

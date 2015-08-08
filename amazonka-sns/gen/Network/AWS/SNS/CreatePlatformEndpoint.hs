@@ -34,24 +34,22 @@
 -- ChannelId. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html Creating an Amazon SNS Endpoint for Baidu>.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html AWS API Reference> for CreatePlatformEndpoint.
 module Network.AWS.SNS.CreatePlatformEndpoint
     (
-    -- * Request
+    -- * Creating a Request
       CreatePlatformEndpoint
-    -- ** Request constructor
     , createPlatformEndpoint
-    -- ** Request lenses
+    -- * Request Lenses
     , cpeCustomUserData
     , cpeAttributes
     , cpePlatformApplicationARN
     , cpeToken
 
-    -- * Response
+    -- * Destructuring the Response
     , CreatePlatformEndpointResponse
-    -- ** Response constructor
     , createPlatformEndpointResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cpersEndpointARN
     , cpersStatus
     ) where
@@ -173,6 +171,6 @@ createPlatformEndpointResponse pStatus_ =
 cpersEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpersStatus :: Lens' CreatePlatformEndpointResponse Int
 cpersStatus = lens _cpersStatus (\ s a -> s{_cpersStatus = a});

@@ -49,24 +49,22 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterParameterGroup.html AWS API Reference> for CreateDBClusterParameterGroup.
 module Network.AWS.RDS.CreateDBClusterParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateDBClusterParameterGroup
-    -- ** Request constructor
     , createDBClusterParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cdcpgTags
     , cdcpgDBClusterParameterGroupName
     , cdcpgDBParameterGroupFamily
     , cdcpgDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateDBClusterParameterGroupResponse
-    -- ** Response constructor
     , createDBClusterParameterGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cdcpgrsDBClusterParameterGroup
     , cdcpgrsStatus
     ) where
@@ -106,7 +104,7 @@ createDBClusterParameterGroup pDBClusterParameterGroupName_ pDBParameterGroupFam
     , _cdcpgDescription = pDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcpgTags :: Lens' CreateDBClusterParameterGroup [Tag]
 cdcpgTags = lens _cdcpgTags (\ s a -> s{_cdcpgTags = a}) . _Default . _Coerce;
 
@@ -188,10 +186,10 @@ createDBClusterParameterGroupResponse pStatus_ =
     , _cdcpgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
 cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> s{_cdcpgrsDBClusterParameterGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cdcpgrsStatus :: Lens' CreateDBClusterParameterGroupResponse Int
 cdcpgrsStatus = lens _cdcpgrsStatus (\ s a -> s{_cdcpgrsStatus = a});

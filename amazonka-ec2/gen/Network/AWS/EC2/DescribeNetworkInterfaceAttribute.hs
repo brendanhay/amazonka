@@ -20,23 +20,21 @@
 -- Describes a network interface attribute. You can specify only one
 -- attribute at a time.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaceAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaceAttribute.html AWS API Reference> for DescribeNetworkInterfaceAttribute.
 module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     (
-    -- * Request
+    -- * Creating a Request
       DescribeNetworkInterfaceAttribute
-    -- ** Request constructor
     , describeNetworkInterfaceAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , dniaAttribute
     , dniaDryRun
     , dniaNetworkInterfaceId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeNetworkInterfaceAttributeResponse
-    -- ** Response constructor
     , describeNetworkInterfaceAttributeResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dniarsGroups
     , dniarsSourceDestCheck
     , dniarsNetworkInterfaceId
@@ -182,6 +180,6 @@ dniarsAttachment = lens _dniarsAttachment (\ s a -> s{_dniarsAttachment = a});
 dniarsDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniarsDescription = lens _dniarsDescription (\ s a -> s{_dniarsDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dniarsStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
 dniarsStatus = lens _dniarsStatus (\ s a -> s{_dniarsStatus = a});

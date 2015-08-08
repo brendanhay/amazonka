@@ -20,21 +20,19 @@
 -- To retrieve the health check, send a @GET@ request to the
 -- @2013-04-01\/healthcheck\/health check ID@ resource.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html AWS API Reference> for GetHealthCheck.
 module Network.AWS.Route53.GetHealthCheck
     (
-    -- * Request
+    -- * Creating a Request
       GetHealthCheck
-    -- ** Request constructor
     , getHealthCheck
-    -- ** Request lenses
+    -- * Request Lenses
     , ghcHealthCheckId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetHealthCheckResponse
-    -- ** Response constructor
     , getHealthCheckResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ghcrsStatus
     , ghcrsHealthCheck
     ) where
@@ -110,7 +108,7 @@ getHealthCheckResponse pStatus_ pHealthCheck_ =
     , _ghcrsHealthCheck = pHealthCheck_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ghcrsStatus :: Lens' GetHealthCheckResponse Int
 ghcrsStatus = lens _ghcrsStatus (\ s a -> s{_ghcrsStatus = a});
 

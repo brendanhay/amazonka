@@ -40,14 +40,13 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html AWS API Reference> for CreateRoute.
 module Network.AWS.EC2.CreateRoute
     (
-    -- * Request
+    -- * Creating a Request
       CreateRoute
-    -- ** Request constructor
     , createRoute
-    -- ** Request lenses
+    -- * Request Lenses
     , crInstanceId
     , crVPCPeeringConnectionId
     , crNetworkInterfaceId
@@ -56,11 +55,10 @@ module Network.AWS.EC2.CreateRoute
     , crRouteTableId
     , crDestinationCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateRouteResponse
-    -- ** Response constructor
     , createRouteResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crrsReturn
     , crrsStatus
     ) where
@@ -197,6 +195,6 @@ createRouteResponse pStatus_ =
 crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
 crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crrsStatus :: Lens' CreateRouteResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

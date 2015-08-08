@@ -33,24 +33,22 @@
 -- Pipeline object definitions are passed to the @PutPipelineDefinition@
 -- action and returned by the GetPipelineDefinition action.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html AWS API Reference> for PutPipelineDefinition.
 module Network.AWS.DataPipeline.PutPipelineDefinition
     (
-    -- * Request
+    -- * Creating a Request
       PutPipelineDefinition
-    -- ** Request constructor
     , putPipelineDefinition
-    -- ** Request lenses
+    -- * Request Lenses
     , ppdParameterObjects
     , ppdParameterValues
     , ppdPipelineId
     , ppdPipelineObjects
 
-    -- * Response
+    -- * Destructuring the Response
     , PutPipelineDefinitionResponse
-    -- ** Response constructor
     , putPipelineDefinitionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ppdrsValidationErrors
     , ppdrsValidationWarnings
     , ppdrsStatus
@@ -186,7 +184,7 @@ ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidation
 ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
 ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ppdrsStatus :: Lens' PutPipelineDefinitionResponse Int
 ppdrsStatus = lens _ppdrsStatus (\ s a -> s{_ppdrsStatus = a});
 

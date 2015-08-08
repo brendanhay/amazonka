@@ -27,23 +27,21 @@
 -- not completed successfully, the domain registrant will be notified by
 -- email.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainNameservers.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainNameservers.html AWS API Reference> for UpdateDomainNameservers.
 module Network.AWS.Route53Domains.UpdateDomainNameservers
     (
-    -- * Request
+    -- * Creating a Request
       UpdateDomainNameservers
-    -- ** Request constructor
     , updateDomainNameservers
-    -- ** Request lenses
+    -- * Request Lenses
     , udnFIAuthKey
     , udnDomainName
     , udnNameservers
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateDomainNameserversResponse
-    -- ** Response constructor
     , updateDomainNameserversResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , udnrsStatus
     , udnrsOperationId
     ) where
@@ -163,7 +161,7 @@ updateDomainNameserversResponse pStatus_ pOperationId_ =
     , _udnrsOperationId = pOperationId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udnrsStatus :: Lens' UpdateDomainNameserversResponse Int
 udnrsStatus = lens _udnrsStatus (\ s a -> s{_udnrsStatus = a});
 

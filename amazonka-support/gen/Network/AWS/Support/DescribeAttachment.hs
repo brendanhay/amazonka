@@ -23,21 +23,19 @@
 -- AttachmentDetails objects that are returned by the
 -- DescribeCommunications operation.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeAttachment.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeAttachment.html AWS API Reference> for DescribeAttachment.
 module Network.AWS.Support.DescribeAttachment
     (
-    -- * Request
+    -- * Creating a Request
       DescribeAttachment
-    -- ** Request constructor
     , describeAttachment
-    -- ** Request lenses
+    -- * Request Lenses
     , daAttachmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeAttachmentResponse
-    -- ** Response constructor
     , describeAttachmentResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , darsAttachment
     , darsStatus
     ) where
@@ -126,6 +124,6 @@ describeAttachmentResponse pStatus_ =
 darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 darsStatus :: Lens' DescribeAttachmentResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

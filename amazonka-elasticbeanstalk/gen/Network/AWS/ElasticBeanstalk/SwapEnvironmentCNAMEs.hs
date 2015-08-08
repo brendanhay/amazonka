@@ -19,22 +19,20 @@
 --
 -- Swaps the CNAMEs of two environments.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_SwapEnvironmentCNAMEs.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_SwapEnvironmentCNAMEs.html AWS API Reference> for SwapEnvironmentCNAMEs.
 module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     (
-    -- * Request
+    -- * Creating a Request
       SwapEnvironmentCNAMEs
-    -- ** Request constructor
     , swapEnvironmentCNAMEs
-    -- ** Request lenses
+    -- * Request Lenses
     , secnameDestinationEnvironmentName
     , secnameDestinationEnvironmentId
     , secnameSourceEnvironmentName
     , secnameSourceEnvironmentId
 
-    -- * Response
+    -- * Destructuring the Response
     , SwapEnvironmentCNAMEsResponse
-    -- ** Response constructor
     , swapEnvironmentCNAMEsResponse
     ) where
 

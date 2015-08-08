@@ -19,21 +19,19 @@
 --
 -- Modifies the specified attribute of the specified VPC.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCAttribute.html AWS API Reference> for ModifyVPCAttribute.
 module Network.AWS.EC2.ModifyVPCAttribute
     (
-    -- * Request
+    -- * Creating a Request
       ModifyVPCAttribute
-    -- ** Request constructor
     , modifyVPCAttribute
-    -- ** Request lenses
+    -- * Request Lenses
     , mvaEnableDNSHostnames
     , mvaEnableDNSSupport
     , mvaVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyVPCAttributeResponse
-    -- ** Response constructor
     , modifyVPCAttributeResponse
     ) where
 

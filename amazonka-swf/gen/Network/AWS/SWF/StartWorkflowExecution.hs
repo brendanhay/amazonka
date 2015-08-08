@@ -51,14 +51,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_StartWorkflowExecution.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_StartWorkflowExecution.html AWS API Reference> for StartWorkflowExecution.
 module Network.AWS.SWF.StartWorkflowExecution
     (
-    -- * Request
+    -- * Creating a Request
       StartWorkflowExecution
-    -- ** Request constructor
     , startWorkflowExecution
-    -- ** Request lenses
+    -- * Request Lenses
     , sTagList
     , sTaskStartToCloseTimeout
     , sLambdaRole
@@ -71,11 +70,10 @@ module Network.AWS.SWF.StartWorkflowExecution
     , sWorkflowId
     , sWorkflowType
 
-    -- * Response
+    -- * Destructuring the Response
     , StartWorkflowExecutionResponse
-    -- ** Response constructor
     , startWorkflowExecutionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , swersRunId
     , swersStatus
     ) where
@@ -339,6 +337,6 @@ startWorkflowExecutionResponse pStatus_ =
 swersRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
 swersRunId = lens _swersRunId (\ s a -> s{_swersRunId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 swersStatus :: Lens' StartWorkflowExecutionResponse Int
 swersStatus = lens _swersStatus (\ s a -> s{_swersStatus = a});

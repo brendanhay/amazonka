@@ -32,22 +32,20 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.html AWS API Reference> for SetLoadBasedAutoScaling.
 module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     (
-    -- * Request
+    -- * Creating a Request
       SetLoadBasedAutoScaling
-    -- ** Request constructor
     , setLoadBasedAutoScaling
-    -- ** Request lenses
+    -- * Request Lenses
     , slbasUpScaling
     , slbasEnable
     , slbasDownScaling
     , slbasLayerId
 
-    -- * Response
+    -- * Destructuring the Response
     , SetLoadBasedAutoScalingResponse
-    -- ** Response constructor
     , setLoadBasedAutoScalingResponse
     ) where
 

@@ -26,20 +26,18 @@
 -- description field in any application that uses this API to display the
 -- repository description on a web page.
 --
--- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateRepositoryDescription.html>
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateRepositoryDescription.html AWS API Reference> for UpdateRepositoryDescription.
 module Network.AWS.CodeCommit.UpdateRepositoryDescription
     (
-    -- * Request
+    -- * Creating a Request
       UpdateRepositoryDescription
-    -- ** Request constructor
     , updateRepositoryDescription
-    -- ** Request lenses
+    -- * Request Lenses
     , urdRepositoryDescription
     , urdRepositoryName
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateRepositoryDescriptionResponse
-    -- ** Response constructor
     , updateRepositoryDescriptionResponse
     ) where
 

@@ -20,22 +20,20 @@
 -- This operation returns the operation IDs of operations that are not yet
 -- complete.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html AWS API Reference> for ListOperations.
 module Network.AWS.Route53Domains.ListOperations
     (
-    -- * Request
+    -- * Creating a Request
       ListOperations
-    -- ** Request constructor
     , listOperations
-    -- ** Request lenses
+    -- * Request Lenses
     , loMaxItems
     , loMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListOperationsResponse
-    -- ** Response constructor
     , listOperationsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lorsNextPageMarker
     , lorsStatus
     , lorsOperations
@@ -171,7 +169,7 @@ listOperationsResponse pStatus_ =
 lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lorsStatus :: Lens' ListOperationsResponse Int
 lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
 

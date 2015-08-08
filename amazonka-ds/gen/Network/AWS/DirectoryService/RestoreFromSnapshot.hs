@@ -28,21 +28,19 @@
 -- __DirectoryDescription.Stage__ value changes to @Active@, the restore
 -- operation is complete.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_RestoreFromSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_RestoreFromSnapshot.html AWS API Reference> for RestoreFromSnapshot.
 module Network.AWS.DirectoryService.RestoreFromSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       RestoreFromSnapshot
-    -- ** Request constructor
     , restoreFromSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , rfsSnapshotId
 
-    -- * Response
+    -- * Destructuring the Response
     , RestoreFromSnapshotResponse
-    -- ** Response constructor
     , restoreFromSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rfsrsStatus
     ) where
 
@@ -121,6 +119,6 @@ restoreFromSnapshotResponse pStatus_ =
     { _rfsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rfsrsStatus :: Lens' RestoreFromSnapshotResponse Int
 rfsrsStatus = lens _rfsrsStatus (\ s a -> s{_rfsrsStatus = a});

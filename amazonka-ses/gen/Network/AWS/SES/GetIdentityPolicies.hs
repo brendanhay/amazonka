@@ -32,22 +32,20 @@
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityPolicies.html AWS API Reference> for GetIdentityPolicies.
 module Network.AWS.SES.GetIdentityPolicies
     (
-    -- * Request
+    -- * Creating a Request
       GetIdentityPolicies
-    -- ** Request constructor
     , getIdentityPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , gipIdentity
     , gipPolicyNames
 
-    -- * Response
+    -- * Destructuring the Response
     , GetIdentityPoliciesResponse
-    -- ** Response constructor
     , getIdentityPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , giprsStatus
     , giprsPolicies
     ) where
@@ -147,7 +145,7 @@ getIdentityPoliciesResponse pStatus_ =
     , _giprsPolicies = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 giprsStatus :: Lens' GetIdentityPoliciesResponse Int
 giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
 

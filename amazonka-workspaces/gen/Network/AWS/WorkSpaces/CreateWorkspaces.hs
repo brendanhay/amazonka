@@ -22,21 +22,19 @@
 -- This operation is asynchronous and returns before the WorkSpaces are
 -- created.
 --
--- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_CreateWorkspaces.html>
+-- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_CreateWorkspaces.html AWS API Reference> for CreateWorkspaces.
 module Network.AWS.WorkSpaces.CreateWorkspaces
     (
-    -- * Request
+    -- * Creating a Request
       CreateWorkspaces
-    -- ** Request constructor
     , createWorkspaces
-    -- ** Request lenses
+    -- * Request Lenses
     , cwWorkspaces
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateWorkspacesResponse
-    -- ** Response constructor
     , createWorkspacesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cwrsFailedRequests
     , cwrsPendingRequests
     , cwrsStatus
@@ -139,6 +137,6 @@ cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = 
 cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cwrsStatus :: Lens' CreateWorkspacesResponse Int
 cwrsStatus = lens _cwrsStatus (\ s a -> s{_cwrsStatus = a});

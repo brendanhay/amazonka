@@ -24,23 +24,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html AWS API Reference> for CreateClusterSnapshot.
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CreateClusterSnapshot
-    -- ** Request constructor
     , createClusterSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , ccsTags
     , ccsSnapshotIdentifier
     , ccsClusterIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateClusterSnapshotResponse
-    -- ** Response constructor
     , createClusterSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crersSnapshot
     , crersStatus
     ) where
@@ -144,10 +142,10 @@ createClusterSnapshotResponse pStatus_ =
     , _crersStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crersStatus :: Lens' CreateClusterSnapshotResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

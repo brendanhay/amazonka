@@ -28,22 +28,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html AWS API Reference> for DeregisterInstancesFromLoadBalancer.
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       DeregisterInstancesFromLoadBalancer
-    -- ** Request constructor
     , deregisterInstancesFromLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , diflbLoadBalancerName
     , diflbInstances
 
-    -- * Response
+    -- * Destructuring the Response
     , DeregisterInstancesFromLoadBalancerResponse
-    -- ** Response constructor
     , deregisterInstancesFromLoadBalancerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , diflbrsInstances
     , diflbrsStatus
     ) where
@@ -139,6 +137,6 @@ deregisterInstancesFromLoadBalancerResponse pStatus_ =
 diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 diflbrsStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
 diflbrsStatus = lens _diflbrsStatus (\ s a -> s{_diflbrsStatus = a});

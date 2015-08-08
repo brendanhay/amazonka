@@ -22,21 +22,19 @@
 -- However, you can create your own cluster with a unique name with the
 -- @CreateCluster@ action.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html AWS API Reference> for CreateCluster.
 module Network.AWS.ECS.CreateCluster
     (
-    -- * Request
+    -- * Creating a Request
       CreateCluster
-    -- ** Request constructor
     , createCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , ccClusterName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateClusterResponse
-    -- ** Response constructor
     , createClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ccrsCluster
     , ccrsStatus
     ) where
@@ -122,6 +120,6 @@ createClusterResponse pStatus_ =
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ccrsStatus :: Lens' CreateClusterResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

@@ -22,25 +22,23 @@
 -- through ClassicLink; you cannot use this request to return information
 -- about other instances.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeClassicLinkInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeClassicLinkInstances.html AWS API Reference> for DescribeClassicLinkInstances.
 module Network.AWS.EC2.DescribeClassicLinkInstances
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClassicLinkInstances
-    -- ** Request constructor
     , describeClassicLinkInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , dcliFilters
     , dcliNextToken
     , dcliInstanceIds
     , dcliDryRun
     , dcliMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClassicLinkInstancesResponse
-    -- ** Response constructor
     , describeClassicLinkInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dclirsNextToken
     , dclirsInstances
     , dclirsStatus
@@ -204,6 +202,6 @@ dclirsNextToken = lens _dclirsNextToken (\ s a -> s{_dclirsNextToken = a});
 dclirsInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
 dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dclirsStatus :: Lens' DescribeClassicLinkInstancesResponse Int
 dclirsStatus = lens _dclirsStatus (\ s a -> s{_dclirsStatus = a});

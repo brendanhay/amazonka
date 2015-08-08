@@ -19,20 +19,18 @@
 --
 -- Enables notifications of specified events for a bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketNotificationConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketNotificationConfiguration.html AWS API Reference> for PutBucketNotificationConfiguration.
 module Network.AWS.S3.PutBucketNotificationConfiguration
     (
-    -- * Request
+    -- * Creating a Request
       PutBucketNotificationConfiguration
-    -- ** Request constructor
     , putBucketNotificationConfiguration
-    -- ** Request lenses
+    -- * Request Lenses
     , pbncBucket
     , pbncNotificationConfiguration
 
-    -- * Response
+    -- * Destructuring the Response
     , PutBucketNotificationConfigurationResponse
-    -- ** Response constructor
     , putBucketNotificationConfigurationResponse
     ) where
 
@@ -61,11 +59,11 @@ putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
     , _pbncNotificationConfiguration = pNotificationConfiguration_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbncBucket :: Lens' PutBucketNotificationConfiguration BucketName
 pbncBucket = lens _pbncBucket (\ s a -> s{_pbncBucket = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 pbncNotificationConfiguration :: Lens' PutBucketNotificationConfiguration NotificationConfiguration
 pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{_pbncNotificationConfiguration = a});
 

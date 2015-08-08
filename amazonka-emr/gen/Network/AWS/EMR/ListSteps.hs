@@ -19,24 +19,22 @@
 --
 -- Provides a list of steps for the cluster.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListSteps.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListSteps.html AWS API Reference> for ListSteps.
 module Network.AWS.EMR.ListSteps
     (
-    -- * Request
+    -- * Creating a Request
       ListSteps
-    -- ** Request constructor
     , listSteps
-    -- ** Request lenses
+    -- * Request Lenses
     , lsStepIds
     , lsStepStates
     , lsMarker
     , lsClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListStepsResponse
-    -- ** Response constructor
     , listStepsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lsrsSteps
     , lsrsMarker
     , lsrsStatus
@@ -168,6 +166,6 @@ lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default . _Coerce;
 lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lsrsStatus :: Lens' ListStepsResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

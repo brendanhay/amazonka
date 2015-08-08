@@ -25,14 +25,13 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRoute.html AWS API Reference> for ReplaceRoute.
 module Network.AWS.EC2.ReplaceRoute
     (
-    -- * Request
+    -- * Creating a Request
       ReplaceRoute
-    -- ** Request constructor
     , replaceRoute
-    -- ** Request lenses
+    -- * Request Lenses
     , rrInstanceId
     , rrVPCPeeringConnectionId
     , rrNetworkInterfaceId
@@ -41,9 +40,8 @@ module Network.AWS.EC2.ReplaceRoute
     , rrRouteTableId
     , rrDestinationCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , ReplaceRouteResponse
-    -- ** Response constructor
     , replaceRouteResponse
     ) where
 

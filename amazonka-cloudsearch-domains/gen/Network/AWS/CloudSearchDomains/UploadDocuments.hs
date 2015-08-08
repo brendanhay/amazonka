@@ -44,22 +44,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html Uploading Data>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UploadDocuments.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UploadDocuments.html AWS API Reference> for UploadDocuments.
 module Network.AWS.CloudSearchDomains.UploadDocuments
     (
-    -- * Request
+    -- * Creating a Request
       UploadDocuments
-    -- ** Request constructor
     , uploadDocuments
-    -- ** Request lenses
+    -- * Request Lenses
     , udContentType
     , udDocuments
 
-    -- * Response
+    -- * Destructuring the Response
     , UploadDocumentsResponse
-    -- ** Response constructor
     , uploadDocumentsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , udrsAdds
     , udrsWarnings
     , udrsDeletes
@@ -176,6 +174,6 @@ udrsWarnings = lens _udrsWarnings (\ s a -> s{_udrsWarnings = a}) . _Default . _
 udrsDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
 udrsDeletes = lens _udrsDeletes (\ s a -> s{_udrsDeletes = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 udrsStatus :: Lens' UploadDocumentsResponse Int
 udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});

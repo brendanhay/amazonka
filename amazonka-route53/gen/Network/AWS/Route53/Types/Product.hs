@@ -275,11 +275,11 @@ delegationSet pNameServers_ =
     , _dsNameServers = _List1 # pNameServers_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsId :: Lens' DelegationSet (Maybe Text)
 dsId = lens _dsId (\ s a -> s{_dsId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsCallerReference :: Lens' DelegationSet (Maybe Text)
 dsCallerReference = lens _dsCallerReference (\ s a -> s{_dsCallerReference = a});
 
@@ -1114,11 +1114,11 @@ vpc =
     , _vpcVPCId = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vpcVPCRegion :: Lens' VPC (Maybe VPCRegion)
 vpcVPCRegion = lens _vpcVPCRegion (\ s a -> s{_vpcVPCRegion = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 vpcVPCId :: Lens' VPC (Maybe Text)
 vpcVPCId = lens _vpcVPCId (\ s a -> s{_vpcVPCId = a});
 

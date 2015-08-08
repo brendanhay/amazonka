@@ -27,23 +27,21 @@
 -- returned in the response by specifying the @limit@ parameter in the
 -- request.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html AWS API Reference> for DescribeLogGroups.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLogGroups
-    -- ** Request constructor
     , describeLogGroups
-    -- ** Request lenses
+    -- * Request Lenses
     , dlgNextToken
     , dlgLogGroupNamePrefix
     , dlgLimit
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLogGroupsResponse
-    -- ** Response constructor
     , describeLogGroupsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlgrsLogGroups
     , dlgrsNextToken
     , dlgrsStatus
@@ -152,14 +150,14 @@ describeLogGroupsResponse pStatus_ =
     , _dlgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlgrsLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
 dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlgrsStatus :: Lens' DescribeLogGroupsResponse Int
 dlgrsStatus = lens _dlgrsStatus (\ s a -> s{_dlgrsStatus = a});

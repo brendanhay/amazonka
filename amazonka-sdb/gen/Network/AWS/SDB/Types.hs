@@ -13,10 +13,10 @@
 --
 module Network.AWS.SDB.Types
     (
-    -- * Service
+    -- * Service Decription
       SDB
 
-    -- * Errors
+    -- * Error Matchers
     , _InvalidNumberValueTests
     , _NoSuchDomain
     , _NumberDomainAttributesExceeded

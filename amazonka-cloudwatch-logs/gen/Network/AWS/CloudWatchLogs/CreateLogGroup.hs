@@ -27,19 +27,17 @@
 -- -   Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\'
 --     (hyphen), \'\/\' (forward slash), and \'.\' (period).
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html AWS API Reference> for CreateLogGroup.
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateLogGroup
-    -- ** Request constructor
     , createLogGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , clgLogGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateLogGroupResponse
-    -- ** Response constructor
     , createLogGroupResponse
     ) where
 

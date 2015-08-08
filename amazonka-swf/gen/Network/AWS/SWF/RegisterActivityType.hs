@@ -47,14 +47,13 @@
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html AWS API Reference> for RegisterActivityType.
 module Network.AWS.SWF.RegisterActivityType
     (
-    -- * Request
+    -- * Creating a Request
       RegisterActivityType
-    -- ** Request constructor
     , registerActivityType
-    -- ** Request lenses
+    -- * Request Lenses
     , ratDefaultTaskScheduleToStartTimeout
     , ratDefaultTaskList
     , ratDefaultTaskPriority
@@ -66,9 +65,8 @@ module Network.AWS.SWF.RegisterActivityType
     , ratName
     , ratVersion
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterActivityTypeResponse
-    -- ** Response constructor
     , registerActivityTypeResponse
     ) where
 

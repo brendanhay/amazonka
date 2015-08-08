@@ -24,23 +24,21 @@
 -- pipeline. The response body contains one element for each job that
 -- satisfies the search criteria.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html AWS API Reference> for ListJobsByPipeline.
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     (
-    -- * Request
+    -- * Creating a Request
       ListJobsByPipeline
-    -- ** Request constructor
     , listJobsByPipeline
-    -- ** Request lenses
+    -- * Request Lenses
     , ljbpAscending
     , ljbpPageToken
     , ljbpPipelineId
 
-    -- * Response
+    -- * Destructuring the Response
     , ListJobsByPipelineResponse
-    -- ** Response constructor
     , listJobsByPipelineResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ljbprsNextPageToken
     , ljbprsJobs
     , ljbprsStatus
@@ -165,6 +163,6 @@ ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken
 ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ljbprsStatus :: Lens' ListJobsByPipelineResponse Int
 ljbprsStatus = lens _ljbprsStatus (\ s a -> s{_ljbprsStatus = a});

@@ -28,21 +28,19 @@
 -- To retrieve the full pipeline definition instead of metadata about the
 -- pipeline, call GetPipelineDefinition.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html AWS API Reference> for DescribePipelines.
 module Network.AWS.DataPipeline.DescribePipelines
     (
-    -- * Request
+    -- * Creating a Request
       DescribePipelines
-    -- ** Request constructor
     , describePipelines
-    -- ** Request lenses
+    -- * Request Lenses
     , dpPipelineIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribePipelinesResponse
-    -- ** Response constructor
     , describePipelinesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dprsStatus
     , dprsPipelineDescriptionList
     ) where
@@ -128,7 +126,7 @@ describePipelinesResponse pStatus_ =
     , _dprsPipelineDescriptionList = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dprsStatus :: Lens' DescribePipelinesResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
 

@@ -22,19 +22,17 @@
 -- The specified database subnet group must not be associated with any DB
 -- instances.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSubnetGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSubnetGroup.html AWS API Reference> for DeleteDBSubnetGroup.
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDBSubnetGroup
-    -- ** Request constructor
     , deleteDBSubnetGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , ddbsgDBSubnetGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDBSubnetGroupResponse
-    -- ** Response constructor
     , deleteDBSubnetGroupResponse
     ) where
 

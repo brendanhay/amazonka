@@ -19,21 +19,19 @@
 --
 -- Obtains the manual snapshot limits for a directory.
 --
--- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetSnapshotLimits.html>
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetSnapshotLimits.html AWS API Reference> for GetSnapshotLimits.
 module Network.AWS.DirectoryService.GetSnapshotLimits
     (
-    -- * Request
+    -- * Creating a Request
       GetSnapshotLimits
-    -- ** Request constructor
     , getSnapshotLimits
-    -- ** Request lenses
+    -- * Request Lenses
     , gslDirectoryId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetSnapshotLimitsResponse
-    -- ** Response constructor
     , getSnapshotLimitsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gslrsSnapshotLimits
     , gslrsStatus
     ) where
@@ -122,6 +120,6 @@ getSnapshotLimitsResponse pStatus_ =
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gslrsStatus :: Lens' GetSnapshotLimitsResponse Int
 gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});

@@ -19,21 +19,19 @@
 --
 -- The ReadPreset operation gets detailed information about a preset.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPreset.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPreset.html AWS API Reference> for ReadPreset.
 module Network.AWS.ElasticTranscoder.ReadPreset
     (
-    -- * Request
+    -- * Creating a Request
       ReadPreset
-    -- ** Request constructor
     , readPreset
-    -- ** Request lenses
+    -- * Request Lenses
     , rpId
 
-    -- * Response
+    -- * Destructuring the Response
     , ReadPresetResponse
-    -- ** Response constructor
     , readPresetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rprsPreset
     , rprsStatus
     ) where
@@ -113,6 +111,6 @@ readPresetResponse pStatus_ =
 rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rprsStatus :: Lens' ReadPresetResponse Int
 rprsStatus = lens _rprsStatus (\ s a -> s{_rprsStatus = a});

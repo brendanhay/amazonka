@@ -25,14 +25,13 @@
 -- This operation requires permission for the @lambda:CreateFunction@
 -- action.
 --
--- <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html>
+-- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html AWS API Reference> for CreateFunction.
 module Network.AWS.Lambda.CreateFunction
     (
-    -- * Request
+    -- * Creating a Request
       CreateFunction
-    -- ** Request constructor
     , createFunction
-    -- ** Request lenses
+    -- * Request Lenses
     , cfMemorySize
     , cfTimeout
     , cfDescription
@@ -42,11 +41,10 @@ module Network.AWS.Lambda.CreateFunction
     , cfHandler
     , cfCode
 
-    -- * Response
+    -- * Destructuring the Response
     , FunctionConfiguration
-    -- ** Response constructor
     , functionConfiguration
-    -- ** Response lenses
+    -- * Response Lenses
     , fcRuntime
     , fcMemorySize
     , fcFunctionARN

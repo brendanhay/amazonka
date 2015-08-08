@@ -45,24 +45,22 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html AWS API Reference> for CreateSubnet.
 module Network.AWS.EC2.CreateSubnet
     (
-    -- * Request
+    -- * Creating a Request
       CreateSubnet
-    -- ** Request constructor
     , createSubnet
-    -- ** Request lenses
+    -- * Request Lenses
     , cssAvailabilityZone
     , cssDryRun
     , cssVPCId
     , cssCIdRBlock
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateSubnetResponse
-    -- ** Response constructor
     , createSubnetResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsSubnet
     , crsStatus
     ) where
@@ -171,6 +169,6 @@ createSubnetResponse pStatus_ =
 crsSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 crsSubnet = lens _crsSubnet (\ s a -> s{_crsSubnet = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CreateSubnetResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

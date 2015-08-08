@@ -23,23 +23,21 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeDHCPOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeDHCPOptions.html AWS API Reference> for DescribeDHCPOptions.
 module Network.AWS.EC2.DescribeDHCPOptions
     (
-    -- * Request
+    -- * Creating a Request
       DescribeDHCPOptions
-    -- ** Request constructor
     , describeDHCPOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , ddoFilters
     , ddoDHCPOptionsIds
     , ddoDryRun
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeDHCPOptionsResponse
-    -- ** Response constructor
     , describeDHCPOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddorsDHCPOptions
     , ddorsStatus
     ) where
@@ -164,6 +162,6 @@ describeDHCPOptionsResponse pStatus_ =
 ddorsDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
 ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddorsStatus :: Lens' DescribeDHCPOptionsResponse Int
 ddorsStatus = lens _ddorsStatus (\ s a -> s{_ddorsStatus = a});

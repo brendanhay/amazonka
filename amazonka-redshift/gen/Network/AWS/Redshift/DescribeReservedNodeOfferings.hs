@@ -29,23 +29,21 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html AWS API Reference> for DescribeReservedNodeOfferings.
 module Network.AWS.Redshift.DescribeReservedNodeOfferings
     (
-    -- * Request
+    -- * Creating a Request
       DescribeReservedNodeOfferings
-    -- ** Request constructor
     , describeReservedNodeOfferings
-    -- ** Request lenses
+    -- * Request Lenses
     , drnoReservedNodeOfferingId
     , drnoMaxRecords
     , drnoMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeReservedNodeOfferingsResponse
-    -- ** Response constructor
     , describeReservedNodeOfferingsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , drnorsReservedNodeOfferings
     , drnorsMarker
     , drnorsStatus
@@ -188,6 +186,6 @@ drnorsReservedNodeOfferings = lens _drnorsReservedNodeOfferings (\ s a -> s{_drn
 drnorsMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorsMarker = lens _drnorsMarker (\ s a -> s{_drnorsMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drnorsStatus :: Lens' DescribeReservedNodeOfferingsResponse Int
 drnorsStatus = lens _drnorsStatus (\ s a -> s{_drnorsStatus = a});

@@ -23,22 +23,20 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html AWS API Reference> for CreateGroup.
 module Network.AWS.IAM.CreateGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateGroup
-    -- ** Request constructor
     , createGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cgPath
     , cgGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateGroupResponse
-    -- ** Response constructor
     , createGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cgrsStatus
     , cgrsGroup
     ) where
@@ -126,7 +124,7 @@ createGroupResponse pStatus_ pGroup_ =
     , _cgrsGroup = pGroup_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cgrsStatus :: Lens' CreateGroupResponse Int
 cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});
 

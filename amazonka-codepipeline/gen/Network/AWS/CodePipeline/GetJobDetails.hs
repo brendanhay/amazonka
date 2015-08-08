@@ -25,21 +25,19 @@
 -- artifacts. Additionally, this API returns any secret values defined for
 -- the action.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetJobDetails.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetJobDetails.html AWS API Reference> for GetJobDetails.
 module Network.AWS.CodePipeline.GetJobDetails
     (
-    -- * Request
+    -- * Creating a Request
       GetJobDetails
-    -- ** Request constructor
     , getJobDetails
-    -- ** Request lenses
+    -- * Request Lenses
     , gjdJobId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetJobDetailsResponse
-    -- ** Response constructor
     , getJobDetailsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gjdrsJobDetails
     , gjdrsStatus
     ) where
@@ -130,6 +128,6 @@ getJobDetailsResponse pStatus_ =
 gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
 gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gjdrsStatus :: Lens' GetJobDetailsResponse Int
 gjdrsStatus = lens _gjdrsStatus (\ s a -> s{_gjdrsStatus = a});

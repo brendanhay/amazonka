@@ -19,21 +19,19 @@
 --
 -- Returns the region the bucket resides in.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html AWS API Reference> for GetBucketLocation.
 module Network.AWS.S3.GetBucketLocation
     (
-    -- * Request
+    -- * Creating a Request
       GetBucketLocation
-    -- ** Request constructor
     , getBucketLocation
-    -- ** Request lenses
+    -- * Request Lenses
     , gblBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , GetBucketLocationResponse
-    -- ** Response constructor
     , getBucketLocationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , getrsLocationConstraint
     , getrsStatus
     ) where
@@ -59,7 +57,7 @@ getBucketLocation pBucket_ =
     { _gblBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gblBucket :: Lens' GetBucketLocation BucketName
 gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a});
 
@@ -103,10 +101,10 @@ getBucketLocationResponse pStatus_ =
     , _getrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 getrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 getrsLocationConstraint = lens _getrsLocationConstraint (\ s a -> s{_getrsLocationConstraint = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 getrsStatus :: Lens' GetBucketLocationResponse Int
 getrsStatus = lens _getrsStatus (\ s a -> s{_getrsStatus = a});

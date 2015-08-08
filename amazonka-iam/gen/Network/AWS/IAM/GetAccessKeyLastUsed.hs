@@ -22,21 +22,19 @@
 -- AWS service and region that were specified in the last request made with
 -- that key.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html AWS API Reference> for GetAccessKeyLastUsed.
 module Network.AWS.IAM.GetAccessKeyLastUsed
     (
-    -- * Request
+    -- * Creating a Request
       GetAccessKeyLastUsed
-    -- ** Request constructor
     , getAccessKeyLastUsed
-    -- ** Request lenses
+    -- * Request Lenses
     , gakluAccessKeyId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetAccessKeyLastUsedResponse
-    -- ** Response constructor
     , getAccessKeyLastUsedResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gaklursUserName
     , gaklursAccessKeyLastUsed
     , gaklursStatus
@@ -128,6 +126,6 @@ gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a});
 gaklursAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
 gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAccessKeyLastUsed = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gaklursStatus :: Lens' GetAccessKeyLastUsedResponse Int
 gaklursStatus = lens _gaklursStatus (\ s a -> s{_gaklursStatus = a});

@@ -21,21 +21,19 @@
 -- specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html AWS API Reference> for DescribeTrustedAdvisorCheckRefreshStatuses.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
-    -- * Request
+    -- * Creating a Request
       DescribeTrustedAdvisorCheckRefreshStatuses
-    -- ** Request constructor
     , describeTrustedAdvisorCheckRefreshStatuses
-    -- ** Request lenses
+    -- * Request Lenses
     , dtacrsCheckIds
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeTrustedAdvisorCheckRefreshStatusesResponse
-    -- ** Response constructor
     , describeTrustedAdvisorCheckRefreshStatusesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dtacrsrsStatus
     , dtacrsrsStatuses
     ) where
@@ -128,7 +126,7 @@ describeTrustedAdvisorCheckRefreshStatusesResponse pStatus_ =
     , _dtacrsrsStatuses = mempty
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dtacrsrsStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
 dtacrsrsStatus = lens _dtacrsrsStatus (\ s a -> s{_dtacrsrsStatus = a});
 

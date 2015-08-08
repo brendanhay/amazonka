@@ -35,20 +35,18 @@
 -- @UpdateOpenIDConnectProviderThumbprint@ action to highly-privileged
 -- users.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIdConnectProviderThumbprint.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIdConnectProviderThumbprint.html AWS API Reference> for UpdateOpenIdConnectProviderThumbprint.
 module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
     (
-    -- * Request
+    -- * Creating a Request
       UpdateOpenIdConnectProviderThumbprint
-    -- ** Request constructor
     , updateOpenIdConnectProviderThumbprint
-    -- ** Request lenses
+    -- * Request Lenses
     , uoicptOpenIdConnectProviderARN
     , uoicptThumbprintList
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateOpenIdConnectProviderThumbprintResponse
-    -- ** Response constructor
     , updateOpenIdConnectProviderThumbprintResponse
     ) where
 

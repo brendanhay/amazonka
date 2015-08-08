@@ -34,25 +34,23 @@
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html AWS API Reference> for DescribeClusters.
 module Network.AWS.Redshift.DescribeClusters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeClusters
-    -- ** Request constructor
     , describeClusters
-    -- ** Request lenses
+    -- * Request Lenses
     , dcTagValues
     , dcTagKeys
     , dcClusterIdentifier
     , dcMaxRecords
     , dcMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeClustersResponse
-    -- ** Response constructor
     , describeClustersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dcrsMarker
     , dcrsClusters
     , dcrsStatus
@@ -224,6 +222,6 @@ dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dcrsStatus :: Lens' DescribeClustersResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

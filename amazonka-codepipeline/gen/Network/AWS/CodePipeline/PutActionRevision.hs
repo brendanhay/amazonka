@@ -20,24 +20,22 @@
 -- Provides information to AWS CodePipeline about new revisions to a
 -- source.
 --
--- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutActionRevision.html>
+-- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutActionRevision.html AWS API Reference> for PutActionRevision.
 module Network.AWS.CodePipeline.PutActionRevision
     (
-    -- * Request
+    -- * Creating a Request
       PutActionRevision
-    -- ** Request constructor
     , putActionRevision
-    -- ** Request lenses
+    -- * Request Lenses
     , parPipelineName
     , parStageName
     , parActionName
     , parActionRevision
 
-    -- * Response
+    -- * Destructuring the Response
     , PutActionRevisionResponse
-    -- ** Response constructor
     , putActionRevisionResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , parrsNewRevision
     , parrsPipelineExecutionId
     , parrsStatus
@@ -92,7 +90,7 @@ parStageName = lens _parStageName (\ s a -> s{_parStageName = a});
 parActionName :: Lens' PutActionRevision Text
 parActionName = lens _parActionName (\ s a -> s{_parActionName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 parActionRevision :: Lens' PutActionRevision ActionRevision
 parActionRevision = lens _parActionRevision (\ s a -> s{_parActionRevision = a});
 
@@ -167,6 +165,6 @@ parrsNewRevision = lens _parrsNewRevision (\ s a -> s{_parrsNewRevision = a});
 parrsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
 parrsPipelineExecutionId = lens _parrsPipelineExecutionId (\ s a -> s{_parrsPipelineExecutionId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 parrsStatus :: Lens' PutActionRevisionResponse Int
 parrsStatus = lens _parrsStatus (\ s a -> s{_parrsStatus = a});

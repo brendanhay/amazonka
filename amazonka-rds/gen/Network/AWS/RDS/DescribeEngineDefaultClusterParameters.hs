@@ -24,24 +24,22 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultClusterParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultClusterParameters.html AWS API Reference> for DescribeEngineDefaultClusterParameters.
 module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeEngineDefaultClusterParameters
-    -- ** Request constructor
     , describeEngineDefaultClusterParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , dedcpFilters
     , dedcpMaxRecords
     , dedcpMarker
     , dedcpDBParameterGroupFamily
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeEngineDefaultClusterParametersResponse
-    -- ** Response constructor
     , describeEngineDefaultClusterParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dedcprsEngineDefaults
     , dedcprsStatus
     ) where
@@ -164,10 +162,10 @@ describeEngineDefaultClusterParametersResponse pStatus_ =
     , _dedcprsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dedcprsEngineDefaults :: Lens' DescribeEngineDefaultClusterParametersResponse (Maybe EngineDefaults)
 dedcprsEngineDefaults = lens _dedcprsEngineDefaults (\ s a -> s{_dedcprsEngineDefaults = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dedcprsStatus :: Lens' DescribeEngineDefaultClusterParametersResponse Int
 dedcprsStatus = lens _dedcprsStatus (\ s a -> s{_dedcprsStatus = a});

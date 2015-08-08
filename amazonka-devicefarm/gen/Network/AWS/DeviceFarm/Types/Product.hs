@@ -400,7 +400,7 @@ dArn = lens _dArn (\ s a -> s{_dArn = a});
 dFormFactor :: Lens' Device (Maybe DeviceFormFactor)
 dFormFactor = lens _dFormFactor (\ s a -> s{_dFormFactor = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dResolution :: Lens' Device (Maybe Resolution)
 dResolution = lens _dResolution (\ s a -> s{_dResolution = a});
 
@@ -550,7 +550,7 @@ devicePoolCompatibilityResult =
     , _dpcrIncompatibilityMessages = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dpcrDevice :: Lens' DevicePoolCompatibilityResult (Maybe Device)
 dpcrDevice = lens _dpcrDevice (\ s a -> s{_dpcrDevice = a});
 
@@ -705,7 +705,7 @@ jobArn = lens _jobArn (\ s a -> s{_jobArn = a});
 jobCreated :: Lens' Job (Maybe UTCTime)
 jobCreated = lens _jobCreated (\ s a -> s{_jobCreated = a}) . mapping _Time;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 jobDevice :: Lens' Job (Maybe Device)
 jobDevice = lens _jobDevice (\ s a -> s{_jobDevice = a});
 

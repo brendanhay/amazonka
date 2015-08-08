@@ -27,23 +27,21 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html AWS API Reference> for ImportKeyPair.
 module Network.AWS.EC2.ImportKeyPair
     (
-    -- * Request
+    -- * Creating a Request
       ImportKeyPair
-    -- ** Request constructor
     , importKeyPair
-    -- ** Request lenses
+    -- * Request Lenses
     , ikpDryRun
     , ikpKeyName
     , ikpPublicKeyMaterial
 
-    -- * Response
+    -- * Destructuring the Response
     , ImportKeyPairResponse
-    -- ** Response constructor
     , importKeyPairResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ikprsKeyFingerprint
     , ikprsKeyName
     , ikprsStatus
@@ -151,6 +149,6 @@ ikprsKeyFingerprint = lens _ikprsKeyFingerprint (\ s a -> s{_ikprsKeyFingerprint
 ikprsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ikprsStatus :: Lens' ImportKeyPairResponse Int
 ikprsStatus = lens _ikprsStatus (\ s a -> s{_ikprsStatus = a});

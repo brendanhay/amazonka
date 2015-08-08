@@ -25,22 +25,20 @@
 --
 -- This is a public API. You do not need any credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdToken.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdToken.html AWS API Reference> for GetOpenIdToken.
 module Network.AWS.CognitoIdentity.GetOpenIdToken
     (
-    -- * Request
+    -- * Creating a Request
       GetOpenIdToken
-    -- ** Request constructor
     , getOpenIdToken
-    -- ** Request lenses
+    -- * Request Lenses
     , goitLogins
     , goitIdentityId
 
-    -- * Response
+    -- * Destructuring the Response
     , GetOpenIdTokenResponse
-    -- ** Response constructor
     , getOpenIdTokenResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , goitrsToken
     , goitrsIdentityId
     , goitrsStatus
@@ -153,6 +151,6 @@ goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a});
 goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 goitrsStatus :: Lens' GetOpenIdTokenResponse Int
 goitrsStatus = lens _goitrsStatus (\ s a -> s{_goitrsStatus = a});

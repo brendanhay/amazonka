@@ -23,25 +23,23 @@
 --
 -- The list of container instances to start tasks on is limited to 10.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html AWS API Reference> for StartTask.
 module Network.AWS.ECS.StartTask
     (
-    -- * Request
+    -- * Creating a Request
       StartTask
-    -- ** Request constructor
     , startTask
-    -- ** Request lenses
+    -- * Request Lenses
     , sOverrides
     , sCluster
     , sStartedBy
     , sTaskDefinition
     , sContainerInstances
 
-    -- * Response
+    -- * Destructuring the Response
     , StartTaskResponse
-    -- ** Response constructor
     , startTaskResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , strsFailures
     , strsTasks
     , strsStatus
@@ -196,6 +194,6 @@ strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default . _
 strsTasks :: Lens' StartTaskResponse [Task]
 strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 strsStatus :: Lens' StartTaskResponse Int
 strsStatus = lens _strsStatus (\ s a -> s{_strsStatus = a});

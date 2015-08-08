@@ -29,21 +29,19 @@
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have been completely terminated.
 --
--- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_TerminateWorkspaces.html>
+-- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_TerminateWorkspaces.html AWS API Reference> for TerminateWorkspaces.
 module Network.AWS.WorkSpaces.TerminateWorkspaces
     (
-    -- * Request
+    -- * Creating a Request
       TerminateWorkspaces
-    -- ** Request constructor
     , terminateWorkspaces
-    -- ** Request lenses
+    -- * Request Lenses
     , twTerminateWorkspaceRequests
 
-    -- * Response
+    -- * Destructuring the Response
     , TerminateWorkspacesResponse
-    -- ** Response constructor
     , terminateWorkspacesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , twrsFailedRequests
     , twrsStatus
     ) where
@@ -136,6 +134,6 @@ terminateWorkspacesResponse pStatus_ =
 twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
 twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 twrsStatus :: Lens' TerminateWorkspacesResponse Int
 twrsStatus = lens _twrsStatus (\ s a -> s{_twrsStatus = a});

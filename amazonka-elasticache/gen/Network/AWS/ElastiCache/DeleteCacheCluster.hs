@@ -26,22 +26,20 @@
 -- This API cannot be used to delete a cache cluster that is the last read
 -- replica of a replication group that has Multi-AZ mode enabled.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html AWS API Reference> for DeleteCacheCluster.
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
-    -- * Request
+    -- * Creating a Request
       DeleteCacheCluster
-    -- ** Request constructor
     , deleteCacheCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , dccFinalSnapshotIdentifier
     , dccCacheClusterId
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteCacheClusterResponse
-    -- ** Response constructor
     , deleteCacheClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dccrsCacheCluster
     , dccrsStatus
     ) where
@@ -130,10 +128,10 @@ deleteCacheClusterResponse pStatus_ =
     , _dccrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dccrsStatus :: Lens' DeleteCacheClusterResponse Int
 dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});

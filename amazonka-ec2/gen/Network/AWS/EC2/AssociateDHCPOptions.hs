@@ -31,21 +31,19 @@
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDHCPOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDHCPOptions.html AWS API Reference> for AssociateDHCPOptions.
 module Network.AWS.EC2.AssociateDHCPOptions
     (
-    -- * Request
+    -- * Creating a Request
       AssociateDHCPOptions
-    -- ** Request constructor
     , associateDHCPOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , adoDryRun
     , adoDHCPOptionsId
     , adoVPCId
 
-    -- * Response
+    -- * Destructuring the Response
     , AssociateDHCPOptionsResponse
-    -- ** Response constructor
     , associateDHCPOptionsResponse
     ) where
 

@@ -25,22 +25,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateAvailabilityOptions.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateAvailabilityOptions.html AWS API Reference> for UpdateAvailabilityOptions.
 module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     (
-    -- * Request
+    -- * Creating a Request
       UpdateAvailabilityOptions
-    -- ** Request constructor
     , updateAvailabilityOptions
-    -- ** Request lenses
+    -- * Request Lenses
     , uaoDomainName
     , uaoMultiAZ
 
-    -- * Response
+    -- * Destructuring the Response
     , UpdateAvailabilityOptionsResponse
-    -- ** Response constructor
     , updateAvailabilityOptionsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , uaorsAvailabilityOptions
     , uaorsStatus
     ) where
@@ -74,7 +72,7 @@ updateAvailabilityOptions pDomainName_ pMultiAZ_ =
     , _uaoMultiAZ = pMultiAZ_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uaoDomainName :: Lens' UpdateAvailabilityOptions Text
 uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a});
 
@@ -140,6 +138,6 @@ updateAvailabilityOptionsResponse pStatus_ =
 uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvailabilityOptions = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 uaorsStatus :: Lens' UpdateAvailabilityOptionsResponse Int
 uaorsStatus = lens _uaorsStatus (\ s a -> s{_uaorsStatus = a});

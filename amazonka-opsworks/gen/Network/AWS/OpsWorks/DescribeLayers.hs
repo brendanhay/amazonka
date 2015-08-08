@@ -27,22 +27,20 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLayers.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLayers.html AWS API Reference> for DescribeLayers.
 module Network.AWS.OpsWorks.DescribeLayers
     (
-    -- * Request
+    -- * Creating a Request
       DescribeLayers
-    -- ** Request constructor
     , describeLayers
-    -- ** Request lenses
+    -- * Request Lenses
     , dlLayerIds
     , dlStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeLayersResponse
-    -- ** Response constructor
     , describeLayersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dlrsLayers
     , dlrsStatus
     ) where
@@ -138,6 +136,6 @@ describeLayersResponse pStatus_ =
 dlrsLayers :: Lens' DescribeLayersResponse [Layer]
 dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dlrsStatus :: Lens' DescribeLayersResponse Int
 dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});

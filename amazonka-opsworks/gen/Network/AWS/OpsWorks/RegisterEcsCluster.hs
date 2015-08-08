@@ -28,22 +28,20 @@
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterEcsCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterEcsCluster.html AWS API Reference> for RegisterEcsCluster.
 module Network.AWS.OpsWorks.RegisterEcsCluster
     (
-    -- * Request
+    -- * Creating a Request
       RegisterEcsCluster
-    -- ** Request constructor
     , registerEcsCluster
-    -- ** Request lenses
+    -- * Request Lenses
     , recEcsClusterARN
     , recStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterEcsClusterResponse
-    -- ** Response constructor
     , registerEcsClusterResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , recrsEcsClusterARN
     , recrsStatus
     ) where
@@ -140,6 +138,6 @@ registerEcsClusterResponse pStatus_ =
 recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
 recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 recrsStatus :: Lens' RegisterEcsClusterResponse Int
 recrsStatus = lens _recrsStatus (\ s a -> s{_recrsStatus = a});

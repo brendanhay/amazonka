@@ -20,20 +20,18 @@
 -- Enables a virtual private gateway (VGW) to propagate routes to the
 -- specified route table of a VPC.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVGWRoutePropagation.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVGWRoutePropagation.html AWS API Reference> for EnableVGWRoutePropagation.
 module Network.AWS.EC2.EnableVGWRoutePropagation
     (
-    -- * Request
+    -- * Creating a Request
       EnableVGWRoutePropagation
-    -- ** Request constructor
     , enableVGWRoutePropagation
-    -- ** Request lenses
+    -- * Request Lenses
     , evrpRouteTableId
     , evrpGatewayId
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableVGWRoutePropagationResponse
-    -- ** Response constructor
     , enableVGWRoutePropagationResponse
     ) where
 

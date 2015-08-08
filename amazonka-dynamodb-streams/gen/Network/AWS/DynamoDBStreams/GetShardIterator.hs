@@ -25,24 +25,22 @@
 -- A shard iterator expires 15 minutes after it is returned to the
 -- requester.
 --
--- <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetShardIterator.html>
+-- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetShardIterator.html AWS API Reference> for GetShardIterator.
 module Network.AWS.DynamoDBStreams.GetShardIterator
     (
-    -- * Request
+    -- * Creating a Request
       GetShardIterator
-    -- ** Request constructor
     , getShardIterator
-    -- ** Request lenses
+    -- * Request Lenses
     , gsiSequenceNumber
     , gsiStreamARN
     , gsiShardId
     , gsiShardIteratorType
 
-    -- * Response
+    -- * Destructuring the Response
     , GetShardIteratorResponse
-    -- ** Response constructor
     , getShardIteratorResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , gsirsShardIterator
     , gsirsStatus
     ) where
@@ -180,6 +178,6 @@ getShardIteratorResponse pStatus_ =
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 gsirsStatus :: Lens' GetShardIteratorResponse Int
 gsirsStatus = lens _gsirsStatus (\ s a -> s{_gsirsStatus = a});

@@ -20,21 +20,19 @@
 -- Takes a @CaseId@ and returns the initial state of the case along with
 -- the state of the case after the call to ResolveCase completed.
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html>
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html AWS API Reference> for ResolveCase.
 module Network.AWS.Support.ResolveCase
     (
-    -- * Request
+    -- * Creating a Request
       ResolveCase
-    -- ** Request constructor
     , resolveCase
-    -- ** Request lenses
+    -- * Request Lenses
     , rcCaseId
 
-    -- * Response
+    -- * Destructuring the Response
     , ResolveCaseResponse
-    -- ** Response constructor
     , resolveCaseResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rcrsInitialCaseStatus
     , rcrsFinalCaseStatus
     , rcrsStatus
@@ -132,6 +130,6 @@ rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCase
 rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rcrsStatus :: Lens' ResolveCaseResponse Int
 rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

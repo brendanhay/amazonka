@@ -36,21 +36,19 @@
 -- information, see the
 -- <http://aws.amazon.com/storagegateway AWS Storage Gateway Detail Page>.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html AWS API Reference> for DeleteGateway.
 module Network.AWS.StorageGateway.DeleteGateway
     (
-    -- * Request
+    -- * Creating a Request
       DeleteGateway
-    -- ** Request constructor
     , deleteGateway
-    -- ** Request lenses
+    -- * Request Lenses
     , dgGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteGatewayResponse
-    -- ** Response constructor
     , deleteGatewayResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dgrsGatewayARN
     , dgrsStatus
     ) where
@@ -78,7 +76,7 @@ deleteGateway pGatewayARN_ =
     { _dgGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dgGatewayARN :: Lens' DeleteGateway Text
 dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a});
 
@@ -134,10 +132,10 @@ deleteGatewayResponse pStatus_ =
     , _dgrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dgrsStatus :: Lens' DeleteGatewayResponse Int
 dgrsStatus = lens _dgrsStatus (\ s a -> s{_dgrsStatus = a});

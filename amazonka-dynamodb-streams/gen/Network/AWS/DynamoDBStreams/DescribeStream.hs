@@ -30,23 +30,21 @@
 -- @EndingSequenceNumber@ are present, the that shared is closed and can no
 -- longer receive more data.
 --
--- <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_DescribeStream.html>
+-- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_DescribeStream.html AWS API Reference> for DescribeStream.
 module Network.AWS.DynamoDBStreams.DescribeStream
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStream
-    -- ** Request constructor
     , describeStream
-    -- ** Request lenses
+    -- * Request Lenses
     , dsExclusiveStartShardId
     , dsLimit
     , dsStreamARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStreamResponse
-    -- ** Response constructor
     , describeStreamResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dsrsStreamDescription
     , dsrsStatus
     ) where
@@ -157,6 +155,6 @@ describeStreamResponse pStatus_ =
 dsrsStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dsrsStatus :: Lens' DescribeStreamResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

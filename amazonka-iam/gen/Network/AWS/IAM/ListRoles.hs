@@ -25,23 +25,21 @@
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html AWS API Reference> for ListRoles.
 module Network.AWS.IAM.ListRoles
     (
-    -- * Request
+    -- * Creating a Request
       ListRoles
-    -- ** Request constructor
     , listRoles
-    -- ** Request lenses
+    -- * Request Lenses
     , lrPathPrefix
     , lrMaxItems
     , lrMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListRolesResponse
-    -- ** Response constructor
     , listRolesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrrsMarker
     , lrrsIsTruncated
     , lrrsStatus
@@ -178,7 +176,7 @@ lrrsMarker = lens _lrrsMarker (\ s a -> s{_lrrsMarker = a});
 lrrsIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrsIsTruncated = lens _lrrsIsTruncated (\ s a -> s{_lrrsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrrsStatus :: Lens' ListRolesResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
 

@@ -25,19 +25,17 @@
 -- endpoint, so that the endpoint owner can easily resubscribe to the topic
 -- if the @Unsubscribe@ request was unintended.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html AWS API Reference> for Unsubscribe.
 module Network.AWS.SNS.Unsubscribe
     (
-    -- * Request
+    -- * Creating a Request
       Unsubscribe
-    -- ** Request constructor
     , unsubscribe
-    -- ** Request lenses
+    -- * Request Lenses
     , uSubscriptionARN
 
-    -- * Response
+    -- * Destructuring the Response
     , UnsubscribeResponse
-    -- ** Response constructor
     , unsubscribeResponse
     ) where
 

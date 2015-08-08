@@ -26,21 +26,19 @@
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterSnapshot.html AWS API Reference> for DeleteDBClusterSnapshot.
 module Network.AWS.RDS.DeleteDBClusterSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       DeleteDBClusterSnapshot
-    -- ** Request constructor
     , deleteDBClusterSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , ddcsDBClusterSnapshotIdentifier
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteDBClusterSnapshotResponse
-    -- ** Response constructor
     , deleteDBClusterSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ddcsrsDBClusterSnapshot
     , ddcsrsStatus
     ) where
@@ -121,10 +119,10 @@ deleteDBClusterSnapshotResponse pStatus_ =
     , _ddcsrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcsrsDBClusterSnapshot :: Lens' DeleteDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 ddcsrsDBClusterSnapshot = lens _ddcsrsDBClusterSnapshot (\ s a -> s{_ddcsrsDBClusterSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ddcsrsStatus :: Lens' DeleteDBClusterSnapshotResponse Int
 ddcsrsStatus = lens _ddcsrsStatus (\ s a -> s{_ddcsrsStatus = a});

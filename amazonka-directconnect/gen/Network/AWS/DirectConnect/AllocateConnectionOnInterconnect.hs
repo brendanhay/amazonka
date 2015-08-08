@@ -22,25 +22,23 @@
 -- Allocates a VLAN number and a specified amount of bandwidth for use by a
 -- hosted connection on the given interconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html AWS API Reference> for AllocateConnectionOnInterconnect.
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
-    -- * Request
+    -- * Creating a Request
       AllocateConnectionOnInterconnect
-    -- ** Request constructor
     , allocateConnectionOnInterconnect
-    -- ** Request lenses
+    -- * Request Lenses
     , acoiBandwidth
     , acoiConnectionName
     , acoiOwnerAccount
     , acoiInterconnectId
     , acoiVlan
 
-    -- * Response
+    -- * Destructuring the Response
     , Connection
-    -- ** Response constructor
     , connection
-    -- ** Response lenses
+    -- * Response Lenses
     , cVlan
     , cLocation
     , cConnectionId

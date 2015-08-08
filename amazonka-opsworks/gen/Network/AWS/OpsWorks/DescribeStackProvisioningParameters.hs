@@ -25,21 +25,19 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackProvisioningParameters.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackProvisioningParameters.html AWS API Reference> for DescribeStackProvisioningParameters.
 module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     (
-    -- * Request
+    -- * Creating a Request
       DescribeStackProvisioningParameters
-    -- ** Request constructor
     , describeStackProvisioningParameters
-    -- ** Request lenses
+    -- * Request Lenses
     , dsppStackId
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeStackProvisioningParametersResponse
-    -- ** Response constructor
     , describeStackProvisioningParametersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dspprsAgentInstallerURL
     , dspprsParameters
     , dspprsStatus
@@ -144,6 +142,6 @@ dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgent
 dspprsParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
 dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . _Default . _Map;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dspprsStatus :: Lens' DescribeStackProvisioningParametersResponse Int
 dspprsStatus = lens _dspprsStatus (\ s a -> s{_dspprsStatus = a});

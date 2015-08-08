@@ -23,23 +23,21 @@
 -- instance names will be listed. To list only registered or deregistered
 -- on-premises instance names, use the registration status parameter.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListOnPremisesInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListOnPremisesInstances.html AWS API Reference> for ListOnPremisesInstances.
 module Network.AWS.CodeDeploy.ListOnPremisesInstances
     (
-    -- * Request
+    -- * Creating a Request
       ListOnPremisesInstances
-    -- ** Request constructor
     , listOnPremisesInstances
-    -- ** Request lenses
+    -- * Request Lenses
     , lopiTagFilters
     , lopiNextToken
     , lopiRegistrationStatus
 
-    -- * Response
+    -- * Destructuring the Response
     , ListOnPremisesInstancesResponse
-    -- ** Response constructor
     , listOnPremisesInstancesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lopirsNextToken
     , lopirsInstanceNames
     , lopirsStatus
@@ -171,6 +169,6 @@ lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a});
 lopirsInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
 lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lopirsStatus :: Lens' ListOnPremisesInstancesResponse Int
 lopirsStatus = lens _lopirsStatus (\ s a -> s{_lopirsStatus = a});

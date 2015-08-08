@@ -19,22 +19,20 @@
 --
 -- Returns a list of existing clusters.
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html AWS API Reference> for ListClusters.
 module Network.AWS.ECS.ListClusters
     (
-    -- * Request
+    -- * Creating a Request
       ListClusters
-    -- ** Request constructor
     , listClusters
-    -- ** Request lenses
+    -- * Request Lenses
     , lcNextToken
     , lcMaxResults
 
-    -- * Response
+    -- * Destructuring the Response
     , ListClustersResponse
-    -- ** Response constructor
     , listClustersResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lcrsClusterARNs
     , lcrsNextToken
     , lcrsStatus
@@ -162,6 +160,6 @@ lcrsClusterARNs = lens _lcrsClusterARNs (\ s a -> s{_lcrsClusterARNs = a}) . _De
 lcrsNextToken :: Lens' ListClustersResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lcrsStatus :: Lens' ListClustersResponse Int
 lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});

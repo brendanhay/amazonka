@@ -29,14 +29,13 @@
 -- @CreatePlatformEndpoint@ action. The second example below shows a
 -- request and response for publishing to a mobile endpoint.
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html>
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html AWS API Reference> for Publish.
 module Network.AWS.SNS.Publish
     (
-    -- * Request
+    -- * Creating a Request
       Publish
-    -- ** Request constructor
     , publish
-    -- ** Request lenses
+    -- * Request Lenses
     , pMessageAttributes
     , pTargetARN
     , pSubject
@@ -44,11 +43,10 @@ module Network.AWS.SNS.Publish
     , pMessageStructure
     , pMessage
 
-    -- * Response
+    -- * Destructuring the Response
     , PublishResponse
-    -- ** Response constructor
     , publishResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , prsMessageId
     , prsStatus
     ) where
@@ -232,6 +230,6 @@ publishResponse pStatus_ =
 prsMessageId :: Lens' PublishResponse (Maybe Text)
 prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 prsStatus :: Lens' PublishResponse Int
 prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});

@@ -29,22 +29,20 @@
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListReusableDelegationSets.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListReusableDelegationSets.html AWS API Reference> for ListReusableDelegationSets.
 module Network.AWS.Route53.ListReusableDelegationSets
     (
-    -- * Request
+    -- * Creating a Request
       ListReusableDelegationSets
-    -- ** Request constructor
     , listReusableDelegationSets
-    -- ** Request lenses
+    -- * Request Lenses
     , lrdsMaxItems
     , lrdsMarker
 
-    -- * Response
+    -- * Destructuring the Response
     , ListReusableDelegationSetsResponse
-    -- ** Response constructor
     , listReusableDelegationSetsResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lrdsrsNextMarker
     , lrdsrsStatus
     , lrdsrsDelegationSets
@@ -175,7 +173,7 @@ listReusableDelegationSetsResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
 lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrsNextMarker = lens _lrdsrsNextMarker (\ s a -> s{_lrdsrsNextMarker = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lrdsrsStatus :: Lens' ListReusableDelegationSetsResponse Int
 lrdsrsStatus = lens _lrdsrsStatus (\ s a -> s{_lrdsrsStatus = a});
 

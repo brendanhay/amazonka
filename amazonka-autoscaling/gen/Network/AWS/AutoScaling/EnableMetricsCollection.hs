@@ -23,21 +23,19 @@
 -- You can only enable metrics collection if @InstanceMonitoring@ in the
 -- launch configuration for the group is set to @True@.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html AWS API Reference> for EnableMetricsCollection.
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
-    -- * Request
+    -- * Creating a Request
       EnableMetricsCollection
-    -- ** Request constructor
     , enableMetricsCollection
-    -- ** Request lenses
+    -- * Request Lenses
     , emcMetrics
     , emcAutoScalingGroupName
     , emcGranularity
 
-    -- * Response
+    -- * Destructuring the Response
     , EnableMetricsCollectionResponse
-    -- ** Response constructor
     , enableMetricsCollectionResponse
     ) where
 

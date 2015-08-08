@@ -22,21 +22,19 @@
 -- gateway is running or not). To specify which gateway to describe, use
 -- the Amazon Resource Name (ARN) of the gateway in your request.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeGatewayInformation.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeGatewayInformation.html AWS API Reference> for DescribeGatewayInformation.
 module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
-    -- * Request
+    -- * Creating a Request
       DescribeGatewayInformation
-    -- ** Request constructor
     , describeGatewayInformation
-    -- ** Request lenses
+    -- * Request Lenses
     , dgiGatewayARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeGatewayInformationResponse
-    -- ** Response constructor
     , describeGatewayInformationResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dgirsGatewayState
     , dgirsGatewayARN
     , dgirsGatewayNetworkInterfaces
@@ -71,7 +69,7 @@ describeGatewayInformation pGatewayARN_ =
     { _dgiGatewayARN = pGatewayARN_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dgiGatewayARN :: Lens' DescribeGatewayInformation Text
 dgiGatewayARN = lens _dgiGatewayARN (\ s a -> s{_dgiGatewayARN = a});
 
@@ -167,7 +165,7 @@ describeGatewayInformationResponse pStatus_ =
 dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayState = lens _dgirsGatewayState (\ s a -> s{_dgirsGatewayState = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayARN = lens _dgirsGatewayARN (\ s a -> s{_dgirsGatewayARN = a});
 
@@ -201,6 +199,6 @@ dgirsGatewayType = lens _dgirsGatewayType (\ s a -> s{_dgirsGatewayType = a});
 dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dgirsStatus :: Lens' DescribeGatewayInformationResponse Int
 dgirsStatus = lens _dgirsStatus (\ s a -> s{_dgirsStatus = a});

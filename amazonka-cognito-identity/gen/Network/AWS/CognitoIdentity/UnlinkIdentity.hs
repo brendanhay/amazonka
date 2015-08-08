@@ -23,21 +23,19 @@
 --
 -- This is a public API. You do not need any credentials to call this API.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkIdentity.html AWS API Reference> for UnlinkIdentity.
 module Network.AWS.CognitoIdentity.UnlinkIdentity
     (
-    -- * Request
+    -- * Creating a Request
       UnlinkIdentity
-    -- ** Request constructor
     , unlinkIdentity
-    -- ** Request lenses
+    -- * Request Lenses
     , uiIdentityId
     , uiLogins
     , uiLoginsToRemove
 
-    -- * Response
+    -- * Destructuring the Response
     , UnlinkIdentityResponse
-    -- ** Response constructor
     , unlinkIdentityResponse
     ) where
 

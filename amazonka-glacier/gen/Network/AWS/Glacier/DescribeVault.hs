@@ -40,22 +40,20 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html Describe Vault>
 -- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeVault.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeVault.html AWS API Reference> for DescribeVault.
 module Network.AWS.Glacier.DescribeVault
     (
-    -- * Request
+    -- * Creating a Request
       DescribeVault
-    -- ** Request constructor
     , describeVault
-    -- ** Request lenses
+    -- * Request Lenses
     , dvAccountId
     , dvVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , DescribeVaultOutput
-    -- ** Response constructor
     , describeVaultOutput
-    -- ** Response lenses
+    -- * Response Lenses
     , dvoVaultName
     , dvoSizeInBytes
     , dvoLastInventoryDate

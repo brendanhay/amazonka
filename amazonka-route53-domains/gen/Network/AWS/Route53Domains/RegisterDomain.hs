@@ -41,14 +41,13 @@
 --     For more information, see
 --     <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html AWS API Reference> for RegisterDomain.
 module Network.AWS.Route53Domains.RegisterDomain
     (
-    -- * Request
+    -- * Creating a Request
       RegisterDomain
-    -- ** Request constructor
     , registerDomain
-    -- ** Request lenses
+    -- * Request Lenses
     , rdPrivacyProtectTechContact
     , rdPrivacyProtectRegistrantContact
     , rdAutoRenew
@@ -60,11 +59,10 @@ module Network.AWS.Route53Domains.RegisterDomain
     , rdRegistrantContact
     , rdTechContact
 
-    -- * Response
+    -- * Destructuring the Response
     , RegisterDomainResponse
-    -- ** Response constructor
     , registerDomainResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , rdrsStatus
     , rdrsOperationId
     ) where
@@ -320,7 +318,7 @@ registerDomainResponse pStatus_ pOperationId_ =
     , _rdrsOperationId = pOperationId_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 rdrsStatus :: Lens' RegisterDomainResponse Int
 rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});
 

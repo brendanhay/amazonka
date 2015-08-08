@@ -31,24 +31,22 @@
 -- no policies attached to the specified group (or none that match the
 -- specified path prefix), the action returns an empty list.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedUserPolicies.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedUserPolicies.html AWS API Reference> for ListAttachedUserPolicies.
 module Network.AWS.IAM.ListAttachedUserPolicies
     (
-    -- * Request
+    -- * Creating a Request
       ListAttachedUserPolicies
-    -- ** Request constructor
     , listAttachedUserPolicies
-    -- ** Request lenses
+    -- * Request Lenses
     , laupPathPrefix
     , laupMaxItems
     , laupMarker
     , laupUserName
 
-    -- * Response
+    -- * Destructuring the Response
     , ListAttachedUserPoliciesResponse
-    -- ** Response constructor
     , listAttachedUserPoliciesResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , lauprsAttachedPolicies
     , lauprsMarker
     , lauprsIsTruncated
@@ -191,6 +189,6 @@ lauprsMarker = lens _lauprsMarker (\ s a -> s{_lauprsMarker = a});
 lauprsIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 lauprsIsTruncated = lens _lauprsIsTruncated (\ s a -> s{_lauprsIsTruncated = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 lauprsStatus :: Lens' ListAttachedUserPoliciesResponse Int
 lauprsStatus = lens _lauprsStatus (\ s a -> s{_lauprsStatus = a});

@@ -22,23 +22,21 @@
 -- when a product code owner needs to verify whether another user\'s
 -- instance is eligible for support.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ConfirmProductInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ConfirmProductInstance.html AWS API Reference> for ConfirmProductInstance.
 module Network.AWS.EC2.ConfirmProductInstance
     (
-    -- * Request
+    -- * Creating a Request
       ConfirmProductInstance
-    -- ** Request constructor
     , confirmProductInstance
-    -- ** Request lenses
+    -- * Request Lenses
     , cpiDryRun
     , cpiProductCode
     , cpiInstanceId
 
-    -- * Response
+    -- * Destructuring the Response
     , ConfirmProductInstanceResponse
-    -- ** Response constructor
     , confirmProductInstanceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , cpirsReturn
     , cpirsOwnerId
     , cpirsStatus
@@ -151,6 +149,6 @@ cpirsReturn = lens _cpirsReturn (\ s a -> s{_cpirsReturn = a});
 cpirsOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirsOwnerId = lens _cpirsOwnerId (\ s a -> s{_cpirsOwnerId = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cpirsStatus :: Lens' ConfirmProductInstanceResponse Int
 cpirsStatus = lens _cpirsStatus (\ s a -> s{_cpirsStatus = a});

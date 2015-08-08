@@ -17,26 +17,24 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- FIXME: Undocumented operation.
+-- Undocumented operation.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html AWS API Reference> for ChangeTagsForResource.
 module Network.AWS.Route53.ChangeTagsForResource
     (
-    -- * Request
+    -- * Creating a Request
       ChangeTagsForResource
-    -- ** Request constructor
     , changeTagsForResource
-    -- ** Request lenses
+    -- * Request Lenses
     , ctfrRemoveTagKeys
     , ctfrAddTags
     , ctfrResourceType
     , ctfrResourceId
 
-    -- * Response
+    -- * Destructuring the Response
     , ChangeTagsForResourceResponse
-    -- ** Response constructor
     , changeTagsForResourceResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , ctfrrsStatus
     ) where
 
@@ -154,6 +152,6 @@ changeTagsForResourceResponse pStatus_ =
     { _ctfrrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 ctfrrsStatus :: Lens' ChangeTagsForResourceResponse Int
 ctfrrsStatus = lens _ctfrrsStatus (\ s a -> s{_ctfrrsStatus = a});

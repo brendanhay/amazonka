@@ -29,19 +29,17 @@
 --
 -- Currently, you can specify only one delivery channel per account.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html AWS API Reference> for PutDeliveryChannel.
 module Network.AWS.Config.PutDeliveryChannel
     (
-    -- * Request
+    -- * Creating a Request
       PutDeliveryChannel
-    -- ** Request constructor
     , putDeliveryChannel
-    -- ** Request lenses
+    -- * Request Lenses
     , pdcDeliveryChannel
 
-    -- * Response
+    -- * Destructuring the Response
     , PutDeliveryChannelResponse
-    -- ** Response constructor
     , putDeliveryChannelResponse
     ) where
 

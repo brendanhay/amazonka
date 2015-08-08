@@ -22,22 +22,20 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteIndexField.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteIndexField.html AWS API Reference> for DeleteIndexField.
 module Network.AWS.CloudSearch.DeleteIndexField
     (
-    -- * Request
+    -- * Creating a Request
       DeleteIndexField
-    -- ** Request constructor
     , deleteIndexField
-    -- ** Request lenses
+    -- * Request Lenses
     , difiDomainName
     , difiIndexFieldName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteIndexFieldResponse
-    -- ** Response constructor
     , deleteIndexFieldResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , difrsStatus
     , difrsIndexField
     ) where
@@ -71,7 +69,7 @@ deleteIndexField pDomainName_ pIndexFieldName_ =
     , _difiIndexFieldName = pIndexFieldName_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 difiDomainName :: Lens' DeleteIndexField Text
 difiDomainName = lens _difiDomainName (\ s a -> s{_difiDomainName = a});
 
@@ -126,7 +124,7 @@ deleteIndexFieldResponse pStatus_ pIndexField_ =
     , _difrsIndexField = pIndexField_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 difrsStatus :: Lens' DeleteIndexFieldResponse Int
 difrsStatus = lens _difrsStatus (\ s a -> s{_difrsStatus = a});
 

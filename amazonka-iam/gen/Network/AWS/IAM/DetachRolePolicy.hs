@@ -25,20 +25,18 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html AWS API Reference> for DetachRolePolicy.
 module Network.AWS.IAM.DetachRolePolicy
     (
-    -- * Request
+    -- * Creating a Request
       DetachRolePolicy
-    -- ** Request constructor
     , detachRolePolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , drpRoleName
     , drpPolicyARN
 
-    -- * Response
+    -- * Destructuring the Response
     , DetachRolePolicyResponse
-    -- ** Response constructor
     , detachRolePolicyResponse
     ) where
 
@@ -71,7 +69,7 @@ detachRolePolicy pRoleName_ pPolicyARN_ =
 drpRoleName :: Lens' DetachRolePolicy Text
 drpRoleName = lens _drpRoleName (\ s a -> s{_drpRoleName = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 drpPolicyARN :: Lens' DetachRolePolicy Text
 drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a});
 

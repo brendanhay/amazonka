@@ -19,25 +19,23 @@
 --
 -- Creates a new option group. You can create up to 20 option groups.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html AWS API Reference> for CreateOptionGroup.
 module Network.AWS.RDS.CreateOptionGroup
     (
-    -- * Request
+    -- * Creating a Request
       CreateOptionGroup
-    -- ** Request constructor
     , createOptionGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , cogTags
     , cogOptionGroupName
     , cogEngineName
     , cogMajorEngineVersion
     , cogOptionGroupDescription
 
-    -- * Response
+    -- * Destructuring the Response
     , CreateOptionGroupResponse
-    -- ** Response constructor
     , createOptionGroupResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , crsOptionGroup
     , crsStatus
     ) where
@@ -81,7 +79,7 @@ createOptionGroup pOptionGroupName_ pEngineName_ pMajorEngineVersion_ pOptionGro
     , _cogOptionGroupDescription = pOptionGroupDescription_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 cogTags :: Lens' CreateOptionGroup [Tag]
 cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default . _Coerce;
 
@@ -159,10 +157,10 @@ createOptionGroupResponse pStatus_ =
     , _crsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 crsOptionGroup = lens _crsOptionGroup (\ s a -> s{_crsOptionGroup = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 crsStatus :: Lens' CreateOptionGroupResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

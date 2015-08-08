@@ -26,23 +26,21 @@
 -- to @pending-reboot@ to take effect on the next DB instance restart or
 -- @RebootDBInstance@ request.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html AWS API Reference> for ResetDBParameterGroup.
 module Network.AWS.RDS.ResetDBParameterGroup
     (
-    -- * Request
+    -- * Creating a Request
       ResetDBParameterGroup
-    -- ** Request constructor
     , resetDBParameterGroup
-    -- ** Request lenses
+    -- * Request Lenses
     , rdpgResetAllParameters
     , rdpgParameters
     , rdpgDBParameterGroupName
 
-    -- * Response
+    -- * Destructuring the Response
     , DBParameterGroupNameMessage
-    -- ** Response constructor
     , dbParameterGroupNameMessage
-    -- ** Response lenses
+    -- * Response Lenses
     , dpgnmDBParameterGroupName
     ) where
 

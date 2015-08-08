@@ -35,20 +35,18 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html Delete Vault Notification Configuration>
 -- in the Amazon Glacier Developer Guide.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultNotifications.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultNotifications.html AWS API Reference> for DeleteVaultNotifications.
 module Network.AWS.Glacier.DeleteVaultNotifications
     (
-    -- * Request
+    -- * Creating a Request
       DeleteVaultNotifications
-    -- ** Request constructor
     , deleteVaultNotifications
-    -- ** Request lenses
+    -- * Request Lenses
     , dvnAccountId
     , dvnVaultName
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteVaultNotificationsResponse
-    -- ** Response constructor
     , deleteVaultNotificationsResponse
     ) where
 

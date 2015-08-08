@@ -31,22 +31,20 @@
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html Disable an Availability Zone from a Load-Balanced Application>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancer.html AWS API Reference> for DisableAvailabilityZonesForLoadBalancer.
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
-    -- * Request
+    -- * Creating a Request
       DisableAvailabilityZonesForLoadBalancer
-    -- ** Request constructor
     , disableAvailabilityZonesForLoadBalancer
-    -- ** Request lenses
+    -- * Request Lenses
     , dazflbLoadBalancerName
     , dazflbAvailabilityZones
 
-    -- * Response
+    -- * Destructuring the Response
     , DisableAvailabilityZonesForLoadBalancerResponse
-    -- ** Response constructor
     , disableAvailabilityZonesForLoadBalancerResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , dazflbrsAvailabilityZones
     , dazflbrsStatus
     ) where
@@ -143,6 +141,6 @@ disableAvailabilityZonesForLoadBalancerResponse pStatus_ =
 dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
 dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dazflbrsStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
 dazflbrsStatus = lens _dazflbrsStatus (\ s a -> s{_dazflbrsStatus = a});

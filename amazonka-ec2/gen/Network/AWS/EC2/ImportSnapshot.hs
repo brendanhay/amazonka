@@ -19,14 +19,13 @@
 --
 -- Imports a disk into an EBS snapshot.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportSnapshot.html AWS API Reference> for ImportSnapshot.
 module Network.AWS.EC2.ImportSnapshot
     (
-    -- * Request
+    -- * Creating a Request
       ImportSnapshot
-    -- ** Request constructor
     , importSnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , isDiskContainer
     , isClientToken
     , isRoleName
@@ -34,11 +33,10 @@ module Network.AWS.EC2.ImportSnapshot
     , isDescription
     , isClientData
 
-    -- * Response
+    -- * Destructuring the Response
     , ImportSnapshotResponse
-    -- ** Response constructor
     , importSnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , isrsSnapshotTaskDetail
     , isrsImportTaskId
     , isrsDescription
@@ -184,6 +182,6 @@ isrsImportTaskId = lens _isrsImportTaskId (\ s a -> s{_isrsImportTaskId = a});
 isrsDescription :: Lens' ImportSnapshotResponse (Maybe Text)
 isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 isrsStatus :: Lens' ImportSnapshotResponse Int
 isrsStatus = lens _isrsStatus (\ s a -> s{_isrsStatus = a});

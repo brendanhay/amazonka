@@ -19,22 +19,20 @@
 --
 -- The /CopySnapshot/ action makes a copy of an existing snapshot.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html AWS API Reference> for CopySnapshot.
 module Network.AWS.ElastiCache.CopySnapshot
     (
-    -- * Request
+    -- * Creating a Request
       CopySnapshot
-    -- ** Request constructor
     , copySnapshot
-    -- ** Request lenses
+    -- * Request Lenses
     , csSourceSnapshotName
     , csTargetSnapshotName
 
-    -- * Response
+    -- * Destructuring the Response
     , CopySnapshotResponse
-    -- ** Response constructor
     , copySnapshotResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , csrsSnapshot
     , csrsStatus
     ) where
@@ -118,10 +116,10 @@ copySnapshotResponse pStatus_ =
     , _csrsStatus = pStatus_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 csrsStatus :: Lens' CopySnapshotResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

@@ -24,21 +24,19 @@
 -- For more information about ARNs, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html AWS API Reference> for GetInstanceProfile.
 module Network.AWS.IAM.GetInstanceProfile
     (
-    -- * Request
+    -- * Creating a Request
       GetInstanceProfile
-    -- ** Request constructor
     , getInstanceProfile
-    -- ** Request lenses
+    -- * Request Lenses
     , gipInstanceProfileName
 
-    -- * Response
+    -- * Destructuring the Response
     , GetInstanceProfileResponse
-    -- ** Response constructor
     , getInstanceProfileResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , giprsStatus
     , giprsInstanceProfile
     ) where
@@ -114,7 +112,7 @@ getInstanceProfileResponse pStatus_ pInstanceProfile_ =
     , _giprsInstanceProfile = pInstanceProfile_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 giprsStatus :: Lens' GetInstanceProfileResponse Int
 giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
 

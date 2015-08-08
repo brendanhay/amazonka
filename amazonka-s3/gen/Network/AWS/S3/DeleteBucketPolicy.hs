@@ -19,19 +19,17 @@
 --
 -- Deletes the policy from the bucket.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketPolicy.html AWS API Reference> for DeleteBucketPolicy.
 module Network.AWS.S3.DeleteBucketPolicy
     (
-    -- * Request
+    -- * Creating a Request
       DeleteBucketPolicy
-    -- ** Request constructor
     , deleteBucketPolicy
-    -- ** Request lenses
+    -- * Request Lenses
     , dbpBucket
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteBucketPolicyResponse
-    -- ** Response constructor
     , deleteBucketPolicyResponse
     ) where
 
@@ -56,7 +54,7 @@ deleteBucketPolicy pBucket_ =
     { _dbpBucket = pBucket_
     }
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
 dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a});
 

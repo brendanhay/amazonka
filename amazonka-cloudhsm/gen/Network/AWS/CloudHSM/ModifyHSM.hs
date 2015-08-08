@@ -19,14 +19,13 @@
 --
 -- Modifies an HSM.
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHSM.html>
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHSM.html AWS API Reference> for ModifyHSM.
 module Network.AWS.CloudHSM.ModifyHSM
     (
-    -- * Request
+    -- * Creating a Request
       ModifyHSM
-    -- ** Request constructor
     , modifyHSM
-    -- ** Request lenses
+    -- * Request Lenses
     , mhIAMRoleARN
     , mhSubnetId
     , mhSyslogIP
@@ -34,11 +33,10 @@ module Network.AWS.CloudHSM.ModifyHSM
     , mhEniIP
     , mhHSMARN
 
-    -- * Response
+    -- * Destructuring the Response
     , ModifyHSMResponse
-    -- ** Response constructor
     , modifyHSMResponse
-    -- ** Response lenses
+    -- * Response Lenses
     , mhsmrsHSMARN
     , mhsmrsStatus
     ) where
@@ -170,6 +168,6 @@ modifyHSMResponse pStatus_ =
 mhsmrsHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
 mhsmrsHSMARN = lens _mhsmrsHSMARN (\ s a -> s{_mhsmrsHSMARN = a});
 
--- | FIXME: Undocumented member.
+-- | Undocumented member.
 mhsmrsStatus :: Lens' ModifyHSMResponse Int
 mhsmrsStatus = lens _mhsmrsStatus (\ s a -> s{_mhsmrsStatus = a});

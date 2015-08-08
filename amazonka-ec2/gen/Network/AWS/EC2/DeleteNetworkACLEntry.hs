@@ -20,22 +20,20 @@
 -- Deletes the specified ingress or egress entry (rule) from the specified
 -- network ACL.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkACLEntry.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkACLEntry.html AWS API Reference> for DeleteNetworkACLEntry.
 module Network.AWS.EC2.DeleteNetworkACLEntry
     (
-    -- * Request
+    -- * Creating a Request
       DeleteNetworkACLEntry
-    -- ** Request constructor
     , deleteNetworkACLEntry
-    -- ** Request lenses
+    -- * Request Lenses
     , dnaeDryRun
     , dnaeNetworkACLId
     , dnaeRuleNumber
     , dnaeEgress
 
-    -- * Response
+    -- * Destructuring the Response
     , DeleteNetworkACLEntryResponse
-    -- ** Response constructor
     , deleteNetworkACLEntryResponse
     ) where
 

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Help
-    ( Help
+    ( Help (..)
     , Desc (..)
     ) where
 

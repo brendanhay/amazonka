@@ -127,6 +127,7 @@ instance HasId SData where
 
 data WData = WData
     { _waitOpName :: Id
+    , _waitDoc    :: Help
     , _waitSig    :: Rendered
     , _waitDecl   :: Rendered
     } deriving (Show)
@@ -134,7 +135,8 @@ data WData = WData
 makeLenses ''WData
 
 instance ToJSON WData where
-    toJSON (WData _ s d) = object
-        [ "signature"   .= s
-        , "declaration" .= d
+    toJSON (WData _ h s d) = object
+        [ "documentation" .= h
+        , "signature"     .= s
+        , "declaration"   .= d
         ]

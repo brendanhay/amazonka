@@ -202,16 +202,23 @@ waiterData :: HasMetadata a Identity
 waiterData m os n w = do
     o  <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
     wf <- waiterFields m o w
-    WData (o ^. opName)
+    WData (o ^. opName) (Raw h)
         <$> pp None   (waiterS n wf)
         <*> pp Indent (waiterD n wf)
   where
-    missingErr =
-        format ("Missing operation "      % iprimary %
-                " when rendering waiter " %
-                ", possible matches: "    % partial)
+    missingErr = format
+        ("Missing operation "      % iprimary %
+         " when rendering waiter " %
+         ", possible matches: "    % partial)
 
-    k = w ^. waitOperation
+    h = sformat
+        ("Polls 'Network.AWS." % stext % "." % itype %
+         "' every " % int % " seconds until a\n" %
+         "successful state is reached. An error is returned after "
+         % int % " failed checks.")
+        (m ^. serviceAbbrev) k (_waitDelay w) (_waitAttempts w)
+
+    k = _waitOperation w
 
 waiterFields :: HasMetadata a Identity
              => a

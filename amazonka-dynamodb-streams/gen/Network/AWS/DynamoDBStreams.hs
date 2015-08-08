@@ -193,9 +193,9 @@ individual operation parameters for details.
 -}
 
 {- $waiters
-Waiters poll by repeatedly send a request until some remote success condition
-specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
-specifies how many attempts should be made, in addition to delay and retry strategies.
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
 -}
 
 {- $pager

@@ -48,6 +48,7 @@ import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Path
@@ -122,7 +123,7 @@ defaultRequest x = Request
 
 contentSHA256 :: Request a -> Request a
 contentSHA256 rq = rq & rqHeaders %~
-    hdr hAMZContentSHA256 (rq ^. rqBody . to (toBS . bodySHA256))
+    hdr hAMZContentSHA256 (rq ^. rqBody . to (digestToBase Base16 . bodySHA256))
 
 contentMD5 :: Request a -> Request a
 contentMD5 rq
@@ -130,7 +131,7 @@ contentMD5 rq
     | otherwise              = rq
   where
     missing = isNothing $ lookup HTTP.hContentMD5 (rq ^. rqHeaders)
-    md5     = rq ^. rqBody . to (fmap toBS . bodyCalculateMD5)
+    md5     = rq ^. rqBody . to (fmap (digestToBase Base64) . bodyCalculateMD5)
 
 queryString :: Lens' Client.Request ByteString
 queryString f x =

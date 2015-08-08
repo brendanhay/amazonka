@@ -110,7 +110,7 @@ instance AWSSigner V4 where
 
         presign _ _ = id
 
-        digest = Tag . toBS . bodySHA256 $ _rqBody rq
+        digest = Tag . digestToBase Base16 . bodySHA256 $ _rqBody rq
 
         prepare = rqHeaders %~
             ( hdr hHost    (_endpointHost (_svcEndpoint svc reg))

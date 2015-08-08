@@ -45,7 +45,10 @@ infixr 7 @=
 -- IsString instance for Name creates a qualified name with an empty ns.
 
 (@=) :: ToXML a => Text -> a -> XML
-n @= x = XOne . NodeElement $ mkElement (Name n Nothing Nothing) x
+n @= x =
+    case toXML x of
+        XNull -> XNull
+        xs    -> XOne . NodeElement $ mkElement (Name n Nothing Nothing) xs
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def

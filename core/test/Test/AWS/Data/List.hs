@@ -86,7 +86,7 @@ tests = testGroup "list"
         , testGroup "serialise"
             [ testGroup "non-flattened"
                 [ testToXML "absent"
-                    "<name>absent</name><itemSet/>"
+                    "<name>absent</name>"
                     (NonFlat "absent" absent)
 
                 , testToXML "primitive"

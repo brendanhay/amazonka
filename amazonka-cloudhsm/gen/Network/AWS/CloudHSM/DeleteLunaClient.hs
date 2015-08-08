@@ -65,7 +65,7 @@ instance AWSRequest DeleteLunaClient where
         type Rs DeleteLunaClient = DeleteLunaClientResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeleteLunaClientResponse' <$> (pure (fromEnum s)))
 

@@ -72,7 +72,7 @@ instance AWSRequest StopLogging where
         type Rs StopLogging = StopLoggingResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  StopLoggingResponse' <$> (pure (fromEnum s)))
 

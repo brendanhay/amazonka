@@ -204,7 +204,7 @@ instance AWSRequest HeadObject where
         type Rs HeadObject = HeadObjectResponse
         request = head'
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  HeadObjectResponse' <$>
                    (h .#? "x-amz-version-id") <*> (h .#? "ETag") <*>

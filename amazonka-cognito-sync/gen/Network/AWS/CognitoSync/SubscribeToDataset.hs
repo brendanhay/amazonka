@@ -101,7 +101,7 @@ instance AWSRequest SubscribeToDataset where
              SubscribeToDatasetResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  SubscribeToDatasetResponse' <$> (pure (fromEnum s)))
 

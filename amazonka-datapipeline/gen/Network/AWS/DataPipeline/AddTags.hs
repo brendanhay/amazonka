@@ -76,7 +76,7 @@ instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
 instance ToHeaders AddTags where

@@ -67,7 +67,7 @@ instance AWSRequest DeleteHAPG where
         type Rs DeleteHAPG = DeleteHAPGResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeleteHAPGResponse' <$> (pure (fromEnum s)))
 

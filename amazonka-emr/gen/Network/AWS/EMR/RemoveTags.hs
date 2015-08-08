@@ -83,7 +83,7 @@ instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  RemoveTagsResponse' <$> (pure (fromEnum s)))
 

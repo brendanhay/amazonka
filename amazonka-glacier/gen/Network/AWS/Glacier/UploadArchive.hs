@@ -148,7 +148,8 @@ instance AWSRequest UploadArchive where
         type Sv UploadArchive = Glacier
         type Rs UploadArchive = ArchiveCreationOutput
         request = postBody
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+        response
+          = receiveEmpty (\ s h x -> eitherParseJSON x)
 
 instance ToBody UploadArchive where
         toBody = _uaBody

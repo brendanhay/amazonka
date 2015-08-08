@@ -78,7 +78,7 @@ instance AWSRequest EnableRadius where
         type Rs EnableRadius = EnableRadiusResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  EnableRadiusResponse' <$> (pure (fromEnum s)))
 

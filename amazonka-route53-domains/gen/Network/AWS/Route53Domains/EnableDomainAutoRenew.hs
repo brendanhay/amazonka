@@ -75,7 +75,7 @@ instance AWSRequest EnableDomainAutoRenew where
              EnableDomainAutoRenewResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  EnableDomainAutoRenewResponse' <$>
                    (pure (fromEnum s)))

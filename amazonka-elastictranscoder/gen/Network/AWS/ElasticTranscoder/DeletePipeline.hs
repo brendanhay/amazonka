@@ -71,7 +71,7 @@ instance AWSRequest DeletePipeline where
         type Rs DeletePipeline = DeletePipelineResponse
         request = delete
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeletePipelineResponse' <$> (pure (fromEnum s)))
 

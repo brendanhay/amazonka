@@ -178,7 +178,7 @@ instance AWSRequest UploadPart where
         type Rs UploadPart = UploadPartResponse
         request = putBody
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  UploadPartResponse' <$>
                    (h .#? "ETag") <*> (h .#? "x-amz-request-charged")

@@ -67,7 +67,7 @@ instance AWSRequest DeleteTrail where
         type Rs DeleteTrail = DeleteTrailResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeleteTrailResponse' <$> (pure (fromEnum s)))
 

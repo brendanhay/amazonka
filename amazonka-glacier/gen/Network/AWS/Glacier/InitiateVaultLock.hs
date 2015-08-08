@@ -125,7 +125,7 @@ instance AWSRequest InitiateVaultLock where
         type Rs InitiateVaultLock = InitiateVaultLockResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  InitiateVaultLockResponse' <$>
                    (h .#? "x-amz-lock-id") <*> (pure (fromEnum s)))

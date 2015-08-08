@@ -91,7 +91,7 @@ instance AWSRequest AcknowledgeThirdPartyJob where
              AcknowledgeThirdPartyJobResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  AcknowledgeThirdPartyJobResponse' <$>
                    (pure (fromEnum s)))

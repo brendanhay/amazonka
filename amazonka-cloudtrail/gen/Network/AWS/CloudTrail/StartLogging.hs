@@ -67,7 +67,7 @@ instance AWSRequest StartLogging where
         type Rs StartLogging = StartLoggingResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  StartLoggingResponse' <$> (pure (fromEnum s)))
 

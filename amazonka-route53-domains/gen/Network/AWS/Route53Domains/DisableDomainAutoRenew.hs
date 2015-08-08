@@ -72,7 +72,7 @@ instance AWSRequest DisableDomainAutoRenew where
              DisableDomainAutoRenewResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DisableDomainAutoRenewResponse' <$>
                    (pure (fromEnum s)))

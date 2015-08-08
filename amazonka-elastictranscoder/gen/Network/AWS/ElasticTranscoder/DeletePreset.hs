@@ -72,7 +72,7 @@ instance AWSRequest DeletePreset where
         type Rs DeletePreset = DeletePresetResponse
         request = delete
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeletePresetResponse' <$> (pure (fromEnum s)))
 

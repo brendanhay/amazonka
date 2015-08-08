@@ -77,7 +77,7 @@ instance AWSRequest DeleteReusableDelegationSet where
              DeleteReusableDelegationSetResponse
         request = delete
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  DeleteReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)))

@@ -68,7 +68,7 @@ instance AWSRequest DeleteDocument where
         type Rs DeleteDocument = DeleteDocumentResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeleteDocumentResponse' <$> (pure (fromEnum s)))
 

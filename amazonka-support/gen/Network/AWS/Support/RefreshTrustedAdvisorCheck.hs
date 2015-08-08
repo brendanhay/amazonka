@@ -77,7 +77,7 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
              RefreshTrustedAdvisorCheckResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  RefreshTrustedAdvisorCheckResponse' <$>
                    (pure (fromEnum s)))

@@ -30,9 +30,17 @@ module Network.AWS.MachineLearning
 
     -- * Waiters
     -- $waiters
+
+    -- ** MLModelAvailable
     , mLModelAvailable
+
+    -- ** BatchPredictionAvailable
     , batchPredictionAvailable
+
+    -- ** DataSourceAvailable
     , dataSourceAvailable
+
+    -- ** EvaluationAvailable
     , evaluationAvailable
 
     -- * Operations

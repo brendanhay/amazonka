@@ -48,8 +48,14 @@ module Network.AWS.ECS
 
     -- * Waiters
     -- $waiters
+
+    -- ** ServicesInactive
     , servicesInactive
+
+    -- ** TasksRunning
     , tasksRunning
+
+    -- ** TasksStopped
     , tasksStopped
 
     -- * Operations

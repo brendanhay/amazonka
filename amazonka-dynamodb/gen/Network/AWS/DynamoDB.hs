@@ -145,7 +145,11 @@ module Network.AWS.DynamoDB
 
     -- * Waiters
     -- $waiters
+
+    -- ** TableNotExists
     , tableNotExists
+
+    -- ** TableExists
     , tableExists
 
     -- * Operations

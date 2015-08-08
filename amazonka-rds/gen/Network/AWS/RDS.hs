@@ -123,8 +123,14 @@ module Network.AWS.RDS
 
     -- * Waiters
     -- $waiters
+
+    -- ** DBInstanceAvailable
     , dbInstanceAvailable
+
+    -- ** DBSnapshotCompleted
     , dbSnapshotCompleted
+
+    -- ** DBInstanceDeleted
     , dbInstanceDeleted
 
     -- * Operations

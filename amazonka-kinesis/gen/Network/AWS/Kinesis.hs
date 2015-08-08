@@ -33,6 +33,8 @@ module Network.AWS.Kinesis
 
     -- * Waiters
     -- $waiters
+
+    -- ** StreamExists
     , streamExists
 
     -- * Operations

@@ -31,6 +31,8 @@ module Network.AWS.EMR
 
     -- * Waiters
     -- $waiters
+
+    -- ** ClusterRunning
     , clusterRunning
 
     -- * Operations

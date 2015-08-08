@@ -36,9 +36,17 @@ module Network.AWS.S3
 
     -- * Waiters
     -- $waiters
+
+    -- ** ObjectNotExists
     , objectNotExists
+
+    -- ** BucketExists
     , bucketExists
+
+    -- ** ObjectExists
     , objectExists
+
+    -- ** BucketNotExists
     , bucketNotExists
 
     -- * Operations

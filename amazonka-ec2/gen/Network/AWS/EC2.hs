@@ -29,29 +29,77 @@ module Network.AWS.EC2
 
     -- * Waiters
     -- $waiters
+
+    -- ** InstanceTerminated
     , instanceTerminated
+
+    -- ** VolumeInUse
     , volumeInUse
+
+    -- ** SubnetAvailable
     , subnetAvailable
+
+    -- ** SystemStatusOK
     , systemStatusOK
+
+    -- ** CustomerGatewayAvailable
     , customerGatewayAvailable
+
+    -- ** ConversionTaskCompleted
     , conversionTaskCompleted
+
+    -- ** ConversionTaskDeleted
     , conversionTaskDeleted
+
+    -- ** InstanceStopped
     , instanceStopped
+
+    -- ** PasswordDataAvailable
     , passwordDataAvailable
+
+    -- ** InstanceRunning
     , instanceRunning
+
+    -- ** SpotInstanceRequestFulfilled
     , spotInstanceRequestFulfilled
+
+    -- ** ExportTaskCompleted
     , exportTaskCompleted
+
+    -- ** VPCAvailable
     , vpcAvailable
+
+    -- ** VPNConnectionAvailable
     , vpnConnectionAvailable
+
+    -- ** ExportTaskCancelled
     , exportTaskCancelled
+
+    -- ** VolumeDeleted
     , volumeDeleted
+
+    -- ** BundleTaskComplete
     , bundleTaskComplete
+
+    -- ** VPNConnectionDeleted
     , vpnConnectionDeleted
+
+    -- ** ImageAvailable
     , imageAvailable
+
+    -- ** ConversionTaskCancelled
     , conversionTaskCancelled
+
+    -- ** InstanceExists
     , instanceExists
+
+    -- ** VolumeAvailable
     , volumeAvailable
+
+    -- ** SnapshotCompleted
     , snapshotCompleted
+
+    -- ** InstanceStatusOK
     , instanceStatusOK
 
     -- * Operations

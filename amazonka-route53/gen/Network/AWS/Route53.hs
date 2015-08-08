@@ -60,6 +60,8 @@ module Network.AWS.Route53
 
     -- * Waiters
     -- $waiters
+
+    -- ** ResourceRecordSetsChanged
     , resourceRecordSetsChanged
 
     -- * Operations

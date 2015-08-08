@@ -33,6 +33,8 @@ module Network.AWS.ElasticTranscoder
 
     -- * Waiters
     -- $waiters
+
+    -- ** JobComplete
     , jobComplete
 
     -- * Operations

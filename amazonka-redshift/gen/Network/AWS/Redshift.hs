@@ -129,8 +129,14 @@ module Network.AWS.Redshift
 
     -- * Waiters
     -- $waiters
+
+    -- ** ClusterDeleted
     , clusterDeleted
+
+    -- ** SnapshotAvailable
     , snapshotAvailable
+
+    -- ** ClusterAvailable
     , clusterAvailable
 
     -- * Operations

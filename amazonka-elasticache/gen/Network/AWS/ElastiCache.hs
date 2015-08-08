@@ -79,9 +79,17 @@ module Network.AWS.ElastiCache
 
     -- * Waiters
     -- $waiters
+
+    -- ** CacheClusterAvailable
     , cacheClusterAvailable
+
+    -- ** CacheClusterDeleted
     , cacheClusterDeleted
+
+    -- ** ReplicationGroupDeleted
     , replicationGroupDeleted
+
+    -- ** ReplicationGroupAvailable
     , replicationGroupAvailable
 
     -- * Operations

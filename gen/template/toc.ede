@@ -12,23 +12,21 @@ module {{ moduleName }}
     (
     -- * Service Description
       {{ serviceAbbrev }}
-  {% for shape in shapes %}
-    {% if shape.first %}
 
     -- * Error Matchers
     -- $errors
-    {% endif %}
+  {% for shape in shapes %}
     {% case shape.value.type %}
     {% when "function" %}
+
+    -- ** {{ shape.value.name }}
     , {{ shape.value.name }}
     {% endcase %}
   {% endfor %}
-  {% for wait in waiters %}
-    {% if wait.first %}
 
     -- * Waiters
     -- $waiters
-    {% endif %}
+  {% for wait in waiters %}
 
     -- ** {{ wait.value.name }}
     , {{ wait.value.constructor.name }}

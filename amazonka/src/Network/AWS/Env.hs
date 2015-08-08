@@ -131,7 +131,7 @@ once = local $ \e -> e
     & envRetryPolicy ?~ limitRetries 0
     & envRetryCheck  .~ (\_ _ -> return False)
 
--- | Scope an action such that any HTTP response use this timeout value.
+-- | Scope an action such that any HTTP response will use this timeout value.
 timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
 timeout s = local (envTimeout ?~ s)
 

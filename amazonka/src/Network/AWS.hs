@@ -197,15 +197,16 @@ instance (Functor f, MonadAWS m) => MonadAWS (FreeT f m) where
 runAWS :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWS a -> m a
 runAWS e = liftResourceT . AWST.runAWST e . hoist (withInternalState . const)
 
--- | Run any remote requests against the specified 'Region'.
+-- | Scope an action within the specific 'Region'.
 within :: MonadAWS m => Region -> AWS a -> m a
 within r = liftAWS . AWST.within r
 
--- | Ignore any retry logic and ensure that any requests will be sent (at most) once.
+-- | Scope an action such that any retry logic for the 'Service' is
+-- ignored and any requests will at most be sent once.
 once :: MonadAWS m => AWS a -> m a
 once = liftAWS . AWST.once
 
--- | Configure any HTTP connections to use this response timeout value.
+-- | Scope an action such that any HTTP response will use this timeout value.
 timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . AWST.timeout s
 

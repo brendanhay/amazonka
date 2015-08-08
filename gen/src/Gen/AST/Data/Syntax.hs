@@ -685,7 +685,7 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
         maybe [] ((:[]) . notationE) (_acceptArgument x)
       where
         go = case _acceptExpect x of
-            Textual {} -> \y -> infixApp y "." (app (var "to") (var "toText"))
+            Textual {} -> \y -> infixApp y "." (app (var "to") (var "toTextCI"))
             _          -> id
 
 signature :: Timestamp -> TType -> Type

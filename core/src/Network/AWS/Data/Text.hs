@@ -24,6 +24,7 @@ module Network.AWS.Data.Text
 
     -- * Serialisation
     , ToText   (..)
+    , toTextCI
     , showText
     ) where
 
@@ -132,3 +133,6 @@ instance ToText Bool where
 
 shortText :: Builder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32
+
+toTextCI :: ToText a => a -> CI Text
+toTextCI = CI.mk . toText

@@ -54,9 +54,9 @@ library
         , Network.AWS.DirectoryService.DescribeDirectories
         , Network.AWS.DirectoryService.DescribeSnapshots
         , Network.AWS.DirectoryService.DisableRadius
-        , Network.AWS.DirectoryService.DisableSso
+        , Network.AWS.DirectoryService.DisableSSO
         , Network.AWS.DirectoryService.EnableRadius
-        , Network.AWS.DirectoryService.EnableSso
+        , Network.AWS.DirectoryService.EnableSSO
         , Network.AWS.DirectoryService.GetDirectoryLimits
         , Network.AWS.DirectoryService.GetSnapshotLimits
         , Network.AWS.DirectoryService.RestoreFromSnapshot

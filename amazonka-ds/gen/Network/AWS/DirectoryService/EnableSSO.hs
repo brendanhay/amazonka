@@ -10,7 +10,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.EnableSso
+-- Module      : Network.AWS.DirectoryService.EnableSSO
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,20 +19,20 @@
 --
 -- Enables single-sign on for a directory.
 --
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableSso.html AWS API Reference> for EnableSso.
-module Network.AWS.DirectoryService.EnableSso
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableSSO.html AWS API Reference> for EnableSSO.
+module Network.AWS.DirectoryService.EnableSSO
     (
     -- * Creating a Request
-      EnableSso
-    , enableSso
+      EnableSSO
+    , enableSSO
     -- * Request Lenses
     , esUserName
     , esPassword
     , esDirectoryId
 
     -- * Destructuring the Response
-    , EnableSsoResponse
-    , enableSsoResponse
+    , EnableSSOResponse
+    , enableSSOResponse
     -- * Response Lenses
     , esrsStatus
     ) where
@@ -44,7 +44,7 @@ import           Network.AWS.Response
 
 -- | Contains the inputs for the EnableSso operation.
 --
--- /See:/ 'enableSso' smart constructor.
+-- /See:/ 'enableSSO' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -53,16 +53,16 @@ import           Network.AWS.Response
 -- * 'esPassword'
 --
 -- * 'esDirectoryId'
-data EnableSso = EnableSso'
+data EnableSSO = EnableSSO'
     { _esUserName    :: !(Maybe Text)
     , _esPassword    :: !(Maybe (Sensitive Text))
     , _esDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableSso' smart constructor.
-enableSso :: Text -> EnableSso
-enableSso pDirectoryId_ =
-    EnableSso'
+-- | 'EnableSSO' smart constructor.
+enableSSO :: Text -> EnableSSO
+enableSSO pDirectoryId_ =
+    EnableSSO'
     { _esUserName = Nothing
     , _esPassword = Nothing
     , _esDirectoryId = pDirectoryId_
@@ -77,29 +77,29 @@ enableSso pDirectoryId_ =
 -- /UserName/ and /Password/ parameters. These credentials are only used to
 -- enable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
-esUserName :: Lens' EnableSso (Maybe Text)
+esUserName :: Lens' EnableSSO (Maybe Text)
 esUserName = lens _esUserName (\ s a -> s{_esUserName = a});
 
 -- | The password of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. See the /UserName/
 -- parameter for more information.
-esPassword :: Lens' EnableSso (Maybe Text)
+esPassword :: Lens' EnableSSO (Maybe Text)
 esPassword = lens _esPassword (\ s a -> s{_esPassword = a}) . mapping _Sensitive;
 
 -- | The identifier of the directory to enable single-sign on for.
-esDirectoryId :: Lens' EnableSso Text
+esDirectoryId :: Lens' EnableSSO Text
 esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
 
-instance AWSRequest EnableSso where
-        type Sv EnableSso = DirectoryService
-        type Rs EnableSso = EnableSsoResponse
+instance AWSRequest EnableSSO where
+        type Sv EnableSSO = DirectoryService
+        type Rs EnableSSO = EnableSSOResponse
         request = postJSON
         response
           = receiveJSON
               (\ s h x ->
-                 EnableSsoResponse' <$> (pure (fromEnum s)))
+                 EnableSSOResponse' <$> (pure (fromEnum s)))
 
-instance ToHeaders EnableSso where
+instance ToHeaders EnableSSO where
         toHeaders
           = const
               (mconcat
@@ -109,37 +109,37 @@ instance ToHeaders EnableSso where
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])
 
-instance ToJSON EnableSso where
-        toJSON EnableSso'{..}
+instance ToJSON EnableSSO where
+        toJSON EnableSSO'{..}
           = object
               ["UserName" .= _esUserName,
                "Password" .= _esPassword,
                "DirectoryId" .= _esDirectoryId]
 
-instance ToPath EnableSso where
+instance ToPath EnableSSO where
         toPath = const "/"
 
-instance ToQuery EnableSso where
+instance ToQuery EnableSSO where
         toQuery = const mempty
 
 -- | Contains the results of the EnableSso operation.
 --
--- /See:/ 'enableSsoResponse' smart constructor.
+-- /See:/ 'enableSSOResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'esrsStatus'
-newtype EnableSsoResponse = EnableSsoResponse'
+newtype EnableSSOResponse = EnableSSOResponse'
     { _esrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableSsoResponse' smart constructor.
-enableSsoResponse :: Int -> EnableSsoResponse
-enableSsoResponse pStatus_ =
-    EnableSsoResponse'
+-- | 'EnableSSOResponse' smart constructor.
+enableSSOResponse :: Int -> EnableSSOResponse
+enableSSOResponse pStatus_ =
+    EnableSSOResponse'
     { _esrsStatus = pStatus_
     }
 
 -- | Undocumented member.
-esrsStatus :: Lens' EnableSsoResponse Int
+esrsStatus :: Lens' EnableSSOResponse Int
 esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});

@@ -10,7 +10,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.DisableSso
+-- Module      : Network.AWS.DirectoryService.DisableSSO
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,22 +19,22 @@
 --
 -- Disables single-sign on for a directory.
 --
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableSso.html AWS API Reference> for DisableSso.
-module Network.AWS.DirectoryService.DisableSso
+-- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableSSO.html AWS API Reference> for DisableSSO.
+module Network.AWS.DirectoryService.DisableSSO
     (
     -- * Creating a Request
-      DisableSso
-    , disableSso
+      DisableSSO
+    , disableSSO
     -- * Request Lenses
-    , disUserName
-    , disPassword
-    , disDirectoryId
+    , dssoUserName
+    , dssoPassword
+    , dssoDirectoryId
 
     -- * Destructuring the Response
-    , DisableSsoResponse
-    , disableSsoResponse
+    , DisableSSOResponse
+    , disableSSOResponse
     -- * Response Lenses
-    , drsStatus
+    , dssorsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -44,28 +44,28 @@ import           Network.AWS.Response
 
 -- | Contains the inputs for the DisableSso operation.
 --
--- /See:/ 'disableSso' smart constructor.
+-- /See:/ 'disableSSO' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disUserName'
+-- * 'dssoUserName'
 --
--- * 'disPassword'
+-- * 'dssoPassword'
 --
--- * 'disDirectoryId'
-data DisableSso = DisableSso'
-    { _disUserName    :: !(Maybe Text)
-    , _disPassword    :: !(Maybe (Sensitive Text))
-    , _disDirectoryId :: !Text
+-- * 'dssoDirectoryId'
+data DisableSSO = DisableSSO'
+    { _dssoUserName    :: !(Maybe Text)
+    , _dssoPassword    :: !(Maybe (Sensitive Text))
+    , _dssoDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableSso' smart constructor.
-disableSso :: Text -> DisableSso
-disableSso pDirectoryId_ =
-    DisableSso'
-    { _disUserName = Nothing
-    , _disPassword = Nothing
-    , _disDirectoryId = pDirectoryId_
+-- | 'DisableSSO' smart constructor.
+disableSSO :: Text -> DisableSSO
+disableSSO pDirectoryId_ =
+    DisableSSO'
+    { _dssoUserName = Nothing
+    , _dssoPassword = Nothing
+    , _dssoDirectoryId = pDirectoryId_
     }
 
 -- | The username of an alternate account to use to disable single-sign on.
@@ -77,29 +77,29 @@ disableSso pDirectoryId_ =
 -- /UserName/ and /Password/ parameters. These credentials are only used to
 -- disable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
-disUserName :: Lens' DisableSso (Maybe Text)
-disUserName = lens _disUserName (\ s a -> s{_disUserName = a});
+dssoUserName :: Lens' DisableSSO (Maybe Text)
+dssoUserName = lens _dssoUserName (\ s a -> s{_dssoUserName = a});
 
 -- | The password of an alternate account to use to disable single-sign on.
 -- This is only used for AD Connector directories. See the /UserName/
 -- parameter for more information.
-disPassword :: Lens' DisableSso (Maybe Text)
-disPassword = lens _disPassword (\ s a -> s{_disPassword = a}) . mapping _Sensitive;
+dssoPassword :: Lens' DisableSSO (Maybe Text)
+dssoPassword = lens _dssoPassword (\ s a -> s{_dssoPassword = a}) . mapping _Sensitive;
 
 -- | The identifier of the directory to disable single-sign on for.
-disDirectoryId :: Lens' DisableSso Text
-disDirectoryId = lens _disDirectoryId (\ s a -> s{_disDirectoryId = a});
+dssoDirectoryId :: Lens' DisableSSO Text
+dssoDirectoryId = lens _dssoDirectoryId (\ s a -> s{_dssoDirectoryId = a});
 
-instance AWSRequest DisableSso where
-        type Sv DisableSso = DirectoryService
-        type Rs DisableSso = DisableSsoResponse
+instance AWSRequest DisableSSO where
+        type Sv DisableSSO = DirectoryService
+        type Rs DisableSSO = DisableSSOResponse
         request = postJSON
         response
           = receiveJSON
               (\ s h x ->
-                 DisableSsoResponse' <$> (pure (fromEnum s)))
+                 DisableSSOResponse' <$> (pure (fromEnum s)))
 
-instance ToHeaders DisableSso where
+instance ToHeaders DisableSSO where
         toHeaders
           = const
               (mconcat
@@ -109,37 +109,37 @@ instance ToHeaders DisableSso where
                   "Content-Type" =#
                     ("application/x-amz-json-1.1" :: ByteString)])
 
-instance ToJSON DisableSso where
-        toJSON DisableSso'{..}
+instance ToJSON DisableSSO where
+        toJSON DisableSSO'{..}
           = object
-              ["UserName" .= _disUserName,
-               "Password" .= _disPassword,
-               "DirectoryId" .= _disDirectoryId]
+              ["UserName" .= _dssoUserName,
+               "Password" .= _dssoPassword,
+               "DirectoryId" .= _dssoDirectoryId]
 
-instance ToPath DisableSso where
+instance ToPath DisableSSO where
         toPath = const "/"
 
-instance ToQuery DisableSso where
+instance ToQuery DisableSSO where
         toQuery = const mempty
 
 -- | Contains the results of the DisableSso operation.
 --
--- /See:/ 'disableSsoResponse' smart constructor.
+-- /See:/ 'disableSSOResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsStatus'
-newtype DisableSsoResponse = DisableSsoResponse'
-    { _drsStatus :: Int
+-- * 'dssorsStatus'
+newtype DisableSSOResponse = DisableSSOResponse'
+    { _dssorsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableSsoResponse' smart constructor.
-disableSsoResponse :: Int -> DisableSsoResponse
-disableSsoResponse pStatus_ =
-    DisableSsoResponse'
-    { _drsStatus = pStatus_
+-- | 'DisableSSOResponse' smart constructor.
+disableSSOResponse :: Int -> DisableSSOResponse
+disableSSOResponse pStatus_ =
+    DisableSSOResponse'
+    { _dssorsStatus = pStatus_
     }
 
 -- | Undocumented member.
-drsStatus :: Lens' DisableSsoResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dssorsStatus :: Lens' DisableSSOResponse Int
+dssorsStatus = lens _dssorsStatus (\ s a -> s{_dssorsStatus = a});

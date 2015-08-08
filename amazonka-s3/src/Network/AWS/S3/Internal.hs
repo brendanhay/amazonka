@@ -15,7 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.S3.Internal
-    ( Region
+    ( Region          (..)
     , BucketName      (..)
     , ETag            (..)
     , ObjectVersionId (..)

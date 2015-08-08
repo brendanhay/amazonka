@@ -10,7 +10,8 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- Transformer environment and AWS specific configuration.
+-- Environment and AWS specific configuration for the
+-- 'Network.AWS.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
 module Network.AWS.Env
     (
     -- * Creating the Environment

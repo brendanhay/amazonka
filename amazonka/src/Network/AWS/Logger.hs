@@ -8,8 +8,7 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- Types and functions for optional logging machinery used during the
--- request, response, and signing life-cycles.
+-- Types and functions for constructing loggers and emitting log messages.
 module Network.AWS.Logger
     (
     -- * Constructing a Logger

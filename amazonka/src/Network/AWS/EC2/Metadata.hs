@@ -20,9 +20,9 @@
 -- initialisation of the 'Network.AWS.Env.Env' and does not use the underlying
 -- 'FreeT' 'Network.AWS.Free.Command' DSL.
 -- If you wish to retrieve instance metadata during normal operations
--- and are using either 'Network.AWS.AWS' or 'Control.Monad.Trans.AWS.AWST',
--- then prefer one of the 'Control.Monad.Trans.AWS.metadata' related functions
--- available there.
+-- and are using either the 'Network.AWS.AWS' or 'Control.Monad.Trans.AWS.AWST'
+-- monads, then prefer one of the 'Control.Monad.Trans.AWS.metadata' related
+-- functions available there.
 module Network.AWS.EC2.Metadata
     (
     -- * EC2 Instance Check

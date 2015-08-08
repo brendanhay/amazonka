@@ -14,8 +14,8 @@
 -- It is intended for use directly with "Network.AWS.Auth" when only presigning
 -- is required and you wish to avoid using the 'Network.AWS.AWS' monad, since it
 -- does not use the underlying 'FreeT' 'Network.AWS.Free.Command' DSL.
--- If you wish to presign requests and are using either 'Network.AWS.AWS' or
--- 'Control.Monad.Trans.AWS.AWST', then prefer one of the relevant
+-- If you wish to presign requests and are using either the 'Network.AWS.AWS' or
+-- 'Control.Monad.Trans.AWS.AWST' monads, then prefer one of the relevant
 -- 'Control.Monad.Trans.AWS.presign'ing functions available there.
 module Network.AWS.Presign where
 

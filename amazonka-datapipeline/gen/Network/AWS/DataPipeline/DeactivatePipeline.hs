@@ -84,7 +84,7 @@ instance AWSRequest DeactivatePipeline where
              DeactivatePipelineResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeactivatePipelineResponse' <$> (pure (fromEnum s)))
 

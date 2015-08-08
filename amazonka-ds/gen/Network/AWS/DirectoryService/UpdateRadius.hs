@@ -79,7 +79,7 @@ instance AWSRequest UpdateRadius where
         type Rs UpdateRadius = UpdateRadiusResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  UpdateRadiusResponse' <$> (pure (fromEnum s)))
 

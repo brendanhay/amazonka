@@ -131,7 +131,7 @@ instance AWSRequest CreateBucket where
         type Rs CreateBucket = CreateBucketResponse
         request = putXML
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  CreateBucketResponse' <$>
                    (h .#? "Location") <*> (pure (fromEnum s)))

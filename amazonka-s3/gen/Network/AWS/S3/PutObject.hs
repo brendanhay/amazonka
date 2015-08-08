@@ -307,7 +307,7 @@ instance AWSRequest PutObject where
         type Rs PutObject = PutObjectResponse
         request = putBody
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  PutObjectResponse' <$>
                    (h .#? "x-amz-version-id") <*> (h .#? "ETag") <*>

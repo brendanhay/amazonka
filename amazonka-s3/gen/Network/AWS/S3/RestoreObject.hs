@@ -102,7 +102,7 @@ instance AWSRequest RestoreObject where
         type Rs RestoreObject = RestoreObjectResponse
         request = postXML
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  RestoreObjectResponse' <$>
                    (h .#? "x-amz-request-charged") <*>

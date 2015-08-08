@@ -101,7 +101,7 @@ instance AWSRequest UnsubscribeFromDataset where
              UnsubscribeFromDatasetResponse
         request = delete
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  UnsubscribeFromDatasetResponse' <$>
                    (pure (fromEnum s)))

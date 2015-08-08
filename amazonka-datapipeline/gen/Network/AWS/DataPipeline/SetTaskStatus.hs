@@ -118,7 +118,7 @@ instance AWSRequest SetTaskStatus where
         type Rs SetTaskStatus = SetTaskStatusResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  SetTaskStatusResponse' <$> (pure (fromEnum s)))
 

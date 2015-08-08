@@ -95,7 +95,7 @@ instance AWSRequest DisableSSO where
         type Rs DisableSSO = DisableSSOResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DisableSSOResponse' <$> (pure (fromEnum s)))
 

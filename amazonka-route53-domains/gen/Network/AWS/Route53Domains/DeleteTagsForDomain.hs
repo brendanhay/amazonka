@@ -102,7 +102,7 @@ instance AWSRequest DeleteTagsForDomain where
              DeleteTagsForDomainResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeleteTagsForDomainResponse' <$> (pure (fromEnum s)))
 

@@ -68,7 +68,7 @@ instance AWSRequest DeleteHSM where
         type Rs DeleteHSM = DeleteHSMResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeleteHSMResponse' <$> (pure (fromEnum s)))
 

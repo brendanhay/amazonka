@@ -78,7 +78,7 @@ instance AWSRequest DeleteHealthCheck where
         type Rs DeleteHealthCheck = DeleteHealthCheckResponse
         request = delete
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  DeleteHealthCheckResponse' <$> (pure (fromEnum s)))
 

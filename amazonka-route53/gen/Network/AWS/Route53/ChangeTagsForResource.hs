@@ -104,7 +104,7 @@ instance AWSRequest ChangeTagsForResource where
              ChangeTagsForResourceResponse
         request = postXML
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  ChangeTagsForResourceResponse' <$>
                    (pure (fromEnum s)))

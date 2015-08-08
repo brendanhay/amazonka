@@ -107,7 +107,7 @@ instance AWSRequest CreateVault where
         type Rs CreateVault = CreateVaultResponse
         request = putJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  CreateVaultResponse' <$>
                    (h .#? "Location") <*> (pure (fromEnum s)))

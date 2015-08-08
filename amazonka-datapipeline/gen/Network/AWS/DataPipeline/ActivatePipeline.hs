@@ -93,7 +93,7 @@ instance AWSRequest ActivatePipeline where
         type Rs ActivatePipeline = ActivatePipelineResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  ActivatePipelineResponse' <$> (pure (fromEnum s)))
 

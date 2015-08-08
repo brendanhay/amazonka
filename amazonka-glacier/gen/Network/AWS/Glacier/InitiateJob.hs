@@ -218,7 +218,7 @@ instance AWSRequest InitiateJob where
         type Rs InitiateJob = InitiateJobResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  InitiateJobResponse' <$>
                    (h .#? "x-amz-job-id") <*> (h .#? "Location") <*>

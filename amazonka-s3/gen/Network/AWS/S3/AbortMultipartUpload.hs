@@ -98,7 +98,7 @@ instance AWSRequest AbortMultipartUpload where
              AbortMultipartUploadResponse
         request = delete
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  AbortMultipartUploadResponse' <$>
                    (h .#? "x-amz-request-charged") <*>

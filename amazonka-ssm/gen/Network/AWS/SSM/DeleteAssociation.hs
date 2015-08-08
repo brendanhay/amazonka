@@ -81,7 +81,7 @@ instance AWSRequest DeleteAssociation where
         type Rs DeleteAssociation = DeleteAssociationResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  DeleteAssociationResponse' <$> (pure (fromEnum s)))
 

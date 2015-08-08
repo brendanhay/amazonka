@@ -159,7 +159,7 @@ instance AWSRequest PutObjectACL where
         type Rs PutObjectACL = PutObjectACLResponse
         request = putXML
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  PutObjectACLResponse' <$>
                    (h .#? "x-amz-request-charged") <*>

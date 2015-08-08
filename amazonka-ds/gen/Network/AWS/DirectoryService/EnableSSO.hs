@@ -95,7 +95,7 @@ instance AWSRequest EnableSSO where
         type Rs EnableSSO = EnableSSOResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  EnableSSOResponse' <$> (pure (fromEnum s)))
 

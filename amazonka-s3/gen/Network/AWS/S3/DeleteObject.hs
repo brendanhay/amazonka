@@ -107,7 +107,7 @@ instance AWSRequest DeleteObject where
         type Rs DeleteObject = DeleteObjectResponse
         request = delete
         response
-          = receiveXML
+          = receiveEmpty
               (\ s h x ->
                  DeleteObjectResponse' <$>
                    (h .#? "x-amz-version-id") <*>

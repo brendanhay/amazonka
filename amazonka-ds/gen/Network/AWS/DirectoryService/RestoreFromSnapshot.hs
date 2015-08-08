@@ -77,7 +77,7 @@ instance AWSRequest RestoreFromSnapshot where
              RestoreFromSnapshotResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  RestoreFromSnapshotResponse' <$> (pure (fromEnum s)))
 

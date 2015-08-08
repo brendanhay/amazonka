@@ -137,7 +137,7 @@ instance AWSRequest UpdateTagsForDomain where
              UpdateTagsForDomainResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
 

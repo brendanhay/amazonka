@@ -80,7 +80,7 @@ instance AWSRequest AcknowledgeJob where
         type Rs AcknowledgeJob = AcknowledgeJobResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  AcknowledgeJobResponse' <$> (pure (fromEnum s)))
 

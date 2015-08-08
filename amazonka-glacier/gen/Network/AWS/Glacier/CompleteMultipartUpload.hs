@@ -164,7 +164,8 @@ instance AWSRequest CompleteMultipartUpload where
         type Rs CompleteMultipartUpload =
              ArchiveCreationOutput
         request = postJSON
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+        response
+          = receiveEmpty (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CompleteMultipartUpload where
         toHeaders CompleteMultipartUpload'{..}

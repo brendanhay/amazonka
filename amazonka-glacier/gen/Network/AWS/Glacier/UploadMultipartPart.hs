@@ -169,7 +169,7 @@ instance AWSRequest UploadMultipartPart where
              UploadMultipartPartResponse
         request = putBody
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  UploadMultipartPartResponse' <$>
                    (h .#? "x-amz-sha256-tree-hash") <*>

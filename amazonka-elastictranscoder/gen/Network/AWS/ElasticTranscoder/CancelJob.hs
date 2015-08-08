@@ -74,7 +74,7 @@ instance AWSRequest CancelJob where
         type Rs CancelJob = CancelJobResponse
         request = delete
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  CancelJobResponse' <$> (pure (fromEnum s)))
 

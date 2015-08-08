@@ -144,7 +144,7 @@ instance AWSRequest InitiateMultipartUpload where
              InitiateMultipartUploadResponse
         request = postJSON
         response
-          = receiveJSON
+          = receiveEmpty
               (\ s h x ->
                  InitiateMultipartUploadResponse' <$>
                    (h .#? "Location") <*>

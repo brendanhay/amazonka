@@ -43,6 +43,16 @@ receiveNull :: MonadResource m
 receiveNull rs _ = receive $ \_ _ x ->
     liftResourceT (x $$+- return (Right rs))
 
+receiveEmpty :: MonadResource m
+             => (Int -> ResponseHeaders -> Either String (Rs a))
+             -> Logger
+             -> Service s
+             -> Request a
+             -> ClientResponse
+             -> m (Response a)
+receiveEmpty f _ = receive $ \s h x ->
+    liftResourceT (x $$+- return (f s h))
+
 receiveXMLWrapper :: MonadResource m
                   => Text
                   -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
@@ -70,7 +80,6 @@ receiveJSON :: MonadResource m
             -> ClientResponse
             -> m (Response a)
 receiveJSON = deserialise eitherDecode'
-
 
 receiveBody :: MonadResource m
             => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))

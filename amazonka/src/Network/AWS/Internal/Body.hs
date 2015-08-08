@@ -49,7 +49,7 @@ sourceFile h n = sourceBody h n . Conduit.sourceFile
 -- lastly to stream the contents to the socket during sending.
 sourceFileIO :: MonadIO m => FilePath -> m RqBody
 sourceFileIO f = liftIO $
-    RqBody <$> runResourceT (Conduit.sourceFile f $$ sinkHash)
+    RqBody <$> runResourceT (Conduit.sourceFile f $$ sinkSHA256)
            <*> Client.streamFile f
 
 -- | Convenience function for obtaining the size of a file.
@@ -60,8 +60,14 @@ getFileSize f = liftIO $ fromIntegral `liftM` withBinaryFile f ReadMode hFileSiz
 sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
 sinkBody (RsBody src) sink = hoist liftResourceT src $$+- sink
 
+sinkMD5 :: Monad m => Consumer ByteString m (Digest MD5)
+sinkMD5 = sinkHash
+
+sinkSHA256 :: Monad m => Consumer ByteString m (Digest SHA256)
+sinkSHA256 = sinkHash
+
 -- | A cryptonite compatible incremental hash sink.
-sinkHash :: Monad m => Consumer ByteString m (Digest SHA256)
+sinkHash :: (Monad m, HashAlgorithm a) => Consumer ByteString m (Digest a)
 sinkHash = sink hashInit
   where
     sink ctx = do

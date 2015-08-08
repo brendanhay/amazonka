@@ -102,9 +102,6 @@ sendWith f x = liftF (SendF (f (serviceOf x)) x id)
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
 --
--- Requests that can potentially return multiple pages of results are instances
--- of 'AWSPager',
---
 -- /See:/ 'paginateWith'
 paginate :: (MonadFree Command m, AWSPager a)
          => a
@@ -130,13 +127,6 @@ paginateWith f rq = go rq
 
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
---
--- The response will be either the first error returned that is not handled
--- by the specification, or any subsequent successful response from the await
--- request(s).
---
--- 'Wait' specifications can be found under the @Network.AWS.{ServiceName}.Waiters@
--- namespace for services which support 'await'.
 --
 -- /See:/ 'awaitWith'
 await :: (MonadFree Command m, AWSRequest a)
@@ -167,9 +157,6 @@ presignURL ts ex = liftM requestURL . presign ts ex
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
---
--- This requires the 'Service' signer to be an instance of 'AWSPresigner'.
--- Not all signing algorithms support this.
 --
 -- /See:/ 'presignWith'
 presign :: (MonadFree Command m, AWSPresigner (Sg (Sv a)), AWSRequest a)

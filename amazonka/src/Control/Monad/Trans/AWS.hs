@@ -40,28 +40,25 @@ module Control.Monad.Trans.AWS
 
     -- ** Credential Discovery
     , Credentials  (..)
+    -- $discovery
 
     -- ** Supported Regions
     , Region       (..)
 
     -- * Sending Requests
-    -- ** Send, Paginate and Await
+    -- $sending
+
     , send
+
+    -- ** Pagination
+    -- $pagination
+
     , paginate
+
+    -- ** Waiters
+    -- $waiters
+
     , await
-
-    -- ** Presigning
-    , presignURL
-    , presign
-
-    -- ** EC2 Instance Metadata
-    , isEC2
-    , dynamic
-    , metadata
-    , userdata
-
-    , EC2.Dynamic  (..)
-    , EC2.Metadata (..)
 
     -- ** Overriding Service Configuration
     -- $service
@@ -77,9 +74,6 @@ module Control.Monad.Trans.AWS
     , awaitWith
     , presignWith
 
-    -- ** Running Asynchronous Actions
-    -- $async
-
     -- ** Streaming
     -- $streaming
 
@@ -93,9 +87,30 @@ module Control.Monad.Trans.AWS
     -- *** Response Bodies
     , sinkBody
 
-    -- *** Calculating File Size and SHA256
+    -- *** File Size and MD5/SHA256
     , getFileSize
-    , sinkHash
+    , sinkMD5
+    , sinkSHA256
+
+    -- * Presigning Requests
+    -- $presigning
+
+    , presignURL
+    , presign
+
+    -- * EC2 Instance Metadata
+    -- $metadata
+
+    , isEC2
+    , dynamic
+    , metadata
+    , userdata
+
+    , EC2.Dynamic  (..)
+    , EC2.Metadata (..)
+
+    -- * Running Asynchronous Actions
+    -- $async
 
     -- * Handling Errors
     -- $errors
@@ -280,6 +295,57 @@ innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return
 
+{- $discovery
+When retrieving authentication credentials from an underlying EC2 instance using
+'FromProfile' or 'Discover', a thread is forked which transparently handles the
+expiry and subsequent refresh of IAM profile information.
+See 'Network.AWS.Auth.fromProfileName' for more information.
+-}
+
+{- $sending
+To send a request you need to create a value of the desired operation type using
+the relevant constructor, as well as any further modifications of default/optional
+parameters using the appropriate lenses. This value can then be sent using 'send'
+or 'paginate' and the library will take care of serialisation/authentication and
+so forth.
+
+The default 'Service' configuration for a request (or the supplied 'Service' configuration
+when using the @*With@ variants) contains retry configuration that is used to
+determine if a request can safely be retried and what kind of back off/on strategy
+should be used. (Usually exponential.)
+Typically services define retry strategies that handle throttling, general server
+errors and transport errors. Streaming requests are never retried.
+-}
+
+{- $pagination
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
+
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly send a request until some remote success condition
+specified by the 'Wait' configuration is fulfilled. The 'Wait' configuration
+specifies how many attempts should be made, in addition to delay and retry strategies.
+Error conditions that are not handled by the 'Wait' configuration will be thrown,
+or the first successful response that fulfills the success condition will be
+returned.
+
+'Wait' specifications can be found under the @Network.AWS.{ServiceName}.Waiters@
+namespace for services which support 'await'.
+-}
+
 {- $service
 When a request is sent, various configuration values such as the endpoint,
 retry strategy, timeout and error handlers are taken from the associated 'Service'
@@ -288,6 +354,29 @@ configuration.
 You can override the default configuration for a series of one or more actions
 by using 'within', 'once' and 'timeout', or by using the @*With@ suffixed
 functions on an individual request basis below.
+-}
+
+{- $streaming
+Streaming request bodies (such as 'PutObject') require a precomputed
+'SHA256' for signing purposes.
+The 'ToBody' typeclass has instances available to construct a 'RqBody',
+automatically calculating the hash as needed for types such as 'Text' and 'ByteString'.
+
+For reading files and handles, functions such 'sourceFileIO' or 'sourceHandle'
+can be used.
+For responses that contain streaming bodies (such as 'GetObject'), you can use
+'sinkBody' to connect the response body to a <http://hackage.haskell.org/package/conduit conduit>
+compatible sink.
+-}
+
+{- $presigning
+Presigning requires the 'Service' signer to be an instance of 'AWSPresigner'.
+Not all signing algorithms support this.
+-}
+
+{- $metadata
+Metadata can be retrieved from the underlying host assuming that you're running
+the code on an EC2 instance or have a compatible @instance-data@ endpoint available.
 -}
 
 {- $async
@@ -322,20 +411,9 @@ trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'Serialize
 trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
 @
 
-Many of the individual @amazonka-*@ libraries export 'Prism's for matching
-service specific error codes and messages. See the @Errors@ heading in the
-@Types@ module of each respective library for details.
--}
-
-{- $streaming
-Streaming request bodies (such as 'PutObject') require a precomputed
-'SHA256' for signing purposes.
-
-The 'ToBody' typeclass has instances available to construct a 'RqBody',
-automatically calculating the hash as needed for types such as 'Text' and 'ByteString'.
-
-For reading files and handles, functions such 'sourceFileIO' or 'sourceHandle'
-can be used.
+Many of the individual @amazonka-*@ libraries export compatible 'Getter's for
+matching service specific error codes and messages in the style above.
+See the @Error Matchers@ heading in each respective library for details.
 -}
 
 {- $logging

@@ -32,6 +32,7 @@ module Network.AWS.Data.Crypto
     -- * Re-exported
     , HMAC
     , Digest
+    , HashAlgorithm
     , SHA256 (..)
     , MD5    (..)
     , Base   (..)

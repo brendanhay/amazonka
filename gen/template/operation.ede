@@ -13,27 +13,29 @@
 --
 -- {{ documentation | stripPrefix("-- | ") }}
 --
--- <{{ operationUrl }}{{ name }}.html>
+-- /See:/ <{{ operationUrl }}{{ name }}.html AWS API Reference> for {{ input.name }}.
+{% if op.value.pager %}
+--
+-- This operation can return paginated results.
+{% endif %}
 module {{ moduleName }}
     (
-    -- * Request
+    -- * Creating a Request
       {{ input.name }}
-    -- ** Request constructor
     , {{ input.constructor.name}}
   {% for lens in input.lenses %}
     {% if lens.first %}
-    -- ** Request lenses
+    -- * Request Lenses
     {% endif %}
     , {{ lens.value.name }}
   {% endfor %}
 
-    -- * Response
+    -- * Destructuring the Response
     , {{ output.name }}
-    -- ** Response constructor
     , {{ output.constructor.name}}
   {% for lens in output.lenses %}
     {% if lens.first %}
-    -- ** Response lenses
+    -- * Response Lenses
     {% endif %}
     , {{ lens.value.name }}
   {% endfor %}

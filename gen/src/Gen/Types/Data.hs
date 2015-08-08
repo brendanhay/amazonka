@@ -126,17 +126,15 @@ instance HasId SData where
         Fun (Fun' n _ _ _) -> mkId n
 
 data WData = WData
-    { _waitOpName :: Id
-    , _waitDoc    :: Help
-    , _waitSig    :: Rendered
-    , _waitDecl   :: Rendered
+    { _waitName   :: Text
+    , _waitOpName :: Id
+    , _waitCtor   :: Fun
     } deriving (Show)
 
 makeLenses ''WData
 
 instance ToJSON WData where
-    toJSON (WData _ h s d) = object
-        [ "documentation" .= h
-        , "signature"     .= s
-        , "declaration"   .= d
+    toJSON (WData n _ c) = object
+        [ "name"        .= n
+        , "constructor" .= c
         ]

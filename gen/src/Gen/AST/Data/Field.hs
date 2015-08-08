@@ -131,7 +131,7 @@ fieldParamName = Ident
     . _fieldId
 
 fieldHelp :: Field -> Help
-fieldHelp = fromMaybe "FIXME: Undocumented member."
+fieldHelp = fromMaybe "Undocumented member."
     . view (fieldRef . refDocumentation)
 
 fieldLocation :: Field -> Maybe Location

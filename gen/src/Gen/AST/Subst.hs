@@ -72,7 +72,7 @@ substitute svc@Service{..} = do
         out <- subst Output (name Output _opName) _opOutput
         return $! o
             { _opDocumentation =
-                _opDocumentation .! "FIXME: Undocumented operation."
+                _opDocumentation .! "Undocumented operation."
             , _opHTTP          = http _opHTTP
             , _opInput         = Identity inp
             , _opOutput        = Identity out

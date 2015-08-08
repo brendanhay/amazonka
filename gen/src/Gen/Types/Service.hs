@@ -36,6 +36,7 @@ import           Data.Aeson             hiding (Bool)
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import           Data.List              (nub)
+import           Data.Maybe
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           Gen.Text
@@ -390,6 +391,7 @@ instance ToJSON a => ToJSON (Operation Identity a b) where
         , "documentation" .= (o ^. opDocumentation)
         , "input"         .= (o ^. opInput)
         , "output"        .= (o ^. opOutput)
+        , "pager"         .= (o ^. opPager . to isJust)
         ]
 
 data Metadata f = Metadata

@@ -202,9 +202,10 @@ waiterData :: HasMetadata a Identity
 waiterData m os n w = do
     o  <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
     wf <- waiterFields m o w
-    WData (o ^. opName) (Raw h)
+    c  <- Fun' (smartCtorId n) (Raw h)
         <$> pp None   (waiterS n wf)
         <*> pp Indent (waiterD n wf)
+    return $! WData (typeId n) (_opName o) c
   where
     missingErr = format
         ("Missing operation "      % iprimary %

@@ -14,7 +14,7 @@
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Merges two adjacent shards in a stream and combines them into a single

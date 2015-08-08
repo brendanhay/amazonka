@@ -14,7 +14,7 @@
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a set of DHCP options for your VPC. After creating the set, you

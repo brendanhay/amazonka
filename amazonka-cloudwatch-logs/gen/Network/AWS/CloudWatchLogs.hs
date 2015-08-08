@@ -8,7 +8,7 @@
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Amazon CloudWatch Logs API Reference
@@ -270,9 +270,10 @@ import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Waiters
 
 {- $errors
-Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
-library functions provided by the "Control.Exception.Lens" module. This allows
-the user to catch (and rethrow) service specific errors returned by 'CloudWatchLogs'.
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'CloudWatchLogs'.
 -}
 
 {- $operations

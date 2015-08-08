@@ -14,7 +14,7 @@
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- The /AddTagsToResource/ action adds up to 10 cost allocation tags to the

@@ -8,7 +8,7 @@
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Amazon Simple Storage Service is storage for the Internet. Amazon S3 has
@@ -676,9 +676,10 @@ import           Network.AWS.S3.UploadPartCopy
 import           Network.AWS.S3.Waiters
 
 {- $errors
-Error matchers are intended to be used with the <http://hackage.haskell.org/package/lens lens>
-library functions provided by the "Control.Exception.Lens" module. This allows
-the user to catch (and rethrow) service specific errors returned by 'S3'.
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'S3'.
 -}
 
 {- $operations

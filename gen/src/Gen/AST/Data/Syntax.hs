@@ -638,6 +638,7 @@ responseF p r fs
     | null fs                         = var "receiveNull"
     | any fieldStream fs              = var "receiveBody"
     | Just x <- r ^. refResultWrapper = app (var (suf <> "Wrapper")) (str x)
+    | all (not . fieldBody) fs        = var "receiveEmpty"
     | otherwise                       = var suf
   where
     suf = "receive" <> Proto.suffix p

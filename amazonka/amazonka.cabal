@@ -14,8 +14,31 @@ cabal-version:         >= 1.10
 
 description:
     Client library containing request and response logic to communicate
-    with Amazon Web Service compatible APIs. Intended to be used alongside
-    the types supplied by the various @amazonka-*@ service libraries.
+    with Amazon Web Service compatible APIs. It is intended to be used alongside
+    the types supplied by the various @amazonka-*@ service libraries. See the
+    <http://hackage.haskell.org/packages/#cat:AWS AWS> category on Hackage for
+    what individual service libraries are available.
+    .
+    To get started, import the desired @amazonka-*@ library (such as
+    <http://hackage.haskell.org/package/amazonka-s3 Network.AWS.S3>)
+    and one of the following:
+    .
+    * "Control.Monad.Trans.AWS": The 'Control.Monad.Trans.AWS.AWST' transformer
+    and generalised operations.
+    .
+    * "Network.AWS": The 'Network.AWS.AWS' monad and 'Network.AWS.MonadAWS' type
+    class for automatically lifting operations when embedding into a larger transformer stack.
+    This is built upon 'Control.Monad.Trans.AWS.AWST'.
+    .
+    Both 'AWST' (and 'AWS') and the provided functions are built upon the 'Control.Monad.Trans.Free'
+    DSL defined in "Network.AWS.Free". This allows writing a custom interpreter
+    (say, for mocking purposes) and defining your own AWS logic.
+    .
+    The "Network.AWS.Presign" and "Network.AWS.EC2.Metadata" can be used separate
+    from the rest of the library. Be aware that combining direct use of these
+    modules with 'Control.Monad.Trans.AWST' will not benefit from the aforementioned
+    'FreeT' interpretation. To this end, properly lifted metadata and presigning
+    functions are provided by each of the respective monads.
 
 source-repository head
     type:     git

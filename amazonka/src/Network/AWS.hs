@@ -65,12 +65,6 @@ module Network.AWS
     , once
     , timeout
 
-    -- *** Per Request
-    , sendWith
-    , paginateWith
-    , awaitWith
-    , presignWith
-
     -- ** Streaming
     -- $streaming
 
@@ -93,7 +87,6 @@ module Network.AWS
     -- $presigning
 
     , presignURL
-    , presign
 
     -- * EC2 Instance Metadata
     -- $metadata

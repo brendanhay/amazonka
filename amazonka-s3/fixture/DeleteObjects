@@ -4,9 +4,8 @@ path:   /bucketname
 query:  ?delete=
 headers:
   Host: s3.amazonaws.com
-  Authorization: AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=c500edc467e33ed1b1b42790b5ecb42be0df076455c462bc382ee07fd671c067
-  Content-MD5: P3dBkkA/xDVJaBTz8lYjlg==
-  X-Amz-Content-SHA256: 814ce0b4a1759cc16123c1af18191b943c66e65a13b92c2f62bf15d0f51c80ea
+  Authorization: AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=444663bb6a12513999d350ae5d1e6fcf7b2a0893ea22582c6db4922edbb9c83b
+  Content-MD5: PdWUHsgAuOlP59d4mBjdGg==
+  X-Amz-Content-SHA256: 593bd30fd702e1eae6fd7d828b80ccdf3283194ef2632440511115e70cdf4ccc
   X-Amz-Date: 20091028T223200Z
-body: <?xml version="1.0" encoding="UTF-8"?><Delete xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Quiet xmlns=""/><Object xmlns=""><VersionId/><Key>sample1.text</Key></Object><Object xmlns=""><VersionId/><Key>sample2.text</Key></Object></Delete>
-
+body: <?xml version="1.0" encoding="UTF-8"?><Delete xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Object xmlns=""><Key>sample1.text</Key></Object><Object xmlns=""><Key>sample2.text</Key></Object></Delete>

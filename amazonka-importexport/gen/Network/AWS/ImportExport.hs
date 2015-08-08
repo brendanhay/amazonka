@@ -27,26 +27,69 @@ module Network.AWS.ImportExport
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidJobIdException
     , _InvalidJobIdException
+
+    -- ** InvalidParameterException
     , _InvalidParameterException
+
+    -- ** ExpiredJobIdException
     , _ExpiredJobIdException
+
+    -- ** InvalidFileSystemException
     , _InvalidFileSystemException
+
+    -- ** InvalidAccessKeyIdException
     , _InvalidAccessKeyIdException
+
+    -- ** UnableToUpdateJobIdException
     , _UnableToUpdateJobIdException
+
+    -- ** UnableToCancelJobIdException
     , _UnableToCancelJobIdException
+
+    -- ** InvalidVersionException
     , _InvalidVersionException
+
+    -- ** MultipleRegionsException
     , _MultipleRegionsException
+
+    -- ** MalformedManifestException
     , _MalformedManifestException
+
+    -- ** CanceledJobIdException
     , _CanceledJobIdException
+
+    -- ** BucketPermissionException
     , _BucketPermissionException
+
+    -- ** MissingParameterException
     , _MissingParameterException
+
+    -- ** NoSuchBucketException
     , _NoSuchBucketException
+
+    -- ** InvalidAddressException
     , _InvalidAddressException
+
+    -- ** InvalidManifestFieldException
     , _InvalidManifestFieldException
+
+    -- ** MissingCustomsException
     , _MissingCustomsException
+
+    -- ** InvalidCustomsException
     , _InvalidCustomsException
+
+    -- ** MissingManifestFieldException
     , _MissingManifestFieldException
+
+    -- ** CreateJobQuotaExceededException
     , _CreateJobQuotaExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

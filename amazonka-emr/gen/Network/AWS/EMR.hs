@@ -25,8 +25,14 @@ module Network.AWS.EMR
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidRequestException
     , _InvalidRequestException
+
+    -- ** InternalServerError
     , _InternalServerError
+
+    -- ** InternalServerException
     , _InternalServerException
 
     -- * Waiters

@@ -26,12 +26,27 @@ module Network.AWS.AutoScaling
 
     -- * Error Matchers
     -- $errors
+
+    -- ** LimitExceededFault
     , _LimitExceededFault
+
+    -- ** AlreadyExistsFault
     , _AlreadyExistsFault
+
+    -- ** ResourceInUseFault
     , _ResourceInUseFault
+
+    -- ** InvalidNextToken
     , _InvalidNextToken
+
+    -- ** ScalingActivityInProgressFault
     , _ScalingActivityInProgressFault
+
+    -- ** ResourceContentionFault
     , _ResourceContentionFault
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

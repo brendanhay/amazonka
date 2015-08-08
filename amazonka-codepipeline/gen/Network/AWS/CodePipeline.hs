@@ -111,24 +111,63 @@ module Network.AWS.CodePipeline
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ValidationException
     , _ValidationException
+
+    -- ** InvalidClientTokenException
     , _InvalidClientTokenException
+
+    -- ** InvalidNonceException
     , _InvalidNonceException
+
+    -- ** ActionNotFoundException
     , _ActionNotFoundException
+
+    -- ** InvalidBlockerDeclarationException
     , _InvalidBlockerDeclarationException
+
+    -- ** InvalidJobStateException
     , _InvalidJobStateException
+
+    -- ** InvalidJobException
     , _InvalidJobException
+
+    -- ** PipelineVersionNotFoundException
     , _PipelineVersionNotFoundException
+
+    -- ** ActionTypeNotFoundException
     , _ActionTypeNotFoundException
+
+    -- ** InvalidNextTokenException
     , _InvalidNextTokenException
+
+    -- ** InvalidStageDeclarationException
     , _InvalidStageDeclarationException
+
+    -- ** InvalidActionDeclarationException
     , _InvalidActionDeclarationException
+
+    -- ** StageNotFoundException
     , _StageNotFoundException
+
+    -- ** JobNotFoundException
     , _JobNotFoundException
+
+    -- ** InvalidStructureException
     , _InvalidStructureException
+
+    -- ** PipelineNotFoundException
     , _PipelineNotFoundException
+
+    -- ** PipelineNameInUseException
     , _PipelineNameInUseException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

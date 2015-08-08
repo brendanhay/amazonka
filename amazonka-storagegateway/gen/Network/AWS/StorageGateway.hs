@@ -47,8 +47,15 @@ module Network.AWS.StorageGateway
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidGatewayRequestException
     , _InvalidGatewayRequestException
+
+    -- ** InternalServerError
     , _InternalServerError
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

@@ -41,8 +41,15 @@ module Network.AWS.DirectConnect
 
     -- * Error Matchers
     -- $errors
+
+    -- ** DirectConnectClientException
     , _DirectConnectClientException
+
+    -- ** DirectConnectServerException
     , _DirectConnectServerException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

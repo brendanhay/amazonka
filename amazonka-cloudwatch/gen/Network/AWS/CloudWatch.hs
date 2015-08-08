@@ -70,14 +70,33 @@ module Network.AWS.CloudWatch
 
     -- * Error Matchers
     -- $errors
+
+    -- ** LimitExceededFault
     , _LimitExceededFault
+
+    -- ** InvalidNextToken
     , _InvalidNextToken
+
+    -- ** InternalServiceFault
     , _InternalServiceFault
+
+    -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** InvalidFormatFault
     , _InvalidFormatFault
+
+    -- ** MissingRequiredParameterException
     , _MissingRequiredParameterException
+
+    -- ** InvalidParameterCombinationException
     , _InvalidParameterCombinationException
+
+    -- ** ResourceNotFound
     , _ResourceNotFound
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

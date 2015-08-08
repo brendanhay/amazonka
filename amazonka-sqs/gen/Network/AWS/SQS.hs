@@ -49,22 +49,57 @@ module Network.AWS.SQS
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidBatchEntryId
     , _InvalidBatchEntryId
+
+    -- ** TooManyEntriesInBatchRequest
     , _TooManyEntriesInBatchRequest
+
+    -- ** InvalidAttributeName
     , _InvalidAttributeName
+
+    -- ** QueueDeletedRecently
     , _QueueDeletedRecently
+
+    -- ** QueueDoesNotExist
     , _QueueDoesNotExist
+
+    -- ** UnsupportedOperation
     , _UnsupportedOperation
+
+    -- ** InvalidMessageContents
     , _InvalidMessageContents
+
+    -- ** BatchRequestTooLong
     , _BatchRequestTooLong
+
+    -- ** OverLimit
     , _OverLimit
+
+    -- ** PurgeQueueInProgress
     , _PurgeQueueInProgress
+
+    -- ** QueueNameExists
     , _QueueNameExists
+
+    -- ** InvalidIdFormat
     , _InvalidIdFormat
+
+    -- ** ReceiptHandleIsInvalid
     , _ReceiptHandleIsInvalid
+
+    -- ** EmptyBatchRequest
     , _EmptyBatchRequest
+
+    -- ** MessageNotInflight
     , _MessageNotInflight
+
+    -- ** BatchEntryIdsNotDistinct
     , _BatchEntryIdsNotDistinct
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

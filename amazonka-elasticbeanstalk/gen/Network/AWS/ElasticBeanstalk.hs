@@ -45,16 +45,39 @@ module Network.AWS.ElasticBeanstalk
 
     -- * Error Matchers
     -- $errors
+
+    -- ** S3SubscriptionRequiredException
     , _S3SubscriptionRequiredException
+
+    -- ** TooManyBucketsException
     , _TooManyBucketsException
+
+    -- ** OperationInProgressException
     , _OperationInProgressException
+
+    -- ** TooManyConfigurationTemplatesException
     , _TooManyConfigurationTemplatesException
+
+    -- ** TooManyApplicationVersionsException
     , _TooManyApplicationVersionsException
+
+    -- ** InsufficientPrivilegesException
     , _InsufficientPrivilegesException
+
+    -- ** TooManyApplicationsException
     , _TooManyApplicationsException
+
+    -- ** SourceBundleDeletionException
     , _SourceBundleDeletionException
+
+    -- ** S3LocationNotInServiceRegionException
     , _S3LocationNotInServiceRegionException
+
+    -- ** TooManyEnvironmentsException
     , _TooManyEnvironmentsException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

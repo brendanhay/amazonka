@@ -34,47 +34,131 @@ module Network.AWS.ElastiCache
 
     -- * Error Matchers
     -- $errors
+
+    -- ** CacheSubnetGroupAlreadyExistsFault
     , _CacheSubnetGroupAlreadyExistsFault
+
+    -- ** CacheSubnetGroupInUse
     , _CacheSubnetGroupInUse
+
+    -- ** CacheSecurityGroupNotFoundFault
     , _CacheSecurityGroupNotFoundFault
+
+    -- ** ReservedCacheNodeAlreadyExistsFault
     , _ReservedCacheNodeAlreadyExistsFault
+
+    -- ** AuthorizationAlreadyExistsFault
     , _AuthorizationAlreadyExistsFault
+
+    -- ** ReservedCacheNodeQuotaExceededFault
     , _ReservedCacheNodeQuotaExceededFault
+
+    -- ** CacheSubnetGroupQuotaExceededFault
     , _CacheSubnetGroupQuotaExceededFault
+
+    -- ** ReplicationGroupNotFoundFault
     , _ReplicationGroupNotFoundFault
+
+    -- ** ReservedCacheNodesOfferingNotFoundFault
     , _ReservedCacheNodesOfferingNotFoundFault
+
+    -- ** TagQuotaPerResourceExceeded
     , _TagQuotaPerResourceExceeded
+
+    -- ** InvalidSubnet
     , _InvalidSubnet
+
+    -- ** SnapshotNotFoundFault
     , _SnapshotNotFoundFault
+
+    -- ** InsufficientCacheClusterCapacityFault
     , _InsufficientCacheClusterCapacityFault
+
+    -- ** InvalidSnapshotStateFault
     , _InvalidSnapshotStateFault
+
+    -- ** SnapshotAlreadyExistsFault
     , _SnapshotAlreadyExistsFault
+
+    -- ** TagNotFoundFault
     , _TagNotFoundFault
+
+    -- ** SnapshotQuotaExceededFault
     , _SnapshotQuotaExceededFault
+
+    -- ** CacheParameterGroupAlreadyExistsFault
     , _CacheParameterGroupAlreadyExistsFault
+
+    -- ** NodeQuotaForClusterExceededFault
     , _NodeQuotaForClusterExceededFault
+
+    -- ** SnapshotFeatureNotSupportedFault
     , _SnapshotFeatureNotSupportedFault
+
+    -- ** CacheSubnetGroupNotFoundFault
     , _CacheSubnetGroupNotFoundFault
+
+    -- ** ReservedCacheNodeNotFoundFault
     , _ReservedCacheNodeNotFoundFault
+
+    -- ** InvalidParameterValueException
     , _InvalidParameterValueException
+
+    -- ** InvalidVPCNetworkStateFault
     , _InvalidVPCNetworkStateFault
+
+    -- ** CacheClusterNotFoundFault
     , _CacheClusterNotFoundFault
+
+    -- ** InvalidReplicationGroupStateFault
     , _InvalidReplicationGroupStateFault
+
+    -- ** ReplicationGroupAlreadyExistsFault
     , _ReplicationGroupAlreadyExistsFault
+
+    -- ** SubnetInUse
     , _SubnetInUse
+
+    -- ** CacheClusterAlreadyExistsFault
     , _CacheClusterAlreadyExistsFault
+
+    -- ** ClusterQuotaForCustomerExceededFault
     , _ClusterQuotaForCustomerExceededFault
+
+    -- ** AuthorizationNotFoundFault
     , _AuthorizationNotFoundFault
+
+    -- ** CacheSecurityGroupQuotaExceededFault
     , _CacheSecurityGroupQuotaExceededFault
+
+    -- ** InvalidCacheClusterStateFault
     , _InvalidCacheClusterStateFault
+
+    -- ** CacheParameterGroupQuotaExceededFault
     , _CacheParameterGroupQuotaExceededFault
+
+    -- ** NodeQuotaForCustomerExceededFault
     , _NodeQuotaForCustomerExceededFault
+
+    -- ** CacheSubnetQuotaExceededFault
     , _CacheSubnetQuotaExceededFault
+
+    -- ** CacheParameterGroupNotFoundFault
     , _CacheParameterGroupNotFoundFault
+
+    -- ** InvalidParameterCombinationException
     , _InvalidParameterCombinationException
+
+    -- ** InvalidARNFault
     , _InvalidARNFault
+
+    -- ** InvalidCacheParameterGroupStateFault
     , _InvalidCacheParameterGroupStateFault
+
+    -- ** CacheSecurityGroupAlreadyExistsFault
     , _CacheSecurityGroupAlreadyExistsFault
+
+    -- ** InvalidCacheSecurityGroupStateFault
     , _InvalidCacheSecurityGroupStateFault
 
     -- * Waiters

@@ -43,23 +43,60 @@ module Network.AWS.CloudTrail
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidTimeRangeException
     , _InvalidTimeRangeException
+
+    -- ** InsufficientS3BucketPolicyException
     , _InsufficientS3BucketPolicyException
+
+    -- ** MaximumNumberOfTrailsExceededException
     , _MaximumNumberOfTrailsExceededException
+
+    -- ** InsufficientSNSTopicPolicyException
     , _InsufficientSNSTopicPolicyException
+
+    -- ** InvalidCloudWatchLogsRoleARNException
     , _InvalidCloudWatchLogsRoleARNException
+
+    -- ** InvalidTrailNameException
     , _InvalidTrailNameException
+
+    -- ** InvalidLookupAttributesException
     , _InvalidLookupAttributesException
+
+    -- ** TrailNotFoundException
     , _TrailNotFoundException
+
+    -- ** CloudWatchLogsDeliveryUnavailableException
     , _CloudWatchLogsDeliveryUnavailableException
+
+    -- ** InvalidSNSTopicNameException
     , _InvalidSNSTopicNameException
+
+    -- ** InvalidCloudWatchLogsLogGroupARNException
     , _InvalidCloudWatchLogsLogGroupARNException
+
+    -- ** InvalidS3BucketNameException
     , _InvalidS3BucketNameException
+
+    -- ** InvalidNextTokenException
     , _InvalidNextTokenException
+
+    -- ** S3BucketDoesNotExistException
     , _S3BucketDoesNotExistException
+
+    -- ** InvalidMaxResultsException
     , _InvalidMaxResultsException
+
+    -- ** TrailAlreadyExistsException
     , _TrailAlreadyExistsException
+
+    -- ** InvalidS3PrefixException
     , _InvalidS3PrefixException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

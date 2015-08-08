@@ -32,8 +32,15 @@ module Network.AWS.CloudSearchDomains
 
     -- * Error Matchers
     -- $errors
+
+    -- ** DocumentServiceException
     , _DocumentServiceException
+
+    -- ** SearchException
     , _SearchException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

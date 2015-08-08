@@ -37,25 +37,66 @@ module Network.AWS.ELB
 
     -- * Error Matchers
     -- $errors
+
+    -- ** PolicyNotFoundException
     , _PolicyNotFoundException
+
+    -- ** AccessPointNotFoundException
     , _AccessPointNotFoundException
+
+    -- ** DuplicatePolicyNameException
     , _DuplicatePolicyNameException
+
+    -- ** InvalidConfigurationRequestException
     , _InvalidConfigurationRequestException
+
+    -- ** SubnetNotFoundException
     , _SubnetNotFoundException
+
+    -- ** LoadBalancerAttributeNotFoundException
     , _LoadBalancerAttributeNotFoundException
+
+    -- ** InvalidSubnetException
     , _InvalidSubnetException
+
+    -- ** DuplicateTagKeysException
     , _DuplicateTagKeysException
+
+    -- ** DuplicateListenerException
     , _DuplicateListenerException
+
+    -- ** TooManyTagsException
     , _TooManyTagsException
+
+    -- ** PolicyTypeNotFoundException
     , _PolicyTypeNotFoundException
+
+    -- ** DuplicateAccessPointNameException
     , _DuplicateAccessPointNameException
+
+    -- ** InvalidSecurityGroupException
     , _InvalidSecurityGroupException
+
+    -- ** ListenerNotFoundException
     , _ListenerNotFoundException
+
+    -- ** InvalidEndPointException
     , _InvalidEndPointException
+
+    -- ** TooManyAccessPointsException
     , _TooManyAccessPointsException
+
+    -- ** InvalidSchemeException
     , _InvalidSchemeException
+
+    -- ** TooManyPoliciesException
     , _TooManyPoliciesException
+
+    -- ** CertificateNotFoundException
     , _CertificateNotFoundException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

@@ -49,27 +49,72 @@ module Network.AWS.Config
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ValidationException
     , _ValidationException
+
+    -- ** InvalidTimeRangeException
     , _InvalidTimeRangeException
+
+    -- ** InvalidRecordingGroupException
     , _InvalidRecordingGroupException
+
+    -- ** InvalidSNSTopicARNException
     , _InvalidSNSTopicARNException
+
+    -- ** InvalidRoleException
     , _InvalidRoleException
+
+    -- ** LastDeliveryChannelDeleteFailedException
     , _LastDeliveryChannelDeleteFailedException
+
+    -- ** InvalidLimitException
     , _InvalidLimitException
+
+    -- ** InvalidDeliveryChannelNameException
     , _InvalidDeliveryChannelNameException
+
+    -- ** NoSuchDeliveryChannelException
     , _NoSuchDeliveryChannelException
+
+    -- ** ResourceNotDiscoveredException
     , _ResourceNotDiscoveredException
+
+    -- ** InvalidNextTokenException
     , _InvalidNextTokenException
+
+    -- ** NoSuchBucketException
     , _NoSuchBucketException
+
+    -- ** NoAvailableConfigurationRecorderException
     , _NoAvailableConfigurationRecorderException
+
+    -- ** NoAvailableDeliveryChannelException
     , _NoAvailableDeliveryChannelException
+
+    -- ** NoRunningConfigurationRecorderException
     , _NoRunningConfigurationRecorderException
+
+    -- ** MaxNumberOfConfigurationRecordersExceededException
     , _MaxNumberOfConfigurationRecordersExceededException
+
+    -- ** InvalidConfigurationRecorderNameException
     , _InvalidConfigurationRecorderNameException
+
+    -- ** InsufficientDeliveryPolicyException
     , _InsufficientDeliveryPolicyException
+
+    -- ** MaxNumberOfDeliveryChannelsExceededException
     , _MaxNumberOfDeliveryChannelsExceededException
+
+    -- ** NoSuchConfigurationRecorderException
     , _NoSuchConfigurationRecorderException
+
+    -- ** InvalidS3KeyPrefixException
     , _InvalidS3KeyPrefixException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

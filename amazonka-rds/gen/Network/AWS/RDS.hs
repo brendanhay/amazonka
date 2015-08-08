@@ -48,77 +48,221 @@ module Network.AWS.RDS
 
     -- * Error Matchers
     -- $errors
+
+    -- ** CertificateNotFoundFault
     , _CertificateNotFoundFault
+
+    -- ** ReservedDBInstanceQuotaExceededFault
     , _ReservedDBInstanceQuotaExceededFault
+
+    -- ** DBClusterSnapshotAlreadyExistsFault
     , _DBClusterSnapshotAlreadyExistsFault
+
+    -- ** AuthorizationQuotaExceededFault
     , _AuthorizationQuotaExceededFault
+
+    -- ** SourceNotFoundFault
     , _SourceNotFoundFault
+
+    -- ** InvalidDBParameterGroupStateFault
     , _InvalidDBParameterGroupStateFault
+
+    -- ** DBParameterGroupAlreadyExistsFault
     , _DBParameterGroupAlreadyExistsFault
+
+    -- ** PointInTimeRestoreNotEnabledFault
     , _PointInTimeRestoreNotEnabledFault
+
+    -- ** DBParameterGroupQuotaExceededFault
     , _DBParameterGroupQuotaExceededFault
+
+    -- ** ProvisionedIOPSNotAvailableInAZFault
     , _ProvisionedIOPSNotAvailableInAZFault
+
+    -- ** AuthorizationAlreadyExistsFault
     , _AuthorizationAlreadyExistsFault
+
+    -- ** InsufficientDBClusterCapacityFault
     , _InsufficientDBClusterCapacityFault
+
+    -- ** ReservedDBInstanceAlreadyExistsFault
     , _ReservedDBInstanceAlreadyExistsFault
+
+    -- ** SubscriptionCategoryNotFoundFault
     , _SubscriptionCategoryNotFoundFault
+
+    -- ** DBSubnetQuotaExceededFault
     , _DBSubnetQuotaExceededFault
+
+    -- ** SubscriptionNotFoundFault
     , _SubscriptionNotFoundFault
+
+    -- ** InvalidSubnet
     , _InvalidSubnet
+
+    -- ** DBClusterNotFoundFault
     , _DBClusterNotFoundFault
+
+    -- ** OptionGroupNotFoundFault
     , _OptionGroupNotFoundFault
+
+    -- ** DBLogFileNotFoundFault
     , _DBLogFileNotFoundFault
+
+    -- ** OptionGroupAlreadyExistsFault
     , _OptionGroupAlreadyExistsFault
+
+    -- ** DBClusterAlreadyExistsFault
     , _DBClusterAlreadyExistsFault
+
+    -- ** StorageTypeNotSupportedFault
     , _StorageTypeNotSupportedFault
+
+    -- ** DBSecurityGroupQuotaExceededFault
     , _DBSecurityGroupQuotaExceededFault
+
+    -- ** DBSnapshotNotFoundFault
     , _DBSnapshotNotFoundFault
+
+    -- ** InvalidEventSubscriptionStateFault
     , _InvalidEventSubscriptionStateFault
+
+    -- ** KMSKeyNotAccessibleFault
     , _KMSKeyNotAccessibleFault
+
+    -- ** OptionGroupQuotaExceededFault
     , _OptionGroupQuotaExceededFault
+
+    -- ** DBSecurityGroupAlreadyExistsFault
     , _DBSecurityGroupAlreadyExistsFault
+
+    -- ** SnapshotQuotaExceededFault
     , _SnapshotQuotaExceededFault
+
+    -- ** SNSTopicARNNotFoundFault
     , _SNSTopicARNNotFoundFault
+
+    -- ** DBClusterQuotaExceededFault
     , _DBClusterQuotaExceededFault
+
+    -- ** DBClusterParameterGroupNotFoundFault
     , _DBClusterParameterGroupNotFoundFault
+
+    -- ** DBSubnetGroupAlreadyExistsFault
     , _DBSubnetGroupAlreadyExistsFault
+
+    -- ** InstanceQuotaExceededFault
     , _InstanceQuotaExceededFault
+
+    -- ** SNSNoAuthorizationFault
     , _SNSNoAuthorizationFault
+
+    -- ** DBSecurityGroupNotFoundFault
     , _DBSecurityGroupNotFoundFault
+
+    -- ** DBSecurityGroupNotSupportedFault
     , _DBSecurityGroupNotSupportedFault
+
+    -- ** DomainNotFoundFault
     , _DomainNotFoundFault
+
+    -- ** DBClusterSnapshotNotFoundFault
     , _DBClusterSnapshotNotFoundFault
+
+    -- ** ReservedDBInstancesOfferingNotFoundFault
     , _ReservedDBInstancesOfferingNotFoundFault
+
+    -- ** InvalidDBSubnetGroupFault
     , _InvalidDBSubnetGroupFault
+
+    -- ** InvalidDBSubnetStateFault
     , _InvalidDBSubnetStateFault
+
+    -- ** DBParameterGroupNotFoundFault
     , _DBParameterGroupNotFoundFault
+
+    -- ** SNSInvalidTopicFault
     , _SNSInvalidTopicFault
+
+    -- ** SubscriptionAlreadyExistFault
     , _SubscriptionAlreadyExistFault
+
+    -- ** InvalidDBClusterSnapshotStateFault
     , _InvalidDBClusterSnapshotStateFault
+
+    -- ** InsufficientDBInstanceCapacityFault
     , _InsufficientDBInstanceCapacityFault
+
+    -- ** InvalidVPCNetworkStateFault
     , _InvalidVPCNetworkStateFault
+
+    -- ** AuthorizationNotFoundFault
     , _AuthorizationNotFoundFault
+
+    -- ** ReservedDBInstanceNotFoundFault
     , _ReservedDBInstanceNotFoundFault
+
+    -- ** DBSubnetGroupQuotaExceededFault
     , _DBSubnetGroupQuotaExceededFault
+
+    -- ** DBSubnetGroupNotAllowedFault
     , _DBSubnetGroupNotAllowedFault
+
+    -- ** EventSubscriptionQuotaExceededFault
     , _EventSubscriptionQuotaExceededFault
+
+    -- ** InvalidOptionGroupStateFault
     , _InvalidOptionGroupStateFault
+
+    -- ** InvalidDBClusterStateFault
     , _InvalidDBClusterStateFault
+
+    -- ** InsufficientStorageClusterCapacityFault
     , _InsufficientStorageClusterCapacityFault
+
+    -- ** DBInstanceAlreadyExistsFault
     , _DBInstanceAlreadyExistsFault
+
+    -- ** ResourceNotFoundFault
     , _ResourceNotFoundFault
+
+    -- ** DBUpgradeDependencyFailureFault
     , _DBUpgradeDependencyFailureFault
+
+    -- ** InvalidDBSecurityGroupStateFault
     , _InvalidDBSecurityGroupStateFault
+
+    -- ** InsufficientDomainCapacityFault
     , _InsufficientDomainCapacityFault
+
+    -- ** DBSubnetGroupNotFoundFault
     , _DBSubnetGroupNotFoundFault
+
+    -- ** InvalidRestoreFault
     , _InvalidRestoreFault
+
+    -- ** InvalidDBInstanceStateFault
     , _InvalidDBInstanceStateFault
+
+    -- ** InvalidDBSnapshotStateFault
     , _InvalidDBSnapshotStateFault
+
+    -- ** InvalidDBSubnetGroupStateFault
     , _InvalidDBSubnetGroupStateFault
+
+    -- ** StorageQuotaExceededFault
     , _StorageQuotaExceededFault
+
+    -- ** DBSnapshotAlreadyExistsFault
     , _DBSnapshotAlreadyExistsFault
+
+    -- ** DBInstanceNotFoundFault
     , _DBInstanceNotFoundFault
+
+    -- ** SubnetAlreadyInUse
     , _SubnetAlreadyInUse
+
+    -- ** DBSubnetGroupDoesNotCoverEnoughAZs
     , _DBSubnetGroupDoesNotCoverEnoughAZs
 
     -- * Waiters

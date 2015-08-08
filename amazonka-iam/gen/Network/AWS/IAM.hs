@@ -81,27 +81,72 @@ module Network.AWS.IAM
 
     -- * Error Matchers
     -- $errors
+
+    -- ** CredentialReportNotPresentException
     , _CredentialReportNotPresentException
+
+    -- ** CredentialReportNotReadyException
     , _CredentialReportNotReadyException
+
+    -- ** MalformedPolicyDocumentException
     , _MalformedPolicyDocumentException
+
+    -- ** EntityAlreadyExistsException
     , _EntityAlreadyExistsException
+
+    -- ** MalformedCertificateException
     , _MalformedCertificateException
+
+    -- ** DuplicateCertificateException
     , _DuplicateCertificateException
+
+    -- ** CredentialReportExpiredException
     , _CredentialReportExpiredException
+
+    -- ** NoSuchEntityException
     , _NoSuchEntityException
+
+    -- ** DeleteConflictException
     , _DeleteConflictException
+
+    -- ** InvalidCertificateException
     , _InvalidCertificateException
+
+    -- ** UnrecognizedPublicKeyEncodingException
     , _UnrecognizedPublicKeyEncodingException
+
+    -- ** InvalidUserTypeException
     , _InvalidUserTypeException
+
+    -- ** ServiceFailureException
     , _ServiceFailureException
+
+    -- ** InvalidInputException
     , _InvalidInputException
+
+    -- ** InvalidPublicKeyException
     , _InvalidPublicKeyException
+
+    -- ** InvalidAuthenticationCodeException
     , _InvalidAuthenticationCodeException
+
+    -- ** EntityTemporarilyUnmodifiableException
     , _EntityTemporarilyUnmodifiableException
+
+    -- ** DuplicateSSHPublicKeyException
     , _DuplicateSSHPublicKeyException
+
+    -- ** KeyPairMismatchException
     , _KeyPairMismatchException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** PasswordPolicyViolationException
     , _PasswordPolicyViolationException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

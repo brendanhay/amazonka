@@ -47,84 +47,242 @@ module Network.AWS.Redshift
 
     -- * Error Matchers
     -- $errors
+
+    -- ** LimitExceededFault
     , _LimitExceededFault
+
+    -- ** ClusterSecurityGroupQuotaExceededFault
     , _ClusterSecurityGroupQuotaExceededFault
+
+    -- ** CopyToRegionDisabledFault
     , _CopyToRegionDisabledFault
+
+    -- ** AuthorizationQuotaExceededFault
     , _AuthorizationQuotaExceededFault
+
+    -- ** SourceNotFoundFault
     , _SourceNotFoundFault
+
+    -- ** InvalidS3KeyPrefixFault
     , _InvalidS3KeyPrefixFault
+
+    -- ** AuthorizationAlreadyExistsFault
     , _AuthorizationAlreadyExistsFault
+
+    -- ** InvalidClusterSecurityGroupStateFault
     , _InvalidClusterSecurityGroupStateFault
+
+    -- ** ClusterSecurityGroupAlreadyExistsFault
     , _ClusterSecurityGroupAlreadyExistsFault
+
+    -- ** InvalidElasticIPFault
     , _InvalidElasticIPFault
+
+    -- ** ClusterSnapshotNotFoundFault
     , _ClusterSnapshotNotFoundFault
+
+    -- ** HSMConfigurationNotFoundFault
     , _HSMConfigurationNotFoundFault
+
+    -- ** InvalidHSMConfigurationStateFault
     , _InvalidHSMConfigurationStateFault
+
+    -- ** ClusterSnapshotAlreadyExistsFault
     , _ClusterSnapshotAlreadyExistsFault
+
+    -- ** HSMConfigurationAlreadyExistsFault
     , _HSMConfigurationAlreadyExistsFault
+
+    -- ** SubscriptionCategoryNotFoundFault
     , _SubscriptionCategoryNotFoundFault
+
+    -- ** SubscriptionNotFoundFault
     , _SubscriptionNotFoundFault
+
+    -- ** InvalidSubnet
     , _InvalidSubnet
+
+    -- ** InvalidS3BucketNameFault
     , _InvalidS3BucketNameFault
+
+    -- ** ClusterQuotaExceededFault
     , _ClusterQuotaExceededFault
+
+    -- ** SnapshotCopyAlreadyDisabledFault
     , _SnapshotCopyAlreadyDisabledFault
+
+    -- ** ClusterParameterGroupNotFoundFault
     , _ClusterParameterGroupNotFoundFault
+
+    -- ** HSMClientCertificateQuotaExceededFault
     , _HSMClientCertificateQuotaExceededFault
+
+    -- ** SnapshotCopyGrantQuotaExceededFault
     , _SnapshotCopyGrantQuotaExceededFault
+
+    -- ** SnapshotCopyAlreadyEnabledFault
     , _SnapshotCopyAlreadyEnabledFault
+
+    -- ** ClusterParameterGroupAlreadyExistsFault
     , _ClusterParameterGroupAlreadyExistsFault
+
+    -- ** NumberOfNodesPerClusterLimitExceededFault
     , _NumberOfNodesPerClusterLimitExceededFault
+
+    -- ** SnapshotCopyDisabledFault
     , _SnapshotCopyDisabledFault
+
+    -- ** ResizeNotFoundFault
     , _ResizeNotFoundFault
+
+    -- ** ClusterParameterGroupQuotaExceededFault
     , _ClusterParameterGroupQuotaExceededFault
+
+    -- ** SNSTopicARNNotFoundFault
     , _SNSTopicARNNotFoundFault
+
+    -- ** HSMClientCertificateNotFoundFault
     , _HSMClientCertificateNotFoundFault
+
+    -- ** SnapshotCopyGrantAlreadyExistsFault
     , _SnapshotCopyGrantAlreadyExistsFault
+
+    -- ** ClusterNotFoundFault
     , _ClusterNotFoundFault
+
+    -- ** SNSNoAuthorizationFault
     , _SNSNoAuthorizationFault
+
+    -- ** SnapshotCopyGrantNotFoundFault
     , _SnapshotCopyGrantNotFoundFault
+
+    -- ** InvalidClusterStateFault
     , _InvalidClusterStateFault
+
+    -- ** InsufficientClusterCapacityFault
     , _InsufficientClusterCapacityFault
+
+    -- ** HSMConfigurationQuotaExceededFault
     , _HSMConfigurationQuotaExceededFault
+
+    -- ** ClusterSnapshotQuotaExceededFault
     , _ClusterSnapshotQuotaExceededFault
+
+    -- ** SNSInvalidTopicFault
     , _SNSInvalidTopicFault
+
+    -- ** UnsupportedOptionFault
     , _UnsupportedOptionFault
+
+    -- ** SubscriptionAlreadyExistFault
     , _SubscriptionAlreadyExistFault
+
+    -- ** InvalidVPCNetworkStateFault
     , _InvalidVPCNetworkStateFault
+
+    -- ** ClusterSubnetGroupNotFoundFault
     , _ClusterSubnetGroupNotFoundFault
+
+    -- ** BucketNotFoundFault
     , _BucketNotFoundFault
+
+    -- ** InvalidSubscriptionStateFault
     , _InvalidSubscriptionStateFault
+
+    -- ** UnsupportedOperationFault
     , _UnsupportedOperationFault
+
+    -- ** AuthorizationNotFoundFault
     , _AuthorizationNotFoundFault
+
+    -- ** InvalidClusterSubnetGroupStateFault
     , _InvalidClusterSubnetGroupStateFault
+
+    -- ** InvalidClusterSnapshotStateFault
     , _InvalidClusterSnapshotStateFault
+
+    -- ** ClusterSubnetGroupAlreadyExistsFault
     , _ClusterSubnetGroupAlreadyExistsFault
+
+    -- ** ClusterSecurityGroupNotFoundFault
     , _ClusterSecurityGroupNotFoundFault
+
+    -- ** IncompatibleOrderableOptions
     , _IncompatibleOrderableOptions
+
+    -- ** ReservedNodeOfferingNotFoundFault
     , _ReservedNodeOfferingNotFoundFault
+
+    -- ** InvalidClusterSubnetStateFault
     , _InvalidClusterSubnetStateFault
+
+    -- ** ReservedNodeNotFoundFault
     , _ReservedNodeNotFoundFault
+
+    -- ** EventSubscriptionQuotaExceededFault
     , _EventSubscriptionQuotaExceededFault
+
+    -- ** InvalidClusterParameterGroupStateFault
     , _InvalidClusterParameterGroupStateFault
+
+    -- ** ReservedNodeAlreadyExistsFault
     , _ReservedNodeAlreadyExistsFault
+
+    -- ** ReservedNodeQuotaExceededFault
     , _ReservedNodeQuotaExceededFault
+
+    -- ** SubscriptionEventIdNotFoundFault
     , _SubscriptionEventIdNotFoundFault
+
+    -- ** ResourceNotFoundFault
     , _ResourceNotFoundFault
+
+    -- ** InvalidSnapshotCopyGrantStateFault
     , _InvalidSnapshotCopyGrantStateFault
+
+    -- ** InvalidRestoreFault
     , _InvalidRestoreFault
+
+    -- ** UnknownSnapshotCopyRegionFault
     , _UnknownSnapshotCopyRegionFault
+
+    -- ** AccessToSnapshotDeniedFault
     , _AccessToSnapshotDeniedFault
+
+    -- ** ClusterAlreadyExistsFault
     , _ClusterAlreadyExistsFault
+
+    -- ** HSMClientCertificateAlreadyExistsFault
     , _HSMClientCertificateAlreadyExistsFault
+
+    -- ** InvalidHSMClientCertificateStateFault
     , _InvalidHSMClientCertificateStateFault
+
+    -- ** NumberOfNodesQuotaExceededFault
     , _NumberOfNodesQuotaExceededFault
+
+    -- ** TagLimitExceededFault
     , _TagLimitExceededFault
+
+    -- ** ClusterSubnetQuotaExceededFault
     , _ClusterSubnetQuotaExceededFault
+
+    -- ** SubnetAlreadyInUse
     , _SubnetAlreadyInUse
+
+    -- ** InvalidTagFault
     , _InvalidTagFault
+
+    -- ** InsufficientS3BucketPolicyFault
     , _InsufficientS3BucketPolicyFault
+
+    -- ** ClusterSubnetGroupQuotaExceededFault
     , _ClusterSubnetGroupQuotaExceededFault
+
+    -- ** SubscriptionSeverityNotFoundFault
     , _SubscriptionSeverityNotFoundFault
+
+    -- ** UnauthorizedOperation
     , _UnauthorizedOperation
 
     -- * Waiters

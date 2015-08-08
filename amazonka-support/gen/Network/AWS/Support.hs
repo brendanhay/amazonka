@@ -73,15 +73,36 @@ module Network.AWS.Support
 
     -- * Error Matchers
     -- $errors
+
+    -- ** AttachmentSetExpired
     , _AttachmentSetExpired
+
+    -- ** AttachmentLimitExceeded
     , _AttachmentLimitExceeded
+
+    -- ** DescribeAttachmentLimitExceeded
     , _DescribeAttachmentLimitExceeded
+
+    -- ** CaseIdNotFound
     , _CaseIdNotFound
+
+    -- ** AttachmentSetIdNotFound
     , _AttachmentSetIdNotFound
+
+    -- ** AttachmentSetSizeLimitExceeded
     , _AttachmentSetSizeLimitExceeded
+
+    -- ** AttachmentIdNotFound
     , _AttachmentIdNotFound
+
+    -- ** InternalServerError
     , _InternalServerError
+
+    -- ** CaseCreationLimitExceeded
     , _CaseCreationLimitExceeded
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

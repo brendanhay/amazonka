@@ -93,21 +93,54 @@ module Network.AWS.KMS
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidMarkerException
     , _InvalidMarkerException
+
+    -- ** InvalidKeyUsageException
     , _InvalidKeyUsageException
+
+    -- ** UnsupportedOperationException
     , _UnsupportedOperationException
+
+    -- ** MalformedPolicyDocumentException
     , _MalformedPolicyDocumentException
+
+    -- ** DisabledException
     , _DisabledException
+
+    -- ** KeyUnavailableException
     , _KeyUnavailableException
+
+    -- ** KMSInternalException
     , _KMSInternalException
+
+    -- ** NotFoundException
     , _NotFoundException
+
+    -- ** InvalidAliasNameException
     , _InvalidAliasNameException
+
+    -- ** InvalidARNException
     , _InvalidARNException
+
+    -- ** DependencyTimeoutException
     , _DependencyTimeoutException
+
+    -- ** InvalidGrantTokenException
     , _InvalidGrantTokenException
+
+    -- ** InvalidCiphertextException
     , _InvalidCiphertextException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- ** AlreadyExistsException
     , _AlreadyExistsException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

@@ -36,21 +36,54 @@ module Network.AWS.SSM
 
     -- * Error Matchers
     -- $errors
+
+    -- ** AssociatedInstances
     , _AssociatedInstances
+
+    -- ** InvalidNextToken
     , _InvalidNextToken
+
+    -- ** InvalidInstanceId
     , _InvalidInstanceId
+
+    -- ** StatusUnchanged
     , _StatusUnchanged
+
+    -- ** DuplicateInstanceId
     , _DuplicateInstanceId
+
+    -- ** InvalidDocument
     , _InvalidDocument
+
+    -- ** AssociationLimitExceeded
     , _AssociationLimitExceeded
+
+    -- ** InvalidDocumentContent
     , _InvalidDocumentContent
+
+    -- ** AssociationAlreadyExists
     , _AssociationAlreadyExists
+
+    -- ** AssociationDoesNotExist
     , _AssociationDoesNotExist
+
+    -- ** InternalServerError
     , _InternalServerError
+
+    -- ** MaxDocumentSizeExceeded
     , _MaxDocumentSizeExceeded
+
+    -- ** TooManyUpdates
     , _TooManyUpdates
+
+    -- ** DocumentAlreadyExists
     , _DocumentAlreadyExists
+
+    -- ** DocumentLimitExceeded
     , _DocumentLimitExceeded
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

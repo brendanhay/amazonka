@@ -27,11 +27,23 @@ module Network.AWS.S3
 
     -- * Error Matchers
     -- $errors
+
+    -- ** ObjectAlreadyInActiveTierError
     , _ObjectAlreadyInActiveTierError
+
+    -- ** BucketAlreadyExists
     , _BucketAlreadyExists
+
+    -- ** ObjectNotInActiveTierError
     , _ObjectNotInActiveTierError
+
+    -- ** NoSuchUpload
     , _NoSuchUpload
+
+    -- ** NoSuchBucket
     , _NoSuchBucket
+
+    -- ** NoSuchKey
     , _NoSuchKey
 
     -- * Waiters

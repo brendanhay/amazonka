@@ -26,36 +26,98 @@ module Network.AWS.Route53
 
     -- * Error Matchers
     -- $errors
+
+    -- ** HealthCheckVersionMismatch
     , _HealthCheckVersionMismatch
+
+    -- ** InvalidInput
     , _InvalidInput
+
+    -- ** HostedZoneNotEmpty
     , _HostedZoneNotEmpty
+
+    -- ** InvalidArgument
     , _InvalidArgument
+
+    -- ** DelegationSetAlreadyReusable
     , _DelegationSetAlreadyReusable
+
+    -- ** PriorRequestNotComplete
     , _PriorRequestNotComplete
+
+    -- ** InvalidChangeBatch
     , _InvalidChangeBatch
+
+    -- ** InvalidDomainName
     , _InvalidDomainName
+
+    -- ** DelegationSetNotReusable
     , _DelegationSetNotReusable
+
+    -- ** HealthCheckAlreadyExists
     , _HealthCheckAlreadyExists
+
+    -- ** HostedZoneNotFound
     , _HostedZoneNotFound
+
+    -- ** DelegationSetInUse
     , _DelegationSetInUse
+
+    -- ** NoSuchDelegationSet
     , _NoSuchDelegationSet
+
+    -- ** NoSuchGeoLocation
     , _NoSuchGeoLocation
+
+    -- ** DelegationSetNotAvailable
     , _DelegationSetNotAvailable
+
+    -- ** VPCAssociationNotFound
     , _VPCAssociationNotFound
+
+    -- ** ThrottlingException
     , _ThrottlingException
+
+    -- ** NoSuchChange
     , _NoSuchChange
+
+    -- ** LimitsExceeded
     , _LimitsExceeded
+
+    -- ** IncompatibleVersion
     , _IncompatibleVersion
+
+    -- ** NoSuchHostedZone
     , _NoSuchHostedZone
+
+    -- ** TooManyHostedZones
     , _TooManyHostedZones
+
+    -- ** PublicZoneVPCAssociation
     , _PublicZoneVPCAssociation
+
+    -- ** ConflictingDomainExists
     , _ConflictingDomainExists
+
+    -- ** LastVPCAssociation
     , _LastVPCAssociation
+
+    -- ** HealthCheckInUse
     , _HealthCheckInUse
+
+    -- ** DelegationSetAlreadyCreated
     , _DelegationSetAlreadyCreated
+
+    -- ** TooManyHealthChecks
     , _TooManyHealthChecks
+
+    -- ** NoSuchHealthCheck
     , _NoSuchHealthCheck
+
+    -- ** HostedZoneAlreadyExists
     , _HostedZoneAlreadyExists
+
+    -- ** InvalidVPCId
     , _InvalidVPCId
 
     -- * Waiters

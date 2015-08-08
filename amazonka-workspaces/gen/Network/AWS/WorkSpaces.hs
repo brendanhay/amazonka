@@ -25,9 +25,18 @@ module Network.AWS.WorkSpaces
 
     -- * Error Matchers
     -- $errors
+
+    -- ** InvalidParameterValuesException
     , _InvalidParameterValuesException
+
+    -- ** ResourceUnavailableException
     , _ResourceUnavailableException
+
+    -- ** ResourceLimitExceededException
     , _ResourceLimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

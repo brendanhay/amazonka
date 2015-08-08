@@ -33,12 +33,27 @@ module Network.AWS.CloudSearch
 
     -- * Error Matchers
     -- $errors
+
+    -- ** BaseException
     , _BaseException
+
+    -- ** DisabledOperationException
     , _DisabledOperationException
+
+    -- ** InternalException
     , _InternalException
+
+    -- ** InvalidTypeException
     , _InvalidTypeException
+
+    -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** LimitExceededException
     , _LimitExceededException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

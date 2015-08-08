@@ -132,21 +132,9 @@ contentMD5 rq
     missing = isNothing $ lookup HTTP.hContentMD5 (rq ^. rqHeaders)
     md5     = rq ^. rqBody . to (fmap toBS . bodyCalculateMD5)
 
--- method :: Lens' Client.Request HTTP.Method
--- method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }
-
--- host :: Lens' Client.Request ByteString
--- host f x = f (Client.host x) <&> \y -> x { Client.host = y }
-
--- path :: Lens' Client.Request ByteString
--- path f x = f (Client.path x) <&> \y -> x { Client.path = y }
-
 queryString :: Lens' Client.Request ByteString
 queryString f x =
     f (Client.queryString x) <&> \y -> x { Client.queryString = y }
-
--- requestBody :: Lens' Client.Request Client.RequestBody
--- requestBody f x = f (Client.requestBody x) <&> \y -> x { Client.requestBody = y }
 
 requestHeaders :: Lens' Client.Request HTTP.RequestHeaders
 requestHeaders f x =

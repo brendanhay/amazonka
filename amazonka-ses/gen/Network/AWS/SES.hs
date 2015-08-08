@@ -29,8 +29,15 @@ module Network.AWS.SES
 
     -- * Error Matchers
     -- $errors
+
+    -- ** MessageRejected
     , _MessageRejected
+
+    -- ** InvalidPolicyException
     , _InvalidPolicyException
+
+    -- * Waiters
+    -- $waiters
 
     -- * Operations
     -- $operations

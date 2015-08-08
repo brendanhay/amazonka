@@ -66,7 +66,6 @@ instance ToByteString Integer        where toBS = toBS . Build.integerDec
 instance ToByteString Natural        where toBS = toBS . toInteger
 instance ToByteString Double         where toBS = toBS . ($ "") . showFFloat Nothing
 instance ToByteString StdMethod      where toBS = renderStdMethod
-instance ToByteString (Digest a)     where toBS = digestToBase Base16
 instance ToByteString UTCTime        where toBS = BS8.pack . show
 
 instance ToByteString a => ToByteString (CI a) where

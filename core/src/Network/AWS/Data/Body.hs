@@ -48,7 +48,8 @@ data RqBody = RqBody
     }
 
 instance Show RqBody where
-    show b = "RqBody { RequestBody " ++ BS8.unpack (toBS (bodySHA256 b)) ++ " }"
+    show b = "RqBody { RequestBody "
+        ++ BS8.unpack (digestToBase Base16 (bodySHA256 b)) ++ " }"
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack

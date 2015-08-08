@@ -133,6 +133,7 @@ import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
+import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Path
@@ -351,7 +352,7 @@ instance ToLog (Request a) where
         , "  query     = "  <> message _rqQuery
         , "  headers   = "  <> message _rqHeaders
         , "  body      = {"
-        , "    hash    = "  <> message (toBS (bodySHA256  _rqBody))
+        , "    hash    = "  <> message (digestToBase Base16 (bodySHA256 _rqBody))
         , "    payload =\n" <> message (bodyRequest _rqBody)
         , "  }"
         , "}"

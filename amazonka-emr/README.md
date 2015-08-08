@@ -22,6 +22,14 @@ scientific simulation, and data warehousing.
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-emr)
 and the [AWS API Reference](http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html).
 
+The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
+which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+
+Use of lenses is required for constructing and manipulating types.
+This is due to the amount of nesting of AWS types and transparency regarding
+de/serialisation into more palatable Haskell values.
+The provided lenses should be compatible with any of the major lens libraries
+[lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
 ## Contribute
 

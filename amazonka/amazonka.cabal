@@ -17,18 +17,16 @@ description:
     with Amazon Web Service compatible APIs. It is intended to be used alongside
     the types supplied by the various @amazonka-*@ service libraries. See the
     <http://hackage.haskell.org/packages/#cat:AWS AWS> category on Hackage for
-    what individual service libraries are available.
+    what services are supported.
     .
-    To get started, import the desired @amazonka-*@ library (such as
-    <http://hackage.haskell.org/package/amazonka-s3 Network.AWS.S3>)
-    and one of the following:
+    To get started, import the desired @amazonka-*@ library and one of the following:
     .
     * "Control.Monad.Trans.AWS": The 'Control.Monad.Trans.AWS.AWST' transformer
     and generalised operations.
     .
     * "Network.AWS": The 'Network.AWS.AWS' monad and 'Network.AWS.MonadAWS' type
-    class for automatically lifting operations when embedding into a larger transformer stack.
-    This is built upon 'Control.Monad.Trans.AWS.AWST'.
+    class for automatically lifting operations when embedded as a layer in a transformer stack.
+    This is built upon "Control.Monad.Trans.AWS".
     .
     Both 'AWST' (and 'AWS') and the provided functions are built upon the 'Control.Monad.Trans.Free'
     DSL defined in "Network.AWS.Free". This allows writing a custom interpreter

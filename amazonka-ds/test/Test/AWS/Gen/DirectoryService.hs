@@ -43,8 +43,8 @@ import Test.AWS.DirectoryService.Internal
 --         , testCreateDirectory $
 --             createDirectory
 --
---         , testEnableSso $
---             enableSso
+--         , testEnableSSO $
+--             enableSSO
 --
 --         , testEnableRadius $
 --             enableRadius
@@ -67,8 +67,8 @@ import Test.AWS.DirectoryService.Internal
 --         , testDeleteDirectory $
 --             deleteDirectory
 --
---         , testDisableSso $
---             disableSso
+--         , testDisableSSO $
+--             disableSSO
 --
 --         , testCreateComputer $
 --             createComputer
@@ -97,8 +97,8 @@ import Test.AWS.DirectoryService.Internal
 --         , testCreateDirectoryResponse $
 --             createDirectoryResponse
 --
---         , testEnableSsoResponse $
---             enableSsoResponse
+--         , testEnableSSOResponse $
+--             enableSSOResponse
 --
 --         , testEnableRadiusResponse $
 --             enableRadiusResponse
@@ -121,8 +121,8 @@ import Test.AWS.DirectoryService.Internal
 --         , testDeleteDirectoryResponse $
 --             deleteDirectoryResponse
 --
---         , testDisableSsoResponse $
---             disableSsoResponse
+--         , testDisableSSOResponse $
+--             disableSSOResponse
 --
 --         , testCreateComputerResponse $
 --             createComputerResponse
@@ -163,10 +163,10 @@ testCreateDirectory = req
     "CreateDirectory"
     "fixture/CreateDirectory"
 
-testEnableSso :: EnableSso -> TestTree
-testEnableSso = req
-    "EnableSso"
-    "fixture/EnableSso"
+testEnableSSO :: EnableSSO -> TestTree
+testEnableSSO = req
+    "EnableSSO"
+    "fixture/EnableSSO"
 
 testEnableRadius :: EnableRadius -> TestTree
 testEnableRadius = req
@@ -203,10 +203,10 @@ testDeleteDirectory = req
     "DeleteDirectory"
     "fixture/DeleteDirectory"
 
-testDisableSso :: DisableSso -> TestTree
-testDisableSso = req
-    "DisableSso"
-    "fixture/DisableSso"
+testDisableSSO :: DisableSSO -> TestTree
+testDisableSSO = req
+    "DisableSSO"
+    "fixture/DisableSSO"
 
 testCreateComputer :: CreateComputer -> TestTree
 testCreateComputer = req
@@ -255,11 +255,11 @@ testCreateDirectoryResponse = res
     "fixture/CreateDirectoryResponse"
     (Proxy :: Proxy CreateDirectory)
 
-testEnableSsoResponse :: EnableSsoResponse -> TestTree
-testEnableSsoResponse = res
-    "EnableSsoResponse"
-    "fixture/EnableSsoResponse"
-    (Proxy :: Proxy EnableSso)
+testEnableSSOResponse :: EnableSSOResponse -> TestTree
+testEnableSSOResponse = res
+    "EnableSSOResponse"
+    "fixture/EnableSSOResponse"
+    (Proxy :: Proxy EnableSSO)
 
 testEnableRadiusResponse :: EnableRadiusResponse -> TestTree
 testEnableRadiusResponse = res
@@ -303,11 +303,11 @@ testDeleteDirectoryResponse = res
     "fixture/DeleteDirectoryResponse"
     (Proxy :: Proxy DeleteDirectory)
 
-testDisableSsoResponse :: DisableSsoResponse -> TestTree
-testDisableSsoResponse = res
-    "DisableSsoResponse"
-    "fixture/DisableSsoResponse"
-    (Proxy :: Proxy DisableSso)
+testDisableSSOResponse :: DisableSSOResponse -> TestTree
+testDisableSSOResponse = res
+    "DisableSSOResponse"
+    "fixture/DisableSSOResponse"
+    (Proxy :: Proxy DisableSSO)
 
 testCreateComputerResponse :: CreateComputerResponse -> TestTree
 testCreateComputerResponse = res

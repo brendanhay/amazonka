@@ -95,7 +95,7 @@ module Network.AWS.DirectoryService.Types
     , ddLaunchTime
     , ddAlias
     , ddName
-    , ddSsoEnabled
+    , ddSSOEnabled
     , ddStageLastUpdatedDateTime
     , ddStageReason
     , ddDNSIPAddrs

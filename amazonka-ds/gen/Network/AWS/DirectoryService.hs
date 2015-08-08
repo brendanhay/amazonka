@@ -83,8 +83,8 @@ module Network.AWS.DirectoryService
     -- ** CreateDirectory
     , module Network.AWS.DirectoryService.CreateDirectory
 
-    -- ** EnableSso
-    , module Network.AWS.DirectoryService.EnableSso
+    -- ** EnableSSO
+    , module Network.AWS.DirectoryService.EnableSSO
 
     -- ** EnableRadius
     , module Network.AWS.DirectoryService.EnableRadius
@@ -107,8 +107,8 @@ module Network.AWS.DirectoryService
     -- ** DeleteDirectory
     , module Network.AWS.DirectoryService.DeleteDirectory
 
-    -- ** DisableSso
-    , module Network.AWS.DirectoryService.DisableSso
+    -- ** DisableSSO
+    , module Network.AWS.DirectoryService.DisableSSO
 
     -- ** CreateComputer
     , module Network.AWS.DirectoryService.CreateComputer
@@ -186,7 +186,7 @@ module Network.AWS.DirectoryService
     , ddLaunchTime
     , ddAlias
     , ddName
-    , ddSsoEnabled
+    , ddSSOEnabled
     , ddStageLastUpdatedDateTime
     , ddStageReason
     , ddDNSIPAddrs
@@ -259,9 +259,9 @@ import           Network.AWS.DirectoryService.DeleteSnapshot
 import           Network.AWS.DirectoryService.DescribeDirectories
 import           Network.AWS.DirectoryService.DescribeSnapshots
 import           Network.AWS.DirectoryService.DisableRadius
-import           Network.AWS.DirectoryService.DisableSso
+import           Network.AWS.DirectoryService.DisableSSO
 import           Network.AWS.DirectoryService.EnableRadius
-import           Network.AWS.DirectoryService.EnableSso
+import           Network.AWS.DirectoryService.EnableSSO
 import           Network.AWS.DirectoryService.GetDirectoryLimits
 import           Network.AWS.DirectoryService.GetSnapshotLimits
 import           Network.AWS.DirectoryService.RestoreFromSnapshot

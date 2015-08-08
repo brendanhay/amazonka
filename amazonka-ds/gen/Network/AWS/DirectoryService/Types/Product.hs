@@ -272,7 +272,7 @@ instance FromJSON DirectoryConnectSettingsDescription
 --
 -- * 'ddName'
 --
--- * 'ddSsoEnabled'
+-- * 'ddSSOEnabled'
 --
 -- * 'ddStageLastUpdatedDateTime'
 --
@@ -298,7 +298,7 @@ data DirectoryDescription = DirectoryDescription'
     , _ddLaunchTime               :: !(Maybe POSIX)
     , _ddAlias                    :: !(Maybe Text)
     , _ddName                     :: !(Maybe Text)
-    , _ddSsoEnabled               :: !(Maybe Bool)
+    , _ddSSOEnabled               :: !(Maybe Bool)
     , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
     , _ddStageReason              :: !(Maybe Text)
     , _ddDNSIPAddrs               :: !(Maybe [Text])
@@ -322,7 +322,7 @@ directoryDescription =
     , _ddLaunchTime = Nothing
     , _ddAlias = Nothing
     , _ddName = Nothing
-    , _ddSsoEnabled = Nothing
+    , _ddSSOEnabled = Nothing
     , _ddStageLastUpdatedDateTime = Nothing
     , _ddStageReason = Nothing
     , _ddDNSIPAddrs = Nothing
@@ -376,8 +376,8 @@ ddName = lens _ddName (\ s a -> s{_ddName = a});
 
 -- | Indicates if single-sign on is enabled for the directory. For more
 -- information, see EnableSso and DisableSso.
-ddSsoEnabled :: Lens' DirectoryDescription (Maybe Bool)
-ddSsoEnabled = lens _ddSsoEnabled (\ s a -> s{_ddSsoEnabled = a});
+ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
+ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 
 -- | The date and time that the stage was last updated.
 ddStageLastUpdatedDateTime :: Lens' DirectoryDescription (Maybe UTCTime)

@@ -15,7 +15,7 @@
 -- {{ documentation | stripPrefix("-- | ") }}
 --
 -- /See:/ <{{ operationUrl }}{{ name }}.html AWS API Reference> for {{ input.name }}.
-{% if op.value.pager %}
+{% if pager %}
 --
 -- This operation can return paginated results.
 {% endif %}

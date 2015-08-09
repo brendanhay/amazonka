@@ -122,7 +122,7 @@ credProfile = "default"
 -- /Note:/ This does not match the default AWS SDK location of
 -- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
 credFile :: MonadIO m => m FilePath
-credFile = (<> "/.aws/credentials") <$> liftIO getHomeDirectory
+credFile = (<> "/.aws/credentials") `liftM` liftIO getHomeDirectory
 -- TODO: probably should be using System.FilePath above.
 
 {- $credentials

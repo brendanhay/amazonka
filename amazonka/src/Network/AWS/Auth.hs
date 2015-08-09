@@ -155,7 +155,7 @@ data Credentials
       -- ^ Environment variables to lookup for the access key, secret key and
       -- optional session token.
     | FromFile Text FilePath
-      -- ^ A credentials profile name and the path to the AWS
+      -- ^ A credentials profile name (the INI section) and the path to the AWS
       -- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs credentials> file.
     | Discover
       -- ^ Attempt to credentials discovery via the following steps:
@@ -314,12 +314,18 @@ fromEnvKeys a s t = fmap Auth $ AuthEnv
 
 -- | Loads the default @credentials@ INI file using the default profile name.
 --
+-- Throws 'MissingFileError' if 'credFile' is missing, or 'InvalidFileError'
+-- if an error occurs during parsing.
+--
 -- /See:/ 'credProfile' and 'credFile'
 fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m Auth
 fromFile = credFile >>= fromFilePath credProfile
 
 -- | Retrieve the access, secret and session token from the specified section
 -- (profile) in a valid INI @credentials@ file.
+--
+-- Throws 'MissingFileError' if the specified file is missing, or 'InvalidFileError'
+-- if an error occurs during parsing.
 fromFilePath :: (Applicative m, MonadIO m, MonadCatch m)
              => Text
              -> FilePath

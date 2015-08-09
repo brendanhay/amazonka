@@ -26,6 +26,7 @@ operationImports l o = sort $
     : "Network.AWS.Response"
     : "Network.AWS.Prelude"
     : l ^. typesNS
+    : l ^. productNS
     : l ^. operationModules
    ++ maybeToList (const "Network.AWS.Pager" <$> o ^. opPager)
 

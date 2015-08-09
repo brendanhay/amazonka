@@ -25,18 +25,18 @@ import           Network.AWS.Prelude
 -- -   SGD - Stochastic Gradient Descent.
 -- -   RandomForest - Random forest of decision trees.
 data Algorithm =
-    Sgd
+    SGD
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Algorithm where
     parser = takeLowerText >>= \case
-        "sgd" -> pure Sgd
+        "sgd" -> pure SGD
         e -> fromTextError $ "Failure parsing Algorithm from value: '" <> e
            <> "'. Accepted values: sgd"
 
 instance ToText Algorithm where
     toText = \case
-        Sgd -> "sgd"
+        SGD -> "sgd"
 
 instance Hashable     Algorithm
 instance ToByteString Algorithm

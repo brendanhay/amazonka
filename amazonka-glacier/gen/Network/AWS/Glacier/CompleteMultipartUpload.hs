@@ -88,11 +88,11 @@ module Network.AWS.Glacier.CompleteMultipartUpload
     , acoLocation
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to complete a multipart upload operation. This informs
 -- Amazon Glacier that all the archive parts have been uploaded and Amazon
@@ -114,16 +114,16 @@ import Network.AWS.Response
 --
 -- * 'cmuUploadId'
 data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _cmuChecksum :: !(Maybe Text)
+    { _cmuChecksum    :: !(Maybe Text)
     , _cmuArchiveSize :: !(Maybe Text)
-    , _cmuAccountId :: !Text
-    , _cmuVaultName :: !Text
-    , _cmuUploadId :: !Text
+    , _cmuAccountId   :: !Text
+    , _cmuVaultName   :: !Text
+    , _cmuUploadId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: Text -> Text -> Text -> CompleteMultipartUpload
-completeMultipartUpload pAccountId_ pVaultName_ pUploadId_ = 
+completeMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
     CompleteMultipartUpload'
     { _cmuChecksum = Nothing
     , _cmuArchiveSize = Nothing

@@ -40,11 +40,11 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     , giprrsStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @GetIdentityPoolRoles@ action.
 --
@@ -59,7 +59,7 @@ newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
 
 -- | 'GetIdentityPoolRoles' smart constructor.
 getIdentityPoolRoles :: Text -> GetIdentityPoolRoles
-getIdentityPoolRoles pIdentityPoolId_ = 
+getIdentityPoolRoles pIdentityPoolId_ =
     GetIdentityPoolRoles'
     { _giprIdentityPoolId = pIdentityPoolId_
     }
@@ -113,14 +113,14 @@ instance ToQuery GetIdentityPoolRoles where
 --
 -- * 'giprrsStatus'
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-    { _giprrsRoles :: !(Maybe (Map Text Text))
+    { _giprrsRoles          :: !(Maybe (Map Text Text))
     , _giprrsIdentityPoolId :: !(Maybe Text)
-    , _giprrsStatus :: !Int
+    , _giprrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
 getIdentityPoolRolesResponse :: Int -> GetIdentityPoolRolesResponse
-getIdentityPoolRolesResponse pStatus_ = 
+getIdentityPoolRolesResponse pStatus_ =
     GetIdentityPoolRolesResponse'
     { _giprrsRoles = Nothing
     , _giprrsIdentityPoolId = Nothing

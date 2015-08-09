@@ -13,10 +13,10 @@
 --
 module Network.AWS.OpsWorks.Types
     (
-    -- * Service Decription
+    -- * Service
       OpsWorks
 
-    -- * Error Matchers
+    -- * Errors
     , _ValidationException
     , _ResourceNotFoundException
 

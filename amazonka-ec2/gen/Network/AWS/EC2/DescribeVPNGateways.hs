@@ -43,11 +43,11 @@ module Network.AWS.EC2.DescribeVPNGateways
     , dvgrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPNGateways' smart constructor.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- * 'dvgsVPNGatewayIds'
 data DescribeVPNGateways = DescribeVPNGateways'
-    { _dvgsFilters :: !(Maybe [Filter])
-    , _dvgsDryRun :: !(Maybe Bool)
+    { _dvgsFilters       :: !(Maybe [Filter])
+    , _dvgsDryRun        :: !(Maybe Bool)
     , _dvgsVPNGatewayIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGateways' smart constructor.
 describeVPNGateways :: DescribeVPNGateways
-describeVPNGateways = 
+describeVPNGateways =
     DescribeVPNGateways'
     { _dvgsFilters = Nothing
     , _dvgsDryRun = Nothing
@@ -160,12 +160,12 @@ instance ToQuery DescribeVPNGateways where
 -- * 'dvgrsStatus'
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
     { _dvgrsVPNGateways :: !(Maybe [VPNGateway])
-    , _dvgrsStatus :: !Int
+    , _dvgrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
 describeVPNGatewaysResponse :: Int -> DescribeVPNGatewaysResponse
-describeVPNGatewaysResponse pStatus_ = 
+describeVPNGatewaysResponse pStatus_ =
     DescribeVPNGatewaysResponse'
     { _dvgrsVPNGateways = Nothing
     , _dvgrsStatus = pStatus_

@@ -42,11 +42,11 @@ module Network.AWS.Glacier.AddTagsToVault
     , addTagsToVaultResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input values for @AddTagsToVault@.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- * 'attvVaultName'
 data AddTagsToVault = AddTagsToVault'
-    { _attvTags :: !(Maybe (Map Text Text))
+    { _attvTags      :: !(Maybe (Map Text Text))
     , _attvAccountId :: !Text
     , _attvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToVault' smart constructor.
 addTagsToVault :: Text -> Text -> AddTagsToVault
-addTagsToVault pAccountId_ pVaultName_ = 
+addTagsToVault pAccountId_ pVaultName_ =
     AddTagsToVault'
     { _attvTags = Nothing
     , _attvAccountId = pAccountId_
@@ -115,7 +115,7 @@ instance ToQuery AddTagsToVault where
 
 -- | /See:/ 'addTagsToVaultResponse' smart constructor.
 data AddTagsToVaultResponse =
-    AddTagsToVaultResponse' 
+    AddTagsToVaultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToVaultResponse' smart constructor.

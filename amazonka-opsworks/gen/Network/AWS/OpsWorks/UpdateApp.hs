@@ -50,11 +50,11 @@ module Network.AWS.OpsWorks.UpdateApp
     , updateAppResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateApp' smart constructor.
 --
@@ -83,21 +83,21 @@ import Network.AWS.Response
 -- * 'uaAppId'
 data UpdateApp = UpdateApp'
     { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _uaEnableSSL :: !(Maybe Bool)
-    , _uaEnvironment :: !(Maybe [EnvironmentVariable])
-    , _uaDataSources :: !(Maybe [DataSource])
-    , _uaAppSource :: !(Maybe Source)
-    , _uaName :: !(Maybe Text)
-    , _uaAttributes :: !(Maybe (Map AppAttributesKeys Text))
-    , _uaType :: !(Maybe AppType)
-    , _uaDomains :: !(Maybe [Text])
-    , _uaDescription :: !(Maybe Text)
-    , _uaAppId :: !Text
+    , _uaEnableSSL        :: !(Maybe Bool)
+    , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _uaDataSources      :: !(Maybe [DataSource])
+    , _uaAppSource        :: !(Maybe Source)
+    , _uaName             :: !(Maybe Text)
+    , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _uaType             :: !(Maybe AppType)
+    , _uaDomains          :: !(Maybe [Text])
+    , _uaDescription      :: !(Maybe Text)
+    , _uaAppId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApp' smart constructor.
 updateApp :: Text -> UpdateApp
-updateApp pAppId_ = 
+updateApp pAppId_ =
     UpdateApp'
     { _uaSSLConfiguration = Nothing
     , _uaEnableSSL = Nothing
@@ -208,7 +208,7 @@ instance ToQuery UpdateApp where
 
 -- | /See:/ 'updateAppResponse' smart constructor.
 data UpdateAppResponse =
-    UpdateAppResponse' 
+    UpdateAppResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAppResponse' smart constructor.

@@ -42,12 +42,12 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     , dcpgrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheParameterGroups/ action.
 --
@@ -62,13 +62,13 @@ import Network.AWS.Response
 -- * 'dcpgMarker'
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
     { _dcpgCacheParameterGroupName :: !(Maybe Text)
-    , _dcpgMaxRecords :: !(Maybe Int)
-    , _dcpgMarker :: !(Maybe Text)
+    , _dcpgMaxRecords              :: !(Maybe Int)
+    , _dcpgMarker                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameterGroups' smart constructor.
 describeCacheParameterGroups :: DescribeCacheParameterGroups
-describeCacheParameterGroups = 
+describeCacheParameterGroups =
     DescribeCacheParameterGroups'
     { _dcpgCacheParameterGroupName = Nothing
     , _dcpgMaxRecords = Nothing
@@ -149,13 +149,13 @@ instance ToQuery DescribeCacheParameterGroups where
 -- * 'dcpgrsStatus'
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups :: !(Maybe [CacheParameterGroup])
-    , _dcpgrsMarker :: !(Maybe Text)
-    , _dcpgrsStatus :: !Int
+    , _dcpgrsMarker               :: !(Maybe Text)
+    , _dcpgrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameterGroupsResponse' smart constructor.
 describeCacheParameterGroupsResponse :: Int -> DescribeCacheParameterGroupsResponse
-describeCacheParameterGroupsResponse pStatus_ = 
+describeCacheParameterGroupsResponse pStatus_ =
     DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups = Nothing
     , _dcpgrsMarker = Nothing

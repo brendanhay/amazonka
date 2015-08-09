@@ -46,11 +46,11 @@ module Network.AWS.CloudHSM.CreateHSM
     , chsmrsStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateHsm action.
 --
@@ -74,19 +74,19 @@ import Network.AWS.Response
 --
 -- * 'chSubscriptionType'
 data CreateHSM = CreateHSM'
-    { _chClientToken :: !(Maybe Text)
-    , _chSyslogIP :: !(Maybe Text)
-    , _chExternalId :: !(Maybe Text)
-    , _chEniIP :: !(Maybe Text)
-    , _chSubnetId :: !Text
-    , _chSSHKey :: !Text
-    , _chIAMRoleARN :: !Text
+    { _chClientToken      :: !(Maybe Text)
+    , _chSyslogIP         :: !(Maybe Text)
+    , _chExternalId       :: !(Maybe Text)
+    , _chEniIP            :: !(Maybe Text)
+    , _chSubnetId         :: !Text
+    , _chSSHKey           :: !Text
+    , _chIAMRoleARN       :: !Text
     , _chSubscriptionType :: !SubscriptionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSM' smart constructor.
 createHSM :: Text -> Text -> Text -> SubscriptionType -> CreateHSM
-createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ = 
+createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
     CreateHSM'
     { _chClientToken = Nothing
     , _chSyslogIP = Nothing
@@ -183,7 +183,7 @@ data CreateHSMResponse = CreateHSMResponse'
 
 -- | 'CreateHSMResponse' smart constructor.
 createHSMResponse :: Int -> CreateHSMResponse
-createHSMResponse pStatus_ = 
+createHSMResponse pStatus_ =
     CreateHSMResponse'
     { _chsmrsHSMARN = Nothing
     , _chsmrsStatus = pStatus_

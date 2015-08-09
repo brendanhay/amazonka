@@ -59,11 +59,11 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     , rlahrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 --
@@ -75,14 +75,14 @@ import Network.AWS.Response
 --
 -- * 'rlahLifecycleActionToken'
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
-    { _rlahLifecycleHookName :: !Text
+    { _rlahLifecycleHookName    :: !Text
     , _rlahAutoScalingGroupName :: !Text
     , _rlahLifecycleActionToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordLifecycleActionHeartbeat' smart constructor.
 recordLifecycleActionHeartbeat :: Text -> Text -> Text -> RecordLifecycleActionHeartbeat
-recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ = 
+recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ =
     RecordLifecycleActionHeartbeat'
     { _rlahLifecycleHookName = pLifecycleHookName_
     , _rlahAutoScalingGroupName = pAutoScalingGroupName_
@@ -144,7 +144,7 @@ newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatR
 
 -- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
 recordLifecycleActionHeartbeatResponse :: Int -> RecordLifecycleActionHeartbeatResponse
-recordLifecycleActionHeartbeatResponse pStatus_ = 
+recordLifecycleActionHeartbeatResponse pStatus_ =
     RecordLifecycleActionHeartbeatResponse'
     { _rlahrsStatus = pStatus_
     }

@@ -41,11 +41,11 @@ module Network.AWS.ECS.DescribeContainerInstances
     , dcisrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeContainerInstances' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'dciContainerInstances'
 data DescribeContainerInstances = DescribeContainerInstances'
-    { _dciCluster :: !(Maybe Text)
+    { _dciCluster            :: !(Maybe Text)
     , _dciContainerInstances :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstances' smart constructor.
 describeContainerInstances :: DescribeContainerInstances
-describeContainerInstances = 
+describeContainerInstances =
     DescribeContainerInstances'
     { _dciCluster = Nothing
     , _dciContainerInstances = mempty
@@ -123,14 +123,14 @@ instance ToQuery DescribeContainerInstances where
 --
 -- * 'dcisrsStatus'
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
-    { _dcisrsFailures :: !(Maybe [Failure])
+    { _dcisrsFailures           :: !(Maybe [Failure])
     , _dcisrsContainerInstances :: !(Maybe [ContainerInstance])
-    , _dcisrsStatus :: !Int
+    , _dcisrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
-describeContainerInstancesResponse pStatus_ = 
+describeContainerInstancesResponse pStatus_ =
     DescribeContainerInstancesResponse'
     { _dcisrsFailures = Nothing
     , _dcisrsContainerInstances = Nothing

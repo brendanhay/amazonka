@@ -38,11 +38,11 @@ module Network.AWS.EC2.DetachInternetGateway
     , detachInternetGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachInternetGateway' smart constructor.
 --
@@ -54,14 +54,14 @@ import Network.AWS.Response
 --
 -- * 'digVPCId'
 data DetachInternetGateway = DetachInternetGateway'
-    { _digDryRun :: !(Maybe Bool)
+    { _digDryRun            :: !(Maybe Bool)
     , _digInternetGatewayId :: !Text
-    , _digVPCId :: !Text
+    , _digVPCId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInternetGateway' smart constructor.
 detachInternetGateway :: Text -> Text -> DetachInternetGateway
-detachInternetGateway pInternetGatewayId_ pVPCId_ = 
+detachInternetGateway pInternetGatewayId_ pVPCId_ =
     DetachInternetGateway'
     { _digDryRun = Nothing
     , _digInternetGatewayId = pInternetGatewayId_
@@ -107,7 +107,7 @@ instance ToQuery DetachInternetGateway where
 
 -- | /See:/ 'detachInternetGatewayResponse' smart constructor.
 data DetachInternetGatewayResponse =
-    DetachInternetGatewayResponse' 
+    DetachInternetGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInternetGatewayResponse' smart constructor.

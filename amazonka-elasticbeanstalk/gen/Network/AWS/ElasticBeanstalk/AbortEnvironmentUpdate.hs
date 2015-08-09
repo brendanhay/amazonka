@@ -36,11 +36,11 @@ module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     , abortEnvironmentUpdateResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -53,12 +53,12 @@ import Network.AWS.Response
 -- * 'aeuEnvironmentId'
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
     { _aeuEnvironmentName :: !(Maybe Text)
-    , _aeuEnvironmentId :: !(Maybe Text)
+    , _aeuEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortEnvironmentUpdate' smart constructor.
 abortEnvironmentUpdate :: AbortEnvironmentUpdate
-abortEnvironmentUpdate = 
+abortEnvironmentUpdate =
     AbortEnvironmentUpdate'
     { _aeuEnvironmentName = Nothing
     , _aeuEnvironmentId = Nothing
@@ -99,7 +99,7 @@ instance ToQuery AbortEnvironmentUpdate where
 
 -- | /See:/ 'abortEnvironmentUpdateResponse' smart constructor.
 data AbortEnvironmentUpdateResponse =
-    AbortEnvironmentUpdateResponse' 
+    AbortEnvironmentUpdateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortEnvironmentUpdateResponse' smart constructor.

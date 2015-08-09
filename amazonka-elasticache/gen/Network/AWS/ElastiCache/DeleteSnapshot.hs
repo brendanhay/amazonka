@@ -39,11 +39,11 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     , dsrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteSnapshot/ action.
 --
@@ -58,7 +58,7 @@ newtype DeleteSnapshot = DeleteSnapshot'
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotName_ = 
+deleteSnapshot pSnapshotName_ =
     DeleteSnapshot'
     { _dSnapshotName = pSnapshotName_
     }
@@ -99,12 +99,12 @@ instance ToQuery DeleteSnapshot where
 -- * 'dsrsStatus'
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
     { _dsrsSnapshot :: !(Maybe Snapshot)
-    , _dsrsStatus :: !Int
+    , _dsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
-deleteSnapshotResponse pStatus_ = 
+deleteSnapshotResponse pStatus_ =
     DeleteSnapshotResponse'
     { _dsrsSnapshot = Nothing
     , _dsrsStatus = pStatus_

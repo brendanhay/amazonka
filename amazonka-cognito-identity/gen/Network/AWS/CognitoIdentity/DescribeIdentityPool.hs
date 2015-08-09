@@ -44,11 +44,11 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the DescribeIdentityPool action.
 --
@@ -63,7 +63,7 @@ newtype DescribeIdentityPool = DescribeIdentityPool'
 
 -- | 'DescribeIdentityPool' smart constructor.
 describeIdentityPool :: Text -> DescribeIdentityPool
-describeIdentityPool pIdentityPoolId_ = 
+describeIdentityPool pIdentityPoolId_ =
     DescribeIdentityPool'
     { _dipIdentityPoolId = pIdentityPoolId_
     }

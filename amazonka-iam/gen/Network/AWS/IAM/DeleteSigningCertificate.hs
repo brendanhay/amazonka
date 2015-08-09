@@ -42,11 +42,11 @@ module Network.AWS.IAM.DeleteSigningCertificate
     , deleteSigningCertificateResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSigningCertificate' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- * 'dscCertificateId'
 data DeleteSigningCertificate = DeleteSigningCertificate'
-    { _dscUserName :: !(Maybe Text)
+    { _dscUserName      :: !(Maybe Text)
     , _dscCertificateId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSigningCertificate' smart constructor.
 deleteSigningCertificate :: Text -> DeleteSigningCertificate
-deleteSigningCertificate pCertificateId_ = 
+deleteSigningCertificate pCertificateId_ =
     DeleteSigningCertificate'
     { _dscUserName = Nothing
     , _dscCertificateId = pCertificateId_
@@ -101,7 +101,7 @@ instance ToQuery DeleteSigningCertificate where
 
 -- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
 data DeleteSigningCertificateResponse =
-    DeleteSigningCertificateResponse' 
+    DeleteSigningCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSigningCertificateResponse' smart constructor.

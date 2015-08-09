@@ -42,11 +42,11 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     , idIdentityId
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @DescribeIdentity@ action.
 --
@@ -61,7 +61,7 @@ newtype DescribeIdentity = DescribeIdentity'
 
 -- | 'DescribeIdentity' smart constructor.
 describeIdentity :: Text -> DescribeIdentity
-describeIdentity pIdentityId_ = 
+describeIdentity pIdentityId_ =
     DescribeIdentity'
     { _diIdentityId = pIdentityId_
     }

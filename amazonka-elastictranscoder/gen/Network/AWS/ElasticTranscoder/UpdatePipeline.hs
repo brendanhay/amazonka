@@ -49,11 +49,11 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     , uprsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @UpdatePipelineRequest@ structure.
 --
@@ -77,19 +77,19 @@ import Network.AWS.Response
 --
 -- * 'upId'
 data UpdatePipeline = UpdatePipeline'
-    { _upInputBucket :: !(Maybe Text)
-    , _upContentConfig :: !(Maybe PipelineOutputConfig)
-    , _upRole :: !(Maybe Text)
-    , _upName :: !(Maybe Text)
-    , _upAWSKMSKeyARN :: !(Maybe Text)
+    { _upInputBucket     :: !(Maybe Text)
+    , _upContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _upRole            :: !(Maybe Text)
+    , _upName            :: !(Maybe Text)
+    , _upAWSKMSKeyARN    :: !(Maybe Text)
     , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    , _upNotifications :: !(Maybe Notifications)
-    , _upId :: !Text
+    , _upNotifications   :: !(Maybe Notifications)
+    , _upId              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: Text -> UpdatePipeline
-updatePipeline pId_ = 
+updatePipeline pId_ =
     UpdatePipeline'
     { _upInputBucket = Nothing
     , _upContentConfig = Nothing
@@ -298,12 +298,12 @@ instance ToQuery UpdatePipeline where
 data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprsWarnings :: !(Maybe [Warning])
     , _uprsPipeline :: !(Maybe Pipeline)
-    , _uprsStatus :: !Int
+    , _uprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Int -> UpdatePipelineResponse
-updatePipelineResponse pStatus_ = 
+updatePipelineResponse pStatus_ =
     UpdatePipelineResponse'
     { _uprsWarnings = Nothing
     , _uprsPipeline = Nothing

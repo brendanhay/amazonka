@@ -41,11 +41,11 @@ module Network.AWS.EC2.RestoreAddressToClassic
     , ratcrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'restoreAddressToClassic' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'ratcPublicIP'
 data RestoreAddressToClassic = RestoreAddressToClassic'
-    { _ratcDryRun :: !(Maybe Bool)
+    { _ratcDryRun   :: !(Maybe Bool)
     , _ratcPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreAddressToClassic' smart constructor.
 restoreAddressToClassic :: Text -> RestoreAddressToClassic
-restoreAddressToClassic pPublicIP_ = 
+restoreAddressToClassic pPublicIP_ =
     RestoreAddressToClassic'
     { _ratcDryRun = Nothing
     , _ratcPublicIP = pPublicIP_
@@ -112,12 +112,12 @@ instance ToQuery RestoreAddressToClassic where
 -- * 'ratcrsStatus'
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
     { _ratcrsPublicIP :: !(Maybe Text)
-    , _ratcrsStatus :: !Int
+    , _ratcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
 restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse
-restoreAddressToClassicResponse pStatus_ = 
+restoreAddressToClassicResponse pStatus_ =
     RestoreAddressToClassicResponse'
     { _ratcrsPublicIP = Nothing
     , _ratcrsStatus = pStatus_

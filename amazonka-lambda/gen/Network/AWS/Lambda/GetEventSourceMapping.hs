@@ -47,11 +47,11 @@ module Network.AWS.Lambda.GetEventSourceMapping
     , esmcLastModified
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getEventSourceMapping' smart constructor.
 --
@@ -64,7 +64,7 @@ newtype GetEventSourceMapping = GetEventSourceMapping'
 
 -- | 'GetEventSourceMapping' smart constructor.
 getEventSourceMapping :: Text -> GetEventSourceMapping
-getEventSourceMapping pUUId_ = 
+getEventSourceMapping pUUId_ =
     GetEventSourceMapping'
     { _gesmUUId = pUUId_
     }

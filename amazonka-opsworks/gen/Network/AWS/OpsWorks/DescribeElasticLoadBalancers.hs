@@ -46,11 +46,11 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     , delbrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeElasticLoadBalancers' smart constructor.
 --
@@ -61,12 +61,12 @@ import Network.AWS.Response
 -- * 'delbStackId'
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
     { _delbLayerIds :: !(Maybe [Text])
-    , _delbStackId :: !(Maybe Text)
+    , _delbStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticLoadBalancers' smart constructor.
 describeElasticLoadBalancers :: DescribeElasticLoadBalancers
-describeElasticLoadBalancers = 
+describeElasticLoadBalancers =
     DescribeElasticLoadBalancers'
     { _delbLayerIds = Nothing
     , _delbStackId = Nothing
@@ -128,12 +128,12 @@ instance ToQuery DescribeElasticLoadBalancers where
 -- * 'delbrsStatus'
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
     { _delbrsElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
-    , _delbrsStatus :: !Int
+    , _delbrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
 describeElasticLoadBalancersResponse :: Int -> DescribeElasticLoadBalancersResponse
-describeElasticLoadBalancersResponse pStatus_ = 
+describeElasticLoadBalancersResponse pStatus_ =
     DescribeElasticLoadBalancersResponse'
     { _delbrsElasticLoadBalancers = Nothing
     , _delbrsStatus = pStatus_

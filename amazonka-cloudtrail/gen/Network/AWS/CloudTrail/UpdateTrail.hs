@@ -55,11 +55,11 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrsStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.CloudTrail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Specifies settings to update for the trail.
 --
@@ -81,18 +81,18 @@ import Network.AWS.Response
 --
 -- * 'utName'
 data UpdateTrail = UpdateTrail'
-    { _utS3KeyPrefix :: !(Maybe Text)
-    , _utSNSTopicName :: !(Maybe Text)
-    , _utCloudWatchLogsLogGroupARN :: !(Maybe Text)
+    { _utS3KeyPrefix                :: !(Maybe Text)
+    , _utSNSTopicName               :: !(Maybe Text)
+    , _utCloudWatchLogsLogGroupARN  :: !(Maybe Text)
     , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utCloudWatchLogsRoleARN :: !(Maybe Text)
-    , _utS3BucketName :: !(Maybe Text)
-    , _utName :: !Text
+    , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utS3BucketName               :: !(Maybe Text)
+    , _utName                       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTrail' smart constructor.
 updateTrail :: Text -> UpdateTrail
-updateTrail pName_ = 
+updateTrail pName_ =
     UpdateTrail'
     { _utS3KeyPrefix = Nothing
     , _utSNSTopicName = Nothing
@@ -205,19 +205,19 @@ instance ToQuery UpdateTrail where
 --
 -- * 'utrsStatus'
 data UpdateTrailResponse = UpdateTrailResponse'
-    { _utrsS3KeyPrefix :: !(Maybe Text)
-    , _utrsSNSTopicName :: !(Maybe Text)
-    , _utrsCloudWatchLogsLogGroupARN :: !(Maybe Text)
-    , _utrsName :: !(Maybe Text)
+    { _utrsS3KeyPrefix                :: !(Maybe Text)
+    , _utrsSNSTopicName               :: !(Maybe Text)
+    , _utrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _utrsName                       :: !(Maybe Text)
     , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utrsCloudWatchLogsRoleARN :: !(Maybe Text)
-    , _utrsS3BucketName :: !(Maybe Text)
-    , _utrsStatus :: !Int
+    , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utrsS3BucketName               :: !(Maybe Text)
+    , _utrsStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTrailResponse' smart constructor.
 updateTrailResponse :: Int -> UpdateTrailResponse
-updateTrailResponse pStatus_ = 
+updateTrailResponse pStatus_ =
     UpdateTrailResponse'
     { _utrsS3KeyPrefix = Nothing
     , _utrsSNSTopicName = Nothing

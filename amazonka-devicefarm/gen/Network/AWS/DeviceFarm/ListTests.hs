@@ -39,11 +39,11 @@ module Network.AWS.DeviceFarm.ListTests
     , ltrsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the list tests operation.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'ltArn'
 data ListTests = ListTests'
     { _ltNextToken :: !(Maybe Text)
-    , _ltArn :: !Text
+    , _ltArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTests' smart constructor.
 listTests :: Text -> ListTests
-listTests pArn_ = 
+listTests pArn_ =
     ListTests'
     { _ltNextToken = Nothing
     , _ltArn = pArn_
@@ -120,14 +120,14 @@ instance ToQuery ListTests where
 --
 -- * 'ltrsStatus'
 data ListTestsResponse = ListTestsResponse'
-    { _ltrsTests :: !(Maybe [Test])
+    { _ltrsTests     :: !(Maybe [Test])
     , _ltrsNextToken :: !(Maybe Text)
-    , _ltrsStatus :: !Int
+    , _ltrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTestsResponse' smart constructor.
 listTestsResponse :: Int -> ListTestsResponse
-listTestsResponse pStatus_ = 
+listTestsResponse pStatus_ =
     ListTestsResponse'
     { _ltrsTests = Nothing
     , _ltrsNextToken = Nothing

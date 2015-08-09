@@ -43,11 +43,11 @@ module Network.AWS.EC2.DescribeNetworkACLs
     , dnarsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkACLs' smart constructor.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- * 'dnaclNetworkACLIds'
 data DescribeNetworkACLs = DescribeNetworkACLs'
-    { _dnaclFilters :: !(Maybe [Filter])
-    , _dnaclDryRun :: !(Maybe Bool)
+    { _dnaclFilters       :: !(Maybe [Filter])
+    , _dnaclDryRun        :: !(Maybe Bool)
     , _dnaclNetworkACLIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkACLs' smart constructor.
 describeNetworkACLs :: DescribeNetworkACLs
-describeNetworkACLs = 
+describeNetworkACLs =
     DescribeNetworkACLs'
     { _dnaclFilters = Nothing
     , _dnaclDryRun = Nothing
@@ -182,12 +182,12 @@ instance ToQuery DescribeNetworkACLs where
 -- * 'dnarsStatus'
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs :: !(Maybe [NetworkACL])
-    , _dnarsStatus :: !Int
+    , _dnarsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
 describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse
-describeNetworkACLsResponse pStatus_ = 
+describeNetworkACLsResponse pStatus_ =
     DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs = Nothing
     , _dnarsStatus = pStatus_

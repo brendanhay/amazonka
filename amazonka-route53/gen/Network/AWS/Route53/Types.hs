@@ -13,10 +13,10 @@
 --
 module Network.AWS.Route53.Types
     (
-    -- * Service Decription
+    -- * Service
       Route53
 
-    -- * Error Matchers
+    -- * Errors
     , _HealthCheckVersionMismatch
     , _InvalidInput
     , _HostedZoneNotEmpty

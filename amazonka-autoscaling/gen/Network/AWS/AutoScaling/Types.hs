@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.AutoScaling.Types
     (
-    -- * Service Decription
+    -- * Service
       AutoScaling
 
-    -- * Error Matchers
+    -- * Errors
     , _LimitExceededFault
     , _AlreadyExistsFault
     , _ResourceInUseFault
@@ -265,10 +265,10 @@ module Network.AWS.AutoScaling.Types
     , tdValue
     ) where
 
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.AutoScaling.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.AutoScaling.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2011-01-01@ of the Amazon Auto Scaling SDK.
 data AutoScaling
@@ -277,7 +277,7 @@ instance AWSService AutoScaling where
     type Sg AutoScaling = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "AutoScaling"
             , _svcPrefix = "autoscaling"
@@ -288,7 +288,7 @@ instance AWSService AutoScaling where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -296,7 +296,7 @@ instance AWSService AutoScaling where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -327,11 +327,11 @@ _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 -- | The Auto Scaling group can\'t be deleted because there are scaling
 -- activities in progress.
 _ScalingActivityInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ScalingActivityInProgressFault = 
+_ScalingActivityInProgressFault =
     _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress"
 
 -- | You already have a pending update to an Auto Scaling resource (for
 -- example, a group, instance, or load balancer).
 _ResourceContentionFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceContentionFault = 
+_ResourceContentionFault =
     _ServiceError . hasStatus 500 . hasCode "ResourceContention"

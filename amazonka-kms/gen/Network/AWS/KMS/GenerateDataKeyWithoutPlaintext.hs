@@ -46,11 +46,11 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     , gdkwprsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'generateDataKeyWithoutPlaintext' smart constructor.
 --
@@ -66,16 +66,16 @@ import Network.AWS.Response
 --
 -- * 'gdkwpKeyId'
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
-    { _gdkwpKeySpec :: !(Maybe DataKeySpec)
+    { _gdkwpKeySpec           :: !(Maybe DataKeySpec)
     , _gdkwpEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkwpNumberOfBytes :: !(Maybe Nat)
-    , _gdkwpGrantTokens :: !(Maybe [Text])
-    , _gdkwpKeyId :: !Text
+    , _gdkwpNumberOfBytes     :: !(Maybe Nat)
+    , _gdkwpGrantTokens       :: !(Maybe [Text])
+    , _gdkwpKeyId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
 generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
-generateDataKeyWithoutPlaintext pKeyId_ = 
+generateDataKeyWithoutPlaintext pKeyId_ =
     GenerateDataKeyWithoutPlaintext'
     { _gdkwpKeySpec = Nothing
     , _gdkwpEncryptionContext = Nothing
@@ -169,14 +169,14 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
 --
 -- * 'gdkwprsStatus'
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
-    { _gdkwprsKeyId :: !(Maybe Text)
+    { _gdkwprsKeyId          :: !(Maybe Text)
     , _gdkwprsCiphertextBlob :: !(Maybe Base64)
-    , _gdkwprsStatus :: !Int
+    , _gdkwprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
 generateDataKeyWithoutPlaintextResponse :: Int -> GenerateDataKeyWithoutPlaintextResponse
-generateDataKeyWithoutPlaintextResponse pStatus_ = 
+generateDataKeyWithoutPlaintextResponse pStatus_ =
     GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprsKeyId = Nothing
     , _gdkwprsCiphertextBlob = Nothing

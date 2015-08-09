@@ -47,11 +47,11 @@ module Network.AWS.ImportExport.UpdateJob
     , ujrsStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.ImportExport.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.ImportExport.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the UpateJob operation.
 --
@@ -69,16 +69,16 @@ import Network.AWS.Response
 --
 -- * 'ujValidateOnly'
 data UpdateJob = UpdateJob'
-    { _ujAPIVersion :: !(Maybe Text)
-    , _ujJobId :: !Text
-    , _ujManifest :: !Text
-    , _ujJobType :: !JobType
+    { _ujAPIVersion   :: !(Maybe Text)
+    , _ujJobId        :: !Text
+    , _ujManifest     :: !Text
+    , _ujJobType      :: !JobType
     , _ujValidateOnly :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateJob' smart constructor.
 updateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
-updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ = 
+updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
     UpdateJob'
     { _ujAPIVersion = Nothing
     , _ujJobId = pJobId_
@@ -150,15 +150,15 @@ instance ToQuery UpdateJob where
 --
 -- * 'ujrsStatus'
 data UpdateJobResponse = UpdateJobResponse'
-    { _ujrsSuccess :: !(Maybe Bool)
+    { _ujrsSuccess        :: !(Maybe Bool)
     , _ujrsWarningMessage :: !(Maybe Text)
-    , _ujrsArtifactList :: !(Maybe [Artifact])
-    , _ujrsStatus :: !Int
+    , _ujrsArtifactList   :: !(Maybe [Artifact])
+    , _ujrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateJobResponse' smart constructor.
 updateJobResponse :: Int -> UpdateJobResponse
-updateJobResponse pStatus_ = 
+updateJobResponse pStatus_ =
     UpdateJobResponse'
     { _ujrsSuccess = Nothing
     , _ujrsWarningMessage = Nothing

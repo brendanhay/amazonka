@@ -56,11 +56,11 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , psprsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 --
@@ -89,21 +89,21 @@ import Network.AWS.Response
 -- * 'pspAdjustmentType'
 data PutScalingPolicy = PutScalingPolicy'
     { _pspEstimatedInstanceWarmup :: !(Maybe Int)
-    , _pspMinAdjustmentStep :: !(Maybe Int)
-    , _pspPolicyType :: !(Maybe Text)
-    , _pspStepAdjustments :: !(Maybe [StepAdjustment])
-    , _pspScalingAdjustment :: !(Maybe Int)
-    , _pspCooldown :: !(Maybe Int)
-    , _pspMetricAggregationType :: !(Maybe Text)
-    , _pspMinAdjustmentMagnitude :: !(Maybe Int)
-    , _pspAutoScalingGroupName :: !Text
-    , _pspPolicyName :: !Text
-    , _pspAdjustmentType :: !Text
+    , _pspMinAdjustmentStep       :: !(Maybe Int)
+    , _pspPolicyType              :: !(Maybe Text)
+    , _pspStepAdjustments         :: !(Maybe [StepAdjustment])
+    , _pspScalingAdjustment       :: !(Maybe Int)
+    , _pspCooldown                :: !(Maybe Int)
+    , _pspMetricAggregationType   :: !(Maybe Text)
+    , _pspMinAdjustmentMagnitude  :: !(Maybe Int)
+    , _pspAutoScalingGroupName    :: !Text
+    , _pspPolicyName              :: !Text
+    , _pspAdjustmentType          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScalingPolicy' smart constructor.
 putScalingPolicy :: Text -> Text -> Text -> PutScalingPolicy
-putScalingPolicy pAutoScalingGroupName_ pPolicyName_ pAdjustmentType_ = 
+putScalingPolicy pAutoScalingGroupName_ pPolicyName_ pAdjustmentType_ =
     PutScalingPolicy'
     { _pspEstimatedInstanceWarmup = Nothing
     , _pspMinAdjustmentStep = Nothing
@@ -244,12 +244,12 @@ instance ToQuery PutScalingPolicy where
 -- * 'psprsStatus'
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
     { _psprsPolicyARN :: !(Maybe Text)
-    , _psprsStatus :: !Int
+    , _psprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScalingPolicyResponse' smart constructor.
 putScalingPolicyResponse :: Int -> PutScalingPolicyResponse
-putScalingPolicyResponse pStatus_ = 
+putScalingPolicyResponse pStatus_ =
     PutScalingPolicyResponse'
     { _psprsPolicyARN = Nothing
     , _psprsStatus = pStatus_

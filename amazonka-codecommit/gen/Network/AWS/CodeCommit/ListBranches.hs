@@ -39,11 +39,11 @@ module Network.AWS.CodeCommit.ListBranches
     , lbrsStatus
     ) where
 
-import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeCommit.Types
+import           Network.AWS.CodeCommit.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list branches operation.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'lbRepositoryName'
 data ListBranches = ListBranches'
-    { _lbNextToken :: !(Maybe Text)
+    { _lbNextToken      :: !(Maybe Text)
     , _lbRepositoryName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBranches' smart constructor.
 listBranches :: Text -> ListBranches
-listBranches pRepositoryName_ = 
+listBranches pRepositoryName_ =
     ListBranches'
     { _lbNextToken = Nothing
     , _lbRepositoryName = pRepositoryName_
@@ -119,14 +119,14 @@ instance ToQuery ListBranches where
 --
 -- * 'lbrsStatus'
 data ListBranchesResponse = ListBranchesResponse'
-    { _lbrsBranches :: !(Maybe [Text])
+    { _lbrsBranches  :: !(Maybe [Text])
     , _lbrsNextToken :: !(Maybe Text)
-    , _lbrsStatus :: !Int
+    , _lbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBranchesResponse' smart constructor.
 listBranchesResponse :: Int -> ListBranchesResponse
-listBranchesResponse pStatus_ = 
+listBranchesResponse pStatus_ =
     ListBranchesResponse'
     { _lbrsBranches = Nothing
     , _lbrsNextToken = Nothing

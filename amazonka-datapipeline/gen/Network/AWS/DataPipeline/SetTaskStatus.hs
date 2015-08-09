@@ -44,11 +44,11 @@ module Network.AWS.DataPipeline.SetTaskStatus
     , stsrsStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for SetTaskStatus.
 --
@@ -67,15 +67,15 @@ import Network.AWS.Response
 -- * 'stsTaskStatus'
 data SetTaskStatus = SetTaskStatus'
     { _stsErrorStackTrace :: !(Maybe Text)
-    , _stsErrorId :: !(Maybe Text)
-    , _stsErrorMessage :: !(Maybe Text)
-    , _stsTaskId :: !Text
-    , _stsTaskStatus :: !TaskStatus
+    , _stsErrorId         :: !(Maybe Text)
+    , _stsErrorMessage    :: !(Maybe Text)
+    , _stsTaskId          :: !Text
+    , _stsTaskStatus      :: !TaskStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTaskStatus' smart constructor.
 setTaskStatus :: Text -> TaskStatus -> SetTaskStatus
-setTaskStatus pTaskId_ pTaskStatus_ = 
+setTaskStatus pTaskId_ pTaskStatus_ =
     SetTaskStatus'
     { _stsErrorStackTrace = Nothing
     , _stsErrorId = Nothing
@@ -161,7 +161,7 @@ newtype SetTaskStatusResponse = SetTaskStatusResponse'
 
 -- | 'SetTaskStatusResponse' smart constructor.
 setTaskStatusResponse :: Int -> SetTaskStatusResponse
-setTaskStatusResponse pStatus_ = 
+setTaskStatusResponse pStatus_ =
     SetTaskStatusResponse'
     { _stsrsStatus = pStatus_
     }

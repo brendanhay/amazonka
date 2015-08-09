@@ -50,11 +50,11 @@ module Network.AWS.DynamoDBStreams.DescribeStream
     , dsrsStatus
     ) where
 
-import Network.AWS.DynamoDBStreams.Types
-import Network.AWS.DynamoDBStreams.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDBStreams.Types
+import           Network.AWS.DynamoDBStreams.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeStream/ operation.
 --
@@ -69,13 +69,13 @@ import Network.AWS.Response
 -- * 'dsStreamARN'
 data DescribeStream = DescribeStream'
     { _dsExclusiveStartShardId :: !(Maybe Text)
-    , _dsLimit :: !(Maybe Nat)
-    , _dsStreamARN :: !Text
+    , _dsLimit                 :: !(Maybe Nat)
+    , _dsStreamARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
-describeStream pStreamARN_ = 
+describeStream pStreamARN_ =
     DescribeStream'
     { _dsExclusiveStartShardId = Nothing
     , _dsLimit = Nothing
@@ -139,12 +139,12 @@ instance ToQuery DescribeStream where
 -- * 'dsrsStatus'
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrsStreamDescription :: !(Maybe StreamDescription)
-    , _dsrsStatus :: !Int
+    , _dsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> DescribeStreamResponse
-describeStreamResponse pStatus_ = 
+describeStreamResponse pStatus_ =
     DescribeStreamResponse'
     { _dsrsStreamDescription = Nothing
     , _dsrsStatus = pStatus_

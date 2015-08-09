@@ -37,11 +37,11 @@ module Network.AWS.DeviceFarm.GetProject
     , gprsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the get project operation.
 --
@@ -56,7 +56,7 @@ newtype GetProject = GetProject'
 
 -- | 'GetProject' smart constructor.
 getProject :: Text -> GetProject
-getProject pArn_ = 
+getProject pArn_ =
     GetProject'
     { _gpArn = pArn_
     }
@@ -104,12 +104,12 @@ instance ToQuery GetProject where
 -- * 'gprsStatus'
 data GetProjectResponse = GetProjectResponse'
     { _gprsProject :: !(Maybe Project)
-    , _gprsStatus :: !Int
+    , _gprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetProjectResponse' smart constructor.
 getProjectResponse :: Int -> GetProjectResponse
-getProjectResponse pStatus_ = 
+getProjectResponse pStatus_ =
     GetProjectResponse'
     { _gprsProject = Nothing
     , _gprsStatus = pStatus_

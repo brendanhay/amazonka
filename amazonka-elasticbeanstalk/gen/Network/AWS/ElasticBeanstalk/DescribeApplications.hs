@@ -37,11 +37,11 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     , darsStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -56,7 +56,7 @@ newtype DescribeApplications = DescribeApplications'
 
 -- | 'DescribeApplications' smart constructor.
 describeApplications :: DescribeApplications
-describeApplications = 
+describeApplications =
     DescribeApplications'
     { _daApplicationNames = Nothing
     }
@@ -105,12 +105,12 @@ instance ToQuery DescribeApplications where
 -- * 'darsStatus'
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
     { _darsApplications :: !(Maybe [ApplicationDescription])
-    , _darsStatus :: !Int
+    , _darsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
 describeApplicationsResponse :: Int -> DescribeApplicationsResponse
-describeApplicationsResponse pStatus_ = 
+describeApplicationsResponse pStatus_ =
     DescribeApplicationsResponse'
     { _darsApplications = Nothing
     , _darsStatus = pStatus_

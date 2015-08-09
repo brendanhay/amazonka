@@ -40,11 +40,11 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     , dasarsAnalysisScheme
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteAnalysisScheme@ operation.
 -- Specifies the name of the domain you want to update and the analysis
@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- * 'dasAnalysisSchemeName'
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
-    { _dasDomainName :: !Text
+    { _dasDomainName         :: !Text
     , _dasAnalysisSchemeName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAnalysisScheme' smart constructor.
 deleteAnalysisScheme :: Text -> Text -> DeleteAnalysisScheme
-deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ = 
+deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ =
     DeleteAnalysisScheme'
     { _dasDomainName = pDomainName_
     , _dasAnalysisSchemeName = pAnalysisSchemeName_
@@ -114,13 +114,13 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- * 'dasarsAnalysisScheme'
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-    { _dasarsStatus :: !Int
+    { _dasarsStatus         :: !Int
     , _dasarsAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
 deleteAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse
-deleteAnalysisSchemeResponse pStatus_ pAnalysisScheme_ = 
+deleteAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
     DeleteAnalysisSchemeResponse'
     { _dasarsStatus = pStatus_
     , _dasarsAnalysisScheme = pAnalysisScheme_

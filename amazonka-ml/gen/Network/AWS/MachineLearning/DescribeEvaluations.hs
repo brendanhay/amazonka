@@ -49,12 +49,12 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     , desrsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeEvaluations' smart constructor.
 --
@@ -82,22 +82,22 @@ import Network.AWS.Response
 --
 -- * 'deLE'
 data DescribeEvaluations = DescribeEvaluations'
-    { _deEQ :: !(Maybe Text)
-    , _deGE :: !(Maybe Text)
-    , _dePrefix :: !(Maybe Text)
-    , _deGT :: !(Maybe Text)
-    , _deNE :: !(Maybe Text)
-    , _deNextToken :: !(Maybe Text)
-    , _deSortOrder :: !(Maybe SortOrder)
-    , _deLimit :: !(Maybe Nat)
-    , _deLT :: !(Maybe Text)
+    { _deEQ             :: !(Maybe Text)
+    , _deGE             :: !(Maybe Text)
+    , _dePrefix         :: !(Maybe Text)
+    , _deGT             :: !(Maybe Text)
+    , _deNE             :: !(Maybe Text)
+    , _deNextToken      :: !(Maybe Text)
+    , _deSortOrder      :: !(Maybe SortOrder)
+    , _deLimit          :: !(Maybe Nat)
+    , _deLT             :: !(Maybe Text)
     , _deFilterVariable :: !(Maybe EvaluationFilterVariable)
-    , _deLE :: !(Maybe Text)
+    , _deLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvaluations' smart constructor.
 describeEvaluations :: DescribeEvaluations
-describeEvaluations = 
+describeEvaluations =
     DescribeEvaluations'
     { _deEQ = Nothing
     , _deGE = Nothing
@@ -260,14 +260,14 @@ instance ToQuery DescribeEvaluations where
 --
 -- * 'desrsStatus'
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-    { _desrsResults :: !(Maybe [Evaluation])
+    { _desrsResults   :: !(Maybe [Evaluation])
     , _desrsNextToken :: !(Maybe Text)
-    , _desrsStatus :: !Int
+    , _desrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
-describeEvaluationsResponse pStatus_ = 
+describeEvaluationsResponse pStatus_ =
     DescribeEvaluationsResponse'
     { _desrsResults = Nothing
     , _desrsNextToken = Nothing

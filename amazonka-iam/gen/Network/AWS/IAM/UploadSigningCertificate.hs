@@ -57,11 +57,11 @@ module Network.AWS.IAM.UploadSigningCertificate
     , uscrsCertificate
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'uploadSigningCertificate' smart constructor.
 --
@@ -71,13 +71,13 @@ import Network.AWS.Response
 --
 -- * 'uplCertificateBody'
 data UploadSigningCertificate = UploadSigningCertificate'
-    { _uplUserName :: !(Maybe Text)
+    { _uplUserName        :: !(Maybe Text)
     , _uplCertificateBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSigningCertificate' smart constructor.
 uploadSigningCertificate :: Text -> UploadSigningCertificate
-uploadSigningCertificate pCertificateBody_ = 
+uploadSigningCertificate pCertificateBody_ =
     UploadSigningCertificate'
     { _uplUserName = Nothing
     , _uplCertificateBody = pCertificateBody_
@@ -127,13 +127,13 @@ instance ToQuery UploadSigningCertificate where
 --
 -- * 'uscrsCertificate'
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
-    { _uscrsStatus :: !Int
+    { _uscrsStatus      :: !Int
     , _uscrsCertificate :: !SigningCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
 uploadSigningCertificateResponse :: Int -> SigningCertificate -> UploadSigningCertificateResponse
-uploadSigningCertificateResponse pStatus_ pCertificate_ = 
+uploadSigningCertificateResponse pStatus_ pCertificate_ =
     UploadSigningCertificateResponse'
     { _uscrsStatus = pStatus_
     , _uscrsCertificate = pCertificate_

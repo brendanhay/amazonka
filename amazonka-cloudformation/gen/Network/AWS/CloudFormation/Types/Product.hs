@@ -18,8 +18,8 @@
 --
 module Network.AWS.CloudFormation.Types.Product where
 
-import Network.AWS.CloudFormation.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.CloudFormation.Types.Sum
+import           Network.AWS.Prelude
 
 -- | The Output data type.
 --
@@ -34,13 +34,13 @@ import Network.AWS.Prelude
 -- * 'oDescription'
 data Output = Output'
     { _oOutputValue :: !(Maybe Text)
-    , _oOutputKey :: !(Maybe Text)
+    , _oOutputKey   :: !(Maybe Text)
     , _oDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Output' smart constructor.
 output :: Output
-output = 
+output =
     Output'
     { _oOutputValue = Nothing
     , _oOutputKey = Nothing
@@ -77,14 +77,14 @@ instance FromXML Output where
 --
 -- * 'pUsePreviousValue'
 data Parameter = Parameter'
-    { _pParameterValue :: !(Maybe Text)
-    , _pParameterKey :: !(Maybe Text)
+    { _pParameterValue   :: !(Maybe Text)
+    , _pParameterKey     :: !(Maybe Text)
     , _pUsePreviousValue :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
-parameter = 
+parameter =
     Parameter'
     { _pParameterValue = Nothing
     , _pParameterKey = Nothing
@@ -135,7 +135,7 @@ newtype ParameterConstraints = ParameterConstraints'
 
 -- | 'ParameterConstraints' smart constructor.
 parameterConstraints :: ParameterConstraints
-parameterConstraints = 
+parameterConstraints =
     ParameterConstraints'
     { _pcAllowedValues = Nothing
     }
@@ -168,17 +168,17 @@ instance FromXML ParameterConstraints where
 --
 -- * 'pdDescription'
 data ParameterDeclaration = ParameterDeclaration'
-    { _pdParameterKey :: !(Maybe Text)
-    , _pdParameterType :: !(Maybe Text)
+    { _pdParameterKey         :: !(Maybe Text)
+    , _pdParameterType        :: !(Maybe Text)
     , _pdParameterConstraints :: !(Maybe ParameterConstraints)
-    , _pdDefaultValue :: !(Maybe Text)
-    , _pdNoEcho :: !(Maybe Bool)
-    , _pdDescription :: !(Maybe Text)
+    , _pdDefaultValue         :: !(Maybe Text)
+    , _pdNoEcho               :: !(Maybe Bool)
+    , _pdDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterDeclaration' smart constructor.
 parameterDeclaration :: ParameterDeclaration
-parameterDeclaration = 
+parameterDeclaration =
     ParameterDeclaration'
     { _pdParameterKey = Nothing
     , _pdParameterType = Nothing
@@ -256,25 +256,25 @@ instance FromXML ParameterDeclaration where
 --
 -- * 'sStackStatus'
 data Stack = Stack'
-    { _sDisableRollback :: !(Maybe Bool)
-    , _sLastUpdatedTime :: !(Maybe ISO8601)
-    , _sNotificationARNs :: !(Maybe [Text])
+    { _sDisableRollback   :: !(Maybe Bool)
+    , _sLastUpdatedTime   :: !(Maybe ISO8601)
+    , _sNotificationARNs  :: !(Maybe [Text])
     , _sStackStatusReason :: !(Maybe Text)
-    , _sOutputs :: !(Maybe [Output])
-    , _sParameters :: !(Maybe [Parameter])
-    , _sStackId :: !(Maybe Text)
-    , _sCapabilities :: !(Maybe [Capability])
-    , _sDescription :: !(Maybe Text)
-    , _sTags :: !(Maybe [Tag])
-    , _sTimeoutInMinutes :: !(Maybe Nat)
-    , _sStackName :: !Text
-    , _sCreationTime :: !ISO8601
-    , _sStackStatus :: !StackStatus
+    , _sOutputs           :: !(Maybe [Output])
+    , _sParameters        :: !(Maybe [Parameter])
+    , _sStackId           :: !(Maybe Text)
+    , _sCapabilities      :: !(Maybe [Capability])
+    , _sDescription       :: !(Maybe Text)
+    , _sTags              :: !(Maybe [Tag])
+    , _sTimeoutInMinutes  :: !(Maybe Nat)
+    , _sStackName         :: !Text
+    , _sCreationTime      :: !ISO8601
+    , _sStackStatus       :: !StackStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Stack' smart constructor.
 stack :: Text -> UTCTime -> StackStatus -> Stack
-stack pStackName_ pCreationTime_ pStackStatus_ = 
+stack pStackName_ pCreationTime_ pStackStatus_ =
     Stack'
     { _sDisableRollback = Nothing
     , _sLastUpdatedTime = Nothing
@@ -406,21 +406,21 @@ instance FromXML Stack where
 --
 -- * 'seTimestamp'
 data StackEvent = StackEvent'
-    { _seLogicalResourceId :: !(Maybe Text)
+    { _seLogicalResourceId    :: !(Maybe Text)
     , _seResourceStatusReason :: !(Maybe Text)
-    , _seResourceType :: !(Maybe Text)
-    , _sePhysicalResourceId :: !(Maybe Text)
-    , _seResourceProperties :: !(Maybe Text)
-    , _seResourceStatus :: !(Maybe ResourceStatus)
-    , _seStackId :: !Text
-    , _seEventId :: !Text
-    , _seStackName :: !Text
-    , _seTimestamp :: !ISO8601
+    , _seResourceType         :: !(Maybe Text)
+    , _sePhysicalResourceId   :: !(Maybe Text)
+    , _seResourceProperties   :: !(Maybe Text)
+    , _seResourceStatus       :: !(Maybe ResourceStatus)
+    , _seStackId              :: !Text
+    , _seEventId              :: !Text
+    , _seStackName            :: !Text
+    , _seTimestamp            :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackEvent' smart constructor.
 stackEvent :: Text -> Text -> Text -> UTCTime -> StackEvent
-stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ = 
+stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
     StackEvent'
     { _seLogicalResourceId = Nothing
     , _seResourceStatusReason = Nothing
@@ -516,19 +516,19 @@ instance FromXML StackEvent where
 -- * 'srResourceStatus'
 data StackResource = StackResource'
     { _srResourceStatusReason :: !(Maybe Text)
-    , _srPhysicalResourceId :: !(Maybe Text)
-    , _srStackId :: !(Maybe Text)
-    , _srDescription :: !(Maybe Text)
-    , _srStackName :: !(Maybe Text)
-    , _srLogicalResourceId :: !Text
-    , _srResourceType :: !Text
-    , _srTimestamp :: !ISO8601
-    , _srResourceStatus :: !ResourceStatus
+    , _srPhysicalResourceId   :: !(Maybe Text)
+    , _srStackId              :: !(Maybe Text)
+    , _srDescription          :: !(Maybe Text)
+    , _srStackName            :: !(Maybe Text)
+    , _srLogicalResourceId    :: !Text
+    , _srResourceType         :: !Text
+    , _srTimestamp            :: !ISO8601
+    , _srResourceStatus       :: !ResourceStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackResource' smart constructor.
 stackResource :: Text -> Text -> UTCTime -> ResourceStatus -> StackResource
-stackResource pLogicalResourceId_ pResourceType_ pTimestamp_ pResourceStatus_ = 
+stackResource pLogicalResourceId_ pResourceType_ pTimestamp_ pResourceStatus_ =
     StackResource'
     { _srResourceStatusReason = Nothing
     , _srPhysicalResourceId = Nothing
@@ -620,20 +620,20 @@ instance FromXML StackResource where
 -- * 'srdResourceStatus'
 data StackResourceDetail = StackResourceDetail'
     { _srdResourceStatusReason :: !(Maybe Text)
-    , _srdPhysicalResourceId :: !(Maybe Text)
-    , _srdMetadata :: !(Maybe Text)
-    , _srdStackId :: !(Maybe Text)
-    , _srdDescription :: !(Maybe Text)
-    , _srdStackName :: !(Maybe Text)
-    , _srdLogicalResourceId :: !Text
-    , _srdResourceType :: !Text
+    , _srdPhysicalResourceId   :: !(Maybe Text)
+    , _srdMetadata             :: !(Maybe Text)
+    , _srdStackId              :: !(Maybe Text)
+    , _srdDescription          :: !(Maybe Text)
+    , _srdStackName            :: !(Maybe Text)
+    , _srdLogicalResourceId    :: !Text
+    , _srdResourceType         :: !Text
     , _srdLastUpdatedTimestamp :: !ISO8601
-    , _srdResourceStatus :: !ResourceStatus
+    , _srdResourceStatus       :: !ResourceStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackResourceDetail' smart constructor.
 stackResourceDetail :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceDetail
-stackResourceDetail pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ = 
+stackResourceDetail pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceDetail'
     { _srdResourceStatusReason = Nothing
     , _srdPhysicalResourceId = Nothing
@@ -726,16 +726,16 @@ instance FromXML StackResourceDetail where
 -- * 'srsResourceStatus'
 data StackResourceSummary = StackResourceSummary'
     { _srsResourceStatusReason :: !(Maybe Text)
-    , _srsPhysicalResourceId :: !(Maybe Text)
-    , _srsLogicalResourceId :: !Text
-    , _srsResourceType :: !Text
+    , _srsPhysicalResourceId   :: !(Maybe Text)
+    , _srsLogicalResourceId    :: !Text
+    , _srsResourceType         :: !Text
     , _srsLastUpdatedTimestamp :: !ISO8601
-    , _srsResourceStatus :: !ResourceStatus
+    , _srsResourceStatus       :: !ResourceStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackResourceSummary' smart constructor.
 stackResourceSummary :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceSummary
-stackResourceSummary pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ = 
+stackResourceSummary pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceSummary'
     { _srsResourceStatusReason = Nothing
     , _srsPhysicalResourceId = Nothing
@@ -804,19 +804,19 @@ instance FromXML StackResourceSummary where
 --
 -- * 'ssStackStatus'
 data StackSummary = StackSummary'
-    { _ssLastUpdatedTime :: !(Maybe ISO8601)
+    { _ssLastUpdatedTime     :: !(Maybe ISO8601)
     , _ssTemplateDescription :: !(Maybe Text)
-    , _ssStackStatusReason :: !(Maybe Text)
-    , _ssDeletionTime :: !(Maybe ISO8601)
-    , _ssStackId :: !(Maybe Text)
-    , _ssStackName :: !Text
-    , _ssCreationTime :: !ISO8601
-    , _ssStackStatus :: !StackStatus
+    , _ssStackStatusReason   :: !(Maybe Text)
+    , _ssDeletionTime        :: !(Maybe ISO8601)
+    , _ssStackId             :: !(Maybe Text)
+    , _ssStackName           :: !Text
+    , _ssCreationTime        :: !ISO8601
+    , _ssStackStatus         :: !StackStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackSummary' smart constructor.
 stackSummary :: Text -> UTCTime -> StackStatus -> StackSummary
-stackSummary pStackName_ pCreationTime_ pStackStatus_ = 
+stackSummary pStackName_ pCreationTime_ pStackStatus_ =
     StackSummary'
     { _ssLastUpdatedTime = Nothing
     , _ssTemplateDescription = Nothing
@@ -886,12 +886,12 @@ instance FromXML StackSummary where
 -- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
-    , _tagKey :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = 
+tag =
     Tag'
     { _tagValue = Nothing
     , _tagKey = Nothing
@@ -932,13 +932,13 @@ instance ToQuery Tag where
 data TemplateParameter = TemplateParameter'
     { _tpParameterKey :: !(Maybe Text)
     , _tpDefaultValue :: !(Maybe Text)
-    , _tpNoEcho :: !(Maybe Bool)
-    , _tpDescription :: !(Maybe Text)
+    , _tpNoEcho       :: !(Maybe Bool)
+    , _tpDescription  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TemplateParameter' smart constructor.
 templateParameter :: TemplateParameter
-templateParameter = 
+templateParameter =
     TemplateParameter'
     { _tpParameterKey = Nothing
     , _tpDefaultValue = Nothing

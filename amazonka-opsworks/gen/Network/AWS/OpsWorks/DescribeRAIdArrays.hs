@@ -47,11 +47,11 @@ module Network.AWS.OpsWorks.DescribeRAIdArrays
     , draiarsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeRAIdArrays' smart constructor.
 --
@@ -63,14 +63,14 @@ import Network.AWS.Response
 --
 -- * 'draiaStackId'
 data DescribeRAIdArrays = DescribeRAIdArrays'
-    { _draiaInstanceId :: !(Maybe Text)
+    { _draiaInstanceId   :: !(Maybe Text)
     , _draiaRAIdArrayIds :: !(Maybe [Text])
-    , _draiaStackId :: !(Maybe Text)
+    , _draiaStackId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRAIdArrays' smart constructor.
 describeRAIdArrays :: DescribeRAIdArrays
-describeRAIdArrays = 
+describeRAIdArrays =
     DescribeRAIdArrays'
     { _draiaInstanceId = Nothing
     , _draiaRAIdArrayIds = Nothing
@@ -138,12 +138,12 @@ instance ToQuery DescribeRAIdArrays where
 -- * 'draiarsStatus'
 data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
     { _draiarsRAIdArrays :: !(Maybe [RAIdArray])
-    , _draiarsStatus :: !Int
+    , _draiarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRAIdArraysResponse' smart constructor.
 describeRAIdArraysResponse :: Int -> DescribeRAIdArraysResponse
-describeRAIdArraysResponse pStatus_ = 
+describeRAIdArraysResponse pStatus_ =
     DescribeRAIdArraysResponse'
     { _draiarsRAIdArrays = Nothing
     , _draiarsStatus = pStatus_

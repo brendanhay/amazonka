@@ -46,11 +46,11 @@ module Network.AWS.OpsWorks.DescribeApps
     , darsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeApps' smart constructor.
 --
@@ -60,13 +60,13 @@ import Network.AWS.Response
 --
 -- * 'daStackId'
 data DescribeApps = DescribeApps'
-    { _daAppIds :: !(Maybe [Text])
+    { _daAppIds  :: !(Maybe [Text])
     , _daStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApps' smart constructor.
 describeApps :: DescribeApps
-describeApps = 
+describeApps =
     DescribeApps'
     { _daAppIds = Nothing
     , _daStackId = Nothing
@@ -123,13 +123,13 @@ instance ToQuery DescribeApps where
 --
 -- * 'darsStatus'
 data DescribeAppsResponse = DescribeAppsResponse'
-    { _darsApps :: !(Maybe [App])
+    { _darsApps   :: !(Maybe [App])
     , _darsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAppsResponse' smart constructor.
 describeAppsResponse :: Int -> DescribeAppsResponse
-describeAppsResponse pStatus_ = 
+describeAppsResponse pStatus_ =
     DescribeAppsResponse'
     { _darsApps = Nothing
     , _darsStatus = pStatus_

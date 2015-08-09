@@ -43,11 +43,11 @@ module Network.AWS.EC2.DescribeKeyPairs
     , dkprsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeKeyPairs' smart constructor.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- * 'dkpsDryRun'
 data DescribeKeyPairs = DescribeKeyPairs'
-    { _dkpsFilters :: !(Maybe [Filter])
+    { _dkpsFilters  :: !(Maybe [Filter])
     , _dkpsKeyNames :: !(Maybe [Text])
-    , _dkpsDryRun :: !(Maybe Bool)
+    , _dkpsDryRun   :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyPairs' smart constructor.
 describeKeyPairs :: DescribeKeyPairs
-describeKeyPairs = 
+describeKeyPairs =
     DescribeKeyPairs'
     { _dkpsFilters = Nothing
     , _dkpsKeyNames = Nothing
@@ -131,12 +131,12 @@ instance ToQuery DescribeKeyPairs where
 -- * 'dkprsStatus'
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
     { _dkprsKeyPairs :: !(Maybe [KeyPairInfo])
-    , _dkprsStatus :: !Int
+    , _dkprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse
-describeKeyPairsResponse pStatus_ = 
+describeKeyPairsResponse pStatus_ =
     DescribeKeyPairsResponse'
     { _dkprsKeyPairs = Nothing
     , _dkprsStatus = pStatus_

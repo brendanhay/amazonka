@@ -50,11 +50,11 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     , dssrsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DescribeSnapshots operation.
 --
@@ -71,14 +71,14 @@ import Network.AWS.Response
 -- * 'dsLimit'
 data DescribeSnapshots = DescribeSnapshots'
     { _dsDirectoryId :: !(Maybe Text)
-    , _dsNextToken :: !(Maybe Text)
+    , _dsNextToken   :: !(Maybe Text)
     , _dsSnapshotIds :: !(Maybe [Text])
-    , _dsLimit :: !(Maybe Nat)
+    , _dsLimit       :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
-describeSnapshots = 
+describeSnapshots =
     DescribeSnapshots'
     { _dsDirectoryId = Nothing
     , _dsNextToken = Nothing
@@ -154,12 +154,12 @@ instance ToQuery DescribeSnapshots where
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dssrsNextToken :: !(Maybe Text)
     , _dssrsSnapshots :: !(Maybe [Snapshot])
-    , _dssrsStatus :: !Int
+    , _dssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus_ = 
+describeSnapshotsResponse pStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsNextToken = Nothing
     , _dssrsSnapshots = Nothing

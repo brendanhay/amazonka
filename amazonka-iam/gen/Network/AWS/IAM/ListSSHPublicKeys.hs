@@ -52,11 +52,11 @@ module Network.AWS.IAM.ListSSHPublicKeys
     , lspkrsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listSSHPublicKeys' smart constructor.
 --
@@ -70,12 +70,12 @@ import Network.AWS.Response
 data ListSSHPublicKeys = ListSSHPublicKeys'
     { _lspkUserName :: !(Maybe Text)
     , _lspkMaxItems :: !(Maybe Nat)
-    , _lspkMarker :: !(Maybe Text)
+    , _lspkMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSSHPublicKeys' smart constructor.
 listSSHPublicKeys :: ListSSHPublicKeys
-listSSHPublicKeys = 
+listSSHPublicKeys =
     ListSSHPublicKeys'
     { _lspkUserName = Nothing
     , _lspkMaxItems = Nothing
@@ -146,14 +146,14 @@ instance ToQuery ListSSHPublicKeys where
 -- * 'lspkrsStatus'
 data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
     { _lspkrsSSHPublicKeys :: !(Maybe [SSHPublicKeyMetadata])
-    , _lspkrsMarker :: !(Maybe Text)
-    , _lspkrsIsTruncated :: !(Maybe Bool)
-    , _lspkrsStatus :: !Int
+    , _lspkrsMarker        :: !(Maybe Text)
+    , _lspkrsIsTruncated   :: !(Maybe Bool)
+    , _lspkrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSSHPublicKeysResponse' smart constructor.
 listSSHPublicKeysResponse :: Int -> ListSSHPublicKeysResponse
-listSSHPublicKeysResponse pStatus_ = 
+listSSHPublicKeysResponse pStatus_ =
     ListSSHPublicKeysResponse'
     { _lspkrsSSHPublicKeys = Nothing
     , _lspkrsMarker = Nothing

@@ -40,11 +40,11 @@ module Network.AWS.ECS.CreateCluster
     , ccrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createCluster' smart constructor.
 --
@@ -57,7 +57,7 @@ newtype CreateCluster = CreateCluster'
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: CreateCluster
-createCluster = 
+createCluster =
     CreateCluster'
     { _ccClusterName = Nothing
     }
@@ -107,12 +107,12 @@ instance ToQuery CreateCluster where
 -- * 'ccrsStatus'
 data CreateClusterResponse = CreateClusterResponse'
     { _ccrsCluster :: !(Maybe Cluster)
-    , _ccrsStatus :: !Int
+    , _ccrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse
-createClusterResponse pStatus_ = 
+createClusterResponse pStatus_ =
     CreateClusterResponse'
     { _ccrsCluster = Nothing
     , _ccrsStatus = pStatus_

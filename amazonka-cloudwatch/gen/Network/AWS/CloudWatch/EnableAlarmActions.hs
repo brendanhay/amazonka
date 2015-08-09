@@ -34,11 +34,11 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     , enableAlarmActionsResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableAlarmActions' smart constructor.
 --
@@ -51,7 +51,7 @@ newtype EnableAlarmActions = EnableAlarmActions'
 
 -- | 'EnableAlarmActions' smart constructor.
 enableAlarmActions :: EnableAlarmActions
-enableAlarmActions = 
+enableAlarmActions =
     EnableAlarmActions'
     { _eaaAlarmNames = mempty
     }
@@ -82,7 +82,7 @@ instance ToQuery EnableAlarmActions where
 
 -- | /See:/ 'enableAlarmActionsResponse' smart constructor.
 data EnableAlarmActionsResponse =
-    EnableAlarmActionsResponse' 
+    EnableAlarmActionsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableAlarmActionsResponse' smart constructor.

@@ -86,11 +86,11 @@ module Network.AWS.Glacier.ListJobs
     , ljrsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for retrieving a job list for an Amazon Glacier vault.
 --
@@ -110,17 +110,17 @@ import Network.AWS.Response
 --
 -- * 'ljVaultName'
 data ListJobs = ListJobs'
-    { _ljMarker :: !(Maybe Text)
-    , _ljCompleted :: !(Maybe Text)
-    , _ljLimit :: !(Maybe Text)
+    { _ljMarker     :: !(Maybe Text)
+    , _ljCompleted  :: !(Maybe Text)
+    , _ljLimit      :: !(Maybe Text)
     , _ljStatuscode :: !(Maybe Text)
-    , _ljAccountId :: !Text
-    , _ljVaultName :: !Text
+    , _ljAccountId  :: !Text
+    , _ljVaultName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: Text -> Text -> ListJobs
-listJobs pAccountId_ pVaultName_ = 
+listJobs pAccountId_ pVaultName_ =
     ListJobs'
     { _ljMarker = Nothing
     , _ljCompleted = Nothing
@@ -204,14 +204,14 @@ instance ToQuery ListJobs where
 --
 -- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsMarker :: !(Maybe Text)
+    { _ljrsMarker  :: !(Maybe Text)
     , _ljrsJobList :: !(Maybe [GlacierJobDescription])
-    , _ljrsStatus :: !Int
+    , _ljrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatus_ = 
+listJobsResponse pStatus_ =
     ListJobsResponse'
     { _ljrsMarker = Nothing
     , _ljrsJobList = Nothing

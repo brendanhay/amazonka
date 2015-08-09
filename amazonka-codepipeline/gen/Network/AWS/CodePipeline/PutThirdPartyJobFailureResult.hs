@@ -37,11 +37,11 @@ module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
     , putThirdPartyJobFailureResultResponse
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a third party job failure result action.
 --
@@ -55,14 +55,14 @@ import Network.AWS.Response
 --
 -- * 'ptpjfrFailureDetails'
 data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
-    { _ptpjfrJobId :: !Text
-    , _ptpjfrClientToken :: !Text
+    { _ptpjfrJobId          :: !Text
+    , _ptpjfrClientToken    :: !Text
     , _ptpjfrFailureDetails :: !FailureDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutThirdPartyJobFailureResult' smart constructor.
 putThirdPartyJobFailureResult :: Text -> Text -> FailureDetails -> PutThirdPartyJobFailureResult
-putThirdPartyJobFailureResult pJobId_ pClientToken_ pFailureDetails_ = 
+putThirdPartyJobFailureResult pJobId_ pClientToken_ pFailureDetails_ =
     PutThirdPartyJobFailureResult'
     { _ptpjfrJobId = pJobId_
     , _ptpjfrClientToken = pClientToken_
@@ -119,7 +119,7 @@ instance ToQuery PutThirdPartyJobFailureResult where
 
 -- | /See:/ 'putThirdPartyJobFailureResultResponse' smart constructor.
 data PutThirdPartyJobFailureResultResponse =
-    PutThirdPartyJobFailureResultResponse' 
+    PutThirdPartyJobFailureResultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutThirdPartyJobFailureResultResponse' smart constructor.

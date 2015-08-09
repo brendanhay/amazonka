@@ -39,11 +39,11 @@ module Network.AWS.AutoScaling.AttachInstances
     , attachInstancesResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachInstances' smart constructor.
 --
@@ -53,13 +53,13 @@ import Network.AWS.Response
 --
 -- * 'aiAutoScalingGroupName'
 data AttachInstances = AttachInstances'
-    { _aiInstanceIds :: !(Maybe [Text])
+    { _aiInstanceIds          :: !(Maybe [Text])
     , _aiAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInstances' smart constructor.
 attachInstances :: Text -> AttachInstances
-attachInstances pAutoScalingGroupName_ = 
+attachInstances pAutoScalingGroupName_ =
     AttachInstances'
     { _aiInstanceIds = Nothing
     , _aiAutoScalingGroupName = pAutoScalingGroupName_
@@ -96,7 +96,7 @@ instance ToQuery AttachInstances where
 
 -- | /See:/ 'attachInstancesResponse' smart constructor.
 data AttachInstancesResponse =
-    AttachInstancesResponse' 
+    AttachInstancesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInstancesResponse' smart constructor.

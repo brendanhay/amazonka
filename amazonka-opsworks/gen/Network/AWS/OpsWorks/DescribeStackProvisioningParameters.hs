@@ -44,11 +44,11 @@ module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     , dspprsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeStackProvisioningParameters' smart constructor.
 --
@@ -61,7 +61,7 @@ newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameter
 
 -- | 'DescribeStackProvisioningParameters' smart constructor.
 describeStackProvisioningParameters :: Text -> DescribeStackProvisioningParameters
-describeStackProvisioningParameters pStackId_ = 
+describeStackProvisioningParameters pStackId_ =
     DescribeStackProvisioningParameters'
     { _dsppStackId = pStackId_
     }
@@ -123,13 +123,13 @@ instance ToQuery DescribeStackProvisioningParameters
 -- * 'dspprsStatus'
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
     { _dspprsAgentInstallerURL :: !(Maybe Text)
-    , _dspprsParameters :: !(Maybe (Map Text Text))
-    , _dspprsStatus :: !Int
+    , _dspprsParameters        :: !(Maybe (Map Text Text))
+    , _dspprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse
-describeStackProvisioningParametersResponse pStatus_ = 
+describeStackProvisioningParametersResponse pStatus_ =
     DescribeStackProvisioningParametersResponse'
     { _dspprsAgentInstallerURL = Nothing
     , _dspprsParameters = Nothing

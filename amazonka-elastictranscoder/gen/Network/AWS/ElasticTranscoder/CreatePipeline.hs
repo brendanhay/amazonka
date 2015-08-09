@@ -46,11 +46,11 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     , crsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @CreatePipelineRequest@ structure.
 --
@@ -74,19 +74,19 @@ import Network.AWS.Response
 --
 -- * 'cRole'
 data CreatePipeline = CreatePipeline'
-    { _cContentConfig :: !(Maybe PipelineOutputConfig)
-    , _cOutputBucket :: !(Maybe Text)
-    , _cAWSKMSKeyARN :: !(Maybe Text)
+    { _cContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _cOutputBucket    :: !(Maybe Text)
+    , _cAWSKMSKeyARN    :: !(Maybe Text)
     , _cThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    , _cNotifications :: !(Maybe Notifications)
-    , _cName :: !Text
-    , _cInputBucket :: !Text
-    , _cRole :: !Text
+    , _cNotifications   :: !(Maybe Notifications)
+    , _cName            :: !Text
+    , _cInputBucket     :: !Text
+    , _cRole            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> Text -> CreatePipeline
-createPipeline pName_ pInputBucket_ pRole_ = 
+createPipeline pName_ pInputBucket_ pRole_ =
     CreatePipeline'
     { _cContentConfig = Nothing
     , _cOutputBucket = Nothing
@@ -339,12 +339,12 @@ instance ToQuery CreatePipeline where
 data CreatePipelineResponse = CreatePipelineResponse'
     { _crsWarnings :: !(Maybe [Warning])
     , _crsPipeline :: !(Maybe Pipeline)
-    , _crsStatus :: !Int
+    , _crsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> CreatePipelineResponse
-createPipelineResponse pStatus_ = 
+createPipelineResponse pStatus_ =
     CreatePipelineResponse'
     { _crsWarnings = Nothing
     , _crsPipeline = Nothing

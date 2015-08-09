@@ -35,11 +35,11 @@ module Network.AWS.AutoScaling.DeletePolicy
     , deletePolicyResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -52,12 +52,12 @@ import Network.AWS.Response
 -- * 'dpPolicyName'
 data DeletePolicy = DeletePolicy'
     { _dpAutoScalingGroupName :: !(Maybe Text)
-    , _dpPolicyName :: !Text
+    , _dpPolicyName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
-deletePolicy pPolicyName_ = 
+deletePolicy pPolicyName_ =
     DeletePolicy'
     { _dpAutoScalingGroupName = Nothing
     , _dpPolicyName = pPolicyName_
@@ -93,7 +93,7 @@ instance ToQuery DeletePolicy where
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =
-    DeletePolicyResponse' 
+    DeletePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicyResponse' smart constructor.

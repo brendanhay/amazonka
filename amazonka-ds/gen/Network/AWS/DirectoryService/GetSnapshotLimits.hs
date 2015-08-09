@@ -37,11 +37,11 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     , gslrsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the GetSnapshotLimits operation.
 --
@@ -56,7 +56,7 @@ newtype GetSnapshotLimits = GetSnapshotLimits'
 
 -- | 'GetSnapshotLimits' smart constructor.
 getSnapshotLimits :: Text -> GetSnapshotLimits
-getSnapshotLimits pDirectoryId_ = 
+getSnapshotLimits pDirectoryId_ =
     GetSnapshotLimits'
     { _gslDirectoryId = pDirectoryId_
     }
@@ -106,12 +106,12 @@ instance ToQuery GetSnapshotLimits where
 -- * 'gslrsStatus'
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
     { _gslrsSnapshotLimits :: !(Maybe SnapshotLimits)
-    , _gslrsStatus :: !Int
+    , _gslrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
 getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse
-getSnapshotLimitsResponse pStatus_ = 
+getSnapshotLimitsResponse pStatus_ =
     GetSnapshotLimitsResponse'
     { _gslrsSnapshotLimits = Nothing
     , _gslrsStatus = pStatus_

@@ -57,11 +57,11 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     , clbcsprsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLBCookieStickinessPolicy' smart constructor.
 --
@@ -74,13 +74,13 @@ import Network.AWS.Response
 -- * 'clbcspPolicyName'
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
     { _clbcspCookieExpirationPeriod :: !(Maybe Integer)
-    , _clbcspLoadBalancerName :: !Text
-    , _clbcspPolicyName :: !Text
+    , _clbcspLoadBalancerName       :: !Text
+    , _clbcspPolicyName             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLBCookieStickinessPolicy' smart constructor.
 createLBCookieStickinessPolicy :: Text -> Text -> CreateLBCookieStickinessPolicy
-createLBCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ = 
+createLBCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ =
     CreateLBCookieStickinessPolicy'
     { _clbcspCookieExpirationPeriod = Nothing
     , _clbcspLoadBalancerName = pLoadBalancerName_
@@ -144,7 +144,7 @@ newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyR
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
 createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse
-createLBCookieStickinessPolicyResponse pStatus_ = 
+createLBCookieStickinessPolicyResponse pStatus_ =
     CreateLBCookieStickinessPolicyResponse'
     { _clbcsprsStatus = pStatus_
     }

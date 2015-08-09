@@ -61,11 +61,11 @@ module Network.AWS.IAM.CreateSAMLProvider
     , csamlprsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createSAMLProvider' smart constructor.
 --
@@ -76,12 +76,12 @@ import Network.AWS.Response
 -- * 'csamlpName'
 data CreateSAMLProvider = CreateSAMLProvider'
     { _csamlpSAMLMetadataDocument :: !Text
-    , _csamlpName :: !Text
+    , _csamlpName                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSAMLProvider' smart constructor.
 createSAMLProvider :: Text -> Text -> CreateSAMLProvider
-createSAMLProvider pSAMLMetadataDocument_ pName_ = 
+createSAMLProvider pSAMLMetadataDocument_ pName_ =
     CreateSAMLProvider'
     { _csamlpSAMLMetadataDocument = pSAMLMetadataDocument_
     , _csamlpName = pName_
@@ -141,12 +141,12 @@ instance ToQuery CreateSAMLProvider where
 -- * 'csamlprsStatus'
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
     { _csamlprsSAMLProviderARN :: !(Maybe Text)
-    , _csamlprsStatus :: !Int
+    , _csamlprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSAMLProviderResponse' smart constructor.
 createSAMLProviderResponse :: Int -> CreateSAMLProviderResponse
-createSAMLProviderResponse pStatus_ = 
+createSAMLProviderResponse pStatus_ =
     CreateSAMLProviderResponse'
     { _csamlprsSAMLProviderARN = Nothing
     , _csamlprsStatus = pStatus_

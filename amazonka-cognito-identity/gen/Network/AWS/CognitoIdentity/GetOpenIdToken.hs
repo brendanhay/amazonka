@@ -45,11 +45,11 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     , goitrsStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the GetOpenIdToken action.
 --
@@ -61,13 +61,13 @@ import Network.AWS.Response
 --
 -- * 'goitIdentityId'
 data GetOpenIdToken = GetOpenIdToken'
-    { _goitLogins :: !(Maybe (Map Text Text))
+    { _goitLogins     :: !(Maybe (Map Text Text))
     , _goitIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdToken' smart constructor.
 getOpenIdToken :: Text -> GetOpenIdToken
-getOpenIdToken pIdentityId_ = 
+getOpenIdToken pIdentityId_ =
     GetOpenIdToken'
     { _goitLogins = Nothing
     , _goitIdentityId = pIdentityId_
@@ -130,14 +130,14 @@ instance ToQuery GetOpenIdToken where
 --
 -- * 'goitrsStatus'
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-    { _goitrsToken :: !(Maybe Text)
+    { _goitrsToken      :: !(Maybe Text)
     , _goitrsIdentityId :: !(Maybe Text)
-    , _goitrsStatus :: !Int
+    , _goitrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
 getOpenIdTokenResponse :: Int -> GetOpenIdTokenResponse
-getOpenIdTokenResponse pStatus_ = 
+getOpenIdTokenResponse pStatus_ =
     GetOpenIdTokenResponse'
     { _goitrsToken = Nothing
     , _goitrsIdentityId = Nothing

@@ -41,11 +41,11 @@ module Network.AWS.EC2.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 --
@@ -57,14 +57,14 @@ import Network.AWS.Response
 --
 -- * 'dtsResources'
 data DeleteTags = DeleteTags'
-    { _dtsDryRun :: !(Maybe Bool)
-    , _dtsTags :: !(Maybe [Tag])
+    { _dtsDryRun    :: !(Maybe Bool)
+    , _dtsTags      :: !(Maybe [Tag])
     , _dtsResources :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: DeleteTags
-deleteTags = 
+deleteTags =
     DeleteTags'
     { _dtsDryRun = Nothing
     , _dtsTags = Nothing
@@ -113,7 +113,7 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
-    DeleteTagsResponse' 
+    DeleteTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTagsResponse' smart constructor.

@@ -16,10 +16,10 @@
 -- /See:/ <http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.MachineLearning
     (
-    -- * Service Description
+    -- * Service
       MachineLearning
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InternalServerException
@@ -58,75 +58,75 @@ module Network.AWS.MachineLearning
     -- * Operations
     -- $operations
 
-    -- ** DeleteDataSource 
+    -- ** DeleteDataSource
     , module Network.AWS.MachineLearning.DeleteDataSource
 
-    -- ** UpdateDataSource 
+    -- ** UpdateDataSource
     , module Network.AWS.MachineLearning.UpdateDataSource
 
-    -- ** CreateDataSourceFromRedshift 
+    -- ** CreateDataSourceFromRedshift
     , module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
 
-    -- ** CreateDataSourceFromS 
+    -- ** CreateDataSourceFromS
     , module Network.AWS.MachineLearning.CreateDataSourceFromS
 
-    -- ** CreateMLModel 
+    -- ** CreateMLModel
     , module Network.AWS.MachineLearning.CreateMLModel
 
-    -- ** DeleteBatchPrediction 
+    -- ** DeleteBatchPrediction
     , module Network.AWS.MachineLearning.DeleteBatchPrediction
 
-    -- ** UpdateBatchPrediction 
+    -- ** UpdateBatchPrediction
     , module Network.AWS.MachineLearning.UpdateBatchPrediction
 
-    -- ** GetMLModel 
+    -- ** GetMLModel
     , module Network.AWS.MachineLearning.GetMLModel
 
-    -- ** GetDataSource 
+    -- ** GetDataSource
     , module Network.AWS.MachineLearning.GetDataSource
 
-    -- ** DeleteMLModel 
+    -- ** DeleteMLModel
     , module Network.AWS.MachineLearning.DeleteMLModel
 
-    -- ** UpdateMLModel 
+    -- ** UpdateMLModel
     , module Network.AWS.MachineLearning.UpdateMLModel
 
     -- ** DescribeBatchPredictions (Paginated)
     , module Network.AWS.MachineLearning.DescribeBatchPredictions
     -- $pager
 
-    -- ** UpdateEvaluation 
+    -- ** UpdateEvaluation
     , module Network.AWS.MachineLearning.UpdateEvaluation
 
-    -- ** DeleteEvaluation 
+    -- ** DeleteEvaluation
     , module Network.AWS.MachineLearning.DeleteEvaluation
 
-    -- ** GetBatchPrediction 
+    -- ** GetBatchPrediction
     , module Network.AWS.MachineLearning.GetBatchPrediction
 
-    -- ** CreateEvaluation 
+    -- ** CreateEvaluation
     , module Network.AWS.MachineLearning.CreateEvaluation
 
-    -- ** CreateDataSourceFromRDS 
+    -- ** CreateDataSourceFromRDS
     , module Network.AWS.MachineLearning.CreateDataSourceFromRDS
 
-    -- ** CreateBatchPrediction 
+    -- ** CreateBatchPrediction
     , module Network.AWS.MachineLearning.CreateBatchPrediction
 
-    -- ** Predict 
+    -- ** Predict
     , module Network.AWS.MachineLearning.Predict
 
-    -- ** DeleteRealtimeEndpoint 
+    -- ** DeleteRealtimeEndpoint
     , module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
 
     -- ** DescribeEvaluations (Paginated)
     , module Network.AWS.MachineLearning.DescribeEvaluations
     -- $pager
 
-    -- ** GetEvaluation 
+    -- ** GetEvaluation
     , module Network.AWS.MachineLearning.GetEvaluation
 
-    -- ** CreateRealtimeEndpoint 
+    -- ** CreateRealtimeEndpoint
     , module Network.AWS.MachineLearning.CreateRealtimeEndpoint
 
     -- ** DescribeMLModels (Paginated)
@@ -335,33 +335,33 @@ module Network.AWS.MachineLearning
     , sdsDataLocationS3
     ) where
 
-import Network.AWS.MachineLearning.CreateBatchPrediction
-import Network.AWS.MachineLearning.CreateDataSourceFromRDS
-import Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-import Network.AWS.MachineLearning.CreateDataSourceFromS
-import Network.AWS.MachineLearning.CreateEvaluation
-import Network.AWS.MachineLearning.CreateMLModel
-import Network.AWS.MachineLearning.CreateRealtimeEndpoint
-import Network.AWS.MachineLearning.DeleteBatchPrediction
-import Network.AWS.MachineLearning.DeleteDataSource
-import Network.AWS.MachineLearning.DeleteEvaluation
-import Network.AWS.MachineLearning.DeleteMLModel
-import Network.AWS.MachineLearning.DeleteRealtimeEndpoint
-import Network.AWS.MachineLearning.DescribeBatchPredictions
-import Network.AWS.MachineLearning.DescribeDataSources
-import Network.AWS.MachineLearning.DescribeEvaluations
-import Network.AWS.MachineLearning.DescribeMLModels
-import Network.AWS.MachineLearning.GetBatchPrediction
-import Network.AWS.MachineLearning.GetDataSource
-import Network.AWS.MachineLearning.GetEvaluation
-import Network.AWS.MachineLearning.GetMLModel
-import Network.AWS.MachineLearning.Predict
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.UpdateBatchPrediction
-import Network.AWS.MachineLearning.UpdateDataSource
-import Network.AWS.MachineLearning.UpdateEvaluation
-import Network.AWS.MachineLearning.UpdateMLModel
-import Network.AWS.MachineLearning.Waiters
+import           Network.AWS.MachineLearning.CreateBatchPrediction
+import           Network.AWS.MachineLearning.CreateDataSourceFromRDS
+import           Network.AWS.MachineLearning.CreateDataSourceFromRedshift
+import           Network.AWS.MachineLearning.CreateDataSourceFromS
+import           Network.AWS.MachineLearning.CreateEvaluation
+import           Network.AWS.MachineLearning.CreateMLModel
+import           Network.AWS.MachineLearning.CreateRealtimeEndpoint
+import           Network.AWS.MachineLearning.DeleteBatchPrediction
+import           Network.AWS.MachineLearning.DeleteDataSource
+import           Network.AWS.MachineLearning.DeleteEvaluation
+import           Network.AWS.MachineLearning.DeleteMLModel
+import           Network.AWS.MachineLearning.DeleteRealtimeEndpoint
+import           Network.AWS.MachineLearning.DescribeBatchPredictions
+import           Network.AWS.MachineLearning.DescribeDataSources
+import           Network.AWS.MachineLearning.DescribeEvaluations
+import           Network.AWS.MachineLearning.DescribeMLModels
+import           Network.AWS.MachineLearning.GetBatchPrediction
+import           Network.AWS.MachineLearning.GetDataSource
+import           Network.AWS.MachineLearning.GetEvaluation
+import           Network.AWS.MachineLearning.GetMLModel
+import           Network.AWS.MachineLearning.Predict
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.UpdateBatchPrediction
+import           Network.AWS.MachineLearning.UpdateDataSource
+import           Network.AWS.MachineLearning.UpdateEvaluation
+import           Network.AWS.MachineLearning.UpdateMLModel
+import           Network.AWS.MachineLearning.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -40,11 +40,11 @@ module Network.AWS.Glacier.GetDataRetrievalPolicy
     , gdrprsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input for GetDataRetrievalPolicy.
 --
@@ -59,7 +59,7 @@ newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
 
 -- | 'GetDataRetrievalPolicy' smart constructor.
 getDataRetrievalPolicy :: Text -> GetDataRetrievalPolicy
-getDataRetrievalPolicy pAccountId_ = 
+getDataRetrievalPolicy pAccountId_ =
     GetDataRetrievalPolicy'
     { _gdrpAccountId = pAccountId_
     }
@@ -114,7 +114,7 @@ data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
 
 -- | 'GetDataRetrievalPolicyResponse' smart constructor.
 getDataRetrievalPolicyResponse :: Int -> GetDataRetrievalPolicyResponse
-getDataRetrievalPolicyResponse pStatus_ = 
+getDataRetrievalPolicyResponse pStatus_ =
     GetDataRetrievalPolicyResponse'
     { _gdrprsPolicy = Nothing
     , _gdrprsStatus = pStatus_

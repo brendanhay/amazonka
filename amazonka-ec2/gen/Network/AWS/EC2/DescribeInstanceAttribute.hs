@@ -57,11 +57,11 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     , drsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceAttribute' smart constructor.
 --
@@ -73,14 +73,14 @@ import Network.AWS.Response
 --
 -- * 'diaAttribute'
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-    { _diaDryRun :: !(Maybe Bool)
+    { _diaDryRun     :: !(Maybe Bool)
     , _diaInstanceId :: !Text
-    , _diaAttribute :: !InstanceAttributeName
+    , _diaAttribute  :: !InstanceAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceAttribute' smart constructor.
 describeInstanceAttribute :: Text -> InstanceAttributeName -> DescribeInstanceAttribute
-describeInstanceAttribute pInstanceId_ pAttribute_ = 
+describeInstanceAttribute pInstanceId_ pAttribute_ =
     DescribeInstanceAttribute'
     { _diaDryRun = Nothing
     , _diaInstanceId = pInstanceId_
@@ -184,26 +184,26 @@ instance ToQuery DescribeInstanceAttribute where
 --
 -- * 'drsStatus'
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-    { _drsInstanceId :: !(Maybe Text)
-    , _drsGroups :: !(Maybe [GroupIdentifier])
-    , _drsSourceDestCheck :: !(Maybe AttributeBooleanValue)
-    , _drsDisableAPITermination :: !(Maybe AttributeBooleanValue)
-    , _drsRAMDiskId :: !(Maybe AttributeValue)
-    , _drsKernelId :: !(Maybe AttributeValue)
-    , _drsInstanceType :: !(Maybe AttributeValue)
-    , _drsRootDeviceName :: !(Maybe AttributeValue)
-    , _drsEBSOptimized :: !(Maybe AttributeBooleanValue)
-    , _drsUserData :: !(Maybe AttributeValue)
-    , _drsSRIOVNetSupport :: !(Maybe AttributeValue)
+    { _drsInstanceId                        :: !(Maybe Text)
+    , _drsGroups                            :: !(Maybe [GroupIdentifier])
+    , _drsSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , _drsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _drsRAMDiskId                         :: !(Maybe AttributeValue)
+    , _drsKernelId                          :: !(Maybe AttributeValue)
+    , _drsInstanceType                      :: !(Maybe AttributeValue)
+    , _drsRootDeviceName                    :: !(Maybe AttributeValue)
+    , _drsEBSOptimized                      :: !(Maybe AttributeBooleanValue)
+    , _drsUserData                          :: !(Maybe AttributeValue)
+    , _drsSRIOVNetSupport                   :: !(Maybe AttributeValue)
     , _drsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _drsProductCodes :: !(Maybe [ProductCode])
-    , _drsBlockDeviceMappings :: !(Maybe [InstanceBlockDeviceMapping])
-    , _drsStatus :: !Int
+    , _drsProductCodes                      :: !(Maybe [ProductCode])
+    , _drsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
+    , _drsStatus                            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
 describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse
-describeInstanceAttributeResponse pStatus_ = 
+describeInstanceAttributeResponse pStatus_ =
     DescribeInstanceAttributeResponse'
     { _drsInstanceId = Nothing
     , _drsGroups = Nothing

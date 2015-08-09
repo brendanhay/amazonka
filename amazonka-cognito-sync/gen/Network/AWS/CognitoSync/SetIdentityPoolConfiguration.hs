@@ -45,11 +45,11 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     , sipcrsStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the SetIdentityPoolConfiguration operation.
 --
@@ -64,13 +64,13 @@ import Network.AWS.Response
 -- * 'sipcIdentityPoolId'
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
     { _sipcCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcPushSync :: !(Maybe PushSync)
+    , _sipcPushSync       :: !(Maybe PushSync)
     , _sipcIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolConfiguration' smart constructor.
 setIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
-setIdentityPoolConfiguration pIdentityPoolId_ = 
+setIdentityPoolConfiguration pIdentityPoolId_ =
     SetIdentityPoolConfiguration'
     { _sipcCognitoStreams = Nothing
     , _sipcPushSync = Nothing
@@ -143,13 +143,13 @@ instance ToQuery SetIdentityPoolConfiguration where
 data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
     { _sipcrsIdentityPoolId :: !(Maybe Text)
     , _sipcrsCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcrsPushSync :: !(Maybe PushSync)
-    , _sipcrsStatus :: !Int
+    , _sipcrsPushSync       :: !(Maybe PushSync)
+    , _sipcrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
 setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
-setIdentityPoolConfigurationResponse pStatus_ = 
+setIdentityPoolConfigurationResponse pStatus_ =
     SetIdentityPoolConfigurationResponse'
     { _sipcrsIdentityPoolId = Nothing
     , _sipcrsCognitoStreams = Nothing

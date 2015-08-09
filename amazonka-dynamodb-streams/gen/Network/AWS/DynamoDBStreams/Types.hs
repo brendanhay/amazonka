@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.DynamoDBStreams.Types
     (
-    -- * Service Decription
+    -- * Service
       DynamoDBStreams
 
-    -- * Error Matchers
+    -- * Errors
     , _ExpiredIteratorException
     , _InternalServerError
     , _TrimmedDataAccessException
@@ -112,10 +112,10 @@ module Network.AWS.DynamoDBStreams.Types
     , srNewImage
     ) where
 
-import Network.AWS.DynamoDBStreams.Types.Product
-import Network.AWS.DynamoDBStreams.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.DynamoDBStreams.Types.Product
+import           Network.AWS.DynamoDBStreams.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-08-10@ of the Amazon DynamoDB Streams SDK.
 data DynamoDBStreams
@@ -124,7 +124,7 @@ instance AWSService DynamoDBStreams where
     type Sg DynamoDBStreams = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "DynamoDBStreams"
             , _svcPrefix = "streams.dynamodb"
@@ -135,7 +135,7 @@ instance AWSService DynamoDBStreams where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -143,7 +143,7 @@ instance AWSService DynamoDBStreams where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -175,12 +175,12 @@ _InternalServerError = _ServiceError . hasCode "InternalServerError"
 --     hour period and is trimmed. This causes the iterator to access a
 --     record that no longer exists.
 _TrimmedDataAccessException :: AsError a => Getting (First ServiceError) a ServiceError
-_TrimmedDataAccessException = 
+_TrimmedDataAccessException =
     _ServiceError . hasCode "TrimmedDataAccessException"
 
 -- | The operation tried to access a nonexistent stream.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException = 
+_ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | Your request rate is too high. The AWS SDKs for DynamoDB automatically

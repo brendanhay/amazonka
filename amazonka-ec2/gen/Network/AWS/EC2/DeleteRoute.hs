@@ -36,11 +36,11 @@ module Network.AWS.EC2.DeleteRoute
     , deleteRouteResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRoute' smart constructor.
 --
@@ -52,14 +52,14 @@ import Network.AWS.Response
 --
 -- * 'drDestinationCIdRBlock'
 data DeleteRoute = DeleteRoute'
-    { _drDryRun :: !(Maybe Bool)
-    , _drRouteTableId :: !Text
+    { _drDryRun               :: !(Maybe Bool)
+    , _drRouteTableId         :: !Text
     , _drDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRoute' smart constructor.
 deleteRoute :: Text -> Text -> DeleteRoute
-deleteRoute pRouteTableId_ pDestinationCIdRBlock_ = 
+deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
     DeleteRoute'
     { _drDryRun = Nothing
     , _drRouteTableId = pRouteTableId_
@@ -105,7 +105,7 @@ instance ToQuery DeleteRoute where
 
 -- | /See:/ 'deleteRouteResponse' smart constructor.
 data DeleteRouteResponse =
-    DeleteRouteResponse' 
+    DeleteRouteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRouteResponse' smart constructor.

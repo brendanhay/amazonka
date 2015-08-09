@@ -41,11 +41,11 @@ module Network.AWS.IAM.DeleteSAMLProvider
     , deleteSAMLProviderResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSAMLProvider' smart constructor.
 --
@@ -58,7 +58,7 @@ newtype DeleteSAMLProvider = DeleteSAMLProvider'
 
 -- | 'DeleteSAMLProvider' smart constructor.
 deleteSAMLProvider :: Text -> DeleteSAMLProvider
-deleteSAMLProvider pSAMLProviderARN_ = 
+deleteSAMLProvider pSAMLProviderARN_ =
     DeleteSAMLProvider'
     { _dsamlpSAMLProviderARN = pSAMLProviderARN_
     }
@@ -89,7 +89,7 @@ instance ToQuery DeleteSAMLProvider where
 
 -- | /See:/ 'deleteSAMLProviderResponse' smart constructor.
 data DeleteSAMLProviderResponse =
-    DeleteSAMLProviderResponse' 
+    DeleteSAMLProviderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSAMLProviderResponse' smart constructor.

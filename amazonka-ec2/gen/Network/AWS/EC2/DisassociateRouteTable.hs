@@ -41,11 +41,11 @@ module Network.AWS.EC2.DisassociateRouteTable
     , disassociateRouteTableResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disassociateRouteTable' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'drtAssociationId'
 data DisassociateRouteTable = DisassociateRouteTable'
-    { _drtDryRun :: !(Maybe Bool)
+    { _drtDryRun        :: !(Maybe Bool)
     , _drtAssociationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateRouteTable' smart constructor.
 disassociateRouteTable :: Text -> DisassociateRouteTable
-disassociateRouteTable pAssociationId_ = 
+disassociateRouteTable pAssociationId_ =
     DisassociateRouteTable'
     { _drtDryRun = Nothing
     , _drtAssociationId = pAssociationId_
@@ -104,7 +104,7 @@ instance ToQuery DisassociateRouteTable where
 
 -- | /See:/ 'disassociateRouteTableResponse' smart constructor.
 data DisassociateRouteTableResponse =
-    DisassociateRouteTableResponse' 
+    DisassociateRouteTableResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateRouteTableResponse' smart constructor.

@@ -44,11 +44,11 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     , putNotificationConfigurationResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putNotificationConfiguration' smart constructor.
 --
@@ -61,13 +61,13 @@ import Network.AWS.Response
 -- * 'pncNotificationTypes'
 data PutNotificationConfiguration = PutNotificationConfiguration'
     { _pncAutoScalingGroupName :: !Text
-    , _pncTopicARN :: !Text
-    , _pncNotificationTypes :: ![Text]
+    , _pncTopicARN             :: !Text
+    , _pncNotificationTypes    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutNotificationConfiguration' smart constructor.
 putNotificationConfiguration :: Text -> Text -> PutNotificationConfiguration
-putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ = 
+putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
     PutNotificationConfiguration'
     { _pncAutoScalingGroupName = pAutoScalingGroupName_
     , _pncTopicARN = pTopicARN_
@@ -117,7 +117,7 @@ instance ToQuery PutNotificationConfiguration where
 
 -- | /See:/ 'putNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse =
-    PutNotificationConfigurationResponse' 
+    PutNotificationConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutNotificationConfigurationResponse' smart constructor.

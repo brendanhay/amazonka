@@ -51,11 +51,11 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     , updateAccountPasswordPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateAccountPasswordPolicy' smart constructor.
 --
@@ -79,20 +79,20 @@ import Network.AWS.Response
 --
 -- * 'uappAllowUsersToChangePassword'
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-    { _uappRequireNumbers :: !(Maybe Bool)
-    , _uappMinimumPasswordLength :: !(Maybe Nat)
-    , _uappPasswordReusePrevention :: !(Maybe Nat)
+    { _uappRequireNumbers             :: !(Maybe Bool)
+    , _uappMinimumPasswordLength      :: !(Maybe Nat)
+    , _uappPasswordReusePrevention    :: !(Maybe Nat)
     , _uappRequireLowercaseCharacters :: !(Maybe Bool)
-    , _uappMaxPasswordAge :: !(Maybe Nat)
-    , _uappHardExpiry :: !(Maybe Bool)
-    , _uappRequireSymbols :: !(Maybe Bool)
+    , _uappMaxPasswordAge             :: !(Maybe Nat)
+    , _uappHardExpiry                 :: !(Maybe Bool)
+    , _uappRequireSymbols             :: !(Maybe Bool)
     , _uappRequireUppercaseCharacters :: !(Maybe Bool)
     , _uappAllowUsersToChangePassword :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccountPasswordPolicy' smart constructor.
 updateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
-updateAccountPasswordPolicy = 
+updateAccountPasswordPolicy =
     UpdateAccountPasswordPolicy'
     { _uappRequireNumbers = Nothing
     , _uappMinimumPasswordLength = Nothing
@@ -209,7 +209,7 @@ instance ToQuery UpdateAccountPasswordPolicy where
 
 -- | /See:/ 'updateAccountPasswordPolicyResponse' smart constructor.
 data UpdateAccountPasswordPolicyResponse =
-    UpdateAccountPasswordPolicyResponse' 
+    UpdateAccountPasswordPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccountPasswordPolicyResponse' smart constructor.

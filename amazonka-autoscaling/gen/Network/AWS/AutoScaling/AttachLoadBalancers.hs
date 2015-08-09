@@ -45,11 +45,11 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
     , albrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachLoadBalancers' smart constructor.
 --
@@ -60,12 +60,12 @@ import Network.AWS.Response
 -- * 'albLoadBalancerNames'
 data AttachLoadBalancers = AttachLoadBalancers'
     { _albAutoScalingGroupName :: !(Maybe Text)
-    , _albLoadBalancerNames :: !(Maybe [Text])
+    , _albLoadBalancerNames    :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancers' smart constructor.
 attachLoadBalancers :: AttachLoadBalancers
-attachLoadBalancers = 
+attachLoadBalancers =
     AttachLoadBalancers'
     { _albAutoScalingGroupName = Nothing
     , _albLoadBalancerNames = Nothing
@@ -116,7 +116,7 @@ newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
 attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse
-attachLoadBalancersResponse pStatus_ = 
+attachLoadBalancersResponse pStatus_ =
     AttachLoadBalancersResponse'
     { _albrsStatus = pStatus_
     }

@@ -38,11 +38,11 @@ module Network.AWS.CodePipeline.StartPipelineExecution
     , spersStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a start pipeline execution action.
 --
@@ -57,7 +57,7 @@ newtype StartPipelineExecution = StartPipelineExecution'
 
 -- | 'StartPipelineExecution' smart constructor.
 startPipelineExecution :: Text -> StartPipelineExecution
-startPipelineExecution pName_ = 
+startPipelineExecution pName_ =
     StartPipelineExecution'
     { _speName = pName_
     }
@@ -109,12 +109,12 @@ instance ToQuery StartPipelineExecution where
 -- * 'spersStatus'
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
     { _spersPipelineExecutionId :: !(Maybe Text)
-    , _spersStatus :: !Int
+    , _spersStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartPipelineExecutionResponse' smart constructor.
 startPipelineExecutionResponse :: Int -> StartPipelineExecutionResponse
-startPipelineExecutionResponse pStatus_ = 
+startPipelineExecutionResponse pStatus_ =
     StartPipelineExecutionResponse'
     { _spersPipelineExecutionId = Nothing
     , _spersStatus = pStatus_

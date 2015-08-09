@@ -37,15 +37,15 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , cslrsStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createStorageLocation' smart constructor.
 data CreateStorageLocation =
-    CreateStorageLocation' 
+    CreateStorageLocation'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorageLocation' smart constructor.
@@ -87,12 +87,12 @@ instance ToQuery CreateStorageLocation where
 -- * 'cslrsStatus'
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
     { _cslrsS3Bucket :: !(Maybe Text)
-    , _cslrsStatus :: !Int
+    , _cslrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorageLocationResponse' smart constructor.
 createStorageLocationResponse :: Int -> CreateStorageLocationResponse
-createStorageLocationResponse pStatus_ = 
+createStorageLocationResponse pStatus_ =
     CreateStorageLocationResponse'
     { _cslrsS3Bucket = Nothing
     , _cslrsStatus = pStatus_

@@ -45,11 +45,11 @@ module Network.AWS.OpsWorks.CreateUserProfile
     , cuprsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
 --
@@ -63,15 +63,15 @@ import Network.AWS.Response
 --
 -- * 'cupIAMUserARN'
 data CreateUserProfile = CreateUserProfile'
-    { _cupSSHUsername :: !(Maybe Text)
-    , _cupSSHPublicKey :: !(Maybe Text)
+    { _cupSSHUsername         :: !(Maybe Text)
+    , _cupSSHPublicKey        :: !(Maybe Text)
     , _cupAllowSelfManagement :: !(Maybe Bool)
-    , _cupIAMUserARN :: !Text
+    , _cupIAMUserARN          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserProfile' smart constructor.
 createUserProfile :: Text -> CreateUserProfile
-createUserProfile pIAMUserARN_ = 
+createUserProfile pIAMUserARN_ =
     CreateUserProfile'
     { _cupSSHUsername = Nothing
     , _cupSSHPublicKey = Nothing
@@ -146,12 +146,12 @@ instance ToQuery CreateUserProfile where
 -- * 'cuprsStatus'
 data CreateUserProfileResponse = CreateUserProfileResponse'
     { _cuprsIAMUserARN :: !(Maybe Text)
-    , _cuprsStatus :: !Int
+    , _cuprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserProfileResponse' smart constructor.
 createUserProfileResponse :: Int -> CreateUserProfileResponse
-createUserProfileResponse pStatus_ = 
+createUserProfileResponse pStatus_ =
     CreateUserProfileResponse'
     { _cuprsIAMUserARN = Nothing
     , _cuprsStatus = pStatus_

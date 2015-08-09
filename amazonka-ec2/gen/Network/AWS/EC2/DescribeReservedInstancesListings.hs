@@ -62,11 +62,11 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     , drilrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesListings' smart constructor.
 --
@@ -78,14 +78,14 @@ import Network.AWS.Response
 --
 -- * 'drilReservedInstancesListingId'
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
-    { _drilFilters :: !(Maybe [Filter])
-    , _drilReservedInstancesId :: !(Maybe Text)
+    { _drilFilters                    :: !(Maybe [Filter])
+    , _drilReservedInstancesId        :: !(Maybe Text)
     , _drilReservedInstancesListingId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesListings' smart constructor.
 describeReservedInstancesListings :: DescribeReservedInstancesListings
-describeReservedInstancesListings = 
+describeReservedInstancesListings =
     DescribeReservedInstancesListings'
     { _drilFilters = Nothing
     , _drilReservedInstancesId = Nothing
@@ -158,12 +158,12 @@ instance ToQuery DescribeReservedInstancesListings
 -- * 'drilrsStatus'
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _drilrsStatus :: !Int
+    , _drilrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
 describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse
-describeReservedInstancesListingsResponse pStatus_ = 
+describeReservedInstancesListingsResponse pStatus_ =
     DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings = Nothing
     , _drilrsStatus = pStatus_

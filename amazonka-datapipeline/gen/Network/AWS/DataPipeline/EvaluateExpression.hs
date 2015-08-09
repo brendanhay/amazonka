@@ -41,11 +41,11 @@ module Network.AWS.DataPipeline.EvaluateExpression
     , eersEvaluatedExpression
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for EvaluateExpression.
 --
@@ -60,13 +60,13 @@ import Network.AWS.Response
 -- * 'eeExpression'
 data EvaluateExpression = EvaluateExpression'
     { _eePipelineId :: !Text
-    , _eeObjectId :: !Text
+    , _eeObjectId   :: !Text
     , _eeExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EvaluateExpression' smart constructor.
 evaluateExpression :: Text -> Text -> Text -> EvaluateExpression
-evaluateExpression pPipelineId_ pObjectId_ pExpression_ = 
+evaluateExpression pPipelineId_ pObjectId_ pExpression_ =
     EvaluateExpression'
     { _eePipelineId = pPipelineId_
     , _eeObjectId = pObjectId_
@@ -129,13 +129,13 @@ instance ToQuery EvaluateExpression where
 --
 -- * 'eersEvaluatedExpression'
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-    { _eersStatus :: !Int
+    { _eersStatus              :: !Int
     , _eersEvaluatedExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
 evaluateExpressionResponse :: Int -> Text -> EvaluateExpressionResponse
-evaluateExpressionResponse pStatus_ pEvaluatedExpression_ = 
+evaluateExpressionResponse pStatus_ pEvaluatedExpression_ =
     EvaluateExpressionResponse'
     { _eersStatus = pStatus_
     , _eersEvaluatedExpression = pEvaluatedExpression_

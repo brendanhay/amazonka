@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudFormation.Types
     (
-    -- * Service Decription
+    -- * Service
       CloudFormation
 
-    -- * Error Matchers
+    -- * Errors
     , _InsufficientCapabilitiesException
     , _LimitExceededException
     , _AlreadyExistsException
@@ -161,10 +161,10 @@ module Network.AWS.CloudFormation.Types
     , tpDescription
     ) where
 
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.CloudFormation.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.CloudFormation.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-05-15@ of the Amazon CloudFormation SDK.
 data CloudFormation
@@ -173,7 +173,7 @@ instance AWSService CloudFormation where
     type Sg CloudFormation = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "CloudFormation"
             , _svcPrefix = "cloudformation"
@@ -184,7 +184,7 @@ instance AWSService CloudFormation where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -192,7 +192,7 @@ instance AWSService CloudFormation where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -203,15 +203,15 @@ instance AWSService CloudFormation where
 -- | The template contains resources with capabilities that were not
 -- specified in the Capabilities parameter.
 _InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) a ServiceError
-_InsufficientCapabilitiesException = 
+_InsufficientCapabilitiesException =
     _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"
 
 -- | Quota for the resource has already been reached.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = 
+_LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
 
 -- | Resource with the name requested already exists.
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_AlreadyExistsException = 
+_AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException"

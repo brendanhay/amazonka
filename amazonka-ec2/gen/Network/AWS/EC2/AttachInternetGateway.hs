@@ -39,11 +39,11 @@ module Network.AWS.EC2.AttachInternetGateway
     , attachInternetGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachInternetGateway' smart constructor.
 --
@@ -55,14 +55,14 @@ import Network.AWS.Response
 --
 -- * 'aigVPCId'
 data AttachInternetGateway = AttachInternetGateway'
-    { _aigDryRun :: !(Maybe Bool)
+    { _aigDryRun            :: !(Maybe Bool)
     , _aigInternetGatewayId :: !Text
-    , _aigVPCId :: !Text
+    , _aigVPCId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInternetGateway' smart constructor.
 attachInternetGateway :: Text -> Text -> AttachInternetGateway
-attachInternetGateway pInternetGatewayId_ pVPCId_ = 
+attachInternetGateway pInternetGatewayId_ pVPCId_ =
     AttachInternetGateway'
     { _aigDryRun = Nothing
     , _aigInternetGatewayId = pInternetGatewayId_
@@ -108,7 +108,7 @@ instance ToQuery AttachInternetGateway where
 
 -- | /See:/ 'attachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse =
-    AttachInternetGatewayResponse' 
+    AttachInternetGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInternetGatewayResponse' smart constructor.

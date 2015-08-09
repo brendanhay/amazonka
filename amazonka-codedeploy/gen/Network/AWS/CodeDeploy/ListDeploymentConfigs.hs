@@ -39,11 +39,11 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     , ldcrsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list deployment configurations operation.
 --
@@ -58,7 +58,7 @@ newtype ListDeploymentConfigs = ListDeploymentConfigs'
 
 -- | 'ListDeploymentConfigs' smart constructor.
 listDeploymentConfigs :: ListDeploymentConfigs
-listDeploymentConfigs = 
+listDeploymentConfigs =
     ListDeploymentConfigs'
     { _ldcNextToken = Nothing
     }
@@ -114,14 +114,14 @@ instance ToQuery ListDeploymentConfigs where
 --
 -- * 'ldcrsStatus'
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-    { _ldcrsNextToken :: !(Maybe Text)
+    { _ldcrsNextToken             :: !(Maybe Text)
     , _ldcrsDeploymentConfigsList :: !(Maybe [Text])
-    , _ldcrsStatus :: !Int
+    , _ldcrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
 listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse
-listDeploymentConfigsResponse pStatus_ = 
+listDeploymentConfigsResponse pStatus_ =
     ListDeploymentConfigsResponse'
     { _ldcrsNextToken = Nothing
     , _ldcrsDeploymentConfigsList = Nothing

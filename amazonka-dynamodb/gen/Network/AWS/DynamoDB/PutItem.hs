@@ -75,11 +75,11 @@ module Network.AWS.DynamoDB.PutItem
     , pirsStatus
     ) where
 
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /PutItem/ operation.
 --
@@ -107,21 +107,21 @@ import Network.AWS.Response
 --
 -- * 'piItem'
 data PutItem = PutItem'
-    { _piReturnValues :: !(Maybe ReturnValue)
-    , _piExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _piReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
-    , _piExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    { _piReturnValues                :: !(Maybe ReturnValue)
+    , _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
     , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _piConditionExpression :: !(Maybe Text)
-    , _piConditionalOperator :: !(Maybe ConditionalOperator)
-    , _piExpected :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _piTableName :: !Text
-    , _piItem :: !(Map Text AttributeValue)
+    , _piConditionExpression         :: !(Maybe Text)
+    , _piConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _piTableName                   :: !Text
+    , _piItem                        :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutItem' smart constructor.
 putItem :: Text -> PutItem
-putItem pTableName_ = 
+putItem pTableName_ =
     PutItem'
     { _piReturnValues = Nothing
     , _piExpressionAttributeNames = Nothing
@@ -577,15 +577,15 @@ instance ToQuery PutItem where
 --
 -- * 'pirsStatus'
 data PutItemResponse = PutItemResponse'
-    { _pirsConsumedCapacity :: !(Maybe ConsumedCapacity)
+    { _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _pirsAttributes :: !(Maybe (Map Text AttributeValue))
-    , _pirsStatus :: !Int
+    , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
+    , _pirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutItemResponse' smart constructor.
 putItemResponse :: Int -> PutItemResponse
-putItemResponse pStatus_ = 
+putItemResponse pStatus_ =
     PutItemResponse'
     { _pirsConsumedCapacity = Nothing
     , _pirsItemCollectionMetrics = Nothing

@@ -13,10 +13,10 @@
 --
 module Network.AWS.StorageGateway.Types
     (
-    -- * Service Decription
+    -- * Service
       StorageGateway
 
-    -- * Error Matchers
+    -- * Errors
     , _InvalidGatewayRequestException
     , _InternalServerError
 

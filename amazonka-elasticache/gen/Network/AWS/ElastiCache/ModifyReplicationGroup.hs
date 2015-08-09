@@ -53,11 +53,11 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , mrgrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyReplicationGroups/ action.
 --
@@ -97,27 +97,27 @@ import Network.AWS.Response
 --
 -- * 'mrgReplicationGroupId'
 data ModifyReplicationGroup = ModifyReplicationGroup'
-    { _mrgAutomaticFailoverEnabled :: !(Maybe Bool)
-    , _mrgEngineVersion :: !(Maybe Text)
-    , _mrgSnapshottingClusterId :: !(Maybe Text)
-    , _mrgSecurityGroupIds :: !(Maybe [Text])
-    , _mrgAutoMinorVersionUpgrade :: !(Maybe Bool)
+    { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
+    , _mrgEngineVersion               :: !(Maybe Text)
+    , _mrgSnapshottingClusterId       :: !(Maybe Text)
+    , _mrgSecurityGroupIds            :: !(Maybe [Text])
+    , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
     , _mrgReplicationGroupDescription :: !(Maybe Text)
-    , _mrgCacheParameterGroupName :: !(Maybe Text)
-    , _mrgSnapshotWindow :: !(Maybe Text)
-    , _mrgPrimaryClusterId :: !(Maybe Text)
-    , _mrgPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mrgSnapshotRetentionLimit :: !(Maybe Int)
-    , _mrgNotificationTopicStatus :: !(Maybe Text)
-    , _mrgApplyImmediately :: !(Maybe Bool)
-    , _mrgNotificationTopicARN :: !(Maybe Text)
-    , _mrgCacheSecurityGroupNames :: !(Maybe [Text])
-    , _mrgReplicationGroupId :: !Text
+    , _mrgCacheParameterGroupName     :: !(Maybe Text)
+    , _mrgSnapshotWindow              :: !(Maybe Text)
+    , _mrgPrimaryClusterId            :: !(Maybe Text)
+    , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
+    , _mrgNotificationTopicStatus     :: !(Maybe Text)
+    , _mrgApplyImmediately            :: !(Maybe Bool)
+    , _mrgNotificationTopicARN        :: !(Maybe Text)
+    , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
+    , _mrgReplicationGroupId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReplicationGroup' smart constructor.
 modifyReplicationGroup :: Text -> ModifyReplicationGroup
-modifyReplicationGroup pReplicationGroupId_ = 
+modifyReplicationGroup pReplicationGroupId_ =
     ModifyReplicationGroup'
     { _mrgAutomaticFailoverEnabled = Nothing
     , _mrgEngineVersion = Nothing
@@ -335,12 +335,12 @@ instance ToQuery ModifyReplicationGroup where
 -- * 'mrgrsStatus'
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _mrgrsStatus :: !Int
+    , _mrgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReplicationGroupResponse' smart constructor.
 modifyReplicationGroupResponse :: Int -> ModifyReplicationGroupResponse
-modifyReplicationGroupResponse pStatus_ = 
+modifyReplicationGroupResponse pStatus_ =
     ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup = Nothing
     , _mrgrsStatus = pStatus_

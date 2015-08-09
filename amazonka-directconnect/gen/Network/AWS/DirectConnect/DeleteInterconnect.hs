@@ -37,11 +37,11 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     , drsStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DeleteInterconnect operation.
 --
@@ -56,7 +56,7 @@ newtype DeleteInterconnect = DeleteInterconnect'
 
 -- | 'DeleteInterconnect' smart constructor.
 deleteInterconnect :: Text -> DeleteInterconnect
-deleteInterconnect pInterconnectId_ = 
+deleteInterconnect pInterconnectId_ =
     DeleteInterconnect'
     { _dInterconnectId = pInterconnectId_
     }
@@ -106,12 +106,12 @@ instance ToQuery DeleteInterconnect where
 -- * 'drsStatus'
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
     { _drsInterconnectState :: !(Maybe InterconnectState)
-    , _drsStatus :: !Int
+    , _drsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInterconnectResponse' smart constructor.
 deleteInterconnectResponse :: Int -> DeleteInterconnectResponse
-deleteInterconnectResponse pStatus_ = 
+deleteInterconnectResponse pStatus_ =
     DeleteInterconnectResponse'
     { _drsInterconnectState = Nothing
     , _drsStatus = pStatus_

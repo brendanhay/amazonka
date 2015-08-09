@@ -60,11 +60,11 @@ module Network.AWS.DynamoDB.UpdateTable
     , utrsStatus
     ) where
 
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an /UpdateTable/ operation.
 --
@@ -82,16 +82,16 @@ import Network.AWS.Response
 --
 -- * 'utTableName'
 data UpdateTable = UpdateTable'
-    { _utProvisionedThroughput :: !(Maybe ProvisionedThroughput)
-    , _utAttributeDefinitions :: !(Maybe [AttributeDefinition])
+    { _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
+    , _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
     , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
-    , _utStreamSpecification :: !(Maybe StreamSpecification)
-    , _utTableName :: !Text
+    , _utStreamSpecification         :: !(Maybe StreamSpecification)
+    , _utTableName                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTable' smart constructor.
 updateTable :: Text -> UpdateTable
-updateTable pTableName_ = 
+updateTable pTableName_ =
     UpdateTable'
     { _utProvisionedThroughput = Nothing
     , _utAttributeDefinitions = Nothing
@@ -184,12 +184,12 @@ instance ToQuery UpdateTable where
 -- * 'utrsStatus'
 data UpdateTableResponse = UpdateTableResponse'
     { _utrsTableDescription :: !(Maybe TableDescription)
-    , _utrsStatus :: !Int
+    , _utrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTableResponse' smart constructor.
 updateTableResponse :: Int -> UpdateTableResponse
-updateTableResponse pStatus_ = 
+updateTableResponse pStatus_ =
     UpdateTableResponse'
     { _utrsTableDescription = Nothing
     , _utrsStatus = pStatus_

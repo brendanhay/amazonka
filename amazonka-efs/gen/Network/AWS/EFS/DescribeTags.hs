@@ -47,11 +47,11 @@ module Network.AWS.EFS.DescribeTags
     , dtrsTags
     ) where
 
-import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EFS.Types
+import           Network.AWS.EFS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 --
@@ -63,14 +63,14 @@ import Network.AWS.Response
 --
 -- * 'dtFileSystemId'
 data DescribeTags = DescribeTags'
-    { _dtMaxItems :: !(Maybe Nat)
-    , _dtMarker :: !(Maybe Text)
+    { _dtMaxItems     :: !(Maybe Nat)
+    , _dtMarker       :: !(Maybe Text)
     , _dtFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: Text -> DescribeTags
-describeTags pFileSystemId_ = 
+describeTags pFileSystemId_ =
     DescribeTags'
     { _dtMaxItems = Nothing
     , _dtMarker = Nothing
@@ -129,15 +129,15 @@ instance ToQuery DescribeTags where
 --
 -- * 'dtrsTags'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsMarker :: !(Maybe Text)
+    { _dtrsMarker     :: !(Maybe Text)
     , _dtrsNextMarker :: !(Maybe Text)
-    , _dtrsStatus :: !Int
-    , _dtrsTags :: ![Tag]
+    , _dtrsStatus     :: !Int
+    , _dtrsTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus_ = 
+describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
     , _dtrsNextMarker = Nothing

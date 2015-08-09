@@ -46,11 +46,11 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     , dtbasrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTimeBasedAutoScaling' smart constructor.
 --
@@ -63,7 +63,7 @@ newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
 
 -- | 'DescribeTimeBasedAutoScaling' smart constructor.
 describeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling
-describeTimeBasedAutoScaling = 
+describeTimeBasedAutoScaling =
     DescribeTimeBasedAutoScaling'
     { _dtbasInstanceIds = mempty
     }
@@ -117,12 +117,12 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 -- * 'dtbasrsStatus'
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
     { _dtbasrsTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
-    , _dtbasrsStatus :: !Int
+    , _dtbasrsStatus                             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
 describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse
-describeTimeBasedAutoScalingResponse pStatus_ = 
+describeTimeBasedAutoScalingResponse pStatus_ =
     DescribeTimeBasedAutoScalingResponse'
     { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
     , _dtbasrsStatus = pStatus_

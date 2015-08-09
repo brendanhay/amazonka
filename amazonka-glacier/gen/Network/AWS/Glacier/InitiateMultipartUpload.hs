@@ -77,11 +77,11 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     , imursStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for initiating a multipart upload to an Amazon Glacier
 -- vault.
@@ -98,15 +98,15 @@ import Network.AWS.Response
 --
 -- * 'imuVaultName'
 data InitiateMultipartUpload = InitiateMultipartUpload'
-    { _imuPartSize :: !(Maybe Text)
+    { _imuPartSize           :: !(Maybe Text)
     , _imuArchiveDescription :: !(Maybe Text)
-    , _imuAccountId :: !Text
-    , _imuVaultName :: !Text
+    , _imuAccountId          :: !Text
+    , _imuVaultName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateMultipartUpload' smart constructor.
 initiateMultipartUpload :: Text -> Text -> InitiateMultipartUpload
-initiateMultipartUpload pAccountId_ pVaultName_ = 
+initiateMultipartUpload pAccountId_ pVaultName_ =
     InitiateMultipartUpload'
     { _imuPartSize = Nothing
     , _imuArchiveDescription = Nothing
@@ -186,12 +186,12 @@ instance ToQuery InitiateMultipartUpload where
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
     { _imursLocation :: !(Maybe Text)
     , _imursUploadId :: !(Maybe Text)
-    , _imursStatus :: !Int
+    , _imursStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateMultipartUploadResponse' smart constructor.
 initiateMultipartUploadResponse :: Int -> InitiateMultipartUploadResponse
-initiateMultipartUploadResponse pStatus_ = 
+initiateMultipartUploadResponse pStatus_ =
     InitiateMultipartUploadResponse'
     { _imursLocation = Nothing
     , _imursUploadId = Nothing

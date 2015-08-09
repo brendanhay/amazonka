@@ -18,8 +18,8 @@
 --
 module Network.AWS.CloudTrail.Types.Product where
 
-import Network.AWS.CloudTrail.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.CloudTrail.Types.Sum
+import           Network.AWS.Prelude
 
 -- | Contains information about an event that was returned by a lookup
 -- request. The result includes a representation of a CloudTrail event.
@@ -40,17 +40,17 @@ import Network.AWS.Prelude
 --
 -- * 'eEventId'
 data Event = Event'
-    { _eUsername :: !(Maybe Text)
-    , _eEventTime :: !(Maybe POSIX)
-    , _eResources :: !(Maybe [Resource])
+    { _eUsername        :: !(Maybe Text)
+    , _eEventTime       :: !(Maybe POSIX)
+    , _eResources       :: !(Maybe [Resource])
     , _eCloudTrailEvent :: !(Maybe Text)
-    , _eEventName :: !(Maybe Text)
-    , _eEventId :: !(Maybe Text)
+    , _eEventName       :: !(Maybe Text)
+    , _eEventId         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = 
+event =
     Event'
     { _eUsername = Nothing
     , _eEventTime = Nothing
@@ -106,13 +106,13 @@ instance FromJSON Event where
 --
 -- * 'laAttributeValue'
 data LookupAttribute = LookupAttribute'
-    { _laAttributeKey :: !LookupAttributeKey
+    { _laAttributeKey   :: !LookupAttributeKey
     , _laAttributeValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupAttribute' smart constructor.
 lookupAttribute :: LookupAttributeKey -> Text -> LookupAttribute
-lookupAttribute pAttributeKey_ pAttributeValue_ = 
+lookupAttribute pAttributeKey_ pAttributeValue_ =
     LookupAttribute'
     { _laAttributeKey = pAttributeKey_
     , _laAttributeValue = pAttributeValue_
@@ -148,7 +148,7 @@ data Resource = Resource'
 
 -- | 'Resource' smart constructor.
 resource :: Resource
-resource = 
+resource =
     Resource'
     { _rResourceType = Nothing
     , _rResourceName = Nothing
@@ -197,18 +197,18 @@ instance FromJSON Resource where
 --
 -- * 'tS3BucketName'
 data Trail = Trail'
-    { _tS3KeyPrefix :: !(Maybe Text)
-    , _tSNSTopicName :: !(Maybe Text)
-    , _tCloudWatchLogsLogGroupARN :: !(Maybe Text)
-    , _tName :: !(Maybe Text)
+    { _tS3KeyPrefix                :: !(Maybe Text)
+    , _tSNSTopicName               :: !(Maybe Text)
+    , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _tName                       :: !(Maybe Text)
     , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _tCloudWatchLogsRoleARN :: !(Maybe Text)
-    , _tS3BucketName :: !(Maybe Text)
+    , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _tS3BucketName               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Trail' smart constructor.
 trail :: Trail
-trail = 
+trail =
     Trail'
     { _tS3KeyPrefix = Nothing
     , _tSNSTopicName = Nothing

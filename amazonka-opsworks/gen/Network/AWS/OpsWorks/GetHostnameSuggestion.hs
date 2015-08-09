@@ -45,11 +45,11 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     , ghsrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getHostnameSuggestion' smart constructor.
 --
@@ -62,7 +62,7 @@ newtype GetHostnameSuggestion = GetHostnameSuggestion'
 
 -- | 'GetHostnameSuggestion' smart constructor.
 getHostnameSuggestion :: Text -> GetHostnameSuggestion
-getHostnameSuggestion pLayerId_ = 
+getHostnameSuggestion pLayerId_ =
     GetHostnameSuggestion'
     { _ghsLayerId = pLayerId_
     }
@@ -116,13 +116,13 @@ instance ToQuery GetHostnameSuggestion where
 -- * 'ghsrsStatus'
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
     { _ghsrsHostname :: !(Maybe Text)
-    , _ghsrsLayerId :: !(Maybe Text)
-    , _ghsrsStatus :: !Int
+    , _ghsrsLayerId  :: !(Maybe Text)
+    , _ghsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostnameSuggestionResponse' smart constructor.
 getHostnameSuggestionResponse :: Int -> GetHostnameSuggestionResponse
-getHostnameSuggestionResponse pStatus_ = 
+getHostnameSuggestionResponse pStatus_ =
     GetHostnameSuggestionResponse'
     { _ghsrsHostname = Nothing
     , _ghsrsLayerId = Nothing

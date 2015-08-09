@@ -46,11 +46,11 @@ module Network.AWS.DataPipeline.DescribePipelines
     , dprsPipelineDescriptionList
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribePipelines.
 --
@@ -65,7 +65,7 @@ newtype DescribePipelines = DescribePipelines'
 
 -- | 'DescribePipelines' smart constructor.
 describePipelines :: DescribePipelines
-describePipelines = 
+describePipelines =
     DescribePipelines'
     { _dpPipelineIds = mempty
     }
@@ -116,13 +116,13 @@ instance ToQuery DescribePipelines where
 --
 -- * 'dprsPipelineDescriptionList'
 data DescribePipelinesResponse = DescribePipelinesResponse'
-    { _dprsStatus :: !Int
+    { _dprsStatus                  :: !Int
     , _dprsPipelineDescriptionList :: ![PipelineDescription]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePipelinesResponse' smart constructor.
 describePipelinesResponse :: Int -> DescribePipelinesResponse
-describePipelinesResponse pStatus_ = 
+describePipelinesResponse pStatus_ =
     DescribePipelinesResponse'
     { _dprsStatus = pStatus_
     , _dprsPipelineDescriptionList = mempty

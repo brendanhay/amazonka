@@ -48,11 +48,11 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     , dtdrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterTaskDefinition' smart constructor.
 --
@@ -65,7 +65,7 @@ newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
 
 -- | 'DeregisterTaskDefinition' smart constructor.
 deregisterTaskDefinition :: Text -> DeregisterTaskDefinition
-deregisterTaskDefinition pTaskDefinition_ = 
+deregisterTaskDefinition pTaskDefinition_ =
     DeregisterTaskDefinition'
     { _derTaskDefinition = pTaskDefinition_
     }
@@ -116,12 +116,12 @@ instance ToQuery DeregisterTaskDefinition where
 -- * 'dtdrsStatus'
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
     { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _dtdrsStatus :: !Int
+    , _dtdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterTaskDefinitionResponse' smart constructor.
 deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse
-deregisterTaskDefinitionResponse pStatus_ = 
+deregisterTaskDefinitionResponse pStatus_ =
     DeregisterTaskDefinitionResponse'
     { _dtdrsTaskDefinition = Nothing
     , _dtdrsStatus = pStatus_

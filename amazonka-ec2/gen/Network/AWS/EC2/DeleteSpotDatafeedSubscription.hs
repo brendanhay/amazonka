@@ -36,11 +36,11 @@ module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     , deleteSpotDatafeedSubscriptionResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteSpotDatafeedSubscription.
 --
@@ -55,7 +55,7 @@ newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
 
 -- | 'DeleteSpotDatafeedSubscription' smart constructor.
 deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
-deleteSpotDatafeedSubscription = 
+deleteSpotDatafeedSubscription =
     DeleteSpotDatafeedSubscription'
     { _dsdssDryRun = Nothing
     }
@@ -93,10 +93,10 @@ instance ToQuery DeleteSpotDatafeedSubscription where
 
 -- | /See:/ 'deleteSpotDatafeedSubscriptionResponse' smart constructor.
 data DeleteSpotDatafeedSubscriptionResponse =
-    DeleteSpotDatafeedSubscriptionResponse' 
+    DeleteSpotDatafeedSubscriptionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSpotDatafeedSubscriptionResponse' smart constructor.
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
-deleteSpotDatafeedSubscriptionResponse = 
+deleteSpotDatafeedSubscriptionResponse =
     DeleteSpotDatafeedSubscriptionResponse'

@@ -37,11 +37,11 @@ module Network.AWS.DeviceFarm.GetRun
     , grrsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the get run operation.
 --
@@ -56,7 +56,7 @@ newtype GetRun = GetRun'
 
 -- | 'GetRun' smart constructor.
 getRun :: Text -> GetRun
-getRun pArn_ = 
+getRun pArn_ =
     GetRun'
     { _grArn = pArn_
     }
@@ -103,13 +103,13 @@ instance ToQuery GetRun where
 --
 -- * 'grrsStatus'
 data GetRunResponse = GetRunResponse'
-    { _grrsRun :: !(Maybe Run)
+    { _grrsRun    :: !(Maybe Run)
     , _grrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRunResponse' smart constructor.
 getRunResponse :: Int -> GetRunResponse
-getRunResponse pStatus_ = 
+getRunResponse pStatus_ =
     GetRunResponse'
     { _grrsRun = Nothing
     , _grrsStatus = pStatus_

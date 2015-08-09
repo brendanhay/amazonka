@@ -43,10 +43,10 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.RDS
     (
-    -- * Service Description
+    -- * Service
       RDS
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** CertificateNotFoundFault

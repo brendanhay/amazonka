@@ -37,11 +37,11 @@ module Network.AWS.ElasticTranscoder.ReadJob
     , rjrsJob
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ReadJobRequest@ structure.
 --
@@ -56,7 +56,7 @@ newtype ReadJob = ReadJob'
 
 -- | 'ReadJob' smart constructor.
 readJob :: Text -> ReadJob
-readJob pId_ = 
+readJob pId_ =
     ReadJob'
     { _rjId = pId_
     }
@@ -97,12 +97,12 @@ instance ToQuery ReadJob where
 -- * 'rjrsJob'
 data ReadJobResponse = ReadJobResponse'
     { _rjrsStatus :: !Int
-    , _rjrsJob :: !Job'
+    , _rjrsJob    :: !Job'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadJobResponse' smart constructor.
 readJobResponse :: Int -> Job' -> ReadJobResponse
-readJobResponse pStatus_ pJob_ = 
+readJobResponse pStatus_ pJob_ =
     ReadJobResponse'
     { _rjrsStatus = pStatus_
     , _rjrsJob = pJob_

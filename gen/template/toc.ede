@@ -10,10 +10,10 @@
 -- /See:/ <{{ referenceUrl }} AWS API Reference>
 module {{ moduleName }}
     (
-    -- * Service Description
+    -- * Service
       {{ serviceAbbrev }}
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
   {% for shape in shapes %}
     {% case shape.value.type %}

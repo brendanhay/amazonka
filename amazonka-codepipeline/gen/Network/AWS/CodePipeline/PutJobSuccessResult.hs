@@ -38,11 +38,11 @@ module Network.AWS.CodePipeline.PutJobSuccessResult
     , putJobSuccessResultResponse
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a put job success result action.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 -- * 'pjsrJobId'
 data PutJobSuccessResult = PutJobSuccessResult'
     { _pjsrContinuationToken :: !(Maybe Text)
-    , _pjsrExecutionDetails :: !(Maybe ExecutionDetails)
-    , _pjsrCurrentRevision :: !(Maybe CurrentRevision)
-    , _pjsrJobId :: !Text
+    , _pjsrExecutionDetails  :: !(Maybe ExecutionDetails)
+    , _pjsrCurrentRevision   :: !(Maybe CurrentRevision)
+    , _pjsrJobId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutJobSuccessResult' smart constructor.
 putJobSuccessResult :: Text -> PutJobSuccessResult
-putJobSuccessResult pJobId_ = 
+putJobSuccessResult pJobId_ =
     PutJobSuccessResult'
     { _pjsrContinuationToken = Nothing
     , _pjsrExecutionDetails = Nothing
@@ -127,7 +127,7 @@ instance ToQuery PutJobSuccessResult where
 
 -- | /See:/ 'putJobSuccessResultResponse' smart constructor.
 data PutJobSuccessResultResponse =
-    PutJobSuccessResultResponse' 
+    PutJobSuccessResultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutJobSuccessResultResponse' smart constructor.

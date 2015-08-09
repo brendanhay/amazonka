@@ -37,11 +37,11 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     , dlbarsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerAttributes' smart constructor.
 --
@@ -54,7 +54,7 @@ newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
 
 -- | 'DescribeLoadBalancerAttributes' smart constructor.
 describeLoadBalancerAttributes :: Text -> DescribeLoadBalancerAttributes
-describeLoadBalancerAttributes pLoadBalancerName_ = 
+describeLoadBalancerAttributes pLoadBalancerName_ =
     DescribeLoadBalancerAttributes'
     { _dlbaLoadBalancerName = pLoadBalancerName_
     }
@@ -101,12 +101,12 @@ instance ToQuery DescribeLoadBalancerAttributes where
 -- * 'dlbarsStatus'
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _dlbarsStatus :: !Int
+    , _dlbarsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
 describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse
-describeLoadBalancerAttributesResponse pStatus_ = 
+describeLoadBalancerAttributesResponse pStatus_ =
     DescribeLoadBalancerAttributesResponse'
     { _dlbarsLoadBalancerAttributes = Nothing
     , _dlbarsStatus = pStatus_

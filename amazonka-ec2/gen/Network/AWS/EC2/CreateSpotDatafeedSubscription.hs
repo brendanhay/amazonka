@@ -43,11 +43,11 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     , csdsrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for CreateSpotDatafeedSubscription.
 --
@@ -68,7 +68,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
 
 -- | 'CreateSpotDatafeedSubscription' smart constructor.
 createSpotDatafeedSubscription :: Text -> CreateSpotDatafeedSubscription
-createSpotDatafeedSubscription pBucket_ = 
+createSpotDatafeedSubscription pBucket_ =
     CreateSpotDatafeedSubscription'
     { _csdsPrefix = Nothing
     , _csdsDryRun = Nothing
@@ -130,12 +130,12 @@ instance ToQuery CreateSpotDatafeedSubscription where
 -- * 'csdsrsStatus'
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _csdsrsStatus :: !Int
+    , _csdsrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSpotDatafeedSubscriptionResponse' smart constructor.
 createSpotDatafeedSubscriptionResponse :: Int -> CreateSpotDatafeedSubscriptionResponse
-createSpotDatafeedSubscriptionResponse pStatus_ = 
+createSpotDatafeedSubscriptionResponse pStatus_ =
     CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription = Nothing
     , _csdsrsStatus = pStatus_

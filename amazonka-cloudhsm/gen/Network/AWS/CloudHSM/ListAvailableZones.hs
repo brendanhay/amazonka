@@ -35,17 +35,17 @@ module Network.AWS.CloudHSM.ListAvailableZones
     , lazrsStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the ListAvailableZones action.
 --
 -- /See:/ 'listAvailableZones' smart constructor.
 data ListAvailableZones =
-    ListAvailableZones' 
+    ListAvailableZones'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAvailableZones' smart constructor.
@@ -96,7 +96,7 @@ data ListAvailableZonesResponse = ListAvailableZonesResponse'
 
 -- | 'ListAvailableZonesResponse' smart constructor.
 listAvailableZonesResponse :: Int -> ListAvailableZonesResponse
-listAvailableZonesResponse pStatus_ = 
+listAvailableZonesResponse pStatus_ =
     ListAvailableZonesResponse'
     { _lazrsAZList = Nothing
     , _lazrsStatus = pStatus_

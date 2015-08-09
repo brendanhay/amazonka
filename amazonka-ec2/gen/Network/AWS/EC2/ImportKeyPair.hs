@@ -48,11 +48,11 @@ module Network.AWS.EC2.ImportKeyPair
     , ikprsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'importKeyPair' smart constructor.
 --
@@ -64,14 +64,14 @@ import Network.AWS.Response
 --
 -- * 'ikpPublicKeyMaterial'
 data ImportKeyPair = ImportKeyPair'
-    { _ikpDryRun :: !(Maybe Bool)
-    , _ikpKeyName :: !Text
+    { _ikpDryRun            :: !(Maybe Bool)
+    , _ikpKeyName           :: !Text
     , _ikpPublicKeyMaterial :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportKeyPair' smart constructor.
 importKeyPair :: Text -> ByteString -> ImportKeyPair
-importKeyPair pKeyName_ pPublicKeyMaterial_ = 
+importKeyPair pKeyName_ pPublicKeyMaterial_ =
     ImportKeyPair'
     { _ikpDryRun = Nothing
     , _ikpKeyName = pKeyName_
@@ -130,13 +130,13 @@ instance ToQuery ImportKeyPair where
 -- * 'ikprsStatus'
 data ImportKeyPairResponse = ImportKeyPairResponse'
     { _ikprsKeyFingerprint :: !(Maybe Text)
-    , _ikprsKeyName :: !(Maybe Text)
-    , _ikprsStatus :: !Int
+    , _ikprsKeyName        :: !(Maybe Text)
+    , _ikprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportKeyPairResponse' smart constructor.
 importKeyPairResponse :: Int -> ImportKeyPairResponse
-importKeyPairResponse pStatus_ = 
+importKeyPairResponse pStatus_ =
     ImportKeyPairResponse'
     { _ikprsKeyFingerprint = Nothing
     , _ikprsKeyName = Nothing

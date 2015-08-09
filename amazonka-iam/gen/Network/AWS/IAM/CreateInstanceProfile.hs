@@ -45,11 +45,11 @@ module Network.AWS.IAM.CreateInstanceProfile
     , ciprsInstanceProfile
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createInstanceProfile' smart constructor.
 --
@@ -59,13 +59,13 @@ import Network.AWS.Response
 --
 -- * 'cipInstanceProfileName'
 data CreateInstanceProfile = CreateInstanceProfile'
-    { _cipPath :: !(Maybe Text)
+    { _cipPath                :: !(Maybe Text)
     , _cipInstanceProfileName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceProfile' smart constructor.
 createInstanceProfile :: Text -> CreateInstanceProfile
-createInstanceProfile pInstanceProfileName_ = 
+createInstanceProfile pInstanceProfileName_ =
     CreateInstanceProfile'
     { _cipPath = Nothing
     , _cipInstanceProfileName = pInstanceProfileName_
@@ -119,13 +119,13 @@ instance ToQuery CreateInstanceProfile where
 --
 -- * 'ciprsInstanceProfile'
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-    { _ciprsStatus :: !Int
+    { _ciprsStatus          :: !Int
     , _ciprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
 createInstanceProfileResponse :: Int -> InstanceProfile -> CreateInstanceProfileResponse
-createInstanceProfileResponse pStatus_ pInstanceProfile_ = 
+createInstanceProfileResponse pStatus_ pInstanceProfile_ =
     CreateInstanceProfileResponse'
     { _ciprsStatus = pStatus_
     , _ciprsInstanceProfile = pInstanceProfile_

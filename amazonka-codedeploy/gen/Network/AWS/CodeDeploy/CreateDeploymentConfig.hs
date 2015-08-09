@@ -38,11 +38,11 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     , cdcrsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a create deployment configuration operation.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'cdcDeploymentConfigName'
 data CreateDeploymentConfig = CreateDeploymentConfig'
-    { _cdcMinimumHealthyHosts :: !(Maybe MinimumHealthyHosts)
+    { _cdcMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
     , _cdcDeploymentConfigName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentConfig' smart constructor.
 createDeploymentConfig :: Text -> CreateDeploymentConfig
-createDeploymentConfig pDeploymentConfigName_ = 
+createDeploymentConfig pDeploymentConfigName_ =
     CreateDeploymentConfig'
     { _cdcMinimumHealthyHosts = Nothing
     , _cdcDeploymentConfigName = pDeploymentConfigName_
@@ -135,12 +135,12 @@ instance ToQuery CreateDeploymentConfig where
 -- * 'cdcrsStatus'
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
     { _cdcrsDeploymentConfigId :: !(Maybe Text)
-    , _cdcrsStatus :: !Int
+    , _cdcrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
 createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse
-createDeploymentConfigResponse pStatus_ = 
+createDeploymentConfigResponse pStatus_ =
     CreateDeploymentConfigResponse'
     { _cdcrsDeploymentConfigId = Nothing
     , _cdcrsStatus = pStatus_

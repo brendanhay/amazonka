@@ -44,11 +44,11 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     , asgtlbrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'applySecurityGroupsToLoadBalancer' smart constructor.
 --
@@ -59,12 +59,12 @@ import Network.AWS.Response
 -- * 'asgtlbSecurityGroups'
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
     { _asgtlbLoadBalancerName :: !Text
-    , _asgtlbSecurityGroups :: ![Text]
+    , _asgtlbSecurityGroups   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
 applySecurityGroupsToLoadBalancer :: Text -> ApplySecurityGroupsToLoadBalancer
-applySecurityGroupsToLoadBalancer pLoadBalancerName_ = 
+applySecurityGroupsToLoadBalancer pLoadBalancerName_ =
     ApplySecurityGroupsToLoadBalancer'
     { _asgtlbLoadBalancerName = pLoadBalancerName_
     , _asgtlbSecurityGroups = mempty
@@ -122,12 +122,12 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 -- * 'asgtlbrsStatus'
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups :: !(Maybe [Text])
-    , _asgtlbrsStatus :: !Int
+    , _asgtlbrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse
-applySecurityGroupsToLoadBalancerResponse pStatus_ = 
+applySecurityGroupsToLoadBalancerResponse pStatus_ =
     ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups = Nothing
     , _asgtlbrsStatus = pStatus_

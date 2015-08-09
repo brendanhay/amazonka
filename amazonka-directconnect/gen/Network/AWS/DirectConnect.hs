@@ -36,10 +36,10 @@
 -- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DirectConnect
     (
-    -- * Service Description
+    -- * Service
       DirectConnect
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** DirectConnectClientException
@@ -54,61 +54,61 @@ module Network.AWS.DirectConnect
     -- * Operations
     -- $operations
 
-    -- ** DescribeInterconnects 
+    -- ** DescribeInterconnects
     , module Network.AWS.DirectConnect.DescribeInterconnects
 
-    -- ** DeleteConnection 
+    -- ** DeleteConnection
     , module Network.AWS.DirectConnect.DeleteConnection
 
-    -- ** CreateConnection 
+    -- ** CreateConnection
     , module Network.AWS.DirectConnect.CreateConnection
 
-    -- ** DescribeConnections 
+    -- ** DescribeConnections
     , module Network.AWS.DirectConnect.DescribeConnections
 
-    -- ** DeleteInterconnect 
+    -- ** DeleteInterconnect
     , module Network.AWS.DirectConnect.DeleteInterconnect
 
-    -- ** ConfirmPrivateVirtualInterface 
+    -- ** ConfirmPrivateVirtualInterface
     , module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 
-    -- ** DescribeConnectionsOnInterconnect 
+    -- ** DescribeConnectionsOnInterconnect
     , module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 
-    -- ** DescribeLocations 
+    -- ** DescribeLocations
     , module Network.AWS.DirectConnect.DescribeLocations
 
-    -- ** CreatePublicVirtualInterface 
+    -- ** CreatePublicVirtualInterface
     , module Network.AWS.DirectConnect.CreatePublicVirtualInterface
 
-    -- ** AllocatePrivateVirtualInterface 
+    -- ** AllocatePrivateVirtualInterface
     , module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
 
-    -- ** ConfirmConnection 
+    -- ** ConfirmConnection
     , module Network.AWS.DirectConnect.ConfirmConnection
 
-    -- ** DescribeVirtualGateways 
+    -- ** DescribeVirtualGateways
     , module Network.AWS.DirectConnect.DescribeVirtualGateways
 
-    -- ** ConfirmPublicVirtualInterface 
+    -- ** ConfirmPublicVirtualInterface
     , module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 
-    -- ** DescribeVirtualInterfaces 
+    -- ** DescribeVirtualInterfaces
     , module Network.AWS.DirectConnect.DescribeVirtualInterfaces
 
-    -- ** CreatePrivateVirtualInterface 
+    -- ** CreatePrivateVirtualInterface
     , module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 
-    -- ** DeleteVirtualInterface 
+    -- ** DeleteVirtualInterface
     , module Network.AWS.DirectConnect.DeleteVirtualInterface
 
-    -- ** AllocatePublicVirtualInterface 
+    -- ** AllocatePublicVirtualInterface
     , module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 
-    -- ** AllocateConnectionOnInterconnect 
+    -- ** AllocateConnectionOnInterconnect
     , module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 
-    -- ** CreateInterconnect 
+    -- ** CreateInterconnect
     , module Network.AWS.DirectConnect.CreateInterconnect
 
     -- * Types
@@ -230,27 +230,27 @@ module Network.AWS.DirectConnect
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
-import Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
-import Network.AWS.DirectConnect.AllocatePublicVirtualInterface
-import Network.AWS.DirectConnect.ConfirmConnection
-import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
-import Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
-import Network.AWS.DirectConnect.CreateConnection
-import Network.AWS.DirectConnect.CreateInterconnect
-import Network.AWS.DirectConnect.CreatePrivateVirtualInterface
-import Network.AWS.DirectConnect.CreatePublicVirtualInterface
-import Network.AWS.DirectConnect.DeleteConnection
-import Network.AWS.DirectConnect.DeleteInterconnect
-import Network.AWS.DirectConnect.DeleteVirtualInterface
-import Network.AWS.DirectConnect.DescribeConnections
-import Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
-import Network.AWS.DirectConnect.DescribeInterconnects
-import Network.AWS.DirectConnect.DescribeLocations
-import Network.AWS.DirectConnect.DescribeVirtualGateways
-import Network.AWS.DirectConnect.DescribeVirtualInterfaces
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Waiters
+import           Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
+import           Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
+import           Network.AWS.DirectConnect.AllocatePublicVirtualInterface
+import           Network.AWS.DirectConnect.ConfirmConnection
+import           Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
+import           Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
+import           Network.AWS.DirectConnect.CreateConnection
+import           Network.AWS.DirectConnect.CreateInterconnect
+import           Network.AWS.DirectConnect.CreatePrivateVirtualInterface
+import           Network.AWS.DirectConnect.CreatePublicVirtualInterface
+import           Network.AWS.DirectConnect.DeleteConnection
+import           Network.AWS.DirectConnect.DeleteInterconnect
+import           Network.AWS.DirectConnect.DeleteVirtualInterface
+import           Network.AWS.DirectConnect.DescribeConnections
+import           Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
+import           Network.AWS.DirectConnect.DescribeInterconnects
+import           Network.AWS.DirectConnect.DescribeLocations
+import           Network.AWS.DirectConnect.DescribeVirtualGateways
+import           Network.AWS.DirectConnect.DescribeVirtualInterfaces
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

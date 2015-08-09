@@ -38,11 +38,11 @@ module Network.AWS.EMR.DescribeStep
     , dsrsStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which step to describe.
 --
@@ -55,12 +55,12 @@ import Network.AWS.Response
 -- * 'dsStepId'
 data DescribeStep = DescribeStep'
     { _dsClusterId :: !Text
-    , _dsStepId :: !Text
+    , _dsStepId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStep' smart constructor.
 describeStep :: Text -> Text -> DescribeStep
-describeStep pClusterId_ pStepId_ = 
+describeStep pClusterId_ pStepId_ =
     DescribeStep'
     { _dsClusterId = pClusterId_
     , _dsStepId = pStepId_
@@ -114,13 +114,13 @@ instance ToQuery DescribeStep where
 --
 -- * 'dsrsStatus'
 data DescribeStepResponse = DescribeStepResponse'
-    { _dsrsStep :: !(Maybe Step)
+    { _dsrsStep   :: !(Maybe Step)
     , _dsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStepResponse' smart constructor.
 describeStepResponse :: Int -> DescribeStepResponse
-describeStepResponse pStatus_ = 
+describeStepResponse pStatus_ =
     DescribeStepResponse'
     { _dsrsStep = Nothing
     , _dsrsStatus = pStatus_

@@ -36,11 +36,11 @@ module Network.AWS.CodePipeline.PutJobFailureResult
     , putJobFailureResultResponse
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a put job failure result action.
 --
@@ -52,13 +52,13 @@ import Network.AWS.Response
 --
 -- * 'pjfrFailureDetails'
 data PutJobFailureResult = PutJobFailureResult'
-    { _pjfrJobId :: !Text
+    { _pjfrJobId          :: !Text
     , _pjfrFailureDetails :: !FailureDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutJobFailureResult' smart constructor.
 putJobFailureResult :: Text -> FailureDetails -> PutJobFailureResult
-putJobFailureResult pJobId_ pFailureDetails_ = 
+putJobFailureResult pJobId_ pFailureDetails_ =
     PutJobFailureResult'
     { _pjfrJobId = pJobId_
     , _pjfrFailureDetails = pFailureDetails_
@@ -104,7 +104,7 @@ instance ToQuery PutJobFailureResult where
 
 -- | /See:/ 'putJobFailureResultResponse' smart constructor.
 data PutJobFailureResultResponse =
-    PutJobFailureResultResponse' 
+    PutJobFailureResultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutJobFailureResultResponse' smart constructor.

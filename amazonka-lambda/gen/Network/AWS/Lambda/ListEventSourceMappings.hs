@@ -50,12 +50,12 @@ module Network.AWS.Lambda.ListEventSourceMappings
     , lesmrsStatus
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listEventSourceMappings' smart constructor.
 --
@@ -70,14 +70,14 @@ import Network.AWS.Response
 -- * 'lesmFunctionName'
 data ListEventSourceMappings = ListEventSourceMappings'
     { _lesmEventSourceARN :: !(Maybe Text)
-    , _lesmMaxItems :: !(Maybe Nat)
-    , _lesmMarker :: !(Maybe Text)
-    , _lesmFunctionName :: !(Maybe Text)
+    , _lesmMaxItems       :: !(Maybe Nat)
+    , _lesmMarker         :: !(Maybe Text)
+    , _lesmFunctionName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEventSourceMappings' smart constructor.
 listEventSourceMappings :: ListEventSourceMappings
-listEventSourceMappings = 
+listEventSourceMappings =
     ListEventSourceMappings'
     { _lesmEventSourceARN = Nothing
     , _lesmMaxItems = Nothing
@@ -160,13 +160,13 @@ instance ToQuery ListEventSourceMappings where
 -- * 'lesmrsStatus'
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
     { _lesmrsEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
-    , _lesmrsNextMarker :: !(Maybe Text)
-    , _lesmrsStatus :: !Int
+    , _lesmrsNextMarker          :: !(Maybe Text)
+    , _lesmrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
 listEventSourceMappingsResponse :: Int -> ListEventSourceMappingsResponse
-listEventSourceMappingsResponse pStatus_ = 
+listEventSourceMappingsResponse pStatus_ =
     ListEventSourceMappingsResponse'
     { _lesmrsEventSourceMappings = Nothing
     , _lesmrsNextMarker = Nothing

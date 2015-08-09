@@ -35,15 +35,15 @@ module Network.AWS.CloudSearch.ListDomainNames
     , ldnrsStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listDomainNames' smart constructor.
 data ListDomainNames =
-    ListDomainNames' 
+    ListDomainNames'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainNames' smart constructor.
@@ -87,12 +87,12 @@ instance ToQuery ListDomainNames where
 -- * 'ldnrsStatus'
 data ListDomainNamesResponse = ListDomainNamesResponse'
     { _ldnrsDomainNames :: !(Maybe (Map Text Text))
-    , _ldnrsStatus :: !Int
+    , _ldnrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: Int -> ListDomainNamesResponse
-listDomainNamesResponse pStatus_ = 
+listDomainNamesResponse pStatus_ =
     ListDomainNamesResponse'
     { _ldnrsDomainNames = Nothing
     , _ldnrsStatus = pStatus_

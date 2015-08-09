@@ -45,12 +45,12 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     , drcnorsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeReservedCacheNodesOfferings/ action.
 --
@@ -72,18 +72,18 @@ import Network.AWS.Response
 --
 -- * 'drcnoReservedCacheNodesOfferingId'
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
-    { _drcnoCacheNodeType :: !(Maybe Text)
-    , _drcnoProductDescription :: !(Maybe Text)
-    , _drcnoMaxRecords :: !(Maybe Int)
-    , _drcnoMarker :: !(Maybe Text)
-    , _drcnoOfferingType :: !(Maybe Text)
-    , _drcnoDuration :: !(Maybe Text)
+    { _drcnoCacheNodeType                :: !(Maybe Text)
+    , _drcnoProductDescription           :: !(Maybe Text)
+    , _drcnoMaxRecords                   :: !(Maybe Int)
+    , _drcnoMarker                       :: !(Maybe Text)
+    , _drcnoOfferingType                 :: !(Maybe Text)
+    , _drcnoDuration                     :: !(Maybe Text)
     , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedCacheNodesOfferings' smart constructor.
 describeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings
-describeReservedCacheNodesOfferings = 
+describeReservedCacheNodesOfferings =
     DescribeReservedCacheNodesOfferings'
     { _drcnoCacheNodeType = Nothing
     , _drcnoProductDescription = Nothing
@@ -237,14 +237,14 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 --
 -- * 'drcnorsStatus'
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
-    { _drcnorsMarker :: !(Maybe Text)
+    { _drcnorsMarker                      :: !(Maybe Text)
     , _drcnorsReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
-    , _drcnorsStatus :: !Int
+    , _drcnorsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
 describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse
-describeReservedCacheNodesOfferingsResponse pStatus_ = 
+describeReservedCacheNodesOfferingsResponse pStatus_ =
     DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorsMarker = Nothing
     , _drcnorsReservedCacheNodesOfferings = Nothing

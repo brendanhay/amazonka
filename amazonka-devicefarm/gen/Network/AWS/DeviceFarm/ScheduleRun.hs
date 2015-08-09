@@ -42,11 +42,11 @@ module Network.AWS.DeviceFarm.ScheduleRun
     , srrsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the schedule run operation.
 --
@@ -66,17 +66,17 @@ import Network.AWS.Response
 --
 -- * 'srTest'
 data ScheduleRun = ScheduleRun'
-    { _srName :: !(Maybe Text)
+    { _srName          :: !(Maybe Text)
     , _srConfiguration :: !(Maybe ScheduleRunConfiguration)
-    , _srProjectARN :: !Text
-    , _srAppARN :: !Text
+    , _srProjectARN    :: !Text
+    , _srAppARN        :: !Text
     , _srDevicePoolARN :: !Text
-    , _srTest :: !ScheduleRunTest
+    , _srTest          :: !ScheduleRunTest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScheduleRun' smart constructor.
 scheduleRun :: Text -> Text -> Text -> ScheduleRunTest -> ScheduleRun
-scheduleRun pProjectARN_ pAppARN_ pDevicePoolARN_ pTest_ = 
+scheduleRun pProjectARN_ pAppARN_ pDevicePoolARN_ pTest_ =
     ScheduleRun'
     { _srName = Nothing
     , _srConfiguration = Nothing
@@ -154,13 +154,13 @@ instance ToQuery ScheduleRun where
 --
 -- * 'srrsStatus'
 data ScheduleRunResponse = ScheduleRunResponse'
-    { _srrsRun :: !(Maybe Run)
+    { _srrsRun    :: !(Maybe Run)
     , _srrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScheduleRunResponse' smart constructor.
 scheduleRunResponse :: Int -> ScheduleRunResponse
-scheduleRunResponse pStatus_ = 
+scheduleRunResponse pStatus_ =
     ScheduleRunResponse'
     { _srrsRun = Nothing
     , _srrsStatus = pStatus_

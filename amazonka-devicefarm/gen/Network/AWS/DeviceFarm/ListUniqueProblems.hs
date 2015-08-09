@@ -39,11 +39,11 @@ module Network.AWS.DeviceFarm.ListUniqueProblems
     , luprsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the list unique problems operation.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'lupArn'
 data ListUniqueProblems = ListUniqueProblems'
     { _lupNextToken :: !(Maybe Text)
-    , _lupArn :: !Text
+    , _lupArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUniqueProblems' smart constructor.
 listUniqueProblems :: Text -> ListUniqueProblems
-listUniqueProblems pArn_ = 
+listUniqueProblems pArn_ =
     ListUniqueProblems'
     { _lupNextToken = Nothing
     , _lupArn = pArn_
@@ -123,14 +123,14 @@ instance ToQuery ListUniqueProblems where
 --
 -- * 'luprsStatus'
 data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
-    { _luprsNextToken :: !(Maybe Text)
+    { _luprsNextToken      :: !(Maybe Text)
     , _luprsUniqueProblems :: !(Maybe (Map ExecutionResult [UniqueProblem]))
-    , _luprsStatus :: !Int
+    , _luprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUniqueProblemsResponse' smart constructor.
 listUniqueProblemsResponse :: Int -> ListUniqueProblemsResponse
-listUniqueProblemsResponse pStatus_ = 
+listUniqueProblemsResponse pStatus_ =
     ListUniqueProblemsResponse'
     { _luprsNextToken = Nothing
     , _luprsUniqueProblems = Nothing

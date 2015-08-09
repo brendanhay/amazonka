@@ -36,11 +36,11 @@ module Network.AWS.EC2.DeleteKeyPair
     , deleteKeyPairResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteKeyPair' smart constructor.
 --
@@ -50,13 +50,13 @@ import Network.AWS.Response
 --
 -- * 'dkpKeyName'
 data DeleteKeyPair = DeleteKeyPair'
-    { _dkpDryRun :: !(Maybe Bool)
+    { _dkpDryRun  :: !(Maybe Bool)
     , _dkpKeyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteKeyPair' smart constructor.
 deleteKeyPair :: Text -> DeleteKeyPair
-deleteKeyPair pKeyName_ = 
+deleteKeyPair pKeyName_ =
     DeleteKeyPair'
     { _dkpDryRun = Nothing
     , _dkpKeyName = pKeyName_
@@ -94,7 +94,7 @@ instance ToQuery DeleteKeyPair where
 
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse =
-    DeleteKeyPairResponse' 
+    DeleteKeyPairResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteKeyPairResponse' smart constructor.

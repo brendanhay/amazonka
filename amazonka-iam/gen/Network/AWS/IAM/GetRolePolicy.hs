@@ -53,11 +53,11 @@ module Network.AWS.IAM.GetRolePolicy
     , grprsPolicyDocument
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getRolePolicy' smart constructor.
 --
@@ -67,13 +67,13 @@ import Network.AWS.Response
 --
 -- * 'grpPolicyName'
 data GetRolePolicy = GetRolePolicy'
-    { _grpRoleName :: !Text
+    { _grpRoleName   :: !Text
     , _grpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRolePolicy' smart constructor.
 getRolePolicy :: Text -> Text -> GetRolePolicy
-getRolePolicy pRoleName_ pPolicyName_ = 
+getRolePolicy pRoleName_ pPolicyName_ =
     GetRolePolicy'
     { _grpRoleName = pRoleName_
     , _grpPolicyName = pPolicyName_
@@ -127,15 +127,15 @@ instance ToQuery GetRolePolicy where
 --
 -- * 'grprsPolicyDocument'
 data GetRolePolicyResponse = GetRolePolicyResponse'
-    { _grprsStatus :: !Int
-    , _grprsRoleName :: !Text
-    , _grprsPolicyName :: !Text
+    { _grprsStatus         :: !Int
+    , _grprsRoleName       :: !Text
+    , _grprsPolicyName     :: !Text
     , _grprsPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRolePolicyResponse' smart constructor.
 getRolePolicyResponse :: Int -> Text -> Text -> Text -> GetRolePolicyResponse
-getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ = 
+getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
     GetRolePolicyResponse'
     { _grprsStatus = pStatus_
     , _grprsRoleName = pRoleName_

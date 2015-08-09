@@ -56,11 +56,11 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     , ppdrsErrored
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for PutPipelineDefinition.
 --
@@ -77,14 +77,14 @@ import Network.AWS.Response
 -- * 'ppdPipelineObjects'
 data PutPipelineDefinition = PutPipelineDefinition'
     { _ppdParameterObjects :: !(Maybe [ParameterObject])
-    , _ppdParameterValues :: !(Maybe [ParameterValue])
-    , _ppdPipelineId :: !Text
-    , _ppdPipelineObjects :: ![PipelineObject]
+    , _ppdParameterValues  :: !(Maybe [ParameterValue])
+    , _ppdPipelineId       :: !Text
+    , _ppdPipelineObjects  :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutPipelineDefinition' smart constructor.
 putPipelineDefinition :: Text -> PutPipelineDefinition
-putPipelineDefinition pPipelineId_ = 
+putPipelineDefinition pPipelineId_ =
     PutPipelineDefinition'
     { _ppdParameterObjects = Nothing
     , _ppdParameterValues = Nothing
@@ -160,15 +160,15 @@ instance ToQuery PutPipelineDefinition where
 --
 -- * 'ppdrsErrored'
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-    { _ppdrsValidationErrors :: !(Maybe [ValidationError])
+    { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
     , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
-    , _ppdrsStatus :: !Int
-    , _ppdrsErrored :: !Bool
+    , _ppdrsStatus             :: !Int
+    , _ppdrsErrored            :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
 putPipelineDefinitionResponse :: Int -> Bool -> PutPipelineDefinitionResponse
-putPipelineDefinitionResponse pStatus_ pErrored_ = 
+putPipelineDefinitionResponse pStatus_ pErrored_ =
     PutPipelineDefinitionResponse'
     { _ppdrsValidationErrors = Nothing
     , _ppdrsValidationWarnings = Nothing

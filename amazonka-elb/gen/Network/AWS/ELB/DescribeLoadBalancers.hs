@@ -41,12 +41,12 @@ module Network.AWS.ELB.DescribeLoadBalancers
     , dlbrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancers' smart constructor.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'dlbLoadBalancerNames'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbMarker :: !(Maybe Text)
-    , _dlbPageSize :: !(Maybe Nat)
+    { _dlbMarker            :: !(Maybe Text)
+    , _dlbPageSize          :: !(Maybe Nat)
     , _dlbLoadBalancerNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: DescribeLoadBalancers
-describeLoadBalancers = 
+describeLoadBalancers =
     DescribeLoadBalancers'
     { _dlbMarker = Nothing
     , _dlbPageSize = Nothing
@@ -135,13 +135,13 @@ instance ToQuery DescribeLoadBalancers where
 -- * 'dlbrsStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
-    , _dlbrsNextMarker :: !(Maybe Text)
-    , _dlbrsStatus :: !Int
+    , _dlbrsNextMarker               :: !(Maybe Text)
+    , _dlbrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatus_ = 
+describeLoadBalancersResponse pStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions = Nothing
     , _dlbrsNextMarker = Nothing

@@ -62,11 +62,11 @@ module Network.AWS.DynamoDB.DeleteItem
     , dirsStatus
     ) where
 
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteItem/ operation.
 --
@@ -94,21 +94,21 @@ import Network.AWS.Response
 --
 -- * 'diKey'
 data DeleteItem = DeleteItem'
-    { _diReturnValues :: !(Maybe ReturnValue)
-    , _diExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _diReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
-    , _diExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    { _diReturnValues                :: !(Maybe ReturnValue)
+    , _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _diExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
     , _diReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _diConditionExpression :: !(Maybe Text)
-    , _diConditionalOperator :: !(Maybe ConditionalOperator)
-    , _diExpected :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _diTableName :: !Text
-    , _diKey :: !(Map Text AttributeValue)
+    , _diConditionExpression         :: !(Maybe Text)
+    , _diConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _diTableName                   :: !Text
+    , _diKey                         :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteItem' smart constructor.
 deleteItem :: Text -> DeleteItem
-deleteItem pTableName_ = 
+deleteItem pTableName_ =
     DeleteItem'
     { _diReturnValues = Nothing
     , _diExpressionAttributeNames = Nothing
@@ -551,15 +551,15 @@ instance ToQuery DeleteItem where
 --
 -- * 'dirsStatus'
 data DeleteItemResponse = DeleteItemResponse'
-    { _dirsConsumedCapacity :: !(Maybe ConsumedCapacity)
+    { _dirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _dirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _dirsAttributes :: !(Maybe (Map Text AttributeValue))
-    , _dirsStatus :: !Int
+    , _dirsAttributes            :: !(Maybe (Map Text AttributeValue))
+    , _dirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteItemResponse' smart constructor.
 deleteItemResponse :: Int -> DeleteItemResponse
-deleteItemResponse pStatus_ = 
+deleteItemResponse pStatus_ =
     DeleteItemResponse'
     { _dirsConsumedCapacity = Nothing
     , _dirsItemCollectionMetrics = Nothing

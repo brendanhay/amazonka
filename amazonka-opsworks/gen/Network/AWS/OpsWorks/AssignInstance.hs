@@ -47,11 +47,11 @@ module Network.AWS.OpsWorks.AssignInstance
     , assignInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'assignInstance' smart constructor.
 --
@@ -62,12 +62,12 @@ import Network.AWS.Response
 -- * 'aiLayerIds'
 data AssignInstance = AssignInstance'
     { _aiInstanceId :: !Text
-    , _aiLayerIds :: ![Text]
+    , _aiLayerIds   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignInstance' smart constructor.
 assignInstance :: Text -> AssignInstance
-assignInstance pInstanceId_ = 
+assignInstance pInstanceId_ =
     AssignInstance'
     { _aiInstanceId = pInstanceId_
     , _aiLayerIds = mempty
@@ -111,7 +111,7 @@ instance ToQuery AssignInstance where
 
 -- | /See:/ 'assignInstanceResponse' smart constructor.
 data AssignInstanceResponse =
-    AssignInstanceResponse' 
+    AssignInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignInstanceResponse' smart constructor.

@@ -35,11 +35,11 @@ module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     , addTagsToOnPremisesInstancesResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an adds tags to on-premises instance operation.
 --
@@ -51,13 +51,13 @@ import Network.AWS.Response
 --
 -- * 'attopiInstanceNames'
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
-    { _attopiTags :: ![Tag]
+    { _attopiTags          :: ![Tag]
     , _attopiInstanceNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToOnPremisesInstances' smart constructor.
 addTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances
-addTagsToOnPremisesInstances = 
+addTagsToOnPremisesInstances =
     AddTagsToOnPremisesInstances'
     { _attopiTags = mempty
     , _attopiInstanceNames = mempty
@@ -107,7 +107,7 @@ instance ToQuery AddTagsToOnPremisesInstances where
 
 -- | /See:/ 'addTagsToOnPremisesInstancesResponse' smart constructor.
 data AddTagsToOnPremisesInstancesResponse =
-    AddTagsToOnPremisesInstancesResponse' 
+    AddTagsToOnPremisesInstancesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToOnPremisesInstancesResponse' smart constructor.

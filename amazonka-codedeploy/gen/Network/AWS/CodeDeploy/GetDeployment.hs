@@ -37,11 +37,11 @@ module Network.AWS.CodeDeploy.GetDeployment
     , gdrsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get deployment operation.
 --
@@ -56,7 +56,7 @@ newtype GetDeployment = GetDeployment'
 
 -- | 'GetDeployment' smart constructor.
 getDeployment :: Text -> GetDeployment
-getDeployment pDeploymentId_ = 
+getDeployment pDeploymentId_ =
     GetDeployment'
     { _gdDeploymentId = pDeploymentId_
     }
@@ -106,12 +106,12 @@ instance ToQuery GetDeployment where
 -- * 'gdrsStatus'
 data GetDeploymentResponse = GetDeploymentResponse'
     { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
-    , _gdrsStatus :: !Int
+    , _gdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentResponse' smart constructor.
 getDeploymentResponse :: Int -> GetDeploymentResponse
-getDeploymentResponse pStatus_ = 
+getDeploymentResponse pStatus_ =
     GetDeploymentResponse'
     { _gdrsDeploymentInfo = Nothing
     , _gdrsStatus = pStatus_

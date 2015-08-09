@@ -42,11 +42,11 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     , diursStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request for information about the usage of an identity pool.
 --
@@ -59,12 +59,12 @@ import Network.AWS.Response
 -- * 'diuIdentityId'
 data DescribeIdentityUsage = DescribeIdentityUsage'
     { _diuIdentityPoolId :: !Text
-    , _diuIdentityId :: !Text
+    , _diuIdentityId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityUsage' smart constructor.
 describeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
-describeIdentityUsage pIdentityPoolId_ pIdentityId_ = 
+describeIdentityUsage pIdentityPoolId_ pIdentityId_ =
     DescribeIdentityUsage'
     { _diuIdentityPoolId = pIdentityPoolId_
     , _diuIdentityId = pIdentityId_
@@ -120,12 +120,12 @@ instance ToQuery DescribeIdentityUsage where
 -- * 'diursStatus'
 data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
     { _diursIdentityUsage :: !(Maybe IdentityUsage)
-    , _diursStatus :: !Int
+    , _diursStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityUsageResponse' smart constructor.
 describeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
-describeIdentityUsageResponse pStatus_ = 
+describeIdentityUsageResponse pStatus_ =
     DescribeIdentityUsageResponse'
     { _diursIdentityUsage = Nothing
     , _diursStatus = pStatus_

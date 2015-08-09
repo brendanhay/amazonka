@@ -52,12 +52,12 @@ module Network.AWS.IAM.ListSigningCertificates
     , lrsCertificates
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listSigningCertificates' smart constructor.
 --
@@ -71,12 +71,12 @@ import Network.AWS.Response
 data ListSigningCertificates = ListSigningCertificates'
     { _lUserName :: !(Maybe Text)
     , _lMaxItems :: !(Maybe Nat)
-    , _lMarker :: !(Maybe Text)
+    , _lMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSigningCertificates' smart constructor.
 listSigningCertificates :: ListSigningCertificates
-listSigningCertificates = 
+listSigningCertificates =
     ListSigningCertificates'
     { _lUserName = Nothing
     , _lMaxItems = Nothing
@@ -152,15 +152,15 @@ instance ToQuery ListSigningCertificates where
 --
 -- * 'lrsCertificates'
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-    { _lrsMarker :: !(Maybe Text)
-    , _lrsIsTruncated :: !(Maybe Bool)
-    , _lrsStatus :: !Int
+    { _lrsMarker       :: !(Maybe Text)
+    , _lrsIsTruncated  :: !(Maybe Bool)
+    , _lrsStatus       :: !Int
     , _lrsCertificates :: ![SigningCertificate]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
 listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse
-listSigningCertificatesResponse pStatus_ = 
+listSigningCertificatesResponse pStatus_ =
     ListSigningCertificatesResponse'
     { _lrsMarker = Nothing
     , _lrsIsTruncated = Nothing

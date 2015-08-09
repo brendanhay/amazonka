@@ -65,10 +65,10 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudWatch
     (
-    -- * Service Description
+    -- * Service
       CloudWatch
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** LimitExceededFault
@@ -101,10 +101,10 @@ module Network.AWS.CloudWatch
     -- * Operations
     -- $operations
 
-    -- ** EnableAlarmActions 
+    -- ** EnableAlarmActions
     , module Network.AWS.CloudWatch.EnableAlarmActions
 
-    -- ** PutMetricData 
+    -- ** PutMetricData
     , module Network.AWS.CloudWatch.PutMetricData
 
     -- ** DescribeAlarms (Paginated)
@@ -115,26 +115,26 @@ module Network.AWS.CloudWatch
     , module Network.AWS.CloudWatch.ListMetrics
     -- $pager
 
-    -- ** DeleteAlarms 
+    -- ** DeleteAlarms
     , module Network.AWS.CloudWatch.DeleteAlarms
 
     -- ** DescribeAlarmHistory (Paginated)
     , module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- $pager
 
-    -- ** GetMetricStatistics 
+    -- ** GetMetricStatistics
     , module Network.AWS.CloudWatch.GetMetricStatistics
 
-    -- ** DisableAlarmActions 
+    -- ** DisableAlarmActions
     , module Network.AWS.CloudWatch.DisableAlarmActions
 
-    -- ** DescribeAlarmsForMetric 
+    -- ** DescribeAlarmsForMetric
     , module Network.AWS.CloudWatch.DescribeAlarmsForMetric
 
-    -- ** SetAlarmState 
+    -- ** SetAlarmState
     , module Network.AWS.CloudWatch.SetAlarmState
 
-    -- ** PutMetricAlarm 
+    -- ** PutMetricAlarm
     , module Network.AWS.CloudWatch.PutMetricAlarm
 
     -- * Types
@@ -237,19 +237,19 @@ module Network.AWS.CloudWatch
     , ssMaximum
     ) where
 
-import Network.AWS.CloudWatch.DeleteAlarms
-import Network.AWS.CloudWatch.DescribeAlarmHistory
-import Network.AWS.CloudWatch.DescribeAlarms
-import Network.AWS.CloudWatch.DescribeAlarmsForMetric
-import Network.AWS.CloudWatch.DisableAlarmActions
-import Network.AWS.CloudWatch.EnableAlarmActions
-import Network.AWS.CloudWatch.GetMetricStatistics
-import Network.AWS.CloudWatch.ListMetrics
-import Network.AWS.CloudWatch.PutMetricAlarm
-import Network.AWS.CloudWatch.PutMetricData
-import Network.AWS.CloudWatch.SetAlarmState
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Waiters
+import           Network.AWS.CloudWatch.DeleteAlarms
+import           Network.AWS.CloudWatch.DescribeAlarmHistory
+import           Network.AWS.CloudWatch.DescribeAlarms
+import           Network.AWS.CloudWatch.DescribeAlarmsForMetric
+import           Network.AWS.CloudWatch.DisableAlarmActions
+import           Network.AWS.CloudWatch.EnableAlarmActions
+import           Network.AWS.CloudWatch.GetMetricStatistics
+import           Network.AWS.CloudWatch.ListMetrics
+import           Network.AWS.CloudWatch.PutMetricAlarm
+import           Network.AWS.CloudWatch.PutMetricData
+import           Network.AWS.CloudWatch.SetAlarmState
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

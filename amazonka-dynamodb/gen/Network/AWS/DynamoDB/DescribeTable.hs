@@ -45,11 +45,11 @@ module Network.AWS.DynamoDB.DescribeTable
     , drsStatus
     ) where
 
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeTable/ operation.
 --
@@ -64,7 +64,7 @@ newtype DescribeTable = DescribeTable'
 
 -- | 'DescribeTable' smart constructor.
 describeTable :: Text -> DescribeTable
-describeTable pTableName_ = 
+describeTable pTableName_ =
     DescribeTable'
     { _dTableName = pTableName_
     }
@@ -112,13 +112,13 @@ instance ToQuery DescribeTable where
 --
 -- * 'drsStatus'
 data DescribeTableResponse = DescribeTableResponse'
-    { _drsTable :: !(Maybe TableDescription)
+    { _drsTable  :: !(Maybe TableDescription)
     , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTableResponse' smart constructor.
 describeTableResponse :: Int -> DescribeTableResponse
-describeTableResponse pStatus_ = 
+describeTableResponse pStatus_ =
     DescribeTableResponse'
     { _drsTable = Nothing
     , _drsStatus = pStatus_

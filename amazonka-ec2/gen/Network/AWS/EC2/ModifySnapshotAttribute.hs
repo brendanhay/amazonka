@@ -50,11 +50,11 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     , modifySnapshotAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifySnapshotAttribute' smart constructor.
 --
@@ -74,18 +74,18 @@ import Network.AWS.Response
 --
 -- * 'msaSnapshotId'
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-    { _msaAttribute :: !(Maybe SnapshotAttributeName)
-    , _msaUserIds :: !(Maybe [Text])
+    { _msaAttribute              :: !(Maybe SnapshotAttributeName)
+    , _msaUserIds                :: !(Maybe [Text])
     , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
-    , _msaGroupNames :: !(Maybe [Text])
-    , _msaOperationType :: !(Maybe Text)
-    , _msaDryRun :: !(Maybe Bool)
-    , _msaSnapshotId :: !Text
+    , _msaGroupNames             :: !(Maybe [Text])
+    , _msaOperationType          :: !(Maybe Text)
+    , _msaDryRun                 :: !(Maybe Bool)
+    , _msaSnapshotId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotAttribute' smart constructor.
 modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
-modifySnapshotAttribute pSnapshotId_ = 
+modifySnapshotAttribute pSnapshotId_ =
     ModifySnapshotAttribute'
     { _msaAttribute = Nothing
     , _msaUserIds = Nothing
@@ -160,7 +160,7 @@ instance ToQuery ModifySnapshotAttribute where
 
 -- | /See:/ 'modifySnapshotAttributeResponse' smart constructor.
 data ModifySnapshotAttributeResponse =
-    ModifySnapshotAttributeResponse' 
+    ModifySnapshotAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotAttributeResponse' smart constructor.

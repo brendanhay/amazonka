@@ -38,11 +38,11 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     , rrsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ReadPipelineRequest@ structure.
 --
@@ -57,7 +57,7 @@ newtype ReadPipeline = ReadPipeline'
 
 -- | 'ReadPipeline' smart constructor.
 readPipeline :: Text -> ReadPipeline
-readPipeline pId_ = 
+readPipeline pId_ =
     ReadPipeline'
     { _rId = pId_
     }
@@ -101,12 +101,12 @@ instance ToQuery ReadPipeline where
 data ReadPipelineResponse = ReadPipelineResponse'
     { _rrsWarnings :: !(Maybe [Warning])
     , _rrsPipeline :: !(Maybe Pipeline)
-    , _rrsStatus :: !Int
+    , _rrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPipelineResponse' smart constructor.
 readPipelineResponse :: Int -> ReadPipelineResponse
-readPipelineResponse pStatus_ = 
+readPipelineResponse pStatus_ =
     ReadPipelineResponse'
     { _rrsWarnings = Nothing
     , _rrsPipeline = Nothing

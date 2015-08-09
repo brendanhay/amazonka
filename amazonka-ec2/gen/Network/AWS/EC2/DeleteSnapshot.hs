@@ -51,11 +51,11 @@ module Network.AWS.EC2.DeleteSnapshot
     , deleteSnapshotResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSnapshot' smart constructor.
 --
@@ -65,13 +65,13 @@ import Network.AWS.Response
 --
 -- * 'deleSnapshotId'
 data DeleteSnapshot = DeleteSnapshot'
-    { _deleDryRun :: !(Maybe Bool)
+    { _deleDryRun     :: !(Maybe Bool)
     , _deleSnapshotId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotId_ = 
+deleteSnapshot pSnapshotId_ =
     DeleteSnapshot'
     { _deleDryRun = Nothing
     , _deleSnapshotId = pSnapshotId_
@@ -110,7 +110,7 @@ instance ToQuery DeleteSnapshot where
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse =
-    DeleteSnapshotResponse' 
+    DeleteSnapshotResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.

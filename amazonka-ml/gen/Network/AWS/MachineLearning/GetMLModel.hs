@@ -57,11 +57,11 @@ module Network.AWS.MachineLearning.GetMLModel
     , gmlmrsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getMLModel' smart constructor.
 --
@@ -71,13 +71,13 @@ import Network.AWS.Response
 --
 -- * 'gmlmMLModelId'
 data GetMLModel = GetMLModel'
-    { _gmlmVerbose :: !(Maybe Bool)
+    { _gmlmVerbose   :: !(Maybe Bool)
     , _gmlmMLModelId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMLModel' smart constructor.
 getMLModel :: Text -> GetMLModel
-getMLModel pMLModelId_ = 
+getMLModel pMLModelId_ =
     GetMLModel'
     { _gmlmVerbose = Nothing
     , _gmlmMLModelId = pMLModelId_
@@ -186,29 +186,29 @@ instance ToQuery GetMLModel where
 --
 -- * 'gmlmrsStatus'
 data GetMLModelResponse = GetMLModelResponse'
-    { _gmlmrsTrainingParameters :: !(Maybe (Map Text Text))
-    , _gmlmrsLastUpdatedAt :: !(Maybe POSIX)
-    , _gmlmrsCreatedAt :: !(Maybe POSIX)
+    { _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
+    , _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
+    , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
     , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
-    , _gmlmrsRecipe :: !(Maybe Text)
-    , _gmlmrsInputDataLocationS3 :: !(Maybe Text)
-    , _gmlmrsSizeInBytes :: !(Maybe Integer)
-    , _gmlmrsMLModelId :: !(Maybe Text)
-    , _gmlmrsSchema :: !(Maybe Text)
-    , _gmlmrsScoreThreshold :: !(Maybe Double)
-    , _gmlmrsName :: !(Maybe Text)
-    , _gmlmrsCreatedByIAMUser :: !(Maybe Text)
-    , _gmlmrsLogURI :: !(Maybe Text)
-    , _gmlmrsEndpointInfo :: !(Maybe RealtimeEndpointInfo)
-    , _gmlmrsTrainingDataSourceId :: !(Maybe Text)
-    , _gmlmrsMessage :: !(Maybe Text)
-    , _gmlmrsMLModelType :: !(Maybe MLModelType)
-    , _gmlmrsStatus :: !Int
+    , _gmlmrsRecipe                      :: !(Maybe Text)
+    , _gmlmrsInputDataLocationS3         :: !(Maybe Text)
+    , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
+    , _gmlmrsMLModelId                   :: !(Maybe Text)
+    , _gmlmrsSchema                      :: !(Maybe Text)
+    , _gmlmrsScoreThreshold              :: !(Maybe Double)
+    , _gmlmrsName                        :: !(Maybe Text)
+    , _gmlmrsCreatedByIAMUser            :: !(Maybe Text)
+    , _gmlmrsLogURI                      :: !(Maybe Text)
+    , _gmlmrsEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
+    , _gmlmrsTrainingDataSourceId        :: !(Maybe Text)
+    , _gmlmrsMessage                     :: !(Maybe Text)
+    , _gmlmrsMLModelType                 :: !(Maybe MLModelType)
+    , _gmlmrsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMLModelResponse' smart constructor.
 getMLModelResponse :: Int -> GetMLModelResponse
-getMLModelResponse pStatus_ = 
+getMLModelResponse pStatus_ =
     GetMLModelResponse'
     { _gmlmrsTrainingParameters = Nothing
     , _gmlmrsLastUpdatedAt = Nothing

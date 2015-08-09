@@ -49,11 +49,11 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     , putScheduledUpdateGroupActionResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 --
@@ -77,20 +77,20 @@ import Network.AWS.Response
 --
 -- * 'psugaScheduledActionName'
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
-    { _psugaTime :: !(Maybe ISO8601)
-    , _psugaStartTime :: !(Maybe ISO8601)
-    , _psugaMaxSize :: !(Maybe Int)
-    , _psugaDesiredCapacity :: !(Maybe Int)
-    , _psugaRecurrence :: !(Maybe Text)
-    , _psugaMinSize :: !(Maybe Int)
-    , _psugaEndTime :: !(Maybe ISO8601)
+    { _psugaTime                 :: !(Maybe ISO8601)
+    , _psugaStartTime            :: !(Maybe ISO8601)
+    , _psugaMaxSize              :: !(Maybe Int)
+    , _psugaDesiredCapacity      :: !(Maybe Int)
+    , _psugaRecurrence           :: !(Maybe Text)
+    , _psugaMinSize              :: !(Maybe Int)
+    , _psugaEndTime              :: !(Maybe ISO8601)
     , _psugaAutoScalingGroupName :: !Text
-    , _psugaScheduledActionName :: !Text
+    , _psugaScheduledActionName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScheduledUpdateGroupAction' smart constructor.
 putScheduledUpdateGroupAction :: Text -> Text -> PutScheduledUpdateGroupAction
-putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ = 
+putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
     PutScheduledUpdateGroupAction'
     { _psugaTime = Nothing
     , _psugaStartTime = Nothing
@@ -187,7 +187,7 @@ instance ToQuery PutScheduledUpdateGroupAction where
 
 -- | /See:/ 'putScheduledUpdateGroupActionResponse' smart constructor.
 data PutScheduledUpdateGroupActionResponse =
-    PutScheduledUpdateGroupActionResponse' 
+    PutScheduledUpdateGroupActionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScheduledUpdateGroupActionResponse' smart constructor.

@@ -34,11 +34,11 @@ module Network.AWS.AutoScaling.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 --
@@ -51,7 +51,7 @@ newtype DeleteTags = DeleteTags'
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: DeleteTags
-deleteTags = 
+deleteTags =
     DeleteTags'
     { _dtTags = mempty
     }
@@ -84,7 +84,7 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
-    DeleteTagsResponse' 
+    DeleteTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTagsResponse' smart constructor.

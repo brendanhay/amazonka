@@ -42,11 +42,11 @@ module Network.AWS.OpsWorks.UpdateRDSDBInstance
     , updateRDSDBInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateRDSDBInstance' smart constructor.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'urdiRDSDBInstanceARN'
 data UpdateRDSDBInstance = UpdateRDSDBInstance'
-    { _urdiDBUser :: !(Maybe Text)
-    , _urdiDBPassword :: !(Maybe Text)
+    { _urdiDBUser           :: !(Maybe Text)
+    , _urdiDBPassword       :: !(Maybe Text)
     , _urdiRDSDBInstanceARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRDSDBInstance' smart constructor.
 updateRDSDBInstance :: Text -> UpdateRDSDBInstance
-updateRDSDBInstance pRDSDBInstanceARN_ = 
+updateRDSDBInstance pRDSDBInstanceARN_ =
     UpdateRDSDBInstance'
     { _urdiDBUser = Nothing
     , _urdiDBPassword = Nothing
@@ -116,7 +116,7 @@ instance ToQuery UpdateRDSDBInstance where
 
 -- | /See:/ 'updateRDSDBInstanceResponse' smart constructor.
 data UpdateRDSDBInstanceResponse =
-    UpdateRDSDBInstanceResponse' 
+    UpdateRDSDBInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRDSDBInstanceResponse' smart constructor.

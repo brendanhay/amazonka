@@ -42,11 +42,11 @@ module Network.AWS.EC2.DescribePlacementGroups
     , dpgrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describePlacementGroups' smart constructor.
 --
@@ -59,13 +59,13 @@ import Network.AWS.Response
 -- * 'dpgsDryRun'
 data DescribePlacementGroups = DescribePlacementGroups'
     { _dpgsGroupNames :: !(Maybe [Text])
-    , _dpgsFilters :: !(Maybe [Filter])
-    , _dpgsDryRun :: !(Maybe Bool)
+    , _dpgsFilters    :: !(Maybe [Filter])
+    , _dpgsDryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroups' smart constructor.
 describePlacementGroups :: DescribePlacementGroups
-describePlacementGroups = 
+describePlacementGroups =
     DescribePlacementGroups'
     { _dpgsGroupNames = Nothing
     , _dpgsFilters = Nothing
@@ -137,12 +137,12 @@ instance ToQuery DescribePlacementGroups where
 -- * 'dpgrsStatus'
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
-    , _dpgrsStatus :: !Int
+    , _dpgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
-describePlacementGroupsResponse pStatus_ = 
+describePlacementGroupsResponse pStatus_ =
     DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups = Nothing
     , _dpgrsStatus = pStatus_

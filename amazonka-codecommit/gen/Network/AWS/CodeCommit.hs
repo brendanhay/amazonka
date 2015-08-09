@@ -28,10 +28,10 @@
 -- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodeCommit
     (
-    -- * Service Description
+    -- * Service
       CodeCommit
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidContinuationTokenException
@@ -109,37 +109,37 @@ module Network.AWS.CodeCommit
     -- * Operations
     -- $operations
 
-    -- ** UpdateRepositoryName 
+    -- ** UpdateRepositoryName
     , module Network.AWS.CodeCommit.UpdateRepositoryName
 
-    -- ** GetBranch 
+    -- ** GetBranch
     , module Network.AWS.CodeCommit.GetBranch
 
-    -- ** UpdateRepositoryDescription 
+    -- ** UpdateRepositoryDescription
     , module Network.AWS.CodeCommit.UpdateRepositoryDescription
 
-    -- ** ListBranches 
+    -- ** ListBranches
     , module Network.AWS.CodeCommit.ListBranches
 
-    -- ** CreateBranch 
+    -- ** CreateBranch
     , module Network.AWS.CodeCommit.CreateBranch
 
-    -- ** UpdateDefaultBranch 
+    -- ** UpdateDefaultBranch
     , module Network.AWS.CodeCommit.UpdateDefaultBranch
 
-    -- ** CreateRepository 
+    -- ** CreateRepository
     , module Network.AWS.CodeCommit.CreateRepository
 
-    -- ** ListRepositories 
+    -- ** ListRepositories
     , module Network.AWS.CodeCommit.ListRepositories
 
-    -- ** GetRepository 
+    -- ** GetRepository
     , module Network.AWS.CodeCommit.GetRepository
 
-    -- ** DeleteRepository 
+    -- ** DeleteRepository
     , module Network.AWS.CodeCommit.DeleteRepository
 
-    -- ** BatchGetRepositories 
+    -- ** BatchGetRepositories
     , module Network.AWS.CodeCommit.BatchGetRepositories
 
     -- * Types
@@ -177,19 +177,19 @@ module Network.AWS.CodeCommit
     , rnipRepositoryName
     ) where
 
-import Network.AWS.CodeCommit.BatchGetRepositories
-import Network.AWS.CodeCommit.CreateBranch
-import Network.AWS.CodeCommit.CreateRepository
-import Network.AWS.CodeCommit.DeleteRepository
-import Network.AWS.CodeCommit.GetBranch
-import Network.AWS.CodeCommit.GetRepository
-import Network.AWS.CodeCommit.ListBranches
-import Network.AWS.CodeCommit.ListRepositories
-import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.UpdateDefaultBranch
-import Network.AWS.CodeCommit.UpdateRepositoryDescription
-import Network.AWS.CodeCommit.UpdateRepositoryName
-import Network.AWS.CodeCommit.Waiters
+import           Network.AWS.CodeCommit.BatchGetRepositories
+import           Network.AWS.CodeCommit.CreateBranch
+import           Network.AWS.CodeCommit.CreateRepository
+import           Network.AWS.CodeCommit.DeleteRepository
+import           Network.AWS.CodeCommit.GetBranch
+import           Network.AWS.CodeCommit.GetRepository
+import           Network.AWS.CodeCommit.ListBranches
+import           Network.AWS.CodeCommit.ListRepositories
+import           Network.AWS.CodeCommit.Types
+import           Network.AWS.CodeCommit.UpdateDefaultBranch
+import           Network.AWS.CodeCommit.UpdateRepositoryDescription
+import           Network.AWS.CodeCommit.UpdateRepositoryName
+import           Network.AWS.CodeCommit.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

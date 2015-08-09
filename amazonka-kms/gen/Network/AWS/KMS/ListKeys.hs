@@ -40,11 +40,11 @@ module Network.AWS.KMS.ListKeys
     , lkrsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listKeys' smart constructor.
 --
@@ -55,12 +55,12 @@ import Network.AWS.Response
 -- * 'lkLimit'
 data ListKeys = ListKeys'
     { _lkMarker :: !(Maybe Text)
-    , _lkLimit :: !(Maybe Nat)
+    , _lkLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeys' smart constructor.
 listKeys :: ListKeys
-listKeys = 
+listKeys =
     ListKeys'
     { _lkMarker = Nothing
     , _lkLimit = Nothing
@@ -123,15 +123,15 @@ instance ToQuery ListKeys where
 --
 -- * 'lkrsStatus'
 data ListKeysResponse = ListKeysResponse'
-    { _lkrsTruncated :: !(Maybe Bool)
-    , _lkrsKeys :: !(Maybe [KeyListEntry])
+    { _lkrsTruncated  :: !(Maybe Bool)
+    , _lkrsKeys       :: !(Maybe [KeyListEntry])
     , _lkrsNextMarker :: !(Maybe Text)
-    , _lkrsStatus :: !Int
+    , _lkrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeysResponse' smart constructor.
 listKeysResponse :: Int -> ListKeysResponse
-listKeysResponse pStatus_ = 
+listKeysResponse pStatus_ =
     ListKeysResponse'
     { _lkrsTruncated = Nothing
     , _lkrsKeys = Nothing

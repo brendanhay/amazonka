@@ -83,11 +83,11 @@ module Network.AWS.Kinesis.PutRecord
     , prrsSequenceNumber
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @PutRecord@.
 --
@@ -105,16 +105,16 @@ import Network.AWS.Response
 --
 -- * 'prPartitionKey'
 data PutRecord = PutRecord'
-    { _prExplicitHashKey :: !(Maybe Text)
+    { _prExplicitHashKey           :: !(Maybe Text)
     , _prSequenceNumberForOrdering :: !(Maybe Text)
-    , _prStreamName :: !Text
-    , _prData :: !Base64
-    , _prPartitionKey :: !Text
+    , _prStreamName                :: !Text
+    , _prData                      :: !Base64
+    , _prPartitionKey              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecord' smart constructor.
 putRecord :: Text -> ByteString -> Text -> PutRecord
-putRecord pStreamName_ pData_ pPartitionKey_ = 
+putRecord pStreamName_ pData_ pPartitionKey_ =
     PutRecord'
     { _prExplicitHashKey = Nothing
     , _prSequenceNumberForOrdering = Nothing
@@ -206,14 +206,14 @@ instance ToQuery PutRecord where
 --
 -- * 'prrsSequenceNumber'
 data PutRecordResponse = PutRecordResponse'
-    { _prrsStatus :: !Int
-    , _prrsShardId :: !Text
+    { _prrsStatus         :: !Int
+    , _prrsShardId        :: !Text
     , _prrsSequenceNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordResponse' smart constructor.
 putRecordResponse :: Int -> Text -> Text -> PutRecordResponse
-putRecordResponse pStatus_ pShardId_ pSequenceNumber_ = 
+putRecordResponse pStatus_ pShardId_ pSequenceNumber_ =
     PutRecordResponse'
     { _prrsStatus = pStatus_
     , _prrsShardId = pShardId_

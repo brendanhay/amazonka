@@ -38,11 +38,11 @@ module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     , drersStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteRealtimeEndpoint' smart constructor.
 --
@@ -55,7 +55,7 @@ newtype DeleteRealtimeEndpoint = DeleteRealtimeEndpoint'
 
 -- | 'DeleteRealtimeEndpoint' smart constructor.
 deleteRealtimeEndpoint :: Text -> DeleteRealtimeEndpoint
-deleteRealtimeEndpoint pMLModelId_ = 
+deleteRealtimeEndpoint pMLModelId_ =
     DeleteRealtimeEndpoint'
     { _dreMLModelId = pMLModelId_
     }
@@ -113,13 +113,13 @@ instance ToQuery DeleteRealtimeEndpoint where
 -- * 'drersStatus'
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
     { _drersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
-    , _drersMLModelId :: !(Maybe Text)
-    , _drersStatus :: !Int
+    , _drersMLModelId            :: !(Maybe Text)
+    , _drersStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRealtimeEndpointResponse' smart constructor.
 deleteRealtimeEndpointResponse :: Int -> DeleteRealtimeEndpointResponse
-deleteRealtimeEndpointResponse pStatus_ = 
+deleteRealtimeEndpointResponse pStatus_ =
     DeleteRealtimeEndpointResponse'
     { _drersRealtimeEndpointInfo = Nothing
     , _drersMLModelId = Nothing

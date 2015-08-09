@@ -40,11 +40,11 @@ module Network.AWS.EC2.DeleteVPC
     , deleteVPCResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPC' smart constructor.
 --
@@ -55,12 +55,12 @@ import Network.AWS.Response
 -- * 'delVPCId'
 data DeleteVPC = DeleteVPC'
     { _delDryRun :: !(Maybe Bool)
-    , _delVPCId :: !Text
+    , _delVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPC' smart constructor.
 deleteVPC :: Text -> DeleteVPC
-deleteVPC pVPCId_ = 
+deleteVPC pVPCId_ =
     DeleteVPC'
     { _delDryRun = Nothing
     , _delVPCId = pVPCId_
@@ -98,7 +98,7 @@ instance ToQuery DeleteVPC where
 
 -- | /See:/ 'deleteVPCResponse' smart constructor.
 data DeleteVPCResponse =
-    DeleteVPCResponse' 
+    DeleteVPCResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCResponse' smart constructor.

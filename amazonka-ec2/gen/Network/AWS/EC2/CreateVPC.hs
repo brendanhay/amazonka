@@ -51,11 +51,11 @@ module Network.AWS.EC2.CreateVPC
     , cvrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPC' smart constructor.
 --
@@ -68,13 +68,13 @@ import Network.AWS.Response
 -- * 'cvCIdRBlock'
 data CreateVPC = CreateVPC'
     { _cvInstanceTenancy :: !(Maybe Tenancy)
-    , _cvDryRun :: !(Maybe Bool)
-    , _cvCIdRBlock :: !Text
+    , _cvDryRun          :: !(Maybe Bool)
+    , _cvCIdRBlock       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPC' smart constructor.
 createVPC :: Text -> CreateVPC
-createVPC pCIdRBlock_ = 
+createVPC pCIdRBlock_ =
     CreateVPC'
     { _cvInstanceTenancy = Nothing
     , _cvDryRun = Nothing
@@ -136,13 +136,13 @@ instance ToQuery CreateVPC where
 --
 -- * 'cvrsStatus'
 data CreateVPCResponse = CreateVPCResponse'
-    { _cvrsVPC :: !(Maybe VPC)
+    { _cvrsVPC    :: !(Maybe VPC)
     , _cvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCResponse' smart constructor.
 createVPCResponse :: Int -> CreateVPCResponse
-createVPCResponse pStatus_ = 
+createVPCResponse pStatus_ =
     CreateVPCResponse'
     { _cvrsVPC = Nothing
     , _cvrsStatus = pStatus_

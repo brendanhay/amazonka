@@ -56,12 +56,12 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     , dsphrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotPriceHistory.
 --
@@ -87,20 +87,20 @@ import Network.AWS.Response
 --
 -- * 'dsphMaxResults'
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-    { _dsphInstanceTypes :: !(Maybe [InstanceType])
-    , _dsphStartTime :: !(Maybe ISO8601)
-    , _dsphFilters :: !(Maybe [Filter])
-    , _dsphNextToken :: !(Maybe Text)
-    , _dsphAvailabilityZone :: !(Maybe Text)
-    , _dsphEndTime :: !(Maybe ISO8601)
+    { _dsphInstanceTypes       :: !(Maybe [InstanceType])
+    , _dsphStartTime           :: !(Maybe ISO8601)
+    , _dsphFilters             :: !(Maybe [Filter])
+    , _dsphNextToken           :: !(Maybe Text)
+    , _dsphAvailabilityZone    :: !(Maybe Text)
+    , _dsphEndTime             :: !(Maybe ISO8601)
     , _dsphProductDescriptions :: !(Maybe [Text])
-    , _dsphDryRun :: !(Maybe Bool)
-    , _dsphMaxResults :: !(Maybe Int)
+    , _dsphDryRun              :: !(Maybe Bool)
+    , _dsphMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotPriceHistory' smart constructor.
 describeSpotPriceHistory :: DescribeSpotPriceHistory
-describeSpotPriceHistory = 
+describeSpotPriceHistory =
     DescribeSpotPriceHistory'
     { _dsphInstanceTypes = Nothing
     , _dsphStartTime = Nothing
@@ -236,14 +236,14 @@ instance ToQuery DescribeSpotPriceHistory where
 --
 -- * 'dsphrsStatus'
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
-    { _dsphrsNextToken :: !(Maybe Text)
+    { _dsphrsNextToken        :: !(Maybe Text)
     , _dsphrsSpotPriceHistory :: !(Maybe [SpotPrice])
-    , _dsphrsStatus :: !Int
+    , _dsphrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
 describeSpotPriceHistoryResponse :: Int -> DescribeSpotPriceHistoryResponse
-describeSpotPriceHistoryResponse pStatus_ = 
+describeSpotPriceHistoryResponse pStatus_ =
     DescribeSpotPriceHistoryResponse'
     { _dsphrsNextToken = Nothing
     , _dsphrsSpotPriceHistory = Nothing

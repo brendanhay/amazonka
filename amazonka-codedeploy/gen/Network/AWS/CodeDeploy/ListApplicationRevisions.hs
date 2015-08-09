@@ -44,11 +44,11 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     , larrsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list application revisions operation.
 --
@@ -70,18 +70,18 @@ import Network.AWS.Response
 --
 -- * 'larApplicationName'
 data ListApplicationRevisions = ListApplicationRevisions'
-    { _larS3KeyPrefix :: !(Maybe Text)
-    , _larDeployed :: !(Maybe ListStateFilterAction)
-    , _larNextToken :: !(Maybe Text)
-    , _larSortOrder :: !(Maybe SortOrder)
-    , _larS3Bucket :: !(Maybe Text)
-    , _larSortBy :: !(Maybe ApplicationRevisionSortBy)
+    { _larS3KeyPrefix     :: !(Maybe Text)
+    , _larDeployed        :: !(Maybe ListStateFilterAction)
+    , _larNextToken       :: !(Maybe Text)
+    , _larSortOrder       :: !(Maybe SortOrder)
+    , _larS3Bucket        :: !(Maybe Text)
+    , _larSortBy          :: !(Maybe ApplicationRevisionSortBy)
     , _larApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationRevisions' smart constructor.
 listApplicationRevisions :: Text -> ListApplicationRevisions
-listApplicationRevisions pApplicationName_ = 
+listApplicationRevisions pApplicationName_ =
     ListApplicationRevisions'
     { _larS3KeyPrefix = Nothing
     , _larDeployed = Nothing
@@ -204,12 +204,12 @@ instance ToQuery ListApplicationRevisions where
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
     { _larrsNextToken :: !(Maybe Text)
     , _larrsRevisions :: !(Maybe [RevisionLocation])
-    , _larrsStatus :: !Int
+    , _larrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
 listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse
-listApplicationRevisionsResponse pStatus_ = 
+listApplicationRevisionsResponse pStatus_ =
     ListApplicationRevisionsResponse'
     { _larrsNextToken = Nothing
     , _larrsRevisions = Nothing

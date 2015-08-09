@@ -42,11 +42,11 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     , dclvrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachClassicLinkVPC' smart constructor.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'dclvVPCId'
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
-    { _dclvDryRun :: !(Maybe Bool)
+    { _dclvDryRun     :: !(Maybe Bool)
     , _dclvInstanceId :: !Text
-    , _dclvVPCId :: !Text
+    , _dclvVPCId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachClassicLinkVPC' smart constructor.
 detachClassicLinkVPC :: Text -> Text -> DetachClassicLinkVPC
-detachClassicLinkVPC pInstanceId_ pVPCId_ = 
+detachClassicLinkVPC pInstanceId_ pVPCId_ =
     DetachClassicLinkVPC'
     { _dclvDryRun = Nothing
     , _dclvInstanceId = pInstanceId_
@@ -127,7 +127,7 @@ data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
 
 -- | 'DetachClassicLinkVPCResponse' smart constructor.
 detachClassicLinkVPCResponse :: Int -> DetachClassicLinkVPCResponse
-detachClassicLinkVPCResponse pStatus_ = 
+detachClassicLinkVPCResponse pStatus_ =
     DetachClassicLinkVPCResponse'
     { _dclvrsReturn = Nothing
     , _dclvrsStatus = pStatus_

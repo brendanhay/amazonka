@@ -47,11 +47,11 @@ module Network.AWS.IAM.GetSSHPublicKey
     , gspkrsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getSSHPublicKey' smart constructor.
 --
@@ -63,14 +63,14 @@ import Network.AWS.Response
 --
 -- * 'gspkEncoding'
 data GetSSHPublicKey = GetSSHPublicKey'
-    { _gspkUserName :: !Text
+    { _gspkUserName       :: !Text
     , _gspkSSHPublicKeyId :: !Text
-    , _gspkEncoding :: !EncodingType
+    , _gspkEncoding       :: !EncodingType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSSHPublicKey' smart constructor.
 getSSHPublicKey :: Text -> Text -> EncodingType -> GetSSHPublicKey
-getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ = 
+getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
     GetSSHPublicKey'
     { _gspkUserName = pUserName_
     , _gspkSSHPublicKeyId = pSSHPublicKeyId_
@@ -127,12 +127,12 @@ instance ToQuery GetSSHPublicKey where
 -- * 'gspkrsStatus'
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
     { _gspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
-    , _gspkrsStatus :: !Int
+    , _gspkrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSSHPublicKeyResponse' smart constructor.
 getSSHPublicKeyResponse :: Int -> GetSSHPublicKeyResponse
-getSSHPublicKeyResponse pStatus_ = 
+getSSHPublicKeyResponse pStatus_ =
     GetSSHPublicKeyResponse'
     { _gspkrsSSHPublicKey = Nothing
     , _gspkrsStatus = pStatus_

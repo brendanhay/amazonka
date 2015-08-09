@@ -38,11 +38,11 @@ module Network.AWS.CloudFormation.GetStackPolicy
     , gsprsStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetStackPolicy action.
 --
@@ -57,7 +57,7 @@ newtype GetStackPolicy = GetStackPolicy'
 
 -- | 'GetStackPolicy' smart constructor.
 getStackPolicy :: Text -> GetStackPolicy
-getStackPolicy pStackName_ = 
+getStackPolicy pStackName_ =
     GetStackPolicy'
     { _gspStackName = pStackName_
     }
@@ -101,12 +101,12 @@ instance ToQuery GetStackPolicy where
 -- * 'gsprsStatus'
 data GetStackPolicyResponse = GetStackPolicyResponse'
     { _gsprsStackPolicyBody :: !(Maybe Text)
-    , _gsprsStatus :: !Int
+    , _gsprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStackPolicyResponse' smart constructor.
 getStackPolicyResponse :: Int -> GetStackPolicyResponse
-getStackPolicyResponse pStatus_ = 
+getStackPolicyResponse pStatus_ =
     GetStackPolicyResponse'
     { _gsprsStackPolicyBody = Nothing
     , _gsprsStatus = pStatus_

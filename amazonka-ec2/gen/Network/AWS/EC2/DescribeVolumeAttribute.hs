@@ -46,11 +46,11 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , dvarsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumeAttribute' smart constructor.
 --
@@ -63,13 +63,13 @@ import Network.AWS.Response
 -- * 'dvaVolumeId'
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
     { _dvaAttribute :: !(Maybe VolumeAttributeName)
-    , _dvaDryRun :: !(Maybe Bool)
-    , _dvaVolumeId :: !Text
+    , _dvaDryRun    :: !(Maybe Bool)
+    , _dvaVolumeId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeAttribute' smart constructor.
 describeVolumeAttribute :: Text -> DescribeVolumeAttribute
-describeVolumeAttribute pVolumeId_ = 
+describeVolumeAttribute pVolumeId_ =
     DescribeVolumeAttribute'
     { _dvaAttribute = Nothing
     , _dvaDryRun = Nothing
@@ -134,14 +134,14 @@ instance ToQuery DescribeVolumeAttribute where
 -- * 'dvarsStatus'
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
     { _dvarsProductCodes :: !(Maybe [ProductCode])
-    , _dvarsVolumeId :: !(Maybe Text)
+    , _dvarsVolumeId     :: !(Maybe Text)
     , _dvarsAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _dvarsStatus :: !Int
+    , _dvarsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
 describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse pStatus_ = 
+describeVolumeAttributeResponse pStatus_ =
     DescribeVolumeAttributeResponse'
     { _dvarsProductCodes = Nothing
     , _dvarsVolumeId = Nothing

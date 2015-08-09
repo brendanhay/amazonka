@@ -41,11 +41,11 @@ module Network.AWS.CodePipeline.DeleteCustomActionType
     , deleteCustomActionTypeResponse
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a delete custom action operation. The custom
 -- action will be marked as deleted.
@@ -62,12 +62,12 @@ import Network.AWS.Response
 data DeleteCustomActionType = DeleteCustomActionType'
     { _dcatCategory :: !ActionCategory
     , _dcatProvider :: !Text
-    , _dcatVersion :: !Text
+    , _dcatVersion  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomActionType' smart constructor.
 deleteCustomActionType :: ActionCategory -> Text -> Text -> DeleteCustomActionType
-deleteCustomActionType pCategory_ pProvider_ pVersion_ = 
+deleteCustomActionType pCategory_ pProvider_ pVersion_ =
     DeleteCustomActionType'
     { _dcatCategory = pCategory_
     , _dcatProvider = pProvider_
@@ -121,7 +121,7 @@ instance ToQuery DeleteCustomActionType where
 
 -- | /See:/ 'deleteCustomActionTypeResponse' smart constructor.
 data DeleteCustomActionTypeResponse =
-    DeleteCustomActionTypeResponse' 
+    DeleteCustomActionTypeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomActionTypeResponse' smart constructor.

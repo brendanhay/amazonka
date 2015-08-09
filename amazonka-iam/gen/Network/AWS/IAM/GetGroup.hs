@@ -43,12 +43,12 @@ module Network.AWS.IAM.GetGroup
     , ggrsUsers
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- * 'ggGroupName'
 data GetGroup = GetGroup'
-    { _ggMaxItems :: !(Maybe Nat)
-    , _ggMarker :: !(Maybe Text)
+    { _ggMaxItems  :: !(Maybe Nat)
+    , _ggMarker    :: !(Maybe Text)
     , _ggGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroup' smart constructor.
 getGroup :: Text -> GetGroup
-getGroup pGroupName_ = 
+getGroup pGroupName_ =
     GetGroup'
     { _ggMaxItems = Nothing
     , _ggMarker = Nothing
@@ -144,16 +144,16 @@ instance ToQuery GetGroup where
 --
 -- * 'ggrsUsers'
 data GetGroupResponse = GetGroupResponse'
-    { _ggrsMarker :: !(Maybe Text)
+    { _ggrsMarker      :: !(Maybe Text)
     , _ggrsIsTruncated :: !(Maybe Bool)
-    , _ggrsStatus :: !Int
-    , _ggrsGroup :: !Group
-    , _ggrsUsers :: ![User]
+    , _ggrsStatus      :: !Int
+    , _ggrsGroup       :: !Group
+    , _ggrsUsers       :: ![User]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupResponse' smart constructor.
 getGroupResponse :: Int -> Group -> GetGroupResponse
-getGroupResponse pStatus_ pGroup_ = 
+getGroupResponse pStatus_ pGroup_ =
     GetGroupResponse'
     { _ggrsMarker = Nothing
     , _ggrsIsTruncated = Nothing

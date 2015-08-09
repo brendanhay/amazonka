@@ -51,11 +51,11 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     , dcsrsStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Result message containing all of the configuration settings for a
 -- specified solution stack or configuration template.
@@ -70,14 +70,14 @@ import Network.AWS.Response
 --
 -- * 'dcsApplicationName'
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-    { _dcsTemplateName :: !(Maybe Text)
+    { _dcsTemplateName    :: !(Maybe Text)
     , _dcsEnvironmentName :: !(Maybe Text)
     , _dcsApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationSettings' smart constructor.
 describeConfigurationSettings :: Text -> DescribeConfigurationSettings
-describeConfigurationSettings pApplicationName_ = 
+describeConfigurationSettings pApplicationName_ =
     DescribeConfigurationSettings'
     { _dcsTemplateName = Nothing
     , _dcsEnvironmentName = Nothing
@@ -152,12 +152,12 @@ instance ToQuery DescribeConfigurationSettings where
 -- * 'dcsrsStatus'
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
     { _dcsrsConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
-    , _dcsrsStatus :: !Int
+    , _dcsrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
 describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
-describeConfigurationSettingsResponse pStatus_ = 
+describeConfigurationSettingsResponse pStatus_ =
     DescribeConfigurationSettingsResponse'
     { _dcsrsConfigurationSettings = Nothing
     , _dcsrsStatus = pStatus_

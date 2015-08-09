@@ -40,11 +40,11 @@ module Network.AWS.EC2.AttachNetworkInterface
     , anirsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachNetworkInterface' smart constructor.
 --
@@ -58,15 +58,15 @@ import Network.AWS.Response
 --
 -- * 'aniDeviceIndex'
 data AttachNetworkInterface = AttachNetworkInterface'
-    { _aniDryRun :: !(Maybe Bool)
+    { _aniDryRun             :: !(Maybe Bool)
     , _aniNetworkInterfaceId :: !Text
-    , _aniInstanceId :: !Text
-    , _aniDeviceIndex :: !Int
+    , _aniInstanceId         :: !Text
+    , _aniDeviceIndex        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachNetworkInterface' smart constructor.
 attachNetworkInterface :: Text -> Text -> Int -> AttachNetworkInterface
-attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ = 
+attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
     AttachNetworkInterface'
     { _aniDryRun = Nothing
     , _aniNetworkInterfaceId = pNetworkInterfaceId_
@@ -130,12 +130,12 @@ instance ToQuery AttachNetworkInterface where
 -- * 'anirsStatus'
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirsAttachmentId :: !(Maybe Text)
-    , _anirsStatus :: !Int
+    , _anirsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachNetworkInterfaceResponse' smart constructor.
 attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse
-attachNetworkInterfaceResponse pStatus_ = 
+attachNetworkInterfaceResponse pStatus_ =
     AttachNetworkInterfaceResponse'
     { _anirsAttachmentId = Nothing
     , _anirsStatus = pStatus_

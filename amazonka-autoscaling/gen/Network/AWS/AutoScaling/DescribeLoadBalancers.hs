@@ -40,11 +40,11 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     , dlbrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancers' smart constructor.
 --
@@ -56,14 +56,14 @@ import Network.AWS.Response
 --
 -- * 'dlbAutoScalingGroupName'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbNextToken :: !(Maybe Text)
-    , _dlbMaxRecords :: !(Maybe Int)
+    { _dlbNextToken            :: !(Maybe Text)
+    , _dlbMaxRecords           :: !(Maybe Int)
     , _dlbAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: Text -> DescribeLoadBalancers
-describeLoadBalancers pAutoScalingGroupName_ = 
+describeLoadBalancers pAutoScalingGroupName_ =
     DescribeLoadBalancers'
     { _dlbNextToken = Nothing
     , _dlbMaxRecords = Nothing
@@ -123,13 +123,13 @@ instance ToQuery DescribeLoadBalancers where
 -- * 'dlbrsStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers :: !(Maybe [LoadBalancerState])
-    , _dlbrsNextToken :: !(Maybe Text)
-    , _dlbrsStatus :: !Int
+    , _dlbrsNextToken     :: !(Maybe Text)
+    , _dlbrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatus_ = 
+describeLoadBalancersResponse pStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers = Nothing
     , _dlbrsNextToken = Nothing

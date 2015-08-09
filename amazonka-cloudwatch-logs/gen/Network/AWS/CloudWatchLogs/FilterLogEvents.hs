@@ -60,11 +60,11 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , flersStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'filterLogEvents' smart constructor.
 --
@@ -86,19 +86,19 @@ import Network.AWS.Response
 --
 -- * 'fleLogGroupName'
 data FilterLogEvents = FilterLogEvents'
-    { _fleStartTime :: !(Maybe Nat)
+    { _fleStartTime      :: !(Maybe Nat)
     , _fleLogStreamNames :: !(Maybe (List1 Text))
-    , _fleNextToken :: !(Maybe Text)
-    , _fleEndTime :: !(Maybe Nat)
-    , _fleLimit :: !(Maybe Nat)
-    , _fleFilterPattern :: !(Maybe Text)
-    , _fleInterleaved :: !(Maybe Bool)
-    , _fleLogGroupName :: !Text
+    , _fleNextToken      :: !(Maybe Text)
+    , _fleEndTime        :: !(Maybe Nat)
+    , _fleLimit          :: !(Maybe Nat)
+    , _fleFilterPattern  :: !(Maybe Text)
+    , _fleInterleaved    :: !(Maybe Bool)
+    , _fleLogGroupName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FilterLogEvents' smart constructor.
 filterLogEvents :: Text -> FilterLogEvents
-filterLogEvents pLogGroupName_ = 
+filterLogEvents pLogGroupName_ =
     FilterLogEvents'
     { _fleStartTime = Nothing
     , _fleLogStreamNames = Nothing
@@ -206,14 +206,14 @@ instance ToQuery FilterLogEvents where
 -- * 'flersStatus'
 data FilterLogEventsResponse = FilterLogEventsResponse'
     { _flersSearchedLogStreams :: !(Maybe [SearchedLogStream])
-    , _flersNextToken :: !(Maybe Text)
-    , _flersEvents :: !(Maybe [FilteredLogEvent])
-    , _flersStatus :: !Int
+    , _flersNextToken          :: !(Maybe Text)
+    , _flersEvents             :: !(Maybe [FilteredLogEvent])
+    , _flersStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FilterLogEventsResponse' smart constructor.
 filterLogEventsResponse :: Int -> FilterLogEventsResponse
-filterLogEventsResponse pStatus_ = 
+filterLogEventsResponse pStatus_ =
     FilterLogEventsResponse'
     { _flersSearchedLogStreams = Nothing
     , _flersNextToken = Nothing

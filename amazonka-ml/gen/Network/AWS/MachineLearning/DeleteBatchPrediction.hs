@@ -46,11 +46,11 @@ module Network.AWS.MachineLearning.DeleteBatchPrediction
     , dbprsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteBatchPrediction' smart constructor.
 --
@@ -63,7 +63,7 @@ newtype DeleteBatchPrediction = DeleteBatchPrediction'
 
 -- | 'DeleteBatchPrediction' smart constructor.
 deleteBatchPrediction :: Text -> DeleteBatchPrediction
-deleteBatchPrediction pBatchPredictionId_ = 
+deleteBatchPrediction pBatchPredictionId_ =
     DeleteBatchPrediction'
     { _dbpBatchPredictionId = pBatchPredictionId_
     }
@@ -119,12 +119,12 @@ instance ToQuery DeleteBatchPrediction where
 -- * 'dbprsStatus'
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
     { _dbprsBatchPredictionId :: !(Maybe Text)
-    , _dbprsStatus :: !Int
+    , _dbprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBatchPredictionResponse' smart constructor.
 deleteBatchPredictionResponse :: Int -> DeleteBatchPredictionResponse
-deleteBatchPredictionResponse pStatus_ = 
+deleteBatchPredictionResponse pStatus_ =
     DeleteBatchPredictionResponse'
     { _dbprsBatchPredictionId = Nothing
     , _dbprsStatus = pStatus_

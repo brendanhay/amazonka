@@ -48,11 +48,11 @@ module Network.AWS.EC2.BundleInstance
     , birsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'bundleInstance' smart constructor.
 --
@@ -64,14 +64,14 @@ import Network.AWS.Response
 --
 -- * 'biStorage'
 data BundleInstance = BundleInstance'
-    { _biDryRun :: !(Maybe Bool)
+    { _biDryRun     :: !(Maybe Bool)
     , _biInstanceId :: !Text
-    , _biStorage :: !Storage
+    , _biStorage    :: !Storage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleInstance' smart constructor.
 bundleInstance :: Text -> Storage -> BundleInstance
-bundleInstance pInstanceId_ pStorage_ = 
+bundleInstance pInstanceId_ pStorage_ =
     BundleInstance'
     { _biDryRun = Nothing
     , _biInstanceId = pInstanceId_
@@ -135,12 +135,12 @@ instance ToQuery BundleInstance where
 -- * 'birsStatus'
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birsBundleTask :: !(Maybe BundleTask)
-    , _birsStatus :: !Int
+    , _birsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleInstanceResponse' smart constructor.
 bundleInstanceResponse :: Int -> BundleInstanceResponse
-bundleInstanceResponse pStatus_ = 
+bundleInstanceResponse pStatus_ =
     BundleInstanceResponse'
     { _birsBundleTask = Nothing
     , _birsStatus = pStatus_

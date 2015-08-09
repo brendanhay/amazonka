@@ -52,11 +52,11 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     , dsirrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotInstanceRequests.
 --
@@ -70,14 +70,14 @@ import Network.AWS.Response
 --
 -- * 'dsirDryRun'
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
-    { _dsirFilters :: !(Maybe [Filter])
+    { _dsirFilters                :: !(Maybe [Filter])
     , _dsirSpotInstanceRequestIds :: !(Maybe [Text])
-    , _dsirDryRun :: !(Maybe Bool)
+    , _dsirDryRun                 :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotInstanceRequests' smart constructor.
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
-describeSpotInstanceRequests = 
+describeSpotInstanceRequests =
     DescribeSpotInstanceRequests'
     { _dsirFilters = Nothing
     , _dsirSpotInstanceRequestIds = Nothing
@@ -260,12 +260,12 @@ instance ToQuery DescribeSpotInstanceRequests where
 -- * 'dsirrsStatus'
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
     { _dsirrsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _dsirrsStatus :: !Int
+    , _dsirrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
 describeSpotInstanceRequestsResponse :: Int -> DescribeSpotInstanceRequestsResponse
-describeSpotInstanceRequestsResponse pStatus_ = 
+describeSpotInstanceRequestsResponse pStatus_ =
     DescribeSpotInstanceRequestsResponse'
     { _dsirrsSpotInstanceRequests = Nothing
     , _dsirrsStatus = pStatus_

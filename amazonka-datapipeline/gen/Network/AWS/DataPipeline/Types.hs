@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.DataPipeline.Types
     (
-    -- * Service Decription
+    -- * Service
       DataPipeline
 
-    -- * Error Matchers
+    -- * Errors
     , _InvalidRequestException
     , _InternalServiceError
     , _PipelineDeletedException
@@ -126,10 +126,10 @@ module Network.AWS.DataPipeline.Types
     , vwId
     ) where
 
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.DataPipeline.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.DataPipeline.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-10-29@ of the Amazon Data Pipeline SDK.
 data DataPipeline
@@ -138,7 +138,7 @@ instance AWSService DataPipeline where
     type Sg DataPipeline = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "DataPipeline"
             , _svcPrefix = "datapipeline"
@@ -149,7 +149,7 @@ instance AWSService DataPipeline where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -157,7 +157,7 @@ instance AWSService DataPipeline where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -183,7 +183,7 @@ _PipelineDeletedException = _ServiceError . hasCode "PipelineDeletedException"
 -- | The specified pipeline was not found. Verify that you used the correct
 -- user and account identifiers.
 _PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineNotFoundException = 
+_PipelineNotFoundException =
     _ServiceError . hasCode "PipelineNotFoundException"
 
 -- | The specified task was not found.

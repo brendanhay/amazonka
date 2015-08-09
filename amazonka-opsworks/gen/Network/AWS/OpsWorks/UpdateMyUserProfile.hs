@@ -39,11 +39,11 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     , updateMyUserProfileResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateMyUserProfile' smart constructor.
 --
@@ -56,7 +56,7 @@ newtype UpdateMyUserProfile = UpdateMyUserProfile'
 
 -- | 'UpdateMyUserProfile' smart constructor.
 updateMyUserProfile :: UpdateMyUserProfile
-updateMyUserProfile = 
+updateMyUserProfile =
     UpdateMyUserProfile'
     { _umupSSHPublicKey = Nothing
     }
@@ -94,7 +94,7 @@ instance ToQuery UpdateMyUserProfile where
 
 -- | /See:/ 'updateMyUserProfileResponse' smart constructor.
 data UpdateMyUserProfileResponse =
-    UpdateMyUserProfileResponse' 
+    UpdateMyUserProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMyUserProfileResponse' smart constructor.

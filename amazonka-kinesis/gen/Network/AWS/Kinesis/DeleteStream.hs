@@ -53,11 +53,11 @@ module Network.AWS.Kinesis.DeleteStream
     , deleteStreamResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @DeleteStream@.
 --
@@ -72,7 +72,7 @@ newtype DeleteStream = DeleteStream'
 
 -- | 'DeleteStream' smart constructor.
 deleteStream :: Text -> DeleteStream
-deleteStream pStreamName_ = 
+deleteStream pStreamName_ =
     DeleteStream'
     { _dsStreamName = pStreamName_
     }
@@ -108,7 +108,7 @@ instance ToQuery DeleteStream where
 
 -- | /See:/ 'deleteStreamResponse' smart constructor.
 data DeleteStreamResponse =
-    DeleteStreamResponse' 
+    DeleteStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStreamResponse' smart constructor.

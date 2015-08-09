@@ -52,11 +52,11 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrsStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.CloudTrail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Specifies the settings for each trail.
 --
@@ -78,18 +78,18 @@ import Network.AWS.Response
 --
 -- * 'ctS3BucketName'
 data CreateTrail = CreateTrail'
-    { _ctS3KeyPrefix :: !(Maybe Text)
-    , _ctSNSTopicName :: !(Maybe Text)
-    , _ctCloudWatchLogsLogGroupARN :: !(Maybe Text)
+    { _ctS3KeyPrefix                :: !(Maybe Text)
+    , _ctSNSTopicName               :: !(Maybe Text)
+    , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
     , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctCloudWatchLogsRoleARN :: !(Maybe Text)
-    , _ctName :: !Text
-    , _ctS3BucketName :: !Text
+    , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _ctName                       :: !Text
+    , _ctS3BucketName               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTrail' smart constructor.
 createTrail :: Text -> Text -> CreateTrail
-createTrail pName_ pS3BucketName_ = 
+createTrail pName_ pS3BucketName_ =
     CreateTrail'
     { _ctS3KeyPrefix = Nothing
     , _ctSNSTopicName = Nothing
@@ -202,19 +202,19 @@ instance ToQuery CreateTrail where
 --
 -- * 'ctrsStatus'
 data CreateTrailResponse = CreateTrailResponse'
-    { _ctrsS3KeyPrefix :: !(Maybe Text)
-    , _ctrsSNSTopicName :: !(Maybe Text)
-    , _ctrsCloudWatchLogsLogGroupARN :: !(Maybe Text)
-    , _ctrsName :: !(Maybe Text)
+    { _ctrsS3KeyPrefix                :: !(Maybe Text)
+    , _ctrsSNSTopicName               :: !(Maybe Text)
+    , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _ctrsName                       :: !(Maybe Text)
     , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctrsCloudWatchLogsRoleARN :: !(Maybe Text)
-    , _ctrsS3BucketName :: !(Maybe Text)
-    , _ctrsStatus :: !Int
+    , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _ctrsS3BucketName               :: !(Maybe Text)
+    , _ctrsStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTrailResponse' smart constructor.
 createTrailResponse :: Int -> CreateTrailResponse
-createTrailResponse pStatus_ = 
+createTrailResponse pStatus_ =
     CreateTrailResponse'
     { _ctrsS3KeyPrefix = Nothing
     , _ctrsSNSTopicName = Nothing

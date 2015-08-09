@@ -40,11 +40,11 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     , tmfrsStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'testMetricFilter' smart constructor.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'tmfLogEventMessages'
 data TestMetricFilter = TestMetricFilter'
-    { _tmfFilterPattern :: !Text
+    { _tmfFilterPattern    :: !Text
     , _tmfLogEventMessages :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestMetricFilter' smart constructor.
 testMetricFilter :: Text -> NonEmpty Text -> TestMetricFilter
-testMetricFilter pFilterPattern_ pLogEventMessages_ = 
+testMetricFilter pFilterPattern_ pLogEventMessages_ =
     TestMetricFilter'
     { _tmfFilterPattern = pFilterPattern_
     , _tmfLogEventMessages = _List1 # pLogEventMessages_
@@ -114,12 +114,12 @@ instance ToQuery TestMetricFilter where
 -- * 'tmfrsStatus'
 data TestMetricFilterResponse = TestMetricFilterResponse'
     { _tmfrsMatches :: !(Maybe [MetricFilterMatchRecord])
-    , _tmfrsStatus :: !Int
+    , _tmfrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestMetricFilterResponse' smart constructor.
 testMetricFilterResponse :: Int -> TestMetricFilterResponse
-testMetricFilterResponse pStatus_ = 
+testMetricFilterResponse pStatus_ =
     TestMetricFilterResponse'
     { _tmfrsMatches = Nothing
     , _tmfrsStatus = pStatus_

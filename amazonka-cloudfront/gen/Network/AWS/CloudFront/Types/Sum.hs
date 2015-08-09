@@ -17,12 +17,12 @@
 --
 module Network.AWS.CloudFront.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data GeoRestrictionType
-    = None 
-    | Whitelist 
-    | Blacklist 
+    = None
+    | Whitelist
+    | Blacklist
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GeoRestrictionType where
@@ -51,9 +51,9 @@ instance ToXML GeoRestrictionType where
     toXML = toXMLText
 
 data ItemSelection
-    = ISWhitelist 
-    | ISNone 
-    | ISAll 
+    = ISWhitelist
+    | ISNone
+    | ISAll
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ItemSelection where
@@ -82,13 +82,13 @@ instance ToXML ItemSelection where
     toXML = toXMLText
 
 data Method
-    = Head 
-    | Post 
-    | Patch 
-    | Get 
-    | Options 
-    | Put 
-    | Delete 
+    = Head
+    | Post
+    | Patch
+    | Get
+    | Options
+    | Put
+    | Delete
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Method where
@@ -125,8 +125,8 @@ instance ToXML Method where
     toXML = toXMLText
 
 data MinimumProtocolVersion
-    = TLSV1 
-    | SSLV3 
+    = TLSV1
+    | SSLV3
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MinimumProtocolVersion where
@@ -153,8 +153,8 @@ instance ToXML MinimumProtocolVersion where
     toXML = toXMLText
 
 data OriginProtocolPolicy
-    = HTTPOnly 
-    | MatchViewer 
+    = HTTPOnly
+    | MatchViewer
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OriginProtocolPolicy where
@@ -181,9 +181,9 @@ instance ToXML OriginProtocolPolicy where
     toXML = toXMLText
 
 data PriceClass
-    = PriceClass200 
-    | PriceClass100 
-    | PriceClassAll 
+    = PriceClass200
+    | PriceClass100
+    | PriceClassAll
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PriceClass where
@@ -212,8 +212,8 @@ instance ToXML PriceClass where
     toXML = toXMLText
 
 data SSLSupportMethod
-    = VIP 
-    | SNIOnly 
+    = VIP
+    | SNIOnly
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SSLSupportMethod where
@@ -240,9 +240,9 @@ instance ToXML SSLSupportMethod where
     toXML = toXMLText
 
 data ViewerProtocolPolicy
-    = HTTPSOnly 
-    | RedirectToHTTPS 
-    | AllowAll 
+    = HTTPSOnly
+    | RedirectToHTTPS
+    | AllowAll
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ViewerProtocolPolicy where

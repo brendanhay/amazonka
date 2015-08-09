@@ -18,8 +18,8 @@
 --
 module Network.AWS.DynamoDBStreams.Types.Product where
 
-import Network.AWS.DynamoDBStreams.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.DynamoDBStreams.Types.Sum
+import           Network.AWS.Prelude
 
 -- | Represents the data for an attribute. You can set one, and only one, of
 -- the elements.
@@ -54,21 +54,21 @@ import Network.AWS.Prelude
 --
 -- * 'avBOOL'
 data AttributeValue = AttributeValue'
-    { _avL :: !(Maybe [AttributeValue])
-    , _avM :: !(Maybe (Map Text AttributeValue))
-    , _avNS :: !(Maybe [Text])
+    { _avL    :: !(Maybe [AttributeValue])
+    , _avM    :: !(Maybe (Map Text AttributeValue))
+    , _avNS   :: !(Maybe [Text])
     , _avNULL :: !(Maybe Bool)
-    , _avN :: !(Maybe Text)
-    , _avBS :: !(Maybe [Base64])
-    , _avB :: !(Maybe Base64)
-    , _avSS :: !(Maybe [Text])
-    , _avS :: !(Maybe Text)
+    , _avN    :: !(Maybe Text)
+    , _avBS   :: !(Maybe [Base64])
+    , _avB    :: !(Maybe Base64)
+    , _avSS   :: !(Maybe [Text])
+    , _avS    :: !(Maybe Text)
     , _avBOOL :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
-attributeValue = 
+attributeValue =
     AttributeValue'
     { _avL = Nothing
     , _avM = Nothing
@@ -156,12 +156,12 @@ instance FromJSON AttributeValue where
 -- * 'kseKeyType'
 data KeySchemaElement = KeySchemaElement'
     { _kseAttributeName :: !Text
-    , _kseKeyType :: !KeyType
+    , _kseKeyType       :: !KeyType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeySchemaElement' smart constructor.
 keySchemaElement :: Text -> KeyType -> KeySchemaElement
-keySchemaElement pAttributeName_ pKeyType_ = 
+keySchemaElement pAttributeName_ pKeyType_ =
     KeySchemaElement'
     { _kseAttributeName = pAttributeName_
     , _kseKeyType = pKeyType_
@@ -202,16 +202,16 @@ instance FromJSON KeySchemaElement where
 -- * 'rEventId'
 data Record = Record'
     { _rEventVersion :: !(Maybe Text)
-    , _rDynamodb :: !(Maybe StreamRecord)
-    , _rAwsRegion :: !(Maybe Text)
-    , _rEventName :: !(Maybe OperationType)
-    , _rEventSource :: !(Maybe Text)
-    , _rEventId :: !(Maybe Text)
+    , _rDynamodb     :: !(Maybe StreamRecord)
+    , _rAwsRegion    :: !(Maybe Text)
+    , _rEventName    :: !(Maybe OperationType)
+    , _rEventSource  :: !(Maybe Text)
+    , _rEventId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Record
-record = 
+record =
     Record'
     { _rEventVersion = Nothing
     , _rDynamodb = Nothing
@@ -279,12 +279,12 @@ instance FromJSON Record where
 -- * 'snrEndingSequenceNumber'
 data SequenceNumberRange = SequenceNumberRange'
     { _snrStartingSequenceNumber :: !(Maybe Text)
-    , _snrEndingSequenceNumber :: !(Maybe Text)
+    , _snrEndingSequenceNumber   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SequenceNumberRange' smart constructor.
 sequenceNumberRange :: SequenceNumberRange
-sequenceNumberRange = 
+sequenceNumberRange =
     SequenceNumberRange'
     { _snrStartingSequenceNumber = Nothing
     , _snrEndingSequenceNumber = Nothing
@@ -318,14 +318,14 @@ instance FromJSON SequenceNumberRange where
 --
 -- * 'sShardId'
 data Shard = Shard'
-    { _sParentShardId :: !(Maybe Text)
+    { _sParentShardId       :: !(Maybe Text)
     , _sSequenceNumberRange :: !(Maybe SequenceNumberRange)
-    , _sShardId :: !(Maybe Text)
+    , _sShardId             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Shard' smart constructor.
 shard :: Shard
-shard = 
+shard =
     Shard'
     { _sParentShardId = Nothing
     , _sSequenceNumberRange = Nothing
@@ -366,13 +366,13 @@ instance FromJSON Shard where
 -- * 'sTableName'
 data Stream = Stream'
     { _sStreamLabel :: !(Maybe Text)
-    , _sStreamARN :: !(Maybe Text)
-    , _sTableName :: !(Maybe Text)
+    , _sStreamARN   :: !(Maybe Text)
+    , _sTableName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Stream' smart constructor.
 stream :: Stream
-stream = 
+stream =
     Stream'
     { _sStreamLabel = Nothing
     , _sStreamARN = Nothing
@@ -435,20 +435,20 @@ instance FromJSON Stream where
 --
 -- * 'sdCreationRequestDateTime'
 data StreamDescription = StreamDescription'
-    { _sdLastEvaluatedShardId :: !(Maybe Text)
-    , _sdStreamLabel :: !(Maybe Text)
-    , _sdStreamStatus :: !(Maybe StreamStatus)
-    , _sdKeySchema :: !(Maybe (List1 KeySchemaElement))
-    , _sdStreamARN :: !(Maybe Text)
-    , _sdStreamViewType :: !(Maybe StreamViewType)
-    , _sdShards :: !(Maybe [Shard])
-    , _sdTableName :: !(Maybe Text)
+    { _sdLastEvaluatedShardId    :: !(Maybe Text)
+    , _sdStreamLabel             :: !(Maybe Text)
+    , _sdStreamStatus            :: !(Maybe StreamStatus)
+    , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
+    , _sdStreamARN               :: !(Maybe Text)
+    , _sdStreamViewType          :: !(Maybe StreamViewType)
+    , _sdShards                  :: !(Maybe [Shard])
+    , _sdTableName               :: !(Maybe Text)
     , _sdCreationRequestDateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamDescription' smart constructor.
 streamDescription :: StreamDescription
-streamDescription = 
+streamDescription =
     StreamDescription'
     { _sdLastEvaluatedShardId = Nothing
     , _sdStreamLabel = Nothing
@@ -578,16 +578,16 @@ instance FromJSON StreamDescription where
 -- * 'srNewImage'
 data StreamRecord = StreamRecord'
     { _srSequenceNumber :: !(Maybe Text)
-    , _srSizeBytes :: !(Maybe Nat)
+    , _srSizeBytes      :: !(Maybe Nat)
     , _srStreamViewType :: !(Maybe StreamViewType)
-    , _srKeys :: !(Maybe (Map Text AttributeValue))
-    , _srOldImage :: !(Maybe (Map Text AttributeValue))
-    , _srNewImage :: !(Maybe (Map Text AttributeValue))
+    , _srKeys           :: !(Maybe (Map Text AttributeValue))
+    , _srOldImage       :: !(Maybe (Map Text AttributeValue))
+    , _srNewImage       :: !(Maybe (Map Text AttributeValue))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamRecord' smart constructor.
 streamRecord :: StreamRecord
-streamRecord = 
+streamRecord =
     StreamRecord'
     { _srSequenceNumber = Nothing
     , _srSizeBytes = Nothing

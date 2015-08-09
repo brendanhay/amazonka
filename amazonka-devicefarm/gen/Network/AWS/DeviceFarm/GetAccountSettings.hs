@@ -36,15 +36,15 @@ module Network.AWS.DeviceFarm.GetAccountSettings
     , gasrsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccountSettings' smart constructor.
 data GetAccountSettings =
-    GetAccountSettings' 
+    GetAccountSettings'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountSettings' smart constructor.
@@ -90,12 +90,12 @@ instance ToQuery GetAccountSettings where
 -- * 'gasrsStatus'
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
     { _gasrsAccountSettings :: !(Maybe AccountSettings)
-    , _gasrsStatus :: !Int
+    , _gasrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountSettingsResponse' smart constructor.
 getAccountSettingsResponse :: Int -> GetAccountSettingsResponse
-getAccountSettingsResponse pStatus_ = 
+getAccountSettingsResponse pStatus_ =
     GetAccountSettingsResponse'
     { _gasrsAccountSettings = Nothing
     , _gasrsStatus = pStatus_

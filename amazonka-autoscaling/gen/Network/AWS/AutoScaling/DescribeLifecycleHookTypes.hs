@@ -35,15 +35,15 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , dlhtrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLifecycleHookTypes' smart constructor.
 data DescribeLifecycleHookTypes =
-    DescribeLifecycleHookTypes' 
+    DescribeLifecycleHookTypes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHookTypes' smart constructor.
@@ -87,12 +87,12 @@ instance ToQuery DescribeLifecycleHookTypes where
 -- * 'dlhtrsStatus'
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
     { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
-    , _dlhtrsStatus :: !Int
+    , _dlhtrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHookTypesResponse' smart constructor.
 describeLifecycleHookTypesResponse :: Int -> DescribeLifecycleHookTypesResponse
-describeLifecycleHookTypesResponse pStatus_ = 
+describeLifecycleHookTypesResponse pStatus_ =
     DescribeLifecycleHookTypesResponse'
     { _dlhtrsLifecycleHookTypes = Nothing
     , _dlhtrsStatus = pStatus_

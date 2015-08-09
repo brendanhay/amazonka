@@ -37,11 +37,11 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     , swapEnvironmentCNAMEsResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Swaps the CNAMEs of two environments.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 -- * 'secnameSourceEnvironmentId'
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
     { _secnameDestinationEnvironmentName :: !(Maybe Text)
-    , _secnameDestinationEnvironmentId :: !(Maybe Text)
-    , _secnameSourceEnvironmentName :: !(Maybe Text)
-    , _secnameSourceEnvironmentId :: !(Maybe Text)
+    , _secnameDestinationEnvironmentId   :: !(Maybe Text)
+    , _secnameSourceEnvironmentName      :: !(Maybe Text)
+    , _secnameSourceEnvironmentId        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SwapEnvironmentCNAMEs' smart constructor.
 swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
-swapEnvironmentCNAMEs = 
+swapEnvironmentCNAMEs =
     SwapEnvironmentCNAMEs'
     { _secnameDestinationEnvironmentName = Nothing
     , _secnameDestinationEnvironmentId = Nothing
@@ -135,7 +135,7 @@ instance ToQuery SwapEnvironmentCNAMEs where
 
 -- | /See:/ 'swapEnvironmentCNAMEsResponse' smart constructor.
 data SwapEnvironmentCNAMEsResponse =
-    SwapEnvironmentCNAMEsResponse' 
+    SwapEnvironmentCNAMEsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SwapEnvironmentCNAMEsResponse' smart constructor.

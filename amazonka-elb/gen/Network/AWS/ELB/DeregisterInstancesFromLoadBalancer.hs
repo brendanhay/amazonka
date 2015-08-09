@@ -47,11 +47,11 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     , diflbrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
 --
@@ -62,12 +62,12 @@ import Network.AWS.Response
 -- * 'diflbInstances'
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
     { _diflbLoadBalancerName :: !Text
-    , _diflbInstances :: ![Instance]
+    , _diflbInstances        :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
 deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
-deregisterInstancesFromLoadBalancer pLoadBalancerName_ = 
+deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
     DeregisterInstancesFromLoadBalancer'
     { _diflbLoadBalancerName = pLoadBalancerName_
     , _diflbInstances = mempty
@@ -124,12 +124,12 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 -- * 'diflbrsStatus'
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances :: !(Maybe [Instance])
-    , _diflbrsStatus :: !Int
+    , _diflbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
 deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse pStatus_ = 
+deregisterInstancesFromLoadBalancerResponse pStatus_ =
     DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances = Nothing
     , _diflbrsStatus = pStatus_

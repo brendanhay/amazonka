@@ -40,11 +40,11 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     , usaprsAccessPolicies
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @UpdateServiceAccessPolicies@
 -- operation. Specifies the name of the domain you want to update and the
@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- * 'usapAccessPolicies'
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
-    { _usapDomainName :: !Text
+    { _usapDomainName     :: !Text
     , _usapAccessPolicies :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServiceAccessPolicies' smart constructor.
 updateServiceAccessPolicies :: Text -> Text -> UpdateServiceAccessPolicies
-updateServiceAccessPolicies pDomainName_ pAccessPolicies_ = 
+updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
     UpdateServiceAccessPolicies'
     { _usapDomainName = pDomainName_
     , _usapAccessPolicies = pAccessPolicies_
@@ -117,13 +117,13 @@ instance ToQuery UpdateServiceAccessPolicies where
 --
 -- * 'usaprsAccessPolicies'
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
-    { _usaprsStatus :: !Int
+    { _usaprsStatus         :: !Int
     , _usaprsAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
 updateServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ = 
+updateServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
     UpdateServiceAccessPoliciesResponse'
     { _usaprsStatus = pStatus_
     , _usaprsAccessPolicies = pAccessPolicies_

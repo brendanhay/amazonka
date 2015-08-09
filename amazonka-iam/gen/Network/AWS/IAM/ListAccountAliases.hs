@@ -46,12 +46,12 @@ module Network.AWS.IAM.ListAccountAliases
     , laarsAccountAliases
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAccountAliases' smart constructor.
 --
@@ -62,12 +62,12 @@ import Network.AWS.Response
 -- * 'laaMarker'
 data ListAccountAliases = ListAccountAliases'
     { _laaMaxItems :: !(Maybe Nat)
-    , _laaMarker :: !(Maybe Text)
+    , _laaMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccountAliases' smart constructor.
 listAccountAliases :: ListAccountAliases
-listAccountAliases = 
+listAccountAliases =
     ListAccountAliases'
     { _laaMaxItems = Nothing
     , _laaMarker = Nothing
@@ -137,15 +137,15 @@ instance ToQuery ListAccountAliases where
 --
 -- * 'laarsAccountAliases'
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
-    { _laarsMarker :: !(Maybe Text)
-    , _laarsIsTruncated :: !(Maybe Bool)
-    , _laarsStatus :: !Int
+    { _laarsMarker         :: !(Maybe Text)
+    , _laarsIsTruncated    :: !(Maybe Bool)
+    , _laarsStatus         :: !Int
     , _laarsAccountAliases :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
 listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
-listAccountAliasesResponse pStatus_ = 
+listAccountAliasesResponse pStatus_ =
     ListAccountAliasesResponse'
     { _laarsMarker = Nothing
     , _laarsIsTruncated = Nothing

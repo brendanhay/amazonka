@@ -39,11 +39,11 @@ module Network.AWS.EMR.DescribeCluster
     , dcrsCluster
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which cluster to describe.
 --
@@ -58,7 +58,7 @@ newtype DescribeCluster = DescribeCluster'
 
 -- | 'DescribeCluster' smart constructor.
 describeCluster :: Text -> DescribeCluster
-describeCluster pClusterId_ = 
+describeCluster pClusterId_ =
     DescribeCluster'
     { _dcClusterId = pClusterId_
     }
@@ -106,13 +106,13 @@ instance ToQuery DescribeCluster where
 --
 -- * 'dcrsCluster'
 data DescribeClusterResponse = DescribeClusterResponse'
-    { _dcrsStatus :: !Int
+    { _dcrsStatus  :: !Int
     , _dcrsCluster :: !Cluster
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterResponse' smart constructor.
 describeClusterResponse :: Int -> Cluster -> DescribeClusterResponse
-describeClusterResponse pStatus_ pCluster_ = 
+describeClusterResponse pStatus_ pCluster_ =
     DescribeClusterResponse'
     { _dcrsStatus = pStatus_
     , _dcrsCluster = pCluster_

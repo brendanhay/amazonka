@@ -50,11 +50,11 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
 --
@@ -67,13 +67,13 @@ import Network.AWS.Response
 -- * 'gaadFilter'
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
     { _gaadMaxItems :: !(Maybe Nat)
-    , _gaadMarker :: !(Maybe Text)
-    , _gaadFilter :: !(Maybe [EntityType])
+    , _gaadMarker   :: !(Maybe Text)
+    , _gaadFilter   :: !(Maybe [EntityType])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountAuthorizationDetails' smart constructor.
 getAccountAuthorizationDetails :: GetAccountAuthorizationDetails
-getAccountAuthorizationDetails = 
+getAccountAuthorizationDetails =
     GetAccountAuthorizationDetails'
     { _gaadMaxItems = Nothing
     , _gaadMarker = Nothing
@@ -164,18 +164,18 @@ instance ToQuery GetAccountAuthorizationDetails where
 --
 -- * 'gaadrsStatus'
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-    { _gaadrsRoleDetailList :: !(Maybe [RoleDetail])
+    { _gaadrsRoleDetailList  :: !(Maybe [RoleDetail])
     , _gaadrsGroupDetailList :: !(Maybe [GroupDetail])
-    , _gaadrsUserDetailList :: !(Maybe [UserDetail])
-    , _gaadrsMarker :: !(Maybe Text)
-    , _gaadrsIsTruncated :: !(Maybe Bool)
-    , _gaadrsPolicies :: !(Maybe [ManagedPolicyDetail])
-    , _gaadrsStatus :: !Int
+    , _gaadrsUserDetailList  :: !(Maybe [UserDetail])
+    , _gaadrsMarker          :: !(Maybe Text)
+    , _gaadrsIsTruncated     :: !(Maybe Bool)
+    , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
+    , _gaadrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
 getAccountAuthorizationDetailsResponse :: Int -> GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse pStatus_ = 
+getAccountAuthorizationDetailsResponse pStatus_ =
     GetAccountAuthorizationDetailsResponse'
     { _gaadrsRoleDetailList = Nothing
     , _gaadrsGroupDetailList = Nothing

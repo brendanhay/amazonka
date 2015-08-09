@@ -52,11 +52,11 @@ module Network.AWS.IAM.CreatePolicyVersion
     , cpvrsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createPolicyVersion' smart constructor.
 --
@@ -68,14 +68,14 @@ import Network.AWS.Response
 --
 -- * 'cpvPolicyDocument'
 data CreatePolicyVersion = CreatePolicyVersion'
-    { _cpvSetAsDefault :: !(Maybe Bool)
-    , _cpvPolicyARN :: !Text
+    { _cpvSetAsDefault   :: !(Maybe Bool)
+    , _cpvPolicyARN      :: !Text
     , _cpvPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyVersion' smart constructor.
 createPolicyVersion :: Text -> Text -> CreatePolicyVersion
-createPolicyVersion pPolicyARN_ pPolicyDocument_ = 
+createPolicyVersion pPolicyARN_ pPolicyDocument_ =
     CreatePolicyVersion'
     { _cpvSetAsDefault = Nothing
     , _cpvPolicyARN = pPolicyARN_
@@ -139,12 +139,12 @@ instance ToQuery CreatePolicyVersion where
 -- * 'cpvrsStatus'
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
     { _cpvrsPolicyVersion :: !(Maybe PolicyVersion)
-    , _cpvrsStatus :: !Int
+    , _cpvrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyVersionResponse' smart constructor.
 createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse
-createPolicyVersionResponse pStatus_ = 
+createPolicyVersionResponse pStatus_ =
     CreatePolicyVersionResponse'
     { _cpvrsPolicyVersion = Nothing
     , _cpvrsStatus = pStatus_

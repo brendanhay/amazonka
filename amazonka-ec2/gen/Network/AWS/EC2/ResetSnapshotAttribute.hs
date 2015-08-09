@@ -40,11 +40,11 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     , resetSnapshotAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resetSnapshotAttribute' smart constructor.
 --
@@ -56,14 +56,14 @@ import Network.AWS.Response
 --
 -- * 'rsaAttribute'
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
-    { _rsaDryRun :: !(Maybe Bool)
+    { _rsaDryRun     :: !(Maybe Bool)
     , _rsaSnapshotId :: !Text
-    , _rsaAttribute :: !SnapshotAttributeName
+    , _rsaAttribute  :: !SnapshotAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetSnapshotAttribute' smart constructor.
 resetSnapshotAttribute :: Text -> SnapshotAttributeName -> ResetSnapshotAttribute
-resetSnapshotAttribute pSnapshotId_ pAttribute_ = 
+resetSnapshotAttribute pSnapshotId_ pAttribute_ =
     ResetSnapshotAttribute'
     { _rsaDryRun = Nothing
     , _rsaSnapshotId = pSnapshotId_
@@ -112,7 +112,7 @@ instance ToQuery ResetSnapshotAttribute where
 
 -- | /See:/ 'resetSnapshotAttributeResponse' smart constructor.
 data ResetSnapshotAttributeResponse =
-    ResetSnapshotAttributeResponse' 
+    ResetSnapshotAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetSnapshotAttributeResponse' smart constructor.

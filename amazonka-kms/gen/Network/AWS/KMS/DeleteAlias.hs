@@ -35,11 +35,11 @@ module Network.AWS.KMS.DeleteAlias
     , deleteAliasResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAlias' smart constructor.
 --
@@ -52,7 +52,7 @@ newtype DeleteAlias = DeleteAlias'
 
 -- | 'DeleteAlias' smart constructor.
 deleteAlias :: Text -> DeleteAlias
-deleteAlias pAliasName_ = 
+deleteAlias pAliasName_ =
     DeleteAlias'
     { _daAliasName = pAliasName_
     }
@@ -90,7 +90,7 @@ instance ToQuery DeleteAlias where
 
 -- | /See:/ 'deleteAliasResponse' smart constructor.
 data DeleteAliasResponse =
-    DeleteAliasResponse' 
+    DeleteAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAliasResponse' smart constructor.

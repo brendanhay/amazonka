@@ -44,11 +44,11 @@ module Network.AWS.CodePipeline.PollForThirdPartyJobs
     , pftpjrsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a poll for third party jobs action.
 --
@@ -66,7 +66,7 @@ data PollForThirdPartyJobs = PollForThirdPartyJobs'
 
 -- | 'PollForThirdPartyJobs' smart constructor.
 pollForThirdPartyJobs :: ActionTypeId -> PollForThirdPartyJobs
-pollForThirdPartyJobs pActionTypeId_ = 
+pollForThirdPartyJobs pActionTypeId_ =
     PollForThirdPartyJobs'
     { _pftpjMaxBatchSize = Nothing
     , _pftpjActionTypeId = pActionTypeId_
@@ -123,13 +123,13 @@ instance ToQuery PollForThirdPartyJobs where
 --
 -- * 'pftpjrsStatus'
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
-    { _pftpjrsJobs :: !(Maybe [ThirdPartyJob])
+    { _pftpjrsJobs   :: !(Maybe [ThirdPartyJob])
     , _pftpjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForThirdPartyJobsResponse' smart constructor.
 pollForThirdPartyJobsResponse :: Int -> PollForThirdPartyJobsResponse
-pollForThirdPartyJobsResponse pStatus_ = 
+pollForThirdPartyJobsResponse pStatus_ =
     PollForThirdPartyJobsResponse'
     { _pftpjrsJobs = Nothing
     , _pftpjrsStatus = pStatus_

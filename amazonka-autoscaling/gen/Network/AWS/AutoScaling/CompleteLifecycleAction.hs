@@ -59,11 +59,11 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     , clarsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'completeLifecycleAction' smart constructor.
 --
@@ -77,15 +77,15 @@ import Network.AWS.Response
 --
 -- * 'claLifecycleActionResult'
 data CompleteLifecycleAction = CompleteLifecycleAction'
-    { _claLifecycleHookName :: !Text
-    , _claAutoScalingGroupName :: !Text
-    , _claLifecycleActionToken :: !Text
+    { _claLifecycleHookName     :: !Text
+    , _claAutoScalingGroupName  :: !Text
+    , _claLifecycleActionToken  :: !Text
     , _claLifecycleActionResult :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteLifecycleAction' smart constructor.
 completeLifecycleAction :: Text -> Text -> Text -> Text -> CompleteLifecycleAction
-completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ pLifecycleActionResult_ = 
+completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ pLifecycleActionResult_ =
     CompleteLifecycleAction'
     { _claLifecycleHookName = pLifecycleHookName_
     , _claAutoScalingGroupName = pAutoScalingGroupName_
@@ -152,7 +152,7 @@ newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
 completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse
-completeLifecycleActionResponse pStatus_ = 
+completeLifecycleActionResponse pStatus_ =
     CompleteLifecycleActionResponse'
     { _clarsStatus = pStatus_
     }

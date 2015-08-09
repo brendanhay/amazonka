@@ -13,10 +13,10 @@
 --
 module Network.AWS.SNS.Types
     (
-    -- * Service Decription
+    -- * Service
       SNS
 
-    -- * Error Matchers
+    -- * Errors
     , _EndpointDisabledException
     , _AuthorizationErrorException
     , _InvalidParameterException

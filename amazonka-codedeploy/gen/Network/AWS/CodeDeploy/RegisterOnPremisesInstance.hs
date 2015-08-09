@@ -35,11 +35,11 @@ module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     , registerOnPremisesInstanceResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of register on-premises instance operation.
 --
@@ -52,12 +52,12 @@ import Network.AWS.Response
 -- * 'ropiIamUserARN'
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
     { _ropiInstanceName :: !Text
-    , _ropiIamUserARN :: !Text
+    , _ropiIamUserARN   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterOnPremisesInstance' smart constructor.
 registerOnPremisesInstance :: Text -> Text -> RegisterOnPremisesInstance
-registerOnPremisesInstance pInstanceName_ pIamUserARN_ = 
+registerOnPremisesInstance pInstanceName_ pIamUserARN_ =
     RegisterOnPremisesInstance'
     { _ropiInstanceName = pInstanceName_
     , _ropiIamUserARN = pIamUserARN_
@@ -103,7 +103,7 @@ instance ToQuery RegisterOnPremisesInstance where
 
 -- | /See:/ 'registerOnPremisesInstanceResponse' smart constructor.
 data RegisterOnPremisesInstanceResponse =
-    RegisterOnPremisesInstanceResponse' 
+    RegisterOnPremisesInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterOnPremisesInstanceResponse' smart constructor.

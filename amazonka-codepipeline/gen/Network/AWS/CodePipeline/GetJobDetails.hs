@@ -43,11 +43,11 @@ module Network.AWS.CodePipeline.GetJobDetails
     , gjdrsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get job details action.
 --
@@ -62,7 +62,7 @@ newtype GetJobDetails = GetJobDetails'
 
 -- | 'GetJobDetails' smart constructor.
 getJobDetails :: Text -> GetJobDetails
-getJobDetails pJobId_ = 
+getJobDetails pJobId_ =
     GetJobDetails'
     { _gjdJobId = pJobId_
     }
@@ -112,12 +112,12 @@ instance ToQuery GetJobDetails where
 -- * 'gjdrsStatus'
 data GetJobDetailsResponse = GetJobDetailsResponse'
     { _gjdrsJobDetails :: !(Maybe JobDetails)
-    , _gjdrsStatus :: !Int
+    , _gjdrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobDetailsResponse' smart constructor.
 getJobDetailsResponse :: Int -> GetJobDetailsResponse
-getJobDetailsResponse pStatus_ = 
+getJobDetailsResponse pStatus_ =
     GetJobDetailsResponse'
     { _gjdrsJobDetails = Nothing
     , _gjdrsStatus = pStatus_

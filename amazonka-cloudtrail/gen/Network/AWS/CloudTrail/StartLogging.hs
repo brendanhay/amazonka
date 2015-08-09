@@ -36,11 +36,11 @@ module Network.AWS.CloudTrail.StartLogging
     , srsStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.CloudTrail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to CloudTrail to start logging AWS API calls for an account.
 --
@@ -55,7 +55,7 @@ newtype StartLogging = StartLogging'
 
 -- | 'StartLogging' smart constructor.
 startLogging :: Text -> StartLogging
-startLogging pName_ = 
+startLogging pName_ =
     StartLogging'
     { _sName = pName_
     }
@@ -106,7 +106,7 @@ newtype StartLoggingResponse = StartLoggingResponse'
 
 -- | 'StartLoggingResponse' smart constructor.
 startLoggingResponse :: Int -> StartLoggingResponse
-startLoggingResponse pStatus_ = 
+startLoggingResponse pStatus_ =
     StartLoggingResponse'
     { _srsStatus = pStatus_
     }

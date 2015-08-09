@@ -37,11 +37,11 @@ module Network.AWS.IAM.CreateAccountAlias
     , createAccountAliasResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAccountAlias' smart constructor.
 --
@@ -54,7 +54,7 @@ newtype CreateAccountAlias = CreateAccountAlias'
 
 -- | 'CreateAccountAlias' smart constructor.
 createAccountAlias :: Text -> CreateAccountAlias
-createAccountAlias pAccountAlias_ = 
+createAccountAlias pAccountAlias_ =
     CreateAccountAlias'
     { _caaAccountAlias = pAccountAlias_
     }
@@ -85,7 +85,7 @@ instance ToQuery CreateAccountAlias where
 
 -- | /See:/ 'createAccountAliasResponse' smart constructor.
 data CreateAccountAliasResponse =
-    CreateAccountAliasResponse' 
+    CreateAccountAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccountAliasResponse' smart constructor.

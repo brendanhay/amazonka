@@ -48,11 +48,11 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the CreateIdentityPool action.
 --
@@ -70,16 +70,16 @@ import Network.AWS.Response
 --
 -- * 'cipAllowUnauthenticatedIdentities'
 data CreateIdentityPool = CreateIdentityPool'
-    { _cipSupportedLoginProviders :: !(Maybe (Map Text Text))
-    , _cipDeveloperProviderName :: !(Maybe Text)
-    , _cipOpenIdConnectProviderARNs :: !(Maybe [Text])
-    , _cipIdentityPoolName :: !Text
+    { _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _cipDeveloperProviderName          :: !(Maybe Text)
+    , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _cipIdentityPoolName               :: !Text
     , _cipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateIdentityPool' smart constructor.
 createIdentityPool :: Text -> Bool -> CreateIdentityPool
-createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ = 
+createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     CreateIdentityPool'
     { _cipSupportedLoginProviders = Nothing
     , _cipDeveloperProviderName = Nothing

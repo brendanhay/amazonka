@@ -37,11 +37,11 @@ module Network.AWS.KMS.DescribeKey
     , dkrsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeKey' smart constructor.
 --
@@ -54,7 +54,7 @@ newtype DescribeKey = DescribeKey'
 
 -- | 'DescribeKey' smart constructor.
 describeKey :: Text -> DescribeKey
-describeKey pKeyId_ = 
+describeKey pKeyId_ =
     DescribeKey'
     { _dKeyId = pKeyId_
     }
@@ -110,12 +110,12 @@ instance ToQuery DescribeKey where
 -- * 'dkrsStatus'
 data DescribeKeyResponse = DescribeKeyResponse'
     { _dkrsKeyMetadata :: !(Maybe KeyMetadata)
-    , _dkrsStatus :: !Int
+    , _dkrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyResponse' smart constructor.
 describeKeyResponse :: Int -> DescribeKeyResponse
-describeKeyResponse pStatus_ = 
+describeKeyResponse pStatus_ =
     DescribeKeyResponse'
     { _dkrsKeyMetadata = Nothing
     , _dkrsStatus = pStatus_

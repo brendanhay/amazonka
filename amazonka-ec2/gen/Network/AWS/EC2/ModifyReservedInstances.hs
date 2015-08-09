@@ -46,11 +46,11 @@ module Network.AWS.EC2.ModifyReservedInstances
     , mrirsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyReservedInstances' smart constructor.
 --
@@ -62,14 +62,14 @@ import Network.AWS.Response
 --
 -- * 'mriTargetConfigurations'
 data ModifyReservedInstances = ModifyReservedInstances'
-    { _mriClientToken :: !(Maybe Text)
+    { _mriClientToken          :: !(Maybe Text)
     , _mriReservedInstancesIds :: ![Text]
     , _mriTargetConfigurations :: ![ReservedInstancesConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReservedInstances' smart constructor.
 modifyReservedInstances :: ModifyReservedInstances
-modifyReservedInstances = 
+modifyReservedInstances =
     ModifyReservedInstances'
     { _mriClientToken = Nothing
     , _mriReservedInstancesIds = mempty
@@ -128,12 +128,12 @@ instance ToQuery ModifyReservedInstances where
 -- * 'mrirsStatus'
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId :: !(Maybe Text)
-    , _mrirsStatus :: !Int
+    , _mrirsStatus                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
 modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse
-modifyReservedInstancesResponse pStatus_ = 
+modifyReservedInstancesResponse pStatus_ =
     ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId = Nothing
     , _mrirsStatus = pStatus_

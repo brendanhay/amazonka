@@ -52,11 +52,11 @@ module Network.AWS.Glacier.AbortVaultLock
     , abortVaultLockResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input values for @AbortVaultLock@.
 --
@@ -74,7 +74,7 @@ data AbortVaultLock = AbortVaultLock'
 
 -- | 'AbortVaultLock' smart constructor.
 abortVaultLock :: Text -> Text -> AbortVaultLock
-abortVaultLock pAccountId_ pVaultName_ = 
+abortVaultLock pAccountId_ pVaultName_ =
     AbortVaultLock'
     { _avlAccountId = pAccountId_
     , _avlVaultName = pVaultName_
@@ -114,7 +114,7 @@ instance ToQuery AbortVaultLock where
 
 -- | /See:/ 'abortVaultLockResponse' smart constructor.
 data AbortVaultLockResponse =
-    AbortVaultLockResponse' 
+    AbortVaultLockResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortVaultLockResponse' smart constructor.

@@ -62,11 +62,11 @@ module Network.AWS.EMR.AddJobFlowSteps
     , ajfsrsStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input argument to the AddJobFlowSteps operation.
 --
@@ -79,12 +79,12 @@ import Network.AWS.Response
 -- * 'ajfsSteps'
 data AddJobFlowSteps = AddJobFlowSteps'
     { _ajfsJobFlowId :: !Text
-    , _ajfsSteps :: ![StepConfig]
+    , _ajfsSteps     :: ![StepConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddJobFlowSteps' smart constructor.
 addJobFlowSteps :: Text -> AddJobFlowSteps
-addJobFlowSteps pJobFlowId_ = 
+addJobFlowSteps pJobFlowId_ =
     AddJobFlowSteps'
     { _ajfsJobFlowId = pJobFlowId_
     , _ajfsSteps = mempty
@@ -141,12 +141,12 @@ instance ToQuery AddJobFlowSteps where
 -- * 'ajfsrsStatus'
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
     { _ajfsrsStepIds :: !(Maybe [Text])
-    , _ajfsrsStatus :: !Int
+    , _ajfsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
 addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse
-addJobFlowStepsResponse pStatus_ = 
+addJobFlowStepsResponse pStatus_ =
     AddJobFlowStepsResponse'
     { _ajfsrsStepIds = Nothing
     , _ajfsrsStatus = pStatus_

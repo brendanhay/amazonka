@@ -42,11 +42,11 @@ module Network.AWS.CloudHSM.GetConfig
     , gcrsStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getConfig' smart constructor.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'gcHAPGList'
 data GetConfig = GetConfig'
-    { _gcClientARN :: !Text
+    { _gcClientARN     :: !Text
     , _gcClientVersion :: !ClientVersion
-    , _gcHAPGList :: ![Text]
+    , _gcHAPGList      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConfig' smart constructor.
 getConfig :: Text -> ClientVersion -> GetConfig
-getConfig pClientARN_ pClientVersion_ = 
+getConfig pClientARN_ pClientVersion_ =
     GetConfig'
     { _gcClientARN = pClientARN_
     , _gcClientVersion = pClientVersion_
@@ -134,12 +134,12 @@ data GetConfigResponse = GetConfigResponse'
     { _gcrsConfigFile :: !(Maybe Text)
     , _gcrsConfigCred :: !(Maybe Text)
     , _gcrsConfigType :: !(Maybe Text)
-    , _gcrsStatus :: !Int
+    , _gcrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConfigResponse' smart constructor.
 getConfigResponse :: Int -> GetConfigResponse
-getConfigResponse pStatus_ = 
+getConfigResponse pStatus_ =
     GetConfigResponse'
     { _gcrsConfigFile = Nothing
     , _gcrsConfigCred = Nothing

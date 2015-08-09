@@ -42,11 +42,11 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     , tiiasgrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- * 'tiiasgShouldDecrementDesiredCapacity'
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-    { _tiiasgInstanceId :: !Text
+    { _tiiasgInstanceId                     :: !Text
     , _tiiasgShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroup' smart constructor.
 terminateInstanceInAutoScalingGroup :: Text -> Bool -> TerminateInstanceInAutoScalingGroup
-terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ = 
+terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ =
     TerminateInstanceInAutoScalingGroup'
     { _tiiasgInstanceId = pInstanceId_
     , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
@@ -120,12 +120,12 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 -- * 'tiiasgrsStatus'
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrsActivity :: !(Maybe Activity)
-    , _tiiasgrsStatus :: !Int
+    , _tiiasgrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
 terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse
-terminateInstanceInAutoScalingGroupResponse pStatus_ = 
+terminateInstanceInAutoScalingGroupResponse pStatus_ =
     TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrsActivity = Nothing
     , _tiiasgrsStatus = pStatus_

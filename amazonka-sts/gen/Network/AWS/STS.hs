@@ -71,10 +71,10 @@
 -- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.STS
     (
-    -- * Service Description
+    -- * Service
       STS
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** MalformedPolicyDocumentException

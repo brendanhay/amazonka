@@ -43,11 +43,11 @@ module Network.AWS.EMR.RemoveTags
     , rtrsStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to remove.
 --
@@ -60,12 +60,12 @@ import Network.AWS.Response
 -- * 'rtTagKeys'
 data RemoveTags = RemoveTags'
     { _rtResourceId :: !Text
-    , _rtTagKeys :: ![Text]
+    , _rtTagKeys    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
-removeTags pResourceId_ = 
+removeTags pResourceId_ =
     RemoveTags'
     { _rtResourceId = pResourceId_
     , _rtTagKeys = mempty
@@ -123,7 +123,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatus_ = 
+removeTagsResponse pStatus_ =
     RemoveTagsResponse'
     { _rtrsStatus = pStatus_
     }

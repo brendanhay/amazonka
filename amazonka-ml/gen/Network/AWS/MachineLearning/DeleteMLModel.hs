@@ -44,11 +44,11 @@ module Network.AWS.MachineLearning.DeleteMLModel
     , dmlmrsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteMLModel' smart constructor.
 --
@@ -61,7 +61,7 @@ newtype DeleteMLModel = DeleteMLModel'
 
 -- | 'DeleteMLModel' smart constructor.
 deleteMLModel :: Text -> DeleteMLModel
-deleteMLModel pMLModelId_ = 
+deleteMLModel pMLModelId_ =
     DeleteMLModel'
     { _dmlmMLModelId = pMLModelId_
     }
@@ -113,12 +113,12 @@ instance ToQuery DeleteMLModel where
 -- * 'dmlmrsStatus'
 data DeleteMLModelResponse = DeleteMLModelResponse'
     { _dmlmrsMLModelId :: !(Maybe Text)
-    , _dmlmrsStatus :: !Int
+    , _dmlmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMLModelResponse' smart constructor.
 deleteMLModelResponse :: Int -> DeleteMLModelResponse
-deleteMLModelResponse pStatus_ = 
+deleteMLModelResponse pStatus_ =
     DeleteMLModelResponse'
     { _dmlmrsMLModelId = Nothing
     , _dmlmrsStatus = pStatus_

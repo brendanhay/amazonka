@@ -41,11 +41,11 @@ module Network.AWS.KMS.ListKeyPolicies
     , lkprsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listKeyPolicies' smart constructor.
 --
@@ -58,13 +58,13 @@ import Network.AWS.Response
 -- * 'lkpKeyId'
 data ListKeyPolicies = ListKeyPolicies'
     { _lkpMarker :: !(Maybe Text)
-    , _lkpLimit :: !(Maybe Nat)
-    , _lkpKeyId :: !Text
+    , _lkpLimit  :: !(Maybe Nat)
+    , _lkpKeyId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeyPolicies' smart constructor.
 listKeyPolicies :: Text -> ListKeyPolicies
-listKeyPolicies pKeyId_ = 
+listKeyPolicies pKeyId_ =
     ListKeyPolicies'
     { _lkpMarker = Nothing
     , _lkpLimit = Nothing
@@ -146,14 +146,14 @@ instance ToQuery ListKeyPolicies where
 -- * 'lkprsStatus'
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
     { _lkprsPolicyNames :: !(Maybe [Text])
-    , _lkprsTruncated :: !(Maybe Bool)
-    , _lkprsNextMarker :: !(Maybe Text)
-    , _lkprsStatus :: !Int
+    , _lkprsTruncated   :: !(Maybe Bool)
+    , _lkprsNextMarker  :: !(Maybe Text)
+    , _lkprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeyPoliciesResponse' smart constructor.
 listKeyPoliciesResponse :: Int -> ListKeyPoliciesResponse
-listKeyPoliciesResponse pStatus_ = 
+listKeyPoliciesResponse pStatus_ =
     ListKeyPoliciesResponse'
     { _lkprsPolicyNames = Nothing
     , _lkprsTruncated = Nothing

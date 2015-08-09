@@ -13,10 +13,10 @@
 --
 module Network.AWS.S3.Types
     (
-    -- * Service Decription
+    -- * Service
       S3
 
-    -- * Error Matchers
+    -- * Errors
     , _ObjectAlreadyInActiveTierError
     , _BucketAlreadyExists
     , _ObjectNotInActiveTierError

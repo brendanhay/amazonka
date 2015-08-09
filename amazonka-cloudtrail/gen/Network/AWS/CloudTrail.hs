@@ -38,10 +38,10 @@
 -- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudTrail
     (
-    -- * Service Description
+    -- * Service
       CloudTrail
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidTimeRangeException
@@ -101,28 +101,28 @@ module Network.AWS.CloudTrail
     -- * Operations
     -- $operations
 
-    -- ** DescribeTrails 
+    -- ** DescribeTrails
     , module Network.AWS.CloudTrail.DescribeTrails
 
-    -- ** LookupEvents 
+    -- ** LookupEvents
     , module Network.AWS.CloudTrail.LookupEvents
 
-    -- ** StopLogging 
+    -- ** StopLogging
     , module Network.AWS.CloudTrail.StopLogging
 
-    -- ** DeleteTrail 
+    -- ** DeleteTrail
     , module Network.AWS.CloudTrail.DeleteTrail
 
-    -- ** UpdateTrail 
+    -- ** UpdateTrail
     , module Network.AWS.CloudTrail.UpdateTrail
 
-    -- ** CreateTrail 
+    -- ** CreateTrail
     , module Network.AWS.CloudTrail.CreateTrail
 
-    -- ** GetTrailStatus 
+    -- ** GetTrailStatus
     , module Network.AWS.CloudTrail.GetTrailStatus
 
-    -- ** StartLogging 
+    -- ** StartLogging
     , module Network.AWS.CloudTrail.StartLogging
 
     -- * Types
@@ -164,16 +164,16 @@ module Network.AWS.CloudTrail
     , tS3BucketName
     ) where
 
-import Network.AWS.CloudTrail.CreateTrail
-import Network.AWS.CloudTrail.DeleteTrail
-import Network.AWS.CloudTrail.DescribeTrails
-import Network.AWS.CloudTrail.GetTrailStatus
-import Network.AWS.CloudTrail.LookupEvents
-import Network.AWS.CloudTrail.StartLogging
-import Network.AWS.CloudTrail.StopLogging
-import Network.AWS.CloudTrail.Types
-import Network.AWS.CloudTrail.UpdateTrail
-import Network.AWS.CloudTrail.Waiters
+import           Network.AWS.CloudTrail.CreateTrail
+import           Network.AWS.CloudTrail.DeleteTrail
+import           Network.AWS.CloudTrail.DescribeTrails
+import           Network.AWS.CloudTrail.GetTrailStatus
+import           Network.AWS.CloudTrail.LookupEvents
+import           Network.AWS.CloudTrail.StartLogging
+import           Network.AWS.CloudTrail.StopLogging
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.UpdateTrail
+import           Network.AWS.CloudTrail.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -22,10 +22,10 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.S3
     (
-    -- * Service Description
+    -- * Service
       S3
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** ObjectAlreadyInActiveTierError

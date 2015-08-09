@@ -40,11 +40,11 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     , usdrsStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to update a streaming distribution.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'usdId'
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
-    { _usdIfMatch :: !(Maybe Text)
+    { _usdIfMatch                     :: !(Maybe Text)
     , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
-    , _usdId :: !Text
+    , _usdId                          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStreamingDistribution' smart constructor.
 updateStreamingDistribution :: StreamingDistributionConfig -> Text -> UpdateStreamingDistribution
-updateStreamingDistribution pStreamingDistributionConfig_ pId_ = 
+updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
     UpdateStreamingDistribution'
     { _usdIfMatch = Nothing
     , _usdStreamingDistributionConfig = pStreamingDistributionConfig_
@@ -129,14 +129,14 @@ instance ToQuery UpdateStreamingDistribution where
 --
 -- * 'usdrsStatus'
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
-    { _usdrsETag :: !(Maybe Text)
+    { _usdrsETag                  :: !(Maybe Text)
     , _usdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _usdrsStatus :: !Int
+    , _usdrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
 updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse
-updateStreamingDistributionResponse pStatus_ = 
+updateStreamingDistributionResponse pStatus_ =
     UpdateStreamingDistributionResponse'
     { _usdrsETag = Nothing
     , _usdrsStreamingDistribution = Nothing

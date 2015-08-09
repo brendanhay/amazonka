@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.ElasticBeanstalk.Types
     (
-    -- * Service Decription
+    -- * Service
       ElasticBeanstalk
 
-    -- * Error Matchers
+    -- * Errors
     , _S3SubscriptionRequiredException
     , _TooManyBucketsException
     , _OperationInProgressException
@@ -268,10 +268,10 @@ module Network.AWS.ElasticBeanstalk.Types
     , vmMessage
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.ElasticBeanstalk.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.ElasticBeanstalk.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-12-01@ of the Amazon Elastic Beanstalk SDK.
 data ElasticBeanstalk
@@ -280,7 +280,7 @@ instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "ElasticBeanstalk"
             , _svcPrefix = "elasticbeanstalk"
@@ -291,7 +291,7 @@ instance AWSService ElasticBeanstalk where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -299,7 +299,7 @@ instance AWSService ElasticBeanstalk where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -309,62 +309,62 @@ instance AWSService ElasticBeanstalk where
 
 -- | The caller does not have a subscription to Amazon S3.
 _S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_S3SubscriptionRequiredException = 
+_S3SubscriptionRequiredException =
     _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException"
 
 -- | The web service attempted to create a bucket in an Amazon S3 account
 -- that already has 100 buckets.
 _TooManyBucketsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyBucketsException = 
+_TooManyBucketsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException"
 
 -- | Unable to perform the specified operation because another operation is
 -- already in progress affecting an an element in this activity.
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationInProgressException = 
+_OperationInProgressException =
     _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure"
 
 -- | The caller has exceeded the limit on the number of configuration
 -- templates associated with their account.
 _TooManyConfigurationTemplatesException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyConfigurationTemplatesException = 
+_TooManyConfigurationTemplatesException =
     _ServiceError .
     hasStatus 400 . hasCode "TooManyConfigurationTemplatesException"
 
 -- | The caller has exceeded the limit on the number of application versions
 -- associated with their account.
 _TooManyApplicationVersionsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyApplicationVersionsException = 
+_TooManyApplicationVersionsException =
     _ServiceError . hasCode "TooManyApplicationVersionsException"
 
 -- | Unable to perform the specified operation because the user does not have
 -- enough privileges for one of more downstream aws services
 _InsufficientPrivilegesException :: AsError a => Getting (First ServiceError) a ServiceError
-_InsufficientPrivilegesException = 
+_InsufficientPrivilegesException =
     _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException"
 
 -- | The caller has exceeded the limit on the number of applications
 -- associated with their account.
 _TooManyApplicationsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyApplicationsException = 
+_TooManyApplicationsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyApplicationsException"
 
 -- | Unable to delete the Amazon S3 source bundle associated with the
 -- application version, although the application version deleted
 -- successfully.
 _SourceBundleDeletionException :: AsError a => Getting (First ServiceError) a ServiceError
-_SourceBundleDeletionException = 
+_SourceBundleDeletionException =
     _ServiceError . hasStatus 400 . hasCode "SourceBundleDeletionFailure"
 
 -- | The specified S3 bucket does not belong to the S3 region in which the
 -- service is running.
 _S3LocationNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError
-_S3LocationNotInServiceRegionException = 
+_S3LocationNotInServiceRegionException =
     _ServiceError .
     hasStatus 400 . hasCode "S3LocationNotInServiceRegionException"
 
 -- | The caller has exceeded the limit of allowed environments associated
 -- with the account.
 _TooManyEnvironmentsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyEnvironmentsException = 
+_TooManyEnvironmentsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyEnvironmentsException"

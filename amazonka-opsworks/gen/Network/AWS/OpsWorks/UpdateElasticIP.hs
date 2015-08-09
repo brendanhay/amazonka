@@ -43,11 +43,11 @@ module Network.AWS.OpsWorks.UpdateElasticIP
     , updateElasticIPResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateElasticIP' smart constructor.
 --
@@ -57,13 +57,13 @@ import Network.AWS.Response
 --
 -- * 'ueiElasticIP'
 data UpdateElasticIP = UpdateElasticIP'
-    { _ueiName :: !(Maybe Text)
+    { _ueiName      :: !(Maybe Text)
     , _ueiElasticIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateElasticIP' smart constructor.
 updateElasticIP :: Text -> UpdateElasticIP
-updateElasticIP pElasticIP_ = 
+updateElasticIP pElasticIP_ =
     UpdateElasticIP'
     { _ueiName = Nothing
     , _ueiElasticIP = pElasticIP_
@@ -105,7 +105,7 @@ instance ToQuery UpdateElasticIP where
 
 -- | /See:/ 'updateElasticIPResponse' smart constructor.
 data UpdateElasticIPResponse =
-    UpdateElasticIPResponse' 
+    UpdateElasticIPResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateElasticIPResponse' smart constructor.

@@ -18,8 +18,8 @@
 --
 module Network.AWS.EFS.Types.Product where
 
-import Network.AWS.EFS.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.EFS.Types.Sum
+import           Network.AWS.Prelude
 
 -- | This object provides description of a file system.
 --
@@ -43,19 +43,19 @@ import Network.AWS.Prelude
 --
 -- * 'fsdSizeInBytes'
 data FileSystemDescription = FileSystemDescription'
-    { _fsdName :: !(Maybe Text)
-    , _fsdOwnerId :: !Text
-    , _fsdCreationToken :: !Text
-    , _fsdFileSystemId :: !Text
-    , _fsdCreationTime :: !POSIX
-    , _fsdLifeCycleState :: !LifeCycleState
+    { _fsdName                 :: !(Maybe Text)
+    , _fsdOwnerId              :: !Text
+    , _fsdCreationToken        :: !Text
+    , _fsdFileSystemId         :: !Text
+    , _fsdCreationTime         :: !POSIX
+    , _fsdLifeCycleState       :: !LifeCycleState
     , _fsdNumberOfMountTargets :: !Nat
-    , _fsdSizeInBytes :: !FileSystemSize
+    , _fsdSizeInBytes          :: !FileSystemSize
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FileSystemDescription' smart constructor.
 fileSystemDescription :: Text -> Text -> Text -> UTCTime -> LifeCycleState -> Natural -> FileSystemSize -> FileSystemDescription
-fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pLifeCycleState_ pNumberOfMountTargets_ pSizeInBytes_ = 
+fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pLifeCycleState_ pNumberOfMountTargets_ pSizeInBytes_ =
     FileSystemDescription'
     { _fsdName = Nothing
     , _fsdOwnerId = pOwnerId_
@@ -147,12 +147,12 @@ instance FromJSON FileSystemDescription where
 -- * 'fssValue'
 data FileSystemSize = FileSystemSize'
     { _fssTimestamp :: !(Maybe POSIX)
-    , _fssValue :: !Nat
+    , _fssValue     :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FileSystemSize' smart constructor.
 fileSystemSize :: Natural -> FileSystemSize
-fileSystemSize pValue_ = 
+fileSystemSize pValue_ =
     FileSystemSize'
     { _fssTimestamp = Nothing
     , _fssValue = _Nat # pValue_
@@ -196,18 +196,18 @@ instance FromJSON FileSystemSize where
 --
 -- * 'mtdLifeCycleState'
 data MountTargetDescription = MountTargetDescription'
-    { _mtdIPAddress :: !(Maybe Text)
+    { _mtdIPAddress          :: !(Maybe Text)
     , _mtdNetworkInterfaceId :: !(Maybe Text)
-    , _mtdOwnerId :: !(Maybe Text)
-    , _mtdMountTargetId :: !Text
-    , _mtdFileSystemId :: !Text
-    , _mtdSubnetId :: !Text
-    , _mtdLifeCycleState :: !LifeCycleState
+    , _mtdOwnerId            :: !(Maybe Text)
+    , _mtdMountTargetId      :: !Text
+    , _mtdFileSystemId       :: !Text
+    , _mtdSubnetId           :: !Text
+    , _mtdLifeCycleState     :: !LifeCycleState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MountTargetDescription' smart constructor.
 mountTargetDescription :: Text -> Text -> Text -> LifeCycleState -> MountTargetDescription
-mountTargetDescription pMountTargetId_ pFileSystemId_ pSubnetId_ pLifeCycleState_ = 
+mountTargetDescription pMountTargetId_ pFileSystemId_ pSubnetId_ pLifeCycleState_ =
     MountTargetDescription'
     { _mtdIPAddress = Nothing
     , _mtdNetworkInterfaceId = Nothing
@@ -272,13 +272,13 @@ instance FromJSON MountTargetDescription where
 --
 -- * 'tagValue'
 data Tag = Tag'
-    { _tagKey :: !Text
+    { _tagKey   :: !Text
     , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
-tag pKey_ pValue_ = 
+tag pKey_ pValue_ =
     Tag'
     { _tagKey = pKey_
     , _tagValue = pValue_

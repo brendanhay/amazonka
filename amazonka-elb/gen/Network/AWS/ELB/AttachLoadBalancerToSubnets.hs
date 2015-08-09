@@ -44,11 +44,11 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , albtsrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachLoadBalancerToSubnets' smart constructor.
 --
@@ -59,12 +59,12 @@ import Network.AWS.Response
 -- * 'albtsSubnets'
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
     { _albtsLoadBalancerName :: !Text
-    , _albtsSubnets :: ![Text]
+    , _albtsSubnets          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
 attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
-attachLoadBalancerToSubnets pLoadBalancerName_ = 
+attachLoadBalancerToSubnets pLoadBalancerName_ =
     AttachLoadBalancerToSubnets'
     { _albtsLoadBalancerName = pLoadBalancerName_
     , _albtsSubnets = mempty
@@ -117,12 +117,12 @@ instance ToQuery AttachLoadBalancerToSubnets where
 -- * 'albtsrsStatus'
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
     { _albtsrsSubnets :: !(Maybe [Text])
-    , _albtsrsStatus :: !Int
+    , _albtsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
 attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse
-attachLoadBalancerToSubnetsResponse pStatus_ = 
+attachLoadBalancerToSubnetsResponse pStatus_ =
     AttachLoadBalancerToSubnetsResponse'
     { _albtsrsSubnets = Nothing
     , _albtsrsStatus = pStatus_

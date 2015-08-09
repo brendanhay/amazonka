@@ -43,11 +43,11 @@ module Network.AWS.IAM.CreateUser
     , cursStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createUser' smart constructor.
 --
@@ -57,13 +57,13 @@ import Network.AWS.Response
 --
 -- * 'cuUserName'
 data CreateUser = CreateUser'
-    { _cuPath :: !(Maybe Text)
+    { _cuPath     :: !(Maybe Text)
     , _cuUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUser' smart constructor.
 createUser :: Text -> CreateUser
-createUser pUserName_ = 
+createUser pUserName_ =
     CreateUser'
     { _cuPath = Nothing
     , _cuUserName = pUserName_
@@ -115,13 +115,13 @@ instance ToQuery CreateUser where
 --
 -- * 'cursStatus'
 data CreateUserResponse = CreateUserResponse'
-    { _cursUser :: !(Maybe User)
+    { _cursUser   :: !(Maybe User)
     , _cursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserResponse' smart constructor.
 createUserResponse :: Int -> CreateUserResponse
-createUserResponse pStatus_ = 
+createUserResponse pStatus_ =
     CreateUserResponse'
     { _cursUser = Nothing
     , _cursStatus = pStatus_

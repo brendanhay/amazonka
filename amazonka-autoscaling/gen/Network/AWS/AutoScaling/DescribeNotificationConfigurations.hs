@@ -41,12 +41,12 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     , dncrsNotificationConfigurations
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNotificationConfigurations' smart constructor.
 --
@@ -59,13 +59,13 @@ import Network.AWS.Response
 -- * 'dncMaxRecords'
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
     { _dncAutoScalingGroupNames :: !(Maybe [Text])
-    , _dncNextToken :: !(Maybe Text)
-    , _dncMaxRecords :: !(Maybe Int)
+    , _dncNextToken             :: !(Maybe Text)
+    , _dncMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNotificationConfigurations' smart constructor.
 describeNotificationConfigurations :: DescribeNotificationConfigurations
-describeNotificationConfigurations = 
+describeNotificationConfigurations =
     DescribeNotificationConfigurations'
     { _dncAutoScalingGroupNames = Nothing
     , _dncNextToken = Nothing
@@ -141,14 +141,14 @@ instance ToQuery DescribeNotificationConfigurations
 --
 -- * 'dncrsNotificationConfigurations'
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
-    { _dncrsNextToken :: !(Maybe Text)
-    , _dncrsStatus :: !Int
+    { _dncrsNextToken                  :: !(Maybe Text)
+    , _dncrsStatus                     :: !Int
     , _dncrsNotificationConfigurations :: ![NotificationConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
 describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
-describeNotificationConfigurationsResponse pStatus_ = 
+describeNotificationConfigurationsResponse pStatus_ =
     DescribeNotificationConfigurationsResponse'
     { _dncrsNextToken = Nothing
     , _dncrsStatus = pStatus_

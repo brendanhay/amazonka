@@ -44,12 +44,12 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     , dcevrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheEngineVersions/ action.
 --
@@ -70,16 +70,16 @@ import Network.AWS.Response
 -- * 'dcevMarker'
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
     { _dcevCacheParameterGroupFamily :: !(Maybe Text)
-    , _dcevEngineVersion :: !(Maybe Text)
-    , _dcevDefaultOnly :: !(Maybe Bool)
-    , _dcevEngine :: !(Maybe Text)
-    , _dcevMaxRecords :: !(Maybe Int)
-    , _dcevMarker :: !(Maybe Text)
+    , _dcevEngineVersion             :: !(Maybe Text)
+    , _dcevDefaultOnly               :: !(Maybe Bool)
+    , _dcevEngine                    :: !(Maybe Text)
+    , _dcevMaxRecords                :: !(Maybe Int)
+    , _dcevMarker                    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheEngineVersions' smart constructor.
 describeCacheEngineVersions :: DescribeCacheEngineVersions
-describeCacheEngineVersions = 
+describeCacheEngineVersions =
     DescribeCacheEngineVersions'
     { _dcevCacheParameterGroupFamily = Nothing
     , _dcevEngineVersion = Nothing
@@ -187,13 +187,13 @@ instance ToQuery DescribeCacheEngineVersions where
 -- * 'dcevrsStatus'
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
     { _dcevrsCacheEngineVersions :: !(Maybe [CacheEngineVersion])
-    , _dcevrsMarker :: !(Maybe Text)
-    , _dcevrsStatus :: !Int
+    , _dcevrsMarker              :: !(Maybe Text)
+    , _dcevrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
 describeCacheEngineVersionsResponse :: Int -> DescribeCacheEngineVersionsResponse
-describeCacheEngineVersionsResponse pStatus_ = 
+describeCacheEngineVersionsResponse pStatus_ =
     DescribeCacheEngineVersionsResponse'
     { _dcevrsCacheEngineVersions = Nothing
     , _dcevrsMarker = Nothing

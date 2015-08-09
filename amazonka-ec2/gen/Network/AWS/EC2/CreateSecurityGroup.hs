@@ -68,11 +68,11 @@ module Network.AWS.EC2.CreateSecurityGroup
     , csgrsGroupId
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createSecurityGroup' smart constructor.
 --
@@ -86,15 +86,15 @@ import Network.AWS.Response
 --
 -- * 'csgDescription'
 data CreateSecurityGroup = CreateSecurityGroup'
-    { _csgVPCId :: !(Maybe Text)
-    , _csgDryRun :: !(Maybe Bool)
-    , _csgGroupName :: !Text
+    { _csgVPCId       :: !(Maybe Text)
+    , _csgDryRun      :: !(Maybe Bool)
+    , _csgGroupName   :: !Text
     , _csgDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSecurityGroup' smart constructor.
 createSecurityGroup :: Text -> Text -> CreateSecurityGroup
-createSecurityGroup pGroupName_ pDescription_ = 
+createSecurityGroup pGroupName_ pDescription_ =
     CreateSecurityGroup'
     { _csgVPCId = Nothing
     , _csgDryRun = Nothing
@@ -169,13 +169,13 @@ instance ToQuery CreateSecurityGroup where
 --
 -- * 'csgrsGroupId'
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
-    { _csgrsStatus :: !Int
+    { _csgrsStatus  :: !Int
     , _csgrsGroupId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
 createSecurityGroupResponse :: Int -> Text -> CreateSecurityGroupResponse
-createSecurityGroupResponse pStatus_ pGroupId_ = 
+createSecurityGroupResponse pStatus_ pGroupId_ =
     CreateSecurityGroupResponse'
     { _csgrsStatus = pStatus_
     , _csgrsGroupId = pGroupId_

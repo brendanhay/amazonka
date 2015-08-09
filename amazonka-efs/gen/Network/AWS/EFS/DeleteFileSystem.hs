@@ -50,11 +50,11 @@ module Network.AWS.EFS.DeleteFileSystem
     , deleteFileSystemResponse
     ) where
 
-import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EFS.Types
+import           Network.AWS.EFS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteFileSystem' smart constructor.
 --
@@ -67,7 +67,7 @@ newtype DeleteFileSystem = DeleteFileSystem'
 
 -- | 'DeleteFileSystem' smart constructor.
 deleteFileSystem :: Text -> DeleteFileSystem
-deleteFileSystem pFileSystemId_ = 
+deleteFileSystem pFileSystemId_ =
     DeleteFileSystem'
     { _delFileSystemId = pFileSystemId_
     }
@@ -95,7 +95,7 @@ instance ToQuery DeleteFileSystem where
 
 -- | /See:/ 'deleteFileSystemResponse' smart constructor.
 data DeleteFileSystemResponse =
-    DeleteFileSystemResponse' 
+    DeleteFileSystemResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFileSystemResponse' smart constructor.

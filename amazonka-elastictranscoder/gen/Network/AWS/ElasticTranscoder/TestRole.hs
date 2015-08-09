@@ -48,11 +48,11 @@ module Network.AWS.ElasticTranscoder.TestRole
     , trrsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @TestRoleRequest@ structure.
 --
@@ -68,15 +68,15 @@ import Network.AWS.Response
 --
 -- * 'trTopics'
 data TestRole = TestRole'
-    { _trRole :: !Text
-    , _trInputBucket :: !Text
+    { _trRole         :: !Text
+    , _trInputBucket  :: !Text
     , _trOutputBucket :: !Text
-    , _trTopics :: ![Text]
+    , _trTopics       :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestRole' smart constructor.
 testRole :: Text -> Text -> Text -> TestRole
-testRole pRole_ pInputBucket_ pOutputBucket_ = 
+testRole pRole_ pInputBucket_ pOutputBucket_ =
     TestRole'
     { _trRole = pRole_
     , _trInputBucket = pInputBucket_
@@ -143,14 +143,14 @@ instance ToQuery TestRole where
 --
 -- * 'trrsStatus'
 data TestRoleResponse = TestRoleResponse'
-    { _trrsSuccess :: !(Maybe Text)
+    { _trrsSuccess  :: !(Maybe Text)
     , _trrsMessages :: !(Maybe [Text])
-    , _trrsStatus :: !Int
+    , _trrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestRoleResponse' smart constructor.
 testRoleResponse :: Int -> TestRoleResponse
-testRoleResponse pStatus_ = 
+testRoleResponse pStatus_ =
     TestRoleResponse'
     { _trrsSuccess = Nothing
     , _trrsMessages = Nothing

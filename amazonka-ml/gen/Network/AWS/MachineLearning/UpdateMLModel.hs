@@ -42,11 +42,11 @@ module Network.AWS.MachineLearning.UpdateMLModel
     , umlmrsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateMLModel' smart constructor.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'umlmMLModelId'
 data UpdateMLModel = UpdateMLModel'
-    { _umlmMLModelName :: !(Maybe Text)
+    { _umlmMLModelName    :: !(Maybe Text)
     , _umlmScoreThreshold :: !(Maybe Double)
-    , _umlmMLModelId :: !Text
+    , _umlmMLModelId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMLModel' smart constructor.
 updateMLModel :: Text -> UpdateMLModel
-updateMLModel pMLModelId_ = 
+updateMLModel pMLModelId_ =
     UpdateMLModel'
     { _umlmMLModelName = Nothing
     , _umlmScoreThreshold = Nothing
@@ -135,12 +135,12 @@ instance ToQuery UpdateMLModel where
 -- * 'umlmrsStatus'
 data UpdateMLModelResponse = UpdateMLModelResponse'
     { _umlmrsMLModelId :: !(Maybe Text)
-    , _umlmrsStatus :: !Int
+    , _umlmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMLModelResponse' smart constructor.
 updateMLModelResponse :: Int -> UpdateMLModelResponse
-updateMLModelResponse pStatus_ = 
+updateMLModelResponse pStatus_ =
     UpdateMLModelResponse'
     { _umlmrsMLModelId = Nothing
     , _umlmrsStatus = pStatus_

@@ -46,11 +46,11 @@ module Network.AWS.EC2.EnableVPCClassicLink
     , evclrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableVPCClassicLink' smart constructor.
 --
@@ -61,12 +61,12 @@ import Network.AWS.Response
 -- * 'evclVPCId'
 data EnableVPCClassicLink = EnableVPCClassicLink'
     { _evclDryRun :: !(Maybe Bool)
-    , _evclVPCId :: !Text
+    , _evclVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVPCClassicLink' smart constructor.
 enableVPCClassicLink :: Text -> EnableVPCClassicLink
-enableVPCClassicLink pVPCId_ = 
+enableVPCClassicLink pVPCId_ =
     EnableVPCClassicLink'
     { _evclDryRun = Nothing
     , _evclVPCId = pVPCId_
@@ -121,7 +121,7 @@ data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
 
 -- | 'EnableVPCClassicLinkResponse' smart constructor.
 enableVPCClassicLinkResponse :: Int -> EnableVPCClassicLinkResponse
-enableVPCClassicLinkResponse pStatus_ = 
+enableVPCClassicLinkResponse pStatus_ =
     EnableVPCClassicLinkResponse'
     { _evclrsReturn = Nothing
     , _evclrsStatus = pStatus_

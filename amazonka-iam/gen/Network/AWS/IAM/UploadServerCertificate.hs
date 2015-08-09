@@ -58,11 +58,11 @@ module Network.AWS.IAM.UploadServerCertificate
     , ursStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'uploadServerCertificate' smart constructor.
 --
@@ -78,16 +78,16 @@ import Network.AWS.Response
 --
 -- * 'uscPrivateKey'
 data UploadServerCertificate = UploadServerCertificate'
-    { _uscPath :: !(Maybe Text)
-    , _uscCertificateChain :: !(Maybe Text)
+    { _uscPath                  :: !(Maybe Text)
+    , _uscCertificateChain      :: !(Maybe Text)
     , _uscServerCertificateName :: !Text
-    , _uscCertificateBody :: !Text
-    , _uscPrivateKey :: !(Sensitive Text)
+    , _uscCertificateBody       :: !Text
+    , _uscPrivateKey            :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadServerCertificate' smart constructor.
 uploadServerCertificate :: Text -> Text -> Text -> UploadServerCertificate
-uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ = 
+uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ =
     UploadServerCertificate'
     { _uscPath = Nothing
     , _uscCertificateChain = Nothing
@@ -170,12 +170,12 @@ instance ToQuery UploadServerCertificate where
 -- * 'ursStatus'
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
     { _ursServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
-    , _ursStatus :: !Int
+    , _ursStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
 uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
-uploadServerCertificateResponse pStatus_ = 
+uploadServerCertificateResponse pStatus_ =
     UploadServerCertificateResponse'
     { _ursServerCertificateMetadata = Nothing
     , _ursStatus = pStatus_

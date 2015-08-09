@@ -45,11 +45,11 @@ module Network.AWS.CognitoSync.GetBulkPublishDetails
     , gbpdrsStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetBulkPublishDetails operation.
 --
@@ -64,7 +64,7 @@ newtype GetBulkPublishDetails = GetBulkPublishDetails'
 
 -- | 'GetBulkPublishDetails' smart constructor.
 getBulkPublishDetails :: Text -> GetBulkPublishDetails
-getBulkPublishDetails pIdentityPoolId_ = 
+getBulkPublishDetails pIdentityPoolId_ =
     GetBulkPublishDetails'
     { _gbpdIdentityPoolId = pIdentityPoolId_
     }
@@ -128,17 +128,17 @@ instance ToQuery GetBulkPublishDetails where
 --
 -- * 'gbpdrsStatus'
 data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
-    { _gbpdrsBulkPublishStartTime :: !(Maybe POSIX)
-    , _gbpdrsIdentityPoolId :: !(Maybe Text)
+    { _gbpdrsBulkPublishStartTime    :: !(Maybe POSIX)
+    , _gbpdrsIdentityPoolId          :: !(Maybe Text)
     , _gbpdrsBulkPublishCompleteTime :: !(Maybe POSIX)
-    , _gbpdrsFailureMessage :: !(Maybe Text)
-    , _gbpdrsBulkPublishStatus :: !(Maybe BulkPublishStatus)
-    , _gbpdrsStatus :: !Int
+    , _gbpdrsFailureMessage          :: !(Maybe Text)
+    , _gbpdrsBulkPublishStatus       :: !(Maybe BulkPublishStatus)
+    , _gbpdrsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
 getBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse pStatus_ = 
+getBulkPublishDetailsResponse pStatus_ =
     GetBulkPublishDetailsResponse'
     { _gbpdrsBulkPublishStartTime = Nothing
     , _gbpdrsIdentityPoolId = Nothing

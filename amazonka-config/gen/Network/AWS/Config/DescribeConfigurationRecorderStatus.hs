@@ -41,11 +41,11 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     , dcrsrsStatus
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DescribeConfigurationRecorderStatus action.
 --
@@ -60,7 +60,7 @@ newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatu
 
 -- | 'DescribeConfigurationRecorderStatus' smart constructor.
 describeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus
-describeConfigurationRecorderStatus = 
+describeConfigurationRecorderStatus =
     DescribeConfigurationRecorderStatus'
     { _dcrsConfigurationRecorderNames = Nothing
     }
@@ -122,12 +122,12 @@ instance ToQuery DescribeConfigurationRecorderStatus
 -- * 'dcrsrsStatus'
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
     { _dcrsrsConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
-    , _dcrsrsStatus :: !Int
+    , _dcrsrsStatus                       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
 describeConfigurationRecorderStatusResponse :: Int -> DescribeConfigurationRecorderStatusResponse
-describeConfigurationRecorderStatusResponse pStatus_ = 
+describeConfigurationRecorderStatusResponse pStatus_ =
     DescribeConfigurationRecorderStatusResponse'
     { _dcrsrsConfigurationRecordersStatus = Nothing
     , _dcrsrsStatus = pStatus_

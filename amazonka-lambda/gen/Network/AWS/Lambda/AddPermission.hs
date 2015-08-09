@@ -53,11 +53,11 @@ module Network.AWS.Lambda.AddPermission
     , aprsStatus
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addPermission' smart constructor.
 --
@@ -76,16 +76,16 @@ import Network.AWS.Response
 -- * 'apPrincipal'
 data AddPermission = AddPermission'
     { _apSourceAccount :: !(Maybe Text)
-    , _apSourceARN :: !(Maybe Text)
-    , _apFunctionName :: !Text
-    , _apStatementId :: !Text
-    , _apAction :: !Text
-    , _apPrincipal :: !Text
+    , _apSourceARN     :: !(Maybe Text)
+    , _apFunctionName  :: !Text
+    , _apStatementId   :: !Text
+    , _apAction        :: !Text
+    , _apPrincipal     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> Text -> Text -> AddPermission
-addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ = 
+addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     AddPermission'
     { _apSourceAccount = Nothing
     , _apSourceARN = Nothing
@@ -190,12 +190,12 @@ instance ToQuery AddPermission where
 -- * 'aprsStatus'
 data AddPermissionResponse = AddPermissionResponse'
     { _aprsStatement :: !(Maybe Text)
-    , _aprsStatus :: !Int
+    , _aprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: Int -> AddPermissionResponse
-addPermissionResponse pStatus_ = 
+addPermissionResponse pStatus_ =
     AddPermissionResponse'
     { _aprsStatement = Nothing
     , _aprsStatus = pStatus_

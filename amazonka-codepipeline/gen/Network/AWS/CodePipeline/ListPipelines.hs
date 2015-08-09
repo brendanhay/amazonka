@@ -38,11 +38,11 @@ module Network.AWS.CodePipeline.ListPipelines
     , lprsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list pipelines action.
 --
@@ -57,7 +57,7 @@ newtype ListPipelines = ListPipelines'
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
-listPipelines = 
+listPipelines =
     ListPipelines'
     { _lpNextToken = Nothing
     }
@@ -113,12 +113,12 @@ instance ToQuery ListPipelines where
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsPipelines :: !(Maybe [PipelineSummary])
     , _lprsNextToken :: !(Maybe Text)
-    , _lprsStatus :: !Int
+    , _lprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
-listPipelinesResponse pStatus_ = 
+listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsPipelines = Nothing
     , _lprsNextToken = Nothing

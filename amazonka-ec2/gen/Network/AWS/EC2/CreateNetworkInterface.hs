@@ -47,11 +47,11 @@ module Network.AWS.EC2.CreateNetworkInterface
     , cnirsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkInterface' smart constructor.
 --
@@ -71,18 +71,18 @@ import Network.AWS.Response
 --
 -- * 'cniSubnetId'
 data CreateNetworkInterface = CreateNetworkInterface'
-    { _cniPrivateIPAddresses :: !(Maybe [PrivateIPAddressSpecification])
-    , _cniGroups :: !(Maybe [Text])
-    , _cniPrivateIPAddress :: !(Maybe Text)
+    { _cniPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
+    , _cniGroups                         :: !(Maybe [Text])
+    , _cniPrivateIPAddress               :: !(Maybe Text)
     , _cniSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _cniDryRun :: !(Maybe Bool)
-    , _cniDescription :: !(Maybe Text)
-    , _cniSubnetId :: !Text
+    , _cniDryRun                         :: !(Maybe Bool)
+    , _cniDescription                    :: !(Maybe Text)
+    , _cniSubnetId                       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkInterface' smart constructor.
 createNetworkInterface :: Text -> CreateNetworkInterface
-createNetworkInterface pSubnetId_ = 
+createNetworkInterface pSubnetId_ =
     CreateNetworkInterface'
     { _cniPrivateIPAddresses = Nothing
     , _cniGroups = Nothing
@@ -180,12 +180,12 @@ instance ToQuery CreateNetworkInterface where
 -- * 'cnirsStatus'
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface :: !(Maybe NetworkInterface)
-    , _cnirsStatus :: !Int
+    , _cnirsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkInterfaceResponse' smart constructor.
 createNetworkInterfaceResponse :: Int -> CreateNetworkInterfaceResponse
-createNetworkInterfaceResponse pStatus_ = 
+createNetworkInterfaceResponse pStatus_ =
     CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface = Nothing
     , _cnirsStatus = pStatus_

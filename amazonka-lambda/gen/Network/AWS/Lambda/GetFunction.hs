@@ -44,11 +44,11 @@ module Network.AWS.Lambda.GetFunction
     , gfrsStatus
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getFunction' smart constructor.
 --
@@ -61,7 +61,7 @@ newtype GetFunction = GetFunction'
 
 -- | 'GetFunction' smart constructor.
 getFunction :: Text -> GetFunction
-getFunction pFunctionName_ = 
+getFunction pFunctionName_ =
     GetFunction'
     { _gfFunctionName = pFunctionName_
     }
@@ -115,14 +115,14 @@ instance ToQuery GetFunction where
 --
 -- * 'gfrsStatus'
 data GetFunctionResponse = GetFunctionResponse'
-    { _gfrsCode :: !(Maybe FunctionCodeLocation)
+    { _gfrsCode          :: !(Maybe FunctionCodeLocation)
     , _gfrsConfiguration :: !(Maybe FunctionConfiguration)
-    , _gfrsStatus :: !Int
+    , _gfrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFunctionResponse' smart constructor.
 getFunctionResponse :: Int -> GetFunctionResponse
-getFunctionResponse pStatus_ = 
+getFunctionResponse pStatus_ =
     GetFunctionResponse'
     { _gfrsCode = Nothing
     , _gfrsConfiguration = Nothing

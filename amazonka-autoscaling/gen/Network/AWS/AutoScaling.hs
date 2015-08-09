@@ -21,10 +21,10 @@
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.AutoScaling
     (
-    -- * Service Description
+    -- * Service
       AutoScaling
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** LimitExceededFault
@@ -51,128 +51,128 @@ module Network.AWS.AutoScaling
     -- * Operations
     -- $operations
 
-    -- ** DescribeMetricCollectionTypes 
+    -- ** DescribeMetricCollectionTypes
     , module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 
-    -- ** PutScalingPolicy 
+    -- ** PutScalingPolicy
     , module Network.AWS.AutoScaling.PutScalingPolicy
 
-    -- ** DeleteNotificationConfiguration 
+    -- ** DeleteNotificationConfiguration
     , module Network.AWS.AutoScaling.DeleteNotificationConfiguration
 
     -- ** DescribeTags (Paginated)
     , module Network.AWS.AutoScaling.DescribeTags
     -- $pager
 
-    -- ** DeleteLaunchConfiguration 
+    -- ** DeleteLaunchConfiguration
     , module Network.AWS.AutoScaling.DeleteLaunchConfiguration
 
-    -- ** DescribeLoadBalancers 
+    -- ** DescribeLoadBalancers
     , module Network.AWS.AutoScaling.DescribeLoadBalancers
 
-    -- ** PutNotificationConfiguration 
+    -- ** PutNotificationConfiguration
     , module Network.AWS.AutoScaling.PutNotificationConfiguration
 
-    -- ** SetInstanceHealth 
+    -- ** SetInstanceHealth
     , module Network.AWS.AutoScaling.SetInstanceHealth
 
-    -- ** EnterStandby 
+    -- ** EnterStandby
     , module Network.AWS.AutoScaling.EnterStandby
 
-    -- ** SuspendProcesses 
+    -- ** SuspendProcesses
     , module Network.AWS.AutoScaling.SuspendProcesses
 
-    -- ** ExitStandby 
+    -- ** ExitStandby
     , module Network.AWS.AutoScaling.ExitStandby
 
-    -- ** DescribeTerminationPolicyTypes 
+    -- ** DescribeTerminationPolicyTypes
     , module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
 
     -- ** DescribeAutoScalingInstances (Paginated)
     , module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- $pager
 
-    -- ** DetachInstances 
+    -- ** DetachInstances
     , module Network.AWS.AutoScaling.DetachInstances
 
-    -- ** DisableMetricsCollection 
+    -- ** DisableMetricsCollection
     , module Network.AWS.AutoScaling.DisableMetricsCollection
 
-    -- ** RecordLifecycleActionHeartbeat 
+    -- ** RecordLifecycleActionHeartbeat
     , module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 
-    -- ** DeleteTags 
+    -- ** DeleteTags
     , module Network.AWS.AutoScaling.DeleteTags
 
-    -- ** DescribeScalingProcessTypes 
+    -- ** DescribeScalingProcessTypes
     , module Network.AWS.AutoScaling.DescribeScalingProcessTypes
 
-    -- ** EnableMetricsCollection 
+    -- ** EnableMetricsCollection
     , module Network.AWS.AutoScaling.EnableMetricsCollection
 
-    -- ** DescribeLifecycleHooks 
+    -- ** DescribeLifecycleHooks
     , module Network.AWS.AutoScaling.DescribeLifecycleHooks
 
     -- ** DescribeAutoScalingGroups (Paginated)
     , module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- $pager
 
-    -- ** SetDesiredCapacity 
+    -- ** SetDesiredCapacity
     , module Network.AWS.AutoScaling.SetDesiredCapacity
 
-    -- ** DetachLoadBalancers 
+    -- ** DetachLoadBalancers
     , module Network.AWS.AutoScaling.DetachLoadBalancers
 
-    -- ** DeleteScheduledAction 
+    -- ** DeleteScheduledAction
     , module Network.AWS.AutoScaling.DeleteScheduledAction
 
-    -- ** CreateOrUpdateTags 
+    -- ** CreateOrUpdateTags
     , module Network.AWS.AutoScaling.CreateOrUpdateTags
 
-    -- ** DeletePolicy 
+    -- ** DeletePolicy
     , module Network.AWS.AutoScaling.DeletePolicy
 
-    -- ** DescribeAutoScalingNotificationTypes 
+    -- ** DescribeAutoScalingNotificationTypes
     , module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
 
-    -- ** CompleteLifecycleAction 
+    -- ** CompleteLifecycleAction
     , module Network.AWS.AutoScaling.CompleteLifecycleAction
 
-    -- ** AttachInstances 
+    -- ** AttachInstances
     , module Network.AWS.AutoScaling.AttachInstances
 
     -- ** DescribeScheduledActions (Paginated)
     , module Network.AWS.AutoScaling.DescribeScheduledActions
     -- $pager
 
-    -- ** DeleteAutoScalingGroup 
+    -- ** DeleteAutoScalingGroup
     , module Network.AWS.AutoScaling.DeleteAutoScalingGroup
 
-    -- ** PutLifecycleHook 
+    -- ** PutLifecycleHook
     , module Network.AWS.AutoScaling.PutLifecycleHook
 
-    -- ** UpdateAutoScalingGroup 
+    -- ** UpdateAutoScalingGroup
     , module Network.AWS.AutoScaling.UpdateAutoScalingGroup
 
-    -- ** DeleteLifecycleHook 
+    -- ** DeleteLifecycleHook
     , module Network.AWS.AutoScaling.DeleteLifecycleHook
 
-    -- ** ResumeProcesses 
+    -- ** ResumeProcesses
     , module Network.AWS.AutoScaling.ResumeProcesses
 
-    -- ** ExecutePolicy 
+    -- ** ExecutePolicy
     , module Network.AWS.AutoScaling.ExecutePolicy
 
-    -- ** TerminateInstanceInAutoScalingGroup 
+    -- ** TerminateInstanceInAutoScalingGroup
     , module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 
-    -- ** DescribeAccountLimits 
+    -- ** DescribeAccountLimits
     , module Network.AWS.AutoScaling.DescribeAccountLimits
 
-    -- ** AttachLoadBalancers 
+    -- ** AttachLoadBalancers
     , module Network.AWS.AutoScaling.AttachLoadBalancers
 
-    -- ** PutScheduledUpdateGroupAction 
+    -- ** PutScheduledUpdateGroupAction
     , module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
 
     -- ** DescribePolicies (Paginated)
@@ -187,20 +187,20 @@ module Network.AWS.AutoScaling
     , module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- $pager
 
-    -- ** DescribeLifecycleHookTypes 
+    -- ** DescribeLifecycleHookTypes
     , module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 
     -- ** DescribeScalingActivities (Paginated)
     , module Network.AWS.AutoScaling.DescribeScalingActivities
     -- $pager
 
-    -- ** CreateAutoScalingGroup 
+    -- ** CreateAutoScalingGroup
     , module Network.AWS.AutoScaling.CreateAutoScalingGroup
 
-    -- ** CreateLaunchConfiguration 
+    -- ** CreateLaunchConfiguration
     , module Network.AWS.AutoScaling.CreateLaunchConfiguration
 
-    -- ** DescribeAdjustmentTypes 
+    -- ** DescribeAdjustmentTypes
     , module Network.AWS.AutoScaling.DescribeAdjustmentTypes
 
     -- * Types
@@ -446,56 +446,56 @@ module Network.AWS.AutoScaling
     , tdValue
     ) where
 
-import Network.AWS.AutoScaling.AttachInstances
-import Network.AWS.AutoScaling.AttachLoadBalancers
-import Network.AWS.AutoScaling.CompleteLifecycleAction
-import Network.AWS.AutoScaling.CreateAutoScalingGroup
-import Network.AWS.AutoScaling.CreateLaunchConfiguration
-import Network.AWS.AutoScaling.CreateOrUpdateTags
-import Network.AWS.AutoScaling.DeleteAutoScalingGroup
-import Network.AWS.AutoScaling.DeleteLaunchConfiguration
-import Network.AWS.AutoScaling.DeleteLifecycleHook
-import Network.AWS.AutoScaling.DeleteNotificationConfiguration
-import Network.AWS.AutoScaling.DeletePolicy
-import Network.AWS.AutoScaling.DeleteScheduledAction
-import Network.AWS.AutoScaling.DeleteTags
-import Network.AWS.AutoScaling.DescribeAccountLimits
-import Network.AWS.AutoScaling.DescribeAdjustmentTypes
-import Network.AWS.AutoScaling.DescribeAutoScalingGroups
-import Network.AWS.AutoScaling.DescribeAutoScalingInstances
-import Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
-import Network.AWS.AutoScaling.DescribeLaunchConfigurations
-import Network.AWS.AutoScaling.DescribeLifecycleHookTypes
-import Network.AWS.AutoScaling.DescribeLifecycleHooks
-import Network.AWS.AutoScaling.DescribeLoadBalancers
-import Network.AWS.AutoScaling.DescribeMetricCollectionTypes
-import Network.AWS.AutoScaling.DescribeNotificationConfigurations
-import Network.AWS.AutoScaling.DescribePolicies
-import Network.AWS.AutoScaling.DescribeScalingActivities
-import Network.AWS.AutoScaling.DescribeScalingProcessTypes
-import Network.AWS.AutoScaling.DescribeScheduledActions
-import Network.AWS.AutoScaling.DescribeTags
-import Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
-import Network.AWS.AutoScaling.DetachInstances
-import Network.AWS.AutoScaling.DetachLoadBalancers
-import Network.AWS.AutoScaling.DisableMetricsCollection
-import Network.AWS.AutoScaling.EnableMetricsCollection
-import Network.AWS.AutoScaling.EnterStandby
-import Network.AWS.AutoScaling.ExecutePolicy
-import Network.AWS.AutoScaling.ExitStandby
-import Network.AWS.AutoScaling.PutLifecycleHook
-import Network.AWS.AutoScaling.PutNotificationConfiguration
-import Network.AWS.AutoScaling.PutScalingPolicy
-import Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
-import Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
-import Network.AWS.AutoScaling.ResumeProcesses
-import Network.AWS.AutoScaling.SetDesiredCapacity
-import Network.AWS.AutoScaling.SetInstanceHealth
-import Network.AWS.AutoScaling.SuspendProcesses
-import Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.UpdateAutoScalingGroup
-import Network.AWS.AutoScaling.Waiters
+import           Network.AWS.AutoScaling.AttachInstances
+import           Network.AWS.AutoScaling.AttachLoadBalancers
+import           Network.AWS.AutoScaling.CompleteLifecycleAction
+import           Network.AWS.AutoScaling.CreateAutoScalingGroup
+import           Network.AWS.AutoScaling.CreateLaunchConfiguration
+import           Network.AWS.AutoScaling.CreateOrUpdateTags
+import           Network.AWS.AutoScaling.DeleteAutoScalingGroup
+import           Network.AWS.AutoScaling.DeleteLaunchConfiguration
+import           Network.AWS.AutoScaling.DeleteLifecycleHook
+import           Network.AWS.AutoScaling.DeleteNotificationConfiguration
+import           Network.AWS.AutoScaling.DeletePolicy
+import           Network.AWS.AutoScaling.DeleteScheduledAction
+import           Network.AWS.AutoScaling.DeleteTags
+import           Network.AWS.AutoScaling.DescribeAccountLimits
+import           Network.AWS.AutoScaling.DescribeAdjustmentTypes
+import           Network.AWS.AutoScaling.DescribeAutoScalingGroups
+import           Network.AWS.AutoScaling.DescribeAutoScalingInstances
+import           Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
+import           Network.AWS.AutoScaling.DescribeLaunchConfigurations
+import           Network.AWS.AutoScaling.DescribeLifecycleHooks
+import           Network.AWS.AutoScaling.DescribeLifecycleHookTypes
+import           Network.AWS.AutoScaling.DescribeLoadBalancers
+import           Network.AWS.AutoScaling.DescribeMetricCollectionTypes
+import           Network.AWS.AutoScaling.DescribeNotificationConfigurations
+import           Network.AWS.AutoScaling.DescribePolicies
+import           Network.AWS.AutoScaling.DescribeScalingActivities
+import           Network.AWS.AutoScaling.DescribeScalingProcessTypes
+import           Network.AWS.AutoScaling.DescribeScheduledActions
+import           Network.AWS.AutoScaling.DescribeTags
+import           Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
+import           Network.AWS.AutoScaling.DetachInstances
+import           Network.AWS.AutoScaling.DetachLoadBalancers
+import           Network.AWS.AutoScaling.DisableMetricsCollection
+import           Network.AWS.AutoScaling.EnableMetricsCollection
+import           Network.AWS.AutoScaling.EnterStandby
+import           Network.AWS.AutoScaling.ExecutePolicy
+import           Network.AWS.AutoScaling.ExitStandby
+import           Network.AWS.AutoScaling.PutLifecycleHook
+import           Network.AWS.AutoScaling.PutNotificationConfiguration
+import           Network.AWS.AutoScaling.PutScalingPolicy
+import           Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
+import           Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
+import           Network.AWS.AutoScaling.ResumeProcesses
+import           Network.AWS.AutoScaling.SetDesiredCapacity
+import           Network.AWS.AutoScaling.SetInstanceHealth
+import           Network.AWS.AutoScaling.SuspendProcesses
+import           Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.UpdateAutoScalingGroup
+import           Network.AWS.AutoScaling.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

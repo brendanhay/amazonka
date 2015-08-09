@@ -44,11 +44,11 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , mversStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyVPCEndpoint' smart constructor.
 --
@@ -66,17 +66,17 @@ import Network.AWS.Response
 --
 -- * 'mveVPCEndpointId'
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-    { _mvePolicyDocument :: !(Maybe Text)
+    { _mvePolicyDocument      :: !(Maybe Text)
     , _mveRemoveRouteTableIds :: !(Maybe [Text])
-    , _mveResetPolicy :: !(Maybe Bool)
-    , _mveAddRouteTableIds :: !(Maybe [Text])
-    , _mveDryRun :: !(Maybe Bool)
-    , _mveVPCEndpointId :: !Text
+    , _mveResetPolicy         :: !(Maybe Bool)
+    , _mveAddRouteTableIds    :: !(Maybe [Text])
+    , _mveDryRun              :: !(Maybe Bool)
+    , _mveVPCEndpointId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCEndpoint' smart constructor.
 modifyVPCEndpoint :: Text -> ModifyVPCEndpoint
-modifyVPCEndpoint pVPCEndpointId_ = 
+modifyVPCEndpoint pVPCEndpointId_ =
     ModifyVPCEndpoint'
     { _mvePolicyDocument = Nothing
     , _mveRemoveRouteTableIds = Nothing
@@ -159,7 +159,7 @@ data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
 modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse
-modifyVPCEndpointResponse pStatus_ = 
+modifyVPCEndpointResponse pStatus_ =
     ModifyVPCEndpointResponse'
     { _mversReturn = Nothing
     , _mversStatus = pStatus_

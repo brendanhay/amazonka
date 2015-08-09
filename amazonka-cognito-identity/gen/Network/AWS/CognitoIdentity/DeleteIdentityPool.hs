@@ -37,11 +37,11 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     , deleteIdentityPoolResponse
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the DeleteIdentityPool action.
 --
@@ -56,7 +56,7 @@ newtype DeleteIdentityPool = DeleteIdentityPool'
 
 -- | 'DeleteIdentityPool' smart constructor.
 deleteIdentityPool :: Text -> DeleteIdentityPool
-deleteIdentityPool pIdentityPoolId_ = 
+deleteIdentityPool pIdentityPoolId_ =
     DeleteIdentityPool'
     { _dIdentityPoolId = pIdentityPoolId_
     }
@@ -94,7 +94,7 @@ instance ToQuery DeleteIdentityPool where
 
 -- | /See:/ 'deleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse =
-    DeleteIdentityPoolResponse' 
+    DeleteIdentityPoolResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityPoolResponse' smart constructor.

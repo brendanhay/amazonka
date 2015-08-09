@@ -35,17 +35,17 @@ module Network.AWS.DirectoryService.GetDirectoryLimits
     , gdlrsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the GetDirectoryLimits operation.
 --
 -- /See:/ 'getDirectoryLimits' smart constructor.
 data GetDirectoryLimits =
-    GetDirectoryLimits' 
+    GetDirectoryLimits'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDirectoryLimits' smart constructor.
@@ -93,12 +93,12 @@ instance ToQuery GetDirectoryLimits where
 -- * 'gdlrsStatus'
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
     { _gdlrsDirectoryLimits :: !(Maybe DirectoryLimits)
-    , _gdlrsStatus :: !Int
+    , _gdlrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDirectoryLimitsResponse' smart constructor.
 getDirectoryLimitsResponse :: Int -> GetDirectoryLimitsResponse
-getDirectoryLimitsResponse pStatus_ = 
+getDirectoryLimitsResponse pStatus_ =
     GetDirectoryLimitsResponse'
     { _gdlrsDirectoryLimits = Nothing
     , _gdlrsStatus = pStatus_

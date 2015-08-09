@@ -38,11 +38,11 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     , davrsStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Result message containing a list of configuration descriptions.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'davsApplicationName'
 data DescribeApplicationVersions = DescribeApplicationVersions'
-    { _davsVersionLabels :: !(Maybe [Text])
+    { _davsVersionLabels   :: !(Maybe [Text])
     , _davsApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersions' smart constructor.
 describeApplicationVersions :: DescribeApplicationVersions
-describeApplicationVersions = 
+describeApplicationVersions =
     DescribeApplicationVersions'
     { _davsVersionLabels = Nothing
     , _davsApplicationName = Nothing
@@ -119,12 +119,12 @@ instance ToQuery DescribeApplicationVersions where
 -- * 'davrsStatus'
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
-    , _davrsStatus :: !Int
+    , _davrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
-describeApplicationVersionsResponse pStatus_ = 
+describeApplicationVersionsResponse pStatus_ =
     DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions = Nothing
     , _davrsStatus = pStatus_

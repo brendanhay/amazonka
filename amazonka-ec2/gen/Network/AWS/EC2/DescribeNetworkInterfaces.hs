@@ -39,11 +39,11 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     , dnirsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkInterfaces' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 -- * 'dnisDryRun'
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     { _dnisNetworkInterfaceIds :: !(Maybe [Text])
-    , _dnisFilters :: !(Maybe [Filter])
-    , _dnisDryRun :: !(Maybe Bool)
+    , _dnisFilters             :: !(Maybe [Filter])
+    , _dnisDryRun              :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaces' smart constructor.
 describeNetworkInterfaces :: DescribeNetworkInterfaces
-describeNetworkInterfaces = 
+describeNetworkInterfaces =
     DescribeNetworkInterfaces'
     { _dnisNetworkInterfaceIds = Nothing
     , _dnisFilters = Nothing
@@ -232,12 +232,12 @@ instance ToQuery DescribeNetworkInterfaces where
 -- * 'dnirsStatus'
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
     { _dnirsNetworkInterfaces :: !(Maybe [NetworkInterface])
-    , _dnirsStatus :: !Int
+    , _dnirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
 describeNetworkInterfacesResponse :: Int -> DescribeNetworkInterfacesResponse
-describeNetworkInterfacesResponse pStatus_ = 
+describeNetworkInterfacesResponse pStatus_ =
     DescribeNetworkInterfacesResponse'
     { _dnirsNetworkInterfaces = Nothing
     , _dnirsStatus = pStatus_

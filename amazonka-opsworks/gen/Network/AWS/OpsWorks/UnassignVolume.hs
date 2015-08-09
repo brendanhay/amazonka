@@ -42,11 +42,11 @@ module Network.AWS.OpsWorks.UnassignVolume
     , unassignVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'unassignVolume' smart constructor.
 --
@@ -59,7 +59,7 @@ newtype UnassignVolume = UnassignVolume'
 
 -- | 'UnassignVolume' smart constructor.
 unassignVolume :: Text -> UnassignVolume
-unassignVolume pVolumeId_ = 
+unassignVolume pVolumeId_ =
     UnassignVolume'
     { _uvVolumeId = pVolumeId_
     }
@@ -95,7 +95,7 @@ instance ToQuery UnassignVolume where
 
 -- | /See:/ 'unassignVolumeResponse' smart constructor.
 data UnassignVolumeResponse =
-    UnassignVolumeResponse' 
+    UnassignVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignVolumeResponse' smart constructor.

@@ -62,11 +62,11 @@ module Network.AWS.KMS.Encrypt
     , ersStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'encrypt' smart constructor.
 --
@@ -81,14 +81,14 @@ import Network.AWS.Response
 -- * 'ePlaintext'
 data Encrypt = Encrypt'
     { _eEncryptionContext :: !(Maybe (Map Text Text))
-    , _eGrantTokens :: !(Maybe [Text])
-    , _eKeyId :: !Text
-    , _ePlaintext :: !(Sensitive Base64)
+    , _eGrantTokens       :: !(Maybe [Text])
+    , _eKeyId             :: !Text
+    , _ePlaintext         :: !(Sensitive Base64)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> ByteString -> Encrypt
-encrypt pKeyId_ pPlaintext_ = 
+encrypt pKeyId_ pPlaintext_ =
     Encrypt'
     { _eEncryptionContext = Nothing
     , _eGrantTokens = Nothing
@@ -169,14 +169,14 @@ instance ToQuery Encrypt where
 --
 -- * 'ersStatus'
 data EncryptResponse = EncryptResponse'
-    { _ersKeyId :: !(Maybe Text)
+    { _ersKeyId          :: !(Maybe Text)
     , _ersCiphertextBlob :: !(Maybe Base64)
-    , _ersStatus :: !Int
+    , _ersStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EncryptResponse' smart constructor.
 encryptResponse :: Int -> EncryptResponse
-encryptResponse pStatus_ = 
+encryptResponse pStatus_ =
     EncryptResponse'
     { _ersKeyId = Nothing
     , _ersCiphertextBlob = Nothing

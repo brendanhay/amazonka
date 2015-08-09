@@ -18,8 +18,8 @@
 --
 module Network.AWS.CognitoIdentity.Types.Product where
 
-import Network.AWS.CognitoIdentity.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.CognitoIdentity.Types.Sum
+import           Network.AWS.Prelude
 
 -- | Credentials for the the provided identity ID.
 --
@@ -36,14 +36,14 @@ import Network.AWS.Prelude
 -- * 'cAccessKeyId'
 data Credentials = Credentials'
     { _cSessionToken :: !(Maybe Text)
-    , _cExpiration :: !(Maybe POSIX)
-    , _cSecretKey :: !(Maybe Text)
-    , _cAccessKeyId :: !(Maybe Text)
+    , _cExpiration   :: !(Maybe POSIX)
+    , _cSecretKey    :: !(Maybe Text)
+    , _cAccessKeyId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Credentials' smart constructor.
 credentials :: Credentials
-credentials = 
+credentials =
     Credentials'
     { _cSessionToken = Nothing
     , _cExpiration = Nothing
@@ -91,14 +91,14 @@ instance FromJSON Credentials where
 -- * 'idIdentityId'
 data IdentityDescription = IdentityDescription'
     { _idLastModifiedDate :: !(Maybe POSIX)
-    , _idCreationDate :: !(Maybe POSIX)
-    , _idLogins :: !(Maybe [Text])
-    , _idIdentityId :: !(Maybe Text)
+    , _idCreationDate     :: !(Maybe POSIX)
+    , _idLogins           :: !(Maybe [Text])
+    , _idIdentityId       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityDescription' smart constructor.
 identityDescription :: IdentityDescription
-identityDescription = 
+identityDescription =
     IdentityDescription'
     { _idLastModifiedDate = Nothing
     , _idCreationDate = Nothing
@@ -150,17 +150,17 @@ instance FromJSON IdentityDescription where
 --
 -- * 'ipAllowUnauthenticatedIdentities'
 data IdentityPool = IdentityPool'
-    { _ipSupportedLoginProviders :: !(Maybe (Map Text Text))
-    , _ipDeveloperProviderName :: !(Maybe Text)
-    , _ipOpenIdConnectProviderARNs :: !(Maybe [Text])
-    , _ipIdentityPoolId :: !Text
-    , _ipIdentityPoolName :: !Text
+    { _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _ipDeveloperProviderName          :: !(Maybe Text)
+    , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _ipIdentityPoolId                 :: !Text
+    , _ipIdentityPoolName               :: !Text
     , _ipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityPool' smart constructor.
 identityPool :: Text -> Text -> Bool -> IdentityPool
-identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ = 
+identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     IdentityPool'
     { _ipSupportedLoginProviders = Nothing
     , _ipDeveloperProviderName = Nothing
@@ -229,13 +229,13 @@ instance ToJSON IdentityPool where
 --
 -- * 'ipsdIdentityPoolName'
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
-    { _ipsdIdentityPoolId :: !(Maybe Text)
+    { _ipsdIdentityPoolId   :: !(Maybe Text)
     , _ipsdIdentityPoolName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityPoolShortDescription' smart constructor.
 identityPoolShortDescription :: IdentityPoolShortDescription
-identityPoolShortDescription = 
+identityPoolShortDescription =
     IdentityPoolShortDescription'
     { _ipsdIdentityPoolId = Nothing
     , _ipsdIdentityPoolName = Nothing
@@ -268,13 +268,13 @@ instance FromJSON IdentityPoolShortDescription where
 --
 -- * 'uiiIdentityId'
 data UnprocessedIdentityId = UnprocessedIdentityId'
-    { _uiiErrorCode :: !(Maybe CognitoErrorCode)
+    { _uiiErrorCode  :: !(Maybe CognitoErrorCode)
     , _uiiIdentityId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnprocessedIdentityId' smart constructor.
 unprocessedIdentityId :: UnprocessedIdentityId
-unprocessedIdentityId = 
+unprocessedIdentityId =
     UnprocessedIdentityId'
     { _uiiErrorCode = Nothing
     , _uiiIdentityId = Nothing

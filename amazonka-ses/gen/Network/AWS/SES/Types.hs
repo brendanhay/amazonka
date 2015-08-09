@@ -13,10 +13,10 @@
 --
 module Network.AWS.SES.Types
     (
-    -- * Service Decription
+    -- * Service
       SES
 
-    -- * Error Matchers
+    -- * Errors
     , _MessageRejected
     , _InvalidPolicyException
 

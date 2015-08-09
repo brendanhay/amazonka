@@ -37,11 +37,11 @@ module Network.AWS.DeviceFarm.GetTest
     , gtrsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the get test operation.
 --
@@ -56,7 +56,7 @@ newtype GetTest = GetTest'
 
 -- | 'GetTest' smart constructor.
 getTest :: Text -> GetTest
-getTest pArn_ = 
+getTest pArn_ =
     GetTest'
     { _gtArn = pArn_
     }
@@ -103,13 +103,13 @@ instance ToQuery GetTest where
 --
 -- * 'gtrsStatus'
 data GetTestResponse = GetTestResponse'
-    { _gtrsTest :: !(Maybe Test)
+    { _gtrsTest   :: !(Maybe Test)
     , _gtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTestResponse' smart constructor.
 getTestResponse :: Int -> GetTestResponse
-getTestResponse pStatus_ = 
+getTestResponse pStatus_ =
     GetTestResponse'
     { _gtrsTest = Nothing
     , _gtrsStatus = pStatus_

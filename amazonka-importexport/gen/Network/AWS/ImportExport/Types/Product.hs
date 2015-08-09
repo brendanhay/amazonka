@@ -18,8 +18,8 @@
 --
 module Network.AWS.ImportExport.Types.Product where
 
-import Network.AWS.ImportExport.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.ImportExport.Types.Sum
+import           Network.AWS.Prelude
 
 -- | A discrete item that contains the description and URL of an artifact
 -- (such as a PDF).
@@ -32,13 +32,13 @@ import Network.AWS.Prelude
 --
 -- * 'aDescription'
 data Artifact = Artifact'
-    { _aURL :: !(Maybe Text)
+    { _aURL         :: !(Maybe Text)
     , _aDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
-artifact = 
+artifact =
     Artifact'
     { _aURL = Nothing
     , _aDescription = Nothing
@@ -71,15 +71,15 @@ instance FromXML Artifact where
 --
 -- * 'jobCreationDate'
 data Job = Job'
-    { _jobJobType :: !JobType
-    , _jobJobId :: !Text
-    , _jobIsCanceled :: !Bool
+    { _jobJobType      :: !JobType
+    , _jobJobId        :: !Text
+    , _jobIsCanceled   :: !Bool
     , _jobCreationDate :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Job' smart constructor.
 job :: JobType -> Text -> Bool -> UTCTime -> Job
-job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ = 
+job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
     Job'
     { _jobJobType = pJobType_
     , _jobJobId = pJobId_

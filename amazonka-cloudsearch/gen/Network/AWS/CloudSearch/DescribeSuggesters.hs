@@ -46,11 +46,11 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     , dssrsSuggesters
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeSuggester@ operation.
 -- Specifies the name of the domain you want to describe. To restrict the
@@ -68,14 +68,14 @@ import Network.AWS.Response
 --
 -- * 'dssDomainName'
 data DescribeSuggesters = DescribeSuggesters'
-    { _dssDeployed :: !(Maybe Bool)
+    { _dssDeployed       :: !(Maybe Bool)
     , _dssSuggesterNames :: !(Maybe [Text])
-    , _dssDomainName :: !Text
+    , _dssDomainName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggesters' smart constructor.
 describeSuggesters :: Text -> DescribeSuggesters
-describeSuggesters pDomainName_ = 
+describeSuggesters pDomainName_ =
     DescribeSuggesters'
     { _dssDeployed = Nothing
     , _dssSuggesterNames = Nothing
@@ -135,13 +135,13 @@ instance ToQuery DescribeSuggesters where
 --
 -- * 'dssrsSuggesters'
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
-    { _dssrsStatus :: !Int
+    { _dssrsStatus     :: !Int
     , _dssrsSuggesters :: ![SuggesterStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Int -> DescribeSuggestersResponse
-describeSuggestersResponse pStatus_ = 
+describeSuggestersResponse pStatus_ =
     DescribeSuggestersResponse'
     { _dssrsStatus = pStatus_
     , _dssrsSuggesters = mempty

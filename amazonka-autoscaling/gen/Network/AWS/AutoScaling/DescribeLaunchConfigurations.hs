@@ -41,12 +41,12 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     , dlcrsLaunchConfigurations
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLaunchConfigurations' smart constructor.
 --
@@ -59,13 +59,13 @@ import Network.AWS.Response
 -- * 'dlcMaxRecords'
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
     { _dlcLaunchConfigurationNames :: !(Maybe [Text])
-    , _dlcNextToken :: !(Maybe Text)
-    , _dlcMaxRecords :: !(Maybe Int)
+    , _dlcNextToken                :: !(Maybe Text)
+    , _dlcMaxRecords               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLaunchConfigurations' smart constructor.
 describeLaunchConfigurations :: DescribeLaunchConfigurations
-describeLaunchConfigurations = 
+describeLaunchConfigurations =
     DescribeLaunchConfigurations'
     { _dlcLaunchConfigurationNames = Nothing
     , _dlcNextToken = Nothing
@@ -137,14 +137,14 @@ instance ToQuery DescribeLaunchConfigurations where
 --
 -- * 'dlcrsLaunchConfigurations'
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
-    { _dlcrsNextToken :: !(Maybe Text)
-    , _dlcrsStatus :: !Int
+    { _dlcrsNextToken            :: !(Maybe Text)
+    , _dlcrsStatus               :: !Int
     , _dlcrsLaunchConfigurations :: ![LaunchConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
 describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse pStatus_ = 
+describeLaunchConfigurationsResponse pStatus_ =
     DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken = Nothing
     , _dlcrsStatus = pStatus_

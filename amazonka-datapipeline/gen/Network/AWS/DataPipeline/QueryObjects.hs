@@ -44,12 +44,12 @@ module Network.AWS.DataPipeline.QueryObjects
     , qorsStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for QueryObjects.
 --
@@ -67,16 +67,16 @@ import Network.AWS.Response
 --
 -- * 'qoSphere'
 data QueryObjects = QueryObjects'
-    { _qoQuery :: !(Maybe Query)
-    , _qoMarker :: !(Maybe Text)
-    , _qoLimit :: !(Maybe Int)
+    { _qoQuery      :: !(Maybe Query)
+    , _qoMarker     :: !(Maybe Text)
+    , _qoLimit      :: !(Maybe Int)
     , _qoPipelineId :: !Text
-    , _qoSphere :: !Text
+    , _qoSphere     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueryObjects' smart constructor.
 queryObjects :: Text -> Text -> QueryObjects
-queryObjects pPipelineId_ pSphere_ = 
+queryObjects pPipelineId_ pSphere_ =
     QueryObjects'
     { _qoQuery = Nothing
     , _qoMarker = Nothing
@@ -169,14 +169,14 @@ instance ToQuery QueryObjects where
 -- * 'qorsStatus'
 data QueryObjectsResponse = QueryObjectsResponse'
     { _qorsHasMoreResults :: !(Maybe Bool)
-    , _qorsIds :: !(Maybe [Text])
-    , _qorsMarker :: !(Maybe Text)
-    , _qorsStatus :: !Int
+    , _qorsIds            :: !(Maybe [Text])
+    , _qorsMarker         :: !(Maybe Text)
+    , _qorsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueryObjectsResponse' smart constructor.
 queryObjectsResponse :: Int -> QueryObjectsResponse
-queryObjectsResponse pStatus_ = 
+queryObjectsResponse pStatus_ =
     QueryObjectsResponse'
     { _qorsHasMoreResults = Nothing
     , _qorsIds = Nothing

@@ -43,11 +43,11 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , dafmrsStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarmsForMetric' smart constructor.
 --
@@ -65,17 +65,17 @@ import Network.AWS.Response
 --
 -- * 'dafmNamespace'
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-    { _dafmPeriod :: !(Maybe Nat)
+    { _dafmPeriod     :: !(Maybe Nat)
     , _dafmDimensions :: !(Maybe [Dimension])
-    , _dafmStatistic :: !(Maybe Statistic)
-    , _dafmUnit :: !(Maybe StandardUnit)
+    , _dafmStatistic  :: !(Maybe Statistic)
+    , _dafmUnit       :: !(Maybe StandardUnit)
     , _dafmMetricName :: !Text
-    , _dafmNamespace :: !Text
+    , _dafmNamespace  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmsForMetric' smart constructor.
 describeAlarmsForMetric :: Text -> Text -> DescribeAlarmsForMetric
-describeAlarmsForMetric pMetricName_ pNamespace_ = 
+describeAlarmsForMetric pMetricName_ pNamespace_ =
     DescribeAlarmsForMetric'
     { _dafmPeriod = Nothing
     , _dafmDimensions = Nothing
@@ -152,12 +152,12 @@ instance ToQuery DescribeAlarmsForMetric where
 -- * 'dafmrsStatus'
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
     { _dafmrsMetricAlarms :: !(Maybe [MetricAlarm])
-    , _dafmrsStatus :: !Int
+    , _dafmrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
 describeAlarmsForMetricResponse :: Int -> DescribeAlarmsForMetricResponse
-describeAlarmsForMetricResponse pStatus_ = 
+describeAlarmsForMetricResponse pStatus_ =
     DescribeAlarmsForMetricResponse'
     { _dafmrsMetricAlarms = Nothing
     , _dafmrsStatus = pStatus_

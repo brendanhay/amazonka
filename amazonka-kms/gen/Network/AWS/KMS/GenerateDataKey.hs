@@ -76,11 +76,11 @@ module Network.AWS.KMS.GenerateDataKey
     , gdkrsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'generateDataKey' smart constructor.
 --
@@ -96,16 +96,16 @@ import Network.AWS.Response
 --
 -- * 'gdkKeyId'
 data GenerateDataKey = GenerateDataKey'
-    { _gdkKeySpec :: !(Maybe DataKeySpec)
+    { _gdkKeySpec           :: !(Maybe DataKeySpec)
     , _gdkEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkNumberOfBytes :: !(Maybe Nat)
-    , _gdkGrantTokens :: !(Maybe [Text])
-    , _gdkKeyId :: !Text
+    , _gdkNumberOfBytes     :: !(Maybe Nat)
+    , _gdkGrantTokens       :: !(Maybe [Text])
+    , _gdkKeyId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKey' smart constructor.
 generateDataKey :: Text -> GenerateDataKey
-generateDataKey pKeyId_ = 
+generateDataKey pKeyId_ =
     GenerateDataKey'
     { _gdkKeySpec = Nothing
     , _gdkEncryptionContext = Nothing
@@ -199,15 +199,15 @@ instance ToQuery GenerateDataKey where
 --
 -- * 'gdkrsStatus'
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-    { _gdkrsKeyId :: !(Maybe Text)
-    , _gdkrsPlaintext :: !(Maybe (Sensitive Base64))
+    { _gdkrsKeyId          :: !(Maybe Text)
+    , _gdkrsPlaintext      :: !(Maybe (Sensitive Base64))
     , _gdkrsCiphertextBlob :: !(Maybe Base64)
-    , _gdkrsStatus :: !Int
+    , _gdkrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyResponse' smart constructor.
 generateDataKeyResponse :: Int -> GenerateDataKeyResponse
-generateDataKeyResponse pStatus_ = 
+generateDataKeyResponse pStatus_ =
     GenerateDataKeyResponse'
     { _gdkrsKeyId = Nothing
     , _gdkrsPlaintext = Nothing

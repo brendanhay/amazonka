@@ -38,11 +38,11 @@ module Network.AWS.KMS.GetKeyRotationStatus
     , gkrsrsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getKeyRotationStatus' smart constructor.
 --
@@ -55,7 +55,7 @@ newtype GetKeyRotationStatus = GetKeyRotationStatus'
 
 -- | 'GetKeyRotationStatus' smart constructor.
 getKeyRotationStatus :: Text -> GetKeyRotationStatus
-getKeyRotationStatus pKeyId_ = 
+getKeyRotationStatus pKeyId_ =
     GetKeyRotationStatus'
     { _gkrsKeyId = pKeyId_
     }
@@ -109,12 +109,12 @@ instance ToQuery GetKeyRotationStatus where
 -- * 'gkrsrsStatus'
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
     { _gkrsrsKeyRotationEnabled :: !(Maybe Bool)
-    , _gkrsrsStatus :: !Int
+    , _gkrsrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyRotationStatusResponse' smart constructor.
 getKeyRotationStatusResponse :: Int -> GetKeyRotationStatusResponse
-getKeyRotationStatusResponse pStatus_ = 
+getKeyRotationStatusResponse pStatus_ =
     GetKeyRotationStatusResponse'
     { _gkrsrsKeyRotationEnabled = Nothing
     , _gkrsrsStatus = pStatus_

@@ -61,11 +61,11 @@ module Network.AWS.Glacier.DeleteArchive
     , deleteArchiveResponse
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for deleting an archive from an Amazon Glacier vault.
 --
@@ -86,7 +86,7 @@ data DeleteArchive = DeleteArchive'
 
 -- | 'DeleteArchive' smart constructor.
 deleteArchive :: Text -> Text -> Text -> DeleteArchive
-deleteArchive pAccountId_ pVaultName_ pArchiveId_ = 
+deleteArchive pAccountId_ pVaultName_ pArchiveId_ =
     DeleteArchive'
     { _daAccountId = pAccountId_
     , _daVaultName = pVaultName_
@@ -129,7 +129,7 @@ instance ToQuery DeleteArchive where
 
 -- | /See:/ 'deleteArchiveResponse' smart constructor.
 data DeleteArchiveResponse =
-    DeleteArchiveResponse' 
+    DeleteArchiveResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteArchiveResponse' smart constructor.

@@ -41,11 +41,11 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     , drsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLifecycleHook' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'delAutoScalingGroupName'
 data DeleteLifecycleHook = DeleteLifecycleHook'
-    { _delLifecycleHookName :: !Text
+    { _delLifecycleHookName    :: !Text
     , _delAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLifecycleHook' smart constructor.
 deleteLifecycleHook :: Text -> Text -> DeleteLifecycleHook
-deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ = 
+deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
     DeleteLifecycleHook'
     { _delLifecycleHookName = pLifecycleHookName_
     , _delAutoScalingGroupName = pAutoScalingGroupName_
@@ -110,7 +110,7 @@ newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
 deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
-deleteLifecycleHookResponse pStatus_ = 
+deleteLifecycleHookResponse pStatus_ =
     DeleteLifecycleHookResponse'
     { _drsStatus = pStatus_
     }

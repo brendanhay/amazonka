@@ -40,11 +40,11 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     , mcsgrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyCacheSubnetGroup/ action.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'mcsgCacheSubnetGroupName'
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
-    { _mcsgSubnetIds :: !(Maybe [Text])
+    { _mcsgSubnetIds                   :: !(Maybe [Text])
     , _mcsgCacheSubnetGroupDescription :: !(Maybe Text)
-    , _mcsgCacheSubnetGroupName :: !Text
+    , _mcsgCacheSubnetGroupName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheSubnetGroup' smart constructor.
 modifyCacheSubnetGroup :: Text -> ModifyCacheSubnetGroup
-modifyCacheSubnetGroup pCacheSubnetGroupName_ = 
+modifyCacheSubnetGroup pCacheSubnetGroupName_ =
     ModifyCacheSubnetGroup'
     { _mcsgSubnetIds = Nothing
     , _mcsgCacheSubnetGroupDescription = Nothing
@@ -129,12 +129,12 @@ instance ToQuery ModifyCacheSubnetGroup where
 -- * 'mcsgrsStatus'
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
     { _mcsgrsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _mcsgrsStatus :: !Int
+    , _mcsgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheSubnetGroupResponse' smart constructor.
 modifyCacheSubnetGroupResponse :: Int -> ModifyCacheSubnetGroupResponse
-modifyCacheSubnetGroupResponse pStatus_ = 
+modifyCacheSubnetGroupResponse pStatus_ =
     ModifyCacheSubnetGroupResponse'
     { _mcsgrsCacheSubnetGroup = Nothing
     , _mcsgrsStatus = pStatus_

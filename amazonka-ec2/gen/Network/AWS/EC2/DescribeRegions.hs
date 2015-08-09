@@ -42,11 +42,11 @@ module Network.AWS.EC2.DescribeRegions
     , drrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeRegions' smart constructor.
 --
@@ -59,13 +59,13 @@ import Network.AWS.Response
 -- * 'drsDryRun'
 data DescribeRegions = DescribeRegions'
     { _drsRegionNames :: !(Maybe [Text])
-    , _drsFilters :: !(Maybe [Filter])
-    , _drsDryRun :: !(Maybe Bool)
+    , _drsFilters     :: !(Maybe [Filter])
+    , _drsDryRun      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRegions' smart constructor.
 describeRegions :: DescribeRegions
-describeRegions = 
+describeRegions =
     DescribeRegions'
     { _drsRegionNames = Nothing
     , _drsFilters = Nothing
@@ -130,12 +130,12 @@ instance ToQuery DescribeRegions where
 -- * 'drrsStatus'
 data DescribeRegionsResponse = DescribeRegionsResponse'
     { _drrsRegions :: !(Maybe [RegionInfo])
-    , _drrsStatus :: !Int
+    , _drrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRegionsResponse' smart constructor.
 describeRegionsResponse :: Int -> DescribeRegionsResponse
-describeRegionsResponse pStatus_ = 
+describeRegionsResponse pStatus_ =
     DescribeRegionsResponse'
     { _drrsRegions = Nothing
     , _drrsStatus = pStatus_

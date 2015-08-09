@@ -73,11 +73,11 @@ module Network.AWS.Glacier.ListMultipartUploads
     , lmursStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for retrieving list of in-progress multipart uploads
 -- for an Amazon Glacier vault.
@@ -94,15 +94,15 @@ import Network.AWS.Response
 --
 -- * 'lmuVaultName'
 data ListMultipartUploads = ListMultipartUploads'
-    { _lmuMarker :: !(Maybe Text)
-    , _lmuLimit :: !(Maybe Text)
+    { _lmuMarker    :: !(Maybe Text)
+    , _lmuLimit     :: !(Maybe Text)
     , _lmuAccountId :: !Text
     , _lmuVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: Text -> Text -> ListMultipartUploads
-listMultipartUploads pAccountId_ pVaultName_ = 
+listMultipartUploads pAccountId_ pVaultName_ =
     ListMultipartUploads'
     { _lmuMarker = Nothing
     , _lmuLimit = Nothing
@@ -175,13 +175,13 @@ instance ToQuery ListMultipartUploads where
 -- * 'lmursStatus'
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     { _lmursUploadsList :: !(Maybe [UploadListElement])
-    , _lmursMarker :: !(Maybe Text)
-    , _lmursStatus :: !Int
+    , _lmursMarker      :: !(Maybe Text)
+    , _lmursStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
-listMultipartUploadsResponse pStatus_ = 
+listMultipartUploadsResponse pStatus_ =
     ListMultipartUploadsResponse'
     { _lmursUploadsList = Nothing
     , _lmursMarker = Nothing

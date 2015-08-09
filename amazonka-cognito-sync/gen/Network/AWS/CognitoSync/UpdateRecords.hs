@@ -60,11 +60,11 @@ module Network.AWS.CognitoSync.UpdateRecords
     , urrsStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to post updates to records or add and delete records for a
 -- dataset and user.
@@ -87,18 +87,18 @@ import Network.AWS.Response
 --
 -- * 'urSyncSessionToken'
 data UpdateRecords = UpdateRecords'
-    { _urRecordPatches :: !(Maybe [RecordPatch])
-    , _urDeviceId :: !(Maybe Text)
-    , _urClientContext :: !(Maybe Text)
-    , _urIdentityPoolId :: !Text
-    , _urIdentityId :: !Text
-    , _urDatasetName :: !Text
+    { _urRecordPatches    :: !(Maybe [RecordPatch])
+    , _urDeviceId         :: !(Maybe Text)
+    , _urClientContext    :: !(Maybe Text)
+    , _urIdentityPoolId   :: !Text
+    , _urIdentityId       :: !Text
+    , _urDatasetName      :: !Text
     , _urSyncSessionToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRecords' smart constructor.
 updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
-updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ = 
+updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ =
     UpdateRecords'
     { _urRecordPatches = Nothing
     , _urDeviceId = Nothing
@@ -190,12 +190,12 @@ instance ToQuery UpdateRecords where
 -- * 'urrsStatus'
 data UpdateRecordsResponse = UpdateRecordsResponse'
     { _urrsRecords :: !(Maybe [Record])
-    , _urrsStatus :: !Int
+    , _urrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRecordsResponse' smart constructor.
 updateRecordsResponse :: Int -> UpdateRecordsResponse
-updateRecordsResponse pStatus_ = 
+updateRecordsResponse pStatus_ =
     UpdateRecordsResponse'
     { _urrsRecords = Nothing
     , _urrsStatus = pStatus_

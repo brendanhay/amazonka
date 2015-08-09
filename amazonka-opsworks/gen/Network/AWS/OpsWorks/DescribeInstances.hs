@@ -47,11 +47,11 @@ module Network.AWS.OpsWorks.DescribeInstances
     , dirsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstances' smart constructor.
 --
@@ -64,13 +64,13 @@ import Network.AWS.Response
 -- * 'diLayerId'
 data DescribeInstances = DescribeInstances'
     { _diInstanceIds :: !(Maybe [Text])
-    , _diStackId :: !(Maybe Text)
-    , _diLayerId :: !(Maybe Text)
+    , _diStackId     :: !(Maybe Text)
+    , _diLayerId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
-describeInstances = 
+describeInstances =
     DescribeInstances'
     { _diInstanceIds = Nothing
     , _diStackId = Nothing
@@ -137,12 +137,12 @@ instance ToQuery DescribeInstances where
 -- * 'dirsStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirsInstances :: !(Maybe [Instance])
-    , _dirsStatus :: !Int
+    , _dirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
-describeInstancesResponse pStatus_ = 
+describeInstancesResponse pStatus_ =
     DescribeInstancesResponse'
     { _dirsInstances = Nothing
     , _dirsStatus = pStatus_

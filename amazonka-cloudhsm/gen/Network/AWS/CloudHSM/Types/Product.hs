@@ -18,5 +18,5 @@
 --
 module Network.AWS.CloudHSM.Types.Product where
 
-import Network.AWS.CloudHSM.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.CloudHSM.Types.Sum
+import           Network.AWS.Prelude

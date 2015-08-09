@@ -40,11 +40,11 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     , slbpolrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListener' smart constructor.
 --
@@ -58,12 +58,12 @@ import Network.AWS.Response
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
     { _slbpolLoadBalancerName :: !Text
     , _slbpolLoadBalancerPort :: !Int
-    , _slbpolPolicyNames :: ![Text]
+    , _slbpolPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
 setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
-setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ = 
+setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ =
     SetLoadBalancerPoliciesOfListener'
     { _slbpolLoadBalancerName = pLoadBalancerName_
     , _slbpolLoadBalancerPort = pLoadBalancerPort_
@@ -127,7 +127,7 @@ newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfLis
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse
-setLoadBalancerPoliciesOfListenerResponse pStatus_ = 
+setLoadBalancerPoliciesOfListenerResponse pStatus_ =
     SetLoadBalancerPoliciesOfListenerResponse'
     { _slbpolrsStatus = pStatus_
     }

@@ -44,12 +44,12 @@ module Network.AWS.IAM.ListGroups
     , lgrsGroups
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listGroups' smart constructor.
 --
@@ -62,13 +62,13 @@ import Network.AWS.Response
 -- * 'lgMarker'
 data ListGroups = ListGroups'
     { _lgPathPrefix :: !(Maybe Text)
-    , _lgMaxItems :: !(Maybe Nat)
-    , _lgMarker :: !(Maybe Text)
+    , _lgMaxItems   :: !(Maybe Nat)
+    , _lgMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroups' smart constructor.
 listGroups :: ListGroups
-listGroups = 
+listGroups =
     ListGroups'
     { _lgPathPrefix = Nothing
     , _lgMaxItems = Nothing
@@ -148,15 +148,15 @@ instance ToQuery ListGroups where
 --
 -- * 'lgrsGroups'
 data ListGroupsResponse = ListGroupsResponse'
-    { _lgrsMarker :: !(Maybe Text)
+    { _lgrsMarker      :: !(Maybe Text)
     , _lgrsIsTruncated :: !(Maybe Bool)
-    , _lgrsStatus :: !Int
-    , _lgrsGroups :: ![Group]
+    , _lgrsStatus      :: !Int
+    , _lgrsGroups      :: ![Group]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsResponse' smart constructor.
 listGroupsResponse :: Int -> ListGroupsResponse
-listGroupsResponse pStatus_ = 
+listGroupsResponse pStatus_ =
     ListGroupsResponse'
     { _lgrsMarker = Nothing
     , _lgrsIsTruncated = Nothing

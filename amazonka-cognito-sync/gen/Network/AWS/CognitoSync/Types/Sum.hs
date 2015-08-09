@@ -17,13 +17,13 @@
 --
 module Network.AWS.CognitoSync.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data BulkPublishStatus
-    = NotStarted 
-    | InProgress 
-    | Succeeded 
-    | Failed 
+    = NotStarted
+    | InProgress
+    | Succeeded
+    | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BulkPublishStatus where
@@ -51,8 +51,8 @@ instance FromJSON BulkPublishStatus where
     parseJSON = parseJSONText "BulkPublishStatus"
 
 data Operation
-    = Replace 
-    | Remove 
+    = Replace
+    | Remove
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Operation where
@@ -76,10 +76,10 @@ instance ToJSON Operation where
     toJSON = toJSONText
 
 data Platform
-    = GCM 
-    | APNS 
-    | ADM 
-    | APNSSandbox 
+    = GCM
+    | APNS
+    | ADM
+    | APNSSandbox
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Platform where
@@ -107,8 +107,8 @@ instance ToJSON Platform where
     toJSON = toJSONText
 
 data StreamingStatus
-    = Enabled 
-    | Disabled 
+    = Enabled
+    | Disabled
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamingStatus where

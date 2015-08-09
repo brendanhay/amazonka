@@ -43,11 +43,11 @@ module Network.AWS.EC2.DescribeSubnets
     , dsrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSubnets' smart constructor.
 --
@@ -60,13 +60,13 @@ import Network.AWS.Response
 -- * 'dsDryRun'
 data DescribeSubnets = DescribeSubnets'
     { _dsSubnetIds :: !(Maybe [Text])
-    , _dsFilters :: !(Maybe [Filter])
-    , _dsDryRun :: !(Maybe Bool)
+    , _dsFilters   :: !(Maybe [Filter])
+    , _dsDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubnets' smart constructor.
 describeSubnets :: DescribeSubnets
-describeSubnets = 
+describeSubnets =
     DescribeSubnets'
     { _dsSubnetIds = Nothing
     , _dsFilters = Nothing
@@ -162,12 +162,12 @@ instance ToQuery DescribeSubnets where
 -- * 'dsrsStatus'
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
     { _dsrsSubnets :: !(Maybe [Subnet])
-    , _dsrsStatus :: !Int
+    , _dsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
 describeSubnetsResponse :: Int -> DescribeSubnetsResponse
-describeSubnetsResponse pStatus_ = 
+describeSubnetsResponse pStatus_ =
     DescribeSubnetsResponse'
     { _dsrsSubnets = Nothing
     , _dsrsStatus = pStatus_

@@ -18,8 +18,8 @@
 --
 module Network.AWS.CloudWatchLogs.Types.Product where
 
-import Network.AWS.CloudWatchLogs.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.CloudWatchLogs.Types.Sum
+import           Network.AWS.Prelude
 
 -- | /See:/ 'destination' smart constructor.
 --
@@ -37,17 +37,17 @@ import Network.AWS.Prelude
 --
 -- * 'dRoleARN'
 data Destination = Destination'
-    { _dTargetARN :: !(Maybe Text)
-    , _dCreationTime :: !(Maybe Nat)
-    , _dArn :: !(Maybe Text)
-    , _dAccessPolicy :: !(Maybe Text)
+    { _dTargetARN       :: !(Maybe Text)
+    , _dCreationTime    :: !(Maybe Nat)
+    , _dArn             :: !(Maybe Text)
+    , _dAccessPolicy    :: !(Maybe Text)
     , _dDestinationName :: !(Maybe Text)
-    , _dRoleARN :: !(Maybe Text)
+    , _dRoleARN         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Destination' smart constructor.
 destination :: Destination
-destination = 
+destination =
     Destination'
     { _dTargetARN = Nothing
     , _dCreationTime = Nothing
@@ -110,14 +110,14 @@ instance FromJSON Destination where
 data FilteredLogEvent = FilteredLogEvent'
     { _fleIngestionTime :: !(Maybe Nat)
     , _fleLogStreamName :: !(Maybe Text)
-    , _fleMessage :: !(Maybe Text)
-    , _fleTimestamp :: !(Maybe Nat)
-    , _fleEventId :: !(Maybe Text)
+    , _fleMessage       :: !(Maybe Text)
+    , _fleTimestamp     :: !(Maybe Nat)
+    , _fleEventId       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FilteredLogEvent' smart constructor.
 filteredLogEvent :: FilteredLogEvent
-filteredLogEvent = 
+filteredLogEvent =
     FilteredLogEvent'
     { _fleIngestionTime = Nothing
     , _fleLogStreamName = Nothing
@@ -170,12 +170,12 @@ instance FromJSON FilteredLogEvent where
 -- * 'ileMessage'
 data InputLogEvent = InputLogEvent'
     { _ileTimestamp :: !Nat
-    , _ileMessage :: !Text
+    , _ileMessage   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InputLogEvent' smart constructor.
 inputLogEvent :: Natural -> Text -> InputLogEvent
-inputLogEvent pTimestamp_ pMessage_ = 
+inputLogEvent pTimestamp_ pMessage_ =
     InputLogEvent'
     { _ileTimestamp = _Nat # pTimestamp_
     , _ileMessage = pMessage_
@@ -211,17 +211,17 @@ instance ToJSON InputLogEvent where
 --
 -- * 'lgStoredBytes'
 data LogGroup = LogGroup'
-    { _lgCreationTime :: !(Maybe Nat)
+    { _lgCreationTime      :: !(Maybe Nat)
     , _lgMetricFilterCount :: !(Maybe Int)
-    , _lgArn :: !(Maybe Text)
-    , _lgLogGroupName :: !(Maybe Text)
-    , _lgRetentionInDays :: !(Maybe Int)
-    , _lgStoredBytes :: !(Maybe Nat)
+    , _lgArn               :: !(Maybe Text)
+    , _lgLogGroupName      :: !(Maybe Text)
+    , _lgRetentionInDays   :: !(Maybe Int)
+    , _lgStoredBytes       :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LogGroup' smart constructor.
 logGroup :: LogGroup
-logGroup = 
+logGroup =
     LogGroup'
     { _lgCreationTime = Nothing
     , _lgMetricFilterCount = Nothing
@@ -289,19 +289,19 @@ instance FromJSON LogGroup where
 --
 -- * 'lsLastEventTimestamp'
 data LogStream = LogStream'
-    { _lsCreationTime :: !(Maybe Nat)
+    { _lsCreationTime        :: !(Maybe Nat)
     , _lsUploadSequenceToken :: !(Maybe Text)
-    , _lsArn :: !(Maybe Text)
+    , _lsArn                 :: !(Maybe Text)
     , _lsFirstEventTimestamp :: !(Maybe Nat)
-    , _lsLogStreamName :: !(Maybe Text)
-    , _lsStoredBytes :: !(Maybe Nat)
-    , _lsLastIngestionTime :: !(Maybe Nat)
-    , _lsLastEventTimestamp :: !(Maybe Nat)
+    , _lsLogStreamName       :: !(Maybe Text)
+    , _lsStoredBytes         :: !(Maybe Nat)
+    , _lsLastIngestionTime   :: !(Maybe Nat)
+    , _lsLastEventTimestamp  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LogStream' smart constructor.
 logStream :: LogStream
-logStream = 
+logStream =
     LogStream'
     { _lsCreationTime = Nothing
     , _lsUploadSequenceToken = Nothing
@@ -375,15 +375,15 @@ instance FromJSON LogStream where
 --
 -- * 'mfMetricTransformations'
 data MetricFilter = MetricFilter'
-    { _mfCreationTime :: !(Maybe Nat)
-    , _mfFilterName :: !(Maybe Text)
-    , _mfFilterPattern :: !(Maybe Text)
+    { _mfCreationTime          :: !(Maybe Nat)
+    , _mfFilterName            :: !(Maybe Text)
+    , _mfFilterPattern         :: !(Maybe Text)
     , _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricFilter' smart constructor.
 metricFilter :: MetricFilter
-metricFilter = 
+metricFilter =
     MetricFilter'
     { _mfCreationTime = Nothing
     , _mfFilterName = Nothing
@@ -427,13 +427,13 @@ instance FromJSON MetricFilter where
 -- * 'mfmrEventNumber'
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
     { _mfmrExtractedValues :: !(Maybe (Map Text Text))
-    , _mfmrEventMessage :: !(Maybe Text)
-    , _mfmrEventNumber :: !(Maybe Integer)
+    , _mfmrEventMessage    :: !(Maybe Text)
+    , _mfmrEventNumber     :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricFilterMatchRecord' smart constructor.
 metricFilterMatchRecord :: MetricFilterMatchRecord
-metricFilterMatchRecord = 
+metricFilterMatchRecord =
     MetricFilterMatchRecord'
     { _mfmrExtractedValues = Nothing
     , _mfmrEventMessage = Nothing
@@ -471,14 +471,14 @@ instance FromJSON MetricFilterMatchRecord where
 --
 -- * 'mtMetricValue'
 data MetricTransformation = MetricTransformation'
-    { _mtMetricName :: !Text
+    { _mtMetricName      :: !Text
     , _mtMetricNamespace :: !Text
-    , _mtMetricValue :: !Text
+    , _mtMetricValue     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricTransformation' smart constructor.
 metricTransformation :: Text -> Text -> Text -> MetricTransformation
-metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ = 
+metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
     MetricTransformation'
     { _mtMetricName = pMetricName_
     , _mtMetricNamespace = pMetricNamespace_
@@ -523,13 +523,13 @@ instance ToJSON MetricTransformation where
 -- * 'oleTimestamp'
 data OutputLogEvent = OutputLogEvent'
     { _oleIngestionTime :: !(Maybe Nat)
-    , _oleMessage :: !(Maybe Text)
-    , _oleTimestamp :: !(Maybe Nat)
+    , _oleMessage       :: !(Maybe Text)
+    , _oleTimestamp     :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OutputLogEvent' smart constructor.
 outputLogEvent :: OutputLogEvent
-outputLogEvent = 
+outputLogEvent =
     OutputLogEvent'
     { _oleIngestionTime = Nothing
     , _oleMessage = Nothing
@@ -566,14 +566,14 @@ instance FromJSON OutputLogEvent where
 --
 -- * 'rleiExpiredLogEventEndIndex'
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
-    { _rleiTooOldLogEventEndIndex :: !(Maybe Int)
+    { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
     , _rleiTooNewLogEventStartIndex :: !(Maybe Int)
-    , _rleiExpiredLogEventEndIndex :: !(Maybe Int)
+    , _rleiExpiredLogEventEndIndex  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectedLogEventsInfo' smart constructor.
 rejectedLogEventsInfo :: RejectedLogEventsInfo
-rejectedLogEventsInfo = 
+rejectedLogEventsInfo =
     RejectedLogEventsInfo'
     { _rleiTooOldLogEventEndIndex = Nothing
     , _rleiTooNewLogEventStartIndex = Nothing
@@ -612,13 +612,13 @@ instance FromJSON RejectedLogEventsInfo where
 --
 -- * 'slsSearchedCompletely'
 data SearchedLogStream = SearchedLogStream'
-    { _slsLogStreamName :: !(Maybe Text)
+    { _slsLogStreamName      :: !(Maybe Text)
     , _slsSearchedCompletely :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SearchedLogStream' smart constructor.
 searchedLogStream :: SearchedLogStream
-searchedLogStream = 
+searchedLogStream =
     SearchedLogStream'
     { _slsLogStreamName = Nothing
     , _slsSearchedCompletely = Nothing
@@ -657,17 +657,17 @@ instance FromJSON SearchedLogStream where
 --
 -- * 'sfRoleARN'
 data SubscriptionFilter = SubscriptionFilter'
-    { _sfCreationTime :: !(Maybe Nat)
-    , _sfFilterName :: !(Maybe Text)
+    { _sfCreationTime   :: !(Maybe Nat)
+    , _sfFilterName     :: !(Maybe Text)
     , _sfDestinationARN :: !(Maybe Text)
-    , _sfLogGroupName :: !(Maybe Text)
-    , _sfFilterPattern :: !(Maybe Text)
-    , _sfRoleARN :: !(Maybe Text)
+    , _sfLogGroupName   :: !(Maybe Text)
+    , _sfFilterPattern  :: !(Maybe Text)
+    , _sfRoleARN        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscriptionFilter' smart constructor.
 subscriptionFilter :: SubscriptionFilter
-subscriptionFilter = 
+subscriptionFilter =
     SubscriptionFilter'
     { _sfCreationTime = Nothing
     , _sfFilterName = Nothing

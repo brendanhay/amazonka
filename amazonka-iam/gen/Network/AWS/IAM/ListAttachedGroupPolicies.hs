@@ -54,11 +54,11 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , lagprsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAttachedGroupPolicies' smart constructor.
 --
@@ -73,14 +73,14 @@ import Network.AWS.Response
 -- * 'lagpGroupName'
 data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
     { _lagpPathPrefix :: !(Maybe Text)
-    , _lagpMaxItems :: !(Maybe Nat)
-    , _lagpMarker :: !(Maybe Text)
-    , _lagpGroupName :: !Text
+    , _lagpMaxItems   :: !(Maybe Nat)
+    , _lagpMarker     :: !(Maybe Text)
+    , _lagpGroupName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedGroupPolicies' smart constructor.
 listAttachedGroupPolicies :: Text -> ListAttachedGroupPolicies
-listAttachedGroupPolicies pGroupName_ = 
+listAttachedGroupPolicies pGroupName_ =
     ListAttachedGroupPolicies'
     { _lagpPathPrefix = Nothing
     , _lagpMaxItems = Nothing
@@ -160,14 +160,14 @@ instance ToQuery ListAttachedGroupPolicies where
 -- * 'lagprsStatus'
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     { _lagprsAttachedPolicies :: !(Maybe [AttachedPolicy])
-    , _lagprsMarker :: !(Maybe Text)
-    , _lagprsIsTruncated :: !(Maybe Bool)
-    , _lagprsStatus :: !Int
+    , _lagprsMarker           :: !(Maybe Text)
+    , _lagprsIsTruncated      :: !(Maybe Bool)
+    , _lagprsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
 listAttachedGroupPoliciesResponse :: Int -> ListAttachedGroupPoliciesResponse
-listAttachedGroupPoliciesResponse pStatus_ = 
+listAttachedGroupPoliciesResponse pStatus_ =
     ListAttachedGroupPoliciesResponse'
     { _lagprsAttachedPolicies = Nothing
     , _lagprsMarker = Nothing

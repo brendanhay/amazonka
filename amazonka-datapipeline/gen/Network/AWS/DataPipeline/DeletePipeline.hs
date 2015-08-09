@@ -41,11 +41,11 @@ module Network.AWS.DataPipeline.DeletePipeline
     , deletePipelineResponse
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DeletePipeline.
 --
@@ -60,7 +60,7 @@ newtype DeletePipeline = DeletePipeline'
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
-deletePipeline pPipelineId_ = 
+deletePipeline pPipelineId_ =
     DeletePipeline'
     { _dpPipelineId = pPipelineId_
     }
@@ -96,7 +96,7 @@ instance ToQuery DeletePipeline where
 
 -- | /See:/ 'deletePipelineResponse' smart constructor.
 data DeletePipelineResponse =
-    DeletePipelineResponse' 
+    DeletePipelineResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePipelineResponse' smart constructor.

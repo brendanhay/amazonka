@@ -47,11 +47,11 @@ module Network.AWS.EC2.DescribeImageAttribute
     , diarsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeImageAttribute' smart constructor.
 --
@@ -63,14 +63,14 @@ import Network.AWS.Response
 --
 -- * 'diaiAttribute'
 data DescribeImageAttribute = DescribeImageAttribute'
-    { _diaiDryRun :: !(Maybe Bool)
-    , _diaiImageId :: !Text
+    { _diaiDryRun    :: !(Maybe Bool)
+    , _diaiImageId   :: !Text
     , _diaiAttribute :: !ImageAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImageAttribute' smart constructor.
 describeImageAttribute :: Text -> ImageAttributeName -> DescribeImageAttribute
-describeImageAttribute pImageId_ pAttribute_ = 
+describeImageAttribute pImageId_ pAttribute_ =
     DescribeImageAttribute'
     { _diaiDryRun = Nothing
     , _diaiImageId = pImageId_
@@ -160,20 +160,20 @@ instance ToQuery DescribeImageAttribute where
 --
 -- * 'diarsStatus'
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
-    { _diarsLaunchPermissions :: !(Maybe [LaunchPermission])
-    , _diarsRAMDiskId :: !(Maybe AttributeValue)
-    , _diarsKernelId :: !(Maybe AttributeValue)
-    , _diarsSRIOVNetSupport :: !(Maybe AttributeValue)
-    , _diarsImageId :: !(Maybe Text)
-    , _diarsProductCodes :: !(Maybe [ProductCode])
+    { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
+    , _diarsRAMDiskId           :: !(Maybe AttributeValue)
+    , _diarsKernelId            :: !(Maybe AttributeValue)
+    , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
+    , _diarsImageId             :: !(Maybe Text)
+    , _diarsProductCodes        :: !(Maybe [ProductCode])
     , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _diarsDescription :: !(Maybe AttributeValue)
-    , _diarsStatus :: !Int
+    , _diarsDescription         :: !(Maybe AttributeValue)
+    , _diarsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
 describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
-describeImageAttributeResponse pStatus_ = 
+describeImageAttributeResponse pStatus_ =
     DescribeImageAttributeResponse'
     { _diarsLaunchPermissions = Nothing
     , _diarsRAMDiskId = Nothing

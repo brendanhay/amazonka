@@ -52,11 +52,11 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     , aclvrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachClassicLinkVPC' smart constructor.
 --
@@ -70,15 +70,15 @@ import Network.AWS.Response
 --
 -- * 'aclvGroups'
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
-    { _aclvDryRun :: !(Maybe Bool)
+    { _aclvDryRun     :: !(Maybe Bool)
     , _aclvInstanceId :: !Text
-    , _aclvVPCId :: !Text
-    , _aclvGroups :: ![Text]
+    , _aclvVPCId      :: !Text
+    , _aclvGroups     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachClassicLinkVPC' smart constructor.
 attachClassicLinkVPC :: Text -> Text -> AttachClassicLinkVPC
-attachClassicLinkVPC pInstanceId_ pVPCId_ = 
+attachClassicLinkVPC pInstanceId_ pVPCId_ =
     AttachClassicLinkVPC'
     { _aclvDryRun = Nothing
     , _aclvInstanceId = pInstanceId_
@@ -148,7 +148,7 @@ data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
 attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse
-attachClassicLinkVPCResponse pStatus_ = 
+attachClassicLinkVPCResponse pStatus_ =
     AttachClassicLinkVPCResponse'
     { _aclvrsReturn = Nothing
     , _aclvrsStatus = pStatus_

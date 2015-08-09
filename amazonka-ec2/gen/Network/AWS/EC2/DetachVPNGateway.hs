@@ -44,11 +44,11 @@ module Network.AWS.EC2.DetachVPNGateway
     , detachVPNGatewayResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachVPNGateway' smart constructor.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- * 'dvpngVPCId'
 data DetachVPNGateway = DetachVPNGateway'
-    { _dvpngDryRun :: !(Maybe Bool)
+    { _dvpngDryRun       :: !(Maybe Bool)
     , _dvpngVPNGatewayId :: !Text
-    , _dvpngVPCId :: !Text
+    , _dvpngVPCId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVPNGateway' smart constructor.
 detachVPNGateway :: Text -> Text -> DetachVPNGateway
-detachVPNGateway pVPNGatewayId_ pVPCId_ = 
+detachVPNGateway pVPNGatewayId_ pVPCId_ =
     DetachVPNGateway'
     { _dvpngDryRun = Nothing
     , _dvpngVPNGatewayId = pVPNGatewayId_
@@ -112,7 +112,7 @@ instance ToQuery DetachVPNGateway where
 
 -- | /See:/ 'detachVPNGatewayResponse' smart constructor.
 data DetachVPNGatewayResponse =
-    DetachVPNGatewayResponse' 
+    DetachVPNGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVPNGatewayResponse' smart constructor.

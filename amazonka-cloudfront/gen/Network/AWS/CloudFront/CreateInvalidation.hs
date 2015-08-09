@@ -39,11 +39,11 @@ module Network.AWS.CloudFront.CreateInvalidation
     , cirsStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to create an invalidation.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'ciInvalidationBatch'
 data CreateInvalidation = CreateInvalidation'
-    { _ciDistributionId :: !Text
+    { _ciDistributionId    :: !Text
     , _ciInvalidationBatch :: !InvalidationBatch
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInvalidation' smart constructor.
 createInvalidation :: Text -> InvalidationBatch -> CreateInvalidation
-createInvalidation pDistributionId_ pInvalidationBatch_ = 
+createInvalidation pDistributionId_ pInvalidationBatch_ =
     CreateInvalidation'
     { _ciDistributionId = pDistributionId_
     , _ciInvalidationBatch = pInvalidationBatch_
@@ -119,13 +119,13 @@ instance ToQuery CreateInvalidation where
 -- * 'cirsStatus'
 data CreateInvalidationResponse = CreateInvalidationResponse'
     { _cirsInvalidation :: !(Maybe Invalidation)
-    , _cirsLocation :: !(Maybe Text)
-    , _cirsStatus :: !Int
+    , _cirsLocation     :: !(Maybe Text)
+    , _cirsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInvalidationResponse' smart constructor.
 createInvalidationResponse :: Int -> CreateInvalidationResponse
-createInvalidationResponse pStatus_ = 
+createInvalidationResponse pStatus_ =
     CreateInvalidationResponse'
     { _cirsInvalidation = Nothing
     , _cirsLocation = Nothing

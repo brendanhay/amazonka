@@ -35,15 +35,15 @@ module Network.AWS.IAM.ListOpenIdConnectProviders
     , loicprsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listOpenIdConnectProviders' smart constructor.
 data ListOpenIdConnectProviders =
-    ListOpenIdConnectProviders' 
+    ListOpenIdConnectProviders'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOpenIdConnectProviders' smart constructor.
@@ -90,12 +90,12 @@ instance ToQuery ListOpenIdConnectProviders where
 -- * 'loicprsStatus'
 data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
     { _loicprsOpenIdConnectProviderList :: !(Maybe [OpenIdConnectProviderListEntry])
-    , _loicprsStatus :: !Int
+    , _loicprsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOpenIdConnectProvidersResponse' smart constructor.
 listOpenIdConnectProvidersResponse :: Int -> ListOpenIdConnectProvidersResponse
-listOpenIdConnectProvidersResponse pStatus_ = 
+listOpenIdConnectProvidersResponse pStatus_ =
     ListOpenIdConnectProvidersResponse'
     { _loicprsOpenIdConnectProviderList = Nothing
     , _loicprsStatus = pStatus_

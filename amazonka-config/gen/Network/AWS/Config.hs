@@ -44,10 +44,10 @@
 -- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Config
     (
-    -- * Service Description
+    -- * Service
       Config
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** ValidationException
@@ -119,37 +119,37 @@ module Network.AWS.Config
     -- * Operations
     -- $operations
 
-    -- ** GetResourceConfigHistory 
+    -- ** GetResourceConfigHistory
     , module Network.AWS.Config.GetResourceConfigHistory
 
-    -- ** StopConfigurationRecorder 
+    -- ** StopConfigurationRecorder
     , module Network.AWS.Config.StopConfigurationRecorder
 
-    -- ** DeliverConfigSnapshot 
+    -- ** DeliverConfigSnapshot
     , module Network.AWS.Config.DeliverConfigSnapshot
 
-    -- ** DescribeConfigurationRecorders 
+    -- ** DescribeConfigurationRecorders
     , module Network.AWS.Config.DescribeConfigurationRecorders
 
-    -- ** StartConfigurationRecorder 
+    -- ** StartConfigurationRecorder
     , module Network.AWS.Config.StartConfigurationRecorder
 
-    -- ** DescribeConfigurationRecorderStatus 
+    -- ** DescribeConfigurationRecorderStatus
     , module Network.AWS.Config.DescribeConfigurationRecorderStatus
 
-    -- ** PutConfigurationRecorder 
+    -- ** PutConfigurationRecorder
     , module Network.AWS.Config.PutConfigurationRecorder
 
-    -- ** DeleteDeliveryChannel 
+    -- ** DeleteDeliveryChannel
     , module Network.AWS.Config.DeleteDeliveryChannel
 
-    -- ** PutDeliveryChannel 
+    -- ** PutDeliveryChannel
     , module Network.AWS.Config.PutDeliveryChannel
 
-    -- ** DescribeDeliveryChannelStatus 
+    -- ** DescribeDeliveryChannelStatus
     , module Network.AWS.Config.DescribeDeliveryChannelStatus
 
-    -- ** DescribeDeliveryChannels 
+    -- ** DescribeDeliveryChannels
     , module Network.AWS.Config.DescribeDeliveryChannels
 
     -- * Types
@@ -254,19 +254,19 @@ module Network.AWS.Config
     , rRelationshipName
     ) where
 
-import Network.AWS.Config.DeleteDeliveryChannel
-import Network.AWS.Config.DeliverConfigSnapshot
-import Network.AWS.Config.DescribeConfigurationRecorderStatus
-import Network.AWS.Config.DescribeConfigurationRecorders
-import Network.AWS.Config.DescribeDeliveryChannelStatus
-import Network.AWS.Config.DescribeDeliveryChannels
-import Network.AWS.Config.GetResourceConfigHistory
-import Network.AWS.Config.PutConfigurationRecorder
-import Network.AWS.Config.PutDeliveryChannel
-import Network.AWS.Config.StartConfigurationRecorder
-import Network.AWS.Config.StopConfigurationRecorder
-import Network.AWS.Config.Types
-import Network.AWS.Config.Waiters
+import           Network.AWS.Config.DeleteDeliveryChannel
+import           Network.AWS.Config.DeliverConfigSnapshot
+import           Network.AWS.Config.DescribeConfigurationRecorders
+import           Network.AWS.Config.DescribeConfigurationRecorderStatus
+import           Network.AWS.Config.DescribeDeliveryChannels
+import           Network.AWS.Config.DescribeDeliveryChannelStatus
+import           Network.AWS.Config.GetResourceConfigHistory
+import           Network.AWS.Config.PutConfigurationRecorder
+import           Network.AWS.Config.PutDeliveryChannel
+import           Network.AWS.Config.StartConfigurationRecorder
+import           Network.AWS.Config.StopConfigurationRecorder
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -13,10 +13,10 @@
 --
 module Network.AWS.WorkSpaces.Types
     (
-    -- * Service Decription
+    -- * Service
       WorkSpaces
 
-    -- * Error Matchers
+    -- * Errors
     , _InvalidParameterValuesException
     , _ResourceUnavailableException
     , _ResourceLimitExceededException

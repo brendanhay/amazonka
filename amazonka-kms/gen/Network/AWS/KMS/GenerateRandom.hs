@@ -37,11 +37,11 @@ module Network.AWS.KMS.GenerateRandom
     , grrsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'generateRandom' smart constructor.
 --
@@ -54,7 +54,7 @@ newtype GenerateRandom = GenerateRandom'
 
 -- | 'GenerateRandom' smart constructor.
 generateRandom :: GenerateRandom
-generateRandom = 
+generateRandom =
     GenerateRandom'
     { _grNumberOfBytes = Nothing
     }
@@ -102,12 +102,12 @@ instance ToQuery GenerateRandom where
 -- * 'grrsStatus'
 data GenerateRandomResponse = GenerateRandomResponse'
     { _grrsPlaintext :: !(Maybe (Sensitive Base64))
-    , _grrsStatus :: !Int
+    , _grrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateRandomResponse' smart constructor.
 generateRandomResponse :: Int -> GenerateRandomResponse
-generateRandomResponse pStatus_ = 
+generateRandomResponse pStatus_ =
     GenerateRandomResponse'
     { _grrsPlaintext = Nothing
     , _grrsStatus = pStatus_

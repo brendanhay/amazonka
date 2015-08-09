@@ -45,11 +45,11 @@ module Network.AWS.ELB.DeleteLoadBalancer
     , drsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoadBalancer' smart constructor.
 --
@@ -62,7 +62,7 @@ newtype DeleteLoadBalancer = DeleteLoadBalancer'
 
 -- | 'DeleteLoadBalancer' smart constructor.
 deleteLoadBalancer :: Text -> DeleteLoadBalancer
-deleteLoadBalancer pLoadBalancerName_ = 
+deleteLoadBalancer pLoadBalancerName_ =
     DeleteLoadBalancer'
     { _dlbLoadBalancerName = pLoadBalancerName_
     }
@@ -105,7 +105,7 @@ newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
 
 -- | 'DeleteLoadBalancerResponse' smart constructor.
 deleteLoadBalancerResponse :: Int -> DeleteLoadBalancerResponse
-deleteLoadBalancerResponse pStatus_ = 
+deleteLoadBalancerResponse pStatus_ =
     DeleteLoadBalancerResponse'
     { _drsStatus = pStatus_
     }

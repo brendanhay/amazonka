@@ -59,11 +59,11 @@ module Network.AWS.DynamoDB.UpdateItem
     , uirsStatus
     ) where
 
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an /UpdateItem/ operation.
 --
@@ -95,23 +95,23 @@ import Network.AWS.Response
 --
 -- * 'uiKey'
 data UpdateItem = UpdateItem'
-    { _uiReturnValues :: !(Maybe ReturnValue)
-    , _uiExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _uiUpdateExpression :: !(Maybe Text)
-    , _uiAttributeUpdates :: !(Maybe (Map Text AttributeValueUpdate))
-    , _uiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
-    , _uiExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    { _uiReturnValues                :: !(Maybe ReturnValue)
+    , _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _uiUpdateExpression            :: !(Maybe Text)
+    , _uiAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
+    , _uiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
     , _uiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _uiConditionExpression :: !(Maybe Text)
-    , _uiConditionalOperator :: !(Maybe ConditionalOperator)
-    , _uiExpected :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _uiTableName :: !Text
-    , _uiKey :: !(Map Text AttributeValue)
+    , _uiConditionExpression         :: !(Maybe Text)
+    , _uiConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _uiTableName                   :: !Text
+    , _uiKey                         :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateItem' smart constructor.
 updateItem :: Text -> UpdateItem
-updateItem pTableName_ = 
+updateItem pTableName_ =
     UpdateItem'
     { _uiReturnValues = Nothing
     , _uiExpressionAttributeNames = Nothing
@@ -756,15 +756,15 @@ instance ToQuery UpdateItem where
 --
 -- * 'uirsStatus'
 data UpdateItemResponse = UpdateItemResponse'
-    { _uirsConsumedCapacity :: !(Maybe ConsumedCapacity)
+    { _uirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
     , _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _uirsAttributes :: !(Maybe (Map Text AttributeValue))
-    , _uirsStatus :: !Int
+    , _uirsAttributes            :: !(Maybe (Map Text AttributeValue))
+    , _uirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateItemResponse' smart constructor.
 updateItemResponse :: Int -> UpdateItemResponse
-updateItemResponse pStatus_ = 
+updateItemResponse pStatus_ =
     UpdateItemResponse'
     { _uirsConsumedCapacity = Nothing
     , _uirsItemCollectionMetrics = Nothing

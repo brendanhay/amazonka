@@ -39,11 +39,11 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     , deleteApplicationVersionResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -58,13 +58,13 @@ import Network.AWS.Response
 -- * 'davVersionLabel'
 data DeleteApplicationVersion = DeleteApplicationVersion'
     { _davDeleteSourceBundle :: !(Maybe Bool)
-    , _davApplicationName :: !Text
-    , _davVersionLabel :: !Text
+    , _davApplicationName    :: !Text
+    , _davVersionLabel       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationVersion' smart constructor.
 deleteApplicationVersion :: Text -> Text -> DeleteApplicationVersion
-deleteApplicationVersion pApplicationName_ pVersionLabel_ = 
+deleteApplicationVersion pApplicationName_ pVersionLabel_ =
     DeleteApplicationVersion'
     { _davDeleteSourceBundle = Nothing
     , _davApplicationName = pApplicationName_
@@ -116,7 +116,7 @@ instance ToQuery DeleteApplicationVersion where
 
 -- | /See:/ 'deleteApplicationVersionResponse' smart constructor.
 data DeleteApplicationVersionResponse =
-    DeleteApplicationVersionResponse' 
+    DeleteApplicationVersionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationVersionResponse' smart constructor.

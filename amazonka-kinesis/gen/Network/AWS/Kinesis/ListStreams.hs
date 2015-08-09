@@ -55,12 +55,12 @@ module Network.AWS.Kinesis.ListStreams
     , lsrsHasMoreStreams
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @ListStreams@.
 --
@@ -72,13 +72,13 @@ import Network.AWS.Response
 --
 -- * 'lsExclusiveStartStreamName'
 data ListStreams = ListStreams'
-    { _lsLimit :: !(Maybe Nat)
+    { _lsLimit                    :: !(Maybe Nat)
     , _lsExclusiveStartStreamName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
-listStreams = 
+listStreams =
     ListStreams'
     { _lsLimit = Nothing
     , _lsExclusiveStartStreamName = Nothing
@@ -147,14 +147,14 @@ instance ToQuery ListStreams where
 --
 -- * 'lsrsHasMoreStreams'
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrsStatus :: !Int
-    , _lsrsStreamNames :: ![Text]
+    { _lsrsStatus         :: !Int
+    , _lsrsStreamNames    :: ![Text]
     , _lsrsHasMoreStreams :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Int -> Bool -> ListStreamsResponse
-listStreamsResponse pStatus_ pHasMoreStreams_ = 
+listStreamsResponse pStatus_ pHasMoreStreams_ =
     ListStreamsResponse'
     { _lsrsStatus = pStatus_
     , _lsrsStreamNames = mempty

@@ -167,11 +167,11 @@ module Network.AWS.Glacier.InitiateJob
     , ijrsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for initiating an Amazon Glacier job.
 --
@@ -186,13 +186,13 @@ import Network.AWS.Response
 -- * 'ijVaultName'
 data InitiateJob = InitiateJob'
     { _ijJobParameters :: !(Maybe JobParameters)
-    , _ijAccountId :: !Text
-    , _ijVaultName :: !Text
+    , _ijAccountId     :: !Text
+    , _ijVaultName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateJob' smart constructor.
 initiateJob :: Text -> Text -> InitiateJob
-initiateJob pAccountId_ pVaultName_ = 
+initiateJob pAccountId_ pVaultName_ =
     InitiateJob'
     { _ijJobParameters = Nothing
     , _ijAccountId = pAccountId_
@@ -254,14 +254,14 @@ instance ToQuery InitiateJob where
 --
 -- * 'ijrsStatus'
 data InitiateJobResponse = InitiateJobResponse'
-    { _ijrsJobId :: !(Maybe Text)
+    { _ijrsJobId    :: !(Maybe Text)
     , _ijrsLocation :: !(Maybe Text)
-    , _ijrsStatus :: !Int
+    , _ijrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateJobResponse' smart constructor.
 initiateJobResponse :: Int -> InitiateJobResponse
-initiateJobResponse pStatus_ = 
+initiateJobResponse pStatus_ =
     InitiateJobResponse'
     { _ijrsJobId = Nothing
     , _ijrsLocation = Nothing

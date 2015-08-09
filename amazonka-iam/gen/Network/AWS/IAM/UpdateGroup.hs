@@ -48,11 +48,11 @@ module Network.AWS.IAM.UpdateGroup
     , updateGroupResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateGroup' smart constructor.
 --
@@ -65,13 +65,13 @@ import Network.AWS.Response
 -- * 'ugGroupName'
 data UpdateGroup = UpdateGroup'
     { _ugNewGroupName :: !(Maybe Text)
-    , _ugNewPath :: !(Maybe Text)
-    , _ugGroupName :: !Text
+    , _ugNewPath      :: !(Maybe Text)
+    , _ugGroupName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGroup' smart constructor.
 updateGroup :: Text -> UpdateGroup
-updateGroup pGroupName_ = 
+updateGroup pGroupName_ =
     UpdateGroup'
     { _ugNewGroupName = Nothing
     , _ugNewPath = Nothing
@@ -113,7 +113,7 @@ instance ToQuery UpdateGroup where
 
 -- | /See:/ 'updateGroupResponse' smart constructor.
 data UpdateGroupResponse =
-    UpdateGroupResponse' 
+    UpdateGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGroupResponse' smart constructor.

@@ -37,11 +37,11 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     , rprsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ReadPresetRequest@ structure.
 --
@@ -56,7 +56,7 @@ newtype ReadPreset = ReadPreset'
 
 -- | 'ReadPreset' smart constructor.
 readPreset :: Text -> ReadPreset
-readPreset pId_ = 
+readPreset pId_ =
     ReadPreset'
     { _rpId = pId_
     }
@@ -102,7 +102,7 @@ data ReadPresetResponse = ReadPresetResponse'
 
 -- | 'ReadPresetResponse' smart constructor.
 readPresetResponse :: Int -> ReadPresetResponse
-readPresetResponse pStatus_ = 
+readPresetResponse pStatus_ =
     ReadPresetResponse'
     { _rprsPreset = Nothing
     , _rprsStatus = pStatus_

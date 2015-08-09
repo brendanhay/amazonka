@@ -40,12 +40,12 @@ module Network.AWS.CloudFormation.DescribeStacks
     , dsrsStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DescribeStacks action.
 --
@@ -63,7 +63,7 @@ data DescribeStacks = DescribeStacks'
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
-describeStacks = 
+describeStacks =
     DescribeStacks'
     { _dNextToken = Nothing
     , _dStackName = Nothing
@@ -132,13 +132,13 @@ instance ToQuery DescribeStacks where
 -- * 'dsrsStatus'
 data DescribeStacksResponse = DescribeStacksResponse'
     { _dsrsNextToken :: !(Maybe Text)
-    , _dsrsStacks :: !(Maybe [Stack])
-    , _dsrsStatus :: !Int
+    , _dsrsStacks    :: !(Maybe [Stack])
+    , _dsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
-describeStacksResponse pStatus_ = 
+describeStacksResponse pStatus_ =
     DescribeStacksResponse'
     { _dsrsNextToken = Nothing
     , _dsrsStacks = Nothing

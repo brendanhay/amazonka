@@ -17,13 +17,13 @@
 --
 module Network.AWS.CloudWatch.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data ComparisonOperator
-    = GreaterThanOrEqualToThreshold 
-    | GreaterThanThreshold 
-    | LessThanOrEqualToThreshold 
-    | LessThanThreshold 
+    = GreaterThanOrEqualToThreshold
+    | GreaterThanThreshold
+    | LessThanOrEqualToThreshold
+    | LessThanThreshold
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ComparisonOperator where
@@ -51,9 +51,9 @@ instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
 data HistoryItemType
-    = StateUpdate 
-    | Action 
-    | ConfigurationUpdate 
+    = StateUpdate
+    | Action
+    | ConfigurationUpdate
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HistoryItemType where
@@ -79,33 +79,33 @@ instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
 data StandardUnit
-    = Bits 
-    | BitsSecond 
-    | MegabytesSecond 
-    | Megabytes 
-    | None 
-    | Count 
-    | Terabytes 
-    | TerabytesSecond 
-    | Percent 
-    | CountSecond 
-    | TerabitsSecond 
-    | Terabits 
-    | Milliseconds 
-    | GigabytesSecond 
-    | Microseconds 
-    | Gigabytes 
-    | GigabitsSecond 
-    | Gigabits 
-    | Megabits 
-    | MegabitsSecond 
-    | Kilobits 
-    | KilobitsSecond 
-    | Kilobytes 
-    | KilobytesSecond 
-    | Seconds 
-    | BytesSecond 
-    | Bytes 
+    = Bits
+    | BitsSecond
+    | MegabytesSecond
+    | Megabytes
+    | None
+    | Count
+    | Terabytes
+    | TerabytesSecond
+    | Percent
+    | CountSecond
+    | TerabitsSecond
+    | Terabits
+    | Milliseconds
+    | GigabytesSecond
+    | Microseconds
+    | Gigabytes
+    | GigabitsSecond
+    | Gigabits
+    | Megabits
+    | MegabitsSecond
+    | Kilobits
+    | KilobitsSecond
+    | Kilobytes
+    | KilobytesSecond
+    | Seconds
+    | BytesSecond
+    | Bytes
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StandardUnit where
@@ -179,9 +179,9 @@ instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
 data StateValue
-    = OK 
-    | InsufficientData 
-    | Alarm 
+    = OK
+    | InsufficientData
+    | Alarm
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StateValue where
@@ -207,11 +207,11 @@ instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
 
 data Statistic
-    = SampleCount 
-    | Maximum 
-    | Average 
-    | Minimum 
-    | Sum 
+    = SampleCount
+    | Maximum
+    | Average
+    | Minimum
+    | Sum
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Statistic where

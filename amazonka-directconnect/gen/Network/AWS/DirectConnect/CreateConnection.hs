@@ -56,11 +56,11 @@ module Network.AWS.DirectConnect.CreateConnection
     , cConnectionState
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the CreateConnection operation.
 --
@@ -74,14 +74,14 @@ import Network.AWS.Response
 --
 -- * 'ccConnectionName'
 data CreateConnection = CreateConnection'
-    { _ccLocation :: !Text
-    , _ccBandwidth :: !Text
+    { _ccLocation       :: !Text
+    , _ccBandwidth      :: !Text
     , _ccConnectionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateConnection' smart constructor.
 createConnection :: Text -> Text -> Text -> CreateConnection
-createConnection pLocation_ pBandwidth_ pConnectionName_ = 
+createConnection pLocation_ pBandwidth_ pConnectionName_ =
     CreateConnection'
     { _ccLocation = pLocation_
     , _ccBandwidth = pBandwidth_

@@ -42,11 +42,11 @@ module Network.AWS.EC2.DescribeConversionTasks
     , dctrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeConversionTasks' smart constructor.
 --
@@ -59,13 +59,13 @@ import Network.AWS.Response
 -- * 'dctDryRun'
 data DescribeConversionTasks = DescribeConversionTasks'
     { _dctConversionTaskIds :: !(Maybe [Text])
-    , _dctFilters :: !(Maybe [Filter])
-    , _dctDryRun :: !(Maybe Bool)
+    , _dctFilters           :: !(Maybe [Filter])
+    , _dctDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConversionTasks' smart constructor.
 describeConversionTasks :: DescribeConversionTasks
-describeConversionTasks = 
+describeConversionTasks =
     DescribeConversionTasks'
     { _dctConversionTaskIds = Nothing
     , _dctFilters = Nothing
@@ -126,12 +126,12 @@ instance ToQuery DescribeConversionTasks where
 -- * 'dctrsStatus'
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrsConversionTasks :: !(Maybe [ConversionTask])
-    , _dctrsStatus :: !Int
+    , _dctrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
 describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
-describeConversionTasksResponse pStatus_ = 
+describeConversionTasksResponse pStatus_ =
     DescribeConversionTasksResponse'
     { _dctrsConversionTasks = Nothing
     , _dctrsStatus = pStatus_

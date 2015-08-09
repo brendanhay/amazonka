@@ -37,11 +37,11 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     , cConnections
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeConnectionsOnInterconnect
 -- operation.
@@ -57,7 +57,7 @@ newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
 
 -- | 'DescribeConnectionsOnInterconnect' smart constructor.
 describeConnectionsOnInterconnect :: Text -> DescribeConnectionsOnInterconnect
-describeConnectionsOnInterconnect pInterconnectId_ = 
+describeConnectionsOnInterconnect pInterconnectId_ =
     DescribeConnectionsOnInterconnect'
     { _dcoiInterconnectId = pInterconnectId_
     }

@@ -43,11 +43,11 @@ module Network.AWS.OpsWorks.RegisterRDSDBInstance
     , registerRDSDBInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerRDSDBInstance' smart constructor.
 --
@@ -61,15 +61,15 @@ import Network.AWS.Response
 --
 -- * 'rrdiDBPassword'
 data RegisterRDSDBInstance = RegisterRDSDBInstance'
-    { _rrdiStackId :: !Text
+    { _rrdiStackId          :: !Text
     , _rrdiRDSDBInstanceARN :: !Text
-    , _rrdiDBUser :: !Text
-    , _rrdiDBPassword :: !Text
+    , _rrdiDBUser           :: !Text
+    , _rrdiDBPassword       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterRDSDBInstance' smart constructor.
 registerRDSDBInstance :: Text -> Text -> Text -> Text -> RegisterRDSDBInstance
-registerRDSDBInstance pStackId_ pRDSDBInstanceARN_ pDBUser_ pDBPassword_ = 
+registerRDSDBInstance pStackId_ pRDSDBInstanceARN_ pDBUser_ pDBPassword_ =
     RegisterRDSDBInstance'
     { _rrdiStackId = pStackId_
     , _rrdiRDSDBInstanceARN = pRDSDBInstanceARN_
@@ -126,7 +126,7 @@ instance ToQuery RegisterRDSDBInstance where
 
 -- | /See:/ 'registerRDSDBInstanceResponse' smart constructor.
 data RegisterRDSDBInstanceResponse =
-    RegisterRDSDBInstanceResponse' 
+    RegisterRDSDBInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterRDSDBInstanceResponse' smart constructor.

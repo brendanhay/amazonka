@@ -42,11 +42,11 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     , createLogStreamResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLogStream' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- * 'clsLogStreamName'
 data CreateLogStream = CreateLogStream'
-    { _clsLogGroupName :: !Text
+    { _clsLogGroupName  :: !Text
     , _clsLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogStream' smart constructor.
 createLogStream :: Text -> Text -> CreateLogStream
-createLogStream pLogGroupName_ pLogStreamName_ = 
+createLogStream pLogGroupName_ pLogStreamName_ =
     CreateLogStream'
     { _clsLogGroupName = pLogGroupName_
     , _clsLogStreamName = pLogStreamName_
@@ -105,7 +105,7 @@ instance ToQuery CreateLogStream where
 
 -- | /See:/ 'createLogStreamResponse' smart constructor.
 data CreateLogStreamResponse =
-    CreateLogStreamResponse' 
+    CreateLogStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogStreamResponse' smart constructor.

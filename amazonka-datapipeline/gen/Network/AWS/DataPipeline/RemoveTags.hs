@@ -37,11 +37,11 @@ module Network.AWS.DataPipeline.RemoveTags
     , rtrsStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for RemoveTags.
 --
@@ -54,12 +54,12 @@ import Network.AWS.Response
 -- * 'rtTagKeys'
 data RemoveTags = RemoveTags'
     { _rtPipelineId :: !Text
-    , _rtTagKeys :: ![Text]
+    , _rtTagKeys    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
-removeTags pPipelineId_ = 
+removeTags pPipelineId_ =
     RemoveTags'
     { _rtPipelineId = pPipelineId_
     , _rtTagKeys = mempty
@@ -116,7 +116,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatus_ = 
+removeTagsResponse pStatus_ =
     RemoveTagsResponse'
     { _rtrsStatus = pStatus_
     }

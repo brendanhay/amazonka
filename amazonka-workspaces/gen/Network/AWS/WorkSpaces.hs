@@ -20,10 +20,10 @@
 -- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.WorkSpaces
     (
-    -- * Service Description
+    -- * Service
       WorkSpaces
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidParameterValuesException

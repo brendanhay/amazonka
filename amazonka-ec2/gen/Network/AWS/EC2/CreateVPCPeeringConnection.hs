@@ -51,11 +51,11 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     , cvpcrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPCPeeringConnection' smart constructor.
 --
@@ -69,15 +69,15 @@ import Network.AWS.Response
 --
 -- * 'cvpcDryRun'
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-    { _cvpcPeerVPCId :: !(Maybe Text)
-    , _cvpcVPCId :: !(Maybe Text)
+    { _cvpcPeerVPCId   :: !(Maybe Text)
+    , _cvpcVPCId       :: !(Maybe Text)
     , _cvpcPeerOwnerId :: !(Maybe Text)
-    , _cvpcDryRun :: !(Maybe Bool)
+    , _cvpcDryRun      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCPeeringConnection' smart constructor.
 createVPCPeeringConnection :: CreateVPCPeeringConnection
-createVPCPeeringConnection = 
+createVPCPeeringConnection =
     CreateVPCPeeringConnection'
     { _cvpcPeerVPCId = Nothing
     , _cvpcVPCId = Nothing
@@ -144,12 +144,12 @@ instance ToQuery CreateVPCPeeringConnection where
 -- * 'cvpcrsStatus'
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _cvpcrsStatus :: !Int
+    , _cvpcrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
 createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse
-createVPCPeeringConnectionResponse pStatus_ = 
+createVPCPeeringConnectionResponse pStatus_ =
     CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection = Nothing
     , _cvpcrsStatus = pStatus_

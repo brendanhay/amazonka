@@ -45,12 +45,12 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     , dssrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeSnapshotsMessage/ action.
 --
@@ -69,15 +69,15 @@ import Network.AWS.Response
 -- * 'dsSnapshotSource'
 data DescribeSnapshots = DescribeSnapshots'
     { _dsCacheClusterId :: !(Maybe Text)
-    , _dsMaxRecords :: !(Maybe Int)
-    , _dsMarker :: !(Maybe Text)
-    , _dsSnapshotName :: !(Maybe Text)
+    , _dsMaxRecords     :: !(Maybe Int)
+    , _dsMarker         :: !(Maybe Text)
+    , _dsSnapshotName   :: !(Maybe Text)
     , _dsSnapshotSource :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
-describeSnapshots = 
+describeSnapshots =
     DescribeSnapshots'
     { _dsCacheClusterId = Nothing
     , _dsMaxRecords = Nothing
@@ -169,13 +169,13 @@ instance ToQuery DescribeSnapshots where
 -- * 'dssrsStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dssrsSnapshots :: !(Maybe [Snapshot])
-    , _dssrsMarker :: !(Maybe Text)
-    , _dssrsStatus :: !Int
+    , _dssrsMarker    :: !(Maybe Text)
+    , _dssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus_ = 
+describeSnapshotsResponse pStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsSnapshots = Nothing
     , _dssrsMarker = Nothing

@@ -39,11 +39,11 @@ module Network.AWS.IAM.EnableMFADevice
     , enableMFADeviceResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'enableMFADevice' smart constructor.
 --
@@ -57,15 +57,15 @@ import Network.AWS.Response
 --
 -- * 'emdAuthenticationCode2'
 data EnableMFADevice = EnableMFADevice'
-    { _emdUserName :: !Text
-    , _emdSerialNumber :: !Text
+    { _emdUserName            :: !Text
+    , _emdSerialNumber        :: !Text
     , _emdAuthenticationCode1 :: !Text
     , _emdAuthenticationCode2 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMFADevice' smart constructor.
 enableMFADevice :: Text -> Text -> Text -> Text -> EnableMFADevice
-enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ = 
+enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
     EnableMFADevice'
     { _emdUserName = pUserName_
     , _emdSerialNumber = pSerialNumber_
@@ -114,7 +114,7 @@ instance ToQuery EnableMFADevice where
 
 -- | /See:/ 'enableMFADeviceResponse' smart constructor.
 data EnableMFADeviceResponse =
-    EnableMFADeviceResponse' 
+    EnableMFADeviceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMFADeviceResponse' smart constructor.

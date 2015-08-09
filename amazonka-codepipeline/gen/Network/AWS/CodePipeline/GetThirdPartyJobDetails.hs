@@ -45,11 +45,11 @@ module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     , gtpjdrsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get third party job details action.
 --
@@ -61,13 +61,13 @@ import Network.AWS.Response
 --
 -- * 'gtpjdClientToken'
 data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
-    { _gtpjdJobId :: !Text
+    { _gtpjdJobId       :: !Text
     , _gtpjdClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetThirdPartyJobDetails' smart constructor.
 getThirdPartyJobDetails :: Text -> Text -> GetThirdPartyJobDetails
-getThirdPartyJobDetails pJobId_ pClientToken_ = 
+getThirdPartyJobDetails pJobId_ pClientToken_ =
     GetThirdPartyJobDetails'
     { _gtpjdJobId = pJobId_
     , _gtpjdClientToken = pClientToken_
@@ -127,12 +127,12 @@ instance ToQuery GetThirdPartyJobDetails where
 -- * 'gtpjdrsStatus'
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails :: !(Maybe ThirdPartyJobDetails)
-    , _gtpjdrsStatus :: !Int
+    , _gtpjdrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetThirdPartyJobDetailsResponse' smart constructor.
 getThirdPartyJobDetailsResponse :: Int -> GetThirdPartyJobDetailsResponse
-getThirdPartyJobDetailsResponse pStatus_ = 
+getThirdPartyJobDetailsResponse pStatus_ =
     GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails = Nothing
     , _gtpjdrsStatus = pStatus_

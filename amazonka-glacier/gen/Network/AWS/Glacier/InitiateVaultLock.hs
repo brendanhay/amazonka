@@ -71,11 +71,11 @@ module Network.AWS.Glacier.InitiateVaultLock
     , ivlrsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input values for @InitiateVaultLock@.
 --
@@ -89,14 +89,14 @@ import Network.AWS.Response
 --
 -- * 'ivlVaultName'
 data InitiateVaultLock = InitiateVaultLock'
-    { _ivlPolicy :: !(Maybe VaultLockPolicy)
+    { _ivlPolicy    :: !(Maybe VaultLockPolicy)
     , _ivlAccountId :: !Text
     , _ivlVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateVaultLock' smart constructor.
 initiateVaultLock :: Text -> Text -> InitiateVaultLock
-initiateVaultLock pAccountId_ pVaultName_ = 
+initiateVaultLock pAccountId_ pVaultName_ =
     InitiateVaultLock'
     { _ivlPolicy = Nothing
     , _ivlAccountId = pAccountId_
@@ -164,7 +164,7 @@ data InitiateVaultLockResponse = InitiateVaultLockResponse'
 
 -- | 'InitiateVaultLockResponse' smart constructor.
 initiateVaultLockResponse :: Int -> InitiateVaultLockResponse
-initiateVaultLockResponse pStatus_ = 
+initiateVaultLockResponse pStatus_ =
     InitiateVaultLockResponse'
     { _ivlrsLockId = Nothing
     , _ivlrsStatus = pStatus_

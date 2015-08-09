@@ -43,12 +43,12 @@ module Network.AWS.CloudWatch.ListMetrics
     , lmrsStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listMetrics' smart constructor.
 --
@@ -63,14 +63,14 @@ import Network.AWS.Response
 -- * 'lmDimensions'
 data ListMetrics = ListMetrics'
     { _lmMetricName :: !(Maybe Text)
-    , _lmNamespace :: !(Maybe Text)
-    , _lmNextToken :: !(Maybe Text)
+    , _lmNamespace  :: !(Maybe Text)
+    , _lmNextToken  :: !(Maybe Text)
     , _lmDimensions :: !(Maybe [DimensionFilter])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMetrics' smart constructor.
 listMetrics :: ListMetrics
-listMetrics = 
+listMetrics =
     ListMetrics'
     { _lmMetricName = Nothing
     , _lmNamespace = Nothing
@@ -144,14 +144,14 @@ instance ToQuery ListMetrics where
 --
 -- * 'lmrsStatus'
 data ListMetricsResponse = ListMetricsResponse'
-    { _lmrsMetrics :: !(Maybe [Metric])
+    { _lmrsMetrics   :: !(Maybe [Metric])
     , _lmrsNextToken :: !(Maybe Text)
-    , _lmrsStatus :: !Int
+    , _lmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMetricsResponse' smart constructor.
 listMetricsResponse :: Int -> ListMetricsResponse
-listMetricsResponse pStatus_ = 
+listMetricsResponse pStatus_ =
     ListMetricsResponse'
     { _lmrsMetrics = Nothing
     , _lmrsNextToken = Nothing

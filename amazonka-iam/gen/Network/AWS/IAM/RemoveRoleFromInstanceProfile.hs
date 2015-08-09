@@ -45,11 +45,11 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     , removeRoleFromInstanceProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeRoleFromInstanceProfile' smart constructor.
 --
@@ -60,12 +60,12 @@ import Network.AWS.Response
 -- * 'rrfipRoleName'
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
     { _rrfipInstanceProfileName :: !Text
-    , _rrfipRoleName :: !Text
+    , _rrfipRoleName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveRoleFromInstanceProfile' smart constructor.
 removeRoleFromInstanceProfile :: Text -> Text -> RemoveRoleFromInstanceProfile
-removeRoleFromInstanceProfile pInstanceProfileName_ pRoleName_ = 
+removeRoleFromInstanceProfile pInstanceProfileName_ pRoleName_ =
     RemoveRoleFromInstanceProfile'
     { _rrfipInstanceProfileName = pInstanceProfileName_
     , _rrfipRoleName = pRoleName_
@@ -106,7 +106,7 @@ instance ToQuery RemoveRoleFromInstanceProfile where
 
 -- | /See:/ 'removeRoleFromInstanceProfileResponse' smart constructor.
 data RemoveRoleFromInstanceProfileResponse =
-    RemoveRoleFromInstanceProfileResponse' 
+    RemoveRoleFromInstanceProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveRoleFromInstanceProfileResponse' smart constructor.

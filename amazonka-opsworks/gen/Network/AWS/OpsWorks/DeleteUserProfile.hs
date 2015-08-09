@@ -39,11 +39,11 @@ module Network.AWS.OpsWorks.DeleteUserProfile
     , deleteUserProfileResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteUserProfile' smart constructor.
 --
@@ -56,7 +56,7 @@ newtype DeleteUserProfile = DeleteUserProfile'
 
 -- | 'DeleteUserProfile' smart constructor.
 deleteUserProfile :: Text -> DeleteUserProfile
-deleteUserProfile pIAMUserARN_ = 
+deleteUserProfile pIAMUserARN_ =
     DeleteUserProfile'
     { _dupIAMUserARN = pIAMUserARN_
     }
@@ -93,7 +93,7 @@ instance ToQuery DeleteUserProfile where
 
 -- | /See:/ 'deleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse =
-    DeleteUserProfileResponse' 
+    DeleteUserProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserProfileResponse' smart constructor.

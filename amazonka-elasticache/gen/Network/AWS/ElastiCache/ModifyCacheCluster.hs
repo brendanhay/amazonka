@@ -55,11 +55,11 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , mccrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyCacheCluster/ action.
 --
@@ -99,27 +99,27 @@ import Network.AWS.Response
 --
 -- * 'mccCacheClusterId'
 data ModifyCacheCluster = ModifyCacheCluster'
-    { _mccEngineVersion :: !(Maybe Text)
-    , _mccSecurityGroupIds :: !(Maybe [Text])
-    , _mccAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _mccCacheParameterGroupName :: !(Maybe Text)
-    , _mccNewAvailabilityZones :: !(Maybe [Text])
-    , _mccSnapshotWindow :: !(Maybe Text)
+    { _mccEngineVersion              :: !(Maybe Text)
+    , _mccSecurityGroupIds           :: !(Maybe [Text])
+    , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mccCacheParameterGroupName    :: !(Maybe Text)
+    , _mccNewAvailabilityZones       :: !(Maybe [Text])
+    , _mccSnapshotWindow             :: !(Maybe Text)
     , _mccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mccCacheNodeIdsToRemove :: !(Maybe [Text])
-    , _mccSnapshotRetentionLimit :: !(Maybe Int)
-    , _mccAZMode :: !(Maybe AZMode)
-    , _mccNotificationTopicStatus :: !(Maybe Text)
-    , _mccApplyImmediately :: !(Maybe Bool)
-    , _mccNotificationTopicARN :: !(Maybe Text)
-    , _mccNumCacheNodes :: !(Maybe Int)
-    , _mccCacheSecurityGroupNames :: !(Maybe [Text])
-    , _mccCacheClusterId :: !Text
+    , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
+    , _mccSnapshotRetentionLimit     :: !(Maybe Int)
+    , _mccAZMode                     :: !(Maybe AZMode)
+    , _mccNotificationTopicStatus    :: !(Maybe Text)
+    , _mccApplyImmediately           :: !(Maybe Bool)
+    , _mccNotificationTopicARN       :: !(Maybe Text)
+    , _mccNumCacheNodes              :: !(Maybe Int)
+    , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
+    , _mccCacheClusterId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheCluster' smart constructor.
 modifyCacheCluster :: Text -> ModifyCacheCluster
-modifyCacheCluster pCacheClusterId_ = 
+modifyCacheCluster pCacheClusterId_ =
     ModifyCacheCluster'
     { _mccEngineVersion = Nothing
     , _mccSecurityGroupIds = Nothing
@@ -432,12 +432,12 @@ instance ToQuery ModifyCacheCluster where
 -- * 'mccrsStatus'
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
     { _mccrsCacheCluster :: !(Maybe CacheCluster)
-    , _mccrsStatus :: !Int
+    , _mccrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheClusterResponse' smart constructor.
 modifyCacheClusterResponse :: Int -> ModifyCacheClusterResponse
-modifyCacheClusterResponse pStatus_ = 
+modifyCacheClusterResponse pStatus_ =
     ModifyCacheClusterResponse'
     { _mccrsCacheCluster = Nothing
     , _mccrsStatus = pStatus_

@@ -33,10 +33,10 @@
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/Welcome.html AWS API Reference>
 module Network.AWS.SNS
     (
-    -- * Service Description
+    -- * Service
       SNS
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** EndpointDisabledException

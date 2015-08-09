@@ -44,11 +44,11 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     , lopirsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a list on-premises instances operation.
 --
@@ -64,14 +64,14 @@ import Network.AWS.Response
 --
 -- * 'lopiRegistrationStatus'
 data ListOnPremisesInstances = ListOnPremisesInstances'
-    { _lopiTagFilters :: !(Maybe [TagFilter])
-    , _lopiNextToken :: !(Maybe Text)
+    { _lopiTagFilters         :: !(Maybe [TagFilter])
+    , _lopiNextToken          :: !(Maybe Text)
     , _lopiRegistrationStatus :: !(Maybe RegistrationStatus)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOnPremisesInstances' smart constructor.
 listOnPremisesInstances :: ListOnPremisesInstances
-listOnPremisesInstances = 
+listOnPremisesInstances =
     ListOnPremisesInstances'
     { _lopiTagFilters = Nothing
     , _lopiNextToken = Nothing
@@ -146,14 +146,14 @@ instance ToQuery ListOnPremisesInstances where
 --
 -- * 'lopirsStatus'
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-    { _lopirsNextToken :: !(Maybe Text)
+    { _lopirsNextToken     :: !(Maybe Text)
     , _lopirsInstanceNames :: !(Maybe [Text])
-    , _lopirsStatus :: !Int
+    , _lopirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
 listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse
-listOnPremisesInstancesResponse pStatus_ = 
+listOnPremisesInstancesResponse pStatus_ =
     ListOnPremisesInstancesResponse'
     { _lopirsNextToken = Nothing
     , _lopirsInstanceNames = Nothing

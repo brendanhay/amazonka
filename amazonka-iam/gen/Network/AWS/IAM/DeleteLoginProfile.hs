@@ -42,11 +42,11 @@ module Network.AWS.IAM.DeleteLoginProfile
     , deleteLoginProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoginProfile' smart constructor.
 --
@@ -59,7 +59,7 @@ newtype DeleteLoginProfile = DeleteLoginProfile'
 
 -- | 'DeleteLoginProfile' smart constructor.
 deleteLoginProfile :: Text -> DeleteLoginProfile
-deleteLoginProfile pUserName_ = 
+deleteLoginProfile pUserName_ =
     DeleteLoginProfile'
     { _dlpUserName = pUserName_
     }
@@ -90,7 +90,7 @@ instance ToQuery DeleteLoginProfile where
 
 -- | /See:/ 'deleteLoginProfileResponse' smart constructor.
 data DeleteLoginProfileResponse =
-    DeleteLoginProfileResponse' 
+    DeleteLoginProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoginProfileResponse' smart constructor.

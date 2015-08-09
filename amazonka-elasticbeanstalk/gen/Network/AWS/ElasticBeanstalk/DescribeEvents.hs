@@ -52,12 +52,12 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , dersStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -87,22 +87,22 @@ import Network.AWS.Response
 --
 -- * 'deEnvironmentId'
 data DescribeEvents = DescribeEvents'
-    { _deRequestId :: !(Maybe Text)
-    , _deTemplateName :: !(Maybe Text)
-    , _deStartTime :: !(Maybe ISO8601)
-    , _deSeverity :: !(Maybe EventSeverity)
-    , _deNextToken :: !(Maybe Text)
-    , _deVersionLabel :: !(Maybe Text)
-    , _deMaxRecords :: !(Maybe Nat)
+    { _deRequestId       :: !(Maybe Text)
+    , _deTemplateName    :: !(Maybe Text)
+    , _deStartTime       :: !(Maybe ISO8601)
+    , _deSeverity        :: !(Maybe EventSeverity)
+    , _deNextToken       :: !(Maybe Text)
+    , _deVersionLabel    :: !(Maybe Text)
+    , _deMaxRecords      :: !(Maybe Nat)
     , _deEnvironmentName :: !(Maybe Text)
-    , _deEndTime :: !(Maybe ISO8601)
+    , _deEndTime         :: !(Maybe ISO8601)
     , _deApplicationName :: !(Maybe Text)
-    , _deEnvironmentId :: !(Maybe Text)
+    , _deEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
-describeEvents = 
+describeEvents =
     DescribeEvents'
     { _deRequestId = Nothing
     , _deTemplateName = Nothing
@@ -228,13 +228,13 @@ instance ToQuery DescribeEvents where
 -- * 'dersStatus'
 data DescribeEventsResponse = DescribeEventsResponse'
     { _dersNextToken :: !(Maybe Text)
-    , _dersEvents :: !(Maybe [EventDescription])
-    , _dersStatus :: !Int
+    , _dersEvents    :: !(Maybe [EventDescription])
+    , _dersStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse
-describeEventsResponse pStatus_ = 
+describeEventsResponse pStatus_ =
     DescribeEventsResponse'
     { _dersNextToken = Nothing
     , _dersEvents = Nothing

@@ -45,12 +45,12 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     , dsersStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DescribeStackEvents action.
 --
@@ -68,7 +68,7 @@ data DescribeStackEvents = DescribeStackEvents'
 
 -- | 'DescribeStackEvents' smart constructor.
 describeStackEvents :: DescribeStackEvents
-describeStackEvents = 
+describeStackEvents =
     DescribeStackEvents'
     { _dseNextToken = Nothing
     , _dseStackName = Nothing
@@ -139,14 +139,14 @@ instance ToQuery DescribeStackEvents where
 --
 -- * 'dsersStatus'
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
-    { _dsersNextToken :: !(Maybe Text)
+    { _dsersNextToken   :: !(Maybe Text)
     , _dsersStackEvents :: !(Maybe [StackEvent])
-    , _dsersStatus :: !Int
+    , _dsersStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackEventsResponse' smart constructor.
 describeStackEventsResponse :: Int -> DescribeStackEventsResponse
-describeStackEventsResponse pStatus_ = 
+describeStackEventsResponse pStatus_ =
     DescribeStackEventsResponse'
     { _dsersNextToken = Nothing
     , _dsersStackEvents = Nothing

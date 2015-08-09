@@ -44,12 +44,12 @@ module Network.AWS.IAM.ListGroupsForUser
     , lgfursGroups
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listGroupsForUser' smart constructor.
 --
@@ -62,13 +62,13 @@ import Network.AWS.Response
 -- * 'lgfuUserName'
 data ListGroupsForUser = ListGroupsForUser'
     { _lgfuMaxItems :: !(Maybe Nat)
-    , _lgfuMarker :: !(Maybe Text)
+    , _lgfuMarker   :: !(Maybe Text)
     , _lgfuUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsForUser' smart constructor.
 listGroupsForUser :: Text -> ListGroupsForUser
-listGroupsForUser pUserName_ = 
+listGroupsForUser pUserName_ =
     ListGroupsForUser'
     { _lgfuMaxItems = Nothing
     , _lgfuMarker = Nothing
@@ -143,15 +143,15 @@ instance ToQuery ListGroupsForUser where
 --
 -- * 'lgfursGroups'
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
-    { _lgfursMarker :: !(Maybe Text)
+    { _lgfursMarker      :: !(Maybe Text)
     , _lgfursIsTruncated :: !(Maybe Bool)
-    , _lgfursStatus :: !Int
-    , _lgfursGroups :: ![Group]
+    , _lgfursStatus      :: !Int
+    , _lgfursGroups      :: ![Group]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
 listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
-listGroupsForUserResponse pStatus_ = 
+listGroupsForUserResponse pStatus_ =
     ListGroupsForUserResponse'
     { _lgfursMarker = Nothing
     , _lgfursIsTruncated = Nothing

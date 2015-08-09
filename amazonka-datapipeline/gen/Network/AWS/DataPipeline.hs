@@ -38,10 +38,10 @@
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DataPipeline
     (
-    -- * Service Description
+    -- * Service
       DataPipeline
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidRequestException
@@ -65,64 +65,64 @@ module Network.AWS.DataPipeline
     -- * Operations
     -- $operations
 
-    -- ** DescribePipelines 
+    -- ** DescribePipelines
     , module Network.AWS.DataPipeline.DescribePipelines
 
     -- ** QueryObjects (Paginated)
     , module Network.AWS.DataPipeline.QueryObjects
     -- $pager
 
-    -- ** RemoveTags 
+    -- ** RemoveTags
     , module Network.AWS.DataPipeline.RemoveTags
 
-    -- ** DeletePipeline 
+    -- ** DeletePipeline
     , module Network.AWS.DataPipeline.DeletePipeline
 
     -- ** ListPipelines (Paginated)
     , module Network.AWS.DataPipeline.ListPipelines
     -- $pager
 
-    -- ** GetPipelineDefinition 
+    -- ** GetPipelineDefinition
     , module Network.AWS.DataPipeline.GetPipelineDefinition
 
-    -- ** PollForTask 
+    -- ** PollForTask
     , module Network.AWS.DataPipeline.PollForTask
 
-    -- ** EvaluateExpression 
+    -- ** EvaluateExpression
     , module Network.AWS.DataPipeline.EvaluateExpression
 
-    -- ** DeactivatePipeline 
+    -- ** DeactivatePipeline
     , module Network.AWS.DataPipeline.DeactivatePipeline
 
-    -- ** AddTags 
+    -- ** AddTags
     , module Network.AWS.DataPipeline.AddTags
 
     -- ** DescribeObjects (Paginated)
     , module Network.AWS.DataPipeline.DescribeObjects
     -- $pager
 
-    -- ** ReportTaskRunnerHeartbeat 
+    -- ** ReportTaskRunnerHeartbeat
     , module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
 
-    -- ** ActivatePipeline 
+    -- ** ActivatePipeline
     , module Network.AWS.DataPipeline.ActivatePipeline
 
-    -- ** SetTaskStatus 
+    -- ** SetTaskStatus
     , module Network.AWS.DataPipeline.SetTaskStatus
 
-    -- ** ReportTaskProgress 
+    -- ** ReportTaskProgress
     , module Network.AWS.DataPipeline.ReportTaskProgress
 
-    -- ** CreatePipeline 
+    -- ** CreatePipeline
     , module Network.AWS.DataPipeline.CreatePipeline
 
-    -- ** SetStatus 
+    -- ** SetStatus
     , module Network.AWS.DataPipeline.SetStatus
 
-    -- ** PutPipelineDefinition 
+    -- ** PutPipelineDefinition
     , module Network.AWS.DataPipeline.PutPipelineDefinition
 
-    -- ** ValidatePipelineDefinition 
+    -- ** ValidatePipelineDefinition
     , module Network.AWS.DataPipeline.ValidatePipelineDefinition
 
     -- * Types
@@ -230,27 +230,27 @@ module Network.AWS.DataPipeline
     , vwId
     ) where
 
-import Network.AWS.DataPipeline.ActivatePipeline
-import Network.AWS.DataPipeline.AddTags
-import Network.AWS.DataPipeline.CreatePipeline
-import Network.AWS.DataPipeline.DeactivatePipeline
-import Network.AWS.DataPipeline.DeletePipeline
-import Network.AWS.DataPipeline.DescribeObjects
-import Network.AWS.DataPipeline.DescribePipelines
-import Network.AWS.DataPipeline.EvaluateExpression
-import Network.AWS.DataPipeline.GetPipelineDefinition
-import Network.AWS.DataPipeline.ListPipelines
-import Network.AWS.DataPipeline.PollForTask
-import Network.AWS.DataPipeline.PutPipelineDefinition
-import Network.AWS.DataPipeline.QueryObjects
-import Network.AWS.DataPipeline.RemoveTags
-import Network.AWS.DataPipeline.ReportTaskProgress
-import Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
-import Network.AWS.DataPipeline.SetStatus
-import Network.AWS.DataPipeline.SetTaskStatus
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.ValidatePipelineDefinition
-import Network.AWS.DataPipeline.Waiters
+import           Network.AWS.DataPipeline.ActivatePipeline
+import           Network.AWS.DataPipeline.AddTags
+import           Network.AWS.DataPipeline.CreatePipeline
+import           Network.AWS.DataPipeline.DeactivatePipeline
+import           Network.AWS.DataPipeline.DeletePipeline
+import           Network.AWS.DataPipeline.DescribeObjects
+import           Network.AWS.DataPipeline.DescribePipelines
+import           Network.AWS.DataPipeline.EvaluateExpression
+import           Network.AWS.DataPipeline.GetPipelineDefinition
+import           Network.AWS.DataPipeline.ListPipelines
+import           Network.AWS.DataPipeline.PollForTask
+import           Network.AWS.DataPipeline.PutPipelineDefinition
+import           Network.AWS.DataPipeline.QueryObjects
+import           Network.AWS.DataPipeline.RemoveTags
+import           Network.AWS.DataPipeline.ReportTaskProgress
+import           Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
+import           Network.AWS.DataPipeline.SetStatus
+import           Network.AWS.DataPipeline.SetTaskStatus
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.ValidatePipelineDefinition
+import           Network.AWS.DataPipeline.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

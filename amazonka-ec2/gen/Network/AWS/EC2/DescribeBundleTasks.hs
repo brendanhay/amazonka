@@ -44,11 +44,11 @@ module Network.AWS.EC2.DescribeBundleTasks
     , dbtrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeBundleTasks' smart constructor.
 --
@@ -61,13 +61,13 @@ import Network.AWS.Response
 -- * 'dbtDryRun'
 data DescribeBundleTasks = DescribeBundleTasks'
     { _dbtBundleIds :: !(Maybe [Text])
-    , _dbtFilters :: !(Maybe [Filter])
-    , _dbtDryRun :: !(Maybe Bool)
+    , _dbtFilters   :: !(Maybe [Filter])
+    , _dbtDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBundleTasks' smart constructor.
 describeBundleTasks :: DescribeBundleTasks
-describeBundleTasks = 
+describeBundleTasks =
     DescribeBundleTasks'
     { _dbtBundleIds = Nothing
     , _dbtFilters = Nothing
@@ -152,12 +152,12 @@ instance ToQuery DescribeBundleTasks where
 -- * 'dbtrsStatus'
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
     { _dbtrsBundleTasks :: !(Maybe [BundleTask])
-    , _dbtrsStatus :: !Int
+    , _dbtrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
 describeBundleTasksResponse :: Int -> DescribeBundleTasksResponse
-describeBundleTasksResponse pStatus_ = 
+describeBundleTasksResponse pStatus_ =
     DescribeBundleTasksResponse'
     { _dbtrsBundleTasks = Nothing
     , _dbtrsStatus = pStatus_

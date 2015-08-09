@@ -47,12 +47,12 @@ module Network.AWS.IAM.ListMFADevices
     , lmdrsMFADevices
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listMFADevices' smart constructor.
 --
@@ -66,12 +66,12 @@ import Network.AWS.Response
 data ListMFADevices = ListMFADevices'
     { _lmdUserName :: !(Maybe Text)
     , _lmdMaxItems :: !(Maybe Nat)
-    , _lmdMarker :: !(Maybe Text)
+    , _lmdMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMFADevices' smart constructor.
 listMFADevices :: ListMFADevices
-listMFADevices = 
+listMFADevices =
     ListMFADevices'
     { _lmdUserName = Nothing
     , _lmdMaxItems = Nothing
@@ -146,15 +146,15 @@ instance ToQuery ListMFADevices where
 --
 -- * 'lmdrsMFADevices'
 data ListMFADevicesResponse = ListMFADevicesResponse'
-    { _lmdrsMarker :: !(Maybe Text)
+    { _lmdrsMarker      :: !(Maybe Text)
     , _lmdrsIsTruncated :: !(Maybe Bool)
-    , _lmdrsStatus :: !Int
-    , _lmdrsMFADevices :: ![MFADevice]
+    , _lmdrsStatus      :: !Int
+    , _lmdrsMFADevices  :: ![MFADevice]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMFADevicesResponse' smart constructor.
 listMFADevicesResponse :: Int -> ListMFADevicesResponse
-listMFADevicesResponse pStatus_ = 
+listMFADevicesResponse pStatus_ =
     ListMFADevicesResponse'
     { _lmdrsMarker = Nothing
     , _lmdrsIsTruncated = Nothing

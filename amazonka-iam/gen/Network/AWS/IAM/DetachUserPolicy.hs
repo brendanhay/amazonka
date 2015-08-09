@@ -41,11 +41,11 @@ module Network.AWS.IAM.DetachUserPolicy
     , detachUserPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachUserPolicy' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'dPolicyARN'
 data DetachUserPolicy = DetachUserPolicy'
-    { _dUserName :: !Text
+    { _dUserName  :: !Text
     , _dPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachUserPolicy' smart constructor.
 detachUserPolicy :: Text -> Text -> DetachUserPolicy
-detachUserPolicy pUserName_ pPolicyARN_ = 
+detachUserPolicy pUserName_ pPolicyARN_ =
     DetachUserPolicy'
     { _dUserName = pUserName_
     , _dPolicyARN = pPolicyARN_
@@ -96,7 +96,7 @@ instance ToQuery DetachUserPolicy where
 
 -- | /See:/ 'detachUserPolicyResponse' smart constructor.
 data DetachUserPolicyResponse =
-    DetachUserPolicyResponse' 
+    DetachUserPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachUserPolicyResponse' smart constructor.

@@ -47,11 +47,11 @@ module Network.AWS.KMS.CreateAlias
     , createAliasResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAlias' smart constructor.
 --
@@ -61,13 +61,13 @@ import Network.AWS.Response
 --
 -- * 'caTargetKeyId'
 data CreateAlias = CreateAlias'
-    { _caAliasName :: !Text
+    { _caAliasName   :: !Text
     , _caTargetKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
-createAlias pAliasName_ pTargetKeyId_ = 
+createAlias pAliasName_ pTargetKeyId_ =
     CreateAlias'
     { _caAliasName = pAliasName_
     , _caTargetKeyId = pTargetKeyId_
@@ -119,7 +119,7 @@ instance ToQuery CreateAlias where
 
 -- | /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse =
-    CreateAliasResponse' 
+    CreateAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAliasResponse' smart constructor.

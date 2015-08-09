@@ -59,11 +59,11 @@ module Network.AWS.EC2.GetConsoleOutput
     , gcorsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getConsoleOutput' smart constructor.
 --
@@ -73,13 +73,13 @@ import Network.AWS.Response
 --
 -- * 'gcoInstanceId'
 data GetConsoleOutput = GetConsoleOutput'
-    { _gcoDryRun :: !(Maybe Bool)
+    { _gcoDryRun     :: !(Maybe Bool)
     , _gcoInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConsoleOutput' smart constructor.
 getConsoleOutput :: Text -> GetConsoleOutput
-getConsoleOutput pInstanceId_ = 
+getConsoleOutput pInstanceId_ =
     GetConsoleOutput'
     { _gcoDryRun = Nothing
     , _gcoInstanceId = pInstanceId_
@@ -135,14 +135,14 @@ instance ToQuery GetConsoleOutput where
 -- * 'gcorsStatus'
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
     { _gcorsInstanceId :: !(Maybe Text)
-    , _gcorsOutput :: !(Maybe Text)
-    , _gcorsTimestamp :: !(Maybe ISO8601)
-    , _gcorsStatus :: !Int
+    , _gcorsOutput     :: !(Maybe Text)
+    , _gcorsTimestamp  :: !(Maybe ISO8601)
+    , _gcorsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConsoleOutputResponse' smart constructor.
 getConsoleOutputResponse :: Int -> GetConsoleOutputResponse
-getConsoleOutputResponse pStatus_ = 
+getConsoleOutputResponse pStatus_ =
     GetConsoleOutputResponse'
     { _gcorsInstanceId = Nothing
     , _gcorsOutput = Nothing

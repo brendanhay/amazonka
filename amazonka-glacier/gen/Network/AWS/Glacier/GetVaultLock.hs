@@ -64,11 +64,11 @@ module Network.AWS.Glacier.GetVaultLock
     , gvlrsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input values for @GetVaultLock@.
 --
@@ -86,7 +86,7 @@ data GetVaultLock = GetVaultLock'
 
 -- | 'GetVaultLock' smart constructor.
 getVaultLock :: Text -> Text -> GetVaultLock
-getVaultLock pAccountId_ pVaultName_ = 
+getVaultLock pAccountId_ pVaultName_ =
     GetVaultLock'
     { _gvlAccountId = pAccountId_
     , _gvlVaultName = pVaultName_
@@ -145,16 +145,16 @@ instance ToQuery GetVaultLock where
 --
 -- * 'gvlrsStatus'
 data GetVaultLockResponse = GetVaultLockResponse'
-    { _gvlrsState :: !(Maybe Text)
+    { _gvlrsState          :: !(Maybe Text)
     , _gvlrsExpirationDate :: !(Maybe Text)
-    , _gvlrsCreationDate :: !(Maybe Text)
-    , _gvlrsPolicy :: !(Maybe Text)
-    , _gvlrsStatus :: !Int
+    , _gvlrsCreationDate   :: !(Maybe Text)
+    , _gvlrsPolicy         :: !(Maybe Text)
+    , _gvlrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultLockResponse' smart constructor.
 getVaultLockResponse :: Int -> GetVaultLockResponse
-getVaultLockResponse pStatus_ = 
+getVaultLockResponse pStatus_ =
     GetVaultLockResponse'
     { _gvlrsState = Nothing
     , _gvlrsExpirationDate = Nothing

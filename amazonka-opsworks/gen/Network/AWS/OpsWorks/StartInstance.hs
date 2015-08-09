@@ -41,11 +41,11 @@ module Network.AWS.OpsWorks.StartInstance
     , startInstanceResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'startInstance' smart constructor.
 --
@@ -58,7 +58,7 @@ newtype StartInstance = StartInstance'
 
 -- | 'StartInstance' smart constructor.
 startInstance :: Text -> StartInstance
-startInstance pInstanceId_ = 
+startInstance pInstanceId_ =
     StartInstance'
     { _sInstanceId = pInstanceId_
     }
@@ -94,7 +94,7 @@ instance ToQuery StartInstance where
 
 -- | /See:/ 'startInstanceResponse' smart constructor.
 data StartInstanceResponse =
-    StartInstanceResponse' 
+    StartInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstanceResponse' smart constructor.

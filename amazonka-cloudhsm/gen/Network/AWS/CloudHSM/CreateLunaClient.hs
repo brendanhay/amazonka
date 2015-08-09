@@ -38,11 +38,11 @@ module Network.AWS.CloudHSM.CreateLunaClient
     , clcrsStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateLunaClient action.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'clcCertificate'
 data CreateLunaClient = CreateLunaClient'
-    { _clcLabel :: !(Maybe Text)
+    { _clcLabel       :: !(Maybe Text)
     , _clcCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLunaClient' smart constructor.
 createLunaClient :: Text -> CreateLunaClient
-createLunaClient pCertificate_ = 
+createLunaClient pCertificate_ =
     CreateLunaClient'
     { _clcLabel = Nothing
     , _clcCertificate = pCertificate_
@@ -118,12 +118,12 @@ instance ToQuery CreateLunaClient where
 -- * 'clcrsStatus'
 data CreateLunaClientResponse = CreateLunaClientResponse'
     { _clcrsClientARN :: !(Maybe Text)
-    , _clcrsStatus :: !Int
+    , _clcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLunaClientResponse' smart constructor.
 createLunaClientResponse :: Int -> CreateLunaClientResponse
-createLunaClientResponse pStatus_ = 
+createLunaClientResponse pStatus_ =
     CreateLunaClientResponse'
     { _clcrsClientARN = Nothing
     , _clcrsStatus = pStatus_

@@ -32,10 +32,10 @@
 -- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html AWS API Reference>
 module Network.AWS.SWF
     (
-    -- * Service Description
+    -- * Service
       SWF
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** LimitExceededFault

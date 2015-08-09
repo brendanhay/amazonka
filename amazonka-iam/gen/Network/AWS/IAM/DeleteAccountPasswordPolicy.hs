@@ -32,15 +32,15 @@ module Network.AWS.IAM.DeleteAccountPasswordPolicy
     , deleteAccountPasswordPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAccountPasswordPolicy' smart constructor.
 data DeleteAccountPasswordPolicy =
-    DeleteAccountPasswordPolicy' 
+    DeleteAccountPasswordPolicy'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccountPasswordPolicy' smart constructor.
@@ -71,7 +71,7 @@ instance ToQuery DeleteAccountPasswordPolicy where
 
 -- | /See:/ 'deleteAccountPasswordPolicyResponse' smart constructor.
 data DeleteAccountPasswordPolicyResponse =
-    DeleteAccountPasswordPolicyResponse' 
+    DeleteAccountPasswordPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccountPasswordPolicyResponse' smart constructor.

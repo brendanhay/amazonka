@@ -40,11 +40,11 @@ module Network.AWS.CodePipeline.UpdatePipeline
     , uprsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an update pipeline action.
 --
@@ -59,7 +59,7 @@ newtype UpdatePipeline = UpdatePipeline'
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: PipelineDeclaration -> UpdatePipeline
-updatePipeline pPipeline_ = 
+updatePipeline pPipeline_ =
     UpdatePipeline'
     { _upPipeline = pPipeline_
     }
@@ -109,12 +109,12 @@ instance ToQuery UpdatePipeline where
 -- * 'uprsStatus'
 data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprsPipeline :: !(Maybe PipelineDeclaration)
-    , _uprsStatus :: !Int
+    , _uprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Int -> UpdatePipelineResponse
-updatePipelineResponse pStatus_ = 
+updatePipelineResponse pStatus_ =
     UpdatePipelineResponse'
     { _uprsPipeline = Nothing
     , _uprsStatus = pStatus_

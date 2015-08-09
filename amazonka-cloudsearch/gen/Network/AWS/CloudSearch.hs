@@ -28,10 +28,10 @@
 -- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
 module Network.AWS.CloudSearch
     (
-    -- * Service Description
+    -- * Service
       CloudSearch
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** BaseException
@@ -58,76 +58,76 @@ module Network.AWS.CloudSearch
     -- * Operations
     -- $operations
 
-    -- ** DescribeAvailabilityOptions 
+    -- ** DescribeAvailabilityOptions
     , module Network.AWS.CloudSearch.DescribeAvailabilityOptions
 
-    -- ** DescribeExpressions 
+    -- ** DescribeExpressions
     , module Network.AWS.CloudSearch.DescribeExpressions
 
-    -- ** DefineExpression 
+    -- ** DefineExpression
     , module Network.AWS.CloudSearch.DefineExpression
 
-    -- ** DescribeScalingParameters 
+    -- ** DescribeScalingParameters
     , module Network.AWS.CloudSearch.DescribeScalingParameters
 
-    -- ** DescribeServiceAccessPolicies 
+    -- ** DescribeServiceAccessPolicies
     , module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
 
-    -- ** DescribeSuggesters 
+    -- ** DescribeSuggesters
     , module Network.AWS.CloudSearch.DescribeSuggesters
 
-    -- ** UpdateAvailabilityOptions 
+    -- ** UpdateAvailabilityOptions
     , module Network.AWS.CloudSearch.UpdateAvailabilityOptions
 
-    -- ** DeleteExpression 
+    -- ** DeleteExpression
     , module Network.AWS.CloudSearch.DeleteExpression
 
-    -- ** DescribeDomains 
+    -- ** DescribeDomains
     , module Network.AWS.CloudSearch.DescribeDomains
 
-    -- ** DefineSuggester 
+    -- ** DefineSuggester
     , module Network.AWS.CloudSearch.DefineSuggester
 
-    -- ** DeleteAnalysisScheme 
+    -- ** DeleteAnalysisScheme
     , module Network.AWS.CloudSearch.DeleteAnalysisScheme
 
-    -- ** ListDomainNames 
+    -- ** ListDomainNames
     , module Network.AWS.CloudSearch.ListDomainNames
 
-    -- ** DescribeAnalysisSchemes 
+    -- ** DescribeAnalysisSchemes
     , module Network.AWS.CloudSearch.DescribeAnalysisSchemes
 
-    -- ** CreateDomain 
+    -- ** CreateDomain
     , module Network.AWS.CloudSearch.CreateDomain
 
-    -- ** DefineAnalysisScheme 
+    -- ** DefineAnalysisScheme
     , module Network.AWS.CloudSearch.DefineAnalysisScheme
 
-    -- ** DeleteSuggester 
+    -- ** DeleteSuggester
     , module Network.AWS.CloudSearch.DeleteSuggester
 
-    -- ** DescribeIndexFields 
+    -- ** DescribeIndexFields
     , module Network.AWS.CloudSearch.DescribeIndexFields
 
-    -- ** IndexDocuments 
+    -- ** IndexDocuments
     , module Network.AWS.CloudSearch.IndexDocuments
 
-    -- ** DeleteIndexField 
+    -- ** DeleteIndexField
     , module Network.AWS.CloudSearch.DeleteIndexField
 
-    -- ** BuildSuggesters 
+    -- ** BuildSuggesters
     , module Network.AWS.CloudSearch.BuildSuggesters
 
-    -- ** UpdateScalingParameters 
+    -- ** UpdateScalingParameters
     , module Network.AWS.CloudSearch.UpdateScalingParameters
 
-    -- ** UpdateServiceAccessPolicies 
+    -- ** UpdateServiceAccessPolicies
     , module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 
-    -- ** DefineIndexField 
+    -- ** DefineIndexField
     , module Network.AWS.CloudSearch.DefineIndexField
 
-    -- ** DeleteDomain 
+    -- ** DeleteDomain
     , module Network.AWS.CloudSearch.DeleteDomain
 
     -- * Types
@@ -394,32 +394,32 @@ module Network.AWS.CloudSearch
     , toDefaultValue
     ) where
 
-import Network.AWS.CloudSearch.BuildSuggesters
-import Network.AWS.CloudSearch.CreateDomain
-import Network.AWS.CloudSearch.DefineAnalysisScheme
-import Network.AWS.CloudSearch.DefineExpression
-import Network.AWS.CloudSearch.DefineIndexField
-import Network.AWS.CloudSearch.DefineSuggester
-import Network.AWS.CloudSearch.DeleteAnalysisScheme
-import Network.AWS.CloudSearch.DeleteDomain
-import Network.AWS.CloudSearch.DeleteExpression
-import Network.AWS.CloudSearch.DeleteIndexField
-import Network.AWS.CloudSearch.DeleteSuggester
-import Network.AWS.CloudSearch.DescribeAnalysisSchemes
-import Network.AWS.CloudSearch.DescribeAvailabilityOptions
-import Network.AWS.CloudSearch.DescribeDomains
-import Network.AWS.CloudSearch.DescribeExpressions
-import Network.AWS.CloudSearch.DescribeIndexFields
-import Network.AWS.CloudSearch.DescribeScalingParameters
-import Network.AWS.CloudSearch.DescribeServiceAccessPolicies
-import Network.AWS.CloudSearch.DescribeSuggesters
-import Network.AWS.CloudSearch.IndexDocuments
-import Network.AWS.CloudSearch.ListDomainNames
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.UpdateAvailabilityOptions
-import Network.AWS.CloudSearch.UpdateScalingParameters
-import Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-import Network.AWS.CloudSearch.Waiters
+import           Network.AWS.CloudSearch.BuildSuggesters
+import           Network.AWS.CloudSearch.CreateDomain
+import           Network.AWS.CloudSearch.DefineAnalysisScheme
+import           Network.AWS.CloudSearch.DefineExpression
+import           Network.AWS.CloudSearch.DefineIndexField
+import           Network.AWS.CloudSearch.DefineSuggester
+import           Network.AWS.CloudSearch.DeleteAnalysisScheme
+import           Network.AWS.CloudSearch.DeleteDomain
+import           Network.AWS.CloudSearch.DeleteExpression
+import           Network.AWS.CloudSearch.DeleteIndexField
+import           Network.AWS.CloudSearch.DeleteSuggester
+import           Network.AWS.CloudSearch.DescribeAnalysisSchemes
+import           Network.AWS.CloudSearch.DescribeAvailabilityOptions
+import           Network.AWS.CloudSearch.DescribeDomains
+import           Network.AWS.CloudSearch.DescribeExpressions
+import           Network.AWS.CloudSearch.DescribeIndexFields
+import           Network.AWS.CloudSearch.DescribeScalingParameters
+import           Network.AWS.CloudSearch.DescribeServiceAccessPolicies
+import           Network.AWS.CloudSearch.DescribeSuggesters
+import           Network.AWS.CloudSearch.IndexDocuments
+import           Network.AWS.CloudSearch.ListDomainNames
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.UpdateAvailabilityOptions
+import           Network.AWS.CloudSearch.UpdateScalingParameters
+import           Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+import           Network.AWS.CloudSearch.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -44,11 +44,11 @@ module Network.AWS.CognitoIdentity.GetId
     , girsStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the GetId action.
 --
@@ -62,14 +62,14 @@ import Network.AWS.Response
 --
 -- * 'giIdentityPoolId'
 data GetId = GetId'
-    { _giAccountId :: !(Maybe Text)
-    , _giLogins :: !(Maybe (Map Text Text))
+    { _giAccountId      :: !(Maybe Text)
+    , _giLogins         :: !(Maybe (Map Text Text))
     , _giIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetId' smart constructor.
 getId :: Text -> GetId
-getId pIdentityPoolId_ = 
+getId pIdentityPoolId_ =
     GetId'
     { _giAccountId = Nothing
     , _giLogins = Nothing
@@ -139,12 +139,12 @@ instance ToQuery GetId where
 -- * 'girsStatus'
 data GetIdResponse = GetIdResponse'
     { _girsIdentityId :: !(Maybe Text)
-    , _girsStatus :: !Int
+    , _girsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdResponse' smart constructor.
 getIdResponse :: Int -> GetIdResponse
-getIdResponse pStatus_ = 
+getIdResponse pStatus_ =
     GetIdResponse'
     { _girsIdentityId = Nothing
     , _girsStatus = pStatus_

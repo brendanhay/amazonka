@@ -39,11 +39,11 @@ module Network.AWS.CloudTrail.StopLogging
     , slrsStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.CloudTrail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Passes the request to CloudTrail to stop logging AWS API calls for the
 -- specified account.
@@ -59,7 +59,7 @@ newtype StopLogging = StopLogging'
 
 -- | 'StopLogging' smart constructor.
 stopLogging :: Text -> StopLogging
-stopLogging pName_ = 
+stopLogging pName_ =
     StopLogging'
     { _slName = pName_
     }
@@ -111,7 +111,7 @@ newtype StopLoggingResponse = StopLoggingResponse'
 
 -- | 'StopLoggingResponse' smart constructor.
 stopLoggingResponse :: Int -> StopLoggingResponse
-stopLoggingResponse pStatus_ = 
+stopLoggingResponse pStatus_ =
     StopLoggingResponse'
     { _slrsStatus = pStatus_
     }

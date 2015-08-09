@@ -53,11 +53,11 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , esmcLastModified
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateEventSourceMapping' smart constructor.
 --
@@ -71,15 +71,15 @@ import Network.AWS.Response
 --
 -- * 'uesmUUId'
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
-    { _uesmEnabled :: !(Maybe Bool)
-    , _uesmBatchSize :: !(Maybe Nat)
+    { _uesmEnabled      :: !(Maybe Bool)
+    , _uesmBatchSize    :: !(Maybe Nat)
     , _uesmFunctionName :: !(Maybe Text)
-    , _uesmUUId :: !Text
+    , _uesmUUId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEventSourceMapping' smart constructor.
 updateEventSourceMapping :: Text -> UpdateEventSourceMapping
-updateEventSourceMapping pUUId_ = 
+updateEventSourceMapping pUUId_ =
     UpdateEventSourceMapping'
     { _uesmEnabled = Nothing
     , _uesmBatchSize = Nothing

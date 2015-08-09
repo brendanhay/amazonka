@@ -18,8 +18,8 @@
 --
 module Network.AWS.ElasticBeanstalk.Types.Product where
 
-import Network.AWS.ElasticBeanstalk.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.ElasticBeanstalk.Types.Sum
+import           Network.AWS.Prelude
 
 -- | Describes the properties of an application.
 --
@@ -39,17 +39,17 @@ import Network.AWS.Prelude
 --
 -- * 'adDescription'
 data ApplicationDescription = ApplicationDescription'
-    { _adDateUpdated :: !(Maybe ISO8601)
-    , _adVersions :: !(Maybe [Text])
-    , _adDateCreated :: !(Maybe ISO8601)
-    , _adApplicationName :: !(Maybe Text)
+    { _adDateUpdated            :: !(Maybe ISO8601)
+    , _adVersions               :: !(Maybe [Text])
+    , _adDateCreated            :: !(Maybe ISO8601)
+    , _adApplicationName        :: !(Maybe Text)
     , _adConfigurationTemplates :: !(Maybe [Text])
-    , _adDescription :: !(Maybe Text)
+    , _adDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationDescription' smart constructor.
 applicationDescription :: ApplicationDescription
-applicationDescription = 
+applicationDescription =
     ApplicationDescription'
     { _adDateUpdated = Nothing
     , _adVersions = Nothing
@@ -110,7 +110,7 @@ newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
 
 -- | 'ApplicationDescriptionMessage' smart constructor.
 applicationDescriptionMessage :: ApplicationDescriptionMessage
-applicationDescriptionMessage = 
+applicationDescriptionMessage =
     ApplicationDescriptionMessage'
     { _admApplication = Nothing
     }
@@ -142,17 +142,17 @@ instance FromXML ApplicationDescriptionMessage where
 --
 -- * 'avdDescription'
 data ApplicationVersionDescription = ApplicationVersionDescription'
-    { _avdDateUpdated :: !(Maybe ISO8601)
-    , _avdSourceBundle :: !(Maybe S3Location)
-    , _avdVersionLabel :: !(Maybe Text)
-    , _avdDateCreated :: !(Maybe ISO8601)
+    { _avdDateUpdated     :: !(Maybe ISO8601)
+    , _avdSourceBundle    :: !(Maybe S3Location)
+    , _avdVersionLabel    :: !(Maybe Text)
+    , _avdDateCreated     :: !(Maybe ISO8601)
     , _avdApplicationName :: !(Maybe Text)
-    , _avdDescription :: !(Maybe Text)
+    , _avdDescription     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationVersionDescription' smart constructor.
 applicationVersionDescription :: ApplicationVersionDescription
-applicationVersionDescription = 
+applicationVersionDescription =
     ApplicationVersionDescription'
     { _avdDateUpdated = Nothing
     , _avdSourceBundle = Nothing
@@ -208,7 +208,7 @@ newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMess
 
 -- | 'ApplicationVersionDescriptionMessage' smart constructor.
 applicationVersionDescriptionMessage :: ApplicationVersionDescriptionMessage
-applicationVersionDescriptionMessage = 
+applicationVersionDescriptionMessage =
     ApplicationVersionDescriptionMessage'
     { _avdmApplicationVersion = Nothing
     }
@@ -236,7 +236,7 @@ newtype AutoScalingGroup = AutoScalingGroup'
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: AutoScalingGroup
-autoScalingGroup = 
+autoScalingGroup =
     AutoScalingGroup'
     { _asgName = Nothing
     }
@@ -276,22 +276,22 @@ instance FromXML AutoScalingGroup where
 --
 -- * 'codMinValue'
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
-    { _codMaxValue :: !(Maybe Int)
-    , _codRegex :: !(Maybe OptionRestrictionRegex)
-    , _codUserDefined :: !(Maybe Bool)
-    , _codMaxLength :: !(Maybe Int)
-    , _codValueOptions :: !(Maybe [Text])
-    , _codNamespace :: !(Maybe Text)
-    , _codName :: !(Maybe Text)
+    { _codMaxValue       :: !(Maybe Int)
+    , _codRegex          :: !(Maybe OptionRestrictionRegex)
+    , _codUserDefined    :: !(Maybe Bool)
+    , _codMaxLength      :: !(Maybe Int)
+    , _codValueOptions   :: !(Maybe [Text])
+    , _codNamespace      :: !(Maybe Text)
+    , _codName           :: !(Maybe Text)
     , _codChangeSeverity :: !(Maybe Text)
-    , _codDefaultValue :: !(Maybe Text)
-    , _codValueType :: !(Maybe ConfigurationOptionValueType)
-    , _codMinValue :: !(Maybe Int)
+    , _codDefaultValue   :: !(Maybe Text)
+    , _codValueType      :: !(Maybe ConfigurationOptionValueType)
+    , _codMinValue       :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationOptionDescription' smart constructor.
 configurationOptionDescription :: ConfigurationOptionDescription
-configurationOptionDescription = 
+configurationOptionDescription =
     ConfigurationOptionDescription'
     { _codMaxValue = Nothing
     , _codRegex = Nothing
@@ -444,15 +444,15 @@ instance FromXML ConfigurationOptionDescription where
 --
 -- * 'cosNamespace'
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
-    { _cosOptionName :: !(Maybe Text)
+    { _cosOptionName   :: !(Maybe Text)
     , _cosResourceName :: !(Maybe Text)
-    , _cosValue :: !(Maybe Text)
-    , _cosNamespace :: !(Maybe Text)
+    , _cosValue        :: !(Maybe Text)
+    , _cosNamespace    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationOptionSetting' smart constructor.
 configurationOptionSetting :: ConfigurationOptionSetting
-configurationOptionSetting = 
+configurationOptionSetting =
     ConfigurationOptionSetting'
     { _cosOptionName = Nothing
     , _cosResourceName = Nothing
@@ -514,20 +514,20 @@ instance ToQuery ConfigurationOptionSetting where
 --
 -- * 'csdDescription'
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
-    { _csdTemplateName :: !(Maybe Text)
-    , _csdOptionSettings :: !(Maybe [ConfigurationOptionSetting])
-    , _csdDateUpdated :: !(Maybe ISO8601)
-    , _csdDateCreated :: !(Maybe ISO8601)
-    , _csdEnvironmentName :: !(Maybe Text)
-    , _csdApplicationName :: !(Maybe Text)
-    , _csdDeploymentStatus :: !(Maybe ConfigurationDeploymentStatus)
+    { _csdTemplateName      :: !(Maybe Text)
+    , _csdOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _csdDateUpdated       :: !(Maybe ISO8601)
+    , _csdDateCreated       :: !(Maybe ISO8601)
+    , _csdEnvironmentName   :: !(Maybe Text)
+    , _csdApplicationName   :: !(Maybe Text)
+    , _csdDeploymentStatus  :: !(Maybe ConfigurationDeploymentStatus)
     , _csdSolutionStackName :: !(Maybe Text)
-    , _csdDescription :: !(Maybe Text)
+    , _csdDescription       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationSettingsDescription' smart constructor.
 configurationSettingsDescription :: ConfigurationSettingsDescription
-configurationSettingsDescription = 
+configurationSettingsDescription =
     ConfigurationSettingsDescription'
     { _csdTemplateName = Nothing
     , _csdOptionSettings = Nothing
@@ -653,27 +653,27 @@ instance FromXML ConfigurationSettingsDescription
 --
 -- * 'eDescription'
 data EnvironmentDescription = EnvironmentDescription'
-    { _eCNAME :: !(Maybe Text)
-    , _eStatus :: !(Maybe EnvironmentStatus)
-    , _eTemplateName :: !(Maybe Text)
+    { _eCNAME                        :: !(Maybe Text)
+    , _eStatus                       :: !(Maybe EnvironmentStatus)
+    , _eTemplateName                 :: !(Maybe Text)
     , _eAbortableOperationInProgress :: !(Maybe Bool)
-    , _eEndpointURL :: !(Maybe Text)
-    , _eDateUpdated :: !(Maybe ISO8601)
-    , _eResources :: !(Maybe EnvironmentResourcesDescription)
-    , _eHealth :: !(Maybe EnvironmentHealth)
-    , _eVersionLabel :: !(Maybe Text)
-    , _eDateCreated :: !(Maybe ISO8601)
-    , _eTier :: !(Maybe EnvironmentTier)
-    , _eEnvironmentName :: !(Maybe Text)
-    , _eApplicationName :: !(Maybe Text)
-    , _eEnvironmentId :: !(Maybe Text)
-    , _eSolutionStackName :: !(Maybe Text)
-    , _eDescription :: !(Maybe Text)
+    , _eEndpointURL                  :: !(Maybe Text)
+    , _eDateUpdated                  :: !(Maybe ISO8601)
+    , _eResources                    :: !(Maybe EnvironmentResourcesDescription)
+    , _eHealth                       :: !(Maybe EnvironmentHealth)
+    , _eVersionLabel                 :: !(Maybe Text)
+    , _eDateCreated                  :: !(Maybe ISO8601)
+    , _eTier                         :: !(Maybe EnvironmentTier)
+    , _eEnvironmentName              :: !(Maybe Text)
+    , _eApplicationName              :: !(Maybe Text)
+    , _eEnvironmentId                :: !(Maybe Text)
+    , _eSolutionStackName            :: !(Maybe Text)
+    , _eDescription                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentDescription' smart constructor.
 environmentDescription :: EnvironmentDescription
-environmentDescription = 
+environmentDescription =
     EnvironmentDescription'
     { _eCNAME = Nothing
     , _eStatus = Nothing
@@ -827,14 +827,14 @@ instance FromXML EnvironmentDescription where
 -- * 'eidMessage'
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
     { _eidSampleTimestamp :: !(Maybe ISO8601)
-    , _eidEC2InstanceId :: !(Maybe Text)
-    , _eidInfoType :: !(Maybe EnvironmentInfoType)
-    , _eidMessage :: !(Maybe Text)
+    , _eidEC2InstanceId   :: !(Maybe Text)
+    , _eidInfoType        :: !(Maybe EnvironmentInfoType)
+    , _eidMessage         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentInfoDescription' smart constructor.
 environmentInfoDescription :: EnvironmentInfoDescription
-environmentInfoDescription = 
+environmentInfoDescription =
     EnvironmentInfoDescription'
     { _eidSampleTimestamp = Nothing
     , _eidEC2InstanceId = Nothing
@@ -886,18 +886,18 @@ instance FromXML EnvironmentInfoDescription where
 --
 -- * 'erdAutoScalingGroups'
 data EnvironmentResourceDescription = EnvironmentResourceDescription'
-    { _erdQueues :: !(Maybe [Queue])
-    , _erdTriggers :: !(Maybe [Trigger])
-    , _erdLoadBalancers :: !(Maybe [LoadBalancer])
-    , _erdInstances :: !(Maybe [Instance])
-    , _erdEnvironmentName :: !(Maybe Text)
+    { _erdQueues               :: !(Maybe [Queue])
+    , _erdTriggers             :: !(Maybe [Trigger])
+    , _erdLoadBalancers        :: !(Maybe [LoadBalancer])
+    , _erdInstances            :: !(Maybe [Instance])
+    , _erdEnvironmentName      :: !(Maybe Text)
     , _erdLaunchConfigurations :: !(Maybe [LaunchConfiguration])
-    , _erdAutoScalingGroups :: !(Maybe [AutoScalingGroup])
+    , _erdAutoScalingGroups    :: !(Maybe [AutoScalingGroup])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentResourceDescription' smart constructor.
 environmentResourceDescription :: EnvironmentResourceDescription
-environmentResourceDescription = 
+environmentResourceDescription =
     EnvironmentResourceDescription'
     { _erdQueues = Nothing
     , _erdTriggers = Nothing
@@ -972,7 +972,7 @@ newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
 
 -- | 'EnvironmentResourcesDescription' smart constructor.
 environmentResourcesDescription :: EnvironmentResourcesDescription
-environmentResourcesDescription = 
+environmentResourcesDescription =
     EnvironmentResourcesDescription'
     { _erdLoadBalancer = Nothing
     }
@@ -999,14 +999,14 @@ instance FromXML EnvironmentResourcesDescription
 --
 -- * 'etType'
 data EnvironmentTier = EnvironmentTier'
-    { _etName :: !(Maybe Text)
+    { _etName    :: !(Maybe Text)
     , _etVersion :: !(Maybe Text)
-    , _etType :: !(Maybe Text)
+    , _etType    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentTier' smart constructor.
 environmentTier :: EnvironmentTier
-environmentTier = 
+environmentTier =
     EnvironmentTier'
     { _etName = Nothing
     , _etVersion = Nothing
@@ -1059,19 +1059,19 @@ instance ToQuery EnvironmentTier where
 --
 -- * 'edMessage'
 data EventDescription = EventDescription'
-    { _edRequestId :: !(Maybe Text)
-    , _edTemplateName :: !(Maybe Text)
-    , _edSeverity :: !(Maybe EventSeverity)
-    , _edVersionLabel :: !(Maybe Text)
+    { _edRequestId       :: !(Maybe Text)
+    , _edTemplateName    :: !(Maybe Text)
+    , _edSeverity        :: !(Maybe EventSeverity)
+    , _edVersionLabel    :: !(Maybe Text)
     , _edEnvironmentName :: !(Maybe Text)
     , _edApplicationName :: !(Maybe Text)
-    , _edEventDate :: !(Maybe ISO8601)
-    , _edMessage :: !(Maybe Text)
+    , _edEventDate       :: !(Maybe ISO8601)
+    , _edMessage         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventDescription' smart constructor.
 eventDescription :: EventDescription
-eventDescription = 
+eventDescription =
     EventDescription'
     { _edRequestId = Nothing
     , _edTemplateName = Nothing
@@ -1140,7 +1140,7 @@ newtype Instance = Instance'
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' = 
+instance' =
     Instance'
     { _iId = Nothing
     }
@@ -1165,7 +1165,7 @@ newtype LaunchConfiguration = LaunchConfiguration'
 
 -- | 'LaunchConfiguration' smart constructor.
 launchConfiguration :: LaunchConfiguration
-launchConfiguration = 
+launchConfiguration =
     LaunchConfiguration'
     { _lcName = Nothing
     }
@@ -1188,12 +1188,12 @@ instance FromXML LaunchConfiguration where
 -- * 'lPort'
 data Listener = Listener'
     { _lProtocol :: !(Maybe Text)
-    , _lPort :: !(Maybe Int)
+    , _lPort     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Listener' smart constructor.
 listener :: Listener
-listener = 
+listener =
     Listener'
     { _lProtocol = Nothing
     , _lPort = Nothing
@@ -1224,7 +1224,7 @@ newtype LoadBalancer = LoadBalancer'
 
 -- | 'LoadBalancer' smart constructor.
 loadBalancer :: LoadBalancer
-loadBalancer = 
+loadBalancer =
     LoadBalancer'
     { _lbName = Nothing
     }
@@ -1249,13 +1249,13 @@ instance FromXML LoadBalancer where
 -- * 'lbdListeners'
 data LoadBalancerDescription = LoadBalancerDescription'
     { _lbdLoadBalancerName :: !(Maybe Text)
-    , _lbdDomain :: !(Maybe Text)
-    , _lbdListeners :: !(Maybe [Listener])
+    , _lbdDomain           :: !(Maybe Text)
+    , _lbdListeners        :: !(Maybe [Listener])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBalancerDescription' smart constructor.
 loadBalancerDescription :: LoadBalancerDescription
-loadBalancerDescription = 
+loadBalancerDescription =
     LoadBalancerDescription'
     { _lbdLoadBalancerName = Nothing
     , _lbdDomain = Nothing
@@ -1293,12 +1293,12 @@ instance FromXML LoadBalancerDescription where
 -- * 'orrLabel'
 data OptionRestrictionRegex = OptionRestrictionRegex'
     { _orrPattern :: !(Maybe Text)
-    , _orrLabel :: !(Maybe Text)
+    , _orrLabel   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionRestrictionRegex' smart constructor.
 optionRestrictionRegex :: OptionRestrictionRegex
-optionRestrictionRegex = 
+optionRestrictionRegex =
     OptionRestrictionRegex'
     { _orrPattern = Nothing
     , _orrLabel = Nothing
@@ -1330,14 +1330,14 @@ instance FromXML OptionRestrictionRegex where
 --
 -- * 'osNamespace'
 data OptionSpecification = OptionSpecification'
-    { _osOptionName :: !(Maybe Text)
+    { _osOptionName   :: !(Maybe Text)
     , _osResourceName :: !(Maybe Text)
-    , _osNamespace :: !(Maybe Text)
+    , _osNamespace    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionSpecification' smart constructor.
 optionSpecification :: OptionSpecification
-optionSpecification = 
+optionSpecification =
     OptionSpecification'
     { _osOptionName = Nothing
     , _osResourceName = Nothing
@@ -1373,13 +1373,13 @@ instance ToQuery OptionSpecification where
 --
 -- * 'qName'
 data Queue = Queue'
-    { _qURL :: !(Maybe Text)
+    { _qURL  :: !(Maybe Text)
     , _qName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Queue' smart constructor.
 queue :: Queue
-queue = 
+queue =
     Queue'
     { _qURL = Nothing
     , _qName = Nothing
@@ -1407,13 +1407,13 @@ instance FromXML Queue where
 --
 -- * 'slS3Bucket'
 data S3Location = S3Location'
-    { _slS3Key :: !(Maybe Text)
+    { _slS3Key    :: !(Maybe Text)
     , _slS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3Location' smart constructor.
 s3Location :: S3Location
-s3Location = 
+s3Location =
     S3Location'
     { _slS3Key = Nothing
     , _slS3Bucket = Nothing
@@ -1448,12 +1448,12 @@ instance ToQuery S3Location where
 -- * 'ssdSolutionStackName'
 data SolutionStackDescription = SolutionStackDescription'
     { _ssdPermittedFileTypes :: !(Maybe [Text])
-    , _ssdSolutionStackName :: !(Maybe Text)
+    , _ssdSolutionStackName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SolutionStackDescription' smart constructor.
 solutionStackDescription :: SolutionStackDescription
-solutionStackDescription = 
+solutionStackDescription =
     SolutionStackDescription'
     { _ssdPermittedFileTypes = Nothing
     , _ssdSolutionStackName = Nothing
@@ -1484,13 +1484,13 @@ instance FromXML SolutionStackDescription where
 --
 -- * 'scApplicationName'
 data SourceConfiguration = SourceConfiguration'
-    { _scTemplateName :: !(Maybe Text)
+    { _scTemplateName    :: !(Maybe Text)
     , _scApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SourceConfiguration' smart constructor.
 sourceConfiguration :: SourceConfiguration
-sourceConfiguration = 
+sourceConfiguration =
     SourceConfiguration'
     { _scTemplateName = Nothing
     , _scApplicationName = Nothing
@@ -1521,12 +1521,12 @@ instance ToQuery SourceConfiguration where
 -- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
-    , _tagKey :: !(Maybe Text)
+    , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag = 
+tag =
     Tag'
     { _tagValue = Nothing
     , _tagKey = Nothing
@@ -1557,7 +1557,7 @@ newtype Trigger = Trigger'
 
 -- | 'Trigger' smart constructor.
 trigger :: Trigger
-trigger = 
+trigger =
     Trigger'
     { _tName = Nothing
     }
@@ -1584,14 +1584,14 @@ instance FromXML Trigger where
 -- * 'vmMessage'
 data ValidationMessage = ValidationMessage'
     { _vmOptionName :: !(Maybe Text)
-    , _vmSeverity :: !(Maybe ValidationSeverity)
-    , _vmNamespace :: !(Maybe Text)
-    , _vmMessage :: !(Maybe Text)
+    , _vmSeverity   :: !(Maybe ValidationSeverity)
+    , _vmNamespace  :: !(Maybe Text)
+    , _vmMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidationMessage' smart constructor.
 validationMessage :: ValidationMessage
-validationMessage = 
+validationMessage =
     ValidationMessage'
     { _vmOptionName = Nothing
     , _vmSeverity = Nothing

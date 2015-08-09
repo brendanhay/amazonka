@@ -43,11 +43,11 @@ module Network.AWS.IAM.DeleteInstanceProfile
     , deleteInstanceProfileResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteInstanceProfile' smart constructor.
 --
@@ -60,7 +60,7 @@ newtype DeleteInstanceProfile = DeleteInstanceProfile'
 
 -- | 'DeleteInstanceProfile' smart constructor.
 deleteInstanceProfile :: Text -> DeleteInstanceProfile
-deleteInstanceProfile pInstanceProfileName_ = 
+deleteInstanceProfile pInstanceProfileName_ =
     DeleteInstanceProfile'
     { _dipInstanceProfileName = pInstanceProfileName_
     }
@@ -91,7 +91,7 @@ instance ToQuery DeleteInstanceProfile where
 
 -- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
 data DeleteInstanceProfileResponse =
-    DeleteInstanceProfileResponse' 
+    DeleteInstanceProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstanceProfileResponse' smart constructor.

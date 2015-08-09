@@ -49,12 +49,12 @@ module Network.AWS.MachineLearning.DescribeMLModels
     , dmlmsrsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMLModels' smart constructor.
 --
@@ -82,22 +82,22 @@ import Network.AWS.Response
 --
 -- * 'dmlmLE'
 data DescribeMLModels = DescribeMLModels'
-    { _dmlmEQ :: !(Maybe Text)
-    , _dmlmGE :: !(Maybe Text)
-    , _dmlmPrefix :: !(Maybe Text)
-    , _dmlmGT :: !(Maybe Text)
-    , _dmlmNE :: !(Maybe Text)
-    , _dmlmNextToken :: !(Maybe Text)
-    , _dmlmSortOrder :: !(Maybe SortOrder)
-    , _dmlmLimit :: !(Maybe Nat)
-    , _dmlmLT :: !(Maybe Text)
+    { _dmlmEQ             :: !(Maybe Text)
+    , _dmlmGE             :: !(Maybe Text)
+    , _dmlmPrefix         :: !(Maybe Text)
+    , _dmlmGT             :: !(Maybe Text)
+    , _dmlmNE             :: !(Maybe Text)
+    , _dmlmNextToken      :: !(Maybe Text)
+    , _dmlmSortOrder      :: !(Maybe SortOrder)
+    , _dmlmLimit          :: !(Maybe Nat)
+    , _dmlmLT             :: !(Maybe Text)
     , _dmlmFilterVariable :: !(Maybe MLModelFilterVariable)
-    , _dmlmLE :: !(Maybe Text)
+    , _dmlmLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMLModels' smart constructor.
 describeMLModels :: DescribeMLModels
-describeMLModels = 
+describeMLModels =
     DescribeMLModels'
     { _dmlmEQ = Nothing
     , _dmlmGE = Nothing
@@ -260,14 +260,14 @@ instance ToQuery DescribeMLModels where
 --
 -- * 'dmlmsrsStatus'
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
-    { _dmlmsrsResults :: !(Maybe [MLModel])
+    { _dmlmsrsResults   :: !(Maybe [MLModel])
     , _dmlmsrsNextToken :: !(Maybe Text)
-    , _dmlmsrsStatus :: !Int
+    , _dmlmsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
 describeMLModelsResponse :: Int -> DescribeMLModelsResponse
-describeMLModelsResponse pStatus_ = 
+describeMLModelsResponse pStatus_ =
     DescribeMLModelsResponse'
     { _dmlmsrsResults = Nothing
     , _dmlmsrsNextToken = Nothing

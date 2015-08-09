@@ -69,11 +69,11 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , crgrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateReplicationGroup/ action.
 --
@@ -125,33 +125,33 @@ import Network.AWS.Response
 --
 -- * 'crgReplicationGroupDescription'
 data CreateReplicationGroup = CreateReplicationGroup'
-    { _crgAutomaticFailoverEnabled :: !(Maybe Bool)
-    , _crgCacheNodeType :: !(Maybe Text)
-    , _crgEngineVersion :: !(Maybe Text)
-    , _crgSecurityGroupIds :: !(Maybe [Text])
-    , _crgAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _crgSnapshotARNs :: !(Maybe [Text])
-    , _crgCacheParameterGroupName :: !(Maybe Text)
-    , _crgSnapshotWindow :: !(Maybe Text)
-    , _crgPrimaryClusterId :: !(Maybe Text)
-    , _crgEngine :: !(Maybe Text)
-    , _crgPreferredMaintenanceWindow :: !(Maybe Text)
-    , _crgCacheSubnetGroupName :: !(Maybe Text)
-    , _crgSnapshotRetentionLimit :: !(Maybe Int)
-    , _crgSnapshotName :: !(Maybe Text)
-    , _crgPreferredCacheClusterAZs :: !(Maybe [Text])
-    , _crgNumCacheClusters :: !(Maybe Int)
-    , _crgNotificationTopicARN :: !(Maybe Text)
-    , _crgTags :: !(Maybe [Tag])
-    , _crgCacheSecurityGroupNames :: !(Maybe [Text])
-    , _crgPort :: !(Maybe Int)
-    , _crgReplicationGroupId :: !Text
+    { _crgAutomaticFailoverEnabled    :: !(Maybe Bool)
+    , _crgCacheNodeType               :: !(Maybe Text)
+    , _crgEngineVersion               :: !(Maybe Text)
+    , _crgSecurityGroupIds            :: !(Maybe [Text])
+    , _crgAutoMinorVersionUpgrade     :: !(Maybe Bool)
+    , _crgSnapshotARNs                :: !(Maybe [Text])
+    , _crgCacheParameterGroupName     :: !(Maybe Text)
+    , _crgSnapshotWindow              :: !(Maybe Text)
+    , _crgPrimaryClusterId            :: !(Maybe Text)
+    , _crgEngine                      :: !(Maybe Text)
+    , _crgPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _crgCacheSubnetGroupName        :: !(Maybe Text)
+    , _crgSnapshotRetentionLimit      :: !(Maybe Int)
+    , _crgSnapshotName                :: !(Maybe Text)
+    , _crgPreferredCacheClusterAZs    :: !(Maybe [Text])
+    , _crgNumCacheClusters            :: !(Maybe Int)
+    , _crgNotificationTopicARN        :: !(Maybe Text)
+    , _crgTags                        :: !(Maybe [Tag])
+    , _crgCacheSecurityGroupNames     :: !(Maybe [Text])
+    , _crgPort                        :: !(Maybe Int)
+    , _crgReplicationGroupId          :: !Text
     , _crgReplicationGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReplicationGroup' smart constructor.
 createReplicationGroup :: Text -> Text -> CreateReplicationGroup
-createReplicationGroup pReplicationGroupId_ pReplicationGroupDescription_ = 
+createReplicationGroup pReplicationGroupId_ pReplicationGroupDescription_ =
     CreateReplicationGroup'
     { _crgAutomaticFailoverEnabled = Nothing
     , _crgCacheNodeType = Nothing
@@ -474,12 +474,12 @@ instance ToQuery CreateReplicationGroup where
 -- * 'crgrsStatus'
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
     { _crgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _crgrsStatus :: !Int
+    , _crgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReplicationGroupResponse' smart constructor.
 createReplicationGroupResponse :: Int -> CreateReplicationGroupResponse
-createReplicationGroupResponse pStatus_ = 
+createReplicationGroupResponse pStatus_ =
     CreateReplicationGroupResponse'
     { _crgrsReplicationGroup = Nothing
     , _crgrsStatus = pStatus_

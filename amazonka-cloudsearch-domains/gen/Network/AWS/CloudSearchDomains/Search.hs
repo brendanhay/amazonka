@@ -74,11 +74,11 @@ module Network.AWS.CloudSearchDomains.Search
     , searsStatus
     ) where
 
-import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.CloudSearchDomains.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearchDomains.Types
+import           Network.AWS.CloudSearchDomains.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @Search@ request.
 --
@@ -112,24 +112,24 @@ import Network.AWS.Response
 --
 -- * 'seaQuery'
 data Search = Search'
-    { _seaExpr :: !(Maybe Text)
-    , _seaCursor :: !(Maybe Text)
-    , _seaFilterQuery :: !(Maybe Text)
-    , _seaReturn :: !(Maybe Text)
+    { _seaExpr         :: !(Maybe Text)
+    , _seaCursor       :: !(Maybe Text)
+    , _seaFilterQuery  :: !(Maybe Text)
+    , _seaReturn       :: !(Maybe Text)
     , _seaQueryOptions :: !(Maybe Text)
-    , _seaQueryParser :: !(Maybe QueryParser)
-    , _seaSize :: !(Maybe Integer)
-    , _seaStart :: !(Maybe Integer)
-    , _seaHighlight :: !(Maybe Text)
-    , _seaSort :: !(Maybe Text)
-    , _seaFacet :: !(Maybe Text)
-    , _seaPartial :: !(Maybe Bool)
-    , _seaQuery :: !Text
+    , _seaQueryParser  :: !(Maybe QueryParser)
+    , _seaSize         :: !(Maybe Integer)
+    , _seaStart        :: !(Maybe Integer)
+    , _seaHighlight    :: !(Maybe Text)
+    , _seaSort         :: !(Maybe Text)
+    , _seaFacet        :: !(Maybe Text)
+    , _seaPartial      :: !(Maybe Bool)
+    , _seaQuery        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Search' smart constructor.
 search :: Text -> Search
-search pQuery_ = 
+search pQuery_ =
     Search'
     { _seaExpr = Nothing
     , _seaCursor = Nothing
@@ -530,13 +530,13 @@ instance ToQuery Search where
 -- * 'searsStatus'
 data SearchResponse = SearchResponse'
     { _searsFacets :: !(Maybe (Map Text BucketInfo))
-    , _searsHits :: !(Maybe Hits)
+    , _searsHits   :: !(Maybe Hits)
     , _searsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SearchResponse' smart constructor.
 searchResponse :: Int -> SearchResponse
-searchResponse pStatus_ = 
+searchResponse pStatus_ =
     SearchResponse'
     { _searsFacets = Nothing
     , _searsHits = Nothing

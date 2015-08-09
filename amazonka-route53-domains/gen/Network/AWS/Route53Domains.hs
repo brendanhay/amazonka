@@ -16,10 +16,10 @@
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html AWS API Reference>
 module Network.AWS.Route53Domains
     (
-    -- * Service Description
+    -- * Service
       Route53Domains
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidInput

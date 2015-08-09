@@ -50,11 +50,11 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     , setLoadBasedAutoScalingResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBasedAutoScaling' smart constructor.
 --
@@ -68,15 +68,15 @@ import Network.AWS.Response
 --
 -- * 'slbasLayerId'
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
-    { _slbasUpScaling :: !(Maybe AutoScalingThresholds)
-    , _slbasEnable :: !(Maybe Bool)
+    { _slbasUpScaling   :: !(Maybe AutoScalingThresholds)
+    , _slbasEnable      :: !(Maybe Bool)
     , _slbasDownScaling :: !(Maybe AutoScalingThresholds)
-    , _slbasLayerId :: !Text
+    , _slbasLayerId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBasedAutoScaling' smart constructor.
 setLoadBasedAutoScaling :: Text -> SetLoadBasedAutoScaling
-setLoadBasedAutoScaling pLayerId_ = 
+setLoadBasedAutoScaling pLayerId_ =
     SetLoadBasedAutoScaling'
     { _slbasUpScaling = Nothing
     , _slbasEnable = Nothing
@@ -138,7 +138,7 @@ instance ToQuery SetLoadBasedAutoScaling where
 
 -- | /See:/ 'setLoadBasedAutoScalingResponse' smart constructor.
 data SetLoadBasedAutoScalingResponse =
-    SetLoadBasedAutoScalingResponse' 
+    SetLoadBasedAutoScalingResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBasedAutoScalingResponse' smart constructor.

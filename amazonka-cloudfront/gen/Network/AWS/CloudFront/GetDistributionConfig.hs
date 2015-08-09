@@ -38,11 +38,11 @@ module Network.AWS.CloudFront.GetDistributionConfig
     , gdcrsStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to get a distribution configuration.
 --
@@ -57,7 +57,7 @@ newtype GetDistributionConfig = GetDistributionConfig'
 
 -- | 'GetDistributionConfig' smart constructor.
 getDistributionConfig :: Text -> GetDistributionConfig
-getDistributionConfig pId_ = 
+getDistributionConfig pId_ =
     GetDistributionConfig'
     { _gdcId = pId_
     }
@@ -101,14 +101,14 @@ instance ToQuery GetDistributionConfig where
 --
 -- * 'gdcrsStatus'
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-    { _gdcrsETag :: !(Maybe Text)
+    { _gdcrsETag               :: !(Maybe Text)
     , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
-    , _gdcrsStatus :: !Int
+    , _gdcrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistributionConfigResponse' smart constructor.
 getDistributionConfigResponse :: Int -> GetDistributionConfigResponse
-getDistributionConfigResponse pStatus_ = 
+getDistributionConfigResponse pStatus_ =
     GetDistributionConfigResponse'
     { _gdcrsETag = Nothing
     , _gdcrsDistributionConfig = Nothing

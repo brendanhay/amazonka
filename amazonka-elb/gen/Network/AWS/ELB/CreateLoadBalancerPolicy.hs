@@ -44,11 +44,11 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     , clbprsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancerPolicy' smart constructor.
 --
@@ -64,13 +64,13 @@ import Network.AWS.Response
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
     { _clbpPolicyAttributes :: !(Maybe [PolicyAttribute])
     , _clbpLoadBalancerName :: !Text
-    , _clbpPolicyName :: !Text
-    , _clbpPolicyTypeName :: !Text
+    , _clbpPolicyName       :: !Text
+    , _clbpPolicyTypeName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerPolicy' smart constructor.
 createLoadBalancerPolicy :: Text -> Text -> Text -> CreateLoadBalancerPolicy
-createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ = 
+createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ =
     CreateLoadBalancerPolicy'
     { _clbpPolicyAttributes = Nothing
     , _clbpLoadBalancerName = pLoadBalancerName_
@@ -137,7 +137,7 @@ newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
 
 -- | 'CreateLoadBalancerPolicyResponse' smart constructor.
 createLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse
-createLoadBalancerPolicyResponse pStatus_ = 
+createLoadBalancerPolicyResponse pStatus_ =
     CreateLoadBalancerPolicyResponse'
     { _clbprsStatus = pStatus_
     }

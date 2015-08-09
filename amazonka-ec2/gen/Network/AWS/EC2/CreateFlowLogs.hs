@@ -53,11 +53,11 @@ module Network.AWS.EC2.CreateFlowLogs
     , cflrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createFlowLogs' smart constructor.
 --
@@ -75,17 +75,17 @@ import Network.AWS.Response
 --
 -- * 'cflDeliverLogsPermissionARN'
 data CreateFlowLogs = CreateFlowLogs'
-    { _cflClientToken :: !(Maybe Text)
-    , _cflResourceIds :: ![Text]
-    , _cflResourceType :: !FlowLogsResourceType
-    , _cflTrafficType :: !TrafficType
-    , _cflLogGroupName :: !Text
+    { _cflClientToken              :: !(Maybe Text)
+    , _cflResourceIds              :: ![Text]
+    , _cflResourceType             :: !FlowLogsResourceType
+    , _cflTrafficType              :: !TrafficType
+    , _cflLogGroupName             :: !Text
     , _cflDeliverLogsPermissionARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFlowLogs' smart constructor.
 createFlowLogs :: FlowLogsResourceType -> TrafficType -> Text -> Text -> CreateFlowLogs
-createFlowLogs pResourceType_ pTrafficType_ pLogGroupName_ pDeliverLogsPermissionARN_ = 
+createFlowLogs pResourceType_ pTrafficType_ pLogGroupName_ pDeliverLogsPermissionARN_ =
     CreateFlowLogs'
     { _cflClientToken = Nothing
     , _cflResourceIds = mempty
@@ -170,14 +170,14 @@ instance ToQuery CreateFlowLogs where
 -- * 'cflrsStatus'
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
     { _cflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _cflrsClientToken :: !(Maybe Text)
-    , _cflrsFlowLogIds :: !(Maybe [Text])
-    , _cflrsStatus :: !Int
+    , _cflrsClientToken  :: !(Maybe Text)
+    , _cflrsFlowLogIds   :: !(Maybe [Text])
+    , _cflrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFlowLogsResponse' smart constructor.
 createFlowLogsResponse :: Int -> CreateFlowLogsResponse
-createFlowLogsResponse pStatus_ = 
+createFlowLogsResponse pStatus_ =
     CreateFlowLogsResponse'
     { _cflrsUnsuccessful = Nothing
     , _cflrsClientToken = Nothing

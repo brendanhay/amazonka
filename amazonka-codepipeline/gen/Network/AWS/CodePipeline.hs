@@ -106,10 +106,10 @@
 -- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CodePipeline
     (
-    -- * Service Description
+    -- * Service
       CodePipeline
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** ValidationException
@@ -172,73 +172,73 @@ module Network.AWS.CodePipeline
     -- * Operations
     -- $operations
 
-    -- ** GetPipeline 
+    -- ** GetPipeline
     , module Network.AWS.CodePipeline.GetPipeline
 
-    -- ** PutJobFailureResult 
+    -- ** PutJobFailureResult
     , module Network.AWS.CodePipeline.PutJobFailureResult
 
-    -- ** AcknowledgeThirdPartyJob 
+    -- ** AcknowledgeThirdPartyJob
     , module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
 
-    -- ** PutThirdPartyJobFailureResult 
+    -- ** PutThirdPartyJobFailureResult
     , module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
 
-    -- ** PollForThirdPartyJobs 
+    -- ** PollForThirdPartyJobs
     , module Network.AWS.CodePipeline.PollForThirdPartyJobs
 
-    -- ** PollForJobs 
+    -- ** PollForJobs
     , module Network.AWS.CodePipeline.PollForJobs
 
-    -- ** StartPipelineExecution 
+    -- ** StartPipelineExecution
     , module Network.AWS.CodePipeline.StartPipelineExecution
 
-    -- ** UpdatePipeline 
+    -- ** UpdatePipeline
     , module Network.AWS.CodePipeline.UpdatePipeline
 
-    -- ** DeletePipeline 
+    -- ** DeletePipeline
     , module Network.AWS.CodePipeline.DeletePipeline
 
-    -- ** GetPipelineState 
+    -- ** GetPipelineState
     , module Network.AWS.CodePipeline.GetPipelineState
 
-    -- ** GetJobDetails 
+    -- ** GetJobDetails
     , module Network.AWS.CodePipeline.GetJobDetails
 
-    -- ** ListPipelines 
+    -- ** ListPipelines
     , module Network.AWS.CodePipeline.ListPipelines
 
-    -- ** DeleteCustomActionType 
+    -- ** DeleteCustomActionType
     , module Network.AWS.CodePipeline.DeleteCustomActionType
 
-    -- ** PutActionRevision 
+    -- ** PutActionRevision
     , module Network.AWS.CodePipeline.PutActionRevision
 
-    -- ** PutJobSuccessResult 
+    -- ** PutJobSuccessResult
     , module Network.AWS.CodePipeline.PutJobSuccessResult
 
-    -- ** ListActionTypes 
+    -- ** ListActionTypes
     , module Network.AWS.CodePipeline.ListActionTypes
 
-    -- ** DisableStageTransition 
+    -- ** DisableStageTransition
     , module Network.AWS.CodePipeline.DisableStageTransition
 
-    -- ** AcknowledgeJob 
+    -- ** AcknowledgeJob
     , module Network.AWS.CodePipeline.AcknowledgeJob
 
-    -- ** EnableStageTransition 
+    -- ** EnableStageTransition
     , module Network.AWS.CodePipeline.EnableStageTransition
 
-    -- ** GetThirdPartyJobDetails 
+    -- ** GetThirdPartyJobDetails
     , module Network.AWS.CodePipeline.GetThirdPartyJobDetails
 
-    -- ** CreatePipeline 
+    -- ** CreatePipeline
     , module Network.AWS.CodePipeline.CreatePipeline
 
-    -- ** CreateCustomActionType 
+    -- ** CreateCustomActionType
     , module Network.AWS.CodePipeline.CreateCustomActionType
 
-    -- ** PutThirdPartyJobSuccessResult 
+    -- ** PutThirdPartyJobSuccessResult
     , module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
 
     -- * Types
@@ -539,31 +539,31 @@ module Network.AWS.CodePipeline
     , tsLastChangedBy
     ) where
 
-import Network.AWS.CodePipeline.AcknowledgeJob
-import Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
-import Network.AWS.CodePipeline.CreateCustomActionType
-import Network.AWS.CodePipeline.CreatePipeline
-import Network.AWS.CodePipeline.DeleteCustomActionType
-import Network.AWS.CodePipeline.DeletePipeline
-import Network.AWS.CodePipeline.DisableStageTransition
-import Network.AWS.CodePipeline.EnableStageTransition
-import Network.AWS.CodePipeline.GetJobDetails
-import Network.AWS.CodePipeline.GetPipeline
-import Network.AWS.CodePipeline.GetPipelineState
-import Network.AWS.CodePipeline.GetThirdPartyJobDetails
-import Network.AWS.CodePipeline.ListActionTypes
-import Network.AWS.CodePipeline.ListPipelines
-import Network.AWS.CodePipeline.PollForJobs
-import Network.AWS.CodePipeline.PollForThirdPartyJobs
-import Network.AWS.CodePipeline.PutActionRevision
-import Network.AWS.CodePipeline.PutJobFailureResult
-import Network.AWS.CodePipeline.PutJobSuccessResult
-import Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
-import Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
-import Network.AWS.CodePipeline.StartPipelineExecution
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.UpdatePipeline
-import Network.AWS.CodePipeline.Waiters
+import           Network.AWS.CodePipeline.AcknowledgeJob
+import           Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
+import           Network.AWS.CodePipeline.CreateCustomActionType
+import           Network.AWS.CodePipeline.CreatePipeline
+import           Network.AWS.CodePipeline.DeleteCustomActionType
+import           Network.AWS.CodePipeline.DeletePipeline
+import           Network.AWS.CodePipeline.DisableStageTransition
+import           Network.AWS.CodePipeline.EnableStageTransition
+import           Network.AWS.CodePipeline.GetJobDetails
+import           Network.AWS.CodePipeline.GetPipeline
+import           Network.AWS.CodePipeline.GetPipelineState
+import           Network.AWS.CodePipeline.GetThirdPartyJobDetails
+import           Network.AWS.CodePipeline.ListActionTypes
+import           Network.AWS.CodePipeline.ListPipelines
+import           Network.AWS.CodePipeline.PollForJobs
+import           Network.AWS.CodePipeline.PollForThirdPartyJobs
+import           Network.AWS.CodePipeline.PutActionRevision
+import           Network.AWS.CodePipeline.PutJobFailureResult
+import           Network.AWS.CodePipeline.PutJobSuccessResult
+import           Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
+import           Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
+import           Network.AWS.CodePipeline.StartPipelineExecution
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.UpdatePipeline
+import           Network.AWS.CodePipeline.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -39,11 +39,11 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     , dsdsrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotDatafeedSubscription.
 --
@@ -58,7 +58,7 @@ newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
 
 -- | 'DescribeSpotDatafeedSubscription' smart constructor.
 describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
-describeSpotDatafeedSubscription = 
+describeSpotDatafeedSubscription =
     DescribeSpotDatafeedSubscription'
     { _dsdsDryRun = Nothing
     }
@@ -111,12 +111,12 @@ instance ToQuery DescribeSpotDatafeedSubscription
 -- * 'dsdsrsStatus'
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _dsdsrsStatus :: !Int
+    , _dsdsrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
 describeSpotDatafeedSubscriptionResponse :: Int -> DescribeSpotDatafeedSubscriptionResponse
-describeSpotDatafeedSubscriptionResponse pStatus_ = 
+describeSpotDatafeedSubscriptionResponse pStatus_ =
     DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription = Nothing
     , _dsdsrsStatus = pStatus_

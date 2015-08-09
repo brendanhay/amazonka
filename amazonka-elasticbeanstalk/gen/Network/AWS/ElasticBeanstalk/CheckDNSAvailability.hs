@@ -38,11 +38,11 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     , cdarsStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Results message indicating whether a CNAME is available.
 --
@@ -57,7 +57,7 @@ newtype CheckDNSAvailability = CheckDNSAvailability'
 
 -- | 'CheckDNSAvailability' smart constructor.
 checkDNSAvailability :: Text -> CheckDNSAvailability
-checkDNSAvailability pCNAMEPrefix_ = 
+checkDNSAvailability pCNAMEPrefix_ =
     CheckDNSAvailability'
     { _cdaCNAMEPrefix = pCNAMEPrefix_
     }
@@ -104,13 +104,13 @@ instance ToQuery CheckDNSAvailability where
 -- * 'cdarsStatus'
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
     { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
-    , _cdarsAvailable :: !(Maybe Bool)
-    , _cdarsStatus :: !Int
+    , _cdarsAvailable           :: !(Maybe Bool)
+    , _cdarsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
 checkDNSAvailabilityResponse :: Int -> CheckDNSAvailabilityResponse
-checkDNSAvailabilityResponse pStatus_ = 
+checkDNSAvailabilityResponse pStatus_ =
     CheckDNSAvailabilityResponse'
     { _cdarsFullyQualifiedCNAME = Nothing
     , _cdarsAvailable = Nothing

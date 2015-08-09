@@ -13,10 +13,10 @@
 --
 module Network.AWS.STS.Types
     (
-    -- * Service Decription
+    -- * Service
       STS
 
-    -- * Error Matchers
+    -- * Errors
     , _MalformedPolicyDocumentException
     , _PackedPolicyTooLargeException
     , _InvalidAuthorizationMessageException

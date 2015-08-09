@@ -41,11 +41,11 @@ module Network.AWS.IAM.UpdateSAMLProvider
     , usamlprsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateSAMLProvider' smart constructor.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'usamlpSAMLProviderARN'
 data UpdateSAMLProvider = UpdateSAMLProvider'
     { _usamlpSAMLMetadataDocument :: !Text
-    , _usamlpSAMLProviderARN :: !Text
+    , _usamlpSAMLProviderARN      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSAMLProvider' smart constructor.
 updateSAMLProvider :: Text -> Text -> UpdateSAMLProvider
-updateSAMLProvider pSAMLMetadataDocument_ pSAMLProviderARN_ = 
+updateSAMLProvider pSAMLMetadataDocument_ pSAMLProviderARN_ =
     UpdateSAMLProvider'
     { _usamlpSAMLMetadataDocument = pSAMLMetadataDocument_
     , _usamlpSAMLProviderARN = pSAMLProviderARN_
@@ -117,12 +117,12 @@ instance ToQuery UpdateSAMLProvider where
 -- * 'usamlprsStatus'
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
     { _usamlprsSAMLProviderARN :: !(Maybe Text)
-    , _usamlprsStatus :: !Int
+    , _usamlprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSAMLProviderResponse' smart constructor.
 updateSAMLProviderResponse :: Int -> UpdateSAMLProviderResponse
-updateSAMLProviderResponse pStatus_ = 
+updateSAMLProviderResponse pStatus_ =
     UpdateSAMLProviderResponse'
     { _usamlprsSAMLProviderARN = Nothing
     , _usamlprsStatus = pStatus_

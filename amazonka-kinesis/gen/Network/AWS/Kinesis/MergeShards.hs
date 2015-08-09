@@ -75,11 +75,11 @@ module Network.AWS.Kinesis.MergeShards
     , mergeShardsResponse
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @MergeShards@.
 --
@@ -93,14 +93,14 @@ import Network.AWS.Response
 --
 -- * 'msAdjacentShardToMerge'
 data MergeShards = MergeShards'
-    { _msStreamName :: !Text
-    , _msShardToMerge :: !Text
+    { _msStreamName           :: !Text
+    , _msShardToMerge         :: !Text
     , _msAdjacentShardToMerge :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeShards' smart constructor.
 mergeShards :: Text -> Text -> Text -> MergeShards
-mergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ = 
+mergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ =
     MergeShards'
     { _msStreamName = pStreamName_
     , _msShardToMerge = pShardToMerge_
@@ -150,7 +150,7 @@ instance ToQuery MergeShards where
 
 -- | /See:/ 'mergeShardsResponse' smart constructor.
 data MergeShardsResponse =
-    MergeShardsResponse' 
+    MergeShardsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeShardsResponse' smart constructor.

@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.ElasticTranscoder.Types
     (
-    -- * Service Decription
+    -- * Service
       ElasticTranscoder
 
-    -- * Error Matchers
+    -- * Errors
     , _ValidationException
     , _IncompatibleVersionException
     , _AccessDeniedException
@@ -334,10 +334,10 @@ module Network.AWS.ElasticTranscoder.Types
     , wMessage
     ) where
 
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.ElasticTranscoder.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.ElasticTranscoder.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2012-09-25@ of the Amazon Elastic Transcoder SDK.
 data ElasticTranscoder
@@ -346,7 +346,7 @@ instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "ElasticTranscoder"
             , _svcPrefix = "elastictranscoder"
@@ -357,7 +357,7 @@ instance AWSService ElasticTranscoder where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -365,7 +365,7 @@ instance AWSService ElasticTranscoder where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -375,17 +375,17 @@ instance AWSService ElasticTranscoder where
 
 -- | One or more required parameter values were not provided in the request.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException = 
+_ValidationException =
     _ServiceError . hasStatus 400 . hasCode "ValidationException"
 
 -- | Prism for IncompatibleVersionException' errors.
 _IncompatibleVersionException :: AsError a => Getting (First ServiceError) a ServiceError
-_IncompatibleVersionException = 
+_IncompatibleVersionException =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleVersionException"
 
 -- | General authentication failure. The request was not signed correctly.
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedException = 
+_AccessDeniedException =
     _ServiceError . hasStatus 403 . hasCode "AccessDeniedException"
 
 -- | Elastic Transcoder encountered an unexpected exception while trying to
@@ -397,17 +397,17 @@ _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 -- the pipeline to which you\'re trying to add a job doesn\'t exist or is
 -- still being created.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException = 
+_ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The resource you are attempting to change is in use. For example, you
 -- are attempting to delete a pipeline that is currently in use.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = 
+_ResourceInUseException =
     _ServiceError . hasStatus 409 . hasCode "ResourceInUseException"
 
 -- | Too many operations for a given AWS account. For example, the number of
 -- pipelines exceeds the maximum allowed.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = 
+_LimitExceededException =
     _ServiceError . hasStatus 429 . hasCode "LimitExceededException"

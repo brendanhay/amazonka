@@ -16,10 +16,10 @@
 -- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/welcome.html AWS API Reference>
 module Network.AWS.CloudHSM
     (
-    -- * Service Description
+    -- * Service
       CloudHSM
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidRequestException
@@ -37,55 +37,55 @@ module Network.AWS.CloudHSM
     -- * Operations
     -- $operations
 
-    -- ** ListHAPGs 
+    -- ** ListHAPGs
     , module Network.AWS.CloudHSM.ListHAPGs
 
-    -- ** ListHSMs 
+    -- ** ListHSMs
     , module Network.AWS.CloudHSM.ListHSMs
 
-    -- ** DeleteHAPG 
+    -- ** DeleteHAPG
     , module Network.AWS.CloudHSM.DeleteHAPG
 
-    -- ** ModifyLunaClient 
+    -- ** ModifyLunaClient
     , module Network.AWS.CloudHSM.ModifyLunaClient
 
-    -- ** DescribeLunaClient 
+    -- ** DescribeLunaClient
     , module Network.AWS.CloudHSM.DescribeLunaClient
 
-    -- ** CreateHSM 
+    -- ** CreateHSM
     , module Network.AWS.CloudHSM.CreateHSM
 
-    -- ** CreateHAPG 
+    -- ** CreateHAPG
     , module Network.AWS.CloudHSM.CreateHAPG
 
-    -- ** CreateLunaClient 
+    -- ** CreateLunaClient
     , module Network.AWS.CloudHSM.CreateLunaClient
 
-    -- ** DescribeHAPG 
+    -- ** DescribeHAPG
     , module Network.AWS.CloudHSM.DescribeHAPG
 
-    -- ** ListLunaClients 
+    -- ** ListLunaClients
     , module Network.AWS.CloudHSM.ListLunaClients
 
-    -- ** GetConfig 
+    -- ** GetConfig
     , module Network.AWS.CloudHSM.GetConfig
 
-    -- ** DeleteHSM 
+    -- ** DeleteHSM
     , module Network.AWS.CloudHSM.DeleteHSM
 
-    -- ** DescribeHSM 
+    -- ** DescribeHSM
     , module Network.AWS.CloudHSM.DescribeHSM
 
-    -- ** ModifyHAPG 
+    -- ** ModifyHAPG
     , module Network.AWS.CloudHSM.ModifyHAPG
 
-    -- ** ListAvailableZones 
+    -- ** ListAvailableZones
     , module Network.AWS.CloudHSM.ListAvailableZones
 
-    -- ** ModifyHSM 
+    -- ** ModifyHSM
     , module Network.AWS.CloudHSM.ModifyHSM
 
-    -- ** DeleteLunaClient 
+    -- ** DeleteLunaClient
     , module Network.AWS.CloudHSM.DeleteLunaClient
 
     -- * Types
@@ -103,25 +103,25 @@ module Network.AWS.CloudHSM
     , SubscriptionType (..)
     ) where
 
-import Network.AWS.CloudHSM.CreateHAPG
-import Network.AWS.CloudHSM.CreateHSM
-import Network.AWS.CloudHSM.CreateLunaClient
-import Network.AWS.CloudHSM.DeleteHAPG
-import Network.AWS.CloudHSM.DeleteHSM
-import Network.AWS.CloudHSM.DeleteLunaClient
-import Network.AWS.CloudHSM.DescribeHAPG
-import Network.AWS.CloudHSM.DescribeHSM
-import Network.AWS.CloudHSM.DescribeLunaClient
-import Network.AWS.CloudHSM.GetConfig
-import Network.AWS.CloudHSM.ListAvailableZones
-import Network.AWS.CloudHSM.ListHAPGs
-import Network.AWS.CloudHSM.ListHSMs
-import Network.AWS.CloudHSM.ListLunaClients
-import Network.AWS.CloudHSM.ModifyHAPG
-import Network.AWS.CloudHSM.ModifyHSM
-import Network.AWS.CloudHSM.ModifyLunaClient
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Waiters
+import           Network.AWS.CloudHSM.CreateHAPG
+import           Network.AWS.CloudHSM.CreateHSM
+import           Network.AWS.CloudHSM.CreateLunaClient
+import           Network.AWS.CloudHSM.DeleteHAPG
+import           Network.AWS.CloudHSM.DeleteHSM
+import           Network.AWS.CloudHSM.DeleteLunaClient
+import           Network.AWS.CloudHSM.DescribeHAPG
+import           Network.AWS.CloudHSM.DescribeHSM
+import           Network.AWS.CloudHSM.DescribeLunaClient
+import           Network.AWS.CloudHSM.GetConfig
+import           Network.AWS.CloudHSM.ListAvailableZones
+import           Network.AWS.CloudHSM.ListHAPGs
+import           Network.AWS.CloudHSM.ListHSMs
+import           Network.AWS.CloudHSM.ListLunaClients
+import           Network.AWS.CloudHSM.ModifyHAPG
+import           Network.AWS.CloudHSM.ModifyHSM
+import           Network.AWS.CloudHSM.ModifyLunaClient
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

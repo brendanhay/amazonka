@@ -42,10 +42,10 @@
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.StorageGateway
     (
-    -- * Service Description
+    -- * Service
       StorageGateway
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidGatewayRequestException

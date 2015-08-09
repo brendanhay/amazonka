@@ -50,11 +50,11 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     , dvisrsStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeVirtualInterfaces operation.
 --
@@ -66,13 +66,13 @@ import Network.AWS.Response
 --
 -- * 'dviVirtualInterfaceId'
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
-    { _dviConnectionId :: !(Maybe Text)
+    { _dviConnectionId       :: !(Maybe Text)
     , _dviVirtualInterfaceId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfaces' smart constructor.
 describeVirtualInterfaces :: DescribeVirtualInterfaces
-describeVirtualInterfaces = 
+describeVirtualInterfaces =
     DescribeVirtualInterfaces'
     { _dviConnectionId = Nothing
     , _dviVirtualInterfaceId = Nothing
@@ -131,12 +131,12 @@ instance ToQuery DescribeVirtualInterfaces where
 -- * 'dvisrsStatus'
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
-    , _dvisrsStatus :: !Int
+    , _dvisrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
-describeVirtualInterfacesResponse pStatus_ = 
+describeVirtualInterfacesResponse pStatus_ =
     DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces = Nothing
     , _dvisrsStatus = pStatus_

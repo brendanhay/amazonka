@@ -37,11 +37,11 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     , dsrsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DeleteSnapshot operation.
 --
@@ -56,7 +56,7 @@ newtype DeleteSnapshot = DeleteSnapshot'
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotId_ = 
+deleteSnapshot pSnapshotId_ =
     DeleteSnapshot'
     { _dsSnapshotId = pSnapshotId_
     }
@@ -106,12 +106,12 @@ instance ToQuery DeleteSnapshot where
 -- * 'dsrsStatus'
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
     { _dsrsSnapshotId :: !(Maybe Text)
-    , _dsrsStatus :: !Int
+    , _dsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
-deleteSnapshotResponse pStatus_ = 
+deleteSnapshotResponse pStatus_ =
     DeleteSnapshotResponse'
     { _dsrsSnapshotId = Nothing
     , _dsrsStatus = pStatus_

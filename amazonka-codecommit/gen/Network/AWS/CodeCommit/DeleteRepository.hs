@@ -42,11 +42,11 @@ module Network.AWS.CodeCommit.DeleteRepository
     , drrsStatus
     ) where
 
-import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeCommit.Types
+import           Network.AWS.CodeCommit.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a delete repository operation.
 --
@@ -61,7 +61,7 @@ newtype DeleteRepository = DeleteRepository'
 
 -- | 'DeleteRepository' smart constructor.
 deleteRepository :: Text -> DeleteRepository
-deleteRepository pRepositoryName_ = 
+deleteRepository pRepositoryName_ =
     DeleteRepository'
     { _drRepositoryName = pRepositoryName_
     }
@@ -111,12 +111,12 @@ instance ToQuery DeleteRepository where
 -- * 'drrsStatus'
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
     { _drrsRepositoryId :: !(Maybe Text)
-    , _drrsStatus :: !Int
+    , _drrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRepositoryResponse' smart constructor.
 deleteRepositoryResponse :: Int -> DeleteRepositoryResponse
-deleteRepositoryResponse pStatus_ = 
+deleteRepositoryResponse pStatus_ =
     DeleteRepositoryResponse'
     { _drrsRepositoryId = Nothing
     , _drrsStatus = pStatus_

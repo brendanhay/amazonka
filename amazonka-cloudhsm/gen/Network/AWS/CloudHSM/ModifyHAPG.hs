@@ -39,11 +39,11 @@ module Network.AWS.CloudHSM.ModifyHAPG
     , mhrsStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyHAPG' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 -- * 'mhHAPGARN'
 data ModifyHAPG = ModifyHAPG'
     { _mhPartitionSerialList :: !(Maybe [Text])
-    , _mhLabel :: !(Maybe Text)
-    , _mhHAPGARN :: !Text
+    , _mhLabel               :: !(Maybe Text)
+    , _mhHAPGARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHAPG' smart constructor.
 modifyHAPG :: Text -> ModifyHAPG
-modifyHAPG pHAPGARN_ = 
+modifyHAPG pHAPGARN_ =
     ModifyHAPG'
     { _mhPartitionSerialList = Nothing
     , _mhLabel = Nothing
@@ -122,12 +122,12 @@ instance ToQuery ModifyHAPG where
 -- * 'mhrsStatus'
 data ModifyHAPGResponse = ModifyHAPGResponse'
     { _mhrsHAPGARN :: !(Maybe Text)
-    , _mhrsStatus :: !Int
+    , _mhrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHAPGResponse' smart constructor.
 modifyHAPGResponse :: Int -> ModifyHAPGResponse
-modifyHAPGResponse pStatus_ = 
+modifyHAPGResponse pStatus_ =
     ModifyHAPGResponse'
     { _mhrsHAPGARN = Nothing
     , _mhrsStatus = pStatus_

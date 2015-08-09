@@ -42,11 +42,11 @@ module Network.AWS.CodePipeline.PutActionRevision
     , parrsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a put action revision action.
 --
@@ -62,15 +62,15 @@ import Network.AWS.Response
 --
 -- * 'parActionRevision'
 data PutActionRevision = PutActionRevision'
-    { _parPipelineName :: !Text
-    , _parStageName :: !Text
-    , _parActionName :: !Text
+    { _parPipelineName   :: !Text
+    , _parStageName      :: !Text
+    , _parActionName     :: !Text
     , _parActionRevision :: !ActionRevision
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutActionRevision' smart constructor.
 putActionRevision :: Text -> Text -> Text -> ActionRevision -> PutActionRevision
-putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ = 
+putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ =
     PutActionRevision'
     { _parPipelineName = pPipelineName_
     , _parStageName = pStageName_
@@ -144,14 +144,14 @@ instance ToQuery PutActionRevision where
 --
 -- * 'parrsStatus'
 data PutActionRevisionResponse = PutActionRevisionResponse'
-    { _parrsNewRevision :: !(Maybe Bool)
+    { _parrsNewRevision         :: !(Maybe Bool)
     , _parrsPipelineExecutionId :: !(Maybe Text)
-    , _parrsStatus :: !Int
+    , _parrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutActionRevisionResponse' smart constructor.
 putActionRevisionResponse :: Int -> PutActionRevisionResponse
-putActionRevisionResponse pStatus_ = 
+putActionRevisionResponse pStatus_ =
     PutActionRevisionResponse'
     { _parrsNewRevision = Nothing
     , _parrsPipelineExecutionId = Nothing

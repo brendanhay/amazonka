@@ -39,11 +39,11 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     , deleteApplicationResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'daApplicationName'
 data DeleteApplication = DeleteApplication'
     { _daTerminateEnvByForce :: !(Maybe Bool)
-    , _daApplicationName :: !Text
+    , _daApplicationName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
-deleteApplication pApplicationName_ = 
+deleteApplication pApplicationName_ =
     DeleteApplication'
     { _daTerminateEnvByForce = Nothing
     , _daApplicationName = pApplicationName_
@@ -98,7 +98,7 @@ instance ToQuery DeleteApplication where
 
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse =
-    DeleteApplicationResponse' 
+    DeleteApplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationResponse' smart constructor.

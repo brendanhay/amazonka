@@ -49,11 +49,11 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
     , createOrUpdateTagsResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createOrUpdateTags' smart constructor.
 --
@@ -66,7 +66,7 @@ newtype CreateOrUpdateTags = CreateOrUpdateTags'
 
 -- | 'CreateOrUpdateTags' smart constructor.
 createOrUpdateTags :: CreateOrUpdateTags
-createOrUpdateTags = 
+createOrUpdateTags =
     CreateOrUpdateTags'
     { _coutTags = mempty
     }
@@ -97,7 +97,7 @@ instance ToQuery CreateOrUpdateTags where
 
 -- | /See:/ 'createOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse =
-    CreateOrUpdateTagsResponse' 
+    CreateOrUpdateTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOrUpdateTagsResponse' smart constructor.

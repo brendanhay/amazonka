@@ -44,11 +44,11 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     , gvaprsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input for GetVaultAccessPolicy.
 --
@@ -66,7 +66,7 @@ data GetVaultAccessPolicy = GetVaultAccessPolicy'
 
 -- | 'GetVaultAccessPolicy' smart constructor.
 getVaultAccessPolicy :: Text -> Text -> GetVaultAccessPolicy
-getVaultAccessPolicy pAccountId_ pVaultName_ = 
+getVaultAccessPolicy pAccountId_ pVaultName_ =
     GetVaultAccessPolicy'
     { _gvapAccountId = pAccountId_
     , _gvapVaultName = pVaultName_
@@ -123,7 +123,7 @@ data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
 getVaultAccessPolicyResponse :: Int -> GetVaultAccessPolicyResponse
-getVaultAccessPolicyResponse pStatus_ = 
+getVaultAccessPolicyResponse pStatus_ =
     GetVaultAccessPolicyResponse'
     { _gvaprsPolicy = Nothing
     , _gvaprsStatus = pStatus_

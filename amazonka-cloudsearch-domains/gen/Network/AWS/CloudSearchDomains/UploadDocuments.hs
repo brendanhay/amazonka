@@ -65,11 +65,11 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     , udrsStatus
     ) where
 
-import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.CloudSearchDomains.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearchDomains.Types
+import           Network.AWS.CloudSearchDomains.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @UploadDocuments@ request.
 --
@@ -82,12 +82,12 @@ import Network.AWS.Response
 -- * 'udDocuments'
 data UploadDocuments = UploadDocuments'
     { _udContentType :: !ContentType
-    , _udDocuments :: !RqBody
+    , _udDocuments   :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'UploadDocuments' smart constructor.
 uploadDocuments :: ContentType -> RqBody -> UploadDocuments
-uploadDocuments pContentType_ pDocuments_ = 
+uploadDocuments pContentType_ pDocuments_ =
     UploadDocuments'
     { _udContentType = pContentType_
     , _udDocuments = pDocuments_
@@ -147,15 +147,15 @@ instance ToQuery UploadDocuments where
 --
 -- * 'udrsStatus'
 data UploadDocumentsResponse = UploadDocumentsResponse'
-    { _udrsAdds :: !(Maybe Integer)
+    { _udrsAdds     :: !(Maybe Integer)
     , _udrsWarnings :: !(Maybe [DocumentServiceWarning])
-    , _udrsDeletes :: !(Maybe Integer)
-    , _udrsStatus :: !Int
+    , _udrsDeletes  :: !(Maybe Integer)
+    , _udrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadDocumentsResponse' smart constructor.
 uploadDocumentsResponse :: Int -> UploadDocumentsResponse
-uploadDocumentsResponse pStatus_ = 
+uploadDocumentsResponse pStatus_ =
     UploadDocumentsResponse'
     { _udrsAdds = Nothing
     , _udrsWarnings = Nothing

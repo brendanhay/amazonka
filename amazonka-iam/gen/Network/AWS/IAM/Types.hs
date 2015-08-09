@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.IAM.Types
     (
-    -- * Service Decription
+    -- * Service
       IAM
 
-    -- * Error Matchers
+    -- * Errors
     , _CredentialReportNotPresentException
     , _CredentialReportNotReadyException
     , _MalformedPolicyDocumentException
@@ -320,10 +320,10 @@ module Network.AWS.IAM.Types
     , vmdSerialNumber
     ) where
 
-import Network.AWS.IAM.Types.Product
-import Network.AWS.IAM.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.IAM.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2010-05-08@ of the Amazon Identity and Access Management SDK.
 data IAM
@@ -332,7 +332,7 @@ instance AWSService IAM where
     type Sg IAM = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "IAM"
             , _svcPrefix = "iam"
@@ -343,7 +343,7 @@ instance AWSService IAM where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -351,7 +351,7 @@ instance AWSService IAM where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -362,37 +362,37 @@ instance AWSService IAM where
 -- | The request was rejected because the credential report does not exist.
 -- To generate a credential report, use GenerateCredentialReport.
 _CredentialReportNotPresentException :: AsError a => Getting (First ServiceError) a ServiceError
-_CredentialReportNotPresentException = 
+_CredentialReportNotPresentException =
     _ServiceError . hasStatus 410 . hasCode "ReportNotPresent"
 
 -- | The request was rejected because the credential report is still being
 -- generated.
 _CredentialReportNotReadyException :: AsError a => Getting (First ServiceError) a ServiceError
-_CredentialReportNotReadyException = 
+_CredentialReportNotReadyException =
     _ServiceError . hasStatus 404 . hasCode "ReportInProgress"
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException = 
+_MalformedPolicyDocumentException =
     _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
 _EntityAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_EntityAlreadyExistsException = 
+_EntityAlreadyExistsException =
     _ServiceError . hasStatus 409 . hasCode "EntityAlreadyExists"
 
 -- | The request was rejected because the certificate was malformed or
 -- expired. The error message describes the specific error.
 _MalformedCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
-_MalformedCertificateException = 
+_MalformedCertificateException =
     _ServiceError . hasStatus 400 . hasCode "MalformedCertificate"
 
 -- | The request was rejected because the same certificate is associated with
 -- an IAM user in the account.
 _DuplicateCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateCertificateException = 
+_DuplicateCertificateException =
     _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate"
 
 -- | The request was rejected because the most recent credential report has
@@ -402,7 +402,7 @@ _DuplicateCertificateException =
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
 -- in the /Using IAM/ guide.
 _CredentialReportExpiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_CredentialReportExpiredException = 
+_CredentialReportExpiredException =
     _ServiceError . hasStatus 410 . hasCode "ReportExpired"
 
 -- | The request was rejected because it referenced an entity that does not
@@ -414,30 +414,30 @@ _NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity"
 -- has attached subordinate entities. The error message describes these
 -- entities.
 _DeleteConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_DeleteConflictException = 
+_DeleteConflictException =
     _ServiceError . hasStatus 409 . hasCode "DeleteConflict"
 
 -- | The request was rejected because the certificate is invalid.
 _InvalidCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCertificateException = 
+_InvalidCertificateException =
     _ServiceError . hasStatus 400 . hasCode "InvalidCertificate"
 
 -- | The request was rejected because the public key encoding format is
 -- unsupported or unrecognized.
 _UnrecognizedPublicKeyEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnrecognizedPublicKeyEncodingException = 
+_UnrecognizedPublicKeyEncodingException =
     _ServiceError . hasStatus 400 . hasCode "UnrecognizedPublicKeyEncoding"
 
 -- | The request was rejected because the type of user for the transaction
 -- was incorrect.
 _InvalidUserTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidUserTypeException = 
+_InvalidUserTypeException =
     _ServiceError . hasStatus 400 . hasCode "InvalidUserType"
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
 _ServiceFailureException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceFailureException = 
+_ServiceFailureException =
     _ServiceError . hasStatus 500 . hasCode "ServiceFailure"
 
 -- | The request was rejected because an invalid or out-of-range value was
@@ -448,13 +448,13 @@ _InvalidInputException = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 -- | The request was rejected because the public key is malformed or
 -- otherwise invalid.
 _InvalidPublicKeyException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPublicKeyException = 
+_InvalidPublicKeyException =
     _ServiceError . hasStatus 400 . hasCode "InvalidPublicKey"
 
 -- | The request was rejected because the authentication code was not
 -- recognized. The error message describes the specific error.
 _InvalidAuthenticationCodeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidAuthenticationCodeException = 
+_InvalidAuthenticationCodeException =
     _ServiceError . hasStatus 403 . hasCode "InvalidAuthenticationCode"
 
 -- | The request was rejected because it referenced an entity that is
@@ -463,30 +463,30 @@ _InvalidAuthenticationCodeException =
 -- you try again after waiting several minutes. The error message describes
 -- the entity.
 _EntityTemporarilyUnmodifiableException :: AsError a => Getting (First ServiceError) a ServiceError
-_EntityTemporarilyUnmodifiableException = 
+_EntityTemporarilyUnmodifiableException =
     _ServiceError . hasStatus 409 . hasCode "EntityTemporarilyUnmodifiable"
 
 -- | The request was rejected because the SSH public key is already
 -- associated with the specified IAM user.
 _DuplicateSSHPublicKeyException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateSSHPublicKeyException = 
+_DuplicateSSHPublicKeyException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateSSHPublicKey"
 
 -- | The request was rejected because the public key certificate and the
 -- private key do not match.
 _KeyPairMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
-_KeyPairMismatchException = 
+_KeyPairMismatchException =
     _ServiceError . hasStatus 400 . hasCode "KeyPairMismatch"
 
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error message describes the limit
 -- exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = 
+_LimitExceededException =
     _ServiceError . hasStatus 409 . hasCode "LimitExceeded"
 
 -- | The request was rejected because the provided password did not meet the
 -- requirements imposed by the account password policy.
 _PasswordPolicyViolationException :: AsError a => Getting (First ServiceError) a ServiceError
-_PasswordPolicyViolationException = 
+_PasswordPolicyViolationException =
     _ServiceError . hasStatus 400 . hasCode "PasswordPolicyViolation"

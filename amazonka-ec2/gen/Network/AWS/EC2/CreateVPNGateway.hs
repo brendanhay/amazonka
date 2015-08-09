@@ -45,11 +45,11 @@ module Network.AWS.EC2.CreateVPNGateway
     , cvgrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPNGateway' smart constructor.
 --
@@ -62,13 +62,13 @@ import Network.AWS.Response
 -- * 'cvgType'
 data CreateVPNGateway = CreateVPNGateway'
     { _cvgAvailabilityZone :: !(Maybe Text)
-    , _cvgDryRun :: !(Maybe Bool)
-    , _cvgType :: !GatewayType
+    , _cvgDryRun           :: !(Maybe Bool)
+    , _cvgType             :: !GatewayType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNGateway' smart constructor.
 createVPNGateway :: GatewayType -> CreateVPNGateway
-createVPNGateway pType_ = 
+createVPNGateway pType_ =
     CreateVPNGateway'
     { _cvgAvailabilityZone = Nothing
     , _cvgDryRun = Nothing
@@ -123,12 +123,12 @@ instance ToQuery CreateVPNGateway where
 -- * 'cvgrsStatus'
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrsVPNGateway :: !(Maybe VPNGateway)
-    , _cvgrsStatus :: !Int
+    , _cvgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
 createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse
-createVPNGatewayResponse pStatus_ = 
+createVPNGatewayResponse pStatus_ =
     CreateVPNGatewayResponse'
     { _cvgrsVPNGateway = Nothing
     , _cvgrsStatus = pStatus_

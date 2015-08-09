@@ -18,8 +18,8 @@
 --
 module Network.AWS.CloudFront.Types.Product where
 
-import Network.AWS.CloudFront.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.CloudFront.Types.Sum
+import           Network.AWS.Prelude
 
 -- | A complex type that lists the AWS accounts, if any, that you included in
 -- the TrustedSigners complex type for the default cache behavior or for
@@ -37,14 +37,14 @@ import Network.AWS.Prelude
 --
 -- * 'atsQuantity'
 data ActiveTrustedSigners = ActiveTrustedSigners'
-    { _atsItems :: !(Maybe [Signer])
-    , _atsEnabled :: !Bool
+    { _atsItems    :: !(Maybe [Signer])
+    , _atsEnabled  :: !Bool
     , _atsQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActiveTrustedSigners' smart constructor.
 activeTrustedSigners :: Bool -> Int -> ActiveTrustedSigners
-activeTrustedSigners pEnabled_ pQuantity_ = 
+activeTrustedSigners pEnabled_ pQuantity_ =
     ActiveTrustedSigners'
     { _atsItems = Nothing
     , _atsEnabled = pEnabled_
@@ -87,13 +87,13 @@ instance FromXML ActiveTrustedSigners where
 --
 -- * 'aQuantity'
 data Aliases = Aliases'
-    { _aItems :: !(Maybe [Text])
+    { _aItems    :: !(Maybe [Text])
     , _aQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Aliases' smart constructor.
 aliases :: Int -> Aliases
-aliases pQuantity_ = 
+aliases pQuantity_ =
     Aliases'
     { _aItems = Nothing
     , _aQuantity = pQuantity_
@@ -142,13 +142,13 @@ instance ToXML Aliases where
 -- * 'amItems'
 data AllowedMethods = AllowedMethods'
     { _amCachedMethods :: !(Maybe CachedMethods)
-    , _amQuantity :: !Int
-    , _amItems :: ![Method]
+    , _amQuantity      :: !Int
+    , _amItems         :: ![Method]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllowedMethods' smart constructor.
 allowedMethods :: Int -> AllowedMethods
-allowedMethods pQuantity_ = 
+allowedMethods pQuantity_ =
     AllowedMethods'
     { _amCachedMethods = Nothing
     , _amQuantity = pQuantity_
@@ -225,21 +225,21 @@ instance ToXML AllowedMethods where
 --
 -- * 'cbMinTTL'
 data CacheBehavior = CacheBehavior'
-    { _cbAllowedMethods :: !(Maybe AllowedMethods)
-    , _cbMaxTTL :: !(Maybe Integer)
-    , _cbSmoothStreaming :: !(Maybe Bool)
-    , _cbDefaultTTL :: !(Maybe Integer)
-    , _cbPathPattern :: !Text
-    , _cbTargetOriginId :: !Text
-    , _cbForwardedValues :: !ForwardedValues
-    , _cbTrustedSigners :: !TrustedSigners
+    { _cbAllowedMethods       :: !(Maybe AllowedMethods)
+    , _cbMaxTTL               :: !(Maybe Integer)
+    , _cbSmoothStreaming      :: !(Maybe Bool)
+    , _cbDefaultTTL           :: !(Maybe Integer)
+    , _cbPathPattern          :: !Text
+    , _cbTargetOriginId       :: !Text
+    , _cbForwardedValues      :: !ForwardedValues
+    , _cbTrustedSigners       :: !TrustedSigners
     , _cbViewerProtocolPolicy :: !ViewerProtocolPolicy
-    , _cbMinTTL :: !Integer
+    , _cbMinTTL               :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheBehavior' smart constructor.
 cacheBehavior :: Text -> Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> CacheBehavior
-cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ = 
+cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     CacheBehavior'
     { _cbAllowedMethods = Nothing
     , _cbMaxTTL = Nothing
@@ -375,13 +375,13 @@ instance ToXML CacheBehavior where
 --
 -- * 'cbQuantity'
 data CacheBehaviors = CacheBehaviors'
-    { _cbItems :: !(Maybe [CacheBehavior])
+    { _cbItems    :: !(Maybe [CacheBehavior])
     , _cbQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheBehaviors' smart constructor.
 cacheBehaviors :: Int -> CacheBehaviors
-cacheBehaviors pQuantity_ = 
+cacheBehaviors pQuantity_ =
     CacheBehaviors'
     { _cbItems = Nothing
     , _cbQuantity = pQuantity_
@@ -427,12 +427,12 @@ instance ToXML CacheBehaviors where
 -- * 'cmItems'
 data CachedMethods = CachedMethods'
     { _cmQuantity :: !Int
-    , _cmItems :: ![Method]
+    , _cmItems    :: ![Method]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CachedMethods' smart constructor.
 cachedMethods :: Int -> CachedMethods
-cachedMethods pQuantity_ = 
+cachedMethods pQuantity_ =
     CachedMethods'
     { _cmQuantity = pQuantity_
     , _cmItems = mempty
@@ -475,13 +475,13 @@ instance ToXML CachedMethods where
 -- * 'cfoaiS3CanonicalUserId'
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
     { _cfoaiCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
-    , _cfoaiId :: !Text
-    , _cfoaiS3CanonicalUserId :: !Text
+    , _cfoaiId                                   :: !Text
+    , _cfoaiS3CanonicalUserId                    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentity' smart constructor.
 cloudFrontOriginAccessIdentity :: Text -> Text -> CloudFrontOriginAccessIdentity
-cloudFrontOriginAccessIdentity pId_ pS3CanonicalUserId_ = 
+cloudFrontOriginAccessIdentity pId_ pS3CanonicalUserId_ =
     CloudFrontOriginAccessIdentity'
     { _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
     , _cfoaiId = pId_
@@ -520,12 +520,12 @@ instance FromXML CloudFrontOriginAccessIdentity where
 -- * 'cfoaicComment'
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
     { _cfoaicCallerReference :: !Text
-    , _cfoaicComment :: !Text
+    , _cfoaicComment         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentityConfig' smart constructor.
 cloudFrontOriginAccessIdentityConfig :: Text -> Text -> CloudFrontOriginAccessIdentityConfig
-cloudFrontOriginAccessIdentityConfig pCallerReference_ pComment_ = 
+cloudFrontOriginAccessIdentityConfig pCallerReference_ pComment_ =
     CloudFrontOriginAccessIdentityConfig'
     { _cfoaicCallerReference = pCallerReference_
     , _cfoaicComment = pComment_
@@ -581,17 +581,17 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
 --
 -- * 'cfoailQuantity'
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
-    { _cfoailItems :: !(Maybe [CloudFrontOriginAccessIdentitySummary])
-    , _cfoailNextMarker :: !(Maybe Text)
-    , _cfoailMarker :: !Text
-    , _cfoailMaxItems :: !Int
+    { _cfoailItems       :: !(Maybe [CloudFrontOriginAccessIdentitySummary])
+    , _cfoailNextMarker  :: !(Maybe Text)
+    , _cfoailMarker      :: !Text
+    , _cfoailMaxItems    :: !Int
     , _cfoailIsTruncated :: !Bool
-    , _cfoailQuantity :: !Int
+    , _cfoailQuantity    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentityList' smart constructor.
 cloudFrontOriginAccessIdentityList :: Text -> Int -> Bool -> Int -> CloudFrontOriginAccessIdentityList
-cloudFrontOriginAccessIdentityList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ = 
+cloudFrontOriginAccessIdentityList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     CloudFrontOriginAccessIdentityList'
     { _cfoailItems = Nothing
     , _cfoailNextMarker = Nothing
@@ -659,14 +659,14 @@ instance FromXML CloudFrontOriginAccessIdentityList
 --
 -- * 'cfoaisComment'
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary'
-    { _cfoaisId :: !Text
+    { _cfoaisId                :: !Text
     , _cfoaisS3CanonicalUserId :: !Text
-    , _cfoaisComment :: !Text
+    , _cfoaisComment           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentitySummary' smart constructor.
 cloudFrontOriginAccessIdentitySummary :: Text -> Text -> Text -> CloudFrontOriginAccessIdentitySummary
-cloudFrontOriginAccessIdentitySummary pId_ pS3CanonicalUserId_ pComment_ = 
+cloudFrontOriginAccessIdentitySummary pId_ pS3CanonicalUserId_ pComment_ =
     CloudFrontOriginAccessIdentitySummary'
     { _cfoaisId = pId_
     , _cfoaisS3CanonicalUserId = pS3CanonicalUserId_
@@ -707,13 +707,13 @@ instance FromXML
 --
 -- * 'cnQuantity'
 data CookieNames = CookieNames'
-    { _cnItems :: !(Maybe [Text])
+    { _cnItems    :: !(Maybe [Text])
     , _cnQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CookieNames' smart constructor.
 cookieNames :: Int -> CookieNames
-cookieNames pQuantity_ = 
+cookieNames pQuantity_ =
     CookieNames'
     { _cnItems = Nothing
     , _cnQuantity = pQuantity_
@@ -753,12 +753,12 @@ instance ToXML CookieNames where
 -- * 'cpForward'
 data CookiePreference = CookiePreference'
     { _cpWhitelistedNames :: !(Maybe CookieNames)
-    , _cpForward :: !ItemSelection
+    , _cpForward          :: !ItemSelection
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CookiePreference' smart constructor.
 cookiePreference :: ItemSelection -> CookiePreference
-cookiePreference pForward_ = 
+cookiePreference pForward_ =
     CookiePreference'
     { _cpWhitelistedNames = Nothing
     , _cpForward = pForward_
@@ -813,15 +813,15 @@ instance ToXML CookiePreference where
 --
 -- * 'ceErrorCode'
 data CustomErrorResponse = CustomErrorResponse'
-    { _ceResponsePagePath :: !(Maybe Text)
-    , _ceResponseCode :: !(Maybe Text)
+    { _ceResponsePagePath   :: !(Maybe Text)
+    , _ceResponseCode       :: !(Maybe Text)
     , _ceErrorCachingMinTTL :: !(Maybe Integer)
-    , _ceErrorCode :: !Int
+    , _ceErrorCode          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomErrorResponse' smart constructor.
 customErrorResponse :: Int -> CustomErrorResponse
-customErrorResponse pErrorCode_ = 
+customErrorResponse pErrorCode_ =
     CustomErrorResponse'
     { _ceResponsePagePath = Nothing
     , _ceResponseCode = Nothing
@@ -882,13 +882,13 @@ instance ToXML CustomErrorResponse where
 --
 -- * 'cerQuantity'
 data CustomErrorResponses = CustomErrorResponses'
-    { _cerItems :: !(Maybe [CustomErrorResponse])
+    { _cerItems    :: !(Maybe [CustomErrorResponse])
     , _cerQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomErrorResponses' smart constructor.
 customErrorResponses :: Int -> CustomErrorResponses
-customErrorResponses pQuantity_ = 
+customErrorResponses pQuantity_ =
     CustomErrorResponses'
     { _cerItems = Nothing
     , _cerQuantity = pQuantity_
@@ -930,14 +930,14 @@ instance ToXML CustomErrorResponses where
 --
 -- * 'cocOriginProtocolPolicy'
 data CustomOriginConfig = CustomOriginConfig'
-    { _cocHTTPPort :: !Int
-    , _cocHTTPSPort :: !Int
+    { _cocHTTPPort             :: !Int
+    , _cocHTTPSPort            :: !Int
     , _cocOriginProtocolPolicy :: !OriginProtocolPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomOriginConfig' smart constructor.
 customOriginConfig :: Int -> Int -> OriginProtocolPolicy -> CustomOriginConfig
-customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ = 
+customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ =
     CustomOriginConfig'
     { _cocHTTPPort = pHTTPPort_
     , _cocHTTPSPort = pHTTPSPort_
@@ -996,20 +996,20 @@ instance ToXML CustomOriginConfig where
 --
 -- * 'dcbMinTTL'
 data DefaultCacheBehavior = DefaultCacheBehavior'
-    { _dcbAllowedMethods :: !(Maybe AllowedMethods)
-    , _dcbMaxTTL :: !(Maybe Integer)
-    , _dcbSmoothStreaming :: !(Maybe Bool)
-    , _dcbDefaultTTL :: !(Maybe Integer)
-    , _dcbTargetOriginId :: !Text
-    , _dcbForwardedValues :: !ForwardedValues
-    , _dcbTrustedSigners :: !TrustedSigners
+    { _dcbAllowedMethods       :: !(Maybe AllowedMethods)
+    , _dcbMaxTTL               :: !(Maybe Integer)
+    , _dcbSmoothStreaming      :: !(Maybe Bool)
+    , _dcbDefaultTTL           :: !(Maybe Integer)
+    , _dcbTargetOriginId       :: !Text
+    , _dcbForwardedValues      :: !ForwardedValues
+    , _dcbTrustedSigners       :: !TrustedSigners
     , _dcbViewerProtocolPolicy :: !ViewerProtocolPolicy
-    , _dcbMinTTL :: !Integer
+    , _dcbMinTTL               :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefaultCacheBehavior' smart constructor.
 defaultCacheBehavior :: Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> DefaultCacheBehavior
-defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ = 
+defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     DefaultCacheBehavior'
     { _dcbAllowedMethods = Nothing
     , _dcbMaxTTL = Nothing
@@ -1141,18 +1141,18 @@ instance ToXML DefaultCacheBehavior where
 --
 -- * 'dDistributionConfig'
 data Distribution = Distribution'
-    { _dId :: !Text
-    , _dStatus :: !Text
-    , _dLastModifiedTime :: !ISO8601
+    { _dId                            :: !Text
+    , _dStatus                        :: !Text
+    , _dLastModifiedTime              :: !ISO8601
     , _dInProgressInvalidationBatches :: !Int
-    , _dDomainName :: !Text
-    , _dActiveTrustedSigners :: !ActiveTrustedSigners
-    , _dDistributionConfig :: !DistributionConfig
+    , _dDomainName                    :: !Text
+    , _dActiveTrustedSigners          :: !ActiveTrustedSigners
+    , _dDistributionConfig            :: !DistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Distribution' smart constructor.
 distribution :: Text -> Text -> UTCTime -> Int -> Text -> ActiveTrustedSigners -> DistributionConfig -> Distribution
-distribution pId_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pDomainName_ pActiveTrustedSigners_ pDistributionConfig_ = 
+distribution pId_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pDomainName_ pActiveTrustedSigners_ pDistributionConfig_ =
     Distribution'
     { _dId = pId_
     , _dStatus = pStatus_
@@ -1244,24 +1244,24 @@ instance FromXML Distribution where
 --
 -- * 'dcEnabled'
 data DistributionConfig = DistributionConfig'
-    { _dcDefaultRootObject :: !(Maybe Text)
-    , _dcAliases :: !(Maybe Aliases)
+    { _dcDefaultRootObject    :: !(Maybe Text)
+    , _dcAliases              :: !(Maybe Aliases)
     , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
-    , _dcPriceClass :: !(Maybe PriceClass)
-    , _dcViewerCertificate :: !(Maybe ViewerCertificate)
-    , _dcRestrictions :: !(Maybe Restrictions)
-    , _dcCacheBehaviors :: !(Maybe CacheBehaviors)
-    , _dcLogging :: !(Maybe LoggingConfig)
-    , _dcCallerReference :: !Text
-    , _dcOrigins :: !Origins
+    , _dcPriceClass           :: !(Maybe PriceClass)
+    , _dcViewerCertificate    :: !(Maybe ViewerCertificate)
+    , _dcRestrictions         :: !(Maybe Restrictions)
+    , _dcCacheBehaviors       :: !(Maybe CacheBehaviors)
+    , _dcLogging              :: !(Maybe LoggingConfig)
+    , _dcCallerReference      :: !Text
+    , _dcOrigins              :: !Origins
     , _dcDefaultCacheBehavior :: !DefaultCacheBehavior
-    , _dcComment :: !Text
-    , _dcEnabled :: !Bool
+    , _dcComment              :: !Text
+    , _dcEnabled              :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DistributionConfig' smart constructor.
 distributionConfig :: Text -> Origins -> DefaultCacheBehavior -> Text -> Bool -> DistributionConfig
-distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ = 
+distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ =
     DistributionConfig'
     { _dcDefaultRootObject = Nothing
     , _dcAliases = Nothing
@@ -1407,17 +1407,17 @@ instance ToXML DistributionConfig where
 --
 -- * 'dlQuantity'
 data DistributionList = DistributionList'
-    { _dlItems :: !(Maybe [DistributionSummary])
-    , _dlNextMarker :: !(Maybe Text)
-    , _dlMarker :: !Text
-    , _dlMaxItems :: !Int
+    { _dlItems       :: !(Maybe [DistributionSummary])
+    , _dlNextMarker  :: !(Maybe Text)
+    , _dlMarker      :: !Text
+    , _dlMaxItems    :: !Int
     , _dlIsTruncated :: !Bool
-    , _dlQuantity :: !Int
+    , _dlQuantity    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DistributionList' smart constructor.
 distributionList :: Text -> Int -> Bool -> Int -> DistributionList
-distributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ = 
+distributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     DistributionList'
     { _dlItems = Nothing
     , _dlNextMarker = Nothing
@@ -1503,25 +1503,25 @@ instance FromXML DistributionList where
 --
 -- * 'dsRestrictions'
 data DistributionSummary = DistributionSummary'
-    { _dsId :: !Text
-    , _dsStatus :: !Text
-    , _dsLastModifiedTime :: !ISO8601
-    , _dsDomainName :: !Text
-    , _dsAliases :: !Aliases
-    , _dsOrigins :: !Origins
+    { _dsId                   :: !Text
+    , _dsStatus               :: !Text
+    , _dsLastModifiedTime     :: !ISO8601
+    , _dsDomainName           :: !Text
+    , _dsAliases              :: !Aliases
+    , _dsOrigins              :: !Origins
     , _dsDefaultCacheBehavior :: !DefaultCacheBehavior
-    , _dsCacheBehaviors :: !CacheBehaviors
+    , _dsCacheBehaviors       :: !CacheBehaviors
     , _dsCustomErrorResponses :: !CustomErrorResponses
-    , _dsComment :: !Text
-    , _dsPriceClass :: !PriceClass
-    , _dsEnabled :: !Bool
-    , _dsViewerCertificate :: !ViewerCertificate
-    , _dsRestrictions :: !Restrictions
+    , _dsComment              :: !Text
+    , _dsPriceClass           :: !PriceClass
+    , _dsEnabled              :: !Bool
+    , _dsViewerCertificate    :: !ViewerCertificate
+    , _dsRestrictions         :: !Restrictions
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DistributionSummary' smart constructor.
 distributionSummary :: Text -> Text -> UTCTime -> Text -> Aliases -> Origins -> DefaultCacheBehavior -> CacheBehaviors -> CustomErrorResponses -> Text -> PriceClass -> Bool -> ViewerCertificate -> Restrictions -> DistributionSummary
-distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ = 
+distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ =
     DistributionSummary'
     { _dsId = pId_
     , _dsStatus = pStatus_
@@ -1634,14 +1634,14 @@ instance FromXML DistributionSummary where
 --
 -- * 'fvCookies'
 data ForwardedValues = ForwardedValues'
-    { _fvHeaders :: !(Maybe Headers)
+    { _fvHeaders     :: !(Maybe Headers)
     , _fvQueryString :: !Bool
-    , _fvCookies :: !CookiePreference
+    , _fvCookies     :: !CookiePreference
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ForwardedValues' smart constructor.
 forwardedValues :: Bool -> CookiePreference -> ForwardedValues
-forwardedValues pQueryString_ pCookies_ = 
+forwardedValues pQueryString_ pCookies_ =
     ForwardedValues'
     { _fvHeaders = Nothing
     , _fvQueryString = pQueryString_
@@ -1693,14 +1693,14 @@ instance ToXML ForwardedValues where
 --
 -- * 'grQuantity'
 data GeoRestriction = GeoRestriction'
-    { _grItems :: !(Maybe [Text])
+    { _grItems           :: !(Maybe [Text])
     , _grRestrictionType :: !GeoRestrictionType
-    , _grQuantity :: !Int
+    , _grQuantity        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GeoRestriction' smart constructor.
 geoRestriction :: GeoRestrictionType -> Int -> GeoRestriction
-geoRestriction pRestrictionType_ pQuantity_ = 
+geoRestriction pRestrictionType_ pQuantity_ =
     GeoRestriction'
     { _grItems = Nothing
     , _grRestrictionType = pRestrictionType_
@@ -1770,13 +1770,13 @@ instance ToXML GeoRestriction where
 --
 -- * 'hQuantity'
 data Headers = Headers'
-    { _hItems :: !(Maybe [Text])
+    { _hItems    :: !(Maybe [Text])
     , _hQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Headers' smart constructor.
 headers :: Int -> Headers
-headers pQuantity_ = 
+headers pQuantity_ =
     Headers'
     { _hItems = Nothing
     , _hQuantity = pQuantity_
@@ -1825,15 +1825,15 @@ instance ToXML Headers where
 --
 -- * 'iInvalidationBatch'
 data Invalidation = Invalidation'
-    { _iId :: !Text
-    , _iStatus :: !Text
-    , _iCreateTime :: !ISO8601
+    { _iId                :: !Text
+    , _iStatus            :: !Text
+    , _iCreateTime        :: !ISO8601
     , _iInvalidationBatch :: !InvalidationBatch
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Invalidation' smart constructor.
 invalidation :: Text -> Text -> UTCTime -> InvalidationBatch -> Invalidation
-invalidation pId_ pStatus_ pCreateTime_ pInvalidationBatch_ = 
+invalidation pId_ pStatus_ pCreateTime_ pInvalidationBatch_ =
     Invalidation'
     { _iId = pId_
     , _iStatus = pStatus_
@@ -1876,13 +1876,13 @@ instance FromXML Invalidation where
 --
 -- * 'ibCallerReference'
 data InvalidationBatch = InvalidationBatch'
-    { _ibPaths :: !Paths
+    { _ibPaths           :: !Paths
     , _ibCallerReference :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvalidationBatch' smart constructor.
 invalidationBatch :: Paths -> Text -> InvalidationBatch
-invalidationBatch pPaths_ pCallerReference_ = 
+invalidationBatch pPaths_ pCallerReference_ =
     InvalidationBatch'
     { _ibPaths = pPaths_
     , _ibCallerReference = pCallerReference_
@@ -1940,17 +1940,17 @@ instance ToXML InvalidationBatch where
 --
 -- * 'ilQuantity'
 data InvalidationList = InvalidationList'
-    { _ilItems :: !(Maybe [InvalidationSummary])
-    , _ilNextMarker :: !(Maybe Text)
-    , _ilMarker :: !Text
-    , _ilMaxItems :: !Int
+    { _ilItems       :: !(Maybe [InvalidationSummary])
+    , _ilNextMarker  :: !(Maybe Text)
+    , _ilMarker      :: !Text
+    , _ilMaxItems    :: !Int
     , _ilIsTruncated :: !Bool
-    , _ilQuantity :: !Int
+    , _ilQuantity    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvalidationList' smart constructor.
 invalidationList :: Text -> Int -> Bool -> Int -> InvalidationList
-invalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ = 
+invalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     InvalidationList'
     { _ilItems = Nothing
     , _ilNextMarker = Nothing
@@ -2014,14 +2014,14 @@ instance FromXML InvalidationList where
 --
 -- * 'isStatus'
 data InvalidationSummary = InvalidationSummary'
-    { _isId :: !Text
+    { _isId         :: !Text
     , _isCreateTime :: !ISO8601
-    , _isStatus :: !Text
+    , _isStatus     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvalidationSummary' smart constructor.
 invalidationSummary :: Text -> UTCTime -> Text -> InvalidationSummary
-invalidationSummary pId_ pCreateTime_ pStatus_ = 
+invalidationSummary pId_ pCreateTime_ pStatus_ =
     InvalidationSummary'
     { _isId = pId_
     , _isCreateTime = _Time # pCreateTime_
@@ -2057,13 +2057,13 @@ instance FromXML InvalidationSummary where
 --
 -- * 'kpiQuantity'
 data KeyPairIds = KeyPairIds'
-    { _kpiItems :: !(Maybe [Text])
+    { _kpiItems    :: !(Maybe [Text])
     , _kpiQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyPairIds' smart constructor.
 keyPairIds :: Int -> KeyPairIds
-keyPairIds pQuantity_ = 
+keyPairIds pQuantity_ =
     KeyPairIds'
     { _kpiItems = Nothing
     , _kpiQuantity = pQuantity_
@@ -2100,15 +2100,15 @@ instance FromXML KeyPairIds where
 --
 -- * 'lcPrefix'
 data LoggingConfig = LoggingConfig'
-    { _lcEnabled :: !Bool
+    { _lcEnabled        :: !Bool
     , _lcIncludeCookies :: !Bool
-    , _lcBucket :: !Text
-    , _lcPrefix :: !Text
+    , _lcBucket         :: !Text
+    , _lcPrefix         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoggingConfig' smart constructor.
 loggingConfig :: Bool -> Bool -> Text -> Text -> LoggingConfig
-loggingConfig pEnabled_ pIncludeCookies_ pBucket_ pPrefix_ = 
+loggingConfig pEnabled_ pIncludeCookies_ pBucket_ pPrefix_ =
     LoggingConfig'
     { _lcEnabled = pEnabled_
     , _lcIncludeCookies = pIncludeCookies_
@@ -2180,15 +2180,15 @@ instance ToXML LoggingConfig where
 -- * 'oDomainName'
 data Origin = Origin'
     { _oCustomOriginConfig :: !(Maybe CustomOriginConfig)
-    , _oS3OriginConfig :: !(Maybe S3OriginConfig)
-    , _oOriginPath :: !(Maybe Text)
-    , _oId :: !Text
-    , _oDomainName :: !Text
+    , _oS3OriginConfig     :: !(Maybe S3OriginConfig)
+    , _oOriginPath         :: !(Maybe Text)
+    , _oId                 :: !Text
+    , _oDomainName         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Origin' smart constructor.
 origin :: Text -> Text -> Origin
-origin pId_ pDomainName_ = 
+origin pId_ pDomainName_ =
     Origin'
     { _oCustomOriginConfig = Nothing
     , _oS3OriginConfig = Nothing
@@ -2259,13 +2259,13 @@ instance ToXML Origin where
 --
 -- * 'oQuantity'
 data Origins = Origins'
-    { _oItems :: !(Maybe (List1 Origin))
+    { _oItems    :: !(Maybe (List1 Origin))
     , _oQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Origins' smart constructor.
 origins :: Int -> Origins
-origins pQuantity_ = 
+origins pQuantity_ =
     Origins'
     { _oItems = Nothing
     , _oQuantity = pQuantity_
@@ -2303,13 +2303,13 @@ instance ToXML Origins where
 --
 -- * 'pQuantity'
 data Paths = Paths'
-    { _pItems :: !(Maybe [Text])
+    { _pItems    :: !(Maybe [Text])
     , _pQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Paths' smart constructor.
 paths :: Int -> Paths
-paths pQuantity_ = 
+paths pQuantity_ =
     Paths'
     { _pItems = Nothing
     , _pQuantity = pQuantity_
@@ -2351,7 +2351,7 @@ newtype Restrictions = Restrictions'
 
 -- | 'Restrictions' smart constructor.
 restrictions :: GeoRestriction -> Restrictions
-restrictions pGeoRestriction_ = 
+restrictions pGeoRestriction_ =
     Restrictions'
     { _rGeoRestriction = pGeoRestriction_
     }
@@ -2379,13 +2379,13 @@ instance ToXML Restrictions where
 --
 -- * 'soOriginAccessIdentity'
 data S3Origin = S3Origin'
-    { _soDomainName :: !Text
+    { _soDomainName           :: !Text
     , _soOriginAccessIdentity :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3Origin' smart constructor.
 s3Origin :: Text -> Text -> S3Origin
-s3Origin pDomainName_ pOriginAccessIdentity_ = 
+s3Origin pDomainName_ pOriginAccessIdentity_ =
     S3Origin'
     { _soDomainName = pDomainName_
     , _soOriginAccessIdentity = pOriginAccessIdentity_
@@ -2425,7 +2425,7 @@ newtype S3OriginConfig = S3OriginConfig'
 
 -- | 'S3OriginConfig' smart constructor.
 s3OriginConfig :: Text -> S3OriginConfig
-s3OriginConfig pOriginAccessIdentity_ = 
+s3OriginConfig pOriginAccessIdentity_ =
     S3OriginConfig'
     { _socOriginAccessIdentity = pOriginAccessIdentity_
     }
@@ -2467,12 +2467,12 @@ instance ToXML S3OriginConfig where
 -- * 'sKeyPairIds'
 data Signer = Signer'
     { _sAWSAccountNumber :: !(Maybe Text)
-    , _sKeyPairIds :: !(Maybe KeyPairIds)
+    , _sKeyPairIds       :: !(Maybe KeyPairIds)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Signer' smart constructor.
 signer :: Signer
-signer = 
+signer =
     Signer'
     { _sAWSAccountNumber = Nothing
     , _sKeyPairIds = Nothing
@@ -2513,17 +2513,17 @@ instance FromXML Signer where
 --
 -- * 'sdStreamingDistributionConfig'
 data StreamingDistribution = StreamingDistribution'
-    { _sdLastModifiedTime :: !(Maybe ISO8601)
-    , _sdId :: !Text
-    , _sdStatus :: !Text
-    , _sdDomainName :: !Text
-    , _sdActiveTrustedSigners :: !ActiveTrustedSigners
+    { _sdLastModifiedTime            :: !(Maybe ISO8601)
+    , _sdId                          :: !Text
+    , _sdStatus                      :: !Text
+    , _sdDomainName                  :: !Text
+    , _sdActiveTrustedSigners        :: !ActiveTrustedSigners
     , _sdStreamingDistributionConfig :: !StreamingDistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistribution' smart constructor.
 streamingDistribution :: Text -> Text -> Text -> ActiveTrustedSigners -> StreamingDistributionConfig -> StreamingDistribution
-streamingDistribution pId_ pStatus_ pDomainName_ pActiveTrustedSigners_ pStreamingDistributionConfig_ = 
+streamingDistribution pId_ pStatus_ pDomainName_ pActiveTrustedSigners_ pStreamingDistributionConfig_ =
     StreamingDistribution'
     { _sdLastModifiedTime = Nothing
     , _sdId = pId_
@@ -2600,19 +2600,19 @@ instance FromXML StreamingDistribution where
 --
 -- * 'sdcEnabled'
 data StreamingDistributionConfig = StreamingDistributionConfig'
-    { _sdcAliases :: !(Maybe Aliases)
-    , _sdcPriceClass :: !(Maybe PriceClass)
-    , _sdcLogging :: !(Maybe StreamingLoggingConfig)
+    { _sdcAliases         :: !(Maybe Aliases)
+    , _sdcPriceClass      :: !(Maybe PriceClass)
+    , _sdcLogging         :: !(Maybe StreamingLoggingConfig)
     , _sdcCallerReference :: !Text
-    , _sdcS3Origin :: !S3Origin
-    , _sdcComment :: !Text
-    , _sdcTrustedSigners :: !TrustedSigners
-    , _sdcEnabled :: !Bool
+    , _sdcS3Origin        :: !S3Origin
+    , _sdcComment         :: !Text
+    , _sdcTrustedSigners  :: !TrustedSigners
+    , _sdcEnabled         :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistributionConfig' smart constructor.
 streamingDistributionConfig :: Text -> S3Origin -> Text -> TrustedSigners -> Bool -> StreamingDistributionConfig
-streamingDistributionConfig pCallerReference_ pS3Origin_ pComment_ pTrustedSigners_ pEnabled_ = 
+streamingDistributionConfig pCallerReference_ pS3Origin_ pComment_ pTrustedSigners_ pEnabled_ =
     StreamingDistributionConfig'
     { _sdcAliases = Nothing
     , _sdcPriceClass = Nothing
@@ -2722,17 +2722,17 @@ instance ToXML StreamingDistributionConfig where
 --
 -- * 'sdlQuantity'
 data StreamingDistributionList = StreamingDistributionList'
-    { _sdlItems :: !(Maybe [StreamingDistributionSummary])
-    , _sdlNextMarker :: !(Maybe Text)
-    , _sdlMarker :: !Text
-    , _sdlMaxItems :: !Int
+    { _sdlItems       :: !(Maybe [StreamingDistributionSummary])
+    , _sdlNextMarker  :: !(Maybe Text)
+    , _sdlMarker      :: !Text
+    , _sdlMaxItems    :: !Int
     , _sdlIsTruncated :: !Bool
-    , _sdlQuantity :: !Int
+    , _sdlQuantity    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistributionList' smart constructor.
 streamingDistributionList :: Text -> Int -> Bool -> Int -> StreamingDistributionList
-streamingDistributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ = 
+streamingDistributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     StreamingDistributionList'
     { _sdlItems = Nothing
     , _sdlNextMarker = Nothing
@@ -2811,21 +2811,21 @@ instance FromXML StreamingDistributionList where
 --
 -- * 'sdsEnabled'
 data StreamingDistributionSummary = StreamingDistributionSummary'
-    { _sdsId :: !Text
-    , _sdsStatus :: !Text
+    { _sdsId               :: !Text
+    , _sdsStatus           :: !Text
     , _sdsLastModifiedTime :: !ISO8601
-    , _sdsDomainName :: !Text
-    , _sdsS3Origin :: !S3Origin
-    , _sdsAliases :: !Aliases
-    , _sdsTrustedSigners :: !TrustedSigners
-    , _sdsComment :: !Text
-    , _sdsPriceClass :: !PriceClass
-    , _sdsEnabled :: !Bool
+    , _sdsDomainName       :: !Text
+    , _sdsS3Origin         :: !S3Origin
+    , _sdsAliases          :: !Aliases
+    , _sdsTrustedSigners   :: !TrustedSigners
+    , _sdsComment          :: !Text
+    , _sdsPriceClass       :: !PriceClass
+    , _sdsEnabled          :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistributionSummary' smart constructor.
 streamingDistributionSummary :: Text -> Text -> UTCTime -> Text -> S3Origin -> Aliases -> TrustedSigners -> Text -> PriceClass -> Bool -> StreamingDistributionSummary
-streamingDistributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Origin_ pAliases_ pTrustedSigners_ pComment_ pPriceClass_ pEnabled_ = 
+streamingDistributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Origin_ pAliases_ pTrustedSigners_ pComment_ pPriceClass_ pEnabled_ =
     StreamingDistributionSummary'
     { _sdsId = pId_
     , _sdsStatus = pStatus_
@@ -2923,13 +2923,13 @@ instance FromXML StreamingDistributionSummary where
 -- * 'slcPrefix'
 data StreamingLoggingConfig = StreamingLoggingConfig'
     { _slcEnabled :: !Bool
-    , _slcBucket :: !Text
-    , _slcPrefix :: !Text
+    , _slcBucket  :: !Text
+    , _slcPrefix  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingLoggingConfig' smart constructor.
 streamingLoggingConfig :: Bool -> Text -> Text -> StreamingLoggingConfig
-streamingLoggingConfig pEnabled_ pBucket_ pPrefix_ = 
+streamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
     StreamingLoggingConfig'
     { _slcEnabled = pEnabled_
     , _slcBucket = pBucket_
@@ -2993,14 +2993,14 @@ instance ToXML StreamingLoggingConfig where
 --
 -- * 'tsQuantity'
 data TrustedSigners = TrustedSigners'
-    { _tsItems :: !(Maybe [Text])
-    , _tsEnabled :: !Bool
+    { _tsItems    :: !(Maybe [Text])
+    , _tsEnabled  :: !Bool
     , _tsQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedSigners' smart constructor.
 trustedSigners :: Bool -> Int -> TrustedSigners
-trustedSigners pEnabled_ pQuantity_ = 
+trustedSigners pEnabled_ pQuantity_ =
     TrustedSigners'
     { _tsItems = Nothing
     , _tsEnabled = pEnabled_
@@ -3051,15 +3051,15 @@ instance ToXML TrustedSigners where
 --
 -- * 'vcCloudFrontDefaultCertificate'
 data ViewerCertificate = ViewerCertificate'
-    { _vcSSLSupportMethod :: !(Maybe SSLSupportMethod)
-    , _vcMinimumProtocolVersion :: !(Maybe MinimumProtocolVersion)
-    , _vcIAMCertificateId :: !(Maybe Text)
+    { _vcSSLSupportMethod             :: !(Maybe SSLSupportMethod)
+    , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
+    , _vcIAMCertificateId             :: !(Maybe Text)
     , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ViewerCertificate' smart constructor.
 viewerCertificate :: ViewerCertificate
-viewerCertificate = 
+viewerCertificate =
     ViewerCertificate'
     { _vcSSLSupportMethod = Nothing
     , _vcMinimumProtocolVersion = Nothing

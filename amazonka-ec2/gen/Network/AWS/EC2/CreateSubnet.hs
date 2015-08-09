@@ -66,11 +66,11 @@ module Network.AWS.EC2.CreateSubnet
     , crsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createSubnet' smart constructor.
 --
@@ -85,14 +85,14 @@ import Network.AWS.Response
 -- * 'cssCIdRBlock'
 data CreateSubnet = CreateSubnet'
     { _cssAvailabilityZone :: !(Maybe Text)
-    , _cssDryRun :: !(Maybe Bool)
-    , _cssVPCId :: !Text
-    , _cssCIdRBlock :: !Text
+    , _cssDryRun           :: !(Maybe Bool)
+    , _cssVPCId            :: !Text
+    , _cssCIdRBlock        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnet' smart constructor.
 createSubnet :: Text -> Text -> CreateSubnet
-createSubnet pVPCId_ pCIdRBlock_ = 
+createSubnet pVPCId_ pCIdRBlock_ =
     CreateSubnet'
     { _cssAvailabilityZone = Nothing
     , _cssDryRun = Nothing
@@ -161,7 +161,7 @@ data CreateSubnetResponse = CreateSubnetResponse'
 
 -- | 'CreateSubnetResponse' smart constructor.
 createSubnetResponse :: Int -> CreateSubnetResponse
-createSubnetResponse pStatus_ = 
+createSubnetResponse pStatus_ =
     CreateSubnetResponse'
     { _crsSubnet = Nothing
     , _crsStatus = pStatus_

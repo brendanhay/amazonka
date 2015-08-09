@@ -144,11 +144,11 @@ module Network.AWS.EFS.CreateMountTarget
     , mtdLifeCycleState
     ) where
 
-import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EFS.Types
+import           Network.AWS.EFS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createMountTarget' smart constructor.
 --
@@ -162,15 +162,15 @@ import Network.AWS.Response
 --
 -- * 'cmtSubnetId'
 data CreateMountTarget = CreateMountTarget'
-    { _cmtIPAddress :: !(Maybe Text)
+    { _cmtIPAddress      :: !(Maybe Text)
     , _cmtSecurityGroups :: !(Maybe [Text])
-    , _cmtFileSystemId :: !Text
-    , _cmtSubnetId :: !Text
+    , _cmtFileSystemId   :: !Text
+    , _cmtSubnetId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMountTarget' smart constructor.
 createMountTarget :: Text -> Text -> CreateMountTarget
-createMountTarget pFileSystemId_ pSubnetId_ = 
+createMountTarget pFileSystemId_ pSubnetId_ =
     CreateMountTarget'
     { _cmtIPAddress = Nothing
     , _cmtSecurityGroups = Nothing

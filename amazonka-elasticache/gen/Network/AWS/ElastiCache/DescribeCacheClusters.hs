@@ -64,12 +64,12 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     , drsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheClusters/ action.
 --
@@ -85,15 +85,15 @@ import Network.AWS.Response
 --
 -- * 'dShowCacheNodeInfo'
 data DescribeCacheClusters = DescribeCacheClusters'
-    { _dCacheClusterId :: !(Maybe Text)
-    , _dMaxRecords :: !(Maybe Int)
-    , _dMarker :: !(Maybe Text)
+    { _dCacheClusterId    :: !(Maybe Text)
+    , _dMaxRecords        :: !(Maybe Int)
+    , _dMarker            :: !(Maybe Text)
     , _dShowCacheNodeInfo :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheClusters' smart constructor.
 describeCacheClusters :: DescribeCacheClusters
-describeCacheClusters = 
+describeCacheClusters =
     DescribeCacheClusters'
     { _dCacheClusterId = Nothing
     , _dMaxRecords = Nothing
@@ -177,13 +177,13 @@ instance ToQuery DescribeCacheClusters where
 -- * 'drsStatus'
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
     { _drsCacheClusters :: !(Maybe [CacheCluster])
-    , _drsMarker :: !(Maybe Text)
-    , _drsStatus :: !Int
+    , _drsMarker        :: !(Maybe Text)
+    , _drsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
 describeCacheClustersResponse :: Int -> DescribeCacheClustersResponse
-describeCacheClustersResponse pStatus_ = 
+describeCacheClustersResponse pStatus_ =
     DescribeCacheClustersResponse'
     { _drsCacheClusters = Nothing
     , _drsMarker = Nothing

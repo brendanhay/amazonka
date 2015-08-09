@@ -48,11 +48,11 @@ module Network.AWS.OpsWorks.DescribeVolumes
     , dvrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumes' smart constructor.
 --
@@ -66,15 +66,15 @@ import Network.AWS.Response
 --
 -- * 'dvStackId'
 data DescribeVolumes = DescribeVolumes'
-    { _dvInstanceId :: !(Maybe Text)
-    , _dvVolumeIds :: !(Maybe [Text])
+    { _dvInstanceId  :: !(Maybe Text)
+    , _dvVolumeIds   :: !(Maybe [Text])
     , _dvRAIdArrayId :: !(Maybe Text)
-    , _dvStackId :: !(Maybe Text)
+    , _dvStackId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
-describeVolumes = 
+describeVolumes =
     DescribeVolumes'
     { _dvInstanceId = Nothing
     , _dvVolumeIds = Nothing
@@ -147,12 +147,12 @@ instance ToQuery DescribeVolumes where
 -- * 'dvrsStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvrsVolumes :: !(Maybe [Volume])
-    , _dvrsStatus :: !Int
+    , _dvrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
-describeVolumesResponse pStatus_ = 
+describeVolumesResponse pStatus_ =
     DescribeVolumesResponse'
     { _dvrsVolumes = Nothing
     , _dvrsStatus = pStatus_

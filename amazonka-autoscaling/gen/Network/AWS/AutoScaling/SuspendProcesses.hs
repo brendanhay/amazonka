@@ -47,11 +47,11 @@ module Network.AWS.AutoScaling.SuspendProcesses
     , suspendProcessesResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'suspendProcesses' smart constructor.
 --
@@ -61,13 +61,13 @@ import Network.AWS.Response
 --
 -- * 'spAutoScalingGroupName'
 data SuspendProcesses = SuspendProcesses'
-    { _spScalingProcesses :: !(Maybe [Text])
+    { _spScalingProcesses     :: !(Maybe [Text])
     , _spAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuspendProcesses' smart constructor.
 suspendProcesses :: Text -> SuspendProcesses
-suspendProcesses pAutoScalingGroupName_ = 
+suspendProcesses pAutoScalingGroupName_ =
     SuspendProcesses'
     { _spScalingProcesses = Nothing
     , _spAutoScalingGroupName = pAutoScalingGroupName_
@@ -122,7 +122,7 @@ instance ToQuery SuspendProcesses where
 
 -- | /See:/ 'suspendProcessesResponse' smart constructor.
 data SuspendProcessesResponse =
-    SuspendProcessesResponse' 
+    SuspendProcessesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuspendProcessesResponse' smart constructor.

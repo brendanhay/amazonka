@@ -49,11 +49,11 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     , rrtarsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'replaceRouteTableAssociation' smart constructor.
 --
@@ -65,14 +65,14 @@ import Network.AWS.Response
 --
 -- * 'rrtaRouteTableId'
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
-    { _rrtaDryRun :: !(Maybe Bool)
+    { _rrtaDryRun        :: !(Maybe Bool)
     , _rrtaAssociationId :: !Text
-    , _rrtaRouteTableId :: !Text
+    , _rrtaRouteTableId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteTableAssociation' smart constructor.
 replaceRouteTableAssociation :: Text -> Text -> ReplaceRouteTableAssociation
-replaceRouteTableAssociation pAssociationId_ pRouteTableId_ = 
+replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
     ReplaceRouteTableAssociation'
     { _rrtaDryRun = Nothing
     , _rrtaAssociationId = pAssociationId_
@@ -131,12 +131,12 @@ instance ToQuery ReplaceRouteTableAssociation where
 -- * 'rrtarsStatus'
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
     { _rrtarsNewAssociationId :: !(Maybe Text)
-    , _rrtarsStatus :: !Int
+    , _rrtarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
 replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse
-replaceRouteTableAssociationResponse pStatus_ = 
+replaceRouteTableAssociationResponse pStatus_ =
     ReplaceRouteTableAssociationResponse'
     { _rrtarsNewAssociationId = Nothing
     , _rrtarsStatus = pStatus_

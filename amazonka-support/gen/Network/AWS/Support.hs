@@ -68,10 +68,10 @@
 -- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Support
     (
-    -- * Service Description
+    -- * Service
       Support
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** AttachmentSetExpired

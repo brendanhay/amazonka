@@ -46,11 +46,11 @@ module Network.AWS.Config.DeliverConfigSnapshot
     , dcsrsStatus
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DeliverConfigSnapshot action.
 --
@@ -65,7 +65,7 @@ newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
 
 -- | 'DeliverConfigSnapshot' smart constructor.
 deliverConfigSnapshot :: Text -> DeliverConfigSnapshot
-deliverConfigSnapshot pDeliveryChannelName_ = 
+deliverConfigSnapshot pDeliveryChannelName_ =
     DeliverConfigSnapshot'
     { _dcsDeliveryChannelName = pDeliveryChannelName_
     }
@@ -118,12 +118,12 @@ instance ToQuery DeliverConfigSnapshot where
 -- * 'dcsrsStatus'
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
     { _dcsrsConfigSnapshotId :: !(Maybe Text)
-    , _dcsrsStatus :: !Int
+    , _dcsrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
 deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse
-deliverConfigSnapshotResponse pStatus_ = 
+deliverConfigSnapshotResponse pStatus_ =
     DeliverConfigSnapshotResponse'
     { _dcsrsConfigSnapshotId = Nothing
     , _dcsrsStatus = pStatus_

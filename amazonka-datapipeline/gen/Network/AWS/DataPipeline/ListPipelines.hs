@@ -40,12 +40,12 @@ module Network.AWS.DataPipeline.ListPipelines
     , lprsPipelineIdList
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for ListPipelines.
 --
@@ -60,7 +60,7 @@ newtype ListPipelines = ListPipelines'
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
-listPipelines = 
+listPipelines =
     ListPipelines'
     { _lpMarker = Nothing
     }
@@ -125,14 +125,14 @@ instance ToQuery ListPipelines where
 -- * 'lprsPipelineIdList'
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsHasMoreResults :: !(Maybe Bool)
-    , _lprsMarker :: !(Maybe Text)
-    , _lprsStatus :: !Int
+    , _lprsMarker         :: !(Maybe Text)
+    , _lprsStatus         :: !Int
     , _lprsPipelineIdList :: ![PipelineIdName]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
-listPipelinesResponse pStatus_ = 
+listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsHasMoreResults = Nothing
     , _lprsMarker = Nothing

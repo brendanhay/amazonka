@@ -39,11 +39,11 @@ module Network.AWS.DeviceFarm.ListProjects
     , lprsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the list projects operation.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'lpNextToken'
 data ListProjects = ListProjects'
-    { _lpArn :: !(Maybe Text)
+    { _lpArn       :: !(Maybe Text)
     , _lpNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListProjects' smart constructor.
 listProjects :: ListProjects
-listProjects = 
+listProjects =
     ListProjects'
     { _lpArn = Nothing
     , _lpNextToken = Nothing
@@ -121,13 +121,13 @@ instance ToQuery ListProjects where
 -- * 'lprsStatus'
 data ListProjectsResponse = ListProjectsResponse'
     { _lprsNextToken :: !(Maybe Text)
-    , _lprsProjects :: !(Maybe [Project])
-    , _lprsStatus :: !Int
+    , _lprsProjects  :: !(Maybe [Project])
+    , _lprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListProjectsResponse' smart constructor.
 listProjectsResponse :: Int -> ListProjectsResponse
-listProjectsResponse pStatus_ = 
+listProjectsResponse pStatus_ =
     ListProjectsResponse'
     { _lprsNextToken = Nothing
     , _lprsProjects = Nothing

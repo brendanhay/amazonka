@@ -37,15 +37,15 @@ module Network.AWS.DirectConnect.DescribeLocations
     , dlrsStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLocations' smart constructor.
 data DescribeLocations =
-    DescribeLocations' 
+    DescribeLocations'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLocations' smart constructor.
@@ -90,12 +90,12 @@ instance ToQuery DescribeLocations where
 -- * 'dlrsStatus'
 data DescribeLocationsResponse = DescribeLocationsResponse'
     { _dlrsLocations :: !(Maybe [Location])
-    , _dlrsStatus :: !Int
+    , _dlrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: Int -> DescribeLocationsResponse
-describeLocationsResponse pStatus_ = 
+describeLocationsResponse pStatus_ =
     DescribeLocationsResponse'
     { _dlrsLocations = Nothing
     , _dlrsStatus = pStatus_

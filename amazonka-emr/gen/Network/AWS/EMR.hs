@@ -20,10 +20,10 @@
 -- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.EMR
     (
-    -- * Service Description
+    -- * Service
       EMR
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidRequestException
@@ -44,38 +44,38 @@ module Network.AWS.EMR
     -- * Operations
     -- $operations
 
-    -- ** RunJobFlow 
+    -- ** RunJobFlow
     , module Network.AWS.EMR.RunJobFlow
 
-    -- ** SetVisibleToAllUsers 
+    -- ** SetVisibleToAllUsers
     , module Network.AWS.EMR.SetVisibleToAllUsers
 
-    -- ** TerminateJobFlows 
+    -- ** TerminateJobFlows
     , module Network.AWS.EMR.TerminateJobFlows
 
-    -- ** RemoveTags 
+    -- ** RemoveTags
     , module Network.AWS.EMR.RemoveTags
 
-    -- ** DescribeStep 
+    -- ** DescribeStep
     , module Network.AWS.EMR.DescribeStep
 
-    -- ** DescribeCluster 
+    -- ** DescribeCluster
     , module Network.AWS.EMR.DescribeCluster
 
-    -- ** ModifyInstanceGroups 
+    -- ** ModifyInstanceGroups
     , module Network.AWS.EMR.ModifyInstanceGroups
 
-    -- ** AddJobFlowSteps 
+    -- ** AddJobFlowSteps
     , module Network.AWS.EMR.AddJobFlowSteps
 
-    -- ** SetTerminationProtection 
+    -- ** SetTerminationProtection
     , module Network.AWS.EMR.SetTerminationProtection
 
     -- ** ListSteps (Paginated)
     , module Network.AWS.EMR.ListSteps
     -- $pager
 
-    -- ** AddInstanceGroups 
+    -- ** AddInstanceGroups
     , module Network.AWS.EMR.AddInstanceGroups
 
     -- ** ListInstanceGroups (Paginated)
@@ -86,7 +86,7 @@ module Network.AWS.EMR
     , module Network.AWS.EMR.ListBootstrapActions
     -- $pager
 
-    -- ** AddTags 
+    -- ** AddTags
     , module Network.AWS.EMR.AddTags
 
     -- ** ListInstances (Paginated)
@@ -416,24 +416,24 @@ module Network.AWS.EMR
     , tagKey
     ) where
 
-import Network.AWS.EMR.AddInstanceGroups
-import Network.AWS.EMR.AddJobFlowSteps
-import Network.AWS.EMR.AddTags
-import Network.AWS.EMR.DescribeCluster
-import Network.AWS.EMR.DescribeStep
-import Network.AWS.EMR.ListBootstrapActions
-import Network.AWS.EMR.ListClusters
-import Network.AWS.EMR.ListInstanceGroups
-import Network.AWS.EMR.ListInstances
-import Network.AWS.EMR.ListSteps
-import Network.AWS.EMR.ModifyInstanceGroups
-import Network.AWS.EMR.RemoveTags
-import Network.AWS.EMR.RunJobFlow
-import Network.AWS.EMR.SetTerminationProtection
-import Network.AWS.EMR.SetVisibleToAllUsers
-import Network.AWS.EMR.TerminateJobFlows
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Waiters
+import           Network.AWS.EMR.AddInstanceGroups
+import           Network.AWS.EMR.AddJobFlowSteps
+import           Network.AWS.EMR.AddTags
+import           Network.AWS.EMR.DescribeCluster
+import           Network.AWS.EMR.DescribeStep
+import           Network.AWS.EMR.ListBootstrapActions
+import           Network.AWS.EMR.ListClusters
+import           Network.AWS.EMR.ListInstanceGroups
+import           Network.AWS.EMR.ListInstances
+import           Network.AWS.EMR.ListSteps
+import           Network.AWS.EMR.ModifyInstanceGroups
+import           Network.AWS.EMR.RemoveTags
+import           Network.AWS.EMR.RunJobFlow
+import           Network.AWS.EMR.SetTerminationProtection
+import           Network.AWS.EMR.SetVisibleToAllUsers
+import           Network.AWS.EMR.TerminateJobFlows
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

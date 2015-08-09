@@ -40,11 +40,11 @@ module Network.AWS.ElasticTranscoder.CancelJob
     , canrsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @CancelJobRequest@ structure.
 --
@@ -59,7 +59,7 @@ newtype CancelJob = CancelJob'
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
-cancelJob pId_ = 
+cancelJob pId_ =
     CancelJob'
     { _cjId = pId_
     }
@@ -104,7 +104,7 @@ newtype CancelJobResponse = CancelJobResponse'
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
-cancelJobResponse pStatus_ = 
+cancelJobResponse pStatus_ =
     CancelJobResponse'
     { _canrsStatus = pStatus_
     }

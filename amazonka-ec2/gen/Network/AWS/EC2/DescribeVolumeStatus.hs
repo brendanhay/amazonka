@@ -80,12 +80,12 @@ module Network.AWS.EC2.DescribeVolumeStatus
     , dvsrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumeStatus' smart constructor.
 --
@@ -101,16 +101,16 @@ import Network.AWS.Response
 --
 -- * 'dvssMaxResults'
 data DescribeVolumeStatus = DescribeVolumeStatus'
-    { _dvssFilters :: !(Maybe [Filter])
-    , _dvssVolumeIds :: !(Maybe [Text])
-    , _dvssNextToken :: !(Maybe Text)
-    , _dvssDryRun :: !(Maybe Bool)
+    { _dvssFilters    :: !(Maybe [Filter])
+    , _dvssVolumeIds  :: !(Maybe [Text])
+    , _dvssNextToken  :: !(Maybe Text)
+    , _dvssDryRun     :: !(Maybe Bool)
     , _dvssMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeStatus' smart constructor.
 describeVolumeStatus :: DescribeVolumeStatus
-describeVolumeStatus = 
+describeVolumeStatus =
     DescribeVolumeStatus'
     { _dvssFilters = Nothing
     , _dvssVolumeIds = Nothing
@@ -236,14 +236,14 @@ instance ToQuery DescribeVolumeStatus where
 --
 -- * 'dvsrsStatus'
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
-    { _dvsrsNextToken :: !(Maybe Text)
+    { _dvsrsNextToken      :: !(Maybe Text)
     , _dvsrsVolumeStatuses :: !(Maybe [VolumeStatusItem])
-    , _dvsrsStatus :: !Int
+    , _dvsrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
 describeVolumeStatusResponse :: Int -> DescribeVolumeStatusResponse
-describeVolumeStatusResponse pStatus_ = 
+describeVolumeStatusResponse pStatus_ =
     DescribeVolumeStatusResponse'
     { _dvsrsNextToken = Nothing
     , _dvsrsVolumeStatuses = Nothing

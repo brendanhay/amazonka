@@ -35,11 +35,11 @@ module Network.AWS.IAM.AddUserToGroup
     , addUserToGroupResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addUserToGroup' smart constructor.
 --
@@ -50,12 +50,12 @@ import Network.AWS.Response
 -- * 'autgUserName'
 data AddUserToGroup = AddUserToGroup'
     { _autgGroupName :: !Text
-    , _autgUserName :: !Text
+    , _autgUserName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUserToGroup' smart constructor.
 addUserToGroup :: Text -> Text -> AddUserToGroup
-addUserToGroup pGroupName_ pUserName_ = 
+addUserToGroup pGroupName_ pUserName_ =
     AddUserToGroup'
     { _autgGroupName = pGroupName_
     , _autgUserName = pUserName_
@@ -91,7 +91,7 @@ instance ToQuery AddUserToGroup where
 
 -- | /See:/ 'addUserToGroupResponse' smart constructor.
 data AddUserToGroupResponse =
-    AddUserToGroupResponse' 
+    AddUserToGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUserToGroupResponse' smart constructor.

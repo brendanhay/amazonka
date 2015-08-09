@@ -35,11 +35,11 @@ module Network.AWS.CloudFront.DeleteDistribution
     , deleteDistributionResponse
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to delete a distribution.
 --
@@ -52,12 +52,12 @@ import Network.AWS.Response
 -- * 'ddId'
 data DeleteDistribution = DeleteDistribution'
     { _ddIfMatch :: !(Maybe Text)
-    , _ddId :: !Text
+    , _ddId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDistribution' smart constructor.
 deleteDistribution :: Text -> DeleteDistribution
-deleteDistribution pId_ = 
+deleteDistribution pId_ =
     DeleteDistribution'
     { _ddIfMatch = Nothing
     , _ddId = pId_
@@ -92,7 +92,7 @@ instance ToQuery DeleteDistribution where
 
 -- | /See:/ 'deleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse =
-    DeleteDistributionResponse' 
+    DeleteDistributionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDistributionResponse' smart constructor.

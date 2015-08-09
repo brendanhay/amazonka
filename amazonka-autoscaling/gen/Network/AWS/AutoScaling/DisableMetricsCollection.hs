@@ -36,11 +36,11 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     , disableMetricsCollectionResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableMetricsCollection' smart constructor.
 --
@@ -50,13 +50,13 @@ import Network.AWS.Response
 --
 -- * 'dmcAutoScalingGroupName'
 data DisableMetricsCollection = DisableMetricsCollection'
-    { _dmcMetrics :: !(Maybe [Text])
+    { _dmcMetrics              :: !(Maybe [Text])
     , _dmcAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableMetricsCollection' smart constructor.
 disableMetricsCollection :: Text -> DisableMetricsCollection
-disableMetricsCollection pAutoScalingGroupName_ = 
+disableMetricsCollection pAutoScalingGroupName_ =
     DisableMetricsCollection'
     { _dmcMetrics = Nothing
     , _dmcAutoScalingGroupName = pAutoScalingGroupName_
@@ -114,7 +114,7 @@ instance ToQuery DisableMetricsCollection where
 
 -- | /See:/ 'disableMetricsCollectionResponse' smart constructor.
 data DisableMetricsCollectionResponse =
-    DisableMetricsCollectionResponse' 
+    DisableMetricsCollectionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableMetricsCollectionResponse' smart constructor.

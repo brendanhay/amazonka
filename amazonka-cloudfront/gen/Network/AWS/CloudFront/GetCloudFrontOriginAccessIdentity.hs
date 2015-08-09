@@ -38,11 +38,11 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     , gcfoairsStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to get an origin access identity\'s information.
 --
@@ -57,7 +57,7 @@ newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
 
 -- | 'GetCloudFrontOriginAccessIdentity' smart constructor.
 getCloudFrontOriginAccessIdentity :: Text -> GetCloudFrontOriginAccessIdentity
-getCloudFrontOriginAccessIdentity pId_ = 
+getCloudFrontOriginAccessIdentity pId_ =
     GetCloudFrontOriginAccessIdentity'
     { _gcfoaiId = pId_
     }
@@ -107,14 +107,14 @@ instance ToQuery GetCloudFrontOriginAccessIdentity
 --
 -- * 'gcfoairsStatus'
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
-    { _gcfoairsETag :: !(Maybe Text)
+    { _gcfoairsETag                           :: !(Maybe Text)
     , _gcfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _gcfoairsStatus :: !Int
+    , _gcfoairsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentityResponse' smart constructor.
 getCloudFrontOriginAccessIdentityResponse :: Int -> GetCloudFrontOriginAccessIdentityResponse
-getCloudFrontOriginAccessIdentityResponse pStatus_ = 
+getCloudFrontOriginAccessIdentityResponse pStatus_ =
     GetCloudFrontOriginAccessIdentityResponse'
     { _gcfoairsETag = Nothing
     , _gcfoairsCloudFrontOriginAccessIdentity = Nothing

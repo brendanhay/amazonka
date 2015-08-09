@@ -36,11 +36,11 @@ module Network.AWS.EC2.DeleteSubnet
     , deleteSubnetResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSubnet' smart constructor.
 --
@@ -50,13 +50,13 @@ import Network.AWS.Response
 --
 -- * 'ddSubnetId'
 data DeleteSubnet = DeleteSubnet'
-    { _ddDryRun :: !(Maybe Bool)
+    { _ddDryRun   :: !(Maybe Bool)
     , _ddSubnetId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubnet' smart constructor.
 deleteSubnet :: Text -> DeleteSubnet
-deleteSubnet pSubnetId_ = 
+deleteSubnet pSubnetId_ =
     DeleteSubnet'
     { _ddDryRun = Nothing
     , _ddSubnetId = pSubnetId_
@@ -94,7 +94,7 @@ instance ToQuery DeleteSubnet where
 
 -- | /See:/ 'deleteSubnetResponse' smart constructor.
 data DeleteSubnetResponse =
-    DeleteSubnetResponse' 
+    DeleteSubnetResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubnetResponse' smart constructor.

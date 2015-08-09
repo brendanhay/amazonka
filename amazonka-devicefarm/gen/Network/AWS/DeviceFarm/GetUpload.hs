@@ -37,11 +37,11 @@ module Network.AWS.DeviceFarm.GetUpload
     , gursStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the get upload operation.
 --
@@ -56,7 +56,7 @@ newtype GetUpload = GetUpload'
 
 -- | 'GetUpload' smart constructor.
 getUpload :: Text -> GetUpload
-getUpload pArn_ = 
+getUpload pArn_ =
     GetUpload'
     { _guArn = pArn_
     }
@@ -109,7 +109,7 @@ data GetUploadResponse = GetUploadResponse'
 
 -- | 'GetUploadResponse' smart constructor.
 getUploadResponse :: Int -> GetUploadResponse
-getUploadResponse pStatus_ = 
+getUploadResponse pStatus_ =
     GetUploadResponse'
     { _gursUpload = Nothing
     , _gursStatus = pStatus_

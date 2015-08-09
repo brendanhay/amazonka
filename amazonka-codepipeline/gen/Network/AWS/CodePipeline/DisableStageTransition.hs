@@ -38,11 +38,11 @@ module Network.AWS.CodePipeline.DisableStageTransition
     , disableStageTransitionResponse
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a disable stage transition input action.
 --
@@ -58,15 +58,15 @@ import Network.AWS.Response
 --
 -- * 'dstReason'
 data DisableStageTransition = DisableStageTransition'
-    { _dstPipelineName :: !Text
-    , _dstStageName :: !Text
+    { _dstPipelineName   :: !Text
+    , _dstStageName      :: !Text
     , _dstTransitionType :: !StageTransitionType
-    , _dstReason :: !Text
+    , _dstReason         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableStageTransition' smart constructor.
 disableStageTransition :: Text -> Text -> StageTransitionType -> Text -> DisableStageTransition
-disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ = 
+disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ =
     DisableStageTransition'
     { _dstPipelineName = pPipelineName_
     , _dstStageName = pStageName_
@@ -131,7 +131,7 @@ instance ToQuery DisableStageTransition where
 
 -- | /See:/ 'disableStageTransitionResponse' smart constructor.
 data DisableStageTransitionResponse =
-    DisableStageTransitionResponse' 
+    DisableStageTransitionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableStageTransitionResponse' smart constructor.

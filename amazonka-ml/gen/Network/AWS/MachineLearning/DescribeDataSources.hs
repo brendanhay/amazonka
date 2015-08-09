@@ -49,12 +49,12 @@ module Network.AWS.MachineLearning.DescribeDataSources
     , ddssrsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeDataSources' smart constructor.
 --
@@ -82,22 +82,22 @@ import Network.AWS.Response
 --
 -- * 'ddsLE'
 data DescribeDataSources = DescribeDataSources'
-    { _ddsEQ :: !(Maybe Text)
-    , _ddsGE :: !(Maybe Text)
-    , _ddsPrefix :: !(Maybe Text)
-    , _ddsGT :: !(Maybe Text)
-    , _ddsNE :: !(Maybe Text)
-    , _ddsNextToken :: !(Maybe Text)
-    , _ddsSortOrder :: !(Maybe SortOrder)
-    , _ddsLimit :: !(Maybe Nat)
-    , _ddsLT :: !(Maybe Text)
+    { _ddsEQ             :: !(Maybe Text)
+    , _ddsGE             :: !(Maybe Text)
+    , _ddsPrefix         :: !(Maybe Text)
+    , _ddsGT             :: !(Maybe Text)
+    , _ddsNE             :: !(Maybe Text)
+    , _ddsNextToken      :: !(Maybe Text)
+    , _ddsSortOrder      :: !(Maybe SortOrder)
+    , _ddsLimit          :: !(Maybe Nat)
+    , _ddsLT             :: !(Maybe Text)
     , _ddsFilterVariable :: !(Maybe DataSourceFilterVariable)
-    , _ddsLE :: !(Maybe Text)
+    , _ddsLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataSources' smart constructor.
 describeDataSources :: DescribeDataSources
-describeDataSources = 
+describeDataSources =
     DescribeDataSources'
     { _ddsEQ = Nothing
     , _ddsGE = Nothing
@@ -256,14 +256,14 @@ instance ToQuery DescribeDataSources where
 --
 -- * 'ddssrsStatus'
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
-    { _ddssrsResults :: !(Maybe [DataSource])
+    { _ddssrsResults   :: !(Maybe [DataSource])
     , _ddssrsNextToken :: !(Maybe Text)
-    , _ddssrsStatus :: !Int
+    , _ddssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
 describeDataSourcesResponse :: Int -> DescribeDataSourcesResponse
-describeDataSourcesResponse pStatus_ = 
+describeDataSourcesResponse pStatus_ =
     DescribeDataSourcesResponse'
     { _ddssrsResults = Nothing
     , _ddssrsNextToken = Nothing

@@ -55,11 +55,11 @@ module Network.AWS.OpsWorks.CreateApp
     , carsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createApp' smart constructor.
 --
@@ -90,22 +90,22 @@ import Network.AWS.Response
 -- * 'caType'
 data CreateApp = CreateApp'
     { _caSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _caShortname :: !(Maybe Text)
-    , _caEnableSSL :: !(Maybe Bool)
-    , _caEnvironment :: !(Maybe [EnvironmentVariable])
-    , _caDataSources :: !(Maybe [DataSource])
-    , _caAppSource :: !(Maybe Source)
-    , _caAttributes :: !(Maybe (Map AppAttributesKeys Text))
-    , _caDomains :: !(Maybe [Text])
-    , _caDescription :: !(Maybe Text)
-    , _caStackId :: !Text
-    , _caName :: !Text
-    , _caType :: !AppType
+    , _caShortname        :: !(Maybe Text)
+    , _caEnableSSL        :: !(Maybe Bool)
+    , _caEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _caDataSources      :: !(Maybe [DataSource])
+    , _caAppSource        :: !(Maybe Source)
+    , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _caDomains          :: !(Maybe [Text])
+    , _caDescription      :: !(Maybe Text)
+    , _caStackId          :: !Text
+    , _caName             :: !Text
+    , _caType             :: !AppType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApp' smart constructor.
 createApp :: Text -> Text -> AppType -> CreateApp
-createApp pStackId_ pName_ pType_ = 
+createApp pStackId_ pName_ pType_ =
     CreateApp'
     { _caSSLConfiguration = Nothing
     , _caShortname = Nothing
@@ -240,13 +240,13 @@ instance ToQuery CreateApp where
 --
 -- * 'carsStatus'
 data CreateAppResponse = CreateAppResponse'
-    { _carsAppId :: !(Maybe Text)
+    { _carsAppId  :: !(Maybe Text)
     , _carsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAppResponse' smart constructor.
 createAppResponse :: Int -> CreateAppResponse
-createAppResponse pStatus_ = 
+createAppResponse pStatus_ =
     CreateAppResponse'
     { _carsAppId = Nothing
     , _carsStatus = pStatus_

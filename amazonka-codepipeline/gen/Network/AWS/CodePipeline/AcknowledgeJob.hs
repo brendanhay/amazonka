@@ -38,11 +38,11 @@ module Network.AWS.CodePipeline.AcknowledgeJob
     , ajrsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an acknowledge job action.
 --
@@ -60,7 +60,7 @@ data AcknowledgeJob = AcknowledgeJob'
 
 -- | 'AcknowledgeJob' smart constructor.
 acknowledgeJob :: Text -> Text -> AcknowledgeJob
-acknowledgeJob pJobId_ pNonce_ = 
+acknowledgeJob pJobId_ pNonce_ =
     AcknowledgeJob'
     { _ajJobId = pJobId_
     , _ajNonce = pNonce_
@@ -119,7 +119,7 @@ newtype AcknowledgeJobResponse = AcknowledgeJobResponse'
 
 -- | 'AcknowledgeJobResponse' smart constructor.
 acknowledgeJobResponse :: Int -> AcknowledgeJobResponse
-acknowledgeJobResponse pStatus_ = 
+acknowledgeJobResponse pStatus_ =
     AcknowledgeJobResponse'
     { _ajrsStatus = pStatus_
     }

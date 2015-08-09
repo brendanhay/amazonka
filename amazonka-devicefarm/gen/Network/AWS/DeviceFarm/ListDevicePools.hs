@@ -40,11 +40,11 @@ module Network.AWS.DeviceFarm.ListDevicePools
     , ldprsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the result of a list device pools request.
 --
@@ -59,13 +59,13 @@ import Network.AWS.Response
 -- * 'ldpArn'
 data ListDevicePools = ListDevicePools'
     { _ldpNextToken :: !(Maybe Text)
-    , _ldpType :: !(Maybe DevicePoolType)
-    , _ldpArn :: !Text
+    , _ldpType      :: !(Maybe DevicePoolType)
+    , _ldpArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevicePools' smart constructor.
 listDevicePools :: Text -> ListDevicePools
-listDevicePools pArn_ = 
+listDevicePools pArn_ =
     ListDevicePools'
     { _ldpNextToken = Nothing
     , _ldpType = Nothing
@@ -142,13 +142,13 @@ instance ToQuery ListDevicePools where
 -- * 'ldprsStatus'
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
     { _ldprsDevicePools :: !(Maybe [DevicePool])
-    , _ldprsNextToken :: !(Maybe Text)
-    , _ldprsStatus :: !Int
+    , _ldprsNextToken   :: !(Maybe Text)
+    , _ldprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevicePoolsResponse' smart constructor.
 listDevicePoolsResponse :: Int -> ListDevicePoolsResponse
-listDevicePoolsResponse pStatus_ = 
+listDevicePoolsResponse pStatus_ =
     ListDevicePoolsResponse'
     { _ldprsDevicePools = Nothing
     , _ldprsNextToken = Nothing

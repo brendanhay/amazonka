@@ -45,11 +45,11 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     , dersStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteEvaluation' smart constructor.
 --
@@ -62,7 +62,7 @@ newtype DeleteEvaluation = DeleteEvaluation'
 
 -- | 'DeleteEvaluation' smart constructor.
 deleteEvaluation :: Text -> DeleteEvaluation
-deleteEvaluation pEvaluationId_ = 
+deleteEvaluation pEvaluationId_ =
     DeleteEvaluation'
     { _deEvaluationId = pEvaluationId_
     }
@@ -116,12 +116,12 @@ instance ToQuery DeleteEvaluation where
 -- * 'dersStatus'
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
     { _dersEvaluationId :: !(Maybe Text)
-    , _dersStatus :: !Int
+    , _dersStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
 deleteEvaluationResponse :: Int -> DeleteEvaluationResponse
-deleteEvaluationResponse pStatus_ = 
+deleteEvaluationResponse pStatus_ =
     DeleteEvaluationResponse'
     { _dersEvaluationId = Nothing
     , _dersStatus = pStatus_

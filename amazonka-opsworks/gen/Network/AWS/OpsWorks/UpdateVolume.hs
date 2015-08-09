@@ -44,11 +44,11 @@ module Network.AWS.OpsWorks.UpdateVolume
     , updateVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateVolume' smart constructor.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- * 'uVolumeId'
 data UpdateVolume = UpdateVolume'
-    { _uName :: !(Maybe Text)
+    { _uName       :: !(Maybe Text)
     , _uMountPoint :: !(Maybe Text)
-    , _uVolumeId :: !Text
+    , _uVolumeId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVolume' smart constructor.
 updateVolume :: Text -> UpdateVolume
-updateVolume pVolumeId_ = 
+updateVolume pVolumeId_ =
     UpdateVolume'
     { _uName = Nothing
     , _uMountPoint = Nothing
@@ -115,7 +115,7 @@ instance ToQuery UpdateVolume where
 
 -- | /See:/ 'updateVolumeResponse' smart constructor.
 data UpdateVolumeResponse =
-    UpdateVolumeResponse' 
+    UpdateVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVolumeResponse' smart constructor.

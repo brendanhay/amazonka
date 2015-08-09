@@ -77,11 +77,11 @@ module Network.AWS.EMR.RunJobFlow
     , rjfrsStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the RunJobFlow operation.
 --
@@ -121,27 +121,27 @@ import Network.AWS.Response
 --
 -- * 'rjfInstances'
 data RunJobFlow = RunJobFlow'
-    { _rjfAMIVersion :: !(Maybe Text)
-    , _rjfAdditionalInfo :: !(Maybe Text)
-    , _rjfConfigurations :: !(Maybe [Configuration])
-    , _rjfJobFlowRole :: !(Maybe Text)
-    , _rjfSteps :: !(Maybe [StepConfig])
-    , _rjfBootstrapActions :: !(Maybe [BootstrapActionConfig])
-    , _rjfReleaseLabel :: !(Maybe Text)
+    { _rjfAMIVersion           :: !(Maybe Text)
+    , _rjfAdditionalInfo       :: !(Maybe Text)
+    , _rjfConfigurations       :: !(Maybe [Configuration])
+    , _rjfJobFlowRole          :: !(Maybe Text)
+    , _rjfSteps                :: !(Maybe [StepConfig])
+    , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
+    , _rjfReleaseLabel         :: !(Maybe Text)
     , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
-    , _rjfLogURI :: !(Maybe Text)
-    , _rjfSupportedProducts :: !(Maybe [Text])
-    , _rjfVisibleToAllUsers :: !(Maybe Bool)
-    , _rjfApplications :: !(Maybe [Application])
-    , _rjfTags :: !(Maybe [Tag])
-    , _rjfServiceRole :: !(Maybe Text)
-    , _rjfName :: !Text
-    , _rjfInstances :: !JobFlowInstancesConfig
+    , _rjfLogURI               :: !(Maybe Text)
+    , _rjfSupportedProducts    :: !(Maybe [Text])
+    , _rjfVisibleToAllUsers    :: !(Maybe Bool)
+    , _rjfApplications         :: !(Maybe [Application])
+    , _rjfTags                 :: !(Maybe [Tag])
+    , _rjfServiceRole          :: !(Maybe Text)
+    , _rjfName                 :: !Text
+    , _rjfInstances            :: !JobFlowInstancesConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
-runJobFlow pName_ pInstances_ = 
+runJobFlow pName_ pInstances_ =
     RunJobFlow'
     { _rjfAMIVersion = Nothing
     , _rjfAdditionalInfo = Nothing
@@ -345,12 +345,12 @@ instance ToQuery RunJobFlow where
 -- * 'rjfrsStatus'
 data RunJobFlowResponse = RunJobFlowResponse'
     { _rjfrsJobFlowId :: !(Maybe Text)
-    , _rjfrsStatus :: !Int
+    , _rjfrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunJobFlowResponse' smart constructor.
 runJobFlowResponse :: Int -> RunJobFlowResponse
-runJobFlowResponse pStatus_ = 
+runJobFlowResponse pStatus_ =
     RunJobFlowResponse'
     { _rjfrsJobFlowId = Nothing
     , _rjfrsStatus = pStatus_

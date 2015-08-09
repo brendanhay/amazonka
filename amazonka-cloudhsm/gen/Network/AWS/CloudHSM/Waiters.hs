@@ -15,6 +15,6 @@
 --
 module Network.AWS.CloudHSM.Waiters where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

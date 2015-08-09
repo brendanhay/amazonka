@@ -53,11 +53,11 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the CreatePrivateVirtualInterface
 -- operation.
@@ -70,13 +70,13 @@ import Network.AWS.Response
 --
 -- * 'creNewPrivateVirtualInterface'
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
-    { _creConnectionId :: !Text
+    { _creConnectionId               :: !Text
     , _creNewPrivateVirtualInterface :: !NewPrivateVirtualInterface
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePrivateVirtualInterface' smart constructor.
 createPrivateVirtualInterface :: Text -> NewPrivateVirtualInterface -> CreatePrivateVirtualInterface
-createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ = 
+createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
     CreatePrivateVirtualInterface'
     { _creConnectionId = pConnectionId_
     , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface_

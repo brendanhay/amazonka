@@ -42,10 +42,10 @@
 -- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Redshift
     (
-    -- * Service Description
+    -- * Service
       Redshift
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** LimitExceededFault

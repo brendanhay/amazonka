@@ -43,11 +43,11 @@ module Network.AWS.EC2.DescribeVPNConnections
     , dvcrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeVPNConnections' smart constructor.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- * 'dvpncDryRun'
 data DescribeVPNConnections = DescribeVPNConnections'
-    { _dvpncFilters :: !(Maybe [Filter])
+    { _dvpncFilters          :: !(Maybe [Filter])
     , _dvpncVPNConnectionIds :: !(Maybe [Text])
-    , _dvpncDryRun :: !(Maybe Bool)
+    , _dvpncDryRun           :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnections' smart constructor.
 describeVPNConnections :: DescribeVPNConnections
-describeVPNConnections = 
+describeVPNConnections =
     DescribeVPNConnections'
     { _dvpncFilters = Nothing
     , _dvpncVPNConnectionIds = Nothing
@@ -172,12 +172,12 @@ instance ToQuery DescribeVPNConnections where
 -- * 'dvcrsStatus'
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
     { _dvcrsVPNConnections :: !(Maybe [VPNConnection])
-    , _dvcrsStatus :: !Int
+    , _dvcrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: Int -> DescribeVPNConnectionsResponse
-describeVPNConnectionsResponse pStatus_ = 
+describeVPNConnectionsResponse pStatus_ =
     DescribeVPNConnectionsResponse'
     { _dvcrsVPNConnections = Nothing
     , _dvcrsStatus = pStatus_

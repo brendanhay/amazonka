@@ -45,11 +45,11 @@ module Network.AWS.Config.PutConfigurationRecorder
     , putConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the PutConfigurationRecorder action.
 --
@@ -64,7 +64,7 @@ newtype PutConfigurationRecorder = PutConfigurationRecorder'
 
 -- | 'PutConfigurationRecorder' smart constructor.
 putConfigurationRecorder :: ConfigurationRecorder -> PutConfigurationRecorder
-putConfigurationRecorder pConfigurationRecorder_ = 
+putConfigurationRecorder pConfigurationRecorder_ =
     PutConfigurationRecorder'
     { _pcrConfigurationRecorder = pConfigurationRecorder_
     }
@@ -106,7 +106,7 @@ instance ToQuery PutConfigurationRecorder where
 
 -- | /See:/ 'putConfigurationRecorderResponse' smart constructor.
 data PutConfigurationRecorderResponse =
-    PutConfigurationRecorderResponse' 
+    PutConfigurationRecorderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutConfigurationRecorderResponse' smart constructor.

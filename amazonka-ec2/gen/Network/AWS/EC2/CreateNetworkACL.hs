@@ -44,11 +44,11 @@ module Network.AWS.EC2.CreateNetworkACL
     , cnarsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkACL' smart constructor.
 --
@@ -59,12 +59,12 @@ import Network.AWS.Response
 -- * 'cnaVPCId'
 data CreateNetworkACL = CreateNetworkACL'
     { _cnaDryRun :: !(Maybe Bool)
-    , _cnaVPCId :: !Text
+    , _cnaVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACL' smart constructor.
 createNetworkACL :: Text -> CreateNetworkACL
-createNetworkACL pVPCId_ = 
+createNetworkACL pVPCId_ =
     CreateNetworkACL'
     { _cnaDryRun = Nothing
     , _cnaVPCId = pVPCId_
@@ -113,12 +113,12 @@ instance ToQuery CreateNetworkACL where
 -- * 'cnarsStatus'
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
     { _cnarsNetworkACL :: !(Maybe NetworkACL)
-    , _cnarsStatus :: !Int
+    , _cnarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLResponse' smart constructor.
 createNetworkACLResponse :: Int -> CreateNetworkACLResponse
-createNetworkACLResponse pStatus_ = 
+createNetworkACLResponse pStatus_ =
     CreateNetworkACLResponse'
     { _cnarsNetworkACL = Nothing
     , _cnarsStatus = pStatus_

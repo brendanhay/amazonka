@@ -17,10 +17,10 @@
 --
 module Network.AWS.CloudFormation.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data Capability =
-    CapabilityIAM 
+    CapabilityIAM
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Capability where
@@ -42,9 +42,9 @@ instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
 data OnFailure
-    = Rollback 
-    | DoNothing 
-    | Delete 
+    = Rollback
+    | DoNothing
+    | Delete
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OnFailure where
@@ -67,8 +67,8 @@ instance ToQuery      OnFailure
 instance ToHeader     OnFailure
 
 data ResourceSignalStatus
-    = Success 
-    | Failure 
+    = Success
+    | Failure
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceSignalStatus where
@@ -89,16 +89,16 @@ instance ToQuery      ResourceSignalStatus
 instance ToHeader     ResourceSignalStatus
 
 data ResourceStatus
-    = CreateFailed 
-    | DeleteFailed 
-    | UpdateFailed 
-    | CreateComplete 
-    | UpdateComplete 
-    | DeleteComplete 
-    | DeleteInProgress 
-    | UpdateInProgress 
-    | DeleteSkipped 
-    | CreateInProgress 
+    = CreateFailed
+    | DeleteFailed
+    | UpdateFailed
+    | CreateComplete
+    | UpdateComplete
+    | DeleteComplete
+    | DeleteInProgress
+    | UpdateInProgress
+    | DeleteSkipped
+    | CreateInProgress
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceStatus where
@@ -138,22 +138,22 @@ instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
 data StackStatus
-    = SSUpdateRollbackFailed 
-    | SSUpdateCompleteCleanupInProgress 
-    | SSUpdateRollbackInProgress 
-    | SSCreateInProgress 
-    | SSUpdateRollbackCompleteCleanupInProgress 
-    | SSRollbackInProgress 
-    | SSCreateFailed 
-    | SSRollbackComplete 
-    | SSDeleteFailed 
-    | SSRollbackFailed 
-    | SSCreateComplete 
-    | SSDeleteComplete 
-    | SSUpdateComplete 
-    | SSUpdateInProgress 
-    | SSDeleteInProgress 
-    | SSUpdateRollbackComplete 
+    = SSUpdateRollbackFailed
+    | SSUpdateCompleteCleanupInProgress
+    | SSUpdateRollbackInProgress
+    | SSCreateInProgress
+    | SSUpdateRollbackCompleteCleanupInProgress
+    | SSRollbackInProgress
+    | SSCreateFailed
+    | SSRollbackComplete
+    | SSDeleteFailed
+    | SSRollbackFailed
+    | SSCreateComplete
+    | SSDeleteComplete
+    | SSUpdateComplete
+    | SSUpdateInProgress
+    | SSDeleteInProgress
+    | SSUpdateRollbackComplete
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StackStatus where

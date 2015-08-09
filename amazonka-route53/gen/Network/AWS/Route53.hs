@@ -21,10 +21,10 @@
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Route53
     (
-    -- * Service Description
+    -- * Service
       Route53
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** HealthCheckVersionMismatch

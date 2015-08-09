@@ -46,11 +46,11 @@ module Network.AWS.IAM.UpdateSSHPublicKey
     , updateSSHPublicKeyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateSSHPublicKey' smart constructor.
 --
@@ -62,14 +62,14 @@ import Network.AWS.Response
 --
 -- * 'uspkStatus'
 data UpdateSSHPublicKey = UpdateSSHPublicKey'
-    { _uspkUserName :: !Text
+    { _uspkUserName       :: !Text
     , _uspkSSHPublicKeyId :: !Text
-    , _uspkStatus :: !StatusType
+    , _uspkStatus         :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSSHPublicKey' smart constructor.
 updateSSHPublicKey :: Text -> Text -> StatusType -> UpdateSSHPublicKey
-updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ = 
+updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ =
     UpdateSSHPublicKey'
     { _uspkUserName = pUserName_
     , _uspkSSHPublicKeyId = pSSHPublicKeyId_
@@ -114,7 +114,7 @@ instance ToQuery UpdateSSHPublicKey where
 
 -- | /See:/ 'updateSSHPublicKeyResponse' smart constructor.
 data UpdateSSHPublicKeyResponse =
-    UpdateSSHPublicKeyResponse' 
+    UpdateSSHPublicKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSSHPublicKeyResponse' smart constructor.

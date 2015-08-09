@@ -44,11 +44,11 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     , gcfirsStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @GetCredentialsForIdentity@ action.
 --
@@ -60,13 +60,13 @@ import Network.AWS.Response
 --
 -- * 'gcfiIdentityId'
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
-    { _gcfiLogins :: !(Maybe (Map Text Text))
+    { _gcfiLogins     :: !(Maybe (Map Text Text))
     , _gcfiIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
-getCredentialsForIdentity pIdentityId_ = 
+getCredentialsForIdentity pIdentityId_ =
     GetCredentialsForIdentity'
     { _gcfiLogins = Nothing
     , _gcfiIdentityId = pIdentityId_
@@ -129,13 +129,13 @@ instance ToQuery GetCredentialsForIdentity where
 -- * 'gcfirsStatus'
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
     { _gcfirsCredentials :: !(Maybe Credentials)
-    , _gcfirsIdentityId :: !(Maybe Text)
-    , _gcfirsStatus :: !Int
+    , _gcfirsIdentityId  :: !(Maybe Text)
+    , _gcfirsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
 getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse
-getCredentialsForIdentityResponse pStatus_ = 
+getCredentialsForIdentityResponse pStatus_ =
     GetCredentialsForIdentityResponse'
     { _gcfirsCredentials = Nothing
     , _gcfirsIdentityId = Nothing

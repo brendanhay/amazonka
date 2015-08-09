@@ -18,8 +18,8 @@
 --
 module Network.AWS.IAM.Types.Product where
 
-import Network.AWS.IAM.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.IAM.Types.Sum
+import           Network.AWS.Prelude
 
 -- | Contains information about an AWS access key.
 --
@@ -45,16 +45,16 @@ import Network.AWS.Prelude
 --
 -- * 'akSecretAccessKey'
 data AccessKey = AccessKey'
-    { _akCreateDate :: !(Maybe ISO8601)
-    , _akUserName :: !Text
-    , _akAccessKeyId :: !Text
-    , _akStatus :: !StatusType
+    { _akCreateDate      :: !(Maybe ISO8601)
+    , _akUserName        :: !Text
+    , _akAccessKeyId     :: !Text
+    , _akStatus          :: !StatusType
     , _akSecretAccessKey :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessKey' smart constructor.
 accessKey :: Text -> Text -> StatusType -> Text -> AccessKey
-accessKey pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ = 
+accessKey pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ =
     AccessKey'
     { _akCreateDate = Nothing
     , _akUserName = pUserName_
@@ -108,13 +108,13 @@ instance FromXML AccessKey where
 -- * 'akluRegion'
 data AccessKeyLastUsed = AccessKeyLastUsed'
     { _akluLastUsedDate :: !ISO8601
-    , _akluServiceName :: !Text
-    , _akluRegion :: !Text
+    , _akluServiceName  :: !Text
+    , _akluRegion       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessKeyLastUsed' smart constructor.
 accessKeyLastUsed :: UTCTime -> Text -> Text -> AccessKeyLastUsed
-accessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ = 
+accessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ =
     AccessKeyLastUsed'
     { _akluLastUsedDate = _Time # pLastUsedDate_
     , _akluServiceName = pServiceName_
@@ -187,15 +187,15 @@ instance FromXML AccessKeyLastUsed where
 --
 -- * 'akmAccessKeyId'
 data AccessKeyMetadata = AccessKeyMetadata'
-    { _akmStatus :: !(Maybe StatusType)
-    , _akmCreateDate :: !(Maybe ISO8601)
-    , _akmUserName :: !(Maybe Text)
+    { _akmStatus      :: !(Maybe StatusType)
+    , _akmCreateDate  :: !(Maybe ISO8601)
+    , _akmUserName    :: !(Maybe Text)
     , _akmAccessKeyId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessKeyMetadata' smart constructor.
 accessKeyMetadata :: AccessKeyMetadata
-accessKeyMetadata = 
+accessKeyMetadata =
     AccessKeyMetadata'
     { _akmStatus = Nothing
     , _akmCreateDate = Nothing
@@ -247,12 +247,12 @@ instance FromXML AccessKeyMetadata where
 -- * 'apPolicyARN'
 data AttachedPolicy = AttachedPolicy'
     { _apPolicyName :: !(Maybe Text)
-    , _apPolicyARN :: !(Maybe Text)
+    , _apPolicyARN  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachedPolicy' smart constructor.
 attachedPolicy :: AttachedPolicy
-attachedPolicy = 
+attachedPolicy =
     AttachedPolicy'
     { _apPolicyName = Nothing
     , _apPolicyARN = Nothing
@@ -293,16 +293,16 @@ instance FromXML AttachedPolicy where
 --
 -- * 'gCreateDate'
 data Group = Group'
-    { _gPath :: !Text
-    , _gGroupName :: !Text
-    , _gGroupId :: !Text
-    , _gARN :: !Text
+    { _gPath       :: !Text
+    , _gGroupName  :: !Text
+    , _gGroupId    :: !Text
+    , _gARN        :: !Text
     , _gCreateDate :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Group' smart constructor.
 group' :: Text -> Text -> Text -> Text -> UTCTime -> Group
-group' pPath_ pGroupName_ pGroupId_ pARN_ pCreateDate_ = 
+group' pPath_ pGroupName_ pGroupId_ pARN_ pCreateDate_ =
     Group'
     { _gPath = pPath_
     , _gGroupName = pGroupName_
@@ -373,18 +373,18 @@ instance FromXML Group where
 --
 -- * 'gdAttachedManagedPolicies'
 data GroupDetail = GroupDetail'
-    { _gdARN :: !(Maybe Text)
-    , _gdPath :: !(Maybe Text)
-    , _gdCreateDate :: !(Maybe ISO8601)
-    , _gdGroupId :: !(Maybe Text)
-    , _gdGroupPolicyList :: !(Maybe [PolicyDetail])
-    , _gdGroupName :: !(Maybe Text)
+    { _gdARN                     :: !(Maybe Text)
+    , _gdPath                    :: !(Maybe Text)
+    , _gdCreateDate              :: !(Maybe ISO8601)
+    , _gdGroupId                 :: !(Maybe Text)
+    , _gdGroupPolicyList         :: !(Maybe [PolicyDetail])
+    , _gdGroupName               :: !(Maybe Text)
     , _gdAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GroupDetail' smart constructor.
 groupDetail :: GroupDetail
-groupDetail = 
+groupDetail =
     GroupDetail'
     { _gdARN = Nothing
     , _gdPath = Nothing
@@ -473,17 +473,17 @@ instance FromXML GroupDetail where
 --
 -- * 'ipRoles'
 data InstanceProfile = InstanceProfile'
-    { _ipPath :: !Text
+    { _ipPath                :: !Text
     , _ipInstanceProfileName :: !Text
-    , _ipInstanceProfileId :: !Text
-    , _ipARN :: !Text
-    , _ipCreateDate :: !ISO8601
-    , _ipRoles :: ![Role]
+    , _ipInstanceProfileId   :: !Text
+    , _ipARN                 :: !Text
+    , _ipCreateDate          :: !ISO8601
+    , _ipRoles               :: ![Role]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceProfile' smart constructor.
 instanceProfile :: Text -> Text -> Text -> Text -> UTCTime -> InstanceProfile
-instanceProfile pPath_ pInstanceProfileName_ pInstanceProfileId_ pARN_ pCreateDate_ = 
+instanceProfile pPath_ pInstanceProfileName_ pInstanceProfileId_ pARN_ pCreateDate_ =
     InstanceProfile'
     { _ipPath = pPath_
     , _ipInstanceProfileName = pInstanceProfileName_
@@ -551,13 +551,13 @@ instance FromXML InstanceProfile where
 -- * 'lpCreateDate'
 data LoginProfile = LoginProfile'
     { _lpPasswordResetRequired :: !(Maybe Bool)
-    , _lpUserName :: !Text
-    , _lpCreateDate :: !ISO8601
+    , _lpUserName              :: !Text
+    , _lpCreateDate            :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoginProfile' smart constructor.
 loginProfile :: Text -> UTCTime -> LoginProfile
-loginProfile pUserName_ pCreateDate_ = 
+loginProfile pUserName_ pCreateDate_ =
     LoginProfile'
     { _lpPasswordResetRequired = Nothing
     , _lpUserName = pUserName_
@@ -599,14 +599,14 @@ instance FromXML LoginProfile where
 --
 -- * 'mdEnableDate'
 data MFADevice = MFADevice'
-    { _mdUserName :: !Text
+    { _mdUserName     :: !Text
     , _mdSerialNumber :: !Text
-    , _mdEnableDate :: !ISO8601
+    , _mdEnableDate   :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MFADevice' smart constructor.
 mfaDevice :: Text -> Text -> UTCTime -> MFADevice
-mfaDevice pUserName_ pSerialNumber_ pEnableDate_ = 
+mfaDevice pUserName_ pSerialNumber_ pEnableDate_ =
     MFADevice'
     { _mdUserName = pUserName_
     , _mdSerialNumber = pSerialNumber_
@@ -669,22 +669,22 @@ instance FromXML MFADevice where
 --
 -- * 'mpdDescription'
 data ManagedPolicyDetail = ManagedPolicyDetail'
-    { _mpdPolicyName :: !(Maybe Text)
-    , _mpdARN :: !(Maybe Text)
-    , _mpdPath :: !(Maybe Text)
-    , _mpdUpdateDate :: !(Maybe ISO8601)
-    , _mpdPolicyId :: !(Maybe Text)
-    , _mpdCreateDate :: !(Maybe ISO8601)
+    { _mpdPolicyName        :: !(Maybe Text)
+    , _mpdARN               :: !(Maybe Text)
+    , _mpdPath              :: !(Maybe Text)
+    , _mpdUpdateDate        :: !(Maybe ISO8601)
+    , _mpdPolicyId          :: !(Maybe Text)
+    , _mpdCreateDate        :: !(Maybe ISO8601)
     , _mpdPolicyVersionList :: !(Maybe [PolicyVersion])
-    , _mpdIsAttachable :: !(Maybe Bool)
-    , _mpdDefaultVersionId :: !(Maybe Text)
-    , _mpdAttachmentCount :: !(Maybe Int)
-    , _mpdDescription :: !(Maybe Text)
+    , _mpdIsAttachable      :: !(Maybe Bool)
+    , _mpdDefaultVersionId  :: !(Maybe Text)
+    , _mpdAttachmentCount   :: !(Maybe Int)
+    , _mpdDescription       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ManagedPolicyDetail' smart constructor.
 managedPolicyDetail :: ManagedPolicyDetail
-managedPolicyDetail = 
+managedPolicyDetail =
     ManagedPolicyDetail'
     { _mpdPolicyName = Nothing
     , _mpdARN = Nothing
@@ -797,7 +797,7 @@ newtype OpenIdConnectProviderListEntry = OpenIdConnectProviderListEntry'
 
 -- | 'OpenIdConnectProviderListEntry' smart constructor.
 openIdConnectProviderListEntry :: OpenIdConnectProviderListEntry
-openIdConnectProviderListEntry = 
+openIdConnectProviderListEntry =
     OpenIdConnectProviderListEntry'
     { _oicpleARN = Nothing
     }
@@ -839,21 +839,21 @@ instance FromXML OpenIdConnectProviderListEntry where
 --
 -- * 'ppAllowUsersToChangePassword'
 data PasswordPolicy = PasswordPolicy'
-    { _ppExpirePasswords :: !(Maybe Bool)
-    , _ppRequireNumbers :: !(Maybe Bool)
-    , _ppMinimumPasswordLength :: !(Maybe Nat)
-    , _ppPasswordReusePrevention :: !(Maybe Nat)
+    { _ppExpirePasswords            :: !(Maybe Bool)
+    , _ppRequireNumbers             :: !(Maybe Bool)
+    , _ppMinimumPasswordLength      :: !(Maybe Nat)
+    , _ppPasswordReusePrevention    :: !(Maybe Nat)
     , _ppRequireLowercaseCharacters :: !(Maybe Bool)
-    , _ppMaxPasswordAge :: !(Maybe Nat)
-    , _ppHardExpiry :: !(Maybe Bool)
-    , _ppRequireSymbols :: !(Maybe Bool)
+    , _ppMaxPasswordAge             :: !(Maybe Nat)
+    , _ppHardExpiry                 :: !(Maybe Bool)
+    , _ppRequireSymbols             :: !(Maybe Bool)
     , _ppRequireUppercaseCharacters :: !(Maybe Bool)
     , _ppAllowUsersToChangePassword :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PasswordPolicy' smart constructor.
 passwordPolicy :: PasswordPolicy
-passwordPolicy = 
+passwordPolicy =
     PasswordPolicy'
     { _ppExpirePasswords = Nothing
     , _ppRequireNumbers = Nothing
@@ -959,21 +959,21 @@ instance FromXML PasswordPolicy where
 --
 -- * 'pDescription'
 data Policy = Policy'
-    { _pPolicyName :: !(Maybe Text)
-    , _pARN :: !(Maybe Text)
-    , _pPath :: !(Maybe Text)
-    , _pUpdateDate :: !(Maybe ISO8601)
-    , _pPolicyId :: !(Maybe Text)
-    , _pCreateDate :: !(Maybe ISO8601)
-    , _pIsAttachable :: !(Maybe Bool)
+    { _pPolicyName       :: !(Maybe Text)
+    , _pARN              :: !(Maybe Text)
+    , _pPath             :: !(Maybe Text)
+    , _pUpdateDate       :: !(Maybe ISO8601)
+    , _pPolicyId         :: !(Maybe Text)
+    , _pCreateDate       :: !(Maybe ISO8601)
+    , _pIsAttachable     :: !(Maybe Bool)
     , _pDefaultVersionId :: !(Maybe Text)
-    , _pAttachmentCount :: !(Maybe Int)
-    , _pDescription :: !(Maybe Text)
+    , _pAttachmentCount  :: !(Maybe Int)
+    , _pDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Policy' smart constructor.
 policy :: Policy
-policy = 
+policy =
     Policy'
     { _pPolicyName = Nothing
     , _pARN = Nothing
@@ -1077,12 +1077,12 @@ instance FromXML Policy where
 -- * 'pdPolicyName'
 data PolicyDetail = PolicyDetail'
     { _pdPolicyDocument :: !(Maybe Text)
-    , _pdPolicyName :: !(Maybe Text)
+    , _pdPolicyName     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyDetail' smart constructor.
 policyDetail :: PolicyDetail
-policyDetail = 
+policyDetail =
     PolicyDetail'
     { _pdPolicyDocument = Nothing
     , _pdPolicyName = Nothing
@@ -1121,7 +1121,7 @@ newtype PolicyGroup = PolicyGroup'
 
 -- | 'PolicyGroup' smart constructor.
 policyGroup :: PolicyGroup
-policyGroup = 
+policyGroup =
     PolicyGroup'
     { _pgGroupName = Nothing
     }
@@ -1153,7 +1153,7 @@ newtype PolicyRole = PolicyRole'
 
 -- | 'PolicyRole' smart constructor.
 policyRole :: PolicyRole
-policyRole = 
+policyRole =
     PolicyRole'
     { _prRoleName = Nothing
     }
@@ -1185,7 +1185,7 @@ newtype PolicyUser = PolicyUser'
 
 -- | 'PolicyUser' smart constructor.
 policyUser :: PolicyUser
-policyUser = 
+policyUser =
     PolicyUser'
     { _puUserName = Nothing
     }
@@ -1219,15 +1219,15 @@ instance FromXML PolicyUser where
 --
 -- * 'pvIsDefaultVersion'
 data PolicyVersion = PolicyVersion'
-    { _pvVersionId :: !(Maybe Text)
-    , _pvCreateDate :: !(Maybe ISO8601)
-    , _pvDocument :: !(Maybe Text)
+    { _pvVersionId        :: !(Maybe Text)
+    , _pvCreateDate       :: !(Maybe ISO8601)
+    , _pvDocument         :: !(Maybe Text)
     , _pvIsDefaultVersion :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyVersion' smart constructor.
 policyVersion :: PolicyVersion
-policyVersion = 
+policyVersion =
     PolicyVersion'
     { _pvVersionId = Nothing
     , _pvCreateDate = Nothing
@@ -1296,16 +1296,16 @@ instance FromXML PolicyVersion where
 -- * 'rCreateDate'
 data Role = Role'
     { _rAssumeRolePolicyDocument :: !(Maybe Text)
-    , _rPath :: !Text
-    , _rRoleName :: !Text
-    , _rRoleId :: !Text
-    , _rARN :: !Text
-    , _rCreateDate :: !ISO8601
+    , _rPath                     :: !Text
+    , _rRoleName                 :: !Text
+    , _rRoleId                   :: !Text
+    , _rARN                      :: !Text
+    , _rCreateDate               :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Role' smart constructor.
 role :: Text -> Text -> Text -> Text -> UTCTime -> Role
-role pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ = 
+role pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
     Role'
     { _rAssumeRolePolicyDocument = Nothing
     , _rPath = pPath_
@@ -1387,19 +1387,19 @@ instance FromXML Role where
 -- * 'rdAttachedManagedPolicies'
 data RoleDetail = RoleDetail'
     { _rdAssumeRolePolicyDocument :: !(Maybe Text)
-    , _rdARN :: !(Maybe Text)
-    , _rdPath :: !(Maybe Text)
-    , _rdInstanceProfileList :: !(Maybe [InstanceProfile])
-    , _rdCreateDate :: !(Maybe ISO8601)
-    , _rdRoleName :: !(Maybe Text)
-    , _rdRoleId :: !(Maybe Text)
-    , _rdRolePolicyList :: !(Maybe [PolicyDetail])
-    , _rdAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
+    , _rdARN                      :: !(Maybe Text)
+    , _rdPath                     :: !(Maybe Text)
+    , _rdInstanceProfileList      :: !(Maybe [InstanceProfile])
+    , _rdCreateDate               :: !(Maybe ISO8601)
+    , _rdRoleName                 :: !(Maybe Text)
+    , _rdRoleId                   :: !(Maybe Text)
+    , _rdRolePolicyList           :: !(Maybe [PolicyDetail])
+    , _rdAttachedManagedPolicies  :: !(Maybe [AttachedPolicy])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RoleDetail' smart constructor.
 roleDetail :: RoleDetail
-roleDetail = 
+roleDetail =
     RoleDetail'
     { _rdAssumeRolePolicyDocument = Nothing
     , _rdARN = Nothing
@@ -1487,14 +1487,14 @@ instance FromXML RoleDetail where
 --
 -- * 'samlpleValidUntil'
 data SAMLProviderListEntry = SAMLProviderListEntry'
-    { _samlpleARN :: !(Maybe Text)
+    { _samlpleARN        :: !(Maybe Text)
     , _samlpleCreateDate :: !(Maybe ISO8601)
     , _samlpleValidUntil :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SAMLProviderListEntry' smart constructor.
 sAMLProviderListEntry :: SAMLProviderListEntry
-sAMLProviderListEntry = 
+sAMLProviderListEntry =
     SAMLProviderListEntry'
     { _samlpleARN = Nothing
     , _samlpleCreateDate = Nothing
@@ -1540,17 +1540,17 @@ instance FromXML SAMLProviderListEntry where
 --
 -- * 'spkStatus'
 data SSHPublicKey = SSHPublicKey'
-    { _spkUploadDate :: !(Maybe ISO8601)
-    , _spkUserName :: !Text
-    , _spkSSHPublicKeyId :: !Text
-    , _spkFingerprint :: !Text
+    { _spkUploadDate       :: !(Maybe ISO8601)
+    , _spkUserName         :: !Text
+    , _spkSSHPublicKeyId   :: !Text
+    , _spkFingerprint      :: !Text
     , _spkSSHPublicKeyBody :: !Text
-    , _spkStatus :: !StatusType
+    , _spkStatus           :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SSHPublicKey' smart constructor.
 sshPublicKey :: Text -> Text -> Text -> Text -> StatusType -> SSHPublicKey
-sshPublicKey pUserName_ pSSHPublicKeyId_ pFingerprint_ pSSHPublicKeyBody_ pStatus_ = 
+sshPublicKey pUserName_ pSSHPublicKeyId_ pFingerprint_ pSSHPublicKeyBody_ pStatus_ =
     SSHPublicKey'
     { _spkUploadDate = Nothing
     , _spkUserName = pUserName_
@@ -1615,15 +1615,15 @@ instance FromXML SSHPublicKey where
 --
 -- * 'spkmUploadDate'
 data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
-    { _spkmUserName :: !Text
+    { _spkmUserName       :: !Text
     , _spkmSSHPublicKeyId :: !Text
-    , _spkmStatus :: !StatusType
-    , _spkmUploadDate :: !ISO8601
+    , _spkmStatus         :: !StatusType
+    , _spkmUploadDate     :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SSHPublicKeyMetadata' smart constructor.
 sshPublicKeyMetadata :: Text -> Text -> StatusType -> UTCTime -> SSHPublicKeyMetadata
-sshPublicKeyMetadata pUserName_ pSSHPublicKeyId_ pStatus_ pUploadDate_ = 
+sshPublicKeyMetadata pUserName_ pSSHPublicKeyId_ pStatus_ pUploadDate_ =
     SSHPublicKeyMetadata'
     { _spkmUserName = pUserName_
     , _spkmSSHPublicKeyId = pSSHPublicKeyId_
@@ -1673,14 +1673,14 @@ instance FromXML SSHPublicKeyMetadata where
 --
 -- * 'sCertificateBody'
 data ServerCertificate = ServerCertificate'
-    { _sCertificateChain :: !(Maybe Text)
+    { _sCertificateChain          :: !(Maybe Text)
     , _sServerCertificateMetadata :: !ServerCertificateMetadata
-    , _sCertificateBody :: !Text
+    , _sCertificateBody           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServerCertificate' smart constructor.
 serverCertificate :: ServerCertificateMetadata -> Text -> ServerCertificate
-serverCertificate pServerCertificateMetadata_ pCertificateBody_ = 
+serverCertificate pServerCertificateMetadata_ pCertificateBody_ =
     ServerCertificate'
     { _sCertificateChain = Nothing
     , _sServerCertificateMetadata = pServerCertificateMetadata_
@@ -1729,17 +1729,17 @@ instance FromXML ServerCertificate where
 --
 -- * 'scmARN'
 data ServerCertificateMetadata = ServerCertificateMetadata'
-    { _scmUploadDate :: !(Maybe ISO8601)
-    , _scmExpiration :: !(Maybe ISO8601)
-    , _scmPath :: !Text
+    { _scmUploadDate            :: !(Maybe ISO8601)
+    , _scmExpiration            :: !(Maybe ISO8601)
+    , _scmPath                  :: !Text
     , _scmServerCertificateName :: !Text
-    , _scmServerCertificateId :: !Text
-    , _scmARN :: !Text
+    , _scmServerCertificateId   :: !Text
+    , _scmARN                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServerCertificateMetadata' smart constructor.
 serverCertificateMetadata :: Text -> Text -> Text -> Text -> ServerCertificateMetadata
-serverCertificateMetadata pPath_ pServerCertificateName_ pServerCertificateId_ pARN_ = 
+serverCertificateMetadata pPath_ pServerCertificateName_ pServerCertificateId_ pARN_ =
     ServerCertificateMetadata'
     { _scmUploadDate = Nothing
     , _scmExpiration = Nothing
@@ -1810,16 +1810,16 @@ instance FromXML ServerCertificateMetadata where
 --
 -- * 'scStatus'
 data SigningCertificate = SigningCertificate'
-    { _scUploadDate :: !(Maybe ISO8601)
-    , _scUserName :: !Text
-    , _scCertificateId :: !Text
+    { _scUploadDate      :: !(Maybe ISO8601)
+    , _scUserName        :: !Text
+    , _scCertificateId   :: !Text
     , _scCertificateBody :: !Text
-    , _scStatus :: !StatusType
+    , _scStatus          :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SigningCertificate' smart constructor.
 signingCertificate :: Text -> Text -> Text -> StatusType -> SigningCertificate
-signingCertificate pUserName_ pCertificateId_ pCertificateBody_ pStatus_ = 
+signingCertificate pUserName_ pCertificateId_ pCertificateBody_ pStatus_ =
     SigningCertificate'
     { _scUploadDate = Nothing
     , _scUserName = pUserName_
@@ -1885,16 +1885,16 @@ instance FromXML SigningCertificate where
 -- * 'uCreateDate'
 data User = User'
     { _uPasswordLastUsed :: !(Maybe ISO8601)
-    , _uPath :: !Text
-    , _uUserName :: !Text
-    , _uUserId :: !Text
-    , _uARN :: !Text
-    , _uCreateDate :: !ISO8601
+    , _uPath             :: !Text
+    , _uUserName         :: !Text
+    , _uUserId           :: !Text
+    , _uARN              :: !Text
+    , _uCreateDate       :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'User' smart constructor.
 user :: Text -> Text -> Text -> Text -> UTCTime -> User
-user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ = 
+user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
     User'
     { _uPasswordLastUsed = Nothing
     , _uPath = pPath_
@@ -1989,19 +1989,19 @@ instance FromXML User where
 --
 -- * 'udAttachedManagedPolicies'
 data UserDetail = UserDetail'
-    { _udARN :: !(Maybe Text)
-    , _udPath :: !(Maybe Text)
-    , _udGroupList :: !(Maybe [Text])
-    , _udCreateDate :: !(Maybe ISO8601)
-    , _udUserName :: !(Maybe Text)
-    , _udUserId :: !(Maybe Text)
-    , _udUserPolicyList :: !(Maybe [PolicyDetail])
+    { _udARN                     :: !(Maybe Text)
+    , _udPath                    :: !(Maybe Text)
+    , _udGroupList               :: !(Maybe [Text])
+    , _udCreateDate              :: !(Maybe ISO8601)
+    , _udUserName                :: !(Maybe Text)
+    , _udUserId                  :: !(Maybe Text)
+    , _udUserPolicyList          :: !(Maybe [PolicyDetail])
     , _udAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserDetail' smart constructor.
 userDetail :: UserDetail
-userDetail = 
+userDetail =
     UserDetail'
     { _udARN = Nothing
     , _udPath = Nothing
@@ -2084,16 +2084,16 @@ instance FromXML UserDetail where
 --
 -- * 'vmdSerialNumber'
 data VirtualMFADevice = VirtualMFADevice'
-    { _vmdQRCodePNG :: !(Maybe (Sensitive Base64))
+    { _vmdQRCodePNG        :: !(Maybe (Sensitive Base64))
     , _vmdBase32StringSeed :: !(Maybe (Sensitive Base64))
-    , _vmdUser :: !(Maybe User)
-    , _vmdEnableDate :: !(Maybe ISO8601)
-    , _vmdSerialNumber :: !Text
+    , _vmdUser             :: !(Maybe User)
+    , _vmdEnableDate       :: !(Maybe ISO8601)
+    , _vmdSerialNumber     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VirtualMFADevice' smart constructor.
 virtualMFADevice :: Text -> VirtualMFADevice
-virtualMFADevice pSerialNumber_ = 
+virtualMFADevice pSerialNumber_ =
     VirtualMFADevice'
     { _vmdQRCodePNG = Nothing
     , _vmdBase32StringSeed = Nothing

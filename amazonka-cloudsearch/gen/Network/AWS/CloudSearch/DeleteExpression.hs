@@ -41,11 +41,11 @@ module Network.AWS.CloudSearch.DeleteExpression
     , delrsExpression
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteExpression@ operation.
 -- Specifies the name of the domain you want to update and the name of the
@@ -59,13 +59,13 @@ import Network.AWS.Response
 --
 -- * 'delExpressionName'
 data DeleteExpression = DeleteExpression'
-    { _delDomainName :: !Text
+    { _delDomainName     :: !Text
     , _delExpressionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteExpression' smart constructor.
 deleteExpression :: Text -> Text -> DeleteExpression
-deleteExpression pDomainName_ pExpressionName_ = 
+deleteExpression pDomainName_ pExpressionName_ =
     DeleteExpression'
     { _delDomainName = pDomainName_
     , _delExpressionName = pExpressionName_
@@ -114,13 +114,13 @@ instance ToQuery DeleteExpression where
 --
 -- * 'delrsExpression'
 data DeleteExpressionResponse = DeleteExpressionResponse'
-    { _delrsStatus :: !Int
+    { _delrsStatus     :: !Int
     , _delrsExpression :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteExpressionResponse' smart constructor.
 deleteExpressionResponse :: Int -> ExpressionStatus -> DeleteExpressionResponse
-deleteExpressionResponse pStatus_ pExpression_ = 
+deleteExpressionResponse pStatus_ pExpression_ =
     DeleteExpressionResponse'
     { _delrsStatus = pStatus_
     , _delrsExpression = pExpression_

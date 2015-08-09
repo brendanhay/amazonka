@@ -39,11 +39,11 @@ module Network.AWS.CloudFront.ListInvalidations
     , lirsInvalidationList
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to list invalidations.
 --
@@ -57,14 +57,14 @@ import Network.AWS.Response
 --
 -- * 'liDistributionId'
 data ListInvalidations = ListInvalidations'
-    { _liMaxItems :: !(Maybe Text)
-    , _liMarker :: !(Maybe Text)
+    { _liMaxItems       :: !(Maybe Text)
+    , _liMarker         :: !(Maybe Text)
     , _liDistributionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInvalidations' smart constructor.
 listInvalidations :: Text -> ListInvalidations
-listInvalidations pDistributionId_ = 
+listInvalidations pDistributionId_ =
     ListInvalidations'
     { _liMaxItems = Nothing
     , _liMarker = Nothing
@@ -124,13 +124,13 @@ instance ToQuery ListInvalidations where
 --
 -- * 'lirsInvalidationList'
 data ListInvalidationsResponse = ListInvalidationsResponse'
-    { _lirsStatus :: !Int
+    { _lirsStatus           :: !Int
     , _lirsInvalidationList :: !InvalidationList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInvalidationsResponse' smart constructor.
 listInvalidationsResponse :: Int -> InvalidationList -> ListInvalidationsResponse
-listInvalidationsResponse pStatus_ pInvalidationList_ = 
+listInvalidationsResponse pStatus_ pInvalidationList_ =
     ListInvalidationsResponse'
     { _lirsStatus = pStatus_
     , _lirsInvalidationList = pInvalidationList_

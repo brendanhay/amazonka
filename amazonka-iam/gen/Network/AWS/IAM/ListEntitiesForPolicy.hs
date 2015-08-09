@@ -54,11 +54,11 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     , lefprsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listEntitiesForPolicy' smart constructor.
 --
@@ -74,16 +74,16 @@ import Network.AWS.Response
 --
 -- * 'lefpPolicyARN'
 data ListEntitiesForPolicy = ListEntitiesForPolicy'
-    { _lefpPathPrefix :: !(Maybe Text)
+    { _lefpPathPrefix   :: !(Maybe Text)
     , _lefpEntityFilter :: !(Maybe EntityType)
-    , _lefpMaxItems :: !(Maybe Nat)
-    , _lefpMarker :: !(Maybe Text)
-    , _lefpPolicyARN :: !Text
+    , _lefpMaxItems     :: !(Maybe Nat)
+    , _lefpMarker       :: !(Maybe Text)
+    , _lefpPolicyARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEntitiesForPolicy' smart constructor.
 listEntitiesForPolicy :: Text -> ListEntitiesForPolicy
-listEntitiesForPolicy pPolicyARN_ = 
+listEntitiesForPolicy pPolicyARN_ =
     ListEntitiesForPolicy'
     { _lefpPathPrefix = Nothing
     , _lefpEntityFilter = Nothing
@@ -182,16 +182,16 @@ instance ToQuery ListEntitiesForPolicy where
 -- * 'lefprsStatus'
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
     { _lefprsPolicyGroups :: !(Maybe [PolicyGroup])
-    , _lefprsPolicyRoles :: !(Maybe [PolicyRole])
-    , _lefprsPolicyUsers :: !(Maybe [PolicyUser])
-    , _lefprsMarker :: !(Maybe Text)
-    , _lefprsIsTruncated :: !(Maybe Bool)
-    , _lefprsStatus :: !Int
+    , _lefprsPolicyRoles  :: !(Maybe [PolicyRole])
+    , _lefprsPolicyUsers  :: !(Maybe [PolicyUser])
+    , _lefprsMarker       :: !(Maybe Text)
+    , _lefprsIsTruncated  :: !(Maybe Bool)
+    , _lefprsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEntitiesForPolicyResponse' smart constructor.
 listEntitiesForPolicyResponse :: Int -> ListEntitiesForPolicyResponse
-listEntitiesForPolicyResponse pStatus_ = 
+listEntitiesForPolicyResponse pStatus_ =
     ListEntitiesForPolicyResponse'
     { _lefprsPolicyGroups = Nothing
     , _lefprsPolicyRoles = Nothing

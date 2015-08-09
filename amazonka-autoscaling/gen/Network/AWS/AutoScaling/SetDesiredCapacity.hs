@@ -40,11 +40,11 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     , setDesiredCapacityResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setDesiredCapacity' smart constructor.
 --
@@ -56,14 +56,14 @@ import Network.AWS.Response
 --
 -- * 'sdcDesiredCapacity'
 data SetDesiredCapacity = SetDesiredCapacity'
-    { _sdcHonorCooldown :: !(Maybe Bool)
+    { _sdcHonorCooldown        :: !(Maybe Bool)
     , _sdcAutoScalingGroupName :: !Text
-    , _sdcDesiredCapacity :: !Int
+    , _sdcDesiredCapacity      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDesiredCapacity' smart constructor.
 setDesiredCapacity :: Text -> Int -> SetDesiredCapacity
-setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ = 
+setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
     SetDesiredCapacity'
     { _sdcHonorCooldown = Nothing
     , _sdcAutoScalingGroupName = pAutoScalingGroupName_
@@ -111,7 +111,7 @@ instance ToQuery SetDesiredCapacity where
 
 -- | /See:/ 'setDesiredCapacityResponse' smart constructor.
 data SetDesiredCapacityResponse =
-    SetDesiredCapacityResponse' 
+    SetDesiredCapacityResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDesiredCapacityResponse' smart constructor.

@@ -41,11 +41,11 @@ module Network.AWS.IAM.DetachGroupPolicy
     , detachGroupPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachGroupPolicy' smart constructor.
 --
@@ -61,7 +61,7 @@ data DetachGroupPolicy = DetachGroupPolicy'
 
 -- | 'DetachGroupPolicy' smart constructor.
 detachGroupPolicy :: Text -> Text -> DetachGroupPolicy
-detachGroupPolicy pGroupName_ pPolicyARN_ = 
+detachGroupPolicy pGroupName_ pPolicyARN_ =
     DetachGroupPolicy'
     { _dgpGroupName = pGroupName_
     , _dgpPolicyARN = pPolicyARN_
@@ -98,7 +98,7 @@ instance ToQuery DetachGroupPolicy where
 
 -- | /See:/ 'detachGroupPolicyResponse' smart constructor.
 data DetachGroupPolicyResponse =
-    DetachGroupPolicyResponse' 
+    DetachGroupPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachGroupPolicyResponse' smart constructor.

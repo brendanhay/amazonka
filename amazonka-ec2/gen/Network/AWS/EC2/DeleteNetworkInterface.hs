@@ -36,11 +36,11 @@ module Network.AWS.EC2.DeleteNetworkInterface
     , deleteNetworkInterfaceResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkInterface' smart constructor.
 --
@@ -50,13 +50,13 @@ import Network.AWS.Response
 --
 -- * 'dninNetworkInterfaceId'
 data DeleteNetworkInterface = DeleteNetworkInterface'
-    { _dninDryRun :: !(Maybe Bool)
+    { _dninDryRun             :: !(Maybe Bool)
     , _dninNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkInterface' smart constructor.
 deleteNetworkInterface :: Text -> DeleteNetworkInterface
-deleteNetworkInterface pNetworkInterfaceId_ = 
+deleteNetworkInterface pNetworkInterfaceId_ =
     DeleteNetworkInterface'
     { _dninDryRun = Nothing
     , _dninNetworkInterfaceId = pNetworkInterfaceId_
@@ -98,7 +98,7 @@ instance ToQuery DeleteNetworkInterface where
 
 -- | /See:/ 'deleteNetworkInterfaceResponse' smart constructor.
 data DeleteNetworkInterfaceResponse =
-    DeleteNetworkInterfaceResponse' 
+    DeleteNetworkInterfaceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkInterfaceResponse' smart constructor.

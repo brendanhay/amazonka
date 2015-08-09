@@ -39,11 +39,11 @@ module Network.AWS.CloudSearch.BuildSuggesters
     , bsrsStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @BuildSuggester@ operation.
 -- Specifies the name of the domain you want to update.
@@ -59,7 +59,7 @@ newtype BuildSuggesters = BuildSuggesters'
 
 -- | 'BuildSuggesters' smart constructor.
 buildSuggesters :: Text -> BuildSuggesters
-buildSuggesters pDomainName_ = 
+buildSuggesters pDomainName_ =
     BuildSuggesters'
     { _bsDomainName = pDomainName_
     }
@@ -105,12 +105,12 @@ instance ToQuery BuildSuggesters where
 -- * 'bsrsStatus'
 data BuildSuggestersResponse = BuildSuggestersResponse'
     { _bsrsFieldNames :: !(Maybe [Text])
-    , _bsrsStatus :: !Int
+    , _bsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BuildSuggestersResponse' smart constructor.
 buildSuggestersResponse :: Int -> BuildSuggestersResponse
-buildSuggestersResponse pStatus_ = 
+buildSuggestersResponse pStatus_ =
     BuildSuggestersResponse'
     { _bsrsFieldNames = Nothing
     , _bsrsStatus = pStatus_

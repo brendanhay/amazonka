@@ -46,11 +46,11 @@ module Network.AWS.DynamoDBStreams.GetShardIterator
     , gsirsStatus
     ) where
 
-import Network.AWS.DynamoDBStreams.Types
-import Network.AWS.DynamoDBStreams.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDBStreams.Types
+import           Network.AWS.DynamoDBStreams.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /GetShardIterator/ operation.
 --
@@ -66,15 +66,15 @@ import Network.AWS.Response
 --
 -- * 'gsiShardIteratorType'
 data GetShardIterator = GetShardIterator'
-    { _gsiSequenceNumber :: !(Maybe Text)
-    , _gsiStreamARN :: !Text
-    , _gsiShardId :: !Text
+    { _gsiSequenceNumber    :: !(Maybe Text)
+    , _gsiStreamARN         :: !Text
+    , _gsiShardId           :: !Text
     , _gsiShardIteratorType :: !ShardIteratorType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
-getShardIterator pStreamARN_ pShardId_ pShardIteratorType_ = 
+getShardIterator pStreamARN_ pShardId_ pShardIteratorType_ =
     GetShardIterator'
     { _gsiSequenceNumber = Nothing
     , _gsiStreamARN = pStreamARN_
@@ -163,12 +163,12 @@ instance ToQuery GetShardIterator where
 -- * 'gsirsStatus'
 data GetShardIteratorResponse = GetShardIteratorResponse'
     { _gsirsShardIterator :: !(Maybe Text)
-    , _gsirsStatus :: !Int
+    , _gsirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIteratorResponse' smart constructor.
 getShardIteratorResponse :: Int -> GetShardIteratorResponse
-getShardIteratorResponse pStatus_ = 
+getShardIteratorResponse pStatus_ =
     GetShardIteratorResponse'
     { _gsirsShardIterator = Nothing
     , _gsirsStatus = pStatus_

@@ -38,11 +38,11 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     , delrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | =
 --
@@ -55,12 +55,12 @@ import Network.AWS.Response
 -- * 'dPolicyName'
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
     { _dLoadBalancerName :: !Text
-    , _dPolicyName :: !Text
+    , _dPolicyName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerPolicy' smart constructor.
 deleteLoadBalancerPolicy :: Text -> Text -> DeleteLoadBalancerPolicy
-deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ = 
+deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
     DeleteLoadBalancerPolicy'
     { _dLoadBalancerName = pLoadBalancerName_
     , _dPolicyName = pPolicyName_
@@ -111,7 +111,7 @@ newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
 deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
-deleteLoadBalancerPolicyResponse pStatus_ = 
+deleteLoadBalancerPolicyResponse pStatus_ =
     DeleteLoadBalancerPolicyResponse'
     { _delrsStatus = pStatus_
     }

@@ -44,11 +44,11 @@ module Network.AWS.OpsWorks.DescribeRDSDBInstances
     , drdirsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeRDSDBInstances' smart constructor.
 --
@@ -59,12 +59,12 @@ import Network.AWS.Response
 -- * 'drdiStackId'
 data DescribeRDSDBInstances = DescribeRDSDBInstances'
     { _drdiRDSDBInstanceARNs :: !(Maybe [Text])
-    , _drdiStackId :: !Text
+    , _drdiStackId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRDSDBInstances' smart constructor.
 describeRDSDBInstances :: Text -> DescribeRDSDBInstances
-describeRDSDBInstances pStackId_ = 
+describeRDSDBInstances pStackId_ =
     DescribeRDSDBInstances'
     { _drdiRDSDBInstanceARNs = Nothing
     , _drdiStackId = pStackId_
@@ -124,12 +124,12 @@ instance ToQuery DescribeRDSDBInstances where
 -- * 'drdirsStatus'
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
     { _drdirsRDSDBInstances :: !(Maybe [RDSDBInstance])
-    , _drdirsStatus :: !Int
+    , _drdirsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
 describeRDSDBInstancesResponse :: Int -> DescribeRDSDBInstancesResponse
-describeRDSDBInstancesResponse pStatus_ = 
+describeRDSDBInstancesResponse pStatus_ =
     DescribeRDSDBInstancesResponse'
     { _drdirsRDSDBInstances = Nothing
     , _drdirsStatus = pStatus_

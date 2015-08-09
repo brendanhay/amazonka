@@ -34,11 +34,11 @@ module Network.AWS.CodeDeploy.DeleteApplication
     , deleteApplicationResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a delete application operation.
 --
@@ -53,7 +53,7 @@ newtype DeleteApplication = DeleteApplication'
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
-deleteApplication pApplicationName_ = 
+deleteApplication pApplicationName_ =
     DeleteApplication'
     { _daApplicationName = pApplicationName_
     }
@@ -91,7 +91,7 @@ instance ToQuery DeleteApplication where
 
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse =
-    DeleteApplicationResponse' 
+    DeleteApplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationResponse' smart constructor.

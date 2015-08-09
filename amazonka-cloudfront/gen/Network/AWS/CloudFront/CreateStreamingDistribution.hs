@@ -39,11 +39,11 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     , csdrsStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to create a new streaming distribution.
 --
@@ -58,7 +58,7 @@ newtype CreateStreamingDistribution = CreateStreamingDistribution'
 
 -- | 'CreateStreamingDistribution' smart constructor.
 createStreamingDistribution :: StreamingDistributionConfig -> CreateStreamingDistribution
-createStreamingDistribution pStreamingDistributionConfig_ = 
+createStreamingDistribution pStreamingDistributionConfig_ =
     CreateStreamingDistribution'
     { _csdStreamingDistributionConfig = pStreamingDistributionConfig_
     }
@@ -110,15 +110,15 @@ instance ToQuery CreateStreamingDistribution where
 --
 -- * 'csdrsStatus'
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-    { _csdrsETag :: !(Maybe Text)
-    , _csdrsLocation :: !(Maybe Text)
+    { _csdrsETag                  :: !(Maybe Text)
+    , _csdrsLocation              :: !(Maybe Text)
     , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _csdrsStatus :: !Int
+    , _csdrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamingDistributionResponse' smart constructor.
 createStreamingDistributionResponse :: Int -> CreateStreamingDistributionResponse
-createStreamingDistributionResponse pStatus_ = 
+createStreamingDistributionResponse pStatus_ =
     CreateStreamingDistributionResponse'
     { _csdrsETag = Nothing
     , _csdrsLocation = Nothing

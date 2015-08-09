@@ -41,11 +41,11 @@ module Network.AWS.IAM.DeleteAccessKey
     , deleteAccessKeyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAccessKey' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'dakAccessKeyId'
 data DeleteAccessKey = DeleteAccessKey'
-    { _dakUserName :: !(Maybe Text)
+    { _dakUserName    :: !(Maybe Text)
     , _dakAccessKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccessKey' smart constructor.
 deleteAccessKey :: Text -> DeleteAccessKey
-deleteAccessKey pAccessKeyId_ = 
+deleteAccessKey pAccessKeyId_ =
     DeleteAccessKey'
     { _dakUserName = Nothing
     , _dakAccessKeyId = pAccessKeyId_
@@ -98,7 +98,7 @@ instance ToQuery DeleteAccessKey where
 
 -- | /See:/ 'deleteAccessKeyResponse' smart constructor.
 data DeleteAccessKeyResponse =
-    DeleteAccessKeyResponse' 
+    DeleteAccessKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccessKeyResponse' smart constructor.

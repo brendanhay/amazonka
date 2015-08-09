@@ -49,11 +49,11 @@ module Network.AWS.IAM.GetPolicyVersion
     , gpvrsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getPolicyVersion' smart constructor.
 --
@@ -69,7 +69,7 @@ data GetPolicyVersion = GetPolicyVersion'
 
 -- | 'GetPolicyVersion' smart constructor.
 getPolicyVersion :: Text -> Text -> GetPolicyVersion
-getPolicyVersion pPolicyARN_ pVersionId_ = 
+getPolicyVersion pPolicyARN_ pVersionId_ =
     GetPolicyVersion'
     { _gpvPolicyARN = pPolicyARN_
     , _gpvVersionId = pVersionId_
@@ -118,12 +118,12 @@ instance ToQuery GetPolicyVersion where
 -- * 'gpvrsStatus'
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
     { _gpvrsPolicyVersion :: !(Maybe PolicyVersion)
-    , _gpvrsStatus :: !Int
+    , _gpvrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyVersionResponse' smart constructor.
 getPolicyVersionResponse :: Int -> GetPolicyVersionResponse
-getPolicyVersionResponse pStatus_ = 
+getPolicyVersionResponse pStatus_ =
     GetPolicyVersionResponse'
     { _gpvrsPolicyVersion = Nothing
     , _gpvrsStatus = pStatus_

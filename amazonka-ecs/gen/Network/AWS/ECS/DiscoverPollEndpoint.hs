@@ -43,11 +43,11 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     , dpersStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'discoverPollEndpoint' smart constructor.
 --
@@ -57,13 +57,13 @@ import Network.AWS.Response
 --
 -- * 'dpeContainerInstance'
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-    { _dpeCluster :: !(Maybe Text)
+    { _dpeCluster           :: !(Maybe Text)
     , _dpeContainerInstance :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiscoverPollEndpoint' smart constructor.
 discoverPollEndpoint :: DiscoverPollEndpoint
-discoverPollEndpoint = 
+discoverPollEndpoint =
     DiscoverPollEndpoint'
     { _dpeCluster = Nothing
     , _dpeContainerInstance = Nothing
@@ -127,13 +127,13 @@ instance ToQuery DiscoverPollEndpoint where
 -- * 'dpersStatus'
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
     { _dpersTelemetryEndpoint :: !(Maybe Text)
-    , _dpersEndpoint :: !(Maybe Text)
-    , _dpersStatus :: !Int
+    , _dpersEndpoint          :: !(Maybe Text)
+    , _dpersStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
 discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse
-discoverPollEndpointResponse pStatus_ = 
+discoverPollEndpointResponse pStatus_ =
     DiscoverPollEndpointResponse'
     { _dpersTelemetryEndpoint = Nothing
     , _dpersEndpoint = Nothing

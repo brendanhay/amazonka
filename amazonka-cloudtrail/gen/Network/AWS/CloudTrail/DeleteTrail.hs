@@ -36,11 +36,11 @@ module Network.AWS.CloudTrail.DeleteTrail
     , drsStatus
     ) where
 
-import Network.AWS.CloudTrail.Types
-import Network.AWS.CloudTrail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request that specifies the name of a trail to delete.
 --
@@ -55,7 +55,7 @@ newtype DeleteTrail = DeleteTrail'
 
 -- | 'DeleteTrail' smart constructor.
 deleteTrail :: Text -> DeleteTrail
-deleteTrail pName_ = 
+deleteTrail pName_ =
     DeleteTrail'
     { _dtName = pName_
     }
@@ -106,7 +106,7 @@ newtype DeleteTrailResponse = DeleteTrailResponse'
 
 -- | 'DeleteTrailResponse' smart constructor.
 deleteTrailResponse :: Int -> DeleteTrailResponse
-deleteTrailResponse pStatus_ = 
+deleteTrailResponse pStatus_ =
     DeleteTrailResponse'
     { _drsStatus = pStatus_
     }

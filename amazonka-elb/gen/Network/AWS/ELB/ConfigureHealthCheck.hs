@@ -43,11 +43,11 @@ module Network.AWS.ELB.ConfigureHealthCheck
     , chcrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'configureHealthCheck' smart constructor.
 --
@@ -58,12 +58,12 @@ import Network.AWS.Response
 -- * 'chcHealthCheck'
 data ConfigureHealthCheck = ConfigureHealthCheck'
     { _chcLoadBalancerName :: !Text
-    , _chcHealthCheck :: !HealthCheck
+    , _chcHealthCheck      :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigureHealthCheck' smart constructor.
 configureHealthCheck :: Text -> HealthCheck -> ConfigureHealthCheck
-configureHealthCheck pLoadBalancerName_ pHealthCheck_ = 
+configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
     ConfigureHealthCheck'
     { _chcLoadBalancerName = pLoadBalancerName_
     , _chcHealthCheck = pHealthCheck_
@@ -111,12 +111,12 @@ instance ToQuery ConfigureHealthCheck where
 -- * 'chcrsStatus'
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
     { _chcrsHealthCheck :: !(Maybe HealthCheck)
-    , _chcrsStatus :: !Int
+    , _chcrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
 configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse
-configureHealthCheckResponse pStatus_ = 
+configureHealthCheckResponse pStatus_ =
     ConfigureHealthCheckResponse'
     { _chcrsHealthCheck = Nothing
     , _chcrsStatus = pStatus_

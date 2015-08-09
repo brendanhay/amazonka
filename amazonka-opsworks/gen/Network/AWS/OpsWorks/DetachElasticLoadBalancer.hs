@@ -41,11 +41,11 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     , detachElasticLoadBalancerResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachElasticLoadBalancer' smart constructor.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'delbLayerId'
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
     { _delbElasticLoadBalancerName :: !Text
-    , _delbLayerId :: !Text
+    , _delbLayerId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachElasticLoadBalancer' smart constructor.
 detachElasticLoadBalancer :: Text -> Text -> DetachElasticLoadBalancer
-detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ = 
+detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
     DetachElasticLoadBalancer'
     { _delbElasticLoadBalancerName = pElasticLoadBalancerName_
     , _delbLayerId = pLayerId_
@@ -109,7 +109,7 @@ instance ToQuery DetachElasticLoadBalancer where
 
 -- | /See:/ 'detachElasticLoadBalancerResponse' smart constructor.
 data DetachElasticLoadBalancerResponse =
-    DetachElasticLoadBalancerResponse' 
+    DetachElasticLoadBalancerResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachElasticLoadBalancerResponse' smart constructor.

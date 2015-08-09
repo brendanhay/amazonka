@@ -15,15 +15,15 @@
 --
 module Network.AWS.EMR.Waiters where
 
-import Network.AWS.EMR.DescribeCluster
-import Network.AWS.EMR.Types
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.EMR.DescribeCluster
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 clusterRunning :: Wait DescribeCluster
-clusterRunning = 
+clusterRunning =
     Wait
     { _waitName = "ClusterRunning"
     , _waitAttempts = 60

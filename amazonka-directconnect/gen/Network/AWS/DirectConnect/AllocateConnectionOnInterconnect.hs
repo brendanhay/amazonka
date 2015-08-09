@@ -51,11 +51,11 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , cConnectionState
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the AllocateConnectionOnInterconnect
 -- operation.
@@ -74,16 +74,16 @@ import Network.AWS.Response
 --
 -- * 'acoiVlan'
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
-    { _acoiBandwidth :: !Text
+    { _acoiBandwidth      :: !Text
     , _acoiConnectionName :: !Text
-    , _acoiOwnerAccount :: !Text
+    , _acoiOwnerAccount   :: !Text
     , _acoiInterconnectId :: !Text
-    , _acoiVlan :: !Int
+    , _acoiVlan           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocateConnectionOnInterconnect' smart constructor.
 allocateConnectionOnInterconnect :: Text -> Text -> Text -> Text -> Int -> AllocateConnectionOnInterconnect
-allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pInterconnectId_ pVlan_ = 
+allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pInterconnectId_ pVlan_ =
     AllocateConnectionOnInterconnect'
     { _acoiBandwidth = pBandwidth_
     , _acoiConnectionName = pConnectionName_

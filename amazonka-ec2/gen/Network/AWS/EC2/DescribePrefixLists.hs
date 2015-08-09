@@ -46,11 +46,11 @@ module Network.AWS.EC2.DescribePrefixLists
     , dplrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describePrefixLists' smart constructor.
 --
@@ -66,16 +66,16 @@ import Network.AWS.Response
 --
 -- * 'dplMaxResults'
 data DescribePrefixLists = DescribePrefixLists'
-    { _dplFilters :: !(Maybe [Filter])
-    , _dplNextToken :: !(Maybe Text)
+    { _dplFilters       :: !(Maybe [Filter])
+    , _dplNextToken     :: !(Maybe Text)
     , _dplPrefixListIds :: !(Maybe [Text])
-    , _dplDryRun :: !(Maybe Bool)
-    , _dplMaxResults :: !(Maybe Int)
+    , _dplDryRun        :: !(Maybe Bool)
+    , _dplMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePrefixLists' smart constructor.
 describePrefixLists :: DescribePrefixLists
-describePrefixLists = 
+describePrefixLists =
     DescribePrefixLists'
     { _dplFilters = Nothing
     , _dplNextToken = Nothing
@@ -159,14 +159,14 @@ instance ToQuery DescribePrefixLists where
 --
 -- * 'dplrsStatus'
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
-    { _dplrsNextToken :: !(Maybe Text)
+    { _dplrsNextToken   :: !(Maybe Text)
     , _dplrsPrefixLists :: !(Maybe [PrefixList])
-    , _dplrsStatus :: !Int
+    , _dplrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
 describePrefixListsResponse :: Int -> DescribePrefixListsResponse
-describePrefixListsResponse pStatus_ = 
+describePrefixListsResponse pStatus_ =
     DescribePrefixListsResponse'
     { _dplrsNextToken = Nothing
     , _dplrsPrefixLists = Nothing

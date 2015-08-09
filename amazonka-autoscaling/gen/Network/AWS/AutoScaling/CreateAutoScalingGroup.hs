@@ -56,11 +56,11 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , createAutoScalingGroupResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createAutoScalingGroup' smart constructor.
 --
@@ -96,26 +96,26 @@ import Network.AWS.Response
 --
 -- * 'casgMaxSize'
 data CreateAutoScalingGroup = CreateAutoScalingGroup'
-    { _casgInstanceId :: !(Maybe Text)
-    , _casgTerminationPolicies :: !(Maybe [Text])
-    , _casgHealthCheckGracePeriod :: !(Maybe Int)
-    , _casgVPCZoneIdentifier :: !(Maybe Text)
-    , _casgDefaultCooldown :: !(Maybe Int)
-    , _casgDesiredCapacity :: !(Maybe Int)
-    , _casgAvailabilityZones :: !(Maybe (List1 Text))
-    , _casgHealthCheckType :: !(Maybe Text)
+    { _casgInstanceId              :: !(Maybe Text)
+    , _casgTerminationPolicies     :: !(Maybe [Text])
+    , _casgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _casgVPCZoneIdentifier       :: !(Maybe Text)
+    , _casgDefaultCooldown         :: !(Maybe Int)
+    , _casgDesiredCapacity         :: !(Maybe Int)
+    , _casgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _casgHealthCheckType         :: !(Maybe Text)
     , _casgLaunchConfigurationName :: !(Maybe Text)
-    , _casgPlacementGroup :: !(Maybe Text)
-    , _casgLoadBalancerNames :: !(Maybe [Text])
-    , _casgTags :: !(Maybe [Tag])
-    , _casgAutoScalingGroupName :: !Text
-    , _casgMinSize :: !Int
-    , _casgMaxSize :: !Int
+    , _casgPlacementGroup          :: !(Maybe Text)
+    , _casgLoadBalancerNames       :: !(Maybe [Text])
+    , _casgTags                    :: !(Maybe [Tag])
+    , _casgAutoScalingGroupName    :: !Text
+    , _casgMinSize                 :: !Int
+    , _casgMaxSize                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAutoScalingGroup' smart constructor.
 createAutoScalingGroup :: Text -> Int -> Int -> CreateAutoScalingGroup
-createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ = 
+createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     CreateAutoScalingGroup'
     { _casgInstanceId = Nothing
     , _casgTerminationPolicies = Nothing
@@ -309,7 +309,7 @@ instance ToQuery CreateAutoScalingGroup where
 
 -- | /See:/ 'createAutoScalingGroupResponse' smart constructor.
 data CreateAutoScalingGroupResponse =
-    CreateAutoScalingGroupResponse' 
+    CreateAutoScalingGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAutoScalingGroupResponse' smart constructor.

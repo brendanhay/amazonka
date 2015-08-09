@@ -48,11 +48,11 @@ module Network.AWS.EC2.AssociateDHCPOptions
     , associateDHCPOptionsResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'associateDHCPOptions' smart constructor.
 --
@@ -64,14 +64,14 @@ import Network.AWS.Response
 --
 -- * 'adoVPCId'
 data AssociateDHCPOptions = AssociateDHCPOptions'
-    { _adoDryRun :: !(Maybe Bool)
+    { _adoDryRun        :: !(Maybe Bool)
     , _adoDHCPOptionsId :: !Text
-    , _adoVPCId :: !Text
+    , _adoVPCId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateDHCPOptions' smart constructor.
 associateDHCPOptions :: Text -> Text -> AssociateDHCPOptions
-associateDHCPOptions pDHCPOptionsId_ pVPCId_ = 
+associateDHCPOptions pDHCPOptionsId_ pVPCId_ =
     AssociateDHCPOptions'
     { _adoDryRun = Nothing
     , _adoDHCPOptionsId = pDHCPOptionsId_
@@ -118,7 +118,7 @@ instance ToQuery AssociateDHCPOptions where
 
 -- | /See:/ 'associateDHCPOptionsResponse' smart constructor.
 data AssociateDHCPOptionsResponse =
-    AssociateDHCPOptionsResponse' 
+    AssociateDHCPOptionsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateDHCPOptionsResponse' smart constructor.

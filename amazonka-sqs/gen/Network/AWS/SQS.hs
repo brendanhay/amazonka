@@ -44,10 +44,10 @@
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SQS
     (
-    -- * Service Description
+    -- * Service
       SQS
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidBatchEntryId

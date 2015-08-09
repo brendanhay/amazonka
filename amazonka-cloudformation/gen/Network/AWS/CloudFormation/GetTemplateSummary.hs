@@ -54,11 +54,11 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrsStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the GetTemplateSummary action.
 --
@@ -73,13 +73,13 @@ import Network.AWS.Response
 -- * 'gtsStackName'
 data GetTemplateSummary = GetTemplateSummary'
     { _gtsTemplateBody :: !(Maybe Text)
-    , _gtsTemplateURL :: !(Maybe Text)
-    , _gtsStackName :: !(Maybe Text)
+    , _gtsTemplateURL  :: !(Maybe Text)
+    , _gtsStackName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateSummary' smart constructor.
 getTemplateSummary :: GetTemplateSummary
-getTemplateSummary = 
+getTemplateSummary =
     GetTemplateSummary'
     { _gtsTemplateBody = Nothing
     , _gtsTemplateURL = Nothing
@@ -173,18 +173,18 @@ instance ToQuery GetTemplateSummary where
 --
 -- * 'gtsrsStatus'
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-    { _gtsrsVersion :: !(Maybe Text)
-    , _gtsrsParameters :: !(Maybe [ParameterDeclaration])
+    { _gtsrsVersion            :: !(Maybe Text)
+    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
     , _gtsrsCapabilitiesReason :: !(Maybe Text)
-    , _gtsrsMetadata :: !(Maybe Text)
-    , _gtsrsCapabilities :: !(Maybe [Capability])
-    , _gtsrsDescription :: !(Maybe Text)
-    , _gtsrsStatus :: !Int
+    , _gtsrsMetadata           :: !(Maybe Text)
+    , _gtsrsCapabilities       :: !(Maybe [Capability])
+    , _gtsrsDescription        :: !(Maybe Text)
+    , _gtsrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
 getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
-getTemplateSummaryResponse pStatus_ = 
+getTemplateSummaryResponse pStatus_ =
     GetTemplateSummaryResponse'
     { _gtsrsVersion = Nothing
     , _gtsrsParameters = Nothing

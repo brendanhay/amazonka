@@ -17,12 +17,12 @@
 --
 module Network.AWS.CodeDeploy.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data ApplicationRevisionSortBy
-    = RegisterTime 
-    | FirstUsedTime 
-    | LastUsedTime 
+    = RegisterTime
+    | FirstUsedTime
+    | LastUsedTime
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ApplicationRevisionSortBy where
@@ -48,9 +48,9 @@ instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
 
 data BundleType
-    = Zip 
-    | TGZ 
-    | TAR 
+    = Zip
+    | TGZ
+    | TAR
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BundleType where
@@ -79,19 +79,19 @@ instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
 data DeployErrorCode
-    = Throttled 
-    | HealthConstraints 
-    | OverMaxInstances 
-    | HealthConstraintsInvalid 
-    | NoInstances 
-    | ApplicationMissing 
-    | RevisionMissing 
-    | InternalError 
-    | DeploymentGroupMissing 
-    | IAMRoleMissing 
-    | Timeout 
-    | NoEC2Subscription 
-    | IAMRolePermissions 
+    = Throttled
+    | HealthConstraints
+    | OverMaxInstances
+    | HealthConstraintsInvalid
+    | NoInstances
+    | ApplicationMissing
+    | RevisionMissing
+    | InternalError
+    | DeploymentGroupMissing
+    | IAMRoleMissing
+    | Timeout
+    | NoEC2Subscription
+    | IAMRolePermissions
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeployErrorCode where
@@ -137,8 +137,8 @@ instance FromJSON DeployErrorCode where
     parseJSON = parseJSONText "DeployErrorCode"
 
 data DeploymentCreator
-    = Autoscaling 
-    | User 
+    = Autoscaling
+    | User
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeploymentCreator where
@@ -162,12 +162,12 @@ instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
 
 data DeploymentStatus
-    = Queued 
-    | Created 
-    | Stopped 
-    | InProgress 
-    | Succeeded 
-    | Failed 
+    = Queued
+    | Created
+    | Stopped
+    | InProgress
+    | Succeeded
+    | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeploymentStatus where
@@ -202,9 +202,9 @@ instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
 
 data EC2TagFilterType
-    = KeyAndValue 
-    | ValueOnly 
-    | KeyOnly 
+    = KeyAndValue
+    | ValueOnly
+    | KeyOnly
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EC2TagFilterType where
@@ -233,12 +233,12 @@ instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"
 
 data InstanceStatus
-    = ISInProgress 
-    | ISFailed 
-    | ISSucceeded 
-    | ISUnknown 
-    | ISSkipped 
-    | ISPending 
+    = ISInProgress
+    | ISFailed
+    | ISSucceeded
+    | ISUnknown
+    | ISSkipped
+    | ISPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceStatus where
@@ -273,12 +273,12 @@ instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
 data LifecycleErrorCode
-    = UnknownError 
-    | ScriptMissing 
-    | Success 
-    | ScriptFailed 
-    | ScriptNotExecutable 
-    | ScriptTimedOut 
+    = UnknownError
+    | ScriptMissing
+    | Success
+    | ScriptFailed
+    | ScriptNotExecutable
+    | ScriptTimedOut
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleErrorCode where
@@ -310,12 +310,12 @@ instance FromJSON LifecycleErrorCode where
     parseJSON = parseJSONText "LifecycleErrorCode"
 
 data LifecycleEventStatus
-    = LESInProgress 
-    | LESFailed 
-    | LESSucceeded 
-    | LESSkipped 
-    | LESUnknown 
-    | LESPending 
+    = LESInProgress
+    | LESFailed
+    | LESSucceeded
+    | LESSkipped
+    | LESUnknown
+    | LESPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleEventStatus where
@@ -347,9 +347,9 @@ instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
 
 data ListStateFilterAction
-    = Include 
-    | Ignore 
-    | Exclude 
+    = Include
+    | Ignore
+    | Exclude
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ListStateFilterAction where
@@ -375,8 +375,8 @@ instance ToJSON ListStateFilterAction where
     toJSON = toJSONText
 
 data MinimumHealthyHostsType
-    = FleetPercent 
-    | HostCount 
+    = FleetPercent
+    | HostCount
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MinimumHealthyHostsType where
@@ -403,8 +403,8 @@ instance FromJSON MinimumHealthyHostsType where
     parseJSON = parseJSONText "MinimumHealthyHostsType"
 
 data RegistrationStatus
-    = Registered 
-    | Deregistered 
+    = Registered
+    | Deregistered
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RegistrationStatus where
@@ -428,8 +428,8 @@ instance ToJSON RegistrationStatus where
     toJSON = toJSONText
 
 data RevisionLocationType
-    = GitHub 
-    | S3 
+    = GitHub
+    | S3
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RevisionLocationType where
@@ -456,8 +456,8 @@ instance FromJSON RevisionLocationType where
     parseJSON = parseJSONText "RevisionLocationType"
 
 data SortOrder
-    = Ascending 
-    | Descending 
+    = Ascending
+    | Descending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortOrder where
@@ -481,8 +481,8 @@ instance ToJSON SortOrder where
     toJSON = toJSONText
 
 data StopStatus
-    = SSSucceeded 
-    | SSPending 
+    = SSSucceeded
+    | SSPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StopStatus where
@@ -506,9 +506,9 @@ instance FromJSON StopStatus where
     parseJSON = parseJSONText "StopStatus"
 
 data TagFilterType
-    = TFTKeyAndValue 
-    | TFTValueOnly 
-    | TFTKeyOnly 
+    = TFTKeyAndValue
+    | TFTValueOnly
+    | TFTKeyOnly
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TagFilterType where

@@ -55,11 +55,11 @@ module Network.AWS.IAM.DeletePolicy
     , deletePolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deletePolicy' smart constructor.
 --
@@ -72,7 +72,7 @@ newtype DeletePolicy = DeletePolicy'
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
-deletePolicy pPolicyARN_ = 
+deletePolicy pPolicyARN_ =
     DeletePolicy'
     { _dpPolicyARN = pPolicyARN_
     }
@@ -102,7 +102,7 @@ instance ToQuery DeletePolicy where
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =
-    DeletePolicyResponse' 
+    DeletePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicyResponse' smart constructor.

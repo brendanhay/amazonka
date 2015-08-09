@@ -45,11 +45,11 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
     , dclirsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeClassicLinkInstances' smart constructor.
 --
@@ -65,16 +65,16 @@ import Network.AWS.Response
 --
 -- * 'dcliMaxResults'
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-    { _dcliFilters :: !(Maybe [Filter])
-    , _dcliNextToken :: !(Maybe Text)
+    { _dcliFilters     :: !(Maybe [Filter])
+    , _dcliNextToken   :: !(Maybe Text)
     , _dcliInstanceIds :: !(Maybe [Text])
-    , _dcliDryRun :: !(Maybe Bool)
-    , _dcliMaxResults :: !(Maybe Int)
+    , _dcliDryRun      :: !(Maybe Bool)
+    , _dcliMaxResults  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClassicLinkInstances' smart constructor.
 describeClassicLinkInstances :: DescribeClassicLinkInstances
-describeClassicLinkInstances = 
+describeClassicLinkInstances =
     DescribeClassicLinkInstances'
     { _dcliFilters = Nothing
     , _dcliNextToken = Nothing
@@ -183,12 +183,12 @@ instance ToQuery DescribeClassicLinkInstances where
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
     { _dclirsNextToken :: !(Maybe Text)
     , _dclirsInstances :: !(Maybe [ClassicLinkInstance])
-    , _dclirsStatus :: !Int
+    , _dclirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
 describeClassicLinkInstancesResponse :: Int -> DescribeClassicLinkInstancesResponse
-describeClassicLinkInstancesResponse pStatus_ = 
+describeClassicLinkInstancesResponse pStatus_ =
     DescribeClassicLinkInstancesResponse'
     { _dclirsNextToken = Nothing
     , _dclirsInstances = Nothing

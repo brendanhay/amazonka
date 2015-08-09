@@ -17,11 +17,11 @@
 --
 module Network.AWS.DirectoryService.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data DirectorySize
-    = Small 
-    | Large 
+    = Small
+    | Large
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectorySize where
@@ -48,17 +48,17 @@ instance FromJSON DirectorySize where
     parseJSON = parseJSONText "DirectorySize"
 
 data DirectoryStage
-    = DSRestoreFailed 
-    | DSDeleted 
-    | DSRestoring 
-    | DSImpaired 
-    | DSDeleting 
-    | DSFailed 
-    | DSRequested 
-    | DSCreated 
-    | DSInoperable 
-    | DSActive 
-    | DSCreating 
+    = DSRestoreFailed
+    | DSDeleted
+    | DSRestoring
+    | DSImpaired
+    | DSDeleting
+    | DSFailed
+    | DSRequested
+    | DSCreated
+    | DSInoperable
+    | DSActive
+    | DSCreating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectoryStage where
@@ -100,8 +100,8 @@ instance FromJSON DirectoryStage where
     parseJSON = parseJSONText "DirectoryStage"
 
 data DirectoryType
-    = ADConnector 
-    | SimpleAD 
+    = ADConnector
+    | SimpleAD
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectoryType where
@@ -125,10 +125,10 @@ instance FromJSON DirectoryType where
     parseJSON = parseJSONText "DirectoryType"
 
 data RadiusAuthenticationProtocol
-    = Chap 
-    | MsCHAPV1 
-    | MsCHAPV2 
-    | Pap 
+    = Chap
+    | MsCHAPV1
+    | MsCHAPV2
+    | Pap
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RadiusAuthenticationProtocol where
@@ -159,9 +159,9 @@ instance FromJSON RadiusAuthenticationProtocol where
     parseJSON = parseJSONText "RadiusAuthenticationProtocol"
 
 data RadiusStatus
-    = Creating 
-    | Completed 
-    | Failed 
+    = Creating
+    | Completed
+    | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RadiusStatus where
@@ -187,9 +187,9 @@ instance FromJSON RadiusStatus where
     parseJSON = parseJSONText "RadiusStatus"
 
 data SnapshotStatus
-    = SSCompleted 
-    | SSFailed 
-    | SSCreating 
+    = SSCompleted
+    | SSFailed
+    | SSCreating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SnapshotStatus where
@@ -215,8 +215,8 @@ instance FromJSON SnapshotStatus where
     parseJSON = parseJSONText "SnapshotStatus"
 
 data SnapshotType
-    = Auto 
-    | Manual 
+    = Auto
+    | Manual
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SnapshotType where

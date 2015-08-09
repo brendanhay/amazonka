@@ -44,11 +44,11 @@ module Network.AWS.ECS.RegisterTaskDefinition
     , rtdrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerTaskDefinition' smart constructor.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- * 'rtdContainerDefinitions'
 data RegisterTaskDefinition = RegisterTaskDefinition'
-    { _rtdVolumes :: !(Maybe [Volume])
-    , _rtdFamily :: !Text
+    { _rtdVolumes              :: !(Maybe [Volume])
+    , _rtdFamily               :: !Text
     , _rtdContainerDefinitions :: ![ContainerDefinition]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterTaskDefinition' smart constructor.
 registerTaskDefinition :: Text -> RegisterTaskDefinition
-registerTaskDefinition pFamily_ = 
+registerTaskDefinition pFamily_ =
     RegisterTaskDefinition'
     { _rtdVolumes = Nothing
     , _rtdFamily = pFamily_
@@ -134,12 +134,12 @@ instance ToQuery RegisterTaskDefinition where
 -- * 'rtdrsStatus'
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
     { _rtdrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _rtdrsStatus :: !Int
+    , _rtdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
 registerTaskDefinitionResponse :: Int -> RegisterTaskDefinitionResponse
-registerTaskDefinitionResponse pStatus_ = 
+registerTaskDefinitionResponse pStatus_ =
     RegisterTaskDefinitionResponse'
     { _rtdrsTaskDefinition = Nothing
     , _rtdrsStatus = pStatus_

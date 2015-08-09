@@ -48,11 +48,11 @@ module Network.AWS.OpsWorks.RegisterVolume
     , rvrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerVolume' smart constructor.
 --
@@ -63,12 +63,12 @@ import Network.AWS.Response
 -- * 'rvStackId'
 data RegisterVolume = RegisterVolume'
     { _rvEC2VolumeId :: !(Maybe Text)
-    , _rvStackId :: !Text
+    , _rvStackId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterVolume' smart constructor.
 registerVolume :: Text -> RegisterVolume
-registerVolume pStackId_ = 
+registerVolume pStackId_ =
     RegisterVolume'
     { _rvEC2VolumeId = Nothing
     , _rvStackId = pStackId_
@@ -124,12 +124,12 @@ instance ToQuery RegisterVolume where
 -- * 'rvrsStatus'
 data RegisterVolumeResponse = RegisterVolumeResponse'
     { _rvrsVolumeId :: !(Maybe Text)
-    , _rvrsStatus :: !Int
+    , _rvrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterVolumeResponse' smart constructor.
 registerVolumeResponse :: Int -> RegisterVolumeResponse
-registerVolumeResponse pStatus_ = 
+registerVolumeResponse pStatus_ =
     RegisterVolumeResponse'
     { _rvrsVolumeId = Nothing
     , _rvrsStatus = pStatus_

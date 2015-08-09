@@ -36,11 +36,11 @@ module Network.AWS.EC2.ModifyVPCAttribute
     , modifyVPCAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyVPCAttribute' smart constructor.
 --
@@ -53,13 +53,13 @@ import Network.AWS.Response
 -- * 'mvaVPCId'
 data ModifyVPCAttribute = ModifyVPCAttribute'
     { _mvaEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
-    , _mvaEnableDNSSupport :: !(Maybe AttributeBooleanValue)
-    , _mvaVPCId :: !Text
+    , _mvaEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
+    , _mvaVPCId              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCAttribute' smart constructor.
 modifyVPCAttribute :: Text -> ModifyVPCAttribute
-modifyVPCAttribute pVPCId_ = 
+modifyVPCAttribute pVPCId_ =
     ModifyVPCAttribute'
     { _mvaEnableDNSHostnames = Nothing
     , _mvaEnableDNSSupport = Nothing
@@ -111,7 +111,7 @@ instance ToQuery ModifyVPCAttribute where
 
 -- | /See:/ 'modifyVPCAttributeResponse' smart constructor.
 data ModifyVPCAttributeResponse =
-    ModifyVPCAttributeResponse' 
+    ModifyVPCAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCAttributeResponse' smart constructor.

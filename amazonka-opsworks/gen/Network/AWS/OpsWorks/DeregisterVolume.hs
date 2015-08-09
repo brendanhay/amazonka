@@ -42,11 +42,11 @@ module Network.AWS.OpsWorks.DeregisterVolume
     , deregisterVolumeResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterVolume' smart constructor.
 --
@@ -59,7 +59,7 @@ newtype DeregisterVolume = DeregisterVolume'
 
 -- | 'DeregisterVolume' smart constructor.
 deregisterVolume :: Text -> DeregisterVolume
-deregisterVolume pVolumeId_ = 
+deregisterVolume pVolumeId_ =
     DeregisterVolume'
     { _dvVolumeId = pVolumeId_
     }
@@ -97,7 +97,7 @@ instance ToQuery DeregisterVolume where
 
 -- | /See:/ 'deregisterVolumeResponse' smart constructor.
 data DeregisterVolumeResponse =
-    DeregisterVolumeResponse' 
+    DeregisterVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterVolumeResponse' smart constructor.

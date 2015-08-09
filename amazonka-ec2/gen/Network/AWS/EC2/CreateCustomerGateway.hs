@@ -66,11 +66,11 @@ module Network.AWS.EC2.CreateCustomerGateway
     , ccgrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createCustomerGateway' smart constructor.
 --
@@ -84,15 +84,15 @@ import Network.AWS.Response
 --
 -- * 'ccgBGPASN'
 data CreateCustomerGateway = CreateCustomerGateway'
-    { _ccgDryRun :: !(Maybe Bool)
-    , _ccgType :: !GatewayType
+    { _ccgDryRun   :: !(Maybe Bool)
+    , _ccgType     :: !GatewayType
     , _ccgPublicIP :: !Text
-    , _ccgBGPASN :: !Int
+    , _ccgBGPASN   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomerGateway' smart constructor.
 createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
-createCustomerGateway pType_ pPublicIP_ pBGPASN_ = 
+createCustomerGateway pType_ pPublicIP_ pBGPASN_ =
     CreateCustomerGateway'
     { _ccgDryRun = Nothing
     , _ccgType = pType_
@@ -157,12 +157,12 @@ instance ToQuery CreateCustomerGateway where
 -- * 'ccgrsStatus'
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway :: !(Maybe CustomerGateway)
-    , _ccgrsStatus :: !Int
+    , _ccgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
 createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse
-createCustomerGatewayResponse pStatus_ = 
+createCustomerGatewayResponse pStatus_ =
     CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway = Nothing
     , _ccgrsStatus = pStatus_

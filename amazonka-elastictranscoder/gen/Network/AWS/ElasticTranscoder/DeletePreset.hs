@@ -40,11 +40,11 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     , dprsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @DeletePresetRequest@ structure.
 --
@@ -59,7 +59,7 @@ newtype DeletePreset = DeletePreset'
 
 -- | 'DeletePreset' smart constructor.
 deletePreset :: Text -> DeletePreset
-deletePreset pId_ = 
+deletePreset pId_ =
     DeletePreset'
     { _dpId = pId_
     }
@@ -101,7 +101,7 @@ newtype DeletePresetResponse = DeletePresetResponse'
 
 -- | 'DeletePresetResponse' smart constructor.
 deletePresetResponse :: Int -> DeletePresetResponse
-deletePresetResponse pStatus_ = 
+deletePresetResponse pStatus_ =
     DeletePresetResponse'
     { _dprsStatus = pStatus_
     }

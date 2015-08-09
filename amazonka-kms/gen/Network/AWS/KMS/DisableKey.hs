@@ -34,11 +34,11 @@ module Network.AWS.KMS.DisableKey
     , disableKeyResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableKey' smart constructor.
 --
@@ -51,7 +51,7 @@ newtype DisableKey = DisableKey'
 
 -- | 'DisableKey' smart constructor.
 disableKey :: Text -> DisableKey
-disableKey pKeyId_ = 
+disableKey pKeyId_ =
     DisableKey'
     { _dkKeyId = pKeyId_
     }
@@ -92,7 +92,7 @@ instance ToQuery DisableKey where
 
 -- | /See:/ 'disableKeyResponse' smart constructor.
 data DisableKeyResponse =
-    DisableKeyResponse' 
+    DisableKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableKeyResponse' smart constructor.

@@ -17,14 +17,14 @@
 --
 module Network.AWS.CodePipeline.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data ActionCategory
-    = Invoke 
-    | Build 
-    | Test 
-    | Source 
-    | Deploy 
+    = Invoke
+    | Build
+    | Test
+    | Source
+    | Deploy
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionCategory where
@@ -57,9 +57,9 @@ instance FromJSON ActionCategory where
     parseJSON = parseJSONText "ActionCategory"
 
 data ActionConfigurationPropertyType
-    = String 
-    | Boolean 
-    | Number 
+    = String
+    | Boolean
+    | Number
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionConfigurationPropertyType where
@@ -88,9 +88,9 @@ instance FromJSON ActionConfigurationPropertyType where
     parseJSON = parseJSONText "ActionConfigurationPropertyType"
 
 data ActionExecutionStatus
-    = InProgress 
-    | Succeeded 
-    | Failed 
+    = InProgress
+    | Succeeded
+    | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionExecutionStatus where
@@ -116,9 +116,9 @@ instance FromJSON ActionExecutionStatus where
     parseJSON = parseJSONText "ActionExecutionStatus"
 
 data ActionOwner
-    = AWS 
-    | ThirdParty 
-    | Custom 
+    = AWS
+    | ThirdParty
+    | Custom
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionOwner where
@@ -147,7 +147,7 @@ instance FromJSON ActionOwner where
     parseJSON = parseJSONText "ActionOwner"
 
 data ArtifactLocationType =
-    ALTS3 
+    ALTS3
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ArtifactLocationType where
@@ -169,7 +169,7 @@ instance FromJSON ArtifactLocationType where
     parseJSON = parseJSONText "ArtifactLocationType"
 
 data ArtifactStoreType =
-    S3 
+    S3
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ArtifactStoreType where
@@ -194,7 +194,7 @@ instance FromJSON ArtifactStoreType where
     parseJSON = parseJSONText "ArtifactStoreType"
 
 data BlockerType =
-    Schedule 
+    Schedule
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BlockerType where
@@ -219,12 +219,12 @@ instance FromJSON BlockerType where
     parseJSON = parseJSONText "BlockerType"
 
 data FailureType
-    = JobFailed 
-    | SystemUnavailable 
-    | PermissionError 
-    | ConfigurationError 
-    | RevisionOutOfSync 
-    | RevisionUnavailable 
+    = JobFailed
+    | SystemUnavailable
+    | PermissionError
+    | ConfigurationError
+    | RevisionOutOfSync
+    | RevisionUnavailable
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText FailureType where
@@ -256,13 +256,13 @@ instance ToJSON FailureType where
     toJSON = toJSONText
 
 data JobStatus
-    = JSFailed 
-    | JSInProgress 
-    | JSCreated 
-    | JSQueued 
-    | JSSucceeded 
-    | JSDispatched 
-    | JSTimedOut 
+    = JSFailed
+    | JSInProgress
+    | JSCreated
+    | JSQueued
+    | JSSucceeded
+    | JSDispatched
+    | JSTimedOut
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText JobStatus where
@@ -296,8 +296,8 @@ instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
 
 data StageTransitionType
-    = Outbound 
-    | Inbound 
+    = Outbound
+    | Inbound
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StageTransitionType where

@@ -38,11 +38,11 @@ module Network.AWS.DirectoryService.UpdateRadius
     , urrsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the UpdateRadius operation.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'urRadiusSettings'
 data UpdateRadius = UpdateRadius'
-    { _urDirectoryId :: !Text
+    { _urDirectoryId    :: !Text
     , _urRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRadius' smart constructor.
 updateRadius :: Text -> RadiusSettings -> UpdateRadius
-updateRadius pDirectoryId_ pRadiusSettings_ = 
+updateRadius pDirectoryId_ pRadiusSettings_ =
     UpdateRadius'
     { _urDirectoryId = pDirectoryId_
     , _urRadiusSettings = pRadiusSettings_
@@ -120,7 +120,7 @@ newtype UpdateRadiusResponse = UpdateRadiusResponse'
 
 -- | 'UpdateRadiusResponse' smart constructor.
 updateRadiusResponse :: Int -> UpdateRadiusResponse
-updateRadiusResponse pStatus_ = 
+updateRadiusResponse pStatus_ =
     UpdateRadiusResponse'
     { _urrsStatus = pStatus_
     }

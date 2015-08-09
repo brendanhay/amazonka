@@ -42,11 +42,11 @@ module Network.AWS.ECS.DescribeTaskDefinition
     , desrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTaskDefinition' smart constructor.
 --
@@ -59,7 +59,7 @@ newtype DescribeTaskDefinition = DescribeTaskDefinition'
 
 -- | 'DescribeTaskDefinition' smart constructor.
 describeTaskDefinition :: Text -> DescribeTaskDefinition
-describeTaskDefinition pTaskDefinition_ = 
+describeTaskDefinition pTaskDefinition_ =
     DescribeTaskDefinition'
     { _dtdTaskDefinition = pTaskDefinition_
     }
@@ -111,12 +111,12 @@ instance ToQuery DescribeTaskDefinition where
 -- * 'desrsStatus'
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
     { _desrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _desrsStatus :: !Int
+    , _desrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
 describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse
-describeTaskDefinitionResponse pStatus_ = 
+describeTaskDefinitionResponse pStatus_ =
     DescribeTaskDefinitionResponse'
     { _desrsTaskDefinition = Nothing
     , _desrsStatus = pStatus_

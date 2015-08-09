@@ -31,10 +31,10 @@
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SSM
     (
-    -- * Service Description
+    -- * Service
       SSM
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** AssociatedInstances

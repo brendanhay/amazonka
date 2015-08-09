@@ -79,11 +79,11 @@ module Network.AWS.EC2.CreateSnapshot
     , sEncrypted
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createSnapshot' smart constructor.
 --
@@ -95,14 +95,14 @@ import Network.AWS.Response
 --
 -- * 'ccVolumeId'
 data CreateSnapshot = CreateSnapshot'
-    { _ccDryRun :: !(Maybe Bool)
+    { _ccDryRun      :: !(Maybe Bool)
     , _ccDescription :: !(Maybe Text)
-    , _ccVolumeId :: !Text
+    , _ccVolumeId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
-createSnapshot pVolumeId_ = 
+createSnapshot pVolumeId_ =
     CreateSnapshot'
     { _ccDryRun = Nothing
     , _ccDescription = Nothing

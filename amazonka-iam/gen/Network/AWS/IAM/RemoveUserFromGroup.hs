@@ -35,11 +35,11 @@ module Network.AWS.IAM.RemoveUserFromGroup
     , removeUserFromGroupResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeUserFromGroup' smart constructor.
 --
@@ -50,12 +50,12 @@ import Network.AWS.Response
 -- * 'rufgUserName'
 data RemoveUserFromGroup = RemoveUserFromGroup'
     { _rufgGroupName :: !Text
-    , _rufgUserName :: !Text
+    , _rufgUserName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveUserFromGroup' smart constructor.
 removeUserFromGroup :: Text -> Text -> RemoveUserFromGroup
-removeUserFromGroup pGroupName_ pUserName_ = 
+removeUserFromGroup pGroupName_ pUserName_ =
     RemoveUserFromGroup'
     { _rufgGroupName = pGroupName_
     , _rufgUserName = pUserName_
@@ -92,7 +92,7 @@ instance ToQuery RemoveUserFromGroup where
 
 -- | /See:/ 'removeUserFromGroupResponse' smart constructor.
 data RemoveUserFromGroupResponse =
-    RemoveUserFromGroupResponse' 
+    RemoveUserFromGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveUserFromGroupResponse' smart constructor.

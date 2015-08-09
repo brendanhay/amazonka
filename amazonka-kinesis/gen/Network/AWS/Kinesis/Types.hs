@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.Kinesis.Types
     (
-    -- * Service Decription
+    -- * Service
       Kinesis
 
-    -- * Error Matchers
+    -- * Errors
     , _ExpiredIteratorException
     , _InvalidArgumentException
     , _ProvisionedThroughputExceededException
@@ -89,10 +89,10 @@ module Network.AWS.Kinesis.Types
     , tagKey
     ) where
 
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Kinesis.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Kinesis.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-12-02@ of the Amazon Kinesis SDK.
 data Kinesis
@@ -101,7 +101,7 @@ instance AWSService Kinesis where
     type Sg Kinesis = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "Kinesis"
             , _svcPrefix = "kinesis"
@@ -112,7 +112,7 @@ instance AWSService Kinesis where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -120,7 +120,7 @@ instance AWSService Kinesis where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -143,13 +143,13 @@ _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 -- <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS>
 -- in the /AWS General Reference/.
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_ProvisionedThroughputExceededException = 
+_ProvisionedThroughputExceededException =
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
 -- | The requested resource could not be found. It might not be specified
 -- correctly, or it might not be in the @ACTIVE@ state.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException = 
+_ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | The resource is not available for this operation. For example, you

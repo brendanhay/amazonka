@@ -44,11 +44,11 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     , dssrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeStackSummary' smart constructor.
 --
@@ -61,7 +61,7 @@ newtype DescribeStackSummary = DescribeStackSummary'
 
 -- | 'DescribeStackSummary' smart constructor.
 describeStackSummary :: Text -> DescribeStackSummary
-describeStackSummary pStackId_ = 
+describeStackSummary pStackId_ =
     DescribeStackSummary'
     { _dssStackId = pStackId_
     }
@@ -112,12 +112,12 @@ instance ToQuery DescribeStackSummary where
 -- * 'dssrsStatus'
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
     { _dssrsStackSummary :: !(Maybe StackSummary)
-    , _dssrsStatus :: !Int
+    , _dssrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackSummaryResponse' smart constructor.
 describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
-describeStackSummaryResponse pStatus_ = 
+describeStackSummaryResponse pStatus_ =
     DescribeStackSummaryResponse'
     { _dssrsStackSummary = Nothing
     , _dssrsStatus = pStatus_

@@ -42,11 +42,11 @@ module Network.AWS.DirectoryService.CreateComputer
     , ccrsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateComputer operation.
 --
@@ -64,16 +64,16 @@ import Network.AWS.Response
 --
 -- * 'ccPassword'
 data CreateComputer = CreateComputer'
-    { _ccComputerAttributes :: !(Maybe [Attribute])
+    { _ccComputerAttributes                  :: !(Maybe [Attribute])
     , _ccOrganizationalUnitDistinguishedName :: !(Maybe Text)
-    , _ccDirectoryId :: !Text
-    , _ccComputerName :: !Text
-    , _ccPassword :: !(Sensitive Text)
+    , _ccDirectoryId                         :: !Text
+    , _ccComputerName                        :: !Text
+    , _ccPassword                            :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateComputer' smart constructor.
 createComputer :: Text -> Text -> Text -> CreateComputer
-createComputer pDirectoryId_ pComputerName_ pPassword_ = 
+createComputer pDirectoryId_ pComputerName_ pPassword_ =
     CreateComputer'
     { _ccComputerAttributes = Nothing
     , _ccOrganizationalUnitDistinguishedName = Nothing
@@ -152,12 +152,12 @@ instance ToQuery CreateComputer where
 -- * 'ccrsStatus'
 data CreateComputerResponse = CreateComputerResponse'
     { _ccrsComputer :: !(Maybe Computer)
-    , _ccrsStatus :: !Int
+    , _ccrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateComputerResponse' smart constructor.
 createComputerResponse :: Int -> CreateComputerResponse
-createComputerResponse pStatus_ = 
+createComputerResponse pStatus_ =
     CreateComputerResponse'
     { _ccrsComputer = Nothing
     , _ccrsStatus = pStatus_

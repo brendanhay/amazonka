@@ -91,11 +91,11 @@ module Network.AWS.Glacier.GetJobOutput
     , gjorsBody
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options for downloading output of an Amazon Glacier job.
 --
@@ -111,15 +111,15 @@ import Network.AWS.Response
 --
 -- * 'gjoJobId'
 data GetJobOutput = GetJobOutput'
-    { _gjoRange :: !(Maybe Text)
+    { _gjoRange     :: !(Maybe Text)
     , _gjoAccountId :: !Text
     , _gjoVaultName :: !Text
-    , _gjoJobId :: !Text
+    , _gjoJobId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobOutput' smart constructor.
 getJobOutput :: Text -> Text -> Text -> GetJobOutput
-getJobOutput pAccountId_ pVaultName_ pJobId_ = 
+getJobOutput pAccountId_ pVaultName_ pJobId_ =
     GetJobOutput'
     { _gjoRange = Nothing
     , _gjoAccountId = pAccountId_
@@ -200,18 +200,18 @@ instance ToQuery GetJobOutput where
 --
 -- * 'gjorsBody'
 data GetJobOutputResponse = GetJobOutputResponse'
-    { _gjorsChecksum :: !(Maybe Text)
-    , _gjorsAcceptRanges :: !(Maybe Text)
+    { _gjorsChecksum           :: !(Maybe Text)
+    , _gjorsAcceptRanges       :: !(Maybe Text)
     , _gjorsArchiveDescription :: !(Maybe Text)
-    , _gjorsContentRange :: !(Maybe Text)
-    , _gjorsContentType :: !(Maybe Text)
-    , _gjorsStatus :: !Int
-    , _gjorsBody :: !RsBody
+    , _gjorsContentRange       :: !(Maybe Text)
+    , _gjorsContentType        :: !(Maybe Text)
+    , _gjorsStatus             :: !Int
+    , _gjorsBody               :: !RsBody
     } deriving (Show,Generic)
 
 -- | 'GetJobOutputResponse' smart constructor.
 getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse
-getJobOutputResponse pStatus_ pBody_ = 
+getJobOutputResponse pStatus_ pBody_ =
     GetJobOutputResponse'
     { _gjorsChecksum = Nothing
     , _gjorsAcceptRanges = Nothing

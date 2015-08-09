@@ -35,11 +35,11 @@ module Network.AWS.CodeDeploy.UpdateApplication
     , updateApplicationResponse
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an update application operation.
 --
@@ -52,12 +52,12 @@ import Network.AWS.Response
 -- * 'uaApplicationName'
 data UpdateApplication = UpdateApplication'
     { _uaNewApplicationName :: !(Maybe Text)
-    , _uaApplicationName :: !(Maybe Text)
+    , _uaApplicationName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: UpdateApplication
-updateApplication = 
+updateApplication =
     UpdateApplication'
     { _uaNewApplicationName = Nothing
     , _uaApplicationName = Nothing
@@ -101,7 +101,7 @@ instance ToQuery UpdateApplication where
 
 -- | /See:/ 'updateApplicationResponse' smart constructor.
 data UpdateApplicationResponse =
-    UpdateApplicationResponse' 
+    UpdateApplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplicationResponse' smart constructor.

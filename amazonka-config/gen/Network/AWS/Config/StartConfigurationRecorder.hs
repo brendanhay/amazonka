@@ -38,11 +38,11 @@ module Network.AWS.Config.StartConfigurationRecorder
     , startConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the StartConfigurationRecorder action.
 --
@@ -57,7 +57,7 @@ newtype StartConfigurationRecorder = StartConfigurationRecorder'
 
 -- | 'StartConfigurationRecorder' smart constructor.
 startConfigurationRecorder :: Text -> StartConfigurationRecorder
-startConfigurationRecorder pConfigurationRecorderName_ = 
+startConfigurationRecorder pConfigurationRecorderName_ =
     StartConfigurationRecorder'
     { _sConfigurationRecorderName = pConfigurationRecorderName_
     }
@@ -99,7 +99,7 @@ instance ToQuery StartConfigurationRecorder where
 
 -- | /See:/ 'startConfigurationRecorderResponse' smart constructor.
 data StartConfigurationRecorderResponse =
-    StartConfigurationRecorderResponse' 
+    StartConfigurationRecorderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartConfigurationRecorderResponse' smart constructor.

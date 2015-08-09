@@ -48,11 +48,11 @@ module Network.AWS.CognitoSync.ListDatasets
     , ldrsStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request for a list of datasets for an identity.
 --
@@ -68,15 +68,15 @@ import Network.AWS.Response
 --
 -- * 'ldIdentityPoolId'
 data ListDatasets = ListDatasets'
-    { _ldNextToken :: !(Maybe Text)
-    , _ldMaxResults :: !(Maybe Int)
-    , _ldIdentityId :: !Text
+    { _ldNextToken      :: !(Maybe Text)
+    , _ldMaxResults     :: !(Maybe Int)
+    , _ldIdentityId     :: !Text
     , _ldIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDatasets' smart constructor.
 listDatasets :: Text -> Text -> ListDatasets
-listDatasets pIdentityId_ pIdentityPoolId_ = 
+listDatasets pIdentityId_ pIdentityPoolId_ =
     ListDatasets'
     { _ldNextToken = Nothing
     , _ldMaxResults = Nothing
@@ -149,15 +149,15 @@ instance ToQuery ListDatasets where
 --
 -- * 'ldrsStatus'
 data ListDatasetsResponse = ListDatasetsResponse'
-    { _ldrsCount :: !(Maybe Int)
+    { _ldrsCount     :: !(Maybe Int)
     , _ldrsNextToken :: !(Maybe Text)
-    , _ldrsDatasets :: !(Maybe [Dataset])
-    , _ldrsStatus :: !Int
+    , _ldrsDatasets  :: !(Maybe [Dataset])
+    , _ldrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDatasetsResponse' smart constructor.
 listDatasetsResponse :: Int -> ListDatasetsResponse
-listDatasetsResponse pStatus_ = 
+listDatasetsResponse pStatus_ =
     ListDatasetsResponse'
     { _ldrsCount = Nothing
     , _ldrsNextToken = Nothing

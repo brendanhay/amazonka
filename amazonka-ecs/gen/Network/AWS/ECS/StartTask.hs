@@ -46,11 +46,11 @@ module Network.AWS.ECS.StartTask
     , strsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'startTask' smart constructor.
 --
@@ -66,16 +66,16 @@ import Network.AWS.Response
 --
 -- * 'sContainerInstances'
 data StartTask = StartTask'
-    { _sOverrides :: !(Maybe TaskOverride)
-    , _sCluster :: !(Maybe Text)
-    , _sStartedBy :: !(Maybe Text)
-    , _sTaskDefinition :: !Text
+    { _sOverrides          :: !(Maybe TaskOverride)
+    , _sCluster            :: !(Maybe Text)
+    , _sStartedBy          :: !(Maybe Text)
+    , _sTaskDefinition     :: !Text
     , _sContainerInstances :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTask' smart constructor.
 startTask :: Text -> StartTask
-startTask pTaskDefinition_ = 
+startTask pTaskDefinition_ =
     StartTask'
     { _sOverrides = Nothing
     , _sCluster = Nothing
@@ -174,13 +174,13 @@ instance ToQuery StartTask where
 -- * 'strsStatus'
 data StartTaskResponse = StartTaskResponse'
     { _strsFailures :: !(Maybe [Failure])
-    , _strsTasks :: !(Maybe [Task])
-    , _strsStatus :: !Int
+    , _strsTasks    :: !(Maybe [Task])
+    , _strsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: Int -> StartTaskResponse
-startTaskResponse pStatus_ = 
+startTaskResponse pStatus_ =
     StartTaskResponse'
     { _strsFailures = Nothing
     , _strsTasks = Nothing

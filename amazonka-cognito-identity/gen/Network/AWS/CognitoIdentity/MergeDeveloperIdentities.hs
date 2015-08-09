@@ -49,11 +49,11 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , mdirsStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @MergeDeveloperIdentities@ action.
 --
@@ -69,15 +69,15 @@ import Network.AWS.Response
 --
 -- * 'mdiIdentityPoolId'
 data MergeDeveloperIdentities = MergeDeveloperIdentities'
-    { _mdiSourceUserIdentifier :: !Text
+    { _mdiSourceUserIdentifier      :: !Text
     , _mdiDestinationUserIdentifier :: !Text
-    , _mdiDeveloperProviderName :: !Text
-    , _mdiIdentityPoolId :: !Text
+    , _mdiDeveloperProviderName     :: !Text
+    , _mdiIdentityPoolId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeDeveloperIdentities' smart constructor.
 mergeDeveloperIdentities :: Text -> Text -> Text -> Text -> MergeDeveloperIdentities
-mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDeveloperProviderName_ pIdentityPoolId_ = 
+mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDeveloperProviderName_ pIdentityPoolId_ =
     MergeDeveloperIdentities'
     { _mdiSourceUserIdentifier = pSourceUserIdentifier_
     , _mdiDestinationUserIdentifier = pDestinationUserIdentifier_
@@ -155,12 +155,12 @@ instance ToQuery MergeDeveloperIdentities where
 -- * 'mdirsStatus'
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
     { _mdirsIdentityId :: !(Maybe Text)
-    , _mdirsStatus :: !Int
+    , _mdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
 mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse
-mergeDeveloperIdentitiesResponse pStatus_ = 
+mergeDeveloperIdentitiesResponse pStatus_ =
     MergeDeveloperIdentitiesResponse'
     { _mdirsIdentityId = Nothing
     , _mdirsStatus = pStatus_

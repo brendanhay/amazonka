@@ -39,11 +39,11 @@ module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
     , removeClientIdFromOpenIdConnectProviderResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeClientIdFromOpenIdConnectProvider' smart constructor.
 --
@@ -54,12 +54,12 @@ import Network.AWS.Response
 -- * 'rcifoicpClientId'
 data RemoveClientIdFromOpenIdConnectProvider = RemoveClientIdFromOpenIdConnectProvider'
     { _rcifoicpOpenIdConnectProviderARN :: !Text
-    , _rcifoicpClientId :: !Text
+    , _rcifoicpClientId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveClientIdFromOpenIdConnectProvider' smart constructor.
 removeClientIdFromOpenIdConnectProvider :: Text -> Text -> RemoveClientIdFromOpenIdConnectProvider
-removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ = 
+removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     RemoveClientIdFromOpenIdConnectProvider'
     { _rcifoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     , _rcifoicpClientId = pClientId_
@@ -109,10 +109,10 @@ instance ToQuery
 
 -- | /See:/ 'removeClientIdFromOpenIdConnectProviderResponse' smart constructor.
 data RemoveClientIdFromOpenIdConnectProviderResponse =
-    RemoveClientIdFromOpenIdConnectProviderResponse' 
+    RemoveClientIdFromOpenIdConnectProviderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveClientIdFromOpenIdConnectProviderResponse' smart constructor.
 removeClientIdFromOpenIdConnectProviderResponse :: RemoveClientIdFromOpenIdConnectProviderResponse
-removeClientIdFromOpenIdConnectProviderResponse = 
+removeClientIdFromOpenIdConnectProviderResponse =
     RemoveClientIdFromOpenIdConnectProviderResponse'

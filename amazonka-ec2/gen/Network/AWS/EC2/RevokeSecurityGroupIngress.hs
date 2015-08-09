@@ -53,11 +53,11 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     , revokeSecurityGroupIngressResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'revokeSecurityGroupIngress' smart constructor.
 --
@@ -83,21 +83,21 @@ import Network.AWS.Response
 --
 -- * 'rsgiDryRun'
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
-    { _rsgiFromPort :: !(Maybe Int)
-    , _rsgiIPPermissions :: !(Maybe [IPPermission])
-    , _rsgiIPProtocol :: !(Maybe Text)
-    , _rsgiGroupId :: !(Maybe Text)
-    , _rsgiToPort :: !(Maybe Int)
-    , _rsgiCIdRIP :: !(Maybe Text)
-    , _rsgiGroupName :: !(Maybe Text)
+    { _rsgiFromPort                   :: !(Maybe Int)
+    , _rsgiIPPermissions              :: !(Maybe [IPPermission])
+    , _rsgiIPProtocol                 :: !(Maybe Text)
+    , _rsgiGroupId                    :: !(Maybe Text)
+    , _rsgiToPort                     :: !(Maybe Int)
+    , _rsgiCIdRIP                     :: !(Maybe Text)
+    , _rsgiGroupName                  :: !(Maybe Text)
     , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _rsgiSourceSecurityGroupName :: !(Maybe Text)
-    , _rsgiDryRun :: !(Maybe Bool)
+    , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
+    , _rsgiDryRun                     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSecurityGroupIngress' smart constructor.
 revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
-revokeSecurityGroupIngress = 
+revokeSecurityGroupIngress =
     RevokeSecurityGroupIngress'
     { _rsgiFromPort = Nothing
     , _rsgiIPPermissions = Nothing
@@ -205,7 +205,7 @@ instance ToQuery RevokeSecurityGroupIngress where
 
 -- | /See:/ 'revokeSecurityGroupIngressResponse' smart constructor.
 data RevokeSecurityGroupIngressResponse =
-    RevokeSecurityGroupIngressResponse' 
+    RevokeSecurityGroupIngressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSecurityGroupIngressResponse' smart constructor.

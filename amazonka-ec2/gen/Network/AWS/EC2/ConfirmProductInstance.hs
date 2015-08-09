@@ -43,11 +43,11 @@ module Network.AWS.EC2.ConfirmProductInstance
     , cpirsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'confirmProductInstance' smart constructor.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- * 'cpiInstanceId'
 data ConfirmProductInstance = ConfirmProductInstance'
-    { _cpiDryRun :: !(Maybe Bool)
+    { _cpiDryRun      :: !(Maybe Bool)
     , _cpiProductCode :: !Text
-    , _cpiInstanceId :: !Text
+    , _cpiInstanceId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmProductInstance' smart constructor.
 confirmProductInstance :: Text -> Text -> ConfirmProductInstance
-confirmProductInstance pProductCode_ pInstanceId_ = 
+confirmProductInstance pProductCode_ pInstanceId_ =
     ConfirmProductInstance'
     { _cpiDryRun = Nothing
     , _cpiProductCode = pProductCode_
@@ -126,14 +126,14 @@ instance ToQuery ConfirmProductInstance where
 --
 -- * 'cpirsStatus'
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-    { _cpirsReturn :: !(Maybe Bool)
+    { _cpirsReturn  :: !(Maybe Bool)
     , _cpirsOwnerId :: !(Maybe Text)
-    , _cpirsStatus :: !Int
+    , _cpirsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmProductInstanceResponse' smart constructor.
 confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse
-confirmProductInstanceResponse pStatus_ = 
+confirmProductInstanceResponse pStatus_ =
     ConfirmProductInstanceResponse'
     { _cpirsReturn = Nothing
     , _cpirsOwnerId = Nothing

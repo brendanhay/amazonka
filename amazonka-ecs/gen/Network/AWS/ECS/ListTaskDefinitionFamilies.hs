@@ -43,12 +43,12 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     , ltdfrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitionFamilies' smart constructor.
 --
@@ -61,13 +61,13 @@ import Network.AWS.Response
 -- * 'ltdfMaxResults'
 data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
     { _ltdfFamilyPrefix :: !(Maybe Text)
-    , _ltdfNextToken :: !(Maybe Text)
-    , _ltdfMaxResults :: !(Maybe Int)
+    , _ltdfNextToken    :: !(Maybe Text)
+    , _ltdfMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionFamilies' smart constructor.
 listTaskDefinitionFamilies :: ListTaskDefinitionFamilies
-listTaskDefinitionFamilies = 
+listTaskDefinitionFamilies =
     ListTaskDefinitionFamilies'
     { _ltdfFamilyPrefix = Nothing
     , _ltdfNextToken = Nothing
@@ -153,14 +153,14 @@ instance ToQuery ListTaskDefinitionFamilies where
 --
 -- * 'ltdfrsStatus'
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
-    { _ltdfrsFamilies :: !(Maybe [Text])
+    { _ltdfrsFamilies  :: !(Maybe [Text])
     , _ltdfrsNextToken :: !(Maybe Text)
-    , _ltdfrsStatus :: !Int
+    , _ltdfrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
 listTaskDefinitionFamiliesResponse :: Int -> ListTaskDefinitionFamiliesResponse
-listTaskDefinitionFamiliesResponse pStatus_ = 
+listTaskDefinitionFamiliesResponse pStatus_ =
     ListTaskDefinitionFamiliesResponse'
     { _ltdfrsFamilies = Nothing
     , _ltdfrsNextToken = Nothing

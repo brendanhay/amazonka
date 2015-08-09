@@ -43,11 +43,11 @@ module Network.AWS.CloudHSM.ListHAPGs
     , lhrsHAPGList
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listHAPGs' smart constructor.
 --
@@ -60,7 +60,7 @@ newtype ListHAPGs = ListHAPGs'
 
 -- | 'ListHAPGs' smart constructor.
 listHAPGs :: ListHAPGs
-listHAPGs = 
+listHAPGs =
     ListHAPGs'
     { _lhNextToken = Nothing
     }
@@ -111,13 +111,13 @@ instance ToQuery ListHAPGs where
 -- * 'lhrsHAPGList'
 data ListHAPGsResponse = ListHAPGsResponse'
     { _lhrsNextToken :: !(Maybe Text)
-    , _lhrsStatus :: !Int
-    , _lhrsHAPGList :: ![Text]
+    , _lhrsStatus    :: !Int
+    , _lhrsHAPGList  :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHAPGsResponse' smart constructor.
 listHAPGsResponse :: Int -> ListHAPGsResponse
-listHAPGsResponse pStatus_ = 
+listHAPGsResponse pStatus_ =
     ListHAPGsResponse'
     { _lhrsNextToken = Nothing
     , _lhrsStatus = pStatus_

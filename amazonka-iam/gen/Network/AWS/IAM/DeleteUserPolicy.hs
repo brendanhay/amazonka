@@ -42,11 +42,11 @@ module Network.AWS.IAM.DeleteUserPolicy
     , deleteUserPolicyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteUserPolicy' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- * 'dupPolicyName'
 data DeleteUserPolicy = DeleteUserPolicy'
-    { _dupUserName :: !Text
+    { _dupUserName   :: !Text
     , _dupPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserPolicy' smart constructor.
 deleteUserPolicy :: Text -> Text -> DeleteUserPolicy
-deleteUserPolicy pUserName_ pPolicyName_ = 
+deleteUserPolicy pUserName_ pPolicyName_ =
     DeleteUserPolicy'
     { _dupUserName = pUserName_
     , _dupPolicyName = pPolicyName_
@@ -99,7 +99,7 @@ instance ToQuery DeleteUserPolicy where
 
 -- | /See:/ 'deleteUserPolicyResponse' smart constructor.
 data DeleteUserPolicyResponse =
-    DeleteUserPolicyResponse' 
+    DeleteUserPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserPolicyResponse' smart constructor.

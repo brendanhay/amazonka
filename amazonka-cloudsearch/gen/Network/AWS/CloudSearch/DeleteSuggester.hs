@@ -40,11 +40,11 @@ module Network.AWS.CloudSearch.DeleteSuggester
     , delersSuggester
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteSuggester@ operation.
 -- Specifies the name of the domain you want to update and name of the
@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- * 'ddSuggesterName'
 data DeleteSuggester = DeleteSuggester'
-    { _ddDomainName :: !Text
+    { _ddDomainName    :: !Text
     , _ddSuggesterName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSuggester' smart constructor.
 deleteSuggester :: Text -> Text -> DeleteSuggester
-deleteSuggester pDomainName_ pSuggesterName_ = 
+deleteSuggester pDomainName_ pSuggesterName_ =
     DeleteSuggester'
     { _ddDomainName = pDomainName_
     , _ddSuggesterName = pSuggesterName_
@@ -113,13 +113,13 @@ instance ToQuery DeleteSuggester where
 --
 -- * 'delersSuggester'
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-    { _delersStatus :: !Int
+    { _delersStatus    :: !Int
     , _delersSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
 deleteSuggesterResponse :: Int -> SuggesterStatus -> DeleteSuggesterResponse
-deleteSuggesterResponse pStatus_ pSuggester_ = 
+deleteSuggesterResponse pStatus_ pSuggester_ =
     DeleteSuggesterResponse'
     { _delersStatus = pStatus_
     , _delersSuggester = pSuggester_

@@ -49,12 +49,12 @@ module Network.AWS.AutoScaling.DescribeTags
     , dtrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 --
@@ -66,14 +66,14 @@ import Network.AWS.Response
 --
 -- * 'dtMaxRecords'
 data DescribeTags = DescribeTags'
-    { _dtFilters :: !(Maybe [Filter])
-    , _dtNextToken :: !(Maybe Text)
+    { _dtFilters    :: !(Maybe [Filter])
+    , _dtNextToken  :: !(Maybe Text)
     , _dtMaxRecords :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
-describeTags = 
+describeTags =
     DescribeTags'
     { _dtFilters = Nothing
     , _dtNextToken = Nothing
@@ -140,13 +140,13 @@ instance ToQuery DescribeTags where
 -- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsNextToken :: !(Maybe Text)
-    , _dtrsTags :: !(Maybe [TagDescription])
-    , _dtrsStatus :: !Int
+    , _dtrsTags      :: !(Maybe [TagDescription])
+    , _dtrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus_ = 
+describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsNextToken = Nothing
     , _dtrsTags = Nothing

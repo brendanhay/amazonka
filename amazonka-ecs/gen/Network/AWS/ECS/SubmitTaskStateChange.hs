@@ -43,11 +43,11 @@ module Network.AWS.ECS.SubmitTaskStateChange
     , stscrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'submitTaskStateChange' smart constructor.
 --
@@ -61,15 +61,15 @@ import Network.AWS.Response
 --
 -- * 'stscTask'
 data SubmitTaskStateChange = SubmitTaskStateChange'
-    { _stscStatus :: !(Maybe Text)
+    { _stscStatus  :: !(Maybe Text)
     , _stscCluster :: !(Maybe Text)
-    , _stscReason :: !(Maybe Text)
-    , _stscTask :: !(Maybe Text)
+    , _stscReason  :: !(Maybe Text)
+    , _stscTask    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitTaskStateChange' smart constructor.
 submitTaskStateChange :: SubmitTaskStateChange
-submitTaskStateChange = 
+submitTaskStateChange =
     SubmitTaskStateChange'
     { _stscStatus = Nothing
     , _stscCluster = Nothing
@@ -137,12 +137,12 @@ instance ToQuery SubmitTaskStateChange where
 -- * 'stscrsStatus'
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
     { _stscrsAcknowledgment :: !(Maybe Text)
-    , _stscrsStatus :: !Int
+    , _stscrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitTaskStateChangeResponse' smart constructor.
 submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse
-submitTaskStateChangeResponse pStatus_ = 
+submitTaskStateChangeResponse pStatus_ =
     SubmitTaskStateChangeResponse'
     { _stscrsAcknowledgment = Nothing
     , _stscrsStatus = pStatus_

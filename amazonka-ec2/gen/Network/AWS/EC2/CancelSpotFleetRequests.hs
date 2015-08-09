@@ -40,11 +40,11 @@ module Network.AWS.EC2.CancelSpotFleetRequests
     , csfrrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for CancelSpotFleetRequests.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'csfrTerminateInstances'
 data CancelSpotFleetRequests = CancelSpotFleetRequests'
-    { _csfrDryRun :: !(Maybe Bool)
+    { _csfrDryRun              :: !(Maybe Bool)
     , _csfrSpotFleetRequestIds :: ![Text]
-    , _csfrTerminateInstances :: !Bool
+    , _csfrTerminateInstances  :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequests' smart constructor.
 cancelSpotFleetRequests :: Bool -> CancelSpotFleetRequests
-cancelSpotFleetRequests pTerminateInstances_ = 
+cancelSpotFleetRequests pTerminateInstances_ =
     CancelSpotFleetRequests'
     { _csfrDryRun = Nothing
     , _csfrSpotFleetRequestIds = mempty
@@ -132,14 +132,14 @@ instance ToQuery CancelSpotFleetRequests where
 --
 -- * 'csfrrsStatus'
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
-    { _csfrrsSuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
+    { _csfrrsSuccessfulFleetRequests   :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
     , _csfrrsUnsuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsErrorItem])
-    , _csfrrsStatus :: !Int
+    , _csfrrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequestsResponse' smart constructor.
 cancelSpotFleetRequestsResponse :: Int -> CancelSpotFleetRequestsResponse
-cancelSpotFleetRequestsResponse pStatus_ = 
+cancelSpotFleetRequestsResponse pStatus_ =
     CancelSpotFleetRequestsResponse'
     { _csfrrsSuccessfulFleetRequests = Nothing
     , _csfrrsUnsuccessfulFleetRequests = Nothing

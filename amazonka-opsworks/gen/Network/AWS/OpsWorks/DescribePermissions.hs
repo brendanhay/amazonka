@@ -44,11 +44,11 @@ module Network.AWS.OpsWorks.DescribePermissions
     , dprsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describePermissions' smart constructor.
 --
@@ -59,12 +59,12 @@ import Network.AWS.Response
 -- * 'dpStackId'
 data DescribePermissions = DescribePermissions'
     { _dpIAMUserARN :: !(Maybe Text)
-    , _dpStackId :: !(Maybe Text)
+    , _dpStackId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePermissions' smart constructor.
 describePermissions :: DescribePermissions
-describePermissions = 
+describePermissions =
     DescribePermissions'
     { _dpIAMUserARN = Nothing
     , _dpStackId = Nothing
@@ -124,12 +124,12 @@ instance ToQuery DescribePermissions where
 -- * 'dprsStatus'
 data DescribePermissionsResponse = DescribePermissionsResponse'
     { _dprsPermissions :: !(Maybe [Permission])
-    , _dprsStatus :: !Int
+    , _dprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePermissionsResponse' smart constructor.
 describePermissionsResponse :: Int -> DescribePermissionsResponse
-describePermissionsResponse pStatus_ = 
+describePermissionsResponse pStatus_ =
     DescribePermissionsResponse'
     { _dprsPermissions = Nothing
     , _dprsStatus = pStatus_

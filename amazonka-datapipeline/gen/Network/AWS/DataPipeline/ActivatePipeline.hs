@@ -45,11 +45,11 @@ module Network.AWS.DataPipeline.ActivatePipeline
     , aprsStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for ActivatePipeline.
 --
@@ -63,14 +63,14 @@ import Network.AWS.Response
 --
 -- * 'apPipelineId'
 data ActivatePipeline = ActivatePipeline'
-    { _apStartTimestamp :: !(Maybe POSIX)
+    { _apStartTimestamp  :: !(Maybe POSIX)
     , _apParameterValues :: !(Maybe [ParameterValue])
-    , _apPipelineId :: !Text
+    , _apPipelineId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivatePipeline' smart constructor.
 activatePipeline :: Text -> ActivatePipeline
-activatePipeline pPipelineId_ = 
+activatePipeline pPipelineId_ =
     ActivatePipeline'
     { _apStartTimestamp = Nothing
     , _apParameterValues = Nothing
@@ -134,7 +134,7 @@ newtype ActivatePipelineResponse = ActivatePipelineResponse'
 
 -- | 'ActivatePipelineResponse' smart constructor.
 activatePipelineResponse :: Int -> ActivatePipelineResponse
-activatePipelineResponse pStatus_ = 
+activatePipelineResponse pStatus_ =
     ActivatePipelineResponse'
     { _aprsStatus = pStatus_
     }

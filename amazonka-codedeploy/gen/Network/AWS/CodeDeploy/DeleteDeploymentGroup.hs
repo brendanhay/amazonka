@@ -38,11 +38,11 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     , ddgrsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a delete deployment group operation.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'ddgDeploymentGroupName'
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
-    { _ddgApplicationName :: !Text
+    { _ddgApplicationName     :: !Text
     , _ddgDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentGroup' smart constructor.
 deleteDeploymentGroup :: Text -> Text -> DeleteDeploymentGroup
-deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ = 
+deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     DeleteDeploymentGroup'
     { _ddgApplicationName = pApplicationName_
     , _ddgDeploymentGroupName = pDeploymentGroupName_
@@ -120,12 +120,12 @@ instance ToQuery DeleteDeploymentGroup where
 -- * 'ddgrsStatus'
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _ddgrsStatus :: !Int
+    , _ddgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
 deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse
-deleteDeploymentGroupResponse pStatus_ = 
+deleteDeploymentGroupResponse pStatus_ =
     DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp = Nothing
     , _ddgrsStatus = pStatus_

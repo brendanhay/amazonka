@@ -38,11 +38,11 @@ module Network.AWS.EC2.DeleteDHCPOptions
     , deleteDHCPOptionsResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteDHCPOptions' smart constructor.
 --
@@ -52,13 +52,13 @@ import Network.AWS.Response
 --
 -- * 'ddhcpoDHCPOptionsId'
 data DeleteDHCPOptions = DeleteDHCPOptions'
-    { _ddhcpoDryRun :: !(Maybe Bool)
+    { _ddhcpoDryRun        :: !(Maybe Bool)
     , _ddhcpoDHCPOptionsId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDHCPOptions' smart constructor.
 deleteDHCPOptions :: Text -> DeleteDHCPOptions
-deleteDHCPOptions pDHCPOptionsId_ = 
+deleteDHCPOptions pDHCPOptionsId_ =
     DeleteDHCPOptions'
     { _ddhcpoDryRun = Nothing
     , _ddhcpoDHCPOptionsId = pDHCPOptionsId_
@@ -97,7 +97,7 @@ instance ToQuery DeleteDHCPOptions where
 
 -- | /See:/ 'deleteDHCPOptionsResponse' smart constructor.
 data DeleteDHCPOptionsResponse =
-    DeleteDHCPOptionsResponse' 
+    DeleteDHCPOptionsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDHCPOptionsResponse' smart constructor.

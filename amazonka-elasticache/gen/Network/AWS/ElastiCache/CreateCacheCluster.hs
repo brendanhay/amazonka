@@ -60,11 +60,11 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , cccrsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheCluster/ action.
 --
@@ -116,33 +116,33 @@ import Network.AWS.Response
 --
 -- * 'cccCacheClusterId'
 data CreateCacheCluster = CreateCacheCluster'
-    { _cccCacheNodeType :: !(Maybe Text)
-    , _cccEngineVersion :: !(Maybe Text)
-    , _cccSecurityGroupIds :: !(Maybe [Text])
-    , _cccAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _cccSnapshotARNs :: !(Maybe [Text])
-    , _cccCacheParameterGroupName :: !(Maybe Text)
-    , _cccSnapshotWindow :: !(Maybe Text)
-    , _cccEngine :: !(Maybe Text)
+    { _cccCacheNodeType              :: !(Maybe Text)
+    , _cccEngineVersion              :: !(Maybe Text)
+    , _cccSecurityGroupIds           :: !(Maybe [Text])
+    , _cccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cccSnapshotARNs               :: !(Maybe [Text])
+    , _cccCacheParameterGroupName    :: !(Maybe Text)
+    , _cccSnapshotWindow             :: !(Maybe Text)
+    , _cccEngine                     :: !(Maybe Text)
     , _cccPreferredAvailabilityZones :: !(Maybe [Text])
     , _cccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _cccCacheSubnetGroupName :: !(Maybe Text)
-    , _cccPreferredAvailabilityZone :: !(Maybe Text)
-    , _cccSnapshotRetentionLimit :: !(Maybe Int)
-    , _cccAZMode :: !(Maybe AZMode)
-    , _cccSnapshotName :: !(Maybe Text)
-    , _cccReplicationGroupId :: !(Maybe Text)
-    , _cccNotificationTopicARN :: !(Maybe Text)
-    , _cccTags :: !(Maybe [Tag])
-    , _cccNumCacheNodes :: !(Maybe Int)
-    , _cccCacheSecurityGroupNames :: !(Maybe [Text])
-    , _cccPort :: !(Maybe Int)
-    , _cccCacheClusterId :: !Text
+    , _cccCacheSubnetGroupName       :: !(Maybe Text)
+    , _cccPreferredAvailabilityZone  :: !(Maybe Text)
+    , _cccSnapshotRetentionLimit     :: !(Maybe Int)
+    , _cccAZMode                     :: !(Maybe AZMode)
+    , _cccSnapshotName               :: !(Maybe Text)
+    , _cccReplicationGroupId         :: !(Maybe Text)
+    , _cccNotificationTopicARN       :: !(Maybe Text)
+    , _cccTags                       :: !(Maybe [Tag])
+    , _cccNumCacheNodes              :: !(Maybe Int)
+    , _cccCacheSecurityGroupNames    :: !(Maybe [Text])
+    , _cccPort                       :: !(Maybe Int)
+    , _cccCacheClusterId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheCluster' smart constructor.
 createCacheCluster :: Text -> CreateCacheCluster
-createCacheCluster pCacheClusterId_ = 
+createCacheCluster pCacheClusterId_ =
     CreateCacheCluster'
     { _cccCacheNodeType = Nothing
     , _cccEngineVersion = Nothing
@@ -484,12 +484,12 @@ instance ToQuery CreateCacheCluster where
 -- * 'cccrsStatus'
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
     { _cccrsCacheCluster :: !(Maybe CacheCluster)
-    , _cccrsStatus :: !Int
+    , _cccrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheClusterResponse' smart constructor.
 createCacheClusterResponse :: Int -> CreateCacheClusterResponse
-createCacheClusterResponse pStatus_ = 
+createCacheClusterResponse pStatus_ =
     CreateCacheClusterResponse'
     { _cccrsCacheCluster = Nothing
     , _cccrsStatus = pStatus_

@@ -50,12 +50,12 @@ module Network.AWS.ElastiCache.DescribeEvents
     , dersStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeEvents/ action.
 --
@@ -77,18 +77,18 @@ import Network.AWS.Response
 --
 -- * 'deDuration'
 data DescribeEvents = DescribeEvents'
-    { _deStartTime :: !(Maybe ISO8601)
-    , _deSourceType :: !(Maybe SourceType)
+    { _deStartTime        :: !(Maybe ISO8601)
+    , _deSourceType       :: !(Maybe SourceType)
     , _deSourceIdentifier :: !(Maybe Text)
-    , _deMaxRecords :: !(Maybe Int)
-    , _deEndTime :: !(Maybe ISO8601)
-    , _deMarker :: !(Maybe Text)
-    , _deDuration :: !(Maybe Int)
+    , _deMaxRecords       :: !(Maybe Int)
+    , _deEndTime          :: !(Maybe ISO8601)
+    , _deMarker           :: !(Maybe Text)
+    , _deDuration         :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
-describeEvents = 
+describeEvents =
     DescribeEvents'
     { _deStartTime = Nothing
     , _deSourceType = Nothing
@@ -200,7 +200,7 @@ data DescribeEventsResponse = DescribeEventsResponse'
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse
-describeEventsResponse pStatus_ = 
+describeEventsResponse pStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
     , _dersMarker = Nothing

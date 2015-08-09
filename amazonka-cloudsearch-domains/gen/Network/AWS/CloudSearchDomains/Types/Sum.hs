@@ -17,11 +17,11 @@
 --
 module Network.AWS.CloudSearchDomains.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data ContentType
-    = ApplicationJSON 
-    | ApplicationXML 
+    = ApplicationJSON
+    | ApplicationXML
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ContentType where
@@ -45,10 +45,10 @@ instance ToJSON ContentType where
     toJSON = toJSONText
 
 data QueryParser
-    = Lucene 
-    | Dismax 
-    | Simple 
-    | Structured 
+    = Lucene
+    | Dismax
+    | Simple
+    | Structured
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText QueryParser where

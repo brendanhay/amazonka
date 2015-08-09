@@ -47,11 +47,11 @@ module Network.AWS.OpsWorks.DescribeCommands
     , dcrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeCommands' smart constructor.
 --
@@ -63,14 +63,14 @@ import Network.AWS.Response
 --
 -- * 'dcCommandIds'
 data DescribeCommands = DescribeCommands'
-    { _dcInstanceId :: !(Maybe Text)
+    { _dcInstanceId   :: !(Maybe Text)
     , _dcDeploymentId :: !(Maybe Text)
-    , _dcCommandIds :: !(Maybe [Text])
+    , _dcCommandIds   :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommands' smart constructor.
 describeCommands :: DescribeCommands
-describeCommands = 
+describeCommands =
     DescribeCommands'
     { _dcInstanceId = Nothing
     , _dcDeploymentId = Nothing
@@ -139,12 +139,12 @@ instance ToQuery DescribeCommands where
 -- * 'dcrsStatus'
 data DescribeCommandsResponse = DescribeCommandsResponse'
     { _dcrsCommands :: !(Maybe [Command])
-    , _dcrsStatus :: !Int
+    , _dcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommandsResponse' smart constructor.
 describeCommandsResponse :: Int -> DescribeCommandsResponse
-describeCommandsResponse pStatus_ = 
+describeCommandsResponse pStatus_ =
     DescribeCommandsResponse'
     { _dcrsCommands = Nothing
     , _dcrsStatus = pStatus_

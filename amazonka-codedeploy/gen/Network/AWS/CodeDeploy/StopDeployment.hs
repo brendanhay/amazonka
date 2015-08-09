@@ -37,11 +37,11 @@ module Network.AWS.CodeDeploy.StopDeployment
     , sdrsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a stop deployment operation.
 --
@@ -56,7 +56,7 @@ newtype StopDeployment = StopDeployment'
 
 -- | 'StopDeployment' smart constructor.
 stopDeployment :: Text -> StopDeployment
-stopDeployment pDeploymentId_ = 
+stopDeployment pDeploymentId_ =
     StopDeployment'
     { _sdDeploymentId = pDeploymentId_
     }
@@ -105,12 +105,12 @@ instance ToQuery StopDeployment where
 -- * 'sdrsStatus'
 data StopDeploymentResponse = StopDeploymentResponse'
     { _sdrsStatusMessage :: !(Maybe Text)
-    , _sdrsStatus :: !Int
+    , _sdrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopDeploymentResponse' smart constructor.
 stopDeploymentResponse :: Int -> StopDeploymentResponse
-stopDeploymentResponse pStatus_ = 
+stopDeploymentResponse pStatus_ =
     StopDeploymentResponse'
     { _sdrsStatusMessage = Nothing
     , _sdrsStatus = pStatus_

@@ -40,11 +40,11 @@ module Network.AWS.DeviceFarm.CreateUpload
     , cursStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the create upload operation.
 --
@@ -61,14 +61,14 @@ import Network.AWS.Response
 -- * 'cuType'
 data CreateUpload = CreateUpload'
     { _cuContentType :: !(Maybe Text)
-    , _cuProjectARN :: !Text
-    , _cuName :: !Text
-    , _cuType :: !UploadType
+    , _cuProjectARN  :: !Text
+    , _cuName        :: !Text
+    , _cuType        :: !UploadType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUpload' smart constructor.
 createUpload :: Text -> Text -> UploadType -> CreateUpload
-createUpload pProjectARN_ pName_ pType_ = 
+createUpload pProjectARN_ pName_ pType_ =
     CreateUpload'
     { _cuContentType = Nothing
     , _cuProjectARN = pProjectARN_
@@ -163,7 +163,7 @@ data CreateUploadResponse = CreateUploadResponse'
 
 -- | 'CreateUploadResponse' smart constructor.
 createUploadResponse :: Int -> CreateUploadResponse
-createUploadResponse pStatus_ = 
+createUploadResponse pStatus_ =
     CreateUploadResponse'
     { _cursUpload = Nothing
     , _cursStatus = pStatus_

@@ -49,11 +49,11 @@ module Network.AWS.EC2.CopyImage
     , coprsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'copyImage' smart constructor.
 --
@@ -71,17 +71,17 @@ import Network.AWS.Response
 --
 -- * 'ciName'
 data CopyImage = CopyImage'
-    { _ciClientToken :: !(Maybe Text)
-    , _ciDryRun :: !(Maybe Bool)
-    , _ciDescription :: !(Maybe Text)
-    , _ciSourceRegion :: !Text
+    { _ciClientToken   :: !(Maybe Text)
+    , _ciDryRun        :: !(Maybe Bool)
+    , _ciDescription   :: !(Maybe Text)
+    , _ciSourceRegion  :: !Text
     , _ciSourceImageId :: !Text
-    , _ciName :: !Text
+    , _ciName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImage' smart constructor.
 copyImage :: Text -> Text -> Text -> CopyImage
-copyImage pSourceRegion_ pSourceImageId_ pName_ = 
+copyImage pSourceRegion_ pSourceImageId_ pName_ =
     CopyImage'
     { _ciClientToken = Nothing
     , _ciDryRun = Nothing
@@ -158,12 +158,12 @@ instance ToQuery CopyImage where
 -- * 'coprsStatus'
 data CopyImageResponse = CopyImageResponse'
     { _coprsImageId :: !(Maybe Text)
-    , _coprsStatus :: !Int
+    , _coprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImageResponse' smart constructor.
 copyImageResponse :: Int -> CopyImageResponse
-copyImageResponse pStatus_ = 
+copyImageResponse pStatus_ =
     CopyImageResponse'
     { _coprsImageId = Nothing
     , _coprsStatus = pStatus_

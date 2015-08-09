@@ -38,11 +38,11 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , executePolicyResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'executePolicy' smart constructor.
 --
@@ -58,16 +58,16 @@ import Network.AWS.Response
 --
 -- * 'epPolicyName'
 data ExecutePolicy = ExecutePolicy'
-    { _epHonorCooldown :: !(Maybe Bool)
-    , _epMetricValue :: !(Maybe Double)
+    { _epHonorCooldown        :: !(Maybe Bool)
+    , _epMetricValue          :: !(Maybe Double)
     , _epAutoScalingGroupName :: !(Maybe Text)
-    , _epBreachThreshold :: !(Maybe Double)
-    , _epPolicyName :: !Text
+    , _epBreachThreshold      :: !(Maybe Double)
+    , _epPolicyName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExecutePolicy' smart constructor.
 executePolicy :: Text -> ExecutePolicy
-executePolicy pPolicyName_ = 
+executePolicy pPolicyName_ =
     ExecutePolicy'
     { _epHonorCooldown = Nothing
     , _epMetricValue = Nothing
@@ -142,7 +142,7 @@ instance ToQuery ExecutePolicy where
 
 -- | /See:/ 'executePolicyResponse' smart constructor.
 data ExecutePolicyResponse =
-    ExecutePolicyResponse' 
+    ExecutePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExecutePolicyResponse' smart constructor.

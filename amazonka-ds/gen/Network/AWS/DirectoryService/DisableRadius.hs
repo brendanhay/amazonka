@@ -37,11 +37,11 @@ module Network.AWS.DirectoryService.DisableRadius
     , drrsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DisableRadius operation.
 --
@@ -56,7 +56,7 @@ newtype DisableRadius = DisableRadius'
 
 -- | 'DisableRadius' smart constructor.
 disableRadius :: Text -> DisableRadius
-disableRadius pDirectoryId_ = 
+disableRadius pDirectoryId_ =
     DisableRadius'
     { _drDirectoryId = pDirectoryId_
     }
@@ -107,7 +107,7 @@ newtype DisableRadiusResponse = DisableRadiusResponse'
 
 -- | 'DisableRadiusResponse' smart constructor.
 disableRadiusResponse :: Int -> DisableRadiusResponse
-disableRadiusResponse pStatus_ = 
+disableRadiusResponse pStatus_ =
     DisableRadiusResponse'
     { _drrsStatus = pStatus_
     }

@@ -41,11 +41,11 @@ module Network.AWS.KMS.ListGrants
     , lgrsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listGrants' smart constructor.
 --
@@ -58,13 +58,13 @@ import Network.AWS.Response
 -- * 'lgKeyId'
 data ListGrants = ListGrants'
     { _lgMarker :: !(Maybe Text)
-    , _lgLimit :: !(Maybe Nat)
-    , _lgKeyId :: !Text
+    , _lgLimit  :: !(Maybe Nat)
+    , _lgKeyId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGrants' smart constructor.
 listGrants :: Text -> ListGrants
-listGrants pKeyId_ = 
+listGrants pKeyId_ =
     ListGrants'
     { _lgMarker = Nothing
     , _lgLimit = Nothing
@@ -140,15 +140,15 @@ instance ToQuery ListGrants where
 --
 -- * 'lgrsStatus'
 data ListGrantsResponse = ListGrantsResponse'
-    { _lgrsTruncated :: !(Maybe Bool)
-    , _lgrsGrants :: !(Maybe [GrantListEntry])
+    { _lgrsTruncated  :: !(Maybe Bool)
+    , _lgrsGrants     :: !(Maybe [GrantListEntry])
     , _lgrsNextMarker :: !(Maybe Text)
-    , _lgrsStatus :: !Int
+    , _lgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGrantsResponse' smart constructor.
 listGrantsResponse :: Int -> ListGrantsResponse
-listGrantsResponse pStatus_ = 
+listGrantsResponse pStatus_ =
     ListGrantsResponse'
     { _lgrsTruncated = Nothing
     , _lgrsGrants = Nothing

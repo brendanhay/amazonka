@@ -45,12 +45,12 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     , dahrsStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarmHistory' smart constructor.
 --
@@ -68,17 +68,17 @@ import Network.AWS.Response
 --
 -- * 'dahMaxRecords'
 data DescribeAlarmHistory = DescribeAlarmHistory'
-    { _dahAlarmName :: !(Maybe Text)
+    { _dahAlarmName       :: !(Maybe Text)
     , _dahHistoryItemType :: !(Maybe HistoryItemType)
-    , _dahEndDate :: !(Maybe ISO8601)
-    , _dahStartDate :: !(Maybe ISO8601)
-    , _dahNextToken :: !(Maybe Text)
-    , _dahMaxRecords :: !(Maybe Nat)
+    , _dahEndDate         :: !(Maybe ISO8601)
+    , _dahStartDate       :: !(Maybe ISO8601)
+    , _dahNextToken       :: !(Maybe Text)
+    , _dahMaxRecords      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmHistory' smart constructor.
 describeAlarmHistory :: DescribeAlarmHistory
-describeAlarmHistory = 
+describeAlarmHistory =
     DescribeAlarmHistory'
     { _dahAlarmName = Nothing
     , _dahHistoryItemType = Nothing
@@ -165,13 +165,13 @@ instance ToQuery DescribeAlarmHistory where
 -- * 'dahrsStatus'
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
-    , _dahrsNextToken :: !(Maybe Text)
-    , _dahrsStatus :: !Int
+    , _dahrsNextToken         :: !(Maybe Text)
+    , _dahrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
 describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse pStatus_ = 
+describeAlarmHistoryResponse pStatus_ =
     DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems = Nothing
     , _dahrsNextToken = Nothing

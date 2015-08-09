@@ -42,11 +42,11 @@ module Network.AWS.EC2.CreateVPNConnectionRoute
     , createVPNConnectionRouteResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPNConnectionRoute' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- * 'cvcrDestinationCIdRBlock'
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
-    { _cvcrVPNConnectionId :: !Text
+    { _cvcrVPNConnectionId      :: !Text
     , _cvcrDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnectionRoute' smart constructor.
 createVPNConnectionRoute :: Text -> Text -> CreateVPNConnectionRoute
-createVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ = 
+createVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ =
     CreateVPNConnectionRoute'
     { _cvcrVPNConnectionId = pVPNConnectionId_
     , _cvcrDestinationCIdRBlock = pDestinationCIdRBlock_
@@ -101,7 +101,7 @@ instance ToQuery CreateVPNConnectionRoute where
 
 -- | /See:/ 'createVPNConnectionRouteResponse' smart constructor.
 data CreateVPNConnectionRouteResponse =
-    CreateVPNConnectionRouteResponse' 
+    CreateVPNConnectionRouteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnectionRouteResponse' smart constructor.

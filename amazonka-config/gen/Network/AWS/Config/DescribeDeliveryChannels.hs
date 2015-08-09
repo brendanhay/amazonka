@@ -41,11 +41,11 @@ module Network.AWS.Config.DescribeDeliveryChannels
     , ddcrsStatus
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DescribeDeliveryChannels action.
 --
@@ -60,7 +60,7 @@ newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
 
 -- | 'DescribeDeliveryChannels' smart constructor.
 describeDeliveryChannels :: DescribeDeliveryChannels
-describeDeliveryChannels = 
+describeDeliveryChannels =
     DescribeDeliveryChannels'
     { _ddcDeliveryChannelNames = Nothing
     }
@@ -113,12 +113,12 @@ instance ToQuery DescribeDeliveryChannels where
 -- * 'ddcrsStatus'
 data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
     { _ddcrsDeliveryChannels :: !(Maybe [DeliveryChannel])
-    , _ddcrsStatus :: !Int
+    , _ddcrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeliveryChannelsResponse' smart constructor.
 describeDeliveryChannelsResponse :: Int -> DescribeDeliveryChannelsResponse
-describeDeliveryChannelsResponse pStatus_ = 
+describeDeliveryChannelsResponse pStatus_ =
     DescribeDeliveryChannelsResponse'
     { _ddcrsDeliveryChannels = Nothing
     , _ddcrsStatus = pStatus_

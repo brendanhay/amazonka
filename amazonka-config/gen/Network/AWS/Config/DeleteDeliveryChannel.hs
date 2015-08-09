@@ -39,11 +39,11 @@ module Network.AWS.Config.DeleteDeliveryChannel
     , deleteDeliveryChannelResponse
     ) where
 
-import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the DeleteDeliveryChannel action. The action accepts the
 -- following data in JSON format.
@@ -59,7 +59,7 @@ newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
 
 -- | 'DeleteDeliveryChannel' smart constructor.
 deleteDeliveryChannel :: Text -> DeleteDeliveryChannel
-deleteDeliveryChannel pDeliveryChannelName_ = 
+deleteDeliveryChannel pDeliveryChannelName_ =
     DeleteDeliveryChannel'
     { _ddcDeliveryChannelName = pDeliveryChannelName_
     }
@@ -98,7 +98,7 @@ instance ToQuery DeleteDeliveryChannel where
 
 -- | /See:/ 'deleteDeliveryChannelResponse' smart constructor.
 data DeleteDeliveryChannelResponse =
-    DeleteDeliveryChannelResponse' 
+    DeleteDeliveryChannelResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeliveryChannelResponse' smart constructor.

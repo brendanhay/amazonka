@@ -42,11 +42,11 @@ module Network.AWS.OpsWorks.DeregisterEcsCluster
     , deregisterEcsClusterResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterEcsCluster' smart constructor.
 --
@@ -59,7 +59,7 @@ newtype DeregisterEcsCluster = DeregisterEcsCluster'
 
 -- | 'DeregisterEcsCluster' smart constructor.
 deregisterEcsCluster :: Text -> DeregisterEcsCluster
-deregisterEcsCluster pEcsClusterARN_ = 
+deregisterEcsCluster pEcsClusterARN_ =
     DeregisterEcsCluster'
     { _decEcsClusterARN = pEcsClusterARN_
     }
@@ -97,7 +97,7 @@ instance ToQuery DeregisterEcsCluster where
 
 -- | /See:/ 'deregisterEcsClusterResponse' smart constructor.
 data DeregisterEcsClusterResponse =
-    DeregisterEcsClusterResponse' 
+    DeregisterEcsClusterResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterEcsClusterResponse' smart constructor.

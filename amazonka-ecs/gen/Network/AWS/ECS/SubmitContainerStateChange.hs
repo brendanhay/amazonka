@@ -46,11 +46,11 @@ module Network.AWS.ECS.SubmitContainerStateChange
     , scscrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'submitContainerStateChange' smart constructor.
 --
@@ -71,17 +71,17 @@ import Network.AWS.Response
 -- * 'scscTask'
 data SubmitContainerStateChange = SubmitContainerStateChange'
     { _scscNetworkBindings :: !(Maybe [NetworkBinding])
-    , _scscStatus :: !(Maybe Text)
-    , _scscCluster :: !(Maybe Text)
-    , _scscContainerName :: !(Maybe Text)
-    , _scscReason :: !(Maybe Text)
-    , _scscExitCode :: !(Maybe Int)
-    , _scscTask :: !(Maybe Text)
+    , _scscStatus          :: !(Maybe Text)
+    , _scscCluster         :: !(Maybe Text)
+    , _scscContainerName   :: !(Maybe Text)
+    , _scscReason          :: !(Maybe Text)
+    , _scscExitCode        :: !(Maybe Int)
+    , _scscTask            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitContainerStateChange' smart constructor.
 submitContainerStateChange :: SubmitContainerStateChange
-submitContainerStateChange = 
+submitContainerStateChange =
     SubmitContainerStateChange'
     { _scscNetworkBindings = Nothing
     , _scscStatus = Nothing
@@ -167,12 +167,12 @@ instance ToQuery SubmitContainerStateChange where
 -- * 'scscrsStatus'
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
     { _scscrsAcknowledgment :: !(Maybe Text)
-    , _scscrsStatus :: !Int
+    , _scscrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitContainerStateChangeResponse' smart constructor.
 submitContainerStateChangeResponse :: Int -> SubmitContainerStateChangeResponse
-submitContainerStateChangeResponse pStatus_ = 
+submitContainerStateChangeResponse pStatus_ =
     SubmitContainerStateChangeResponse'
     { _scscrsAcknowledgment = Nothing
     , _scscrsStatus = pStatus_

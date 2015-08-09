@@ -41,11 +41,11 @@ module Network.AWS.Glacier.ListTagsForVault
     , ltfvrsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input value for @ListTagsForVaultInput@.
 --
@@ -63,7 +63,7 @@ data ListTagsForVault = ListTagsForVault'
 
 -- | 'ListTagsForVault' smart constructor.
 listTagsForVault :: Text -> Text -> ListTagsForVault
-listTagsForVault pAccountId_ pVaultName_ = 
+listTagsForVault pAccountId_ pVaultName_ =
     ListTagsForVault'
     { _ltfvAccountId = pAccountId_
     , _ltfvVaultName = pVaultName_
@@ -113,13 +113,13 @@ instance ToQuery ListTagsForVault where
 --
 -- * 'ltfvrsStatus'
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-    { _ltfvrsTags :: !(Maybe (Map Text Text))
+    { _ltfvrsTags   :: !(Maybe (Map Text Text))
     , _ltfvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForVaultResponse' smart constructor.
 listTagsForVaultResponse :: Int -> ListTagsForVaultResponse
-listTagsForVaultResponse pStatus_ = 
+listTagsForVaultResponse pStatus_ =
     ListTagsForVaultResponse'
     { _ltfvrsTags = Nothing
     , _ltfvrsStatus = pStatus_

@@ -38,11 +38,11 @@ module Network.AWS.KMS.GetKeyPolicy
     , gkprsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getKeyPolicy' smart constructor.
 --
@@ -52,13 +52,13 @@ import Network.AWS.Response
 --
 -- * 'gkpPolicyName'
 data GetKeyPolicy = GetKeyPolicy'
-    { _gkpKeyId :: !Text
+    { _gkpKeyId      :: !Text
     , _gkpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyPolicy' smart constructor.
 getKeyPolicy :: Text -> Text -> GetKeyPolicy
-getKeyPolicy pKeyId_ pPolicyName_ = 
+getKeyPolicy pKeyId_ pPolicyName_ =
     GetKeyPolicy'
     { _gkpKeyId = pKeyId_
     , _gkpPolicyName = pPolicyName_
@@ -124,7 +124,7 @@ data GetKeyPolicyResponse = GetKeyPolicyResponse'
 
 -- | 'GetKeyPolicyResponse' smart constructor.
 getKeyPolicyResponse :: Int -> GetKeyPolicyResponse
-getKeyPolicyResponse pStatus_ = 
+getKeyPolicyResponse pStatus_ =
     GetKeyPolicyResponse'
     { _gkprsPolicy = Nothing
     , _gkprsStatus = pStatus_

@@ -41,11 +41,11 @@ module Network.AWS.EC2.AttachVPNGateway
     , avgrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'attachVPNGateway' smart constructor.
 --
@@ -57,14 +57,14 @@ import Network.AWS.Response
 --
 -- * 'avgVPCId'
 data AttachVPNGateway = AttachVPNGateway'
-    { _avgDryRun :: !(Maybe Bool)
+    { _avgDryRun       :: !(Maybe Bool)
     , _avgVPNGatewayId :: !Text
-    , _avgVPCId :: !Text
+    , _avgVPCId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVPNGateway' smart constructor.
 attachVPNGateway :: Text -> Text -> AttachVPNGateway
-attachVPNGateway pVPNGatewayId_ pVPCId_ = 
+attachVPNGateway pVPNGatewayId_ pVPCId_ =
     AttachVPNGateway'
     { _avgDryRun = Nothing
     , _avgVPNGatewayId = pVPNGatewayId_
@@ -120,12 +120,12 @@ instance ToQuery AttachVPNGateway where
 -- * 'avgrsStatus'
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
     { _avgrsVPCAttachment :: !(Maybe VPCAttachment)
-    , _avgrsStatus :: !Int
+    , _avgrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
 attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse
-attachVPNGatewayResponse pStatus_ = 
+attachVPNGatewayResponse pStatus_ =
     AttachVPNGatewayResponse'
     { _avgrsVPCAttachment = Nothing
     , _avgrsStatus = pStatus_

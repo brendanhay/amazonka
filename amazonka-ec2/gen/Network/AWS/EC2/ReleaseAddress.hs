@@ -52,11 +52,11 @@ module Network.AWS.EC2.ReleaseAddress
     , releaseAddressResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'releaseAddress' smart constructor.
 --
@@ -69,13 +69,13 @@ import Network.AWS.Response
 -- * 'raDryRun'
 data ReleaseAddress = ReleaseAddress'
     { _raAllocationId :: !(Maybe Text)
-    , _raPublicIP :: !(Maybe Text)
-    , _raDryRun :: !(Maybe Bool)
+    , _raPublicIP     :: !(Maybe Text)
+    , _raDryRun       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReleaseAddress' smart constructor.
 releaseAddress :: ReleaseAddress
-releaseAddress = 
+releaseAddress =
     ReleaseAddress'
     { _raAllocationId = Nothing
     , _raPublicIP = Nothing
@@ -119,7 +119,7 @@ instance ToQuery ReleaseAddress where
 
 -- | /See:/ 'releaseAddressResponse' smart constructor.
 data ReleaseAddressResponse =
-    ReleaseAddressResponse' 
+    ReleaseAddressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReleaseAddressResponse' smart constructor.

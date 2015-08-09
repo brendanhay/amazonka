@@ -35,15 +35,15 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     , dasntrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingNotificationTypes' smart constructor.
 data DescribeAutoScalingNotificationTypes =
-    DescribeAutoScalingNotificationTypes' 
+    DescribeAutoScalingNotificationTypes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingNotificationTypes' smart constructor.
@@ -93,12 +93,12 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 -- * 'dasntrsStatus'
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
-    , _dasntrsStatus :: !Int
+    , _dasntrsStatus                       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
 describeAutoScalingNotificationTypesResponse :: Int -> DescribeAutoScalingNotificationTypesResponse
-describeAutoScalingNotificationTypesResponse pStatus_ = 
+describeAutoScalingNotificationTypesResponse pStatus_ =
     DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes = Nothing
     , _dasntrsStatus = pStatus_

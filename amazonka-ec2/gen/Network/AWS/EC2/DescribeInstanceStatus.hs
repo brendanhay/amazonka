@@ -66,12 +66,12 @@ module Network.AWS.EC2.DescribeInstanceStatus
     , disrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceStatus' smart constructor.
 --
@@ -90,16 +90,16 @@ import Network.AWS.Response
 -- * 'disMaxResults'
 data DescribeInstanceStatus = DescribeInstanceStatus'
     { _disIncludeAllInstances :: !(Maybe Bool)
-    , _disFilters :: !(Maybe [Filter])
-    , _disNextToken :: !(Maybe Text)
-    , _disInstanceIds :: !(Maybe [Text])
-    , _disDryRun :: !(Maybe Bool)
-    , _disMaxResults :: !(Maybe Int)
+    , _disFilters             :: !(Maybe [Filter])
+    , _disNextToken           :: !(Maybe Text)
+    , _disInstanceIds         :: !(Maybe [Text])
+    , _disDryRun              :: !(Maybe Bool)
+    , _disMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceStatus' smart constructor.
 describeInstanceStatus :: DescribeInstanceStatus
-describeInstanceStatus = 
+describeInstanceStatus =
     DescribeInstanceStatus'
     { _disIncludeAllInstances = Nothing
     , _disFilters = Nothing
@@ -241,13 +241,13 @@ instance ToQuery DescribeInstanceStatus where
 -- * 'disrsStatus'
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses :: !(Maybe [InstanceStatus])
-    , _disrsNextToken :: !(Maybe Text)
-    , _disrsStatus :: !Int
+    , _disrsNextToken        :: !(Maybe Text)
+    , _disrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
 describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse
-describeInstanceStatusResponse pStatus_ = 
+describeInstanceStatusResponse pStatus_ =
     DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses = Nothing
     , _disrsNextToken = Nothing

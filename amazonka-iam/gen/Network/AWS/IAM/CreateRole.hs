@@ -48,11 +48,11 @@ module Network.AWS.IAM.CreateRole
     , crrsRole
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createRole' smart constructor.
 --
@@ -64,14 +64,14 @@ import Network.AWS.Response
 --
 -- * 'crAssumeRolePolicyDocument'
 data CreateRole = CreateRole'
-    { _crPath :: !(Maybe Text)
-    , _crRoleName :: !Text
+    { _crPath                     :: !(Maybe Text)
+    , _crRoleName                 :: !Text
     , _crAssumeRolePolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRole' smart constructor.
 createRole :: Text -> Text -> CreateRole
-createRole pRoleName_ pAssumeRolePolicyDocument_ = 
+createRole pRoleName_ pAssumeRolePolicyDocument_ =
     CreateRole'
     { _crPath = Nothing
     , _crRoleName = pRoleName_
@@ -131,12 +131,12 @@ instance ToQuery CreateRole where
 -- * 'crrsRole'
 data CreateRoleResponse = CreateRoleResponse'
     { _crrsStatus :: !Int
-    , _crrsRole :: !Role
+    , _crrsRole   :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRoleResponse' smart constructor.
 createRoleResponse :: Int -> Role -> CreateRoleResponse
-createRoleResponse pStatus_ pRole_ = 
+createRoleResponse pStatus_ pRole_ =
     CreateRoleResponse'
     { _crrsStatus = pStatus_
     , _crrsRole = pRole_

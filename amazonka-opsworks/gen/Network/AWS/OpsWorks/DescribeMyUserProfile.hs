@@ -40,15 +40,15 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     , dmuprsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeMyUserProfile' smart constructor.
 data DescribeMyUserProfile =
-    DescribeMyUserProfile' 
+    DescribeMyUserProfile'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMyUserProfile' smart constructor.
@@ -96,12 +96,12 @@ instance ToQuery DescribeMyUserProfile where
 -- * 'dmuprsStatus'
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
     { _dmuprsUserProfile :: !(Maybe SelfUserProfile)
-    , _dmuprsStatus :: !Int
+    , _dmuprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
 describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse
-describeMyUserProfileResponse pStatus_ = 
+describeMyUserProfileResponse pStatus_ =
     DescribeMyUserProfileResponse'
     { _dmuprsUserProfile = Nothing
     , _dmuprsStatus = pStatus_

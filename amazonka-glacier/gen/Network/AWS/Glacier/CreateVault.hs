@@ -62,11 +62,11 @@ module Network.AWS.Glacier.CreateVault
     , cvrsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to create a vault.
 --
@@ -84,7 +84,7 @@ data CreateVault = CreateVault'
 
 -- | 'CreateVault' smart constructor.
 createVault :: Text -> Text -> CreateVault
-createVault pAccountId_ pVaultName_ = 
+createVault pAccountId_ pVaultName_ =
     CreateVault'
     { _cvAccountId = pAccountId_
     , _cvVaultName = pVaultName_
@@ -140,12 +140,12 @@ instance ToQuery CreateVault where
 -- * 'cvrsStatus'
 data CreateVaultResponse = CreateVaultResponse'
     { _cvrsLocation :: !(Maybe Text)
-    , _cvrsStatus :: !Int
+    , _cvrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVaultResponse' smart constructor.
 createVaultResponse :: Int -> CreateVaultResponse
-createVaultResponse pStatus_ = 
+createVaultResponse pStatus_ =
     CreateVaultResponse'
     { _cvrsLocation = Nothing
     , _cvrsStatus = pStatus_

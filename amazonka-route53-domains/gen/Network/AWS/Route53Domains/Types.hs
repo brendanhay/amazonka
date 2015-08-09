@@ -13,10 +13,10 @@
 --
 module Network.AWS.Route53Domains.Types
     (
-    -- * Service Decription
+    -- * Service
       Route53Domains
 
-    -- * Error Matchers
+    -- * Errors
     , _InvalidInput
     , _OperationLimitExceeded
     , _DomainLimitExceeded

@@ -45,11 +45,11 @@ module Network.AWS.EC2.DescribeAddresses
     , darsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAddresses' smart constructor.
 --
@@ -63,15 +63,15 @@ import Network.AWS.Response
 --
 -- * 'daAllocationIds'
 data DescribeAddresses = DescribeAddresses'
-    { _daPublicIPs :: !(Maybe [Text])
-    , _daFilters :: !(Maybe [Filter])
-    , _daDryRun :: !(Maybe Bool)
+    { _daPublicIPs     :: !(Maybe [Text])
+    , _daFilters       :: !(Maybe [Filter])
+    , _daDryRun        :: !(Maybe Bool)
     , _daAllocationIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAddresses' smart constructor.
 describeAddresses :: DescribeAddresses
-describeAddresses = 
+describeAddresses =
     DescribeAddresses'
     { _daPublicIPs = Nothing
     , _daFilters = Nothing
@@ -161,12 +161,12 @@ instance ToQuery DescribeAddresses where
 -- * 'darsStatus'
 data DescribeAddressesResponse = DescribeAddressesResponse'
     { _darsAddresses :: !(Maybe [Address])
-    , _darsStatus :: !Int
+    , _darsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAddressesResponse' smart constructor.
 describeAddressesResponse :: Int -> DescribeAddressesResponse
-describeAddressesResponse pStatus_ = 
+describeAddressesResponse pStatus_ =
     DescribeAddressesResponse'
     { _darsAddresses = Nothing
     , _darsStatus = pStatus_

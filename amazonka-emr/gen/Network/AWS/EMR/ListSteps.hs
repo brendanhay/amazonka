@@ -41,12 +41,12 @@ module Network.AWS.EMR.ListSteps
     , lsrsStatus
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | This input determines which steps to list.
 --
@@ -62,15 +62,15 @@ import Network.AWS.Response
 --
 -- * 'lsClusterId'
 data ListSteps = ListSteps'
-    { _lsStepIds :: !(Maybe [Text])
+    { _lsStepIds    :: !(Maybe [Text])
     , _lsStepStates :: !(Maybe [StepState])
-    , _lsMarker :: !(Maybe Text)
-    , _lsClusterId :: !Text
+    , _lsMarker     :: !(Maybe Text)
+    , _lsClusterId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSteps' smart constructor.
 listSteps :: Text -> ListSteps
-listSteps pClusterId_ = 
+listSteps pClusterId_ =
     ListSteps'
     { _lsStepIds = Nothing
     , _lsStepStates = Nothing
@@ -146,14 +146,14 @@ instance ToQuery ListSteps where
 --
 -- * 'lsrsStatus'
 data ListStepsResponse = ListStepsResponse'
-    { _lsrsSteps :: !(Maybe [StepSummary])
+    { _lsrsSteps  :: !(Maybe [StepSummary])
     , _lsrsMarker :: !(Maybe Text)
     , _lsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStepsResponse' smart constructor.
 listStepsResponse :: Int -> ListStepsResponse
-listStepsResponse pStatus_ = 
+listStepsResponse pStatus_ =
     ListStepsResponse'
     { _lsrsSteps = Nothing
     , _lsrsMarker = Nothing

@@ -58,11 +58,11 @@ module Network.AWS.CloudHSM.DescribeHSM
     , desrsStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the DescribeHsm action.
 --
@@ -75,12 +75,12 @@ import Network.AWS.Response
 -- * 'dhsmHSMARN'
 data DescribeHSM = DescribeHSM'
     { _dhsmHSMSerialNumber :: !(Maybe Text)
-    , _dhsmHSMARN :: !(Maybe Text)
+    , _dhsmHSMARN          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSM' smart constructor.
 describeHSM :: DescribeHSM
-describeHSM = 
+describeHSM =
     DescribeHSM'
     { _dhsmHSMSerialNumber = Nothing
     , _dhsmHSMARN = Nothing
@@ -195,32 +195,32 @@ instance ToQuery DescribeHSM where
 --
 -- * 'desrsStatus'
 data DescribeHSMResponse = DescribeHSMResponse'
-    { _desrsIAMRoleARN :: !(Maybe Text)
-    , _desrsEniId :: !(Maybe Text)
-    , _desrsSubscriptionEndDate :: !(Maybe Text)
-    , _desrsVPCId :: !(Maybe Text)
-    , _desrsSSHKeyLastUpdated :: !(Maybe Text)
-    , _desrsServerCertURI :: !(Maybe Text)
-    , _desrsSubscriptionType :: !(Maybe SubscriptionType)
-    , _desrsStatusDetails :: !(Maybe Text)
-    , _desrsSSHPublicKey :: !(Maybe Text)
-    , _desrsSubnetId :: !(Maybe Text)
-    , _desrsPartitions :: !(Maybe [Text])
-    , _desrsAvailabilityZone :: !(Maybe Text)
+    { _desrsIAMRoleARN            :: !(Maybe Text)
+    , _desrsEniId                 :: !(Maybe Text)
+    , _desrsSubscriptionEndDate   :: !(Maybe Text)
+    , _desrsVPCId                 :: !(Maybe Text)
+    , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
+    , _desrsServerCertURI         :: !(Maybe Text)
+    , _desrsSubscriptionType      :: !(Maybe SubscriptionType)
+    , _desrsStatusDetails         :: !(Maybe Text)
+    , _desrsSSHPublicKey          :: !(Maybe Text)
+    , _desrsSubnetId              :: !(Maybe Text)
+    , _desrsPartitions            :: !(Maybe [Text])
+    , _desrsAvailabilityZone      :: !(Maybe Text)
     , _desrsSubscriptionStartDate :: !(Maybe Text)
     , _desrsServerCertLastUpdated :: !(Maybe Text)
-    , _desrsSoftwareVersion :: !(Maybe Text)
-    , _desrsSerialNumber :: !(Maybe Text)
-    , _desrsVendorName :: !(Maybe Text)
-    , _desrsHSMARN :: !(Maybe Text)
-    , _desrsEniIP :: !(Maybe Text)
-    , _desrsHSMType :: !(Maybe Text)
-    , _desrsStatus :: !Int
+    , _desrsSoftwareVersion       :: !(Maybe Text)
+    , _desrsSerialNumber          :: !(Maybe Text)
+    , _desrsVendorName            :: !(Maybe Text)
+    , _desrsHSMARN                :: !(Maybe Text)
+    , _desrsEniIP                 :: !(Maybe Text)
+    , _desrsHSMType               :: !(Maybe Text)
+    , _desrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMResponse' smart constructor.
 describeHSMResponse :: Int -> DescribeHSMResponse
-describeHSMResponse pStatus_ = 
+describeHSMResponse pStatus_ =
     DescribeHSMResponse'
     { _desrsIAMRoleARN = Nothing
     , _desrsEniId = Nothing

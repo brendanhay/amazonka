@@ -42,12 +42,12 @@ module Network.AWS.CloudFormation.ListStackResources
     , lsrrsStatus
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for the ListStackResource action.
 --
@@ -65,7 +65,7 @@ data ListStackResources = ListStackResources'
 
 -- | 'ListStackResources' smart constructor.
 listStackResources :: Text -> ListStackResources
-listStackResources pStackName_ = 
+listStackResources pStackName_ =
     ListStackResources'
     { _lsrNextToken = Nothing
     , _lsrStackName = pStackName_
@@ -136,14 +136,14 @@ instance ToQuery ListStackResources where
 --
 -- * 'lsrrsStatus'
 data ListStackResourcesResponse = ListStackResourcesResponse'
-    { _lsrrsNextToken :: !(Maybe Text)
+    { _lsrrsNextToken              :: !(Maybe Text)
     , _lsrrsStackResourceSummaries :: !(Maybe [StackResourceSummary])
-    , _lsrrsStatus :: !Int
+    , _lsrrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStackResourcesResponse' smart constructor.
 listStackResourcesResponse :: Int -> ListStackResourcesResponse
-listStackResourcesResponse pStatus_ = 
+listStackResourcesResponse pStatus_ =
     ListStackResourcesResponse'
     { _lsrrsNextToken = Nothing
     , _lsrrsStackResourceSummaries = Nothing

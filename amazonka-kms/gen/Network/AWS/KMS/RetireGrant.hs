@@ -49,11 +49,11 @@ module Network.AWS.KMS.RetireGrant
     , retireGrantResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'retireGrant' smart constructor.
 --
@@ -65,14 +65,14 @@ import Network.AWS.Response
 --
 -- * 'rgGrantToken'
 data RetireGrant = RetireGrant'
-    { _rgKeyId :: !(Maybe Text)
-    , _rgGrantId :: !(Maybe Text)
+    { _rgKeyId      :: !(Maybe Text)
+    , _rgGrantId    :: !(Maybe Text)
     , _rgGrantToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetireGrant' smart constructor.
 retireGrant :: RetireGrant
-retireGrant = 
+retireGrant =
     RetireGrant'
     { _rgKeyId = Nothing
     , _rgGrantId = Nothing
@@ -131,7 +131,7 @@ instance ToQuery RetireGrant where
 
 -- | /See:/ 'retireGrantResponse' smart constructor.
 data RetireGrantResponse =
-    RetireGrantResponse' 
+    RetireGrantResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetireGrantResponse' smart constructor.

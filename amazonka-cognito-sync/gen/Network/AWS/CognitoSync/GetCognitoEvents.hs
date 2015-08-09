@@ -42,11 +42,11 @@ module Network.AWS.CognitoSync.GetCognitoEvents
     , gcersStatus
     ) where
 
-import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request for a list of the configured Cognito Events
 --
@@ -61,7 +61,7 @@ newtype GetCognitoEvents = GetCognitoEvents'
 
 -- | 'GetCognitoEvents' smart constructor.
 getCognitoEvents :: Text -> GetCognitoEvents
-getCognitoEvents pIdentityPoolId_ = 
+getCognitoEvents pIdentityPoolId_ =
     GetCognitoEvents'
     { _gceIdentityPoolId = pIdentityPoolId_
     }
@@ -112,7 +112,7 @@ data GetCognitoEventsResponse = GetCognitoEventsResponse'
 
 -- | 'GetCognitoEventsResponse' smart constructor.
 getCognitoEventsResponse :: Int -> GetCognitoEventsResponse
-getCognitoEventsResponse pStatus_ = 
+getCognitoEventsResponse pStatus_ =
     GetCognitoEventsResponse'
     { _gcersEvents = Nothing
     , _gcersStatus = pStatus_

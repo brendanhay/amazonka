@@ -41,12 +41,12 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     , dasirsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingInstances' smart constructor.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'dasiMaxRecords'
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-    { _dasiNextToken :: !(Maybe Text)
+    { _dasiNextToken   :: !(Maybe Text)
     , _dasiInstanceIds :: !(Maybe [Text])
-    , _dasiMaxRecords :: !(Maybe Int)
+    , _dasiMaxRecords  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingInstances' smart constructor.
 describeAutoScalingInstances :: DescribeAutoScalingInstances
-describeAutoScalingInstances = 
+describeAutoScalingInstances =
     DescribeAutoScalingInstances'
     { _dasiNextToken = Nothing
     , _dasiInstanceIds = Nothing
@@ -137,14 +137,14 @@ instance ToQuery DescribeAutoScalingInstances where
 --
 -- * 'dasirsStatus'
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
-    { _dasirsNextToken :: !(Maybe Text)
+    { _dasirsNextToken            :: !(Maybe Text)
     , _dasirsAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
-    , _dasirsStatus :: !Int
+    , _dasirsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
 describeAutoScalingInstancesResponse :: Int -> DescribeAutoScalingInstancesResponse
-describeAutoScalingInstancesResponse pStatus_ = 
+describeAutoScalingInstancesResponse pStatus_ =
     DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken = Nothing
     , _dasirsAutoScalingInstances = Nothing

@@ -45,11 +45,11 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , cietrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createInstanceExportTask' smart constructor.
 --
@@ -64,14 +64,14 @@ import Network.AWS.Response
 -- * 'cietInstanceId'
 data CreateInstanceExportTask = CreateInstanceExportTask'
     { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
-    , _cietExportToS3Task :: !(Maybe ExportToS3TaskSpecification)
-    , _cietDescription :: !(Maybe Text)
-    , _cietInstanceId :: !Text
+    , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
+    , _cietDescription       :: !(Maybe Text)
+    , _cietInstanceId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceExportTask' smart constructor.
 createInstanceExportTask :: Text -> CreateInstanceExportTask
-createInstanceExportTask pInstanceId_ = 
+createInstanceExportTask pInstanceId_ =
     CreateInstanceExportTask'
     { _cietTargetEnvironment = Nothing
     , _cietExportToS3Task = Nothing
@@ -133,12 +133,12 @@ instance ToQuery CreateInstanceExportTask where
 -- * 'cietrsStatus'
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrsExportTask :: !(Maybe ExportTask)
-    , _cietrsStatus :: !Int
+    , _cietrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceExportTaskResponse' smart constructor.
 createInstanceExportTaskResponse :: Int -> CreateInstanceExportTaskResponse
-createInstanceExportTaskResponse pStatus_ = 
+createInstanceExportTaskResponse pStatus_ =
     CreateInstanceExportTaskResponse'
     { _cietrsExportTask = Nothing
     , _cietrsStatus = pStatus_

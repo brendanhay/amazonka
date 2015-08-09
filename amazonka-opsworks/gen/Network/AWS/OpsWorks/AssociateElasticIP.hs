@@ -44,11 +44,11 @@ module Network.AWS.OpsWorks.AssociateElasticIP
     , associateElasticIPResponse
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'associateElasticIP' smart constructor.
 --
@@ -59,12 +59,12 @@ import Network.AWS.Response
 -- * 'aeiElasticIP'
 data AssociateElasticIP = AssociateElasticIP'
     { _aeiInstanceId :: !(Maybe Text)
-    , _aeiElasticIP :: !Text
+    , _aeiElasticIP  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateElasticIP' smart constructor.
 associateElasticIP :: Text -> AssociateElasticIP
-associateElasticIP pElasticIP_ = 
+associateElasticIP pElasticIP_ =
     AssociateElasticIP'
     { _aeiInstanceId = Nothing
     , _aeiElasticIP = pElasticIP_
@@ -109,7 +109,7 @@ instance ToQuery AssociateElasticIP where
 
 -- | /See:/ 'associateElasticIPResponse' smart constructor.
 data AssociateElasticIPResponse =
-    AssociateElasticIPResponse' 
+    AssociateElasticIPResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateElasticIPResponse' smart constructor.

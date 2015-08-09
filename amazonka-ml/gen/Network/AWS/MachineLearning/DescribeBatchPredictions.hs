@@ -49,12 +49,12 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     , drsStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeBatchPredictions' smart constructor.
 --
@@ -82,22 +82,22 @@ import Network.AWS.Response
 --
 -- * 'dbpLE'
 data DescribeBatchPredictions = DescribeBatchPredictions'
-    { _dbpEQ :: !(Maybe Text)
-    , _dbpGE :: !(Maybe Text)
-    , _dbpPrefix :: !(Maybe Text)
-    , _dbpGT :: !(Maybe Text)
-    , _dbpNE :: !(Maybe Text)
-    , _dbpNextToken :: !(Maybe Text)
-    , _dbpSortOrder :: !(Maybe SortOrder)
-    , _dbpLimit :: !(Maybe Nat)
-    , _dbpLT :: !(Maybe Text)
+    { _dbpEQ             :: !(Maybe Text)
+    , _dbpGE             :: !(Maybe Text)
+    , _dbpPrefix         :: !(Maybe Text)
+    , _dbpGT             :: !(Maybe Text)
+    , _dbpNE             :: !(Maybe Text)
+    , _dbpNextToken      :: !(Maybe Text)
+    , _dbpSortOrder      :: !(Maybe SortOrder)
+    , _dbpLimit          :: !(Maybe Nat)
+    , _dbpLT             :: !(Maybe Text)
     , _dbpFilterVariable :: !(Maybe BatchPredictionFilterVariable)
-    , _dbpLE :: !(Maybe Text)
+    , _dbpLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBatchPredictions' smart constructor.
 describeBatchPredictions :: DescribeBatchPredictions
-describeBatchPredictions = 
+describeBatchPredictions =
     DescribeBatchPredictions'
     { _dbpEQ = Nothing
     , _dbpGE = Nothing
@@ -262,14 +262,14 @@ instance ToQuery DescribeBatchPredictions where
 --
 -- * 'drsStatus'
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-    { _drsResults :: !(Maybe [BatchPrediction])
+    { _drsResults   :: !(Maybe [BatchPrediction])
     , _drsNextToken :: !(Maybe Text)
-    , _drsStatus :: !Int
+    , _drsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
 describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse pStatus_ = 
+describeBatchPredictionsResponse pStatus_ =
     DescribeBatchPredictionsResponse'
     { _drsResults = Nothing
     , _drsNextToken = Nothing

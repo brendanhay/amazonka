@@ -44,12 +44,12 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     , dsasrsActivities
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeScalingActivities' smart constructor.
 --
@@ -63,15 +63,15 @@ import Network.AWS.Response
 --
 -- * 'desActivityIds'
 data DescribeScalingActivities = DescribeScalingActivities'
-    { _desNextToken :: !(Maybe Text)
-    , _desMaxRecords :: !(Maybe Int)
+    { _desNextToken            :: !(Maybe Text)
+    , _desMaxRecords           :: !(Maybe Int)
     , _desAutoScalingGroupName :: !(Maybe Text)
-    , _desActivityIds :: !(Maybe [Text])
+    , _desActivityIds          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivities' smart constructor.
 describeScalingActivities :: DescribeScalingActivities
-describeScalingActivities = 
+describeScalingActivities =
     DescribeScalingActivities'
     { _desNextToken = Nothing
     , _desMaxRecords = Nothing
@@ -148,14 +148,14 @@ instance ToQuery DescribeScalingActivities where
 --
 -- * 'dsasrsActivities'
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _dsasrsNextToken :: !(Maybe Text)
-    , _dsasrsStatus :: !Int
+    { _dsasrsNextToken  :: !(Maybe Text)
+    , _dsasrsStatus     :: !Int
     , _dsasrsActivities :: ![Activity]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
 describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse pStatus_ = 
+describeScalingActivitiesResponse pStatus_ =
     DescribeScalingActivitiesResponse'
     { _dsasrsNextToken = Nothing
     , _dsasrsStatus = pStatus_

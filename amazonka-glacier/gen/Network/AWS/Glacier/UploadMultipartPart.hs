@@ -89,11 +89,11 @@ module Network.AWS.Glacier.UploadMultipartPart
     , umprsStatus
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to upload a part of an archive in a multipart upload
 -- operation.
@@ -114,17 +114,17 @@ import Network.AWS.Response
 --
 -- * 'umpBody'
 data UploadMultipartPart = UploadMultipartPart'
-    { _umpChecksum :: !(Maybe Text)
-    , _umpRange :: !(Maybe Text)
+    { _umpChecksum  :: !(Maybe Text)
+    , _umpRange     :: !(Maybe Text)
     , _umpAccountId :: !Text
     , _umpVaultName :: !Text
-    , _umpUploadId :: !Text
-    , _umpBody :: !RqBody
+    , _umpUploadId  :: !Text
+    , _umpBody      :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'UploadMultipartPart' smart constructor.
 uploadMultipartPart :: Text -> Text -> Text -> RqBody -> UploadMultipartPart
-uploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ = 
+uploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ =
     UploadMultipartPart'
     { _umpChecksum = Nothing
     , _umpRange = Nothing
@@ -207,12 +207,12 @@ instance ToQuery UploadMultipartPart where
 -- * 'umprsStatus'
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
     { _umprsChecksum :: !(Maybe Text)
-    , _umprsStatus :: !Int
+    , _umprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadMultipartPartResponse' smart constructor.
 uploadMultipartPartResponse :: Int -> UploadMultipartPartResponse
-uploadMultipartPartResponse pStatus_ = 
+uploadMultipartPartResponse pStatus_ =
     UploadMultipartPartResponse'
     { _umprsChecksum = Nothing
     , _umprsStatus = pStatus_

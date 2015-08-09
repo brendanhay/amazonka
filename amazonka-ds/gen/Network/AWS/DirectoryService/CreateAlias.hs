@@ -44,11 +44,11 @@ module Network.AWS.DirectoryService.CreateAlias
     , carsStatus
     ) where
 
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the inputs for the CreateAlias operation.
 --
@@ -61,12 +61,12 @@ import Network.AWS.Response
 -- * 'caAlias'
 data CreateAlias = CreateAlias'
     { _caDirectoryId :: !Text
-    , _caAlias :: !Text
+    , _caAlias       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
-createAlias pDirectoryId_ pAlias_ = 
+createAlias pDirectoryId_ pAlias_ =
     CreateAlias'
     { _caDirectoryId = pDirectoryId_
     , _caAlias = pAlias_
@@ -129,13 +129,13 @@ instance ToQuery CreateAlias where
 -- * 'carsStatus'
 data CreateAliasResponse = CreateAliasResponse'
     { _carsDirectoryId :: !(Maybe Text)
-    , _carsAlias :: !(Maybe Text)
-    , _carsStatus :: !Int
+    , _carsAlias       :: !(Maybe Text)
+    , _carsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: Int -> CreateAliasResponse
-createAliasResponse pStatus_ = 
+createAliasResponse pStatus_ =
     CreateAliasResponse'
     { _carsDirectoryId = Nothing
     , _carsAlias = Nothing

@@ -37,11 +37,11 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     , putRetentionPolicyResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putRetentionPolicy' smart constructor.
 --
@@ -51,13 +51,13 @@ import Network.AWS.Response
 --
 -- * 'prpRetentionInDays'
 data PutRetentionPolicy = PutRetentionPolicy'
-    { _prpLogGroupName :: !Text
+    { _prpLogGroupName    :: !Text
     , _prpRetentionInDays :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRetentionPolicy' smart constructor.
 putRetentionPolicy :: Text -> Int -> PutRetentionPolicy
-putRetentionPolicy pLogGroupName_ pRetentionInDays_ = 
+putRetentionPolicy pLogGroupName_ pRetentionInDays_ =
     PutRetentionPolicy'
     { _prpLogGroupName = pLogGroupName_
     , _prpRetentionInDays = pRetentionInDays_
@@ -101,7 +101,7 @@ instance ToQuery PutRetentionPolicy where
 
 -- | /See:/ 'putRetentionPolicyResponse' smart constructor.
 data PutRetentionPolicyResponse =
-    PutRetentionPolicyResponse' 
+    PutRetentionPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRetentionPolicyResponse' smart constructor.

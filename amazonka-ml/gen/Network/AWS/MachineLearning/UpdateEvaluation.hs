@@ -41,11 +41,11 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     , uersStatus
     ) where
 
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateEvaluation' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'ueEvaluationName'
 data UpdateEvaluation = UpdateEvaluation'
-    { _ueEvaluationId :: !Text
+    { _ueEvaluationId   :: !Text
     , _ueEvaluationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEvaluation' smart constructor.
 updateEvaluation :: Text -> Text -> UpdateEvaluation
-updateEvaluation pEvaluationId_ pEvaluationName_ = 
+updateEvaluation pEvaluationId_ pEvaluationName_ =
     UpdateEvaluation'
     { _ueEvaluationId = pEvaluationId_
     , _ueEvaluationName = pEvaluationName_
@@ -120,12 +120,12 @@ instance ToQuery UpdateEvaluation where
 -- * 'uersStatus'
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
     { _uersEvaluationId :: !(Maybe Text)
-    , _uersStatus :: !Int
+    , _uersStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEvaluationResponse' smart constructor.
 updateEvaluationResponse :: Int -> UpdateEvaluationResponse
-updateEvaluationResponse pStatus_ = 
+updateEvaluationResponse pStatus_ =
     UpdateEvaluationResponse'
     { _uersEvaluationId = Nothing
     , _uersStatus = pStatus_

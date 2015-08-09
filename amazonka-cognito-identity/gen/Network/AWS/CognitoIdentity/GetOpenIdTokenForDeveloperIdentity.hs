@@ -57,11 +57,11 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     , goitfdirsStatus
     ) where
 
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input to the @GetOpenIdTokenForDeveloperIdentity@ action.
 --
@@ -77,15 +77,15 @@ import Network.AWS.Response
 --
 -- * 'goitfdiLogins'
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
-    { _goitfdiTokenDuration :: !(Maybe Nat)
-    , _goitfdiIdentityId :: !(Maybe Text)
+    { _goitfdiTokenDuration  :: !(Maybe Nat)
+    , _goitfdiIdentityId     :: !(Maybe Text)
     , _goitfdiIdentityPoolId :: !Text
-    , _goitfdiLogins :: !(Map Text Text)
+    , _goitfdiLogins         :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
 getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
-getOpenIdTokenForDeveloperIdentity pIdentityPoolId_ = 
+getOpenIdTokenForDeveloperIdentity pIdentityPoolId_ =
     GetOpenIdTokenForDeveloperIdentity'
     { _goitfdiTokenDuration = Nothing
     , _goitfdiIdentityId = Nothing
@@ -181,14 +181,14 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
 --
 -- * 'goitfdirsStatus'
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
-    { _goitfdirsToken :: !(Maybe Text)
+    { _goitfdirsToken      :: !(Maybe Text)
     , _goitfdirsIdentityId :: !(Maybe Text)
-    , _goitfdirsStatus :: !Int
+    , _goitfdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 getOpenIdTokenForDeveloperIdentityResponse :: Int -> GetOpenIdTokenForDeveloperIdentityResponse
-getOpenIdTokenForDeveloperIdentityResponse pStatus_ = 
+getOpenIdTokenForDeveloperIdentityResponse pStatus_ =
     GetOpenIdTokenForDeveloperIdentityResponse'
     { _goitfdirsToken = Nothing
     , _goitfdirsIdentityId = Nothing

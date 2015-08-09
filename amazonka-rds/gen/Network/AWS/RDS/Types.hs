@@ -13,10 +13,10 @@
 --
 module Network.AWS.RDS.Types
     (
-    -- * Service Decription
+    -- * Service
       RDS
 
-    -- * Error Matchers
+    -- * Errors
     , _CertificateNotFoundFault
     , _ReservedDBInstanceQuotaExceededFault
     , _DBClusterSnapshotAlreadyExistsFault

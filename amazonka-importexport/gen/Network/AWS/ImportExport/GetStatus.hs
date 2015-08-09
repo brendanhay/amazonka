@@ -56,11 +56,11 @@ module Network.AWS.ImportExport.GetStatus
     , gsrsStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.ImportExport.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.ImportExport.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the GetStatus operation.
 --
@@ -73,12 +73,12 @@ import Network.AWS.Response
 -- * 'gsJobId'
 data GetStatus = GetStatus'
     { _gsAPIVersion :: !(Maybe Text)
-    , _gsJobId :: !Text
+    , _gsJobId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStatus' smart constructor.
 getStatus :: Text -> GetStatus
-getStatus pJobId_ = 
+getStatus pJobId_ =
     GetStatus'
     { _gsAPIVersion = Nothing
     , _gsJobId = pJobId_
@@ -173,28 +173,28 @@ instance ToQuery GetStatus where
 --
 -- * 'gsrsStatus'
 data GetStatusResponse = GetStatusResponse'
-    { _gsrsCarrier :: !(Maybe Text)
-    , _gsrsSignature :: !(Maybe Text)
-    , _gsrsTrackingNumber :: !(Maybe Text)
-    , _gsrsJobType :: !(Maybe JobType)
-    , _gsrsJobId :: !(Maybe Text)
+    { _gsrsCarrier               :: !(Maybe Text)
+    , _gsrsSignature             :: !(Maybe Text)
+    , _gsrsTrackingNumber        :: !(Maybe Text)
+    , _gsrsJobType               :: !(Maybe JobType)
+    , _gsrsJobId                 :: !(Maybe Text)
     , _gsrsSignatureFileContents :: !(Maybe Text)
-    , _gsrsErrorCount :: !(Maybe Int)
-    , _gsrsCurrentManifest :: !(Maybe Text)
-    , _gsrsArtifactList :: !(Maybe [Artifact])
-    , _gsrsLogBucket :: !(Maybe Text)
-    , _gsrsCreationDate :: !(Maybe ISO8601)
-    , _gsrsProgressCode :: !(Maybe Text)
-    , _gsrsLocationCode :: !(Maybe Text)
-    , _gsrsLogKey :: !(Maybe Text)
-    , _gsrsProgressMessage :: !(Maybe Text)
-    , _gsrsLocationMessage :: !(Maybe Text)
-    , _gsrsStatus :: !Int
+    , _gsrsErrorCount            :: !(Maybe Int)
+    , _gsrsCurrentManifest       :: !(Maybe Text)
+    , _gsrsArtifactList          :: !(Maybe [Artifact])
+    , _gsrsLogBucket             :: !(Maybe Text)
+    , _gsrsCreationDate          :: !(Maybe ISO8601)
+    , _gsrsProgressCode          :: !(Maybe Text)
+    , _gsrsLocationCode          :: !(Maybe Text)
+    , _gsrsLogKey                :: !(Maybe Text)
+    , _gsrsProgressMessage       :: !(Maybe Text)
+    , _gsrsLocationMessage       :: !(Maybe Text)
+    , _gsrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStatusResponse' smart constructor.
 getStatusResponse :: Int -> GetStatusResponse
-getStatusResponse pStatus_ = 
+getStatusResponse pStatus_ =
     GetStatusResponse'
     { _gsrsCarrier = Nothing
     , _gsrsSignature = Nothing

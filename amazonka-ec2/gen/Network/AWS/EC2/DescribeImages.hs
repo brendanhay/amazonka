@@ -47,11 +47,11 @@ module Network.AWS.EC2.DescribeImages
     , desrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeImages' smart constructor.
 --
@@ -67,16 +67,16 @@ import Network.AWS.Response
 --
 -- * 'deseDryRun'
 data DescribeImages = DescribeImages'
-    { _deseOwners :: !(Maybe [Text])
+    { _deseOwners          :: !(Maybe [Text])
     , _deseExecutableUsers :: !(Maybe [Text])
-    , _deseFilters :: !(Maybe [Filter])
-    , _deseImageIds :: !(Maybe [Text])
-    , _deseDryRun :: !(Maybe Bool)
+    , _deseFilters         :: !(Maybe [Filter])
+    , _deseImageIds        :: !(Maybe [Text])
+    , _deseDryRun          :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImages' smart constructor.
 describeImages :: DescribeImages
-describeImages = 
+describeImages =
     DescribeImages'
     { _deseOwners = Nothing
     , _deseExecutableUsers = Nothing
@@ -240,7 +240,7 @@ data DescribeImagesResponse = DescribeImagesResponse'
 
 -- | 'DescribeImagesResponse' smart constructor.
 describeImagesResponse :: Int -> DescribeImagesResponse
-describeImagesResponse pStatus_ = 
+describeImagesResponse pStatus_ =
     DescribeImagesResponse'
     { _desrsImages = Nothing
     , _desrsStatus = pStatus_

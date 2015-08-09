@@ -41,11 +41,11 @@ module Network.AWS.EC2.DeleteSecurityGroup
     , deleteSecurityGroupResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSecurityGroup' smart constructor.
 --
@@ -57,14 +57,14 @@ import Network.AWS.Response
 --
 -- * 'dsgDryRun'
 data DeleteSecurityGroup = DeleteSecurityGroup'
-    { _dsgGroupId :: !(Maybe Text)
+    { _dsgGroupId   :: !(Maybe Text)
     , _dsgGroupName :: !(Maybe Text)
-    , _dsgDryRun :: !(Maybe Bool)
+    , _dsgDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSecurityGroup' smart constructor.
 deleteSecurityGroup :: DeleteSecurityGroup
-deleteSecurityGroup = 
+deleteSecurityGroup =
     DeleteSecurityGroup'
     { _dsgGroupId = Nothing
     , _dsgGroupName = Nothing
@@ -110,7 +110,7 @@ instance ToQuery DeleteSecurityGroup where
 
 -- | /See:/ 'deleteSecurityGroupResponse' smart constructor.
 data DeleteSecurityGroupResponse =
-    DeleteSecurityGroupResponse' 
+    DeleteSecurityGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSecurityGroupResponse' smart constructor.

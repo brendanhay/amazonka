@@ -20,10 +20,10 @@
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.DirectoryService
     (
-    -- * Service Description
+    -- * Service
       DirectoryService
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** AuthenticationFailedException
@@ -68,55 +68,55 @@ module Network.AWS.DirectoryService
     -- * Operations
     -- $operations
 
-    -- ** GetSnapshotLimits 
+    -- ** GetSnapshotLimits
     , module Network.AWS.DirectoryService.GetSnapshotLimits
 
-    -- ** ConnectDirectory 
+    -- ** ConnectDirectory
     , module Network.AWS.DirectoryService.ConnectDirectory
 
-    -- ** DescribeDirectories 
+    -- ** DescribeDirectories
     , module Network.AWS.DirectoryService.DescribeDirectories
 
-    -- ** CreateAlias 
+    -- ** CreateAlias
     , module Network.AWS.DirectoryService.CreateAlias
 
-    -- ** CreateDirectory 
+    -- ** CreateDirectory
     , module Network.AWS.DirectoryService.CreateDirectory
 
-    -- ** EnableSSO 
+    -- ** EnableSSO
     , module Network.AWS.DirectoryService.EnableSSO
 
-    -- ** EnableRadius 
+    -- ** EnableRadius
     , module Network.AWS.DirectoryService.EnableRadius
 
-    -- ** DisableRadius 
+    -- ** DisableRadius
     , module Network.AWS.DirectoryService.DisableRadius
 
-    -- ** DescribeSnapshots 
+    -- ** DescribeSnapshots
     , module Network.AWS.DirectoryService.DescribeSnapshots
 
-    -- ** RestoreFromSnapshot 
+    -- ** RestoreFromSnapshot
     , module Network.AWS.DirectoryService.RestoreFromSnapshot
 
-    -- ** DeleteSnapshot 
+    -- ** DeleteSnapshot
     , module Network.AWS.DirectoryService.DeleteSnapshot
 
-    -- ** CreateSnapshot 
+    -- ** CreateSnapshot
     , module Network.AWS.DirectoryService.CreateSnapshot
 
-    -- ** DeleteDirectory 
+    -- ** DeleteDirectory
     , module Network.AWS.DirectoryService.DeleteDirectory
 
-    -- ** DisableSSO 
+    -- ** DisableSSO
     , module Network.AWS.DirectoryService.DisableSSO
 
-    -- ** CreateComputer 
+    -- ** CreateComputer
     , module Network.AWS.DirectoryService.CreateComputer
 
-    -- ** GetDirectoryLimits 
+    -- ** GetDirectoryLimits
     , module Network.AWS.DirectoryService.GetDirectoryLimits
 
-    -- ** UpdateRadius 
+    -- ** UpdateRadius
     , module Network.AWS.DirectoryService.UpdateRadius
 
     -- * Types
@@ -249,25 +249,25 @@ module Network.AWS.DirectoryService
     , slManualSnapshotsLimit
     ) where
 
-import Network.AWS.DirectoryService.ConnectDirectory
-import Network.AWS.DirectoryService.CreateAlias
-import Network.AWS.DirectoryService.CreateComputer
-import Network.AWS.DirectoryService.CreateDirectory
-import Network.AWS.DirectoryService.CreateSnapshot
-import Network.AWS.DirectoryService.DeleteDirectory
-import Network.AWS.DirectoryService.DeleteSnapshot
-import Network.AWS.DirectoryService.DescribeDirectories
-import Network.AWS.DirectoryService.DescribeSnapshots
-import Network.AWS.DirectoryService.DisableRadius
-import Network.AWS.DirectoryService.DisableSSO
-import Network.AWS.DirectoryService.EnableRadius
-import Network.AWS.DirectoryService.EnableSSO
-import Network.AWS.DirectoryService.GetDirectoryLimits
-import Network.AWS.DirectoryService.GetSnapshotLimits
-import Network.AWS.DirectoryService.RestoreFromSnapshot
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.UpdateRadius
-import Network.AWS.DirectoryService.Waiters
+import           Network.AWS.DirectoryService.ConnectDirectory
+import           Network.AWS.DirectoryService.CreateAlias
+import           Network.AWS.DirectoryService.CreateComputer
+import           Network.AWS.DirectoryService.CreateDirectory
+import           Network.AWS.DirectoryService.CreateSnapshot
+import           Network.AWS.DirectoryService.DeleteDirectory
+import           Network.AWS.DirectoryService.DeleteSnapshot
+import           Network.AWS.DirectoryService.DescribeDirectories
+import           Network.AWS.DirectoryService.DescribeSnapshots
+import           Network.AWS.DirectoryService.DisableRadius
+import           Network.AWS.DirectoryService.DisableSSO
+import           Network.AWS.DirectoryService.EnableRadius
+import           Network.AWS.DirectoryService.EnableSSO
+import           Network.AWS.DirectoryService.GetDirectoryLimits
+import           Network.AWS.DirectoryService.GetSnapshotLimits
+import           Network.AWS.DirectoryService.RestoreFromSnapshot
+import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.UpdateRadius
+import           Network.AWS.DirectoryService.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

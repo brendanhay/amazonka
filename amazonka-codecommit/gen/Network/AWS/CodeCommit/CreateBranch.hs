@@ -39,11 +39,11 @@ module Network.AWS.CodeCommit.CreateBranch
     , createBranchResponse
     ) where
 
-import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeCommit.Types
+import           Network.AWS.CodeCommit.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a create branch operation.
 --
@@ -58,13 +58,13 @@ import Network.AWS.Response
 -- * 'cbCommitId'
 data CreateBranch = CreateBranch'
     { _cbRepositoryName :: !Text
-    , _cbBranchName :: !Text
-    , _cbCommitId :: !Text
+    , _cbBranchName     :: !Text
+    , _cbCommitId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBranch' smart constructor.
 createBranch :: Text -> Text -> Text -> CreateBranch
-createBranch pRepositoryName_ pBranchName_ pCommitId_ = 
+createBranch pRepositoryName_ pBranchName_ pCommitId_ =
     CreateBranch'
     { _cbRepositoryName = pRepositoryName_
     , _cbBranchName = pBranchName_
@@ -116,7 +116,7 @@ instance ToQuery CreateBranch where
 
 -- | /See:/ 'createBranchResponse' smart constructor.
 data CreateBranchResponse =
-    CreateBranchResponse' 
+    CreateBranchResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBranchResponse' smart constructor.

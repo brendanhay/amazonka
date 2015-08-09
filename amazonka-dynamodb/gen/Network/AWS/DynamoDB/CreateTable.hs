@@ -60,11 +60,11 @@ module Network.AWS.DynamoDB.CreateTable
     , ctrsStatus
     ) where
 
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateTable/ operation.
 --
@@ -87,17 +87,17 @@ import Network.AWS.Response
 -- * 'ctProvisionedThroughput'
 data CreateTable = CreateTable'
     { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
-    , _ctLocalSecondaryIndexes :: !(Maybe [LocalSecondaryIndex])
-    , _ctStreamSpecification :: !(Maybe StreamSpecification)
-    , _ctAttributeDefinitions :: ![AttributeDefinition]
-    , _ctTableName :: !Text
-    , _ctKeySchema :: !(List1 KeySchemaElement)
-    , _ctProvisionedThroughput :: !ProvisionedThroughput
+    , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
+    , _ctStreamSpecification    :: !(Maybe StreamSpecification)
+    , _ctAttributeDefinitions   :: ![AttributeDefinition]
+    , _ctTableName              :: !Text
+    , _ctKeySchema              :: !(List1 KeySchemaElement)
+    , _ctProvisionedThroughput  :: !ProvisionedThroughput
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTable' smart constructor.
 createTable :: Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
-createTable pTableName_ pKeySchema_ pProvisionedThroughput_ = 
+createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
     CreateTable'
     { _ctGlobalSecondaryIndexes = Nothing
     , _ctLocalSecondaryIndexes = Nothing
@@ -303,12 +303,12 @@ instance ToQuery CreateTable where
 -- * 'ctrsStatus'
 data CreateTableResponse = CreateTableResponse'
     { _ctrsTableDescription :: !(Maybe TableDescription)
-    , _ctrsStatus :: !Int
+    , _ctrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTableResponse' smart constructor.
 createTableResponse :: Int -> CreateTableResponse
-createTableResponse pStatus_ = 
+createTableResponse pStatus_ =
     CreateTableResponse'
     { _ctrsTableDescription = Nothing
     , _ctrsStatus = pStatus_

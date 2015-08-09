@@ -46,11 +46,11 @@ module Network.AWS.EC2.ModifyVolumeAttribute
     , modifyVolumeAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyVolumeAttribute' smart constructor.
 --
@@ -63,13 +63,13 @@ import Network.AWS.Response
 -- * 'mvaVolumeId'
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
     { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _mvaDryRun :: !(Maybe Bool)
-    , _mvaVolumeId :: !Text
+    , _mvaDryRun       :: !(Maybe Bool)
+    , _mvaVolumeId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVolumeAttribute' smart constructor.
 modifyVolumeAttribute :: Text -> ModifyVolumeAttribute
-modifyVolumeAttribute pVolumeId_ = 
+modifyVolumeAttribute pVolumeId_ =
     ModifyVolumeAttribute'
     { _mvaAutoEnableIO = Nothing
     , _mvaDryRun = Nothing
@@ -114,7 +114,7 @@ instance ToQuery ModifyVolumeAttribute where
 
 -- | /See:/ 'modifyVolumeAttributeResponse' smart constructor.
 data ModifyVolumeAttributeResponse =
-    ModifyVolumeAttributeResponse' 
+    ModifyVolumeAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVolumeAttributeResponse' smart constructor.

@@ -46,11 +46,11 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     , dcorsStatus
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Result message containig a list of application version descriptions.
 --
@@ -68,16 +68,16 @@ import Network.AWS.Response
 --
 -- * 'dcoSolutionStackName'
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
-    { _dcoTemplateName :: !(Maybe Text)
-    , _dcoEnvironmentName :: !(Maybe Text)
-    , _dcoApplicationName :: !(Maybe Text)
-    , _dcoOptions :: !(Maybe [OptionSpecification])
+    { _dcoTemplateName      :: !(Maybe Text)
+    , _dcoEnvironmentName   :: !(Maybe Text)
+    , _dcoApplicationName   :: !(Maybe Text)
+    , _dcoOptions           :: !(Maybe [OptionSpecification])
     , _dcoSolutionStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationOptions' smart constructor.
 describeConfigurationOptions :: DescribeConfigurationOptions
-describeConfigurationOptions = 
+describeConfigurationOptions =
     DescribeConfigurationOptions'
     { _dcoTemplateName = Nothing
     , _dcoEnvironmentName = Nothing
@@ -160,14 +160,14 @@ instance ToQuery DescribeConfigurationOptions where
 --
 -- * 'dcorsStatus'
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
-    { _dcorsOptions :: !(Maybe [ConfigurationOptionDescription])
+    { _dcorsOptions           :: !(Maybe [ConfigurationOptionDescription])
     , _dcorsSolutionStackName :: !(Maybe Text)
-    , _dcorsStatus :: !Int
+    , _dcorsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationOptionsResponse' smart constructor.
 describeConfigurationOptionsResponse :: Int -> DescribeConfigurationOptionsResponse
-describeConfigurationOptionsResponse pStatus_ = 
+describeConfigurationOptionsResponse pStatus_ =
     DescribeConfigurationOptionsResponse'
     { _dcorsOptions = Nothing
     , _dcorsSolutionStackName = Nothing

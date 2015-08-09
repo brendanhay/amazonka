@@ -46,11 +46,11 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , dsarsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSnapshotAttribute' smart constructor.
 --
@@ -62,14 +62,14 @@ import Network.AWS.Response
 --
 -- * 'dsaAttribute'
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-    { _dsaDryRun :: !(Maybe Bool)
+    { _dsaDryRun     :: !(Maybe Bool)
     , _dsaSnapshotId :: !Text
-    , _dsaAttribute :: !SnapshotAttributeName
+    , _dsaAttribute  :: !SnapshotAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotAttribute' smart constructor.
 describeSnapshotAttribute :: Text -> SnapshotAttributeName -> DescribeSnapshotAttribute
-describeSnapshotAttribute pSnapshotId_ pAttribute_ = 
+describeSnapshotAttribute pSnapshotId_ pAttribute_ =
     DescribeSnapshotAttribute'
     { _dsaDryRun = Nothing
     , _dsaSnapshotId = pSnapshotId_
@@ -137,14 +137,14 @@ instance ToQuery DescribeSnapshotAttribute where
 -- * 'dsarsStatus'
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
-    , _dsarsProductCodes :: !(Maybe [ProductCode])
-    , _dsarsSnapshotId :: !(Maybe Text)
-    , _dsarsStatus :: !Int
+    , _dsarsProductCodes            :: !(Maybe [ProductCode])
+    , _dsarsSnapshotId              :: !(Maybe Text)
+    , _dsarsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
 describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse pStatus_ = 
+describeSnapshotAttributeResponse pStatus_ =
     DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions = Nothing
     , _dsarsProductCodes = Nothing

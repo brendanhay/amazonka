@@ -18,8 +18,8 @@
 --
 module Network.AWS.KMS.Types.Product where
 
-import Network.AWS.KMS.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.KMS.Types.Sum
+import           Network.AWS.Prelude
 
 -- | Contains information about an alias.
 --
@@ -34,13 +34,13 @@ import Network.AWS.Prelude
 -- * 'aleAliasARN'
 data AliasListEntry = AliasListEntry'
     { _aleTargetKeyId :: !(Maybe Text)
-    , _aleAliasName :: !(Maybe Text)
-    , _aleAliasARN :: !(Maybe Text)
+    , _aleAliasName   :: !(Maybe Text)
+    , _aleAliasARN    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AliasListEntry' smart constructor.
 aliasListEntry :: AliasListEntry
-aliasListEntry = 
+aliasListEntry =
     AliasListEntry'
     { _aleTargetKeyId = Nothing
     , _aleAliasName = Nothing
@@ -83,7 +83,7 @@ data GrantConstraints = GrantConstraints'
 
 -- | 'GrantConstraints' smart constructor.
 grantConstraints :: GrantConstraints
-grantConstraints = 
+grantConstraints =
     GrantConstraints'
     { _gcEncryptionContextEquals = Nothing
     , _gcEncryptionContextSubset = Nothing
@@ -133,16 +133,16 @@ instance ToJSON GrantConstraints where
 -- * 'gleOperations'
 data GrantListEntry = GrantListEntry'
     { _gleRetiringPrincipal :: !(Maybe Text)
-    , _gleIssuingAccount :: !(Maybe Text)
-    , _gleGrantId :: !(Maybe Text)
-    , _gleConstraints :: !(Maybe GrantConstraints)
-    , _gleGranteePrincipal :: !(Maybe Text)
-    , _gleOperations :: !(Maybe [GrantOperation])
+    , _gleIssuingAccount    :: !(Maybe Text)
+    , _gleGrantId           :: !(Maybe Text)
+    , _gleConstraints       :: !(Maybe GrantConstraints)
+    , _gleGranteePrincipal  :: !(Maybe Text)
+    , _gleOperations        :: !(Maybe [GrantOperation])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantListEntry' smart constructor.
 grantListEntry :: GrantListEntry
-grantListEntry = 
+grantListEntry =
     GrantListEntry'
     { _gleRetiringPrincipal = Nothing
     , _gleIssuingAccount = Nothing
@@ -209,12 +209,12 @@ instance FromJSON GrantListEntry where
 -- * 'kleKeyId'
 data KeyListEntry = KeyListEntry'
     { _kleKeyARN :: !(Maybe Text)
-    , _kleKeyId :: !(Maybe Text)
+    , _kleKeyId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyListEntry' smart constructor.
 keyListEntry :: KeyListEntry
-keyListEntry = 
+keyListEntry =
     KeyListEntry'
     { _kleKeyARN = Nothing
     , _kleKeyId = Nothing
@@ -255,18 +255,18 @@ instance FromJSON KeyListEntry where
 --
 -- * 'kmKeyId'
 data KeyMetadata = KeyMetadata'
-    { _kmARN :: !(Maybe Text)
-    , _kmEnabled :: !(Maybe Bool)
+    { _kmARN          :: !(Maybe Text)
+    , _kmEnabled      :: !(Maybe Bool)
     , _kmAWSAccountId :: !(Maybe Text)
-    , _kmKeyUsage :: !(Maybe KeyUsageType)
+    , _kmKeyUsage     :: !(Maybe KeyUsageType)
     , _kmCreationDate :: !(Maybe POSIX)
-    , _kmDescription :: !(Maybe Text)
-    , _kmKeyId :: !Text
+    , _kmDescription  :: !(Maybe Text)
+    , _kmKeyId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyMetadata' smart constructor.
 keyMetadata :: Text -> KeyMetadata
-keyMetadata pKeyId_ = 
+keyMetadata pKeyId_ =
     KeyMetadata'
     { _kmARN = Nothing
     , _kmEnabled = Nothing

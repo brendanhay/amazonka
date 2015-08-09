@@ -42,11 +42,11 @@ module Network.AWS.AutoScaling.ExitStandby
     , ersStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'exitStandby' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- * 'eAutoScalingGroupName'
 data ExitStandby = ExitStandby'
-    { _eInstanceIds :: !(Maybe [Text])
+    { _eInstanceIds          :: !(Maybe [Text])
     , _eAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExitStandby' smart constructor.
 exitStandby :: Text -> ExitStandby
-exitStandby pAutoScalingGroupName_ = 
+exitStandby pAutoScalingGroupName_ =
     ExitStandby'
     { _eInstanceIds = Nothing
     , _eAutoScalingGroupName = pAutoScalingGroupName_
@@ -112,12 +112,12 @@ instance ToQuery ExitStandby where
 -- * 'ersStatus'
 data ExitStandbyResponse = ExitStandbyResponse'
     { _ersActivities :: !(Maybe [Activity])
-    , _ersStatus :: !Int
+    , _ersStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExitStandbyResponse' smart constructor.
 exitStandbyResponse :: Int -> ExitStandbyResponse
-exitStandbyResponse pStatus_ = 
+exitStandbyResponse pStatus_ =
     ExitStandbyResponse'
     { _ersActivities = Nothing
     , _ersStatus = pStatus_

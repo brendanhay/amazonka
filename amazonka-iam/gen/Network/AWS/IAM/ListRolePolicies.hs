@@ -52,12 +52,12 @@ module Network.AWS.IAM.ListRolePolicies
     , lrprsPolicyNames
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listRolePolicies' smart constructor.
 --
@@ -70,13 +70,13 @@ import Network.AWS.Response
 -- * 'lrpRoleName'
 data ListRolePolicies = ListRolePolicies'
     { _lrpMaxItems :: !(Maybe Nat)
-    , _lrpMarker :: !(Maybe Text)
+    , _lrpMarker   :: !(Maybe Text)
     , _lrpRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolePolicies' smart constructor.
 listRolePolicies :: Text -> ListRolePolicies
-listRolePolicies pRoleName_ = 
+listRolePolicies pRoleName_ =
     ListRolePolicies'
     { _lrpMaxItems = Nothing
     , _lrpMarker = Nothing
@@ -151,15 +151,15 @@ instance ToQuery ListRolePolicies where
 --
 -- * 'lrprsPolicyNames'
 data ListRolePoliciesResponse = ListRolePoliciesResponse'
-    { _lrprsMarker :: !(Maybe Text)
+    { _lrprsMarker      :: !(Maybe Text)
     , _lrprsIsTruncated :: !(Maybe Bool)
-    , _lrprsStatus :: !Int
+    , _lrprsStatus      :: !Int
     , _lrprsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolePoliciesResponse' smart constructor.
 listRolePoliciesResponse :: Int -> ListRolePoliciesResponse
-listRolePoliciesResponse pStatus_ = 
+listRolePoliciesResponse pStatus_ =
     ListRolePoliciesResponse'
     { _lrprsMarker = Nothing
     , _lrprsIsTruncated = Nothing

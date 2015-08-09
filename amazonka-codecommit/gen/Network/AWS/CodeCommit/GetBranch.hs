@@ -39,11 +39,11 @@ module Network.AWS.CodeCommit.GetBranch
     , gbrsStatus
     ) where
 
-import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeCommit.Types
+import           Network.AWS.CodeCommit.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get branch operation.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'gbRepositoryName'
 data GetBranch = GetBranch'
-    { _gbBranchName :: !(Maybe Text)
+    { _gbBranchName     :: !(Maybe Text)
     , _gbRepositoryName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBranch' smart constructor.
 getBranch :: GetBranch
-getBranch = 
+getBranch =
     GetBranch'
     { _gbBranchName = Nothing
     , _gbRepositoryName = Nothing
@@ -122,7 +122,7 @@ data GetBranchResponse = GetBranchResponse'
 
 -- | 'GetBranchResponse' smart constructor.
 getBranchResponse :: Int -> GetBranchResponse
-getBranchResponse pStatus_ = 
+getBranchResponse pStatus_ =
     GetBranchResponse'
     { _gbrsBranch = Nothing
     , _gbrsStatus = pStatus_

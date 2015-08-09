@@ -40,11 +40,11 @@ module Network.AWS.AutoScaling.ResumeProcesses
     , resumeProcessesResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resumeProcesses' smart constructor.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'rpAutoScalingGroupName'
 data ResumeProcesses = ResumeProcesses'
-    { _rpScalingProcesses :: !(Maybe [Text])
+    { _rpScalingProcesses     :: !(Maybe [Text])
     , _rpAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResumeProcesses' smart constructor.
 resumeProcesses :: Text -> ResumeProcesses
-resumeProcesses pAutoScalingGroupName_ = 
+resumeProcesses pAutoScalingGroupName_ =
     ResumeProcesses'
     { _rpScalingProcesses = Nothing
     , _rpAutoScalingGroupName = pAutoScalingGroupName_
@@ -115,7 +115,7 @@ instance ToQuery ResumeProcesses where
 
 -- | /See:/ 'resumeProcessesResponse' smart constructor.
 data ResumeProcessesResponse =
-    ResumeProcessesResponse' 
+    ResumeProcessesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResumeProcessesResponse' smart constructor.

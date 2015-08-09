@@ -38,11 +38,11 @@ module Network.AWS.ECS.DeleteService
     , dsrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteService' smart constructor.
 --
@@ -58,7 +58,7 @@ data DeleteService = DeleteService'
 
 -- | 'DeleteService' smart constructor.
 deleteService :: Text -> DeleteService
-deleteService pService_ = 
+deleteService pService_ =
     DeleteService'
     { _dsCluster = Nothing
     , _dsService = pService_
@@ -112,12 +112,12 @@ instance ToQuery DeleteService where
 -- * 'dsrsStatus'
 data DeleteServiceResponse = DeleteServiceResponse'
     { _dsrsService :: !(Maybe ContainerService)
-    , _dsrsStatus :: !Int
+    , _dsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteServiceResponse' smart constructor.
 deleteServiceResponse :: Int -> DeleteServiceResponse
-deleteServiceResponse pStatus_ = 
+deleteServiceResponse pStatus_ =
     DeleteServiceResponse'
     { _dsrsService = Nothing
     , _dsrsStatus = pStatus_

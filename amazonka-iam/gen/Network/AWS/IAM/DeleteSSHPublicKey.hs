@@ -42,11 +42,11 @@ module Network.AWS.IAM.DeleteSSHPublicKey
     , deleteSSHPublicKeyResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSSHPublicKey' smart constructor.
 --
@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- * 'dspkSSHPublicKeyId'
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
-    { _dspkUserName :: !Text
+    { _dspkUserName       :: !Text
     , _dspkSSHPublicKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSSHPublicKey' smart constructor.
 deleteSSHPublicKey :: Text -> Text -> DeleteSSHPublicKey
-deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ = 
+deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
     DeleteSSHPublicKey'
     { _dspkUserName = pUserName_
     , _dspkSSHPublicKeyId = pSSHPublicKeyId_
@@ -99,7 +99,7 @@ instance ToQuery DeleteSSHPublicKey where
 
 -- | /See:/ 'deleteSSHPublicKeyResponse' smart constructor.
 data DeleteSSHPublicKeyResponse =
-    DeleteSSHPublicKeyResponse' 
+    DeleteSSHPublicKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSSHPublicKeyResponse' smart constructor.

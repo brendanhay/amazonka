@@ -44,11 +44,11 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , dniarsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- * 'dniaNetworkInterfaceId'
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
-    { _dniaAttribute :: !(Maybe NetworkInterfaceAttribute)
-    , _dniaDryRun :: !(Maybe Bool)
+    { _dniaAttribute          :: !(Maybe NetworkInterfaceAttribute)
+    , _dniaDryRun             :: !(Maybe Bool)
     , _dniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaceAttribute' smart constructor.
 describeNetworkInterfaceAttribute :: Text -> DescribeNetworkInterfaceAttribute
-describeNetworkInterfaceAttribute pNetworkInterfaceId_ = 
+describeNetworkInterfaceAttribute pNetworkInterfaceId_ =
     DescribeNetworkInterfaceAttribute'
     { _dniaAttribute = Nothing
     , _dniaDryRun = Nothing
@@ -142,17 +142,17 @@ instance ToQuery DescribeNetworkInterfaceAttribute
 --
 -- * 'dniarsStatus'
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
-    { _dniarsGroups :: !(Maybe [GroupIdentifier])
-    , _dniarsSourceDestCheck :: !(Maybe AttributeBooleanValue)
+    { _dniarsGroups             :: !(Maybe [GroupIdentifier])
+    , _dniarsSourceDestCheck    :: !(Maybe AttributeBooleanValue)
     , _dniarsNetworkInterfaceId :: !(Maybe Text)
-    , _dniarsAttachment :: !(Maybe NetworkInterfaceAttachment)
-    , _dniarsDescription :: !(Maybe AttributeValue)
-    , _dniarsStatus :: !Int
+    , _dniarsAttachment         :: !(Maybe NetworkInterfaceAttachment)
+    , _dniarsDescription        :: !(Maybe AttributeValue)
+    , _dniarsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
 describeNetworkInterfaceAttributeResponse :: Int -> DescribeNetworkInterfaceAttributeResponse
-describeNetworkInterfaceAttributeResponse pStatus_ = 
+describeNetworkInterfaceAttributeResponse pStatus_ =
     DescribeNetworkInterfaceAttributeResponse'
     { _dniarsGroups = Nothing
     , _dniarsSourceDestCheck = Nothing

@@ -38,11 +38,11 @@ module Network.AWS.EC2.ResetImageAttribute
     , resetImageAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'resetImageAttribute' smart constructor.
 --
@@ -54,14 +54,14 @@ import Network.AWS.Response
 --
 -- * 'resAttribute'
 data ResetImageAttribute = ResetImageAttribute'
-    { _resDryRun :: !(Maybe Bool)
-    , _resImageId :: !Text
+    { _resDryRun    :: !(Maybe Bool)
+    , _resImageId   :: !Text
     , _resAttribute :: !ResetImageAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetImageAttribute' smart constructor.
 resetImageAttribute :: Text -> ResetImageAttributeName -> ResetImageAttribute
-resetImageAttribute pImageId_ pAttribute_ = 
+resetImageAttribute pImageId_ pAttribute_ =
     ResetImageAttribute'
     { _resDryRun = Nothing
     , _resImageId = pImageId_
@@ -107,7 +107,7 @@ instance ToQuery ResetImageAttribute where
 
 -- | /See:/ 'resetImageAttributeResponse' smart constructor.
 data ResetImageAttributeResponse =
-    ResetImageAttributeResponse' 
+    ResetImageAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetImageAttributeResponse' smart constructor.

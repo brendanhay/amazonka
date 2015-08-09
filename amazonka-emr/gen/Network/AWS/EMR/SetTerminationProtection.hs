@@ -54,11 +54,11 @@ module Network.AWS.EMR.SetTerminationProtection
     , setTerminationProtectionResponse
     ) where
 
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input argument to the TerminationProtection operation.
 --
@@ -70,13 +70,13 @@ import Network.AWS.Response
 --
 -- * 'stpTerminationProtected'
 data SetTerminationProtection = SetTerminationProtection'
-    { _stpJobFlowIds :: ![Text]
+    { _stpJobFlowIds           :: ![Text]
     , _stpTerminationProtected :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTerminationProtection' smart constructor.
 setTerminationProtection :: Bool -> SetTerminationProtection
-setTerminationProtection pTerminationProtected_ = 
+setTerminationProtection pTerminationProtected_ =
     SetTerminationProtection'
     { _stpJobFlowIds = mempty
     , _stpTerminationProtected = pTerminationProtected_
@@ -126,7 +126,7 @@ instance ToQuery SetTerminationProtection where
 
 -- | /See:/ 'setTerminationProtectionResponse' smart constructor.
 data SetTerminationProtectionResponse =
-    SetTerminationProtectionResponse' 
+    SetTerminationProtectionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTerminationProtectionResponse' smart constructor.

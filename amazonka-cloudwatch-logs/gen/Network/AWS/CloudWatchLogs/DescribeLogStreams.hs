@@ -52,11 +52,11 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     , dlsrsStatus
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeLogStreams' smart constructor.
 --
@@ -74,17 +74,17 @@ import Network.AWS.Response
 --
 -- * 'dlssLogGroupName'
 data DescribeLogStreams = DescribeLogStreams'
-    { _dlssOrderBy :: !(Maybe OrderBy)
-    , _dlssDescending :: !(Maybe Bool)
-    , _dlssNextToken :: !(Maybe Text)
+    { _dlssOrderBy             :: !(Maybe OrderBy)
+    , _dlssDescending          :: !(Maybe Bool)
+    , _dlssNextToken           :: !(Maybe Text)
     , _dlssLogStreamNamePrefix :: !(Maybe Text)
-    , _dlssLimit :: !(Maybe Nat)
-    , _dlssLogGroupName :: !Text
+    , _dlssLimit               :: !(Maybe Nat)
+    , _dlssLogGroupName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogStreams' smart constructor.
 describeLogStreams :: Text -> DescribeLogStreams
-describeLogStreams pLogGroupName_ = 
+describeLogStreams pLogGroupName_ =
     DescribeLogStreams'
     { _dlssOrderBy = Nothing
     , _dlssDescending = Nothing
@@ -176,14 +176,14 @@ instance ToQuery DescribeLogStreams where
 --
 -- * 'dlsrsStatus'
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
-    { _dlsrsNextToken :: !(Maybe Text)
+    { _dlsrsNextToken  :: !(Maybe Text)
     , _dlsrsLogStreams :: !(Maybe [LogStream])
-    , _dlsrsStatus :: !Int
+    , _dlsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
 describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
-describeLogStreamsResponse pStatus_ = 
+describeLogStreamsResponse pStatus_ =
     DescribeLogStreamsResponse'
     { _dlsrsNextToken = Nothing
     , _dlsrsLogStreams = Nothing

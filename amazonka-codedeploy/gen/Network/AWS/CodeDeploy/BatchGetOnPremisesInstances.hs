@@ -37,11 +37,11 @@ module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     , bgopirsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a batch get on-premises instances operation.
 --
@@ -56,7 +56,7 @@ newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
 
 -- | 'BatchGetOnPremisesInstances' smart constructor.
 batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
-batchGetOnPremisesInstances = 
+batchGetOnPremisesInstances =
     BatchGetOnPremisesInstances'
     { _bgopiInstanceNames = Nothing
     }
@@ -108,12 +108,12 @@ instance ToQuery BatchGetOnPremisesInstances where
 -- * 'bgopirsStatus'
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
     { _bgopirsInstanceInfos :: !(Maybe [InstanceInfo])
-    , _bgopirsStatus :: !Int
+    , _bgopirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
 batchGetOnPremisesInstancesResponse :: Int -> BatchGetOnPremisesInstancesResponse
-batchGetOnPremisesInstancesResponse pStatus_ = 
+batchGetOnPremisesInstancesResponse pStatus_ =
     BatchGetOnPremisesInstancesResponse'
     { _bgopirsInstanceInfos = Nothing
     , _bgopirsStatus = pStatus_

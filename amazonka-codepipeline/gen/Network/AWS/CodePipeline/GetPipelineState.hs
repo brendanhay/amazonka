@@ -42,11 +42,11 @@ module Network.AWS.CodePipeline.GetPipelineState
     , gpsrsStatus
     ) where
 
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.CodePipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get pipeline state action.
 --
@@ -61,7 +61,7 @@ newtype GetPipelineState = GetPipelineState'
 
 -- | 'GetPipelineState' smart constructor.
 getPipelineState :: Text -> GetPipelineState
-getPipelineState pName_ = 
+getPipelineState pName_ =
     GetPipelineState'
     { _gpsName = pName_
     }
@@ -122,17 +122,17 @@ instance ToQuery GetPipelineState where
 --
 -- * 'gpsrsStatus'
 data GetPipelineStateResponse = GetPipelineStateResponse'
-    { _gpsrsPipelineName :: !(Maybe Text)
+    { _gpsrsPipelineName    :: !(Maybe Text)
     , _gpsrsPipelineVersion :: !(Maybe Nat)
-    , _gpsrsCreated :: !(Maybe POSIX)
-    , _gpsrsStageStates :: !(Maybe [StageState])
-    , _gpsrsUpdated :: !(Maybe POSIX)
-    , _gpsrsStatus :: !Int
+    , _gpsrsCreated         :: !(Maybe POSIX)
+    , _gpsrsStageStates     :: !(Maybe [StageState])
+    , _gpsrsUpdated         :: !(Maybe POSIX)
+    , _gpsrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineStateResponse' smart constructor.
 getPipelineStateResponse :: Int -> GetPipelineStateResponse
-getPipelineStateResponse pStatus_ = 
+getPipelineStateResponse pStatus_ =
     GetPipelineStateResponse'
     { _gpsrsPipelineName = Nothing
     , _gpsrsPipelineVersion = Nothing

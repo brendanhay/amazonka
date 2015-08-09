@@ -13,10 +13,10 @@
 --
 module Network.AWS.Redshift.Types
     (
-    -- * Service Decription
+    -- * Service
       Redshift
 
-    -- * Error Matchers
+    -- * Errors
     , _LimitExceededFault
     , _ClusterSecurityGroupQuotaExceededFault
     , _CopyToRegionDisabledFault

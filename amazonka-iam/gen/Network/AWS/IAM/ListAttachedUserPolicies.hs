@@ -54,11 +54,11 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     , lauprsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAttachedUserPolicies' smart constructor.
 --
@@ -73,14 +73,14 @@ import Network.AWS.Response
 -- * 'laupUserName'
 data ListAttachedUserPolicies = ListAttachedUserPolicies'
     { _laupPathPrefix :: !(Maybe Text)
-    , _laupMaxItems :: !(Maybe Nat)
-    , _laupMarker :: !(Maybe Text)
-    , _laupUserName :: !Text
+    , _laupMaxItems   :: !(Maybe Nat)
+    , _laupMarker     :: !(Maybe Text)
+    , _laupUserName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedUserPolicies' smart constructor.
 listAttachedUserPolicies :: Text -> ListAttachedUserPolicies
-listAttachedUserPolicies pUserName_ = 
+listAttachedUserPolicies pUserName_ =
     ListAttachedUserPolicies'
     { _laupPathPrefix = Nothing
     , _laupMaxItems = Nothing
@@ -160,14 +160,14 @@ instance ToQuery ListAttachedUserPolicies where
 -- * 'lauprsStatus'
 data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
     { _lauprsAttachedPolicies :: !(Maybe [AttachedPolicy])
-    , _lauprsMarker :: !(Maybe Text)
-    , _lauprsIsTruncated :: !(Maybe Bool)
-    , _lauprsStatus :: !Int
+    , _lauprsMarker           :: !(Maybe Text)
+    , _lauprsIsTruncated      :: !(Maybe Bool)
+    , _lauprsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
 listAttachedUserPoliciesResponse :: Int -> ListAttachedUserPoliciesResponse
-listAttachedUserPoliciesResponse pStatus_ = 
+listAttachedUserPoliciesResponse pStatus_ =
     ListAttachedUserPoliciesResponse'
     { _lauprsAttachedPolicies = Nothing
     , _lauprsMarker = Nothing

@@ -39,11 +39,11 @@ module Network.AWS.ImportExport.CancelJob
     , crsStatus
     ) where
 
-import Network.AWS.ImportExport.Types
-import Network.AWS.ImportExport.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.ImportExport.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Input structure for the CancelJob operation.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'cJobId'
 data CancelJob = CancelJob'
     { _cAPIVersion :: !(Maybe Text)
-    , _cJobId :: !Text
+    , _cJobId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
-cancelJob pJobId_ = 
+cancelJob pJobId_ =
     CancelJob'
     { _cAPIVersion = Nothing
     , _cJobId = pJobId_
@@ -110,12 +110,12 @@ instance ToQuery CancelJob where
 -- * 'crsStatus'
 data CancelJobResponse = CancelJobResponse'
     { _crsSuccess :: !(Maybe Bool)
-    , _crsStatus :: !Int
+    , _crsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
-cancelJobResponse pStatus_ = 
+cancelJobResponse pStatus_ =
     CancelJobResponse'
     { _crsSuccess = Nothing
     , _crsStatus = pStatus_

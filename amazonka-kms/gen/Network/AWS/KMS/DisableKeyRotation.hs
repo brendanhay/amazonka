@@ -34,11 +34,11 @@ module Network.AWS.KMS.DisableKeyRotation
     , disableKeyRotationResponse
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disableKeyRotation' smart constructor.
 --
@@ -51,7 +51,7 @@ newtype DisableKeyRotation = DisableKeyRotation'
 
 -- | 'DisableKeyRotation' smart constructor.
 disableKeyRotation :: Text -> DisableKeyRotation
-disableKeyRotation pKeyId_ = 
+disableKeyRotation pKeyId_ =
     DisableKeyRotation'
     { _dkrKeyId = pKeyId_
     }
@@ -94,7 +94,7 @@ instance ToQuery DisableKeyRotation where
 
 -- | /See:/ 'disableKeyRotationResponse' smart constructor.
 data DisableKeyRotationResponse =
-    DisableKeyRotationResponse' 
+    DisableKeyRotationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableKeyRotationResponse' smart constructor.

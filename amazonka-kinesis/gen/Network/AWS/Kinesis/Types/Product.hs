@@ -18,8 +18,8 @@
 --
 module Network.AWS.Kinesis.Types.Product where
 
-import Network.AWS.Kinesis.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.Kinesis.Types.Sum
+import           Network.AWS.Prelude
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
@@ -33,12 +33,12 @@ import Network.AWS.Prelude
 -- * 'hkrEndingHashKey'
 data HashKeyRange = HashKeyRange'
     { _hkrStartingHashKey :: !Text
-    , _hkrEndingHashKey :: !Text
+    , _hkrEndingHashKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HashKeyRange' smart constructor.
 hashKeyRange :: Text -> Text -> HashKeyRange
-hashKeyRange pStartingHashKey_ pEndingHashKey_ = 
+hashKeyRange pStartingHashKey_ pEndingHashKey_ =
     HashKeyRange'
     { _hkrStartingHashKey = pStartingHashKey_
     , _hkrEndingHashKey = pEndingHashKey_
@@ -72,13 +72,13 @@ instance FromJSON HashKeyRange where
 -- * 'prrePartitionKey'
 data PutRecordsRequestEntry = PutRecordsRequestEntry'
     { _prreExplicitHashKey :: !(Maybe Text)
-    , _prreData :: !Base64
-    , _prrePartitionKey :: !Text
+    , _prreData            :: !Base64
+    , _prrePartitionKey    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsRequestEntry' smart constructor.
 putRecordsRequestEntry :: ByteString -> Text -> PutRecordsRequestEntry
-putRecordsRequestEntry pData_ pPartitionKey_ = 
+putRecordsRequestEntry pData_ pPartitionKey_ =
     PutRecordsRequestEntry'
     { _prreExplicitHashKey = Nothing
     , _prreData = _Base64 # pData_
@@ -134,14 +134,14 @@ instance ToJSON PutRecordsRequestEntry where
 -- * 'prreShardId'
 data PutRecordsResultEntry = PutRecordsResultEntry'
     { _prreSequenceNumber :: !(Maybe Text)
-    , _prreErrorCode :: !(Maybe Text)
-    , _prreErrorMessage :: !(Maybe Text)
-    , _prreShardId :: !(Maybe Text)
+    , _prreErrorCode      :: !(Maybe Text)
+    , _prreErrorMessage   :: !(Maybe Text)
+    , _prreShardId        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsResultEntry' smart constructor.
 putRecordsResultEntry :: PutRecordsResultEntry
-putRecordsResultEntry = 
+putRecordsResultEntry =
     PutRecordsResultEntry'
     { _prreSequenceNumber = Nothing
     , _prreErrorCode = Nothing
@@ -193,13 +193,13 @@ instance FromJSON PutRecordsResultEntry where
 -- * 'rPartitionKey'
 data Record = Record'
     { _rSequenceNumber :: !Text
-    , _rData :: !Base64
-    , _rPartitionKey :: !Text
+    , _rData           :: !Base64
+    , _rPartitionKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Text -> ByteString -> Text -> Record
-record pSequenceNumber_ pData_ pPartitionKey_ = 
+record pSequenceNumber_ pData_ pPartitionKey_ =
     Record'
     { _rSequenceNumber = pSequenceNumber_
     , _rData = _Base64 # pData_
@@ -239,13 +239,13 @@ instance FromJSON Record where
 --
 -- * 'snrStartingSequenceNumber'
 data SequenceNumberRange = SequenceNumberRange'
-    { _snrEndingSequenceNumber :: !(Maybe Text)
+    { _snrEndingSequenceNumber   :: !(Maybe Text)
     , _snrStartingSequenceNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SequenceNumberRange' smart constructor.
 sequenceNumberRange :: Text -> SequenceNumberRange
-sequenceNumberRange pStartingSequenceNumber_ = 
+sequenceNumberRange pStartingSequenceNumber_ =
     SequenceNumberRange'
     { _snrEndingSequenceNumber = Nothing
     , _snrStartingSequenceNumber = pStartingSequenceNumber_
@@ -285,15 +285,15 @@ instance FromJSON SequenceNumberRange where
 -- * 'sSequenceNumberRange'
 data Shard = Shard'
     { _sAdjacentParentShardId :: !(Maybe Text)
-    , _sParentShardId :: !(Maybe Text)
-    , _sShardId :: !Text
-    , _sHashKeyRange :: !HashKeyRange
-    , _sSequenceNumberRange :: !SequenceNumberRange
+    , _sParentShardId         :: !(Maybe Text)
+    , _sShardId               :: !Text
+    , _sHashKeyRange          :: !HashKeyRange
+    , _sSequenceNumberRange   :: !SequenceNumberRange
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Shard' smart constructor.
 shard :: Text -> HashKeyRange -> SequenceNumberRange -> Shard
-shard pShardId_ pHashKeyRange_ pSequenceNumberRange_ = 
+shard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
     Shard'
     { _sAdjacentParentShardId = Nothing
     , _sParentShardId = Nothing
@@ -350,16 +350,16 @@ instance FromJSON Shard where
 --
 -- * 'sdHasMoreShards'
 data StreamDescription = StreamDescription'
-    { _sdStreamName :: !Text
-    , _sdStreamARN :: !Text
-    , _sdStreamStatus :: !StreamStatus
-    , _sdShards :: ![Shard]
+    { _sdStreamName    :: !Text
+    , _sdStreamARN     :: !Text
+    , _sdStreamStatus  :: !StreamStatus
+    , _sdShards        :: ![Shard]
     , _sdHasMoreShards :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamDescription' smart constructor.
 streamDescription :: Text -> Text -> StreamStatus -> Bool -> StreamDescription
-streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ = 
+streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ =
     StreamDescription'
     { _sdStreamName = pStreamName_
     , _sdStreamARN = pStreamARN_
@@ -422,12 +422,12 @@ instance FromJSON StreamDescription where
 -- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
-    , _tagKey :: !Text
+    , _tagKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Tag
-tag pKey_ = 
+tag pKey_ =
     Tag'
     { _tagValue = Nothing
     , _tagKey = pKey_

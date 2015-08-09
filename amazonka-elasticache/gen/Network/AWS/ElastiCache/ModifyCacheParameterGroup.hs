@@ -39,11 +39,11 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     , cpgnmCacheParameterGroupName
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ModifyCacheParameterGroup/ action.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'mcpgParameterNameValues'
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
     { _mcpgCacheParameterGroupName :: !Text
-    , _mcpgParameterNameValues :: ![ParameterNameValue]
+    , _mcpgParameterNameValues     :: ![ParameterNameValue]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheParameterGroup' smart constructor.
 modifyCacheParameterGroup :: Text -> ModifyCacheParameterGroup
-modifyCacheParameterGroup pCacheParameterGroupName_ = 
+modifyCacheParameterGroup pCacheParameterGroupName_ =
     ModifyCacheParameterGroup'
     { _mcpgCacheParameterGroupName = pCacheParameterGroupName_
     , _mcpgParameterNameValues = mempty

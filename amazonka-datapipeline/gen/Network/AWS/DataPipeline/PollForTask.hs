@@ -53,11 +53,11 @@ module Network.AWS.DataPipeline.PollForTask
     , pftrsStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for PollForTask.
 --
@@ -71,14 +71,14 @@ import Network.AWS.Response
 --
 -- * 'pftWorkerGroup'
 data PollForTask = PollForTask'
-    { _pftHostname :: !(Maybe Text)
+    { _pftHostname         :: !(Maybe Text)
     , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
-    , _pftWorkerGroup :: !Text
+    , _pftWorkerGroup      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForTask' smart constructor.
 pollForTask :: Text -> PollForTask
-pollForTask pWorkerGroup_ = 
+pollForTask pWorkerGroup_ =
     PollForTask'
     { _pftHostname = Nothing
     , _pftInstanceIdentity = Nothing
@@ -152,12 +152,12 @@ instance ToQuery PollForTask where
 -- * 'pftrsStatus'
 data PollForTaskResponse = PollForTaskResponse'
     { _pftrsTaskObject :: !(Maybe TaskObject)
-    , _pftrsStatus :: !Int
+    , _pftrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForTaskResponse' smart constructor.
 pollForTaskResponse :: Int -> PollForTaskResponse
-pollForTaskResponse pStatus_ = 
+pollForTaskResponse pStatus_ =
     PollForTaskResponse'
     { _pftrsTaskObject = Nothing
     , _pftrsStatus = pStatus_

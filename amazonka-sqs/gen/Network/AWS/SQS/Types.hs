@@ -13,10 +13,10 @@
 --
 module Network.AWS.SQS.Types
     (
-    -- * Service Decription
+    -- * Service
       SQS
 
-    -- * Error Matchers
+    -- * Errors
     , _InvalidBatchEntryId
     , _TooManyEntriesInBatchRequest
     , _InvalidAttributeName

@@ -40,15 +40,15 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     , dalrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAccountLimits' smart constructor.
 data DescribeAccountLimits =
-    DescribeAccountLimits' 
+    DescribeAccountLimits'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountLimits' smart constructor.
@@ -92,13 +92,13 @@ instance ToQuery DescribeAccountLimits where
 -- * 'dalrsStatus'
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
     { _dalrsMaxNumberOfLaunchConfigurations :: !(Maybe Int)
-    , _dalrsMaxNumberOfAutoScalingGroups :: !(Maybe Int)
-    , _dalrsStatus :: !Int
+    , _dalrsMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
+    , _dalrsStatus                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountLimitsResponse' smart constructor.
 describeAccountLimitsResponse :: Int -> DescribeAccountLimitsResponse
-describeAccountLimitsResponse pStatus_ = 
+describeAccountLimitsResponse pStatus_ =
     DescribeAccountLimitsResponse'
     { _dalrsMaxNumberOfLaunchConfigurations = Nothing
     , _dalrsMaxNumberOfAutoScalingGroups = Nothing

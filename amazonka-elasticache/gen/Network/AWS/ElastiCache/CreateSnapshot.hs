@@ -39,11 +39,11 @@ module Network.AWS.ElastiCache.CreateSnapshot
     , crersStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateSnapshot/ action.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'csSnapshotName'
 data CreateSnapshot = CreateSnapshot'
     { _csCacheClusterId :: !Text
-    , _csSnapshotName :: !Text
+    , _csSnapshotName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
-createSnapshot pCacheClusterId_ pSnapshotName_ = 
+createSnapshot pCacheClusterId_ pSnapshotName_ =
     CreateSnapshot'
     { _csCacheClusterId = pCacheClusterId_
     , _csSnapshotName = pSnapshotName_
@@ -109,12 +109,12 @@ instance ToQuery CreateSnapshot where
 -- * 'crersStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _crersSnapshot :: !(Maybe Snapshot)
-    , _crersStatus :: !Int
+    , _crersStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatus_ = 
+createSnapshotResponse pStatus_ =
     CreateSnapshotResponse'
     { _crersSnapshot = Nothing
     , _crersStatus = pStatus_

@@ -47,11 +47,11 @@ module Network.AWS.OpsWorks.RegisterEcsCluster
     , recrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerEcsCluster' smart constructor.
 --
@@ -62,12 +62,12 @@ import Network.AWS.Response
 -- * 'recStackId'
 data RegisterEcsCluster = RegisterEcsCluster'
     { _recEcsClusterARN :: !Text
-    , _recStackId :: !Text
+    , _recStackId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterEcsCluster' smart constructor.
 registerEcsCluster :: Text -> Text -> RegisterEcsCluster
-registerEcsCluster pEcsClusterARN_ pStackId_ = 
+registerEcsCluster pEcsClusterARN_ pStackId_ =
     RegisterEcsCluster'
     { _recEcsClusterARN = pEcsClusterARN_
     , _recStackId = pStackId_
@@ -125,12 +125,12 @@ instance ToQuery RegisterEcsCluster where
 -- * 'recrsStatus'
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
     { _recrsEcsClusterARN :: !(Maybe Text)
-    , _recrsStatus :: !Int
+    , _recrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterEcsClusterResponse' smart constructor.
 registerEcsClusterResponse :: Int -> RegisterEcsClusterResponse
-registerEcsClusterResponse pStatus_ = 
+registerEcsClusterResponse pStatus_ =
     RegisterEcsClusterResponse'
     { _recrsEcsClusterARN = Nothing
     , _recrsStatus = pStatus_

@@ -61,12 +61,12 @@ module Network.AWS.Kinesis.DescribeStream
     , dsrsStreamDescription
     ) where
 
-import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input for @DescribeStream@.
 --
@@ -81,13 +81,13 @@ import Network.AWS.Response
 -- * 'dStreamName'
 data DescribeStream = DescribeStream'
     { _dExclusiveStartShardId :: !(Maybe Text)
-    , _dLimit :: !(Maybe Nat)
-    , _dStreamName :: !Text
+    , _dLimit                 :: !(Maybe Nat)
+    , _dStreamName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
-describeStream pStreamName_ = 
+describeStream pStreamName_ =
     DescribeStream'
     { _dExclusiveStartShardId = Nothing
     , _dLimit = Nothing
@@ -162,13 +162,13 @@ instance ToQuery DescribeStream where
 --
 -- * 'dsrsStreamDescription'
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrsStatus :: !Int
+    { _dsrsStatus            :: !Int
     , _dsrsStreamDescription :: !StreamDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> StreamDescription -> DescribeStreamResponse
-describeStreamResponse pStatus_ pStreamDescription_ = 
+describeStreamResponse pStatus_ pStreamDescription_ =
     DescribeStreamResponse'
     { _dsrsStatus = pStatus_
     , _dsrsStreamDescription = pStreamDescription_

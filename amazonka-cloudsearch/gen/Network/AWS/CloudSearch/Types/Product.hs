@@ -18,8 +18,8 @@
 --
 module Network.AWS.CloudSearch.Types.Product where
 
-import Network.AWS.CloudSearch.Types.Sum
-import Network.AWS.Prelude
+import           Network.AWS.CloudSearch.Types.Sum
+import           Network.AWS.Prelude
 
 -- | The configured access rules for the domain\'s document and search
 -- endpoints, and the current status of those rules.
@@ -33,12 +33,12 @@ import Network.AWS.Prelude
 -- * 'apsStatus'
 data AccessPoliciesStatus = AccessPoliciesStatus'
     { _apsOptions :: !Text
-    , _apsStatus :: !OptionStatus
+    , _apsStatus  :: !OptionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessPoliciesStatus' smart constructor.
 accessPoliciesStatus :: Text -> OptionStatus -> AccessPoliciesStatus
-accessPoliciesStatus pOptions_ pStatus_ = 
+accessPoliciesStatus pOptions_ pStatus_ =
     AccessPoliciesStatus'
     { _apsOptions = pOptions_
     , _apsStatus = pStatus_
@@ -74,16 +74,16 @@ instance FromXML AccessPoliciesStatus where
 --
 -- * 'aoJapaneseTokenizationDictionary'
 data AnalysisOptions = AnalysisOptions'
-    { _aoAlgorithmicStemming :: !(Maybe AlgorithmicStemming)
-    , _aoStopwords :: !(Maybe Text)
-    , _aoStemmingDictionary :: !(Maybe Text)
-    , _aoSynonyms :: !(Maybe Text)
+    { _aoAlgorithmicStemming            :: !(Maybe AlgorithmicStemming)
+    , _aoStopwords                      :: !(Maybe Text)
+    , _aoStemmingDictionary             :: !(Maybe Text)
+    , _aoSynonyms                       :: !(Maybe Text)
     , _aoJapaneseTokenizationDictionary :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AnalysisOptions' smart constructor.
 analysisOptions :: AnalysisOptions
-analysisOptions = 
+analysisOptions =
     AnalysisOptions'
     { _aoAlgorithmicStemming = Nothing
     , _aoStopwords = Nothing
@@ -172,14 +172,14 @@ instance ToQuery AnalysisOptions where
 --
 -- * 'asAnalysisSchemeLanguage'
 data AnalysisScheme = AnalysisScheme'
-    { _asAnalysisOptions :: !(Maybe AnalysisOptions)
-    , _asAnalysisSchemeName :: !Text
+    { _asAnalysisOptions        :: !(Maybe AnalysisOptions)
+    , _asAnalysisSchemeName     :: !Text
     , _asAnalysisSchemeLanguage :: !AnalysisSchemeLanguage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AnalysisScheme' smart constructor.
 analysisScheme :: Text -> AnalysisSchemeLanguage -> AnalysisScheme
-analysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ = 
+analysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ =
     AnalysisScheme'
     { _asAnalysisOptions = Nothing
     , _asAnalysisSchemeName = pAnalysisSchemeName_
@@ -224,12 +224,12 @@ instance ToQuery AnalysisScheme where
 -- * 'assStatus'
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
     { _assOptions :: !AnalysisScheme
-    , _assStatus :: !OptionStatus
+    , _assStatus  :: !OptionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AnalysisSchemeStatus' smart constructor.
 analysisSchemeStatus :: AnalysisScheme -> OptionStatus -> AnalysisSchemeStatus
-analysisSchemeStatus pOptions_ pStatus_ = 
+analysisSchemeStatus pOptions_ pStatus_ =
     AnalysisSchemeStatus'
     { _assOptions = pOptions_
     , _assStatus = pStatus_
@@ -259,12 +259,12 @@ instance FromXML AnalysisSchemeStatus where
 -- * 'aosStatus'
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
     { _aosOptions :: !Bool
-    , _aosStatus :: !OptionStatus
+    , _aosStatus  :: !OptionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AvailabilityOptionsStatus' smart constructor.
 availabilityOptionsStatus :: Bool -> OptionStatus -> AvailabilityOptionsStatus
-availabilityOptionsStatus pOptions_ pStatus_ = 
+availabilityOptionsStatus pOptions_ pStatus_ =
     AvailabilityOptionsStatus'
     { _aosOptions = pOptions_
     , _aosStatus = pStatus_
@@ -301,16 +301,16 @@ instance FromXML AvailabilityOptionsStatus where
 --
 -- * 'daosDefaultValue'
 data DateArrayOptions = DateArrayOptions'
-    { _daosSourceFields :: !(Maybe Text)
+    { _daosSourceFields  :: !(Maybe Text)
     , _daosReturnEnabled :: !(Maybe Bool)
-    , _daosFacetEnabled :: !(Maybe Bool)
+    , _daosFacetEnabled  :: !(Maybe Bool)
     , _daosSearchEnabled :: !(Maybe Bool)
-    , _daosDefaultValue :: !(Maybe Text)
+    , _daosDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DateArrayOptions' smart constructor.
 dateArrayOptions :: DateArrayOptions
-dateArrayOptions = 
+dateArrayOptions =
     DateArrayOptions'
     { _daosSourceFields = Nothing
     , _daosReturnEnabled = Nothing
@@ -378,17 +378,17 @@ instance ToQuery DateArrayOptions where
 --
 -- * 'doDefaultValue'
 data DateOptions = DateOptions'
-    { _doSourceField :: !(Maybe Text)
+    { _doSourceField   :: !(Maybe Text)
     , _doReturnEnabled :: !(Maybe Bool)
-    , _doFacetEnabled :: !(Maybe Bool)
+    , _doFacetEnabled  :: !(Maybe Bool)
     , _doSearchEnabled :: !(Maybe Bool)
-    , _doSortEnabled :: !(Maybe Bool)
-    , _doDefaultValue :: !(Maybe Text)
+    , _doSortEnabled   :: !(Maybe Bool)
+    , _doDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DateOptions' smart constructor.
 dateOptions :: DateOptions
-dateOptions = 
+dateOptions =
     DateOptions'
     { _doSourceField = Nothing
     , _doReturnEnabled = Nothing
@@ -455,13 +455,13 @@ instance ToQuery DateOptions where
 -- * 'dsoSourceField'
 data DocumentSuggesterOptions = DocumentSuggesterOptions'
     { _dsoSortExpression :: !(Maybe Text)
-    , _dsoFuzzyMatching :: !(Maybe SuggesterFuzzyMatching)
-    , _dsoSourceField :: !Text
+    , _dsoFuzzyMatching  :: !(Maybe SuggesterFuzzyMatching)
+    , _dsoSourceField    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentSuggesterOptions' smart constructor.
 documentSuggesterOptions :: Text -> DocumentSuggesterOptions
-documentSuggesterOptions pSourceField_ = 
+documentSuggesterOptions pSourceField_ =
     DocumentSuggesterOptions'
     { _dsoSortExpression = Nothing
     , _dsoFuzzyMatching = Nothing
@@ -536,24 +536,24 @@ instance ToQuery DocumentSuggesterOptions where
 --
 -- * 'dsRequiresIndexDocuments'
 data DomainStatus = DomainStatus'
-    { _dsSearchInstanceCount :: !(Maybe Nat)
-    , _dsSearchInstanceType :: !(Maybe Text)
-    , _dsARN :: !(Maybe Text)
-    , _dsDocService :: !(Maybe ServiceEndpoint)
-    , _dsCreated :: !(Maybe Bool)
-    , _dsSearchService :: !(Maybe ServiceEndpoint)
-    , _dsLimits :: !(Maybe Limits)
-    , _dsSearchPartitionCount :: !(Maybe Nat)
-    , _dsDeleted :: !(Maybe Bool)
-    , _dsProcessing :: !(Maybe Bool)
-    , _dsDomainId :: !Text
-    , _dsDomainName :: !Text
+    { _dsSearchInstanceCount    :: !(Maybe Nat)
+    , _dsSearchInstanceType     :: !(Maybe Text)
+    , _dsARN                    :: !(Maybe Text)
+    , _dsDocService             :: !(Maybe ServiceEndpoint)
+    , _dsCreated                :: !(Maybe Bool)
+    , _dsSearchService          :: !(Maybe ServiceEndpoint)
+    , _dsLimits                 :: !(Maybe Limits)
+    , _dsSearchPartitionCount   :: !(Maybe Nat)
+    , _dsDeleted                :: !(Maybe Bool)
+    , _dsProcessing             :: !(Maybe Bool)
+    , _dsDomainId               :: !Text
+    , _dsDomainName             :: !Text
     , _dsRequiresIndexDocuments :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainStatus' smart constructor.
 domainStatus :: Text -> Text -> Bool -> DomainStatus
-domainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ = 
+domainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ =
     DomainStatus'
     { _dsSearchInstanceCount = Nothing
     , _dsSearchInstanceType = Nothing
@@ -667,16 +667,16 @@ instance FromXML DomainStatus where
 --
 -- * 'daoDefaultValue'
 data DoubleArrayOptions = DoubleArrayOptions'
-    { _daoSourceFields :: !(Maybe Text)
+    { _daoSourceFields  :: !(Maybe Text)
     , _daoReturnEnabled :: !(Maybe Bool)
-    , _daoFacetEnabled :: !(Maybe Bool)
+    , _daoFacetEnabled  :: !(Maybe Bool)
     , _daoSearchEnabled :: !(Maybe Bool)
-    , _daoDefaultValue :: !(Maybe Double)
+    , _daoDefaultValue  :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DoubleArrayOptions' smart constructor.
 doubleArrayOptions :: DoubleArrayOptions
-doubleArrayOptions = 
+doubleArrayOptions =
     DoubleArrayOptions'
     { _daoSourceFields = Nothing
     , _daoReturnEnabled = Nothing
@@ -743,17 +743,17 @@ instance ToQuery DoubleArrayOptions where
 --
 -- * 'dDefaultValue'
 data DoubleOptions = DoubleOptions'
-    { _dSourceField :: !(Maybe Text)
+    { _dSourceField   :: !(Maybe Text)
     , _dReturnEnabled :: !(Maybe Bool)
-    , _dFacetEnabled :: !(Maybe Bool)
+    , _dFacetEnabled  :: !(Maybe Bool)
     , _dSearchEnabled :: !(Maybe Bool)
-    , _dSortEnabled :: !(Maybe Bool)
-    , _dDefaultValue :: !(Maybe Double)
+    , _dSortEnabled   :: !(Maybe Bool)
+    , _dDefaultValue  :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DoubleOptions' smart constructor.
 doubleOptions :: DoubleOptions
-doubleOptions = 
+doubleOptions =
     DoubleOptions'
     { _dSourceField = Nothing
     , _dReturnEnabled = Nothing
@@ -820,13 +820,13 @@ instance ToQuery DoubleOptions where
 --
 -- * 'eExpressionValue'
 data Expression = Expression'
-    { _eExpressionName :: !Text
+    { _eExpressionName  :: !Text
     , _eExpressionValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Expression' smart constructor.
 expression :: Text -> Text -> Expression
-expression pExpressionName_ pExpressionValue_ = 
+expression pExpressionName_ pExpressionValue_ =
     Expression'
     { _eExpressionName = pExpressionName_
     , _eExpressionValue = pExpressionValue_
@@ -862,12 +862,12 @@ instance ToQuery Expression where
 -- * 'esStatus'
 data ExpressionStatus = ExpressionStatus'
     { _esOptions :: !Expression
-    , _esStatus :: !OptionStatus
+    , _esStatus  :: !OptionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExpressionStatus' smart constructor.
 expressionStatus :: Expression -> OptionStatus -> ExpressionStatus
-expressionStatus pOptions_ pStatus_ = 
+expressionStatus pOptions_ pStatus_ =
     ExpressionStatus'
     { _esOptions = pOptions_
     , _esStatus = pStatus_
@@ -920,24 +920,24 @@ instance FromXML ExpressionStatus where
 --
 -- * 'ifIndexFieldType'
 data IndexField = IndexField'
-    { _ifDateOptions :: !(Maybe DateOptions)
-    , _ifTextArrayOptions :: !(Maybe TextArrayOptions)
-    , _ifDoubleArrayOptions :: !(Maybe DoubleArrayOptions)
-    , _ifDoubleOptions :: !(Maybe DoubleOptions)
-    , _ifTextOptions :: !(Maybe TextOptions)
-    , _ifLatLonOptions :: !(Maybe LatLonOptions)
-    , _ifIntArrayOptions :: !(Maybe IntArrayOptions)
+    { _ifDateOptions         :: !(Maybe DateOptions)
+    , _ifTextArrayOptions    :: !(Maybe TextArrayOptions)
+    , _ifDoubleArrayOptions  :: !(Maybe DoubleArrayOptions)
+    , _ifDoubleOptions       :: !(Maybe DoubleOptions)
+    , _ifTextOptions         :: !(Maybe TextOptions)
+    , _ifLatLonOptions       :: !(Maybe LatLonOptions)
+    , _ifIntArrayOptions     :: !(Maybe IntArrayOptions)
     , _ifLiteralArrayOptions :: !(Maybe LiteralArrayOptions)
-    , _ifDateArrayOptions :: !(Maybe DateArrayOptions)
-    , _ifLiteralOptions :: !(Maybe LiteralOptions)
-    , _ifIntOptions :: !(Maybe IntOptions)
-    , _ifIndexFieldName :: !Text
-    , _ifIndexFieldType :: !IndexFieldType
+    , _ifDateArrayOptions    :: !(Maybe DateArrayOptions)
+    , _ifLiteralOptions      :: !(Maybe LiteralOptions)
+    , _ifIntOptions          :: !(Maybe IntOptions)
+    , _ifIndexFieldName      :: !Text
+    , _ifIndexFieldType      :: !IndexFieldType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexField' smart constructor.
 indexField :: Text -> IndexFieldType -> IndexField
-indexField pIndexFieldName_ pIndexFieldType_ = 
+indexField pIndexFieldName_ pIndexFieldType_ =
     IndexField'
     { _ifDateOptions = Nothing
     , _ifTextArrayOptions = Nothing
@@ -1064,12 +1064,12 @@ instance ToQuery IndexField where
 -- * 'ifsStatus'
 data IndexFieldStatus = IndexFieldStatus'
     { _ifsOptions :: !IndexField
-    , _ifsStatus :: !OptionStatus
+    , _ifsStatus  :: !OptionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexFieldStatus' smart constructor.
 indexFieldStatus :: IndexField -> OptionStatus -> IndexFieldStatus
-indexFieldStatus pOptions_ pStatus_ = 
+indexFieldStatus pOptions_ pStatus_ =
     IndexFieldStatus'
     { _ifsOptions = pOptions_
     , _ifsStatus = pStatus_
@@ -1106,16 +1106,16 @@ instance FromXML IndexFieldStatus where
 --
 -- * 'iaoDefaultValue'
 data IntArrayOptions = IntArrayOptions'
-    { _iaoSourceFields :: !(Maybe Text)
+    { _iaoSourceFields  :: !(Maybe Text)
     , _iaoReturnEnabled :: !(Maybe Bool)
-    , _iaoFacetEnabled :: !(Maybe Bool)
+    , _iaoFacetEnabled  :: !(Maybe Bool)
     , _iaoSearchEnabled :: !(Maybe Bool)
-    , _iaoDefaultValue :: !(Maybe Integer)
+    , _iaoDefaultValue  :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IntArrayOptions' smart constructor.
 intArrayOptions :: IntArrayOptions
-intArrayOptions = 
+intArrayOptions =
     IntArrayOptions'
     { _iaoSourceFields = Nothing
     , _iaoReturnEnabled = Nothing
@@ -1182,17 +1182,17 @@ instance ToQuery IntArrayOptions where
 --
 -- * 'ioDefaultValue'
 data IntOptions = IntOptions'
-    { _ioSourceField :: !(Maybe Text)
+    { _ioSourceField   :: !(Maybe Text)
     , _ioReturnEnabled :: !(Maybe Bool)
-    , _ioFacetEnabled :: !(Maybe Bool)
+    , _ioFacetEnabled  :: !(Maybe Bool)
     , _ioSearchEnabled :: !(Maybe Bool)
-    , _ioSortEnabled :: !(Maybe Bool)
-    , _ioDefaultValue :: !(Maybe Integer)
+    , _ioSortEnabled   :: !(Maybe Bool)
+    , _ioDefaultValue  :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IntOptions' smart constructor.
 intOptions :: IntOptions
-intOptions = 
+intOptions =
     IntOptions'
     { _ioSourceField = Nothing
     , _ioReturnEnabled = Nothing
@@ -1268,17 +1268,17 @@ instance ToQuery IntOptions where
 --
 -- * 'lloDefaultValue'
 data LatLonOptions = LatLonOptions'
-    { _lloSourceField :: !(Maybe Text)
+    { _lloSourceField   :: !(Maybe Text)
     , _lloReturnEnabled :: !(Maybe Bool)
-    , _lloFacetEnabled :: !(Maybe Bool)
+    , _lloFacetEnabled  :: !(Maybe Bool)
     , _lloSearchEnabled :: !(Maybe Bool)
-    , _lloSortEnabled :: !(Maybe Bool)
-    , _lloDefaultValue :: !(Maybe Text)
+    , _lloSortEnabled   :: !(Maybe Bool)
+    , _lloDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LatLonOptions' smart constructor.
 latLonOptions :: LatLonOptions
-latLonOptions = 
+latLonOptions =
     LatLonOptions'
     { _lloSourceField = Nothing
     , _lloReturnEnabled = Nothing
@@ -1341,12 +1341,12 @@ instance ToQuery LatLonOptions where
 -- * 'lMaximumPartitionCount'
 data Limits = Limits'
     { _lMaximumReplicationCount :: !Nat
-    , _lMaximumPartitionCount :: !Nat
+    , _lMaximumPartitionCount   :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Limits' smart constructor.
 limits :: Natural -> Natural -> Limits
-limits pMaximumReplicationCount_ pMaximumPartitionCount_ = 
+limits pMaximumReplicationCount_ pMaximumPartitionCount_ =
     Limits'
     { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount_
     , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount_
@@ -1384,16 +1384,16 @@ instance FromXML Limits where
 --
 -- * 'laoDefaultValue'
 data LiteralArrayOptions = LiteralArrayOptions'
-    { _laoSourceFields :: !(Maybe Text)
+    { _laoSourceFields  :: !(Maybe Text)
     , _laoReturnEnabled :: !(Maybe Bool)
-    , _laoFacetEnabled :: !(Maybe Bool)
+    , _laoFacetEnabled  :: !(Maybe Bool)
     , _laoSearchEnabled :: !(Maybe Bool)
-    , _laoDefaultValue :: !(Maybe Text)
+    , _laoDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LiteralArrayOptions' smart constructor.
 literalArrayOptions :: LiteralArrayOptions
-literalArrayOptions = 
+literalArrayOptions =
     LiteralArrayOptions'
     { _laoSourceFields = Nothing
     , _laoReturnEnabled = Nothing
@@ -1459,17 +1459,17 @@ instance ToQuery LiteralArrayOptions where
 --
 -- * 'loDefaultValue'
 data LiteralOptions = LiteralOptions'
-    { _loSourceField :: !(Maybe Text)
+    { _loSourceField   :: !(Maybe Text)
     , _loReturnEnabled :: !(Maybe Bool)
-    , _loFacetEnabled :: !(Maybe Bool)
+    , _loFacetEnabled  :: !(Maybe Bool)
     , _loSearchEnabled :: !(Maybe Bool)
-    , _loSortEnabled :: !(Maybe Bool)
-    , _loDefaultValue :: !(Maybe Text)
+    , _loSortEnabled   :: !(Maybe Bool)
+    , _loDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LiteralOptions' smart constructor.
 literalOptions :: LiteralOptions
-literalOptions = 
+literalOptions =
     LiteralOptions'
     { _loSourceField = Nothing
     , _loReturnEnabled = Nothing
@@ -1540,15 +1540,15 @@ instance ToQuery LiteralOptions where
 -- * 'osState'
 data OptionStatus = OptionStatus'
     { _osPendingDeletion :: !(Maybe Bool)
-    , _osUpdateVersion :: !(Maybe Nat)
-    , _osCreationDate :: !ISO8601
-    , _osUpdateDate :: !ISO8601
-    , _osState :: !OptionState
+    , _osUpdateVersion   :: !(Maybe Nat)
+    , _osCreationDate    :: !ISO8601
+    , _osUpdateDate      :: !ISO8601
+    , _osState           :: !OptionState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionStatus' smart constructor.
 optionStatus :: UTCTime -> UTCTime -> OptionState -> OptionStatus
-optionStatus pCreationDate_ pUpdateDate_ pState_ = 
+optionStatus pCreationDate_ pUpdateDate_ pState_ =
     OptionStatus'
     { _osPendingDeletion = Nothing
     , _osUpdateVersion = Nothing
@@ -1609,14 +1609,14 @@ instance FromXML OptionStatus where
 --
 -- * 'spDesiredPartitionCount'
 data ScalingParameters = ScalingParameters'
-    { _spDesiredInstanceType :: !(Maybe PartitionInstanceType)
+    { _spDesiredInstanceType     :: !(Maybe PartitionInstanceType)
     , _spDesiredReplicationCount :: !(Maybe Nat)
-    , _spDesiredPartitionCount :: !(Maybe Nat)
+    , _spDesiredPartitionCount   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingParameters' smart constructor.
 scalingParameters :: ScalingParameters
-scalingParameters = 
+scalingParameters =
     ScalingParameters'
     { _spDesiredInstanceType = Nothing
     , _spDesiredReplicationCount = Nothing
@@ -1664,12 +1664,12 @@ instance ToQuery ScalingParameters where
 -- * 'spsStatus'
 data ScalingParametersStatus = ScalingParametersStatus'
     { _spsOptions :: !ScalingParameters
-    , _spsStatus :: !OptionStatus
+    , _spsStatus  :: !OptionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingParametersStatus' smart constructor.
 scalingParametersStatus :: ScalingParameters -> OptionStatus -> ScalingParametersStatus
-scalingParametersStatus pOptions_ pStatus_ = 
+scalingParametersStatus pOptions_ pStatus_ =
     ScalingParametersStatus'
     { _spsOptions = pOptions_
     , _spsStatus = pStatus_
@@ -1701,7 +1701,7 @@ newtype ServiceEndpoint = ServiceEndpoint'
 
 -- | 'ServiceEndpoint' smart constructor.
 serviceEndpoint :: ServiceEndpoint
-serviceEndpoint = 
+serviceEndpoint =
     ServiceEndpoint'
     { _seEndpoint = Nothing
     }
@@ -1726,13 +1726,13 @@ instance FromXML ServiceEndpoint where
 --
 -- * 'sDocumentSuggesterOptions'
 data Suggester = Suggester'
-    { _sSuggesterName :: !Text
+    { _sSuggesterName            :: !Text
     , _sDocumentSuggesterOptions :: !DocumentSuggesterOptions
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suggester' smart constructor.
 suggester :: Text -> DocumentSuggesterOptions -> Suggester
-suggester pSuggesterName_ pDocumentSuggesterOptions_ = 
+suggester pSuggesterName_ pDocumentSuggesterOptions_ =
     Suggester'
     { _sSuggesterName = pSuggesterName_
     , _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
@@ -1770,12 +1770,12 @@ instance ToQuery Suggester where
 -- * 'ssStatus'
 data SuggesterStatus = SuggesterStatus'
     { _ssOptions :: !Suggester
-    , _ssStatus :: !OptionStatus
+    , _ssStatus  :: !OptionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggesterStatus' smart constructor.
 suggesterStatus :: Suggester -> OptionStatus -> SuggesterStatus
-suggesterStatus pOptions_ pStatus_ = 
+suggesterStatus pOptions_ pStatus_ =
     SuggesterStatus'
     { _ssOptions = pOptions_
     , _ssStatus = pStatus_
@@ -1813,16 +1813,16 @@ instance FromXML SuggesterStatus where
 --
 -- * 'taoDefaultValue'
 data TextArrayOptions = TextArrayOptions'
-    { _taoSourceFields :: !(Maybe Text)
-    , _taoReturnEnabled :: !(Maybe Bool)
-    , _taoAnalysisScheme :: !(Maybe Text)
+    { _taoSourceFields     :: !(Maybe Text)
+    , _taoReturnEnabled    :: !(Maybe Bool)
+    , _taoAnalysisScheme   :: !(Maybe Text)
     , _taoHighlightEnabled :: !(Maybe Bool)
-    , _taoDefaultValue :: !(Maybe Text)
+    , _taoDefaultValue     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TextArrayOptions' smart constructor.
 textArrayOptions :: TextArrayOptions
-textArrayOptions = 
+textArrayOptions =
     TextArrayOptions'
     { _taoSourceFields = Nothing
     , _taoReturnEnabled = Nothing
@@ -1889,17 +1889,17 @@ instance ToQuery TextArrayOptions where
 --
 -- * 'toDefaultValue'
 data TextOptions = TextOptions'
-    { _toSourceField :: !(Maybe Text)
-    , _toReturnEnabled :: !(Maybe Bool)
-    , _toAnalysisScheme :: !(Maybe Text)
+    { _toSourceField      :: !(Maybe Text)
+    , _toReturnEnabled    :: !(Maybe Bool)
+    , _toAnalysisScheme   :: !(Maybe Text)
     , _toHighlightEnabled :: !(Maybe Bool)
-    , _toSortEnabled :: !(Maybe Bool)
-    , _toDefaultValue :: !(Maybe Text)
+    , _toSortEnabled      :: !(Maybe Bool)
+    , _toDefaultValue     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TextOptions' smart constructor.
 textOptions :: TextOptions
-textOptions = 
+textOptions =
     TextOptions'
     { _toSourceField = Nothing
     , _toReturnEnabled = Nothing

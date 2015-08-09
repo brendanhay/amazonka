@@ -61,11 +61,11 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the AllocatePublicVirtualInterface
 -- operation.
@@ -80,14 +80,14 @@ import Network.AWS.Response
 --
 -- * 'aNewPublicVirtualInterfaceAllocation'
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
-    { _aConnectionId :: !Text
-    , _aOwnerAccount :: !Text
+    { _aConnectionId                        :: !Text
+    , _aOwnerAccount                        :: !Text
     , _aNewPublicVirtualInterfaceAllocation :: !NewPublicVirtualInterfaceAllocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocatePublicVirtualInterface' smart constructor.
 allocatePublicVirtualInterface :: Text -> Text -> NewPublicVirtualInterfaceAllocation -> AllocatePublicVirtualInterface
-allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualInterfaceAllocation_ = 
+allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualInterfaceAllocation_ =
     AllocatePublicVirtualInterface'
     { _aConnectionId = pConnectionId_
     , _aOwnerAccount = pOwnerAccount_

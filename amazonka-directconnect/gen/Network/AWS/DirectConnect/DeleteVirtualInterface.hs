@@ -37,11 +37,11 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     , dvirsStatus
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DeleteVirtualInterface operation.
 --
@@ -56,7 +56,7 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface'
 
 -- | 'DeleteVirtualInterface' smart constructor.
 deleteVirtualInterface :: Text -> DeleteVirtualInterface
-deleteVirtualInterface pVirtualInterfaceId_ = 
+deleteVirtualInterface pVirtualInterfaceId_ =
     DeleteVirtualInterface'
     { _dVirtualInterfaceId = pVirtualInterfaceId_
     }
@@ -109,12 +109,12 @@ instance ToQuery DeleteVirtualInterface where
 -- * 'dvirsStatus'
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _dvirsStatus :: !Int
+    , _dvirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualInterfaceResponse' smart constructor.
 deleteVirtualInterfaceResponse :: Int -> DeleteVirtualInterfaceResponse
-deleteVirtualInterfaceResponse pStatus_ = 
+deleteVirtualInterfaceResponse pStatus_ =
     DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState = Nothing
     , _dvirsStatus = pStatus_

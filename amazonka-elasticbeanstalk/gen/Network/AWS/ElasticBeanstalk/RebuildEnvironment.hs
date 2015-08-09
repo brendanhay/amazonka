@@ -37,11 +37,11 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     , rebuildEnvironmentResponse
     ) where
 
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- |
 --
@@ -54,12 +54,12 @@ import Network.AWS.Response
 -- * 'reEnvironmentId'
 data RebuildEnvironment = RebuildEnvironment'
     { _reEnvironmentName :: !(Maybe Text)
-    , _reEnvironmentId :: !(Maybe Text)
+    , _reEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildEnvironment' smart constructor.
 rebuildEnvironment :: RebuildEnvironment
-rebuildEnvironment = 
+rebuildEnvironment =
     RebuildEnvironment'
     { _reEnvironmentName = Nothing
     , _reEnvironmentId = Nothing
@@ -104,7 +104,7 @@ instance ToQuery RebuildEnvironment where
 
 -- | /See:/ 'rebuildEnvironmentResponse' smart constructor.
 data RebuildEnvironmentResponse =
-    RebuildEnvironmentResponse' 
+    RebuildEnvironmentResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildEnvironmentResponse' smart constructor.

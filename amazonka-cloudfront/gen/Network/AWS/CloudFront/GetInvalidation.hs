@@ -38,11 +38,11 @@ module Network.AWS.CloudFront.GetInvalidation
     , girsStatus
     ) where
 
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The request to get an invalidation\'s information.
 --
@@ -55,12 +55,12 @@ import Network.AWS.Response
 -- * 'giId'
 data GetInvalidation = GetInvalidation'
     { _giDistributionId :: !Text
-    , _giId :: !Text
+    , _giId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInvalidation' smart constructor.
 getInvalidation :: Text -> Text -> GetInvalidation
-getInvalidation pDistributionId_ pId_ = 
+getInvalidation pDistributionId_ pId_ =
     GetInvalidation'
     { _giDistributionId = pDistributionId_
     , _giId = pId_
@@ -107,12 +107,12 @@ instance ToQuery GetInvalidation where
 -- * 'girsStatus'
 data GetInvalidationResponse = GetInvalidationResponse'
     { _girsInvalidation :: !(Maybe Invalidation)
-    , _girsStatus :: !Int
+    , _girsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInvalidationResponse' smart constructor.
 getInvalidationResponse :: Int -> GetInvalidationResponse
-getInvalidationResponse pStatus_ = 
+getInvalidationResponse pStatus_ =
     GetInvalidationResponse'
     { _girsInvalidation = Nothing
     , _girsStatus = pStatus_

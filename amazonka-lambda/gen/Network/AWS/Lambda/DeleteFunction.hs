@@ -40,11 +40,11 @@ module Network.AWS.Lambda.DeleteFunction
     , deleteFunctionResponse
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteFunction' smart constructor.
 --
@@ -57,7 +57,7 @@ newtype DeleteFunction = DeleteFunction'
 
 -- | 'DeleteFunction' smart constructor.
 deleteFunction :: Text -> DeleteFunction
-deleteFunction pFunctionName_ = 
+deleteFunction pFunctionName_ =
     DeleteFunction'
     { _dfFunctionName = pFunctionName_
     }
@@ -94,7 +94,7 @@ instance ToQuery DeleteFunction where
 
 -- | /See:/ 'deleteFunctionResponse' smart constructor.
 data DeleteFunctionResponse =
-    DeleteFunctionResponse' 
+    DeleteFunctionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFunctionResponse' smart constructor.

@@ -47,11 +47,11 @@ module Network.AWS.EC2.ModifyImageAttribute
     , modifyImageAttributeResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyImageAttribute' smart constructor.
 --
@@ -77,21 +77,21 @@ import Network.AWS.Response
 --
 -- * 'miaImageId'
 data ModifyImageAttribute = ModifyImageAttribute'
-    { _miaAttribute :: !(Maybe Text)
-    , _miaUserIds :: !(Maybe [Text])
-    , _miaUserGroups :: !(Maybe [Text])
-    , _miaValue :: !(Maybe Text)
+    { _miaAttribute        :: !(Maybe Text)
+    , _miaUserIds          :: !(Maybe [Text])
+    , _miaUserGroups       :: !(Maybe [Text])
+    , _miaValue            :: !(Maybe Text)
     , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
-    , _miaOperationType :: !(Maybe Text)
-    , _miaProductCodes :: !(Maybe [Text])
-    , _miaDryRun :: !(Maybe Bool)
-    , _miaDescription :: !(Maybe AttributeValue)
-    , _miaImageId :: !Text
+    , _miaOperationType    :: !(Maybe Text)
+    , _miaProductCodes     :: !(Maybe [Text])
+    , _miaDryRun           :: !(Maybe Bool)
+    , _miaDescription      :: !(Maybe AttributeValue)
+    , _miaImageId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyImageAttribute' smart constructor.
 modifyImageAttribute :: Text -> ModifyImageAttribute
-modifyImageAttribute pImageId_ = 
+modifyImageAttribute pImageId_ =
     ModifyImageAttribute'
     { _miaAttribute = Nothing
     , _miaUserIds = Nothing
@@ -185,7 +185,7 @@ instance ToQuery ModifyImageAttribute where
 
 -- | /See:/ 'modifyImageAttributeResponse' smart constructor.
 data ModifyImageAttributeResponse =
-    ModifyImageAttributeResponse' 
+    ModifyImageAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyImageAttributeResponse' smart constructor.

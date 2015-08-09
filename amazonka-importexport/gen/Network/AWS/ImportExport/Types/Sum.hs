@@ -17,12 +17,12 @@
 --
 module Network.AWS.ImportExport.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 -- | Specifies whether the job to initiate is an import or export job.
 data JobType
-    = Export 
-    | Import 
+    = Export
+    | Import
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText JobType where

@@ -44,11 +44,11 @@ module Network.AWS.DynamoDBStreams.ListStreams
     , lsrsStatus
     ) where
 
-import Network.AWS.DynamoDBStreams.Types
-import Network.AWS.DynamoDBStreams.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDBStreams.Types
+import           Network.AWS.DynamoDBStreams.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /ListStreams/ operation.
 --
@@ -63,13 +63,13 @@ import Network.AWS.Response
 -- * 'lsTableName'
 data ListStreams = ListStreams'
     { _lsExclusiveStartStreamARN :: !(Maybe Text)
-    , _lsLimit :: !(Maybe Nat)
-    , _lsTableName :: !(Maybe Text)
+    , _lsLimit                   :: !(Maybe Nat)
+    , _lsTableName               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
-listStreams = 
+listStreams =
     ListStreams'
     { _lsExclusiveStartStreamARN = Nothing
     , _lsLimit = Nothing
@@ -139,13 +139,13 @@ instance ToQuery ListStreams where
 -- * 'lsrsStatus'
 data ListStreamsResponse = ListStreamsResponse'
     { _lsrsLastEvaluatedStreamARN :: !(Maybe Text)
-    , _lsrsStreams :: !(Maybe [Stream])
-    , _lsrsStatus :: !Int
+    , _lsrsStreams                :: !(Maybe [Stream])
+    , _lsrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Int -> ListStreamsResponse
-listStreamsResponse pStatus_ = 
+listStreamsResponse pStatus_ =
     ListStreamsResponse'
     { _lsrsLastEvaluatedStreamARN = Nothing
     , _lsrsStreams = Nothing

@@ -38,11 +38,11 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     , gdirsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a get deployment instance operation.
 --
@@ -55,12 +55,12 @@ import Network.AWS.Response
 -- * 'gdiInstanceId'
 data GetDeploymentInstance = GetDeploymentInstance'
     { _gdiDeploymentId :: !Text
-    , _gdiInstanceId :: !Text
+    , _gdiInstanceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentInstance' smart constructor.
 getDeploymentInstance :: Text -> Text -> GetDeploymentInstance
-getDeploymentInstance pDeploymentId_ pInstanceId_ = 
+getDeploymentInstance pDeploymentId_ pInstanceId_ =
     GetDeploymentInstance'
     { _gdiDeploymentId = pDeploymentId_
     , _gdiInstanceId = pInstanceId_
@@ -118,12 +118,12 @@ instance ToQuery GetDeploymentInstance where
 -- * 'gdirsStatus'
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
-    , _gdirsStatus :: !Int
+    , _gdirsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentInstanceResponse' smart constructor.
 getDeploymentInstanceResponse :: Int -> GetDeploymentInstanceResponse
-getDeploymentInstanceResponse pStatus_ = 
+getDeploymentInstanceResponse pStatus_ =
     GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary = Nothing
     , _gdirsStatus = pStatus_

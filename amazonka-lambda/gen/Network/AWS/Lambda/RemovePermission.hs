@@ -41,11 +41,11 @@ module Network.AWS.Lambda.RemovePermission
     , removePermissionResponse
     ) where
 
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Lambda.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removePermission' smart constructor.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'rpStatementId'
 data RemovePermission = RemovePermission'
     { _rpFunctionName :: !Text
-    , _rpStatementId :: !Text
+    , _rpStatementId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
-removePermission pFunctionName_ pStatementId_ = 
+removePermission pFunctionName_ pStatementId_ =
     RemovePermission'
     { _rpFunctionName = pFunctionName_
     , _rpStatementId = pStatementId_
@@ -105,7 +105,7 @@ instance ToQuery RemovePermission where
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =
-    RemovePermissionResponse' 
+    RemovePermissionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermissionResponse' smart constructor.

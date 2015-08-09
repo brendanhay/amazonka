@@ -45,12 +45,12 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     , ljbprsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ListJobsByPipelineRequest@ structure.
 --
@@ -64,14 +64,14 @@ import Network.AWS.Response
 --
 -- * 'ljbpPipelineId'
 data ListJobsByPipeline = ListJobsByPipeline'
-    { _ljbpAscending :: !(Maybe Text)
-    , _ljbpPageToken :: !(Maybe Text)
+    { _ljbpAscending  :: !(Maybe Text)
+    , _ljbpPageToken  :: !(Maybe Text)
     , _ljbpPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByPipeline' smart constructor.
 listJobsByPipeline :: Text -> ListJobsByPipeline
-listJobsByPipeline pPipelineId_ = 
+listJobsByPipeline pPipelineId_ =
     ListJobsByPipeline'
     { _ljbpAscending = Nothing
     , _ljbpPageToken = Nothing
@@ -141,13 +141,13 @@ instance ToQuery ListJobsByPipeline where
 -- * 'ljbprsStatus'
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
     { _ljbprsNextPageToken :: !(Maybe Text)
-    , _ljbprsJobs :: !(Maybe [Job'])
-    , _ljbprsStatus :: !Int
+    , _ljbprsJobs          :: !(Maybe [Job'])
+    , _ljbprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
 listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse
-listJobsByPipelineResponse pStatus_ = 
+listJobsByPipelineResponse pStatus_ =
     ListJobsByPipelineResponse'
     { _ljbprsNextPageToken = Nothing
     , _ljbprsJobs = Nothing

@@ -41,11 +41,11 @@ module Network.AWS.IAM.DeactivateMFADevice
     , deactivateMFADeviceResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deactivateMFADevice' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'dmdSerialNumber'
 data DeactivateMFADevice = DeactivateMFADevice'
-    { _dmdUserName :: !Text
+    { _dmdUserName     :: !Text
     , _dmdSerialNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivateMFADevice' smart constructor.
 deactivateMFADevice :: Text -> Text -> DeactivateMFADevice
-deactivateMFADevice pUserName_ pSerialNumber_ = 
+deactivateMFADevice pUserName_ pSerialNumber_ =
     DeactivateMFADevice'
     { _dmdUserName = pUserName_
     , _dmdSerialNumber = pSerialNumber_
@@ -99,7 +99,7 @@ instance ToQuery DeactivateMFADevice where
 
 -- | /See:/ 'deactivateMFADeviceResponse' smart constructor.
 data DeactivateMFADeviceResponse =
-    DeactivateMFADeviceResponse' 
+    DeactivateMFADeviceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivateMFADeviceResponse' smart constructor.

@@ -43,11 +43,11 @@ module Network.AWS.OpsWorks.DescribeStacks
     , dsrsStatus
     ) where
 
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeStacks' smart constructor.
 --
@@ -60,7 +60,7 @@ newtype DescribeStacks = DescribeStacks'
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
-describeStacks = 
+describeStacks =
     DescribeStacks'
     { _dsStackIds = Nothing
     }
@@ -116,7 +116,7 @@ data DescribeStacksResponse = DescribeStacksResponse'
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
-describeStacksResponse pStatus_ = 
+describeStacksResponse pStatus_ =
     DescribeStacksResponse'
     { _dsrsStacks = Nothing
     , _dsrsStatus = pStatus_

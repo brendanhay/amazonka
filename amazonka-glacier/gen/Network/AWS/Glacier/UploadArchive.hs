@@ -82,11 +82,11 @@ module Network.AWS.Glacier.UploadArchive
     , acoLocation
     ) where
 
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Provides options to add an archive to a vault.
 --
@@ -104,16 +104,16 @@ import Network.AWS.Response
 --
 -- * 'uaBody'
 data UploadArchive = UploadArchive'
-    { _uaChecksum :: !(Maybe Text)
+    { _uaChecksum           :: !(Maybe Text)
     , _uaArchiveDescription :: !(Maybe Text)
-    , _uaVaultName :: !Text
-    , _uaAccountId :: !Text
-    , _uaBody :: !RqBody
+    , _uaVaultName          :: !Text
+    , _uaAccountId          :: !Text
+    , _uaBody               :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'UploadArchive' smart constructor.
 uploadArchive :: Text -> Text -> RqBody -> UploadArchive
-uploadArchive pVaultName_ pAccountId_ pBody_ = 
+uploadArchive pVaultName_ pAccountId_ pBody_ =
     UploadArchive'
     { _uaChecksum = Nothing
     , _uaArchiveDescription = Nothing

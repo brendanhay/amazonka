@@ -97,11 +97,11 @@ module Network.AWS.DynamoDB.BatchGetItem
     , bgirsStatus
     ) where
 
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.DynamoDB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /BatchGetItem/ operation.
 --
@@ -114,12 +114,12 @@ import Network.AWS.Response
 -- * 'bgiRequestItems'
 data BatchGetItem = BatchGetItem'
     { _bgiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
-    , _bgiRequestItems :: !(Map Text KeysAndAttributes)
+    , _bgiRequestItems           :: !(Map Text KeysAndAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetItem' smart constructor.
 batchGetItem :: BatchGetItem
-batchGetItem = 
+batchGetItem =
     BatchGetItem'
     { _bgiReturnConsumedCapacity = Nothing
     , _bgiRequestItems = mempty
@@ -271,15 +271,15 @@ instance ToQuery BatchGetItem where
 --
 -- * 'bgirsStatus'
 data BatchGetItemResponse = BatchGetItemResponse'
-    { _bgirsUnprocessedKeys :: !(Maybe (Map Text KeysAndAttributes))
-    , _bgirsResponses :: !(Maybe (Map Text [Map Text AttributeValue]))
+    { _bgirsUnprocessedKeys  :: !(Maybe (Map Text KeysAndAttributes))
+    , _bgirsResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
     , _bgirsConsumedCapacity :: !(Maybe [ConsumedCapacity])
-    , _bgirsStatus :: !Int
+    , _bgirsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetItemResponse' smart constructor.
 batchGetItemResponse :: Int -> BatchGetItemResponse
-batchGetItemResponse pStatus_ = 
+batchGetItemResponse pStatus_ =
     BatchGetItemResponse'
     { _bgirsUnprocessedKeys = Nothing
     , _bgirsResponses = Nothing

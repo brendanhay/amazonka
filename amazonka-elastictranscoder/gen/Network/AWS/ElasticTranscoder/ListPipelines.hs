@@ -40,12 +40,12 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     , lprsStatus
     ) where
 
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The @ListPipelineRequest@ structure.
 --
@@ -63,7 +63,7 @@ data ListPipelines = ListPipelines'
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
-listPipelines = 
+listPipelines =
     ListPipelines'
     { _lpAscending = Nothing
     , _lpPageToken = Nothing
@@ -125,13 +125,13 @@ instance ToQuery ListPipelines where
 -- * 'lprsStatus'
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsNextPageToken :: !(Maybe Text)
-    , _lprsPipelines :: !(Maybe [Pipeline])
-    , _lprsStatus :: !Int
+    , _lprsPipelines     :: !(Maybe [Pipeline])
+    , _lprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
-listPipelinesResponse pStatus_ = 
+listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsNextPageToken = Nothing
     , _lprsPipelines = Nothing

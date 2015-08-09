@@ -49,11 +49,11 @@ module Network.AWS.DirectConnect.DeleteConnection
     , cConnectionState
     ) where
 
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the DeleteConnection operation.
 --
@@ -68,7 +68,7 @@ newtype DeleteConnection = DeleteConnection'
 
 -- | 'DeleteConnection' smart constructor.
 deleteConnection :: Text -> DeleteConnection
-deleteConnection pConnectionId_ = 
+deleteConnection pConnectionId_ =
     DeleteConnection'
     { _dcConnectionId = pConnectionId_
     }

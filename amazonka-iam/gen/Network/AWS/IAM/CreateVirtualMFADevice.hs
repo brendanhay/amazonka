@@ -54,11 +54,11 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     , cvmdrsVirtualMFADevice
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVirtualMFADevice' smart constructor.
 --
@@ -68,13 +68,13 @@ import Network.AWS.Response
 --
 -- * 'cvmdVirtualMFADeviceName'
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
-    { _cvmdPath :: !(Maybe Text)
+    { _cvmdPath                 :: !(Maybe Text)
     , _cvmdVirtualMFADeviceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVirtualMFADevice' smart constructor.
 createVirtualMFADevice :: Text -> CreateVirtualMFADevice
-createVirtualMFADevice pVirtualMFADeviceName_ = 
+createVirtualMFADevice pVirtualMFADeviceName_ =
     CreateVirtualMFADevice'
     { _cvmdPath = Nothing
     , _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_
@@ -131,13 +131,13 @@ instance ToQuery CreateVirtualMFADevice where
 --
 -- * 'cvmdrsVirtualMFADevice'
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
-    { _cvmdrsStatus :: !Int
+    { _cvmdrsStatus           :: !Int
     , _cvmdrsVirtualMFADevice :: !VirtualMFADevice
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
 createVirtualMFADeviceResponse :: Int -> VirtualMFADevice -> CreateVirtualMFADeviceResponse
-createVirtualMFADeviceResponse pStatus_ pVirtualMFADevice_ = 
+createVirtualMFADeviceResponse pStatus_ pVirtualMFADevice_ =
     CreateVirtualMFADeviceResponse'
     { _cvmdrsStatus = pStatus_
     , _cvmdrsVirtualMFADevice = pVirtualMFADevice_

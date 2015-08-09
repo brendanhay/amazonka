@@ -42,11 +42,11 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     , gpdrsStatus
     ) where
 
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for GetPipelineDefinition.
 --
@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- * 'gpdPipelineId'
 data GetPipelineDefinition = GetPipelineDefinition'
-    { _gpdVersion :: !(Maybe Text)
+    { _gpdVersion    :: !(Maybe Text)
     , _gpdPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineDefinition' smart constructor.
 getPipelineDefinition :: Text -> GetPipelineDefinition
-getPipelineDefinition pPipelineId_ = 
+getPipelineDefinition pPipelineId_ =
     GetPipelineDefinition'
     { _gpdVersion = Nothing
     , _gpdPipelineId = pPipelineId_
@@ -129,15 +129,15 @@ instance ToQuery GetPipelineDefinition where
 --
 -- * 'gpdrsStatus'
 data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
-    { _gpdrsPipelineObjects :: !(Maybe [PipelineObject])
+    { _gpdrsPipelineObjects  :: !(Maybe [PipelineObject])
     , _gpdrsParameterObjects :: !(Maybe [ParameterObject])
-    , _gpdrsParameterValues :: !(Maybe [ParameterValue])
-    , _gpdrsStatus :: !Int
+    , _gpdrsParameterValues  :: !(Maybe [ParameterValue])
+    , _gpdrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
 getPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
-getPipelineDefinitionResponse pStatus_ = 
+getPipelineDefinitionResponse pStatus_ =
     GetPipelineDefinitionResponse'
     { _gpdrsPipelineObjects = Nothing
     , _gpdrsParameterObjects = Nothing

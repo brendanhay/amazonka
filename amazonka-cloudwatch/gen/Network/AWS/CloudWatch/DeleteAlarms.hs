@@ -35,11 +35,11 @@ module Network.AWS.CloudWatch.DeleteAlarms
     , deleteAlarmsResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteAlarms' smart constructor.
 --
@@ -52,7 +52,7 @@ newtype DeleteAlarms = DeleteAlarms'
 
 -- | 'DeleteAlarms' smart constructor.
 deleteAlarms :: DeleteAlarms
-deleteAlarms = 
+deleteAlarms =
     DeleteAlarms'
     { _dAlarmNames = mempty
     }
@@ -82,7 +82,7 @@ instance ToQuery DeleteAlarms where
 
 -- | /See:/ 'deleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse =
-    DeleteAlarmsResponse' 
+    DeleteAlarmsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAlarmsResponse' smart constructor.

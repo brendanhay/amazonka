@@ -71,11 +71,11 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     , updateAutoScalingGroupResponse
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateAutoScalingGroup' smart constructor.
 --
@@ -105,23 +105,23 @@ import Network.AWS.Response
 --
 -- * 'uasgAutoScalingGroupName'
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies :: !(Maybe [Text])
-    , _uasgHealthCheckGracePeriod :: !(Maybe Int)
-    , _uasgVPCZoneIdentifier :: !(Maybe Text)
-    , _uasgDefaultCooldown :: !(Maybe Int)
-    , _uasgMaxSize :: !(Maybe Int)
-    , _uasgDesiredCapacity :: !(Maybe Int)
-    , _uasgAvailabilityZones :: !(Maybe (List1 Text))
-    , _uasgMinSize :: !(Maybe Int)
-    , _uasgHealthCheckType :: !(Maybe Text)
+    { _uasgTerminationPolicies     :: !(Maybe [Text])
+    , _uasgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _uasgVPCZoneIdentifier       :: !(Maybe Text)
+    , _uasgDefaultCooldown         :: !(Maybe Int)
+    , _uasgMaxSize                 :: !(Maybe Int)
+    , _uasgDesiredCapacity         :: !(Maybe Int)
+    , _uasgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _uasgMinSize                 :: !(Maybe Int)
+    , _uasgHealthCheckType         :: !(Maybe Text)
     , _uasgLaunchConfigurationName :: !(Maybe Text)
-    , _uasgPlacementGroup :: !(Maybe Text)
-    , _uasgAutoScalingGroupName :: !Text
+    , _uasgPlacementGroup          :: !(Maybe Text)
+    , _uasgAutoScalingGroupName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAutoScalingGroup' smart constructor.
 updateAutoScalingGroup :: Text -> UpdateAutoScalingGroup
-updateAutoScalingGroup pAutoScalingGroupName_ = 
+updateAutoScalingGroup pAutoScalingGroupName_ =
     UpdateAutoScalingGroup'
     { _uasgTerminationPolicies = Nothing
     , _uasgHealthCheckGracePeriod = Nothing
@@ -252,7 +252,7 @@ instance ToQuery UpdateAutoScalingGroup where
 
 -- | /See:/ 'updateAutoScalingGroupResponse' smart constructor.
 data UpdateAutoScalingGroupResponse =
-    UpdateAutoScalingGroupResponse' 
+    UpdateAutoScalingGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAutoScalingGroupResponse' smart constructor.

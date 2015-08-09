@@ -41,11 +41,11 @@ module Network.AWS.CloudWatch.SetAlarmState
     , setAlarmStateResponse
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'setAlarmState' smart constructor.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 -- * 'sasStateReason'
 data SetAlarmState = SetAlarmState'
     { _sasStateReasonData :: !(Maybe Text)
-    , _sasAlarmName :: !Text
-    , _sasStateValue :: !StateValue
-    , _sasStateReason :: !Text
+    , _sasAlarmName       :: !Text
+    , _sasStateValue      :: !StateValue
+    , _sasStateReason     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetAlarmState' smart constructor.
 setAlarmState :: Text -> StateValue -> Text -> SetAlarmState
-setAlarmState pAlarmName_ pStateValue_ pStateReason_ = 
+setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
     SetAlarmState'
     { _sasStateReasonData = Nothing
     , _sasAlarmName = pAlarmName_
@@ -118,7 +118,7 @@ instance ToQuery SetAlarmState where
 
 -- | /See:/ 'setAlarmStateResponse' smart constructor.
 data SetAlarmStateResponse =
-    SetAlarmStateResponse' 
+    SetAlarmStateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetAlarmStateResponse' smart constructor.

@@ -45,11 +45,11 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     , replaceNetworkACLEntryResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'replaceNetworkACLEntry' smart constructor.
 --
@@ -74,19 +74,19 @@ import Network.AWS.Response
 -- * 'rnaeCIdRBlock'
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _rnaePortRange :: !(Maybe PortRange)
-    , _rnaeDryRun :: !(Maybe Bool)
+    , _rnaePortRange    :: !(Maybe PortRange)
+    , _rnaeDryRun       :: !(Maybe Bool)
     , _rnaeNetworkACLId :: !Text
-    , _rnaeRuleNumber :: !Int
-    , _rnaeProtocol :: !Text
-    , _rnaeRuleAction :: !RuleAction
-    , _rnaeEgress :: !Bool
-    , _rnaeCIdRBlock :: !Text
+    , _rnaeRuleNumber   :: !Int
+    , _rnaeProtocol     :: !Text
+    , _rnaeRuleAction   :: !RuleAction
+    , _rnaeEgress       :: !Bool
+    , _rnaeCIdRBlock    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLEntry' smart constructor.
 replaceNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> ReplaceNetworkACLEntry
-replaceNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ = 
+replaceNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ =
     ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode = Nothing
     , _rnaePortRange = Nothing
@@ -174,7 +174,7 @@ instance ToQuery ReplaceNetworkACLEntry where
 
 -- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
 data ReplaceNetworkACLEntryResponse =
-    ReplaceNetworkACLEntryResponse' 
+    ReplaceNetworkACLEntryResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLEntryResponse' smart constructor.

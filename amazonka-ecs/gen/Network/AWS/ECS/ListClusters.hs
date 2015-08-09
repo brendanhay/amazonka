@@ -39,12 +39,12 @@ module Network.AWS.ECS.ListClusters
     , lcrsStatus
     ) where
 
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listClusters' smart constructor.
 --
@@ -54,13 +54,13 @@ import Network.AWS.Response
 --
 -- * 'lcMaxResults'
 data ListClusters = ListClusters'
-    { _lcNextToken :: !(Maybe Text)
+    { _lcNextToken  :: !(Maybe Text)
     , _lcMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
-listClusters = 
+listClusters =
     ListClusters'
     { _lcNextToken = Nothing
     , _lcMaxResults = Nothing
@@ -137,13 +137,13 @@ instance ToQuery ListClusters where
 -- * 'lcrsStatus'
 data ListClustersResponse = ListClustersResponse'
     { _lcrsClusterARNs :: !(Maybe [Text])
-    , _lcrsNextToken :: !(Maybe Text)
-    , _lcrsStatus :: !Int
+    , _lcrsNextToken   :: !(Maybe Text)
+    , _lcrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
-listClustersResponse pStatus_ = 
+listClustersResponse pStatus_ =
     ListClustersResponse'
     { _lcrsClusterARNs = Nothing
     , _lcrsNextToken = Nothing

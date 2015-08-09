@@ -18,10 +18,10 @@
 -- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html AWS API Reference>
 module Network.AWS.ElasticTranscoder
     (
-    -- * Service Description
+    -- * Service
       ElasticTranscoder
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** ValidationException
@@ -54,59 +54,59 @@ module Network.AWS.ElasticTranscoder
     -- * Operations
     -- $operations
 
-    -- ** DeletePreset 
+    -- ** DeletePreset
     , module Network.AWS.ElasticTranscoder.DeletePreset
 
     -- ** ListJobsByPipeline (Paginated)
     , module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- $pager
 
-    -- ** UpdatePipelineStatus 
+    -- ** UpdatePipelineStatus
     , module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 
-    -- ** TestRole 
+    -- ** TestRole
     , module Network.AWS.ElasticTranscoder.TestRole
 
-    -- ** UpdatePipeline 
+    -- ** UpdatePipeline
     , module Network.AWS.ElasticTranscoder.UpdatePipeline
 
-    -- ** DeletePipeline 
+    -- ** DeletePipeline
     , module Network.AWS.ElasticTranscoder.DeletePipeline
 
-    -- ** CreateJob 
+    -- ** CreateJob
     , module Network.AWS.ElasticTranscoder.CreateJob
 
     -- ** ListPipelines (Paginated)
     , module Network.AWS.ElasticTranscoder.ListPipelines
     -- $pager
 
-    -- ** CreatePreset 
+    -- ** CreatePreset
     , module Network.AWS.ElasticTranscoder.CreatePreset
 
     -- ** ListPresets (Paginated)
     , module Network.AWS.ElasticTranscoder.ListPresets
     -- $pager
 
-    -- ** ReadPreset 
+    -- ** ReadPreset
     , module Network.AWS.ElasticTranscoder.ReadPreset
 
-    -- ** UpdatePipelineNotifications 
+    -- ** UpdatePipelineNotifications
     , module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 
-    -- ** ReadJob 
+    -- ** ReadJob
     , module Network.AWS.ElasticTranscoder.ReadJob
 
-    -- ** ReadPipeline 
+    -- ** ReadPipeline
     , module Network.AWS.ElasticTranscoder.ReadPipeline
 
-    -- ** CreatePipeline 
+    -- ** CreatePipeline
     , module Network.AWS.ElasticTranscoder.CreatePipeline
 
     -- ** ListJobsByStatus (Paginated)
     , module Network.AWS.ElasticTranscoder.ListJobsByStatus
     -- $pager
 
-    -- ** CancelJob 
+    -- ** CancelJob
     , module Network.AWS.ElasticTranscoder.CancelJob
 
     -- * Types
@@ -420,25 +420,25 @@ module Network.AWS.ElasticTranscoder
     , wMessage
     ) where
 
-import Network.AWS.ElasticTranscoder.CancelJob
-import Network.AWS.ElasticTranscoder.CreateJob
-import Network.AWS.ElasticTranscoder.CreatePipeline
-import Network.AWS.ElasticTranscoder.CreatePreset
-import Network.AWS.ElasticTranscoder.DeletePipeline
-import Network.AWS.ElasticTranscoder.DeletePreset
-import Network.AWS.ElasticTranscoder.ListJobsByPipeline
-import Network.AWS.ElasticTranscoder.ListJobsByStatus
-import Network.AWS.ElasticTranscoder.ListPipelines
-import Network.AWS.ElasticTranscoder.ListPresets
-import Network.AWS.ElasticTranscoder.ReadJob
-import Network.AWS.ElasticTranscoder.ReadPipeline
-import Network.AWS.ElasticTranscoder.ReadPreset
-import Network.AWS.ElasticTranscoder.TestRole
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.UpdatePipeline
-import Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-import Network.AWS.ElasticTranscoder.UpdatePipelineStatus
-import Network.AWS.ElasticTranscoder.Waiters
+import           Network.AWS.ElasticTranscoder.CancelJob
+import           Network.AWS.ElasticTranscoder.CreateJob
+import           Network.AWS.ElasticTranscoder.CreatePipeline
+import           Network.AWS.ElasticTranscoder.CreatePreset
+import           Network.AWS.ElasticTranscoder.DeletePipeline
+import           Network.AWS.ElasticTranscoder.DeletePreset
+import           Network.AWS.ElasticTranscoder.ListJobsByPipeline
+import           Network.AWS.ElasticTranscoder.ListJobsByStatus
+import           Network.AWS.ElasticTranscoder.ListPipelines
+import           Network.AWS.ElasticTranscoder.ListPresets
+import           Network.AWS.ElasticTranscoder.ReadJob
+import           Network.AWS.ElasticTranscoder.ReadPipeline
+import           Network.AWS.ElasticTranscoder.ReadPreset
+import           Network.AWS.ElasticTranscoder.TestRole
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.UpdatePipeline
+import           Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
+import           Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+import           Network.AWS.ElasticTranscoder.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

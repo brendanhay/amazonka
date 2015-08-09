@@ -53,11 +53,11 @@ module Network.AWS.EC2.CreateImage
     , cirsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createImage' smart constructor.
 --
@@ -75,17 +75,17 @@ import Network.AWS.Response
 --
 -- * 'ciiName'
 data CreateImage = CreateImage'
-    { _ciiNoReboot :: !(Maybe Bool)
+    { _ciiNoReboot            :: !(Maybe Bool)
     , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _ciiDryRun :: !(Maybe Bool)
-    , _ciiDescription :: !(Maybe Text)
-    , _ciiInstanceId :: !Text
-    , _ciiName :: !Text
+    , _ciiDryRun              :: !(Maybe Bool)
+    , _ciiDescription         :: !(Maybe Text)
+    , _ciiInstanceId          :: !Text
+    , _ciiName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
-createImage pInstanceId_ pName_ = 
+createImage pInstanceId_ pName_ =
     CreateImage'
     { _ciiNoReboot = Nothing
     , _ciiBlockDeviceMappings = Nothing
@@ -169,12 +169,12 @@ instance ToQuery CreateImage where
 -- * 'cirsStatus'
 data CreateImageResponse = CreateImageResponse'
     { _cirsImageId :: !(Maybe Text)
-    , _cirsStatus :: !Int
+    , _cirsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImageResponse' smart constructor.
 createImageResponse :: Int -> CreateImageResponse
-createImageResponse pStatus_ = 
+createImageResponse pStatus_ =
     CreateImageResponse'
     { _cirsImageId = Nothing
     , _cirsStatus = pStatus_

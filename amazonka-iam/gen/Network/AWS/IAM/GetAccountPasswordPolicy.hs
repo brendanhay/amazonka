@@ -37,15 +37,15 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     , gapprsPasswordPolicy
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccountPasswordPolicy' smart constructor.
 data GetAccountPasswordPolicy =
-    GetAccountPasswordPolicy' 
+    GetAccountPasswordPolicy'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountPasswordPolicy' smart constructor.
@@ -87,13 +87,13 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- * 'gapprsPasswordPolicy'
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-    { _gapprsStatus :: !Int
+    { _gapprsStatus         :: !Int
     , _gapprsPasswordPolicy :: !PasswordPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
 getAccountPasswordPolicyResponse :: Int -> PasswordPolicy -> GetAccountPasswordPolicyResponse
-getAccountPasswordPolicyResponse pStatus_ pPasswordPolicy_ = 
+getAccountPasswordPolicyResponse pStatus_ pPasswordPolicy_ =
     GetAccountPasswordPolicyResponse'
     { _gapprsStatus = pStatus_
     , _gapprsPasswordPolicy = pPasswordPolicy_

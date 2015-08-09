@@ -17,15 +17,15 @@
 --
 module Network.AWS.ECS.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data AgentUpdateStatus
-    = AUSFailed 
-    | AUSStaged 
-    | AUSPending 
-    | AUSStaging 
-    | AUSUpdated 
-    | AUSUpdating 
+    = AUSFailed
+    | AUSStaged
+    | AUSPending
+    | AUSStaging
+    | AUSUpdated
+    | AUSUpdating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AgentUpdateStatus where
@@ -57,9 +57,9 @@ instance FromJSON AgentUpdateStatus where
     parseJSON = parseJSONText "AgentUpdateStatus"
 
 data DesiredStatus
-    = Pending 
-    | Stopped 
-    | Running 
+    = Pending
+    | Stopped
+    | Running
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DesiredStatus where
@@ -85,8 +85,8 @@ instance ToJSON DesiredStatus where
     toJSON = toJSONText
 
 data SortOrder
-    = Asc 
-    | Desc 
+    = Asc
+    | Desc
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortOrder where
@@ -110,8 +110,8 @@ instance ToJSON SortOrder where
     toJSON = toJSONText
 
 data TaskDefinitionStatus
-    = Inactive 
-    | Active 
+    = Inactive
+    | Active
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TaskDefinitionStatus where
@@ -138,8 +138,8 @@ instance FromJSON TaskDefinitionStatus where
     parseJSON = parseJSONText "TaskDefinitionStatus"
 
 data TransportProtocol
-    = Udp 
-    | TCP 
+    = Udp
+    | TCP
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TransportProtocol where

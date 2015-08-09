@@ -42,11 +42,11 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     , dsfirsActiveInstances
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetInstances.
 --
@@ -62,15 +62,15 @@ import Network.AWS.Response
 --
 -- * 'dsfiSpotFleetRequestId'
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-    { _dsfiNextToken :: !(Maybe Text)
-    , _dsfiDryRun :: !(Maybe Bool)
-    , _dsfiMaxResults :: !(Maybe Int)
+    { _dsfiNextToken          :: !(Maybe Text)
+    , _dsfiDryRun             :: !(Maybe Bool)
+    , _dsfiMaxResults         :: !(Maybe Int)
     , _dsfiSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetInstances' smart constructor.
 describeSpotFleetInstances :: Text -> DescribeSpotFleetInstances
-describeSpotFleetInstances pSpotFleetRequestId_ = 
+describeSpotFleetInstances pSpotFleetRequestId_ =
     DescribeSpotFleetInstances'
     { _dsfiNextToken = Nothing
     , _dsfiDryRun = Nothing
@@ -146,15 +146,15 @@ instance ToQuery DescribeSpotFleetInstances where
 --
 -- * 'dsfirsActiveInstances'
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
-    { _dsfirsNextToken :: !(Maybe Text)
-    , _dsfirsStatus :: !Int
+    { _dsfirsNextToken          :: !(Maybe Text)
+    , _dsfirsStatus             :: !Int
     , _dsfirsSpotFleetRequestId :: !Text
-    , _dsfirsActiveInstances :: ![ActiveInstance]
+    , _dsfirsActiveInstances    :: ![ActiveInstance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
 describeSpotFleetInstancesResponse :: Int -> Text -> DescribeSpotFleetInstancesResponse
-describeSpotFleetInstancesResponse pStatus_ pSpotFleetRequestId_ = 
+describeSpotFleetInstancesResponse pStatus_ pSpotFleetRequestId_ =
     DescribeSpotFleetInstancesResponse'
     { _dsfirsNextToken = Nothing
     , _dsfirsStatus = pStatus_

@@ -73,11 +73,11 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     , plhrsStatus
     ) where
 
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putLifecycleHook' smart constructor.
 --
@@ -99,19 +99,19 @@ import Network.AWS.Response
 --
 -- * 'plhAutoScalingGroupName'
 data PutLifecycleHook = PutLifecycleHook'
-    { _plhDefaultResult :: !(Maybe Text)
-    , _plhHeartbeatTimeout :: !(Maybe Int)
-    , _plhNotificationMetadata :: !(Maybe Text)
-    , _plhRoleARN :: !(Maybe Text)
-    , _plhLifecycleTransition :: !(Maybe Text)
+    { _plhDefaultResult         :: !(Maybe Text)
+    , _plhHeartbeatTimeout      :: !(Maybe Int)
+    , _plhNotificationMetadata  :: !(Maybe Text)
+    , _plhRoleARN               :: !(Maybe Text)
+    , _plhLifecycleTransition   :: !(Maybe Text)
     , _plhNotificationTargetARN :: !(Maybe Text)
-    , _plhLifecycleHookName :: !Text
-    , _plhAutoScalingGroupName :: !Text
+    , _plhLifecycleHookName     :: !Text
+    , _plhAutoScalingGroupName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLifecycleHook' smart constructor.
 putLifecycleHook :: Text -> Text -> PutLifecycleHook
-putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ = 
+putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
     PutLifecycleHook'
     { _plhDefaultResult = Nothing
     , _plhHeartbeatTimeout = Nothing
@@ -236,7 +236,7 @@ newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
 
 -- | 'PutLifecycleHookResponse' smart constructor.
 putLifecycleHookResponse :: Int -> PutLifecycleHookResponse
-putLifecycleHookResponse pStatus_ = 
+putLifecycleHookResponse pStatus_ =
     PutLifecycleHookResponse'
     { _plhrsStatus = pStatus_
     }

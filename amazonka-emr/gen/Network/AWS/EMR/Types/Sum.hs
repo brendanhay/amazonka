@@ -17,13 +17,13 @@
 --
 module Network.AWS.EMR.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data ActionOnFailure
-    = TerminateCluster 
-    | TerminateJobFlow 
-    | CancelAndWait 
-    | Continue 
+    = TerminateCluster
+    | TerminateJobFlow
+    | CancelAndWait
+    | Continue
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionOnFailure where
@@ -54,13 +54,13 @@ instance FromJSON ActionOnFailure where
     parseJSON = parseJSONText "ActionOnFailure"
 
 data ClusterState
-    = TerminatedWithErrors 
-    | Terminating 
-    | Starting 
-    | Running 
-    | Bootstrapping 
-    | Terminated 
-    | Waiting 
+    = TerminatedWithErrors
+    | Terminating
+    | Starting
+    | Running
+    | Bootstrapping
+    | Terminated
+    | Waiting
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClusterState where
@@ -97,13 +97,13 @@ instance FromJSON ClusterState where
     parseJSON = parseJSONText "ClusterState"
 
 data ClusterStateChangeReasonCode
-    = BootstrapFailure 
-    | StepFailure 
-    | AllStepsCompleted 
-    | UserRequest 
-    | ValidationError 
-    | InternalError 
-    | InstanceFailure 
+    = BootstrapFailure
+    | StepFailure
+    | AllStepsCompleted
+    | UserRequest
+    | ValidationError
+    | InternalError
+    | InstanceFailure
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClusterStateChangeReasonCode where
@@ -137,16 +137,16 @@ instance FromJSON ClusterStateChangeReasonCode where
     parseJSON = parseJSONText "ClusterStateChangeReasonCode"
 
 data InstanceGroupState
-    = IGSResizing 
-    | IGSTerminated 
-    | IGSEnded 
-    | IGSShuttingDown 
-    | IGSTerminating 
-    | IGSProvisioning 
-    | IGSBootstrapping 
-    | IGSArrested 
-    | IGSRunning 
-    | IGSSuspended 
+    = IGSResizing
+    | IGSTerminated
+    | IGSEnded
+    | IGSShuttingDown
+    | IGSTerminating
+    | IGSProvisioning
+    | IGSBootstrapping
+    | IGSArrested
+    | IGSRunning
+    | IGSSuspended
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceGroupState where
@@ -186,10 +186,10 @@ instance FromJSON InstanceGroupState where
     parseJSON = parseJSONText "InstanceGroupState"
 
 data InstanceGroupStateChangeReasonCode
-    = IGSCRCValidationError 
-    | IGSCRCInstanceFailure 
-    | IGSCRCInternalError 
-    | IGSCRCClusterTerminated 
+    = IGSCRCValidationError
+    | IGSCRCInstanceFailure
+    | IGSCRCInternalError
+    | IGSCRCClusterTerminated
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceGroupStateChangeReasonCode where
@@ -217,9 +217,9 @@ instance FromJSON InstanceGroupStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
 
 data InstanceGroupType
-    = IGTTask 
-    | IGTCore 
-    | IGTMaster 
+    = IGTTask
+    | IGTCore
+    | IGTMaster
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceGroupType where
@@ -248,9 +248,9 @@ instance FromJSON InstanceGroupType where
     parseJSON = parseJSONText "InstanceGroupType"
 
 data InstanceRoleType
-    = Master 
-    | Task 
-    | Core 
+    = Master
+    | Task
+    | Core
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceRoleType where
@@ -276,11 +276,11 @@ instance ToJSON InstanceRoleType where
     toJSON = toJSONText
 
 data InstanceState
-    = ISTerminated 
-    | ISAwaitingFulfillment 
-    | ISRunning 
-    | ISBootstrapping 
-    | ISProvisioning 
+    = ISTerminated
+    | ISAwaitingFulfillment
+    | ISRunning
+    | ISBootstrapping
+    | ISProvisioning
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceState where
@@ -310,11 +310,11 @@ instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
 
 data InstanceStateChangeReasonCode
-    = ISCRCBootstrapFailure 
-    | ISCRCValidationError 
-    | ISCRCInternalError 
-    | ISCRCClusterTerminated 
-    | ISCRCInstanceFailure 
+    = ISCRCBootstrapFailure
+    | ISCRCValidationError
+    | ISCRCInternalError
+    | ISCRCClusterTerminated
+    | ISCRCInstanceFailure
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceStateChangeReasonCode where
@@ -344,8 +344,8 @@ instance FromJSON InstanceStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceStateChangeReasonCode"
 
 data MarketType
-    = Spot 
-    | OnDemand 
+    = Spot
+    | OnDemand
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MarketType where
@@ -372,12 +372,12 @@ instance FromJSON MarketType where
     parseJSON = parseJSONText "MarketType"
 
 data StepState
-    = SSRunning 
-    | SSCompleted 
-    | SSFailed 
-    | SSCancelled 
-    | SSInterrupted 
-    | SSPending 
+    = SSRunning
+    | SSCompleted
+    | SSFailed
+    | SSCancelled
+    | SSInterrupted
+    | SSPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StepState where
@@ -412,7 +412,7 @@ instance FromJSON StepState where
     parseJSON = parseJSONText "StepState"
 
 data StepStateChangeReasonCode =
-    None 
+    None
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StepStateChangeReasonCode where

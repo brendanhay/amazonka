@@ -39,11 +39,11 @@ module Network.AWS.CloudSearch.IndexDocuments
     , idrsStatus
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @IndexDocuments@ operation.
 -- Specifies the name of the domain you want to re-index.
@@ -59,7 +59,7 @@ newtype IndexDocuments = IndexDocuments'
 
 -- | 'IndexDocuments' smart constructor.
 indexDocuments :: Text -> IndexDocuments
-indexDocuments pDomainName_ = 
+indexDocuments pDomainName_ =
     IndexDocuments'
     { _idDomainName = pDomainName_
     }
@@ -105,12 +105,12 @@ instance ToQuery IndexDocuments where
 -- * 'idrsStatus'
 data IndexDocumentsResponse = IndexDocumentsResponse'
     { _idrsFieldNames :: !(Maybe [Text])
-    , _idrsStatus :: !Int
+    , _idrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexDocumentsResponse' smart constructor.
 indexDocumentsResponse :: Int -> IndexDocumentsResponse
-indexDocumentsResponse pStatus_ = 
+indexDocumentsResponse pStatus_ =
     IndexDocumentsResponse'
     { _idrsFieldNames = Nothing
     , _idrsStatus = pStatus_

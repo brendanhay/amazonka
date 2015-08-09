@@ -49,11 +49,11 @@ module Network.AWS.EC2.CreateVPCEndpoint
     , cversStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createVPCEndpoint' smart constructor.
 --
@@ -72,16 +72,16 @@ import Network.AWS.Response
 -- * 'cveServiceName'
 data CreateVPCEndpoint = CreateVPCEndpoint'
     { _cvePolicyDocument :: !(Maybe Text)
-    , _cveClientToken :: !(Maybe Text)
-    , _cveDryRun :: !(Maybe Bool)
-    , _cveRouteTableIds :: !(Maybe [Text])
-    , _cveVPCId :: !Text
-    , _cveServiceName :: !Text
+    , _cveClientToken    :: !(Maybe Text)
+    , _cveDryRun         :: !(Maybe Bool)
+    , _cveRouteTableIds  :: !(Maybe [Text])
+    , _cveVPCId          :: !Text
+    , _cveServiceName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCEndpoint' smart constructor.
 createVPCEndpoint :: Text -> Text -> CreateVPCEndpoint
-createVPCEndpoint pVPCId_ pServiceName_ = 
+createVPCEndpoint pVPCId_ pServiceName_ =
     CreateVPCEndpoint'
     { _cvePolicyDocument = Nothing
     , _cveClientToken = Nothing
@@ -166,12 +166,12 @@ instance ToQuery CreateVPCEndpoint where
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cversClientToken :: !(Maybe Text)
     , _cversVPCEndpoint :: !(Maybe VPCEndpoint)
-    , _cversStatus :: !Int
+    , _cversStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCEndpointResponse' smart constructor.
 createVPCEndpointResponse :: Int -> CreateVPCEndpointResponse
-createVPCEndpointResponse pStatus_ = 
+createVPCEndpointResponse pStatus_ =
     CreateVPCEndpointResponse'
     { _cversClientToken = Nothing
     , _cversVPCEndpoint = Nothing

@@ -44,11 +44,11 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgrsStatus
     ) where
 
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of an update deployment group operation.
 --
@@ -72,19 +72,19 @@ import Network.AWS.Response
 --
 -- * 'udgCurrentDeploymentGroupName'
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
-    { _udgServiceRoleARN :: !(Maybe Text)
-    , _udgDeploymentConfigName :: !(Maybe Text)
-    , _udgEc2TagFilters :: !(Maybe [EC2TagFilter])
-    , _udgNewDeploymentGroupName :: !(Maybe Text)
+    { _udgServiceRoleARN               :: !(Maybe Text)
+    , _udgDeploymentConfigName         :: !(Maybe Text)
+    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _udgNewDeploymentGroupName       :: !(Maybe Text)
     , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _udgAutoScalingGroups :: !(Maybe [Text])
-    , _udgApplicationName :: !Text
-    , _udgCurrentDeploymentGroupName :: !Text
+    , _udgAutoScalingGroups            :: !(Maybe [Text])
+    , _udgApplicationName              :: !Text
+    , _udgCurrentDeploymentGroupName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDeploymentGroup' smart constructor.
 updateDeploymentGroup :: Text -> Text -> UpdateDeploymentGroup
-updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ = 
+updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     UpdateDeploymentGroup'
     { _udgServiceRoleARN = Nothing
     , _udgDeploymentConfigName = Nothing
@@ -186,12 +186,12 @@ instance ToQuery UpdateDeploymentGroup where
 -- * 'udgrsStatus'
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _udgrsStatus :: !Int
+    , _udgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
 updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse
-updateDeploymentGroupResponse pStatus_ = 
+updateDeploymentGroupResponse pStatus_ =
     UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp = Nothing
     , _udgrsStatus = pStatus_

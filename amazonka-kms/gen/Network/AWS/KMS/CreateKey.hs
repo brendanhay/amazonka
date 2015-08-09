@@ -43,11 +43,11 @@ module Network.AWS.KMS.CreateKey
     , ckrsStatus
     ) where
 
-import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createKey' smart constructor.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- * 'ckDescription'
 data CreateKey = CreateKey'
-    { _ckKeyUsage :: !(Maybe KeyUsageType)
-    , _ckPolicy :: !(Maybe Text)
+    { _ckKeyUsage    :: !(Maybe KeyUsageType)
+    , _ckPolicy      :: !(Maybe Text)
     , _ckDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKey' smart constructor.
 createKey :: CreateKey
-createKey = 
+createKey =
     CreateKey'
     { _ckKeyUsage = Nothing
     , _ckPolicy = Nothing
@@ -129,12 +129,12 @@ instance ToQuery CreateKey where
 -- * 'ckrsStatus'
 data CreateKeyResponse = CreateKeyResponse'
     { _ckrsKeyMetadata :: !(Maybe KeyMetadata)
-    , _ckrsStatus :: !Int
+    , _ckrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyResponse' smart constructor.
 createKeyResponse :: Int -> CreateKeyResponse
-createKeyResponse pStatus_ = 
+createKeyResponse pStatus_ =
     CreateKeyResponse'
     { _ckrsKeyMetadata = Nothing
     , _ckrsStatus = pStatus_

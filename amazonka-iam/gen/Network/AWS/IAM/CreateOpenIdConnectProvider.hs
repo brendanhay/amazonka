@@ -56,11 +56,11 @@ module Network.AWS.IAM.CreateOpenIdConnectProvider
     , coicprsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createOpenIdConnectProvider' smart constructor.
 --
@@ -72,14 +72,14 @@ import Network.AWS.Response
 --
 -- * 'coicpThumbprintList'
 data CreateOpenIdConnectProvider = CreateOpenIdConnectProvider'
-    { _coicpClientIdList :: !(Maybe [Text])
-    , _coicpURL :: !Text
+    { _coicpClientIdList   :: !(Maybe [Text])
+    , _coicpURL            :: !Text
     , _coicpThumbprintList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOpenIdConnectProvider' smart constructor.
 createOpenIdConnectProvider :: Text -> CreateOpenIdConnectProvider
-createOpenIdConnectProvider pURL_ = 
+createOpenIdConnectProvider pURL_ =
     CreateOpenIdConnectProvider'
     { _coicpClientIdList = Nothing
     , _coicpURL = pURL_
@@ -183,12 +183,12 @@ instance ToQuery CreateOpenIdConnectProvider where
 -- * 'coicprsStatus'
 data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
     { _coicprsOpenIdConnectProviderARN :: !(Maybe Text)
-    , _coicprsStatus :: !Int
+    , _coicprsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOpenIdConnectProviderResponse' smart constructor.
 createOpenIdConnectProviderResponse :: Int -> CreateOpenIdConnectProviderResponse
-createOpenIdConnectProviderResponse pStatus_ = 
+createOpenIdConnectProviderResponse pStatus_ =
     CreateOpenIdConnectProviderResponse'
     { _coicprsOpenIdConnectProviderARN = Nothing
     , _coicprsStatus = pStatus_

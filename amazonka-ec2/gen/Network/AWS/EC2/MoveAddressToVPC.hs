@@ -44,11 +44,11 @@ module Network.AWS.EC2.MoveAddressToVPC
     , matvrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'moveAddressToVPC' smart constructor.
 --
@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- * 'matvPublicIP'
 data MoveAddressToVPC = MoveAddressToVPC'
-    { _matvDryRun :: !(Maybe Bool)
+    { _matvDryRun   :: !(Maybe Bool)
     , _matvPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MoveAddressToVPC' smart constructor.
 moveAddressToVPC :: Text -> MoveAddressToVPC
-moveAddressToVPC pPublicIP_ = 
+moveAddressToVPC pPublicIP_ =
     MoveAddressToVPC'
     { _matvDryRun = Nothing
     , _matvPublicIP = pPublicIP_
@@ -113,12 +113,12 @@ instance ToQuery MoveAddressToVPC where
 -- * 'matvrsStatus'
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
     { _matvrsAllocationId :: !(Maybe Text)
-    , _matvrsStatus :: !Int
+    , _matvrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
 moveAddressToVPCResponse :: Int -> MoveAddressToVPCResponse
-moveAddressToVPCResponse pStatus_ = 
+moveAddressToVPCResponse pStatus_ =
     MoveAddressToVPCResponse'
     { _matvrsAllocationId = Nothing
     , _matvrsStatus = pStatus_

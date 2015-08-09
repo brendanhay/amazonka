@@ -45,11 +45,11 @@ module Network.AWS.CloudSearch.DescribeExpressions
     , drsExpressions
     ) where
 
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeDomains@ operation.
 -- Specifies the name of the domain you want to describe. To restrict the
@@ -67,14 +67,14 @@ import Network.AWS.Response
 --
 -- * 'deDomainName'
 data DescribeExpressions = DescribeExpressions'
-    { _deDeployed :: !(Maybe Bool)
+    { _deDeployed        :: !(Maybe Bool)
     , _deExpressionNames :: !(Maybe [Text])
-    , _deDomainName :: !Text
+    , _deDomainName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressions' smart constructor.
 describeExpressions :: Text -> DescribeExpressions
-describeExpressions pDomainName_ = 
+describeExpressions pDomainName_ =
     DescribeExpressions'
     { _deDeployed = Nothing
     , _deExpressionNames = Nothing
@@ -136,13 +136,13 @@ instance ToQuery DescribeExpressions where
 --
 -- * 'drsExpressions'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _drsStatus :: !Int
+    { _drsStatus      :: !Int
     , _drsExpressions :: ![ExpressionStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Int -> DescribeExpressionsResponse
-describeExpressionsResponse pStatus_ = 
+describeExpressionsResponse pStatus_ =
     DescribeExpressionsResponse'
     { _drsStatus = pStatus_
     , _drsExpressions = mempty

@@ -36,11 +36,11 @@ module Network.AWS.CloudFormation.DeleteStack
     , deleteStackResponse
     ) where
 
-import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The input for DeleteStack action.
 --
@@ -55,7 +55,7 @@ newtype DeleteStack = DeleteStack'
 
 -- | 'DeleteStack' smart constructor.
 deleteStack :: Text -> DeleteStack
-deleteStack pStackName_ = 
+deleteStack pStackName_ =
     DeleteStack'
     { _dsStackName = pStackName_
     }
@@ -85,7 +85,7 @@ instance ToQuery DeleteStack where
 
 -- | /See:/ 'deleteStackResponse' smart constructor.
 data DeleteStackResponse =
-    DeleteStackResponse' 
+    DeleteStackResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStackResponse' smart constructor.

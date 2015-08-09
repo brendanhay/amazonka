@@ -64,11 +64,11 @@ module Network.AWS.EC2.CreateRoute
     , crrsStatus
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createRoute' smart constructor.
 --
@@ -88,18 +88,18 @@ import Network.AWS.Response
 --
 -- * 'crDestinationCIdRBlock'
 data CreateRoute = CreateRoute'
-    { _crInstanceId :: !(Maybe Text)
+    { _crInstanceId             :: !(Maybe Text)
     , _crVPCPeeringConnectionId :: !(Maybe Text)
-    , _crNetworkInterfaceId :: !(Maybe Text)
-    , _crGatewayId :: !(Maybe Text)
-    , _crDryRun :: !(Maybe Bool)
-    , _crRouteTableId :: !Text
-    , _crDestinationCIdRBlock :: !Text
+    , _crNetworkInterfaceId     :: !(Maybe Text)
+    , _crGatewayId              :: !(Maybe Text)
+    , _crDryRun                 :: !(Maybe Bool)
+    , _crRouteTableId           :: !Text
+    , _crDestinationCIdRBlock   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRoute' smart constructor.
 createRoute :: Text -> Text -> CreateRoute
-createRoute pRouteTableId_ pDestinationCIdRBlock_ = 
+createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     CreateRoute'
     { _crInstanceId = Nothing
     , _crVPCPeeringConnectionId = Nothing
@@ -187,7 +187,7 @@ data CreateRouteResponse = CreateRouteResponse'
 
 -- | 'CreateRouteResponse' smart constructor.
 createRouteResponse :: Int -> CreateRouteResponse
-createRouteResponse pStatus_ = 
+createRouteResponse pStatus_ =
     CreateRouteResponse'
     { _crrsReturn = Nothing
     , _crrsStatus = pStatus_

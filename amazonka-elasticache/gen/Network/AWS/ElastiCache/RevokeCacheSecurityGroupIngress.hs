@@ -41,11 +41,11 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , rcsgirsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /RevokeCacheSecurityGroupIngress/ action.
 --
@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- * 'rcsgiEC2SecurityGroupOwnerId'
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
-    { _rcsgiCacheSecurityGroupName :: !Text
-    , _rcsgiEC2SecurityGroupName :: !Text
+    { _rcsgiCacheSecurityGroupName  :: !Text
+    , _rcsgiEC2SecurityGroupName    :: !Text
     , _rcsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeCacheSecurityGroupIngress' smart constructor.
 revokeCacheSecurityGroupIngress :: Text -> Text -> Text -> RevokeCacheSecurityGroupIngress
-revokeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ = 
+revokeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
     RevokeCacheSecurityGroupIngress'
     { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName_
     , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName_
@@ -129,12 +129,12 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 -- * 'rcsgirsStatus'
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _rcsgirsStatus :: !Int
+    , _rcsgirsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
 revokeCacheSecurityGroupIngressResponse :: Int -> RevokeCacheSecurityGroupIngressResponse
-revokeCacheSecurityGroupIngressResponse pStatus_ = 
+revokeCacheSecurityGroupIngressResponse pStatus_ =
     RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirsCacheSecurityGroup = Nothing
     , _rcsgirsStatus = pStatus_

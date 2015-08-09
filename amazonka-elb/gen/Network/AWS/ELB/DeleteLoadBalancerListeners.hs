@@ -37,11 +37,11 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     , dlblrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoadBalancerListeners' smart constructor.
 --
@@ -51,13 +51,13 @@ import Network.AWS.Response
 --
 -- * 'dlblLoadBalancerPorts'
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
-    { _dlblLoadBalancerName :: !Text
+    { _dlblLoadBalancerName  :: !Text
     , _dlblLoadBalancerPorts :: ![Int]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.
 deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
-deleteLoadBalancerListeners pLoadBalancerName_ = 
+deleteLoadBalancerListeners pLoadBalancerName_ =
     DeleteLoadBalancerListeners'
     { _dlblLoadBalancerName = pLoadBalancerName_
     , _dlblLoadBalancerPorts = mempty
@@ -110,7 +110,7 @@ newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersRespons
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
 deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse
-deleteLoadBalancerListenersResponse pStatus_ = 
+deleteLoadBalancerListenersResponse pStatus_ =
     DeleteLoadBalancerListenersResponse'
     { _dlblrsStatus = pStatus_
     }

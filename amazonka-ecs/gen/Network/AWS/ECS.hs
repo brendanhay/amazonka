@@ -29,10 +29,10 @@
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ECS
     (
-    -- * Service Description
+    -- * Service
       ECS
 
-    -- * Error Matchers
+    -- * Errors
     -- $errors
 
     -- ** InvalidParameterException
@@ -87,37 +87,37 @@ module Network.AWS.ECS
     , module Network.AWS.ECS.ListServices
     -- $pager
 
-    -- ** DescribeClusters 
+    -- ** DescribeClusters
     , module Network.AWS.ECS.DescribeClusters
 
-    -- ** DeleteService 
+    -- ** DeleteService
     , module Network.AWS.ECS.DeleteService
 
-    -- ** UpdateService 
+    -- ** UpdateService
     , module Network.AWS.ECS.UpdateService
 
-    -- ** DiscoverPollEndpoint 
+    -- ** DiscoverPollEndpoint
     , module Network.AWS.ECS.DiscoverPollEndpoint
 
-    -- ** SubmitContainerStateChange 
+    -- ** SubmitContainerStateChange
     , module Network.AWS.ECS.SubmitContainerStateChange
 
-    -- ** StopTask 
+    -- ** StopTask
     , module Network.AWS.ECS.StopTask
 
-    -- ** DescribeTaskDefinition 
+    -- ** DescribeTaskDefinition
     , module Network.AWS.ECS.DescribeTaskDefinition
 
-    -- ** SubmitTaskStateChange 
+    -- ** SubmitTaskStateChange
     , module Network.AWS.ECS.SubmitTaskStateChange
 
-    -- ** DescribeContainerInstances 
+    -- ** DescribeContainerInstances
     , module Network.AWS.ECS.DescribeContainerInstances
 
-    -- ** DeleteCluster 
+    -- ** DeleteCluster
     , module Network.AWS.ECS.DeleteCluster
 
-    -- ** CreateCluster 
+    -- ** CreateCluster
     , module Network.AWS.ECS.CreateCluster
 
     -- ** ListTaskDefinitions (Paginated)
@@ -128,46 +128,46 @@ module Network.AWS.ECS
     , module Network.AWS.ECS.ListTasks
     -- $pager
 
-    -- ** RunTask 
+    -- ** RunTask
     , module Network.AWS.ECS.RunTask
 
     -- ** ListContainerInstances (Paginated)
     , module Network.AWS.ECS.ListContainerInstances
     -- $pager
 
-    -- ** RegisterContainerInstance 
+    -- ** RegisterContainerInstance
     , module Network.AWS.ECS.RegisterContainerInstance
 
-    -- ** UpdateContainerAgent 
+    -- ** UpdateContainerAgent
     , module Network.AWS.ECS.UpdateContainerAgent
 
     -- ** ListTaskDefinitionFamilies (Paginated)
     , module Network.AWS.ECS.ListTaskDefinitionFamilies
     -- $pager
 
-    -- ** StartTask 
+    -- ** StartTask
     , module Network.AWS.ECS.StartTask
 
-    -- ** DeregisterTaskDefinition 
+    -- ** DeregisterTaskDefinition
     , module Network.AWS.ECS.DeregisterTaskDefinition
 
-    -- ** DescribeTasks 
+    -- ** DescribeTasks
     , module Network.AWS.ECS.DescribeTasks
 
     -- ** ListClusters (Paginated)
     , module Network.AWS.ECS.ListClusters
     -- $pager
 
-    -- ** DescribeServices 
+    -- ** DescribeServices
     , module Network.AWS.ECS.DescribeServices
 
-    -- ** DeregisterContainerInstance 
+    -- ** DeregisterContainerInstance
     , module Network.AWS.ECS.DeregisterContainerInstance
 
-    -- ** RegisterTaskDefinition 
+    -- ** RegisterTaskDefinition
     , module Network.AWS.ECS.RegisterTaskDefinition
 
-    -- ** CreateService 
+    -- ** CreateService
     , module Network.AWS.ECS.CreateService
 
     -- * Types
@@ -385,35 +385,35 @@ module Network.AWS.ECS
     , vfReadOnly
     ) where
 
-import Network.AWS.ECS.CreateCluster
-import Network.AWS.ECS.CreateService
-import Network.AWS.ECS.DeleteCluster
-import Network.AWS.ECS.DeleteService
-import Network.AWS.ECS.DeregisterContainerInstance
-import Network.AWS.ECS.DeregisterTaskDefinition
-import Network.AWS.ECS.DescribeClusters
-import Network.AWS.ECS.DescribeContainerInstances
-import Network.AWS.ECS.DescribeServices
-import Network.AWS.ECS.DescribeTaskDefinition
-import Network.AWS.ECS.DescribeTasks
-import Network.AWS.ECS.DiscoverPollEndpoint
-import Network.AWS.ECS.ListClusters
-import Network.AWS.ECS.ListContainerInstances
-import Network.AWS.ECS.ListServices
-import Network.AWS.ECS.ListTaskDefinitionFamilies
-import Network.AWS.ECS.ListTaskDefinitions
-import Network.AWS.ECS.ListTasks
-import Network.AWS.ECS.RegisterContainerInstance
-import Network.AWS.ECS.RegisterTaskDefinition
-import Network.AWS.ECS.RunTask
-import Network.AWS.ECS.StartTask
-import Network.AWS.ECS.StopTask
-import Network.AWS.ECS.SubmitContainerStateChange
-import Network.AWS.ECS.SubmitTaskStateChange
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.UpdateContainerAgent
-import Network.AWS.ECS.UpdateService
-import Network.AWS.ECS.Waiters
+import           Network.AWS.ECS.CreateCluster
+import           Network.AWS.ECS.CreateService
+import           Network.AWS.ECS.DeleteCluster
+import           Network.AWS.ECS.DeleteService
+import           Network.AWS.ECS.DeregisterContainerInstance
+import           Network.AWS.ECS.DeregisterTaskDefinition
+import           Network.AWS.ECS.DescribeClusters
+import           Network.AWS.ECS.DescribeContainerInstances
+import           Network.AWS.ECS.DescribeServices
+import           Network.AWS.ECS.DescribeTaskDefinition
+import           Network.AWS.ECS.DescribeTasks
+import           Network.AWS.ECS.DiscoverPollEndpoint
+import           Network.AWS.ECS.ListClusters
+import           Network.AWS.ECS.ListContainerInstances
+import           Network.AWS.ECS.ListServices
+import           Network.AWS.ECS.ListTaskDefinitionFamilies
+import           Network.AWS.ECS.ListTaskDefinitions
+import           Network.AWS.ECS.ListTasks
+import           Network.AWS.ECS.RegisterContainerInstance
+import           Network.AWS.ECS.RegisterTaskDefinition
+import           Network.AWS.ECS.RunTask
+import           Network.AWS.ECS.StartTask
+import           Network.AWS.ECS.StopTask
+import           Network.AWS.ECS.SubmitContainerStateChange
+import           Network.AWS.ECS.SubmitTaskStateChange
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.UpdateContainerAgent
+import           Network.AWS.ECS.UpdateService
+import           Network.AWS.ECS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

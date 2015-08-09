@@ -40,15 +40,15 @@ module Network.AWS.IAM.GetAccountSummary
     , gasrsStatus
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getAccountSummary' smart constructor.
 data GetAccountSummary =
-    GetAccountSummary' 
+    GetAccountSummary'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountSummary' smart constructor.
@@ -91,12 +91,12 @@ instance ToQuery GetAccountSummary where
 -- * 'gasrsStatus'
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
     { _gasrsSummaryMap :: !(Maybe (Map SummaryKeyType Int))
-    , _gasrsStatus :: !Int
+    , _gasrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: Int -> GetAccountSummaryResponse
-getAccountSummaryResponse pStatus_ = 
+getAccountSummaryResponse pStatus_ =
     GetAccountSummaryResponse'
     { _gasrsSummaryMap = Nothing
     , _gasrsStatus = pStatus_

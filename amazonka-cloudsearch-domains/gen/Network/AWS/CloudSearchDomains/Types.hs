@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,10 +13,10 @@
 --
 module Network.AWS.CloudSearchDomains.Types
     (
-    -- * Service Decription
+    -- * Service
       CloudSearchDomains
 
-    -- * Error Matchers
+    -- * Errors
     , _DocumentServiceException
     , _SearchException
 
@@ -85,10 +85,10 @@ module Network.AWS.CloudSearchDomains.Types
     , smId
     ) where
 
-import Network.AWS.CloudSearchDomains.Types.Product
-import Network.AWS.CloudSearchDomains.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.CloudSearchDomains.Types.Product
+import           Network.AWS.CloudSearchDomains.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | Version @2013-01-01@ of the Amazon CloudSearch Domain SDK.
 data CloudSearchDomains
@@ -97,7 +97,7 @@ instance AWSService CloudSearchDomains where
     type Sg CloudSearchDomains = V4
     service = const svc
       where
-        svc = 
+        svc =
             Service
             { _svcAbbrev = "CloudSearchDomains"
             , _svcPrefix = "cloudsearchdomain"
@@ -108,7 +108,7 @@ instance AWSService CloudSearchDomains where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry = 
+        retry =
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -116,7 +116,7 @@ instance AWSService CloudSearchDomains where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"

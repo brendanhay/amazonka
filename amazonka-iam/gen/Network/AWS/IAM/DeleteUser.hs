@@ -35,11 +35,11 @@ module Network.AWS.IAM.DeleteUser
     , deleteUserResponse
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteUser' smart constructor.
 --
@@ -52,7 +52,7 @@ newtype DeleteUser = DeleteUser'
 
 -- | 'DeleteUser' smart constructor.
 deleteUser :: Text -> DeleteUser
-deleteUser pUserName_ = 
+deleteUser pUserName_ =
     DeleteUser'
     { _duUserName = pUserName_
     }
@@ -82,7 +82,7 @@ instance ToQuery DeleteUser where
 
 -- | /See:/ 'deleteUserResponse' smart constructor.
 data DeleteUserResponse =
-    DeleteUserResponse' 
+    DeleteUserResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserResponse' smart constructor.

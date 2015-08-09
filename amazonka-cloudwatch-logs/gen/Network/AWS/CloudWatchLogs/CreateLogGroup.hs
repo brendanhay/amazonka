@@ -42,11 +42,11 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
     , createLogGroupResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLogGroup' smart constructor.
 --
@@ -59,7 +59,7 @@ newtype CreateLogGroup = CreateLogGroup'
 
 -- | 'CreateLogGroup' smart constructor.
 createLogGroup :: Text -> CreateLogGroup
-createLogGroup pLogGroupName_ = 
+createLogGroup pLogGroupName_ =
     CreateLogGroup'
     { _clgLogGroupName = pLogGroupName_
     }
@@ -95,7 +95,7 @@ instance ToQuery CreateLogGroup where
 
 -- | /See:/ 'createLogGroupResponse' smart constructor.
 data CreateLogGroupResponse =
-    CreateLogGroupResponse' 
+    CreateLogGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogGroupResponse' smart constructor.

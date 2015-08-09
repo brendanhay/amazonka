@@ -56,11 +56,11 @@ module Network.AWS.ELB.CreateLoadBalancer
     , clbrsStatus
     ) where
 
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancer' smart constructor.
 --
@@ -80,18 +80,18 @@ import Network.AWS.Response
 --
 -- * 'clbListeners'
 data CreateLoadBalancer = CreateLoadBalancer'
-    { _clbSecurityGroups :: !(Maybe [Text])
-    , _clbSubnets :: !(Maybe [Text])
+    { _clbSecurityGroups    :: !(Maybe [Text])
+    , _clbSubnets           :: !(Maybe [Text])
     , _clbAvailabilityZones :: !(Maybe [Text])
-    , _clbScheme :: !(Maybe Text)
-    , _clbTags :: !(Maybe (List1 Tag))
-    , _clbLoadBalancerName :: !Text
-    , _clbListeners :: ![Listener]
+    , _clbScheme            :: !(Maybe Text)
+    , _clbTags              :: !(Maybe (List1 Tag))
+    , _clbLoadBalancerName  :: !Text
+    , _clbListeners         :: ![Listener]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancer' smart constructor.
 createLoadBalancer :: Text -> CreateLoadBalancer
-createLoadBalancer pLoadBalancerName_ = 
+createLoadBalancer pLoadBalancerName_ =
     CreateLoadBalancer'
     { _clbSecurityGroups = Nothing
     , _clbSubnets = Nothing
@@ -206,12 +206,12 @@ instance ToQuery CreateLoadBalancer where
 -- * 'clbrsStatus'
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrsDNSName :: !(Maybe Text)
-    , _clbrsStatus :: !Int
+    , _clbrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerResponse' smart constructor.
 createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse
-createLoadBalancerResponse pStatus_ = 
+createLoadBalancerResponse pStatus_ =
     CreateLoadBalancerResponse'
     { _clbrsDNSName = Nothing
     , _clbrsStatus = pStatus_

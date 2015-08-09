@@ -39,11 +39,11 @@ module Network.AWS.DeviceFarm.ListSuites
     , lrsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the list suites operation.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 -- * 'lArn'
 data ListSuites = ListSuites'
     { _lNextToken :: !(Maybe Text)
-    , _lArn :: !Text
+    , _lArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSuites' smart constructor.
 listSuites :: Text -> ListSuites
-listSuites pArn_ = 
+listSuites pArn_ =
     ListSuites'
     { _lNextToken = Nothing
     , _lArn = pArn_
@@ -120,13 +120,13 @@ instance ToQuery ListSuites where
 -- * 'lrsStatus'
 data ListSuitesResponse = ListSuitesResponse'
     { _lrsNextToken :: !(Maybe Text)
-    , _lrsSuites :: !(Maybe [Suite])
-    , _lrsStatus :: !Int
+    , _lrsSuites    :: !(Maybe [Suite])
+    , _lrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSuitesResponse' smart constructor.
 listSuitesResponse :: Int -> ListSuitesResponse
-listSuitesResponse pStatus_ = 
+listSuitesResponse pStatus_ =
     ListSuitesResponse'
     { _lrsNextToken = Nothing
     , _lrsSuites = Nothing

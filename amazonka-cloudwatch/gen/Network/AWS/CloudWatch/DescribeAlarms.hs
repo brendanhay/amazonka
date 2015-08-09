@@ -46,12 +46,12 @@ module Network.AWS.CloudWatch.DescribeAlarms
     , darsStatus
     ) where
 
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarms' smart constructor.
 --
@@ -70,16 +70,16 @@ import Network.AWS.Response
 -- * 'daMaxRecords'
 data DescribeAlarms = DescribeAlarms'
     { _daAlarmNamePrefix :: !(Maybe Text)
-    , _daActionPrefix :: !(Maybe Text)
-    , _daNextToken :: !(Maybe Text)
-    , _daStateValue :: !(Maybe StateValue)
-    , _daAlarmNames :: !(Maybe [Text])
-    , _daMaxRecords :: !(Maybe Nat)
+    , _daActionPrefix    :: !(Maybe Text)
+    , _daNextToken       :: !(Maybe Text)
+    , _daStateValue      :: !(Maybe StateValue)
+    , _daAlarmNames      :: !(Maybe [Text])
+    , _daMaxRecords      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarms' smart constructor.
 describeAlarms :: DescribeAlarms
-describeAlarms = 
+describeAlarms =
     DescribeAlarms'
     { _daAlarmNamePrefix = Nothing
     , _daActionPrefix = Nothing
@@ -167,13 +167,13 @@ instance ToQuery DescribeAlarms where
 -- * 'darsStatus'
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
     { _darsMetricAlarms :: !(Maybe [MetricAlarm])
-    , _darsNextToken :: !(Maybe Text)
-    , _darsStatus :: !Int
+    , _darsNextToken    :: !(Maybe Text)
+    , _darsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
 describeAlarmsResponse :: Int -> DescribeAlarmsResponse
-describeAlarmsResponse pStatus_ = 
+describeAlarmsResponse pStatus_ =
     DescribeAlarmsResponse'
     { _darsMetricAlarms = Nothing
     , _darsNextToken = Nothing

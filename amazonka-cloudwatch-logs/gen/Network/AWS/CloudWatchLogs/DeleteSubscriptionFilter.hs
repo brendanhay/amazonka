@@ -35,11 +35,11 @@ module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
     , deleteSubscriptionFilterResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteSubscriptionFilter' smart constructor.
 --
@@ -50,12 +50,12 @@ import Network.AWS.Response
 -- * 'dFilterName'
 data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
     { _dLogGroupName :: !Text
-    , _dFilterName :: !Text
+    , _dFilterName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubscriptionFilter' smart constructor.
 deleteSubscriptionFilter :: Text -> Text -> DeleteSubscriptionFilter
-deleteSubscriptionFilter pLogGroupName_ pFilterName_ = 
+deleteSubscriptionFilter pLogGroupName_ pFilterName_ =
     DeleteSubscriptionFilter'
     { _dLogGroupName = pLogGroupName_
     , _dFilterName = pFilterName_
@@ -102,7 +102,7 @@ instance ToQuery DeleteSubscriptionFilter where
 
 -- | /See:/ 'deleteSubscriptionFilterResponse' smart constructor.
 data DeleteSubscriptionFilterResponse =
-    DeleteSubscriptionFilterResponse' 
+    DeleteSubscriptionFilterResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubscriptionFilterResponse' smart constructor.

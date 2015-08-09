@@ -63,11 +63,11 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     , authorizeSecurityGroupEgressResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'authorizeSecurityGroupEgress' smart constructor.
 --
@@ -91,20 +91,20 @@ import Network.AWS.Response
 --
 -- * 'asgeGroupId'
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
-    { _asgeFromPort :: !(Maybe Int)
-    , _asgeIPPermissions :: !(Maybe [IPPermission])
-    , _asgeIPProtocol :: !(Maybe Text)
-    , _asgeToPort :: !(Maybe Int)
-    , _asgeCIdRIP :: !(Maybe Text)
+    { _asgeFromPort                   :: !(Maybe Int)
+    , _asgeIPPermissions              :: !(Maybe [IPPermission])
+    , _asgeIPProtocol                 :: !(Maybe Text)
+    , _asgeToPort                     :: !(Maybe Int)
+    , _asgeCIdRIP                     :: !(Maybe Text)
     , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _asgeSourceSecurityGroupName :: !(Maybe Text)
-    , _asgeDryRun :: !(Maybe Bool)
-    , _asgeGroupId :: !Text
+    , _asgeSourceSecurityGroupName    :: !(Maybe Text)
+    , _asgeDryRun                     :: !(Maybe Bool)
+    , _asgeGroupId                    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupEgress' smart constructor.
 authorizeSecurityGroupEgress :: Text -> AuthorizeSecurityGroupEgress
-authorizeSecurityGroupEgress pGroupId_ = 
+authorizeSecurityGroupEgress pGroupId_ =
     AuthorizeSecurityGroupEgress'
     { _asgeFromPort = Nothing
     , _asgeIPPermissions = Nothing
@@ -200,7 +200,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
 
 -- | /See:/ 'authorizeSecurityGroupEgressResponse' smart constructor.
 data AuthorizeSecurityGroupEgressResponse =
-    AuthorizeSecurityGroupEgressResponse' 
+    AuthorizeSecurityGroupEgressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupEgressResponse' smart constructor.

@@ -42,11 +42,11 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     , crsStatus
     ) where
 
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheSubnetGroup/ action.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- * 'ccsgSubnetIds'
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
-    { _ccsgCacheSubnetGroupName :: !Text
+    { _ccsgCacheSubnetGroupName        :: !Text
     , _ccsgCacheSubnetGroupDescription :: !Text
-    , _ccsgSubnetIds :: ![Text]
+    , _ccsgSubnetIds                   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSubnetGroup' smart constructor.
 createCacheSubnetGroup :: Text -> Text -> CreateCacheSubnetGroup
-createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ = 
+createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
     CreateCacheSubnetGroup'
     { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName_
     , _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
@@ -130,12 +130,12 @@ instance ToQuery CreateCacheSubnetGroup where
 -- * 'crsStatus'
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
     { _crsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _crsStatus :: !Int
+    , _crsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
 createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse
-createCacheSubnetGroupResponse pStatus_ = 
+createCacheSubnetGroupResponse pStatus_ =
     CreateCacheSubnetGroupResponse'
     { _crsCacheSubnetGroup = Nothing
     , _crsStatus = pStatus_

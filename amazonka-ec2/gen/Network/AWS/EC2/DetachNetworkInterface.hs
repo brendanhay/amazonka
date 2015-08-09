@@ -36,11 +36,11 @@ module Network.AWS.EC2.DetachNetworkInterface
     , detachNetworkInterfaceResponse
     ) where
 
-import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'detachNetworkInterface' smart constructor.
 --
@@ -52,14 +52,14 @@ import Network.AWS.Response
 --
 -- * 'dniAttachmentId'
 data DetachNetworkInterface = DetachNetworkInterface'
-    { _dniForce :: !(Maybe Bool)
-    , _dniDryRun :: !(Maybe Bool)
+    { _dniForce        :: !(Maybe Bool)
+    , _dniDryRun       :: !(Maybe Bool)
     , _dniAttachmentId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachNetworkInterface' smart constructor.
 detachNetworkInterface :: Text -> DetachNetworkInterface
-detachNetworkInterface pAttachmentId_ = 
+detachNetworkInterface pAttachmentId_ =
     DetachNetworkInterface'
     { _dniForce = Nothing
     , _dniDryRun = Nothing
@@ -106,7 +106,7 @@ instance ToQuery DetachNetworkInterface where
 
 -- | /See:/ 'detachNetworkInterfaceResponse' smart constructor.
 data DetachNetworkInterfaceResponse =
-    DetachNetworkInterfaceResponse' 
+    DetachNetworkInterfaceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachNetworkInterfaceResponse' smart constructor.

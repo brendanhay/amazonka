@@ -40,11 +40,11 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     , gdpcrsStatus
     ) where
 
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.DeviceFarm.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a request to the get device pool compatibility operation.
 --
@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- * 'gdpcAppARN'
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-    { _gdpcTestType :: !(Maybe TestType)
+    { _gdpcTestType      :: !(Maybe TestType)
     , _gdpcDevicePoolARN :: !Text
-    , _gdpcAppARN :: !Text
+    , _gdpcAppARN        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePoolCompatibility' smart constructor.
 getDevicePoolCompatibility :: Text -> Text -> GetDevicePoolCompatibility
-getDevicePoolCompatibility pDevicePoolARN_ pAppARN_ = 
+getDevicePoolCompatibility pDevicePoolARN_ pAppARN_ =
     GetDevicePoolCompatibility'
     { _gdpcTestType = Nothing
     , _gdpcDevicePoolARN = pDevicePoolARN_
@@ -156,13 +156,13 @@ instance ToQuery GetDevicePoolCompatibility where
 -- * 'gdpcrsStatus'
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
     { _gdpcrsIncompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
-    , _gdpcrsCompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
-    , _gdpcrsStatus :: !Int
+    , _gdpcrsCompatibleDevices   :: !(Maybe [DevicePoolCompatibilityResult])
+    , _gdpcrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePoolCompatibilityResponse' smart constructor.
 getDevicePoolCompatibilityResponse :: Int -> GetDevicePoolCompatibilityResponse
-getDevicePoolCompatibilityResponse pStatus_ = 
+getDevicePoolCompatibilityResponse pStatus_ =
     GetDevicePoolCompatibilityResponse'
     { _gdpcrsIncompatibleDevices = Nothing
     , _gdpcrsCompatibleDevices = Nothing

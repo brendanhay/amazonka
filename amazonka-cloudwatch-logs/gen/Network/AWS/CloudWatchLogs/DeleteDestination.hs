@@ -36,11 +36,11 @@ module Network.AWS.CloudWatchLogs.DeleteDestination
     , deleteDestinationResponse
     ) where
 
-import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteDestination' smart constructor.
 --
@@ -53,7 +53,7 @@ newtype DeleteDestination = DeleteDestination'
 
 -- | 'DeleteDestination' smart constructor.
 deleteDestination :: Text -> DeleteDestination
-deleteDestination pDestinationName_ = 
+deleteDestination pDestinationName_ =
     DeleteDestination'
     { _ddDestinationName = pDestinationName_
     }
@@ -89,7 +89,7 @@ instance ToQuery DeleteDestination where
 
 -- | /See:/ 'deleteDestinationResponse' smart constructor.
 data DeleteDestinationResponse =
-    DeleteDestinationResponse' 
+    DeleteDestinationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDestinationResponse' smart constructor.

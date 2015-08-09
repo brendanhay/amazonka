@@ -50,11 +50,11 @@ module Network.AWS.IAM.GetGroupPolicy
     , ggprsPolicyDocument
     ) where
 
-import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getGroupPolicy' smart constructor.
 --
@@ -64,13 +64,13 @@ import Network.AWS.Response
 --
 -- * 'ggpPolicyName'
 data GetGroupPolicy = GetGroupPolicy'
-    { _ggpGroupName :: !Text
+    { _ggpGroupName  :: !Text
     , _ggpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupPolicy' smart constructor.
 getGroupPolicy :: Text -> Text -> GetGroupPolicy
-getGroupPolicy pGroupName_ pPolicyName_ = 
+getGroupPolicy pGroupName_ pPolicyName_ =
     GetGroupPolicy'
     { _ggpGroupName = pGroupName_
     , _ggpPolicyName = pPolicyName_
@@ -124,15 +124,15 @@ instance ToQuery GetGroupPolicy where
 --
 -- * 'ggprsPolicyDocument'
 data GetGroupPolicyResponse = GetGroupPolicyResponse'
-    { _ggprsStatus :: !Int
-    , _ggprsGroupName :: !Text
-    , _ggprsPolicyName :: !Text
+    { _ggprsStatus         :: !Int
+    , _ggprsGroupName      :: !Text
+    , _ggprsPolicyName     :: !Text
     , _ggprsPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
 getGroupPolicyResponse :: Int -> Text -> Text -> Text -> GetGroupPolicyResponse
-getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ = 
+getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
     GetGroupPolicyResponse'
     { _ggprsStatus = pStatus_
     , _ggprsGroupName = pGroupName_

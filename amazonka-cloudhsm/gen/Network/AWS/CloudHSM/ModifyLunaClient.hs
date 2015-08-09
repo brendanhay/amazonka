@@ -41,11 +41,11 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     , mlcrsStatus
     ) where
 
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'modifyLunaClient' smart constructor.
 --
@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- * 'mlcCertificate'
 data ModifyLunaClient = ModifyLunaClient'
-    { _mlcClientARN :: !Text
+    { _mlcClientARN   :: !Text
     , _mlcCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLunaClient' smart constructor.
 modifyLunaClient :: Text -> Text -> ModifyLunaClient
-modifyLunaClient pClientARN_ pCertificate_ = 
+modifyLunaClient pClientARN_ pCertificate_ =
     ModifyLunaClient'
     { _mlcClientARN = pClientARN_
     , _mlcCertificate = pCertificate_
@@ -116,12 +116,12 @@ instance ToQuery ModifyLunaClient where
 -- * 'mlcrsStatus'
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
     { _mlcrsClientARN :: !(Maybe Text)
-    , _mlcrsStatus :: !Int
+    , _mlcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLunaClientResponse' smart constructor.
 modifyLunaClientResponse :: Int -> ModifyLunaClientResponse
-modifyLunaClientResponse pStatus_ = 
+modifyLunaClientResponse pStatus_ =
     ModifyLunaClientResponse'
     { _mlcrsClientARN = Nothing
     , _mlcrsStatus = pStatus_

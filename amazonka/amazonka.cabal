@@ -40,6 +40,8 @@ description:
     'Control.Monad.Trans.Free' interpretation. To this end, properly lifted
     metadata and presigning functions are provided by each for use with
     'Control.Monad.Trans.AWS.AWST' and 'Network.AWS.AWS'.
+    .
+    GHC 7.8.4 and higher is officially supported.
 
 source-repository head
     type:     git

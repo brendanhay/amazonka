@@ -39,7 +39,9 @@ import           Prelude
 
 -- | This is a primitive logger which can be used to log messages to a 'Handle'.
 --
--- /Note/: A more sophisticated logging library such as tinylog or FastLogger
+-- /Note:/ A more sophisticated logging library such as
+-- <http://hackage.haskell.org/package/tinylog tinylog> or
+-- <http://hackage.haskell.org/package/FastLogger fast-logger>
 -- should be used in production code.
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd = liftIO $ do

@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Help
-    ( Help (..)
+    ( Help (Raw)
     , Desc (..)
     ) where
 
@@ -56,7 +56,15 @@ instance FromJSON Help where
             . Text.unpack
 
 instance ToJSON Help where
-    toJSON = toJSON . mappend "-- |" . Text.drop 2 . wrap "-- " . flatten
+    toJSON = toJSON
+        . mappend "-- |"
+        . Text.map f
+        . Text.drop 2
+        . wrap "-- "
+        . flatten
+      where
+        f '@' = '\''
+        f  x  = x
 
 data Desc = Desc !Int Help
 

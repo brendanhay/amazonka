@@ -320,10 +320,12 @@ example = do
 -}
 
 {- $discovery
-When retrieving authentication credentials from an underlying EC2 instance using
-'FromProfile' or 'Discover', a thread is forked which transparently handles the
-expiry and subsequent refresh of IAM profile information.
-See 'Network.AWS.Auth.fromProfileName' for more information.
+AuthN/AuthZ information is handled similarly to other AWS SDKs. You can read
+some of the options available <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs here>.
+
+When running on an EC2 instance and using 'FromProfile' or 'Discover', a thread
+is forked which transparently handles the expiry and subsequent refresh of IAM
+profile information. See 'Network.AWS.Auth.fromProfileName' for more information.
 -}
 
 {- $sending

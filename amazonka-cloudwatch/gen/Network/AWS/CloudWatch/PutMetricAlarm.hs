@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -54,10 +55,11 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     , putMetricAlarmResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putMetricAlarm' smart constructor.
 --
@@ -93,26 +95,26 @@ import           Network.AWS.Response
 --
 -- * 'pmaComparisonOperator'
 data PutMetricAlarm = PutMetricAlarm'
-    { _pmaAlarmDescription        :: !(Maybe Text)
-    , _pmaOKActions               :: !(Maybe [Text])
-    , _pmaActionsEnabled          :: !(Maybe Bool)
+    { _pmaAlarmDescription :: !(Maybe Text)
+    , _pmaOKActions :: !(Maybe [Text])
+    , _pmaActionsEnabled :: !(Maybe Bool)
     , _pmaInsufficientDataActions :: !(Maybe [Text])
-    , _pmaDimensions              :: !(Maybe [Dimension])
-    , _pmaAlarmActions            :: !(Maybe [Text])
-    , _pmaUnit                    :: !(Maybe StandardUnit)
-    , _pmaAlarmName               :: !Text
-    , _pmaMetricName              :: !Text
-    , _pmaNamespace               :: !Text
-    , _pmaStatistic               :: !Statistic
-    , _pmaPeriod                  :: !Nat
-    , _pmaEvaluationPeriods       :: !Nat
-    , _pmaThreshold               :: !Double
-    , _pmaComparisonOperator      :: !ComparisonOperator
+    , _pmaDimensions :: !(Maybe [Dimension])
+    , _pmaAlarmActions :: !(Maybe [Text])
+    , _pmaUnit :: !(Maybe StandardUnit)
+    , _pmaAlarmName :: !Text
+    , _pmaMetricName :: !Text
+    , _pmaNamespace :: !Text
+    , _pmaStatistic :: !Statistic
+    , _pmaPeriod :: !Nat
+    , _pmaEvaluationPeriods :: !Nat
+    , _pmaThreshold :: !Double
+    , _pmaComparisonOperator :: !ComparisonOperator
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricAlarm' smart constructor.
 putMetricAlarm :: Text -> Text -> Text -> Statistic -> Natural -> Natural -> Double -> ComparisonOperator -> PutMetricAlarm
-putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pStatistic_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ =
+putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pStatistic_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ = 
     PutMetricAlarm'
     { _pmaAlarmDescription = Nothing
     , _pmaOKActions = Nothing
@@ -244,7 +246,7 @@ instance ToQuery PutMetricAlarm where
 
 -- | /See:/ 'putMetricAlarmResponse' smart constructor.
 data PutMetricAlarmResponse =
-    PutMetricAlarmResponse'
+    PutMetricAlarmResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricAlarmResponse' smart constructor.

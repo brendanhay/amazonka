@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     , dsfrsStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSubscriptionFilters' smart constructor.
 --
@@ -65,14 +67,14 @@ import           Network.AWS.Response
 -- * 'dsfLogGroupName'
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
     { _dsfFilterNamePrefix :: !(Maybe Text)
-    , _dsfNextToken        :: !(Maybe Text)
-    , _dsfLimit            :: !(Maybe Nat)
-    , _dsfLogGroupName     :: !Text
+    , _dsfNextToken :: !(Maybe Text)
+    , _dsfLimit :: !(Maybe Nat)
+    , _dsfLogGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubscriptionFilters' smart constructor.
 describeSubscriptionFilters :: Text -> DescribeSubscriptionFilters
-describeSubscriptionFilters pLogGroupName_ =
+describeSubscriptionFilters pLogGroupName_ = 
     DescribeSubscriptionFilters'
     { _dsfFilterNamePrefix = Nothing
     , _dsfNextToken = Nothing
@@ -145,13 +147,13 @@ instance ToQuery DescribeSubscriptionFilters where
 -- * 'dsfrsStatus'
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
     { _dsfrsSubscriptionFilters :: !(Maybe [SubscriptionFilter])
-    , _dsfrsNextToken           :: !(Maybe Text)
-    , _dsfrsStatus              :: !Int
+    , _dsfrsNextToken :: !(Maybe Text)
+    , _dsfrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
 describeSubscriptionFiltersResponse :: Int -> DescribeSubscriptionFiltersResponse
-describeSubscriptionFiltersResponse pStatus_ =
+describeSubscriptionFiltersResponse pStatus_ = 
     DescribeSubscriptionFiltersResponse'
     { _dsfrsSubscriptionFilters = Nothing
     , _dsfrsNextToken = Nothing

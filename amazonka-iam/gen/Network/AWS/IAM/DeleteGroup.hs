@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.IAM.DeleteGroup
     , deleteGroupResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteGroup' smart constructor.
 --
@@ -50,7 +52,7 @@ newtype DeleteGroup = DeleteGroup'
 
 -- | 'DeleteGroup' smart constructor.
 deleteGroup :: Text -> DeleteGroup
-deleteGroup pGroupName_ =
+deleteGroup pGroupName_ = 
     DeleteGroup'
     { _dgGroupName = pGroupName_
     }
@@ -80,7 +82,7 @@ instance ToQuery DeleteGroup where
 
 -- | /See:/ 'deleteGroupResponse' smart constructor.
 data DeleteGroupResponse =
-    DeleteGroupResponse'
+    DeleteGroupResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroupResponse' smart constructor.

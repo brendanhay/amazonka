@@ -18,8 +18,8 @@
 --
 module Network.AWS.DataPipeline.Types.Product where
 
-import           Network.AWS.DataPipeline.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.DataPipeline.Types.Sum
+import Network.AWS.Prelude
 
 -- | A key-value pair that describes a property of a pipeline object. The
 -- value is specified as either a string value (@StringValue@) or a
@@ -35,14 +35,14 @@ import           Network.AWS.Prelude
 --
 -- * 'fKey'
 data Field = Field'
-    { _fRefValue    :: !(Maybe Text)
+    { _fRefValue :: !(Maybe Text)
     , _fStringValue :: !(Maybe Text)
-    , _fKey         :: !Text
+    , _fKey :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Field' smart constructor.
 field :: Text -> Field
-field pKey_ =
+field pKey_ = 
     Field'
     { _fRefValue = Nothing
     , _fStringValue = Nothing
@@ -93,12 +93,12 @@ instance ToJSON Field where
 -- * 'iiDocument'
 data InstanceIdentity = InstanceIdentity'
     { _iiSignature :: !(Maybe Text)
-    , _iiDocument  :: !(Maybe Text)
+    , _iiDocument :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceIdentity' smart constructor.
 instanceIdentity :: InstanceIdentity
-instanceIdentity =
+instanceIdentity = 
     InstanceIdentity'
     { _iiSignature = Nothing
     , _iiDocument = Nothing
@@ -133,12 +133,12 @@ instance ToJSON InstanceIdentity where
 -- * 'oType'
 data Operator = Operator'
     { _oValues :: !(Maybe [Text])
-    , _oType   :: !(Maybe OperatorType)
+    , _oType :: !(Maybe OperatorType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Operator' smart constructor.
 operator :: Operator
-operator =
+operator = 
     Operator'
     { _oValues = Nothing
     , _oType = Nothing
@@ -198,13 +198,13 @@ instance ToJSON Operator where
 --
 -- * 'paStringValue'
 data ParameterAttribute = ParameterAttribute'
-    { _paKey         :: !Text
+    { _paKey :: !Text
     , _paStringValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterAttribute' smart constructor.
 parameterAttribute :: Text -> Text -> ParameterAttribute
-parameterAttribute pKey_ pStringValue_ =
+parameterAttribute pKey_ pStringValue_ = 
     ParameterAttribute'
     { _paKey = pKey_
     , _paStringValue = pStringValue_
@@ -240,13 +240,13 @@ instance ToJSON ParameterAttribute where
 --
 -- * 'poAttributes'
 data ParameterObject = ParameterObject'
-    { _poId         :: !Text
+    { _poId :: !Text
     , _poAttributes :: ![ParameterAttribute]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterObject' smart constructor.
 parameterObject :: Text -> ParameterObject
-parameterObject pId_ =
+parameterObject pId_ = 
     ParameterObject'
     { _poId = pId_
     , _poAttributes = mempty
@@ -282,13 +282,13 @@ instance ToJSON ParameterObject where
 --
 -- * 'pvStringValue'
 data ParameterValue = ParameterValue'
-    { _pvId          :: !Text
+    { _pvId :: !Text
     , _pvStringValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterValue' smart constructor.
 parameterValue :: Text -> Text -> ParameterValue
-parameterValue pId_ pStringValue_ =
+parameterValue pId_ pStringValue_ = 
     ParameterValue'
     { _pvId = pId_
     , _pvStringValue = pStringValue_
@@ -331,15 +331,15 @@ instance ToJSON ParameterValue where
 -- * 'pdFields'
 data PipelineDescription = PipelineDescription'
     { _pdDescription :: !(Maybe Text)
-    , _pdTags        :: !(Maybe [Tag])
-    , _pdPipelineId  :: !Text
-    , _pdName        :: !Text
-    , _pdFields      :: ![Field]
+    , _pdTags :: !(Maybe [Tag])
+    , _pdPipelineId :: !Text
+    , _pdName :: !Text
+    , _pdFields :: ![Field]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineDescription' smart constructor.
 pipelineDescription :: Text -> Text -> PipelineDescription
-pipelineDescription pPipelineId_ pName_ =
+pipelineDescription pPipelineId_ pName_ = 
     PipelineDescription'
     { _pdDescription = Nothing
     , _pdTags = Nothing
@@ -394,12 +394,12 @@ instance FromJSON PipelineDescription where
 -- * 'pinId'
 data PipelineIdName = PipelineIdName'
     { _pinName :: !(Maybe Text)
-    , _pinId   :: !(Maybe Text)
+    , _pinId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineIdName' smart constructor.
 pipelineIdName :: PipelineIdName
-pipelineIdName =
+pipelineIdName = 
     PipelineIdName'
     { _pinName = Nothing
     , _pinId = Nothing
@@ -434,14 +434,14 @@ instance FromJSON PipelineIdName where
 --
 -- * 'pFields'
 data PipelineObject = PipelineObject'
-    { _pId     :: !Text
-    , _pName   :: !Text
+    { _pId :: !Text
+    , _pName :: !Text
     , _pFields :: ![Field]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineObject' smart constructor.
 pipelineObject :: Text -> Text -> PipelineObject
-pipelineObject pId_ pName_ =
+pipelineObject pId_ pName_ = 
     PipelineObject'
     { _pId = pId_
     , _pName = pName_
@@ -487,7 +487,7 @@ newtype Query = Query'
 
 -- | 'Query' smart constructor.
 query :: Query
-query =
+query = 
     Query'
     { _qSelectors = Nothing
     }
@@ -512,13 +512,13 @@ instance ToJSON Query where
 --
 -- * 'sFieldName'
 data Selector = Selector'
-    { _sOperator  :: !(Maybe Operator)
+    { _sOperator :: !(Maybe Operator)
     , _sFieldName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Selector' smart constructor.
 selector :: Selector
-selector =
+selector = 
     Selector'
     { _sOperator = Nothing
     , _sFieldName = Nothing
@@ -555,13 +555,13 @@ instance ToJSON Selector where
 --
 -- * 'tagValue'
 data Tag = Tag'
-    { _tagKey   :: !Text
+    { _tagKey :: !Text
     , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
-tag pKey_ pValue_ =
+tag pKey_ pValue_ = 
     Tag'
     { _tagKey = pKey_
     , _tagValue = pValue_
@@ -605,14 +605,14 @@ instance ToJSON Tag where
 -- * 'toObjects'
 data TaskObject = TaskObject'
     { _toPipelineId :: !(Maybe Text)
-    , _toTaskId     :: !(Maybe Text)
-    , _toAttemptId  :: !(Maybe Text)
-    , _toObjects    :: !(Maybe (Map Text PipelineObject))
+    , _toTaskId :: !(Maybe Text)
+    , _toAttemptId :: !(Maybe Text)
+    , _toObjects :: !(Maybe (Map Text PipelineObject))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TaskObject' smart constructor.
 taskObject :: TaskObject
-taskObject =
+taskObject = 
     TaskObject'
     { _toPipelineId = Nothing
     , _toTaskId = Nothing
@@ -660,13 +660,13 @@ instance FromJSON TaskObject where
 --
 -- * 'veErrors'
 data ValidationError = ValidationError'
-    { _veId     :: !(Maybe Text)
+    { _veId :: !(Maybe Text)
     , _veErrors :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidationError' smart constructor.
 validationError :: ValidationError
-validationError =
+validationError = 
     ValidationError'
     { _veId = Nothing
     , _veErrors = Nothing
@@ -700,12 +700,12 @@ instance FromJSON ValidationError where
 -- * 'vwId'
 data ValidationWarning = ValidationWarning'
     { _vwWarnings :: !(Maybe [Text])
-    , _vwId       :: !(Maybe Text)
+    , _vwId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidationWarning' smart constructor.
 validationWarning :: ValidationWarning
-validationWarning =
+validationWarning = 
     ValidationWarning'
     { _vwWarnings = Nothing
     , _vwId = Nothing

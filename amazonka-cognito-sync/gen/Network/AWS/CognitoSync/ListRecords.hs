@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.CognitoSync.ListRecords
     , lrrsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for a list of records.
 --
@@ -82,18 +84,18 @@ import           Network.AWS.Response
 --
 -- * 'lrDatasetName'
 data ListRecords = ListRecords'
-    { _lrLastSyncCount    :: !(Maybe Integer)
-    , _lrNextToken        :: !(Maybe Text)
+    { _lrLastSyncCount :: !(Maybe Integer)
+    , _lrNextToken :: !(Maybe Text)
     , _lrSyncSessionToken :: !(Maybe Text)
-    , _lrMaxResults       :: !(Maybe Int)
-    , _lrIdentityPoolId   :: !Text
-    , _lrIdentityId       :: !Text
-    , _lrDatasetName      :: !Text
+    , _lrMaxResults :: !(Maybe Int)
+    , _lrIdentityPoolId :: !Text
+    , _lrIdentityId :: !Text
+    , _lrDatasetName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRecords' smart constructor.
 listRecords :: Text -> Text -> Text -> ListRecords
-listRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+listRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ = 
     ListRecords'
     { _lrLastSyncCount = Nothing
     , _lrNextToken = Nothing
@@ -205,20 +207,20 @@ instance ToQuery ListRecords where
 -- * 'lrrsStatus'
 data ListRecordsResponse = ListRecordsResponse'
     { _lrrsDatasetDeletedAfterRequestedSyncCount :: !(Maybe Bool)
-    , _lrrsDatasetExists                         :: !(Maybe Bool)
-    , _lrrsCount                                 :: !(Maybe Int)
-    , _lrrsRecords                               :: !(Maybe [Record])
-    , _lrrsNextToken                             :: !(Maybe Text)
-    , _lrrsSyncSessionToken                      :: !(Maybe Text)
-    , _lrrsMergedDatasetNames                    :: !(Maybe [Text])
-    , _lrrsLastModifiedBy                        :: !(Maybe Text)
-    , _lrrsDatasetSyncCount                      :: !(Maybe Integer)
-    , _lrrsStatus                                :: !Int
+    , _lrrsDatasetExists :: !(Maybe Bool)
+    , _lrrsCount :: !(Maybe Int)
+    , _lrrsRecords :: !(Maybe [Record])
+    , _lrrsNextToken :: !(Maybe Text)
+    , _lrrsSyncSessionToken :: !(Maybe Text)
+    , _lrrsMergedDatasetNames :: !(Maybe [Text])
+    , _lrrsLastModifiedBy :: !(Maybe Text)
+    , _lrrsDatasetSyncCount :: !(Maybe Integer)
+    , _lrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRecordsResponse' smart constructor.
 listRecordsResponse :: Int -> ListRecordsResponse
-listRecordsResponse pStatus_ =
+listRecordsResponse pStatus_ = 
     ListRecordsResponse'
     { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
     , _lrrsDatasetExists = Nothing

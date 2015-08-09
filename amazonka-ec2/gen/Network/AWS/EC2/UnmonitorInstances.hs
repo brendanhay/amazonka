@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.EC2.UnmonitorInstances
     , uirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'unmonitorInstances' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'uiInstanceIds'
 data UnmonitorInstances = UnmonitorInstances'
-    { _uiDryRun      :: !(Maybe Bool)
+    { _uiDryRun :: !(Maybe Bool)
     , _uiInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnmonitorInstances' smart constructor.
 unmonitorInstances :: UnmonitorInstances
-unmonitorInstances =
+unmonitorInstances = 
     UnmonitorInstances'
     { _uiDryRun = Nothing
     , _uiInstanceIds = mempty
@@ -112,12 +114,12 @@ instance ToQuery UnmonitorInstances where
 -- * 'uirsStatus'
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _uirsStatus              :: !Int
+    , _uirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
 unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse
-unmonitorInstancesResponse pStatus_ =
+unmonitorInstancesResponse pStatus_ = 
     UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings = Nothing
     , _uirsStatus = pStatus_

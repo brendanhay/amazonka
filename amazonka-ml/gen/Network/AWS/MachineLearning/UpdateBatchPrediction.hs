@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     , ubprsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateBatchPrediction' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'ubpBatchPredictionName'
 data UpdateBatchPrediction = UpdateBatchPrediction'
-    { _ubpBatchPredictionId   :: !Text
+    { _ubpBatchPredictionId :: !Text
     , _ubpBatchPredictionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBatchPrediction' smart constructor.
 updateBatchPrediction :: Text -> Text -> UpdateBatchPrediction
-updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
+updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ = 
     UpdateBatchPrediction'
     { _ubpBatchPredictionId = pBatchPredictionId_
     , _ubpBatchPredictionName = pBatchPredictionName_
@@ -120,12 +122,12 @@ instance ToQuery UpdateBatchPrediction where
 -- * 'ubprsStatus'
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
     { _ubprsBatchPredictionId :: !(Maybe Text)
-    , _ubprsStatus            :: !Int
+    , _ubprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
 updateBatchPredictionResponse :: Int -> UpdateBatchPredictionResponse
-updateBatchPredictionResponse pStatus_ =
+updateBatchPredictionResponse pStatus_ = 
     UpdateBatchPredictionResponse'
     { _ubprsBatchPredictionId = Nothing
     , _ubprsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.MachineLearning.DeleteDataSource
     , ddsrsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDataSource' smart constructor.
 --
@@ -60,7 +62,7 @@ newtype DeleteDataSource = DeleteDataSource'
 
 -- | 'DeleteDataSource' smart constructor.
 deleteDataSource :: Text -> DeleteDataSource
-deleteDataSource pDataSourceId_ =
+deleteDataSource pDataSourceId_ = 
     DeleteDataSource'
     { _ddsDataSourceId = pDataSourceId_
     }
@@ -109,12 +111,12 @@ instance ToQuery DeleteDataSource where
 -- * 'ddsrsStatus'
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
     { _ddsrsDataSourceId :: !(Maybe Text)
-    , _ddsrsStatus       :: !Int
+    , _ddsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataSourceResponse' smart constructor.
 deleteDataSourceResponse :: Int -> DeleteDataSourceResponse
-deleteDataSourceResponse pStatus_ =
+deleteDataSourceResponse pStatus_ = 
     DeleteDataSourceResponse'
     { _ddsrsDataSourceId = Nothing
     , _ddsrsStatus = pStatus_

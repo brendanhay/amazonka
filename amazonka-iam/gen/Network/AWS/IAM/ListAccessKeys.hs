@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,11 +54,12 @@ module Network.AWS.IAM.ListAccessKeys
     , lakrsAccessKeyMetadata
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAccessKeys' smart constructor.
 --
@@ -71,12 +73,12 @@ import           Network.AWS.Response
 data ListAccessKeys = ListAccessKeys'
     { _lakUserName :: !(Maybe Text)
     , _lakMaxItems :: !(Maybe Nat)
-    , _lakMarker   :: !(Maybe Text)
+    , _lakMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccessKeys' smart constructor.
 listAccessKeys :: ListAccessKeys
-listAccessKeys =
+listAccessKeys = 
     ListAccessKeys'
     { _lakUserName = Nothing
     , _lakMaxItems = Nothing
@@ -151,15 +153,15 @@ instance ToQuery ListAccessKeys where
 --
 -- * 'lakrsAccessKeyMetadata'
 data ListAccessKeysResponse = ListAccessKeysResponse'
-    { _lakrsMarker            :: !(Maybe Text)
-    , _lakrsIsTruncated       :: !(Maybe Bool)
-    , _lakrsStatus            :: !Int
+    { _lakrsMarker :: !(Maybe Text)
+    , _lakrsIsTruncated :: !(Maybe Bool)
+    , _lakrsStatus :: !Int
     , _lakrsAccessKeyMetadata :: ![AccessKeyMetadata]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccessKeysResponse' smart constructor.
 listAccessKeysResponse :: Int -> ListAccessKeysResponse
-listAccessKeysResponse pStatus_ =
+listAccessKeysResponse pStatus_ = 
     ListAccessKeysResponse'
     { _lakrsMarker = Nothing
     , _lakrsIsTruncated = Nothing

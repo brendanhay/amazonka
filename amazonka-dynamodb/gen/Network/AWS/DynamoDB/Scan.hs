@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -75,11 +76,12 @@ module Network.AWS.DynamoDB.Scan
     , srsStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /Scan/ operation.
 --
@@ -119,27 +121,27 @@ import           Network.AWS.Response
 --
 -- * 'sTableName'
 data Scan = Scan'
-    { _sProjectionExpression      :: !(Maybe Text)
-    , _sScanFilter                :: !(Maybe (Map Text Condition))
-    , _sTotalSegments             :: !(Maybe Nat)
-    , _sFilterExpression          :: !(Maybe Text)
-    , _sConsistentRead            :: !(Maybe Bool)
-    , _sExpressionAttributeNames  :: !(Maybe (Map Text Text))
-    , _sAttributesToGet           :: !(Maybe (List1 Text))
-    , _sReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+    { _sProjectionExpression :: !(Maybe Text)
+    , _sScanFilter :: !(Maybe (Map Text Condition))
+    , _sTotalSegments :: !(Maybe Nat)
+    , _sFilterExpression :: !(Maybe Text)
+    , _sConsistentRead :: !(Maybe Bool)
+    , _sExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _sAttributesToGet :: !(Maybe (List1 Text))
+    , _sReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
     , _sExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
-    , _sLimit                     :: !(Maybe Nat)
-    , _sSelect                    :: !(Maybe Select)
-    , _sSegment                   :: !(Maybe Nat)
-    , _sConditionalOperator       :: !(Maybe ConditionalOperator)
-    , _sExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
-    , _sIndexName                 :: !(Maybe Text)
-    , _sTableName                 :: !Text
+    , _sLimit :: !(Maybe Nat)
+    , _sSelect :: !(Maybe Select)
+    , _sSegment :: !(Maybe Nat)
+    , _sConditionalOperator :: !(Maybe ConditionalOperator)
+    , _sExclusiveStartKey :: !(Maybe (Map Text AttributeValue))
+    , _sIndexName :: !(Maybe Text)
+    , _sTableName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Scan' smart constructor.
 scan :: Text -> Scan
-scan pTableName_ =
+scan pTableName_ = 
     Scan'
     { _sProjectionExpression = Nothing
     , _sScanFilter = Nothing
@@ -542,16 +544,16 @@ instance ToQuery Scan where
 -- * 'srsStatus'
 data ScanResponse = ScanResponse'
     { _srsLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
-    , _srsCount            :: !(Maybe Int)
-    , _srsScannedCount     :: !(Maybe Int)
-    , _srsItems            :: !(Maybe [Map Text AttributeValue])
+    , _srsCount :: !(Maybe Int)
+    , _srsScannedCount :: !(Maybe Int)
+    , _srsItems :: !(Maybe [Map Text AttributeValue])
     , _srsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _srsStatus           :: !Int
+    , _srsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScanResponse' smart constructor.
 scanResponse :: Int -> ScanResponse
-scanResponse pStatus_ =
+scanResponse pStatus_ = 
     ScanResponse'
     { _srsLastEvaluatedKey = Nothing
     , _srsCount = Nothing

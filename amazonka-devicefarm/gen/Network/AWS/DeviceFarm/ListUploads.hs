@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.DeviceFarm.ListUploads
     , lursStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list uploads operation.
 --
@@ -54,12 +56,12 @@ import           Network.AWS.Response
 -- * 'luArn'
 data ListUploads = ListUploads'
     { _luNextToken :: !(Maybe Text)
-    , _luArn       :: !Text
+    , _luArn :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUploads' smart constructor.
 listUploads :: Text -> ListUploads
-listUploads pArn_ =
+listUploads pArn_ = 
     ListUploads'
     { _luNextToken = Nothing
     , _luArn = pArn_
@@ -119,13 +121,13 @@ instance ToQuery ListUploads where
 -- * 'lursStatus'
 data ListUploadsResponse = ListUploadsResponse'
     { _lursNextToken :: !(Maybe Text)
-    , _lursUploads   :: !(Maybe [Upload])
-    , _lursStatus    :: !Int
+    , _lursUploads :: !(Maybe [Upload])
+    , _lursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUploadsResponse' smart constructor.
 listUploadsResponse :: Int -> ListUploadsResponse
-listUploadsResponse pStatus_ =
+listUploadsResponse pStatus_ = 
     ListUploadsResponse'
     { _lursNextToken = Nothing
     , _lursUploads = Nothing

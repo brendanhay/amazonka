@@ -52,41 +52,41 @@ module Network.AWS.Kinesis
     -- * Operations
     -- $operations
 
-    -- ** PutRecord
+    -- ** PutRecord 
     , module Network.AWS.Kinesis.PutRecord
 
-    -- ** MergeShards
+    -- ** MergeShards 
     , module Network.AWS.Kinesis.MergeShards
 
-    -- ** GetRecords
+    -- ** GetRecords 
     , module Network.AWS.Kinesis.GetRecords
 
-    -- ** GetShardIterator
+    -- ** GetShardIterator 
     , module Network.AWS.Kinesis.GetShardIterator
 
-    -- ** ListTagsForStream
+    -- ** ListTagsForStream 
     , module Network.AWS.Kinesis.ListTagsForStream
 
-    -- ** AddTagsToStream
+    -- ** AddTagsToStream 
     , module Network.AWS.Kinesis.AddTagsToStream
 
-    -- ** PutRecords
+    -- ** PutRecords 
     , module Network.AWS.Kinesis.PutRecords
 
-    -- ** DeleteStream
+    -- ** DeleteStream 
     , module Network.AWS.Kinesis.DeleteStream
 
-    -- ** RemoveTagsFromStream
+    -- ** RemoveTagsFromStream 
     , module Network.AWS.Kinesis.RemoveTagsFromStream
 
     -- ** ListStreams (Paginated)
     , module Network.AWS.Kinesis.ListStreams
     -- $pager
 
-    -- ** CreateStream
+    -- ** CreateStream 
     , module Network.AWS.Kinesis.CreateStream
 
-    -- ** SplitShard
+    -- ** SplitShard 
     , module Network.AWS.Kinesis.SplitShard
 
     -- ** DescribeStream (Paginated)
@@ -160,21 +160,21 @@ module Network.AWS.Kinesis
     , tagKey
     ) where
 
-import           Network.AWS.Kinesis.AddTagsToStream
-import           Network.AWS.Kinesis.CreateStream
-import           Network.AWS.Kinesis.DeleteStream
-import           Network.AWS.Kinesis.DescribeStream
-import           Network.AWS.Kinesis.GetRecords
-import           Network.AWS.Kinesis.GetShardIterator
-import           Network.AWS.Kinesis.ListStreams
-import           Network.AWS.Kinesis.ListTagsForStream
-import           Network.AWS.Kinesis.MergeShards
-import           Network.AWS.Kinesis.PutRecord
-import           Network.AWS.Kinesis.PutRecords
-import           Network.AWS.Kinesis.RemoveTagsFromStream
-import           Network.AWS.Kinesis.SplitShard
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Waiters
+import Network.AWS.Kinesis.AddTagsToStream
+import Network.AWS.Kinesis.CreateStream
+import Network.AWS.Kinesis.DeleteStream
+import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.GetRecords
+import Network.AWS.Kinesis.GetShardIterator
+import Network.AWS.Kinesis.ListStreams
+import Network.AWS.Kinesis.ListTagsForStream
+import Network.AWS.Kinesis.MergeShards
+import Network.AWS.Kinesis.PutRecord
+import Network.AWS.Kinesis.PutRecords
+import Network.AWS.Kinesis.RemoveTagsFromStream
+import Network.AWS.Kinesis.SplitShard
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

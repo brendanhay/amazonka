@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -55,10 +56,11 @@ module Network.AWS.CloudTrail.LookupEvents
     , lersStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains a request for LookupEvents.
 --
@@ -76,16 +78,16 @@ import           Network.AWS.Response
 --
 -- * 'leMaxResults'
 data LookupEvents = LookupEvents'
-    { _leStartTime        :: !(Maybe POSIX)
+    { _leStartTime :: !(Maybe POSIX)
     , _leLookupAttributes :: !(Maybe [LookupAttribute])
-    , _leNextToken        :: !(Maybe Text)
-    , _leEndTime          :: !(Maybe POSIX)
-    , _leMaxResults       :: !(Maybe Nat)
+    , _leNextToken :: !(Maybe Text)
+    , _leEndTime :: !(Maybe POSIX)
+    , _leMaxResults :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupEvents' smart constructor.
 lookupEvents :: LookupEvents
-lookupEvents =
+lookupEvents = 
     LookupEvents'
     { _leStartTime = Nothing
     , _leLookupAttributes = Nothing
@@ -172,13 +174,13 @@ instance ToQuery LookupEvents where
 -- * 'lersStatus'
 data LookupEventsResponse = LookupEventsResponse'
     { _lersNextToken :: !(Maybe Text)
-    , _lersEvents    :: !(Maybe [Event])
-    , _lersStatus    :: !Int
+    , _lersEvents :: !(Maybe [Event])
+    , _lersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupEventsResponse' smart constructor.
 lookupEventsResponse :: Int -> LookupEventsResponse
-lookupEventsResponse pStatus_ =
+lookupEventsResponse pStatus_ = 
     LookupEventsResponse'
     { _lersNextToken = Nothing
     , _lersEvents = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.DeviceFarm.ListRuns
     , lrrsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list runs operation.
 --
@@ -54,12 +56,12 @@ import           Network.AWS.Response
 -- * 'lrArn'
 data ListRuns = ListRuns'
     { _lrNextToken :: !(Maybe Text)
-    , _lrArn       :: !Text
+    , _lrArn :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRuns' smart constructor.
 listRuns :: Text -> ListRuns
-listRuns pArn_ =
+listRuns pArn_ = 
     ListRuns'
     { _lrNextToken = Nothing
     , _lrArn = pArn_
@@ -118,14 +120,14 @@ instance ToQuery ListRuns where
 --
 -- * 'lrrsStatus'
 data ListRunsResponse = ListRunsResponse'
-    { _lrrsRuns      :: !(Maybe [Run])
+    { _lrrsRuns :: !(Maybe [Run])
     , _lrrsNextToken :: !(Maybe Text)
-    , _lrrsStatus    :: !Int
+    , _lrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRunsResponse' smart constructor.
 listRunsResponse :: Int -> ListRunsResponse
-listRunsResponse pStatus_ =
+listRunsResponse pStatus_ = 
     ListRunsResponse'
     { _lrrsRuns = Nothing
     , _lrrsNextToken = Nothing

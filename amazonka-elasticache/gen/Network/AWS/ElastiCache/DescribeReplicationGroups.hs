@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,11 +43,12 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     , drgrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DescribeReplicationGroups/ action.
 --
@@ -60,14 +62,14 @@ import           Network.AWS.Response
 --
 -- * 'drgsReplicationGroupId'
 data DescribeReplicationGroups = DescribeReplicationGroups'
-    { _drgsMaxRecords         :: !(Maybe Int)
-    , _drgsMarker             :: !(Maybe Text)
+    { _drgsMaxRecords :: !(Maybe Int)
+    , _drgsMarker :: !(Maybe Text)
     , _drgsReplicationGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReplicationGroups' smart constructor.
 describeReplicationGroups :: DescribeReplicationGroups
-describeReplicationGroups =
+describeReplicationGroups = 
     DescribeReplicationGroups'
     { _drgsMaxRecords = Nothing
     , _drgsMarker = Nothing
@@ -148,14 +150,14 @@ instance ToQuery DescribeReplicationGroups where
 --
 -- * 'drgrsStatus'
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
-    { _drgrsMarker            :: !(Maybe Text)
+    { _drgrsMarker :: !(Maybe Text)
     , _drgrsReplicationGroups :: !(Maybe [ReplicationGroup])
-    , _drgrsStatus            :: !Int
+    , _drgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
 describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse pStatus_ =
+describeReplicationGroupsResponse pStatus_ = 
     DescribeReplicationGroupsResponse'
     { _drgrsMarker = Nothing
     , _drgrsReplicationGroups = Nothing

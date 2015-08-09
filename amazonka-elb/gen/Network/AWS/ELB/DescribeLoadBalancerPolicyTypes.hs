@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     , dlbptrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
 --
@@ -55,7 +57,7 @@ newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
 
 -- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
-describeLoadBalancerPolicyTypes =
+describeLoadBalancerPolicyTypes = 
     DescribeLoadBalancerPolicyTypes'
     { _dlbptPolicyTypeNames = Nothing
     }
@@ -107,12 +109,12 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 -- * 'dlbptrsStatus'
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
-    , _dlbptrsStatus                 :: !Int
+    , _dlbptrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
 describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse
-describeLoadBalancerPolicyTypesResponse pStatus_ =
+describeLoadBalancerPolicyTypesResponse pStatus_ = 
     DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions = Nothing
     , _dlbptrsStatus = pStatus_

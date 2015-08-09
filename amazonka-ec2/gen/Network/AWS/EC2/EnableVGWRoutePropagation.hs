@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.EC2.EnableVGWRoutePropagation
     , enableVGWRoutePropagationResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableVGWRoutePropagation' smart constructor.
 --
@@ -49,12 +51,12 @@ import           Network.AWS.Response
 -- * 'evrpGatewayId'
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
     { _evrpRouteTableId :: !Text
-    , _evrpGatewayId    :: !Text
+    , _evrpGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVGWRoutePropagation' smart constructor.
 enableVGWRoutePropagation :: Text -> Text -> EnableVGWRoutePropagation
-enableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
+enableVGWRoutePropagation pRouteTableId_ pGatewayId_ = 
     EnableVGWRoutePropagation'
     { _evrpRouteTableId = pRouteTableId_
     , _evrpGatewayId = pGatewayId_
@@ -93,7 +95,7 @@ instance ToQuery EnableVGWRoutePropagation where
 
 -- | /See:/ 'enableVGWRoutePropagationResponse' smart constructor.
 data EnableVGWRoutePropagationResponse =
-    EnableVGWRoutePropagationResponse'
+    EnableVGWRoutePropagationResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVGWRoutePropagationResponse' smart constructor.

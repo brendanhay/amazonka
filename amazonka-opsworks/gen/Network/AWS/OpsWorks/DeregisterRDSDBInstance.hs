@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     , deregisterRDSDBInstanceResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterRDSDBInstance' smart constructor.
 --
@@ -55,7 +57,7 @@ newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
 
 -- | 'DeregisterRDSDBInstance' smart constructor.
 deregisterRDSDBInstance :: Text -> DeregisterRDSDBInstance
-deregisterRDSDBInstance pRDSDBInstanceARN_ =
+deregisterRDSDBInstance pRDSDBInstanceARN_ = 
     DeregisterRDSDBInstance'
     { _drdiRDSDBInstanceARN = pRDSDBInstanceARN_
     }
@@ -95,7 +97,7 @@ instance ToQuery DeregisterRDSDBInstance where
 
 -- | /See:/ 'deregisterRDSDBInstanceResponse' smart constructor.
 data DeregisterRDSDBInstanceResponse =
-    DeregisterRDSDBInstanceResponse'
+    DeregisterRDSDBInstanceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterRDSDBInstanceResponse' smart constructor.

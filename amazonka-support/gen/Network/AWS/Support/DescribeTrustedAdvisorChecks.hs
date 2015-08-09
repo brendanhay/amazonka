@@ -44,6 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.Support.Types
+import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeTrustedAdvisorChecks' smart constructor.
 --

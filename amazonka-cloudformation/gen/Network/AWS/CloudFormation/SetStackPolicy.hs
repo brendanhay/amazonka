@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CloudFormation.SetStackPolicy
     , setStackPolicyResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the SetStackPolicy action.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 -- * 'sspStackName'
 data SetStackPolicy = SetStackPolicy'
     { _sspStackPolicyBody :: !(Maybe Text)
-    , _sspStackPolicyURL  :: !(Maybe Text)
-    , _sspStackName       :: !Text
+    , _sspStackPolicyURL :: !(Maybe Text)
+    , _sspStackName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStackPolicy' smart constructor.
 setStackPolicy :: Text -> SetStackPolicy
-setStackPolicy pStackName_ =
+setStackPolicy pStackName_ = 
     SetStackPolicy'
     { _sspStackPolicyBody = Nothing
     , _sspStackPolicyURL = Nothing
@@ -107,7 +109,7 @@ instance ToQuery SetStackPolicy where
 
 -- | /See:/ 'setStackPolicyResponse' smart constructor.
 data SetStackPolicyResponse =
-    SetStackPolicyResponse'
+    SetStackPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStackPolicyResponse' smart constructor.

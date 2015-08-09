@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,11 +44,12 @@ module Network.AWS.DataPipeline.DescribeObjects
     , dorsPipelineObjects
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeObjects.
 --
@@ -64,14 +66,14 @@ import           Network.AWS.Response
 -- * 'doObjectIds'
 data DescribeObjects = DescribeObjects'
     { _doEvaluateExpressions :: !(Maybe Bool)
-    , _doMarker              :: !(Maybe Text)
-    , _doPipelineId          :: !Text
-    , _doObjectIds           :: ![Text]
+    , _doMarker :: !(Maybe Text)
+    , _doPipelineId :: !Text
+    , _doObjectIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeObjects' smart constructor.
 describeObjects :: Text -> DescribeObjects
-describeObjects pPipelineId_ =
+describeObjects pPipelineId_ = 
     DescribeObjects'
     { _doEvaluateExpressions = Nothing
     , _doMarker = Nothing
@@ -156,15 +158,15 @@ instance ToQuery DescribeObjects where
 --
 -- * 'dorsPipelineObjects'
 data DescribeObjectsResponse = DescribeObjectsResponse'
-    { _dorsHasMoreResults  :: !(Maybe Bool)
-    , _dorsMarker          :: !(Maybe Text)
-    , _dorsStatus          :: !Int
+    { _dorsHasMoreResults :: !(Maybe Bool)
+    , _dorsMarker :: !(Maybe Text)
+    , _dorsStatus :: !Int
     , _dorsPipelineObjects :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeObjectsResponse' smart constructor.
 describeObjectsResponse :: Int -> DescribeObjectsResponse
-describeObjectsResponse pStatus_ =
+describeObjectsResponse pStatus_ = 
     DescribeObjectsResponse'
     { _dorsHasMoreResults = Nothing
     , _dorsMarker = Nothing

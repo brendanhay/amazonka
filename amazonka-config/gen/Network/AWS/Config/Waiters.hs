@@ -15,6 +15,6 @@
 --
 module Network.AWS.Config.Waiters where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.Config.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter

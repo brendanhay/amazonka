@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     , dlbasrsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLoadBasedAutoScaling' smart constructor.
 --
@@ -60,7 +62,7 @@ newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
 
 -- | 'DescribeLoadBasedAutoScaling' smart constructor.
 describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
-describeLoadBasedAutoScaling =
+describeLoadBasedAutoScaling = 
     DescribeLoadBasedAutoScaling'
     { _dlbasLayerIds = mempty
     }
@@ -114,12 +116,12 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 -- * 'dlbasrsStatus'
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
     { _dlbasrsLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
-    , _dlbasrsStatus                             :: !Int
+    , _dlbasrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
 describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse
-describeLoadBasedAutoScalingResponse pStatus_ =
+describeLoadBasedAutoScalingResponse pStatus_ = 
     DescribeLoadBasedAutoScalingResponse'
     { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
     , _dlbasrsStatus = pStatus_

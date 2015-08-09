@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     , dlcrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLunaClient' smart constructor.
 --
@@ -51,7 +53,7 @@ newtype DeleteLunaClient = DeleteLunaClient'
 
 -- | 'DeleteLunaClient' smart constructor.
 deleteLunaClient :: Text -> DeleteLunaClient
-deleteLunaClient pClientARN_ =
+deleteLunaClient pClientARN_ = 
     DeleteLunaClient'
     { _dClientARN = pClientARN_
     }
@@ -100,7 +102,7 @@ newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
 
 -- | 'DeleteLunaClientResponse' smart constructor.
 deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
-deleteLunaClientResponse pStatus_ =
+deleteLunaClientResponse pStatus_ = 
     DeleteLunaClientResponse'
     { _dlcrsStatus = pStatus_
     }

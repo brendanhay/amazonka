@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,11 +43,12 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     , dcprsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheParameters/ action.
 --
@@ -62,15 +64,15 @@ import           Network.AWS.Response
 --
 -- * 'dcpCacheParameterGroupName'
 data DescribeCacheParameters = DescribeCacheParameters'
-    { _dcpMaxRecords              :: !(Maybe Int)
-    , _dcpMarker                  :: !(Maybe Text)
-    , _dcpSource                  :: !(Maybe Text)
+    { _dcpMaxRecords :: !(Maybe Int)
+    , _dcpMarker :: !(Maybe Text)
+    , _dcpSource :: !(Maybe Text)
     , _dcpCacheParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameters' smart constructor.
 describeCacheParameters :: Text -> DescribeCacheParameters
-describeCacheParameters pCacheParameterGroupName_ =
+describeCacheParameters pCacheParameterGroupName_ = 
     DescribeCacheParameters'
     { _dcpMaxRecords = Nothing
     , _dcpMarker = Nothing
@@ -162,14 +164,14 @@ instance ToQuery DescribeCacheParameters where
 -- * 'dcprsStatus'
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
-    , _dcprsParameters                      :: !(Maybe [Parameter])
-    , _dcprsMarker                          :: !(Maybe Text)
-    , _dcprsStatus                          :: !Int
+    , _dcprsParameters :: !(Maybe [Parameter])
+    , _dcprsMarker :: !(Maybe Text)
+    , _dcprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
 describeCacheParametersResponse :: Int -> DescribeCacheParametersResponse
-describeCacheParametersResponse pStatus_ =
+describeCacheParametersResponse pStatus_ = 
     DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters = Nothing
     , _dcprsParameters = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.OpsWorks.DescribeAgentVersions
     , davrsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAgentVersions' smart constructor.
 --
@@ -54,12 +56,12 @@ import           Network.AWS.Response
 -- * 'davStackId'
 data DescribeAgentVersions = DescribeAgentVersions'
     { _davConfigurationManager :: !(Maybe StackConfigurationManager)
-    , _davStackId              :: !(Maybe Text)
+    , _davStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAgentVersions' smart constructor.
 describeAgentVersions :: DescribeAgentVersions
-describeAgentVersions =
+describeAgentVersions = 
     DescribeAgentVersions'
     { _davConfigurationManager = Nothing
     , _davStackId = Nothing
@@ -118,12 +120,12 @@ instance ToQuery DescribeAgentVersions where
 -- * 'davrsStatus'
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
     { _davrsAgentVersions :: !(Maybe [AgentVersion])
-    , _davrsStatus        :: !Int
+    , _davrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAgentVersionsResponse' smart constructor.
 describeAgentVersionsResponse :: Int -> DescribeAgentVersionsResponse
-describeAgentVersionsResponse pStatus_ =
+describeAgentVersionsResponse pStatus_ = 
     DescribeAgentVersionsResponse'
     { _davrsAgentVersions = Nothing
     , _davrsStatus = pStatus_

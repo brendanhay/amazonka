@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CloudHSM.DeleteHAPG
     , dhrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the DeleteHapg action.
 --
@@ -53,7 +55,7 @@ newtype DeleteHAPG = DeleteHAPG'
 
 -- | 'DeleteHAPG' smart constructor.
 deleteHAPG :: Text -> DeleteHAPG
-deleteHAPG pHAPGARN_ =
+deleteHAPG pHAPGARN_ = 
     DeleteHAPG'
     { _dhHAPGARN = pHAPGARN_
     }
@@ -103,7 +105,7 @@ newtype DeleteHAPGResponse = DeleteHAPGResponse'
 
 -- | 'DeleteHAPGResponse' smart constructor.
 deleteHAPGResponse :: Int -> DeleteHAPGResponse
-deleteHAPGResponse pStatus_ =
+deleteHAPGResponse pStatus_ = 
     DeleteHAPGResponse'
     { _dhrsStatus = pStatus_
     }

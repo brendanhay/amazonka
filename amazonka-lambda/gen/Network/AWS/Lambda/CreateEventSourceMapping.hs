@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -65,10 +66,11 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , esmcLastModified
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createEventSourceMapping' smart constructor.
 --
@@ -84,16 +86,16 @@ import           Network.AWS.Response
 --
 -- * 'cesmStartingPosition'
 data CreateEventSourceMapping = CreateEventSourceMapping'
-    { _cesmEnabled          :: !(Maybe Bool)
-    , _cesmBatchSize        :: !(Maybe Nat)
-    , _cesmEventSourceARN   :: !Text
-    , _cesmFunctionName     :: !Text
+    { _cesmEnabled :: !(Maybe Bool)
+    , _cesmBatchSize :: !(Maybe Nat)
+    , _cesmEventSourceARN :: !Text
+    , _cesmFunctionName :: !Text
     , _cesmStartingPosition :: !EventSourcePosition
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEventSourceMapping' smart constructor.
 createEventSourceMapping :: Text -> Text -> EventSourcePosition -> CreateEventSourceMapping
-createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ =
+createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ = 
     CreateEventSourceMapping'
     { _cesmEnabled = Nothing
     , _cesmBatchSize = Nothing

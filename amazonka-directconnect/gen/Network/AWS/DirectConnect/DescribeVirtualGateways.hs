@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,14 +41,15 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     , dvgrsStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVirtualGateways' smart constructor.
 data DescribeVirtualGateways =
-    DescribeVirtualGateways'
+    DescribeVirtualGateways' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualGateways' smart constructor.
@@ -96,12 +98,12 @@ instance ToQuery DescribeVirtualGateways where
 -- * 'dvgrsStatus'
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
     { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
-    , _dvgrsStatus          :: !Int
+    , _dvgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
 describeVirtualGatewaysResponse :: Int -> DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse pStatus_ =
+describeVirtualGatewaysResponse pStatus_ = 
     DescribeVirtualGatewaysResponse'
     { _dvgrsVirtualGateways = Nothing
     , _dvgrsStatus = pStatus_

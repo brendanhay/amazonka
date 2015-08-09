@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -72,10 +73,11 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS
     , cdsfsrsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromS' smart constructor.
 --
@@ -89,15 +91,15 @@ import           Network.AWS.Response
 --
 -- * 'cdsfsDataSpec'
 data CreateDataSourceFromS = CreateDataSourceFromS'
-    { _cdsfsDataSourceName    :: !(Maybe Text)
+    { _cdsfsDataSourceName :: !(Maybe Text)
     , _cdsfsComputeStatistics :: !(Maybe Bool)
-    , _cdsfsDataSourceId      :: !Text
-    , _cdsfsDataSpec          :: !S3DataSpec
+    , _cdsfsDataSourceId :: !Text
+    , _cdsfsDataSpec :: !S3DataSpec
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromS' smart constructor.
 createDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
-createDataSourceFromS pDataSourceId_ pDataSpec_ =
+createDataSourceFromS pDataSourceId_ pDataSpec_ = 
     CreateDataSourceFromS'
     { _cdsfsDataSourceName = Nothing
     , _cdsfsComputeStatistics = Nothing
@@ -191,12 +193,12 @@ instance ToQuery CreateDataSourceFromS where
 -- * 'cdsfsrsStatus'
 data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
     { _cdsfsrsDataSourceId :: !(Maybe Text)
-    , _cdsfsrsStatus       :: !Int
+    , _cdsfsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
 createDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
-createDataSourceFromSResponse pStatus_ =
+createDataSourceFromSResponse pStatus_ = 
     CreateDataSourceFromSResponse'
     { _cdsfsrsDataSourceId = Nothing
     , _cdsfsrsStatus = pStatus_

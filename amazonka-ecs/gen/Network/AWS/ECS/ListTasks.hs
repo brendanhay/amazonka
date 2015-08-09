@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,11 +48,12 @@ module Network.AWS.ECS.ListTasks
     , ltrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTasks' smart constructor.
 --
@@ -73,19 +75,19 @@ import           Network.AWS.Response
 --
 -- * 'ltMaxResults'
 data ListTasks = ListTasks'
-    { _ltDesiredStatus     :: !(Maybe DesiredStatus)
-    , _ltCluster           :: !(Maybe Text)
-    , _ltFamily            :: !(Maybe Text)
-    , _ltNextToken         :: !(Maybe Text)
-    , _ltStartedBy         :: !(Maybe Text)
-    , _ltServiceName       :: !(Maybe Text)
+    { _ltDesiredStatus :: !(Maybe DesiredStatus)
+    , _ltCluster :: !(Maybe Text)
+    , _ltFamily :: !(Maybe Text)
+    , _ltNextToken :: !(Maybe Text)
+    , _ltStartedBy :: !(Maybe Text)
+    , _ltServiceName :: !(Maybe Text)
     , _ltContainerInstance :: !(Maybe Text)
-    , _ltMaxResults        :: !(Maybe Int)
+    , _ltMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTasks' smart constructor.
 listTasks :: ListTasks
-listTasks =
+listTasks = 
     ListTasks'
     { _ltDesiredStatus = Nothing
     , _ltCluster = Nothing
@@ -211,13 +213,13 @@ instance ToQuery ListTasks where
 -- * 'ltrsStatus'
 data ListTasksResponse = ListTasksResponse'
     { _ltrsNextToken :: !(Maybe Text)
-    , _ltrsTaskARNs  :: !(Maybe [Text])
-    , _ltrsStatus    :: !Int
+    , _ltrsTaskARNs :: !(Maybe [Text])
+    , _ltrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTasksResponse' smart constructor.
 listTasksResponse :: Int -> ListTasksResponse
-listTasksResponse pStatus_ =
+listTasksResponse pStatus_ = 
     ListTasksResponse'
     { _ltrsNextToken = Nothing
     , _ltrsTaskARNs = Nothing

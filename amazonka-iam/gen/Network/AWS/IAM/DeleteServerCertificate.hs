@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.IAM.DeleteServerCertificate
     , deleteServerCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteServerCertificate' smart constructor.
 --
@@ -60,7 +62,7 @@ newtype DeleteServerCertificate = DeleteServerCertificate'
 
 -- | 'DeleteServerCertificate' smart constructor.
 deleteServerCertificate :: Text -> DeleteServerCertificate
-deleteServerCertificate pServerCertificateName_ =
+deleteServerCertificate pServerCertificateName_ = 
     DeleteServerCertificate'
     { _dscServerCertificateName = pServerCertificateName_
     }
@@ -93,7 +95,7 @@ instance ToQuery DeleteServerCertificate where
 
 -- | /See:/ 'deleteServerCertificateResponse' smart constructor.
 data DeleteServerCertificateResponse =
-    DeleteServerCertificateResponse'
+    DeleteServerCertificateResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteServerCertificateResponse' smart constructor.

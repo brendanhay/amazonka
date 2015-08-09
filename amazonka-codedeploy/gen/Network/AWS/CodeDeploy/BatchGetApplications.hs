@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     , bgarsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a batch get applications operation.
 --
@@ -54,7 +56,7 @@ newtype BatchGetApplications = BatchGetApplications'
 
 -- | 'BatchGetApplications' smart constructor.
 batchGetApplications :: BatchGetApplications
-batchGetApplications =
+batchGetApplications = 
     BatchGetApplications'
     { _bgaApplicationNames = Nothing
     }
@@ -107,12 +109,12 @@ instance ToQuery BatchGetApplications where
 -- * 'bgarsStatus'
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo :: !(Maybe [ApplicationInfo])
-    , _bgarsStatus           :: !Int
+    , _bgarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
 batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse
-batchGetApplicationsResponse pStatus_ =
+batchGetApplicationsResponse pStatus_ = 
     BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo = Nothing
     , _bgarsStatus = pStatus_

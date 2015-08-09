@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.CloudFormation.DescribeStackResources
     , drsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for DescribeStackResources action.
 --
@@ -74,14 +76,14 @@ import           Network.AWS.Response
 --
 -- * 'dsrStackName'
 data DescribeStackResources = DescribeStackResources'
-    { _dsrLogicalResourceId  :: !(Maybe Text)
+    { _dsrLogicalResourceId :: !(Maybe Text)
     , _dsrPhysicalResourceId :: !(Maybe Text)
-    , _dsrStackName          :: !(Maybe Text)
+    , _dsrStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResources' smart constructor.
 describeStackResources :: DescribeStackResources
-describeStackResources =
+describeStackResources = 
     DescribeStackResources'
     { _dsrLogicalResourceId = Nothing
     , _dsrPhysicalResourceId = Nothing
@@ -163,12 +165,12 @@ instance ToQuery DescribeStackResources where
 -- * 'drsStatus'
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
     { _drsStackResources :: !(Maybe [StackResource])
-    , _drsStatus         :: !Int
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
 describeStackResourcesResponse :: Int -> DescribeStackResourcesResponse
-describeStackResourcesResponse pStatus_ =
+describeStackResourcesResponse pStatus_ = 
     DescribeStackResourcesResponse'
     { _drsStackResources = Nothing
     , _drsStatus = pStatus_

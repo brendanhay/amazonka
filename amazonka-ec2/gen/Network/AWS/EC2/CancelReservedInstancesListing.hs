@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     , crilrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelReservedInstancesListing' smart constructor.
 --
@@ -57,7 +59,7 @@ newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
 
 -- | 'CancelReservedInstancesListing' smart constructor.
 cancelReservedInstancesListing :: Text -> CancelReservedInstancesListing
-cancelReservedInstancesListing pReservedInstancesListingId_ =
+cancelReservedInstancesListing pReservedInstancesListingId_ = 
     CancelReservedInstancesListing'
     { _crilReservedInstancesListingId = pReservedInstancesListingId_
     }
@@ -105,12 +107,12 @@ instance ToQuery CancelReservedInstancesListing where
 -- * 'crilrsStatus'
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _crilrsStatus                    :: !Int
+    , _crilrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
 cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse
-cancelReservedInstancesListingResponse pStatus_ =
+cancelReservedInstancesListingResponse pStatus_ = 
     CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings = Nothing
     , _crilrsStatus = pStatus_

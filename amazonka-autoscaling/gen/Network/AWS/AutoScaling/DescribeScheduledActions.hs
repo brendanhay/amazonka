@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,11 +45,12 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     , dsarsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeScheduledActions' smart constructor.
 --
@@ -66,17 +68,17 @@ import           Network.AWS.Response
 --
 -- * 'dsasScheduledActionNames'
 data DescribeScheduledActions = DescribeScheduledActions'
-    { _dsasStartTime            :: !(Maybe ISO8601)
-    , _dsasNextToken            :: !(Maybe Text)
-    , _dsasMaxRecords           :: !(Maybe Int)
-    , _dsasEndTime              :: !(Maybe ISO8601)
+    { _dsasStartTime :: !(Maybe ISO8601)
+    , _dsasNextToken :: !(Maybe Text)
+    , _dsasMaxRecords :: !(Maybe Int)
+    , _dsasEndTime :: !(Maybe ISO8601)
     , _dsasAutoScalingGroupName :: !(Maybe Text)
     , _dsasScheduledActionNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActions' smart constructor.
 describeScheduledActions :: DescribeScheduledActions
-describeScheduledActions =
+describeScheduledActions = 
     DescribeScheduledActions'
     { _dsasStartTime = Nothing
     , _dsasNextToken = Nothing
@@ -174,13 +176,13 @@ instance ToQuery DescribeScheduledActions where
 -- * 'dsarsStatus'
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
-    , _dsarsNextToken                   :: !(Maybe Text)
-    , _dsarsStatus                      :: !Int
+    , _dsarsNextToken :: !(Maybe Text)
+    , _dsarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
-describeScheduledActionsResponse pStatus_ =
+describeScheduledActionsResponse pStatus_ = 
     DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions = Nothing
     , _dsarsNextToken = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CodeCommit.ListRepositories
     , lrrsStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list repositories operation.
 --
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 -- * 'lrSortBy'
 data ListRepositories = ListRepositories'
     { _lrNextToken :: !(Maybe Text)
-    , _lrOrder     :: !(Maybe OrderEnum)
-    , _lrSortBy    :: !(Maybe SortByEnum)
+    , _lrOrder :: !(Maybe OrderEnum)
+    , _lrSortBy :: !(Maybe SortByEnum)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRepositories' smart constructor.
 listRepositories :: ListRepositories
-listRepositories =
+listRepositories = 
     ListRepositories'
     { _lrNextToken = Nothing
     , _lrOrder = Nothing
@@ -131,14 +133,14 @@ instance ToQuery ListRepositories where
 --
 -- * 'lrrsStatus'
 data ListRepositoriesResponse = ListRepositoriesResponse'
-    { _lrrsNextToken    :: !(Maybe Text)
+    { _lrrsNextToken :: !(Maybe Text)
     , _lrrsRepositories :: !(Maybe [RepositoryNameIdPair])
-    , _lrrsStatus       :: !Int
+    , _lrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRepositoriesResponse' smart constructor.
 listRepositoriesResponse :: Int -> ListRepositoriesResponse
-listRepositoriesResponse pStatus_ =
+listRepositoriesResponse pStatus_ = 
     ListRepositoriesResponse'
     { _lrrsNextToken = Nothing
     , _lrrsRepositories = Nothing

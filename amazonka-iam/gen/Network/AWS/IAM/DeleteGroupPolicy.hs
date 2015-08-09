@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.DeleteGroupPolicy
     , deleteGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteGroupPolicy' smart constructor.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'dPolicyName'
 data DeleteGroupPolicy = DeleteGroupPolicy'
-    { _dGroupName  :: !Text
+    { _dGroupName :: !Text
     , _dPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroupPolicy' smart constructor.
 deleteGroupPolicy :: Text -> Text -> DeleteGroupPolicy
-deleteGroupPolicy pGroupName_ pPolicyName_ =
+deleteGroupPolicy pGroupName_ pPolicyName_ = 
     DeleteGroupPolicy'
     { _dGroupName = pGroupName_
     , _dPolicyName = pPolicyName_
@@ -97,7 +99,7 @@ instance ToQuery DeleteGroupPolicy where
 
 -- | /See:/ 'deleteGroupPolicyResponse' smart constructor.
 data DeleteGroupPolicyResponse =
-    DeleteGroupPolicyResponse'
+    DeleteGroupPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroupPolicyResponse' smart constructor.

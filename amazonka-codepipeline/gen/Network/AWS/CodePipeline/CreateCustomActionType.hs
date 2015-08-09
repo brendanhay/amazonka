@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     , ccatrsActionType
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create custom action operation.
 --
@@ -68,18 +70,18 @@ import           Network.AWS.Response
 --
 -- * 'ccatOutputArtifactDetails'
 data CreateCustomActionType = CreateCustomActionType'
-    { _ccatSettings                :: !(Maybe ActionTypeSettings)
+    { _ccatSettings :: !(Maybe ActionTypeSettings)
     , _ccatConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _ccatCategory                :: !ActionCategory
-    , _ccatProvider                :: !Text
-    , _ccatVersion                 :: !Text
-    , _ccatInputArtifactDetails    :: !ArtifactDetails
-    , _ccatOutputArtifactDetails   :: !ArtifactDetails
+    , _ccatCategory :: !ActionCategory
+    , _ccatProvider :: !Text
+    , _ccatVersion :: !Text
+    , _ccatInputArtifactDetails :: !ArtifactDetails
+    , _ccatOutputArtifactDetails :: !ArtifactDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomActionType' smart constructor.
 createCustomActionType :: ActionCategory -> Text -> Text -> ArtifactDetails -> ArtifactDetails -> CreateCustomActionType
-createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pOutputArtifactDetails_ =
+createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pOutputArtifactDetails_ = 
     CreateCustomActionType'
     { _ccatSettings = Nothing
     , _ccatConfigurationProperties = Nothing
@@ -173,13 +175,13 @@ instance ToQuery CreateCustomActionType where
 --
 -- * 'ccatrsActionType'
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
-    { _ccatrsStatus     :: !Int
+    { _ccatrsStatus :: !Int
     , _ccatrsActionType :: !ActionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomActionTypeResponse' smart constructor.
 createCustomActionTypeResponse :: Int -> ActionType -> CreateCustomActionTypeResponse
-createCustomActionTypeResponse pStatus_ pActionType_ =
+createCustomActionTypeResponse pStatus_ pActionType_ = 
     CreateCustomActionTypeResponse'
     { _ccatrsStatus = pStatus_
     , _ccatrsActionType = pActionType_

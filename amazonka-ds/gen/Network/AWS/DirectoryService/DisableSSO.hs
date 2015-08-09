@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.DirectoryService.DisableSSO
     , dssorsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the DisableSso operation.
 --
@@ -54,14 +56,14 @@ import           Network.AWS.Response
 --
 -- * 'dssoDirectoryId'
 data DisableSSO = DisableSSO'
-    { _dssoUserName    :: !(Maybe Text)
-    , _dssoPassword    :: !(Maybe (Sensitive Text))
+    { _dssoUserName :: !(Maybe Text)
+    , _dssoPassword :: !(Maybe (Sensitive Text))
     , _dssoDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableSSO' smart constructor.
 disableSSO :: Text -> DisableSSO
-disableSSO pDirectoryId_ =
+disableSSO pDirectoryId_ = 
     DisableSSO'
     { _dssoUserName = Nothing
     , _dssoPassword = Nothing
@@ -135,7 +137,7 @@ newtype DisableSSOResponse = DisableSSOResponse'
 
 -- | 'DisableSSOResponse' smart constructor.
 disableSSOResponse :: Int -> DisableSSOResponse
-disableSSOResponse pStatus_ =
+disableSSOResponse pStatus_ = 
     DisableSSOResponse'
     { _dssorsStatus = pStatus_
     }

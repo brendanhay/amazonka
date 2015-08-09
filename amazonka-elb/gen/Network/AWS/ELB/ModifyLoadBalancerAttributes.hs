@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -52,10 +53,11 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     , mlbarsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 --
@@ -65,13 +67,13 @@ import           Network.AWS.Response
 --
 -- * 'mlbaLoadBalancerAttributes'
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName       :: !Text
+    { _mlbaLoadBalancerName :: !Text
     , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLoadBalancerAttributes' smart constructor.
 modifyLoadBalancerAttributes :: Text -> LoadBalancerAttributes -> ModifyLoadBalancerAttributes
-modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
+modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ = 
     ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerName = pLoadBalancerName_
     , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
@@ -127,13 +129,13 @@ instance ToQuery ModifyLoadBalancerAttributes where
 -- * 'mlbarsStatus'
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _mlbarsLoadBalancerName       :: !(Maybe Text)
-    , _mlbarsStatus                 :: !Int
+    , _mlbarsLoadBalancerName :: !(Maybe Text)
+    , _mlbarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
 modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse pStatus_ =
+modifyLoadBalancerAttributesResponse pStatus_ = 
     ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerAttributes = Nothing
     , _mlbarsLoadBalancerName = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     , gdgrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get deployment group operation.
 --
@@ -52,13 +54,13 @@ import           Network.AWS.Response
 --
 -- * 'gdgDeploymentGroupName'
 data GetDeploymentGroup = GetDeploymentGroup'
-    { _gdgApplicationName     :: !Text
+    { _gdgApplicationName :: !Text
     , _gdgDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentGroup' smart constructor.
 getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
-getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
+getDeploymentGroup pApplicationName_ pDeploymentGroupName_ = 
     GetDeploymentGroup'
     { _gdgApplicationName = pApplicationName_
     , _gdgDeploymentGroupName = pDeploymentGroupName_
@@ -118,12 +120,12 @@ instance ToQuery GetDeploymentGroup where
 -- * 'gdgrsStatus'
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
-    , _gdgrsStatus              :: !Int
+    , _gdgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
 getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
-getDeploymentGroupResponse pStatus_ =
+getDeploymentGroupResponse pStatus_ = 
     GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo = Nothing
     , _gdgrsStatus = pStatus_

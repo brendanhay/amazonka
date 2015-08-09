@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
     , dvesrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVPCEndpointServices' smart constructor.
 --
@@ -55,14 +57,14 @@ import           Network.AWS.Response
 --
 -- * 'dvesMaxResults'
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
-    { _dvesNextToken  :: !(Maybe Text)
-    , _dvesDryRun     :: !(Maybe Bool)
+    { _dvesNextToken :: !(Maybe Text)
+    , _dvesDryRun :: !(Maybe Bool)
     , _dvesMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpointServices' smart constructor.
 describeVPCEndpointServices :: DescribeVPCEndpointServices
-describeVPCEndpointServices =
+describeVPCEndpointServices = 
     DescribeVPCEndpointServices'
     { _dvesNextToken = Nothing
     , _dvesDryRun = Nothing
@@ -131,13 +133,13 @@ instance ToQuery DescribeVPCEndpointServices where
 -- * 'dvesrsStatus'
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames :: !(Maybe [Text])
-    , _dvesrsNextToken    :: !(Maybe Text)
-    , _dvesrsStatus       :: !Int
+    , _dvesrsNextToken :: !(Maybe Text)
+    , _dvesrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
 describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse
-describeVPCEndpointServicesResponse pStatus_ =
+describeVPCEndpointServicesResponse pStatus_ = 
     DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames = Nothing
     , _dvesrsNextToken = Nothing

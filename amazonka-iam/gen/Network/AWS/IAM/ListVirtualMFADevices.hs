@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,11 +47,12 @@ module Network.AWS.IAM.ListVirtualMFADevices
     , lvmdrsVirtualMFADevices
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listVirtualMFADevices' smart constructor.
 --
@@ -63,13 +65,13 @@ import           Network.AWS.Response
 -- * 'lvmdMarker'
 data ListVirtualMFADevices = ListVirtualMFADevices'
     { _lvmdAssignmentStatus :: !(Maybe AssignmentStatusType)
-    , _lvmdMaxItems         :: !(Maybe Nat)
-    , _lvmdMarker           :: !(Maybe Text)
+    , _lvmdMaxItems :: !(Maybe Nat)
+    , _lvmdMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVirtualMFADevices' smart constructor.
 listVirtualMFADevices :: ListVirtualMFADevices
-listVirtualMFADevices =
+listVirtualMFADevices = 
     ListVirtualMFADevices'
     { _lvmdAssignmentStatus = Nothing
     , _lvmdMaxItems = Nothing
@@ -147,15 +149,15 @@ instance ToQuery ListVirtualMFADevices where
 --
 -- * 'lvmdrsVirtualMFADevices'
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
-    { _lvmdrsMarker            :: !(Maybe Text)
-    , _lvmdrsIsTruncated       :: !(Maybe Bool)
-    , _lvmdrsStatus            :: !Int
+    { _lvmdrsMarker :: !(Maybe Text)
+    , _lvmdrsIsTruncated :: !(Maybe Bool)
+    , _lvmdrsStatus :: !Int
     , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVirtualMFADevicesResponse' smart constructor.
 listVirtualMFADevicesResponse :: Int -> ListVirtualMFADevicesResponse
-listVirtualMFADevicesResponse pStatus_ =
+listVirtualMFADevicesResponse pStatus_ = 
     ListVirtualMFADevicesResponse'
     { _lvmdrsMarker = Nothing
     , _lvmdrsIsTruncated = Nothing

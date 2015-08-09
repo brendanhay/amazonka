@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,11 +47,12 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     , drimrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesModifications' smart constructor.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 --
 -- * 'drimNextToken'
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-    { _drimFilters                          :: !(Maybe [Filter])
+    { _drimFilters :: !(Maybe [Filter])
     , _drimReservedInstancesModificationIds :: !(Maybe [Text])
-    , _drimNextToken                        :: !(Maybe Text)
+    , _drimNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesModifications' smart constructor.
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
-describeReservedInstancesModifications =
+describeReservedInstancesModifications = 
     DescribeReservedInstancesModifications'
     { _drimFilters = Nothing
     , _drimReservedInstancesModificationIds = Nothing
@@ -181,14 +183,14 @@ instance ToQuery
 --
 -- * 'drimrsStatus'
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
-    { _drimrsNextToken                      :: !(Maybe Text)
+    { _drimrsNextToken :: !(Maybe Text)
     , _drimrsReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
-    , _drimrsStatus                         :: !Int
+    , _drimrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
 describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse
-describeReservedInstancesModificationsResponse pStatus_ =
+describeReservedInstancesModificationsResponse pStatus_ = 
     DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken = Nothing
     , _drimrsReservedInstancesModifications = Nothing

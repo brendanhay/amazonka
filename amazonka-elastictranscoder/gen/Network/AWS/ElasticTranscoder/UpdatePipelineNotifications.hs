@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , upnrsStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @UpdatePipelineNotificationsRequest@ structure.
 --
@@ -56,13 +58,13 @@ import           Network.AWS.Response
 --
 -- * 'upnNotifications'
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
-    { _upnId            :: !Text
+    { _upnId :: !Text
     , _upnNotifications :: !Notifications
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineNotifications' smart constructor.
 updatePipelineNotifications :: Text -> Notifications -> UpdatePipelineNotifications
-updatePipelineNotifications pId_ pNotifications_ =
+updatePipelineNotifications pId_ pNotifications_ = 
     UpdatePipelineNotifications'
     { _upnId = pId_
     , _upnNotifications = pNotifications_
@@ -135,12 +137,12 @@ instance ToQuery UpdatePipelineNotifications where
 -- * 'upnrsStatus'
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
     { _upnrsPipeline :: !(Maybe Pipeline)
-    , _upnrsStatus   :: !Int
+    , _upnrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineNotificationsResponse' smart constructor.
 updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
-updatePipelineNotificationsResponse pStatus_ =
+updatePipelineNotificationsResponse pStatus_ = 
     UpdatePipelineNotificationsResponse'
     { _upnrsPipeline = Nothing
     , _upnrsStatus = pStatus_

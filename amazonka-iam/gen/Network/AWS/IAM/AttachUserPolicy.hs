@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.AttachUserPolicy
     , attachUserPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachUserPolicy' smart constructor.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'aupPolicyARN'
 data AttachUserPolicy = AttachUserPolicy'
-    { _aupUserName  :: !Text
+    { _aupUserName :: !Text
     , _aupPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachUserPolicy' smart constructor.
 attachUserPolicy :: Text -> Text -> AttachUserPolicy
-attachUserPolicy pUserName_ pPolicyARN_ =
+attachUserPolicy pUserName_ pPolicyARN_ = 
     AttachUserPolicy'
     { _aupUserName = pUserName_
     , _aupPolicyARN = pPolicyARN_
@@ -96,7 +98,7 @@ instance ToQuery AttachUserPolicy where
 
 -- | /See:/ 'attachUserPolicyResponse' smart constructor.
 data AttachUserPolicyResponse =
-    AttachUserPolicyResponse'
+    AttachUserPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachUserPolicyResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.IAM.DeleteRole
     , deleteRoleResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteRole' smart constructor.
 --
@@ -56,7 +58,7 @@ newtype DeleteRole = DeleteRole'
 
 -- | 'DeleteRole' smart constructor.
 deleteRole :: Text -> DeleteRole
-deleteRole pRoleName_ =
+deleteRole pRoleName_ = 
     DeleteRole'
     { _drRoleName = pRoleName_
     }
@@ -86,7 +88,7 @@ instance ToQuery DeleteRole where
 
 -- | /See:/ 'deleteRoleResponse' smart constructor.
 data DeleteRoleResponse =
-    DeleteRoleResponse'
+    DeleteRoleResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRoleResponse' smart constructor.

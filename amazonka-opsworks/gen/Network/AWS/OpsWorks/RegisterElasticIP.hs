@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.OpsWorks.RegisterElasticIP
     , reirsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerElasticIP' smart constructor.
 --
@@ -61,12 +63,12 @@ import           Network.AWS.Response
 -- * 'reiStackId'
 data RegisterElasticIP = RegisterElasticIP'
     { _reiElasticIP :: !Text
-    , _reiStackId   :: !Text
+    , _reiStackId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterElasticIP' smart constructor.
 registerElasticIP :: Text -> Text -> RegisterElasticIP
-registerElasticIP pElasticIP_ pStackId_ =
+registerElasticIP pElasticIP_ pStackId_ = 
     RegisterElasticIP'
     { _reiElasticIP = pElasticIP_
     , _reiStackId = pStackId_
@@ -123,12 +125,12 @@ instance ToQuery RegisterElasticIP where
 -- * 'reirsStatus'
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
     { _reirsElasticIP :: !(Maybe Text)
-    , _reirsStatus    :: !Int
+    , _reirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterElasticIPResponse' smart constructor.
 registerElasticIPResponse :: Int -> RegisterElasticIPResponse
-registerElasticIPResponse pStatus_ =
+registerElasticIPResponse pStatus_ = 
     RegisterElasticIPResponse'
     { _reirsElasticIP = Nothing
     , _reirsStatus = pStatus_

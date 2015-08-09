@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     , setIdentityPoolRolesResponse
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @SetIdentityPoolRoles@ action.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'siprRoles'
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
     { _siprIdentityPoolId :: !Text
-    , _siprRoles          :: !(Map Text Text)
+    , _siprRoles :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolRoles' smart constructor.
 setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
-setIdentityPoolRoles pIdentityPoolId_ =
+setIdentityPoolRoles pIdentityPoolId_ = 
     SetIdentityPoolRoles'
     { _siprIdentityPoolId = pIdentityPoolId_
     , _siprRoles = mempty
@@ -105,7 +107,7 @@ instance ToQuery SetIdentityPoolRoles where
 
 -- | /See:/ 'setIdentityPoolRolesResponse' smart constructor.
 data SetIdentityPoolRolesResponse =
-    SetIdentityPoolRolesResponse'
+    SetIdentityPoolRolesResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolRolesResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     , plersStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putLogEvents' smart constructor.
 --
@@ -75,14 +77,14 @@ import           Network.AWS.Response
 -- * 'pleLogEvents'
 data PutLogEvents = PutLogEvents'
     { _pleSequenceToken :: !(Maybe Text)
-    , _pleLogGroupName  :: !Text
+    , _pleLogGroupName :: !Text
     , _pleLogStreamName :: !Text
-    , _pleLogEvents     :: !(List1 InputLogEvent)
+    , _pleLogEvents :: !(List1 InputLogEvent)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLogEvents' smart constructor.
 putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
-putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
+putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ = 
     PutLogEvents'
     { _pleSequenceToken = Nothing
     , _pleLogGroupName = pLogGroupName_
@@ -153,13 +155,13 @@ instance ToQuery PutLogEvents where
 -- * 'plersStatus'
 data PutLogEventsResponse = PutLogEventsResponse'
     { _plersRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
-    , _plersNextSequenceToken     :: !(Maybe Text)
-    , _plersStatus                :: !Int
+    , _plersNextSequenceToken :: !(Maybe Text)
+    , _plersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLogEventsResponse' smart constructor.
 putLogEventsResponse :: Int -> PutLogEventsResponse
-putLogEventsResponse pStatus_ =
+putLogEventsResponse pStatus_ = 
     PutLogEventsResponse'
     { _plersRejectedLogEventsInfo = Nothing
     , _plersNextSequenceToken = Nothing

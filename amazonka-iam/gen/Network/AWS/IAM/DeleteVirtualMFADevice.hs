@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     , deleteVirtualMFADeviceResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteVirtualMFADevice' smart constructor.
 --
@@ -53,7 +55,7 @@ newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
 
 -- | 'DeleteVirtualMFADevice' smart constructor.
 deleteVirtualMFADevice :: Text -> DeleteVirtualMFADevice
-deleteVirtualMFADevice pSerialNumber_ =
+deleteVirtualMFADevice pSerialNumber_ = 
     DeleteVirtualMFADevice'
     { _dvmdSerialNumber = pSerialNumber_
     }
@@ -87,7 +89,7 @@ instance ToQuery DeleteVirtualMFADevice where
 
 -- | /See:/ 'deleteVirtualMFADeviceResponse' smart constructor.
 data DeleteVirtualMFADeviceResponse =
-    DeleteVirtualMFADeviceResponse'
+    DeleteVirtualMFADeviceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualMFADeviceResponse' smart constructor.

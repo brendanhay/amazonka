@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.EMR.SetVisibleToAllUsers
     , setVisibleToAllUsersResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the SetVisibleToAllUsers action.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'svtauVisibleToAllUsers'
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
-    { _svtauJobFlowIds        :: ![Text]
+    { _svtauJobFlowIds :: ![Text]
     , _svtauVisibleToAllUsers :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVisibleToAllUsers' smart constructor.
 setVisibleToAllUsers :: Bool -> SetVisibleToAllUsers
-setVisibleToAllUsers pVisibleToAllUsers_ =
+setVisibleToAllUsers pVisibleToAllUsers_ = 
     SetVisibleToAllUsers'
     { _svtauJobFlowIds = mempty
     , _svtauVisibleToAllUsers = pVisibleToAllUsers_
@@ -109,7 +111,7 @@ instance ToQuery SetVisibleToAllUsers where
 
 -- | /See:/ 'setVisibleToAllUsersResponse' smart constructor.
 data SetVisibleToAllUsersResponse =
-    SetVisibleToAllUsersResponse'
+    SetVisibleToAllUsersResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVisibleToAllUsersResponse' smart constructor.

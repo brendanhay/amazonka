@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.EFS.DescribeMountTargets
     , dmtrsStatus
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMountTargets' smart constructor.
 --
@@ -60,14 +62,14 @@ import           Network.AWS.Response
 --
 -- * 'dmtFileSystemId'
 data DescribeMountTargets = DescribeMountTargets'
-    { _dmtMaxItems     :: !(Maybe Nat)
-    , _dmtMarker       :: !(Maybe Text)
+    { _dmtMaxItems :: !(Maybe Nat)
+    , _dmtMarker :: !(Maybe Text)
     , _dmtFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargets' smart constructor.
 describeMountTargets :: Text -> DescribeMountTargets
-describeMountTargets pFileSystemId_ =
+describeMountTargets pFileSystemId_ = 
     DescribeMountTargets'
     { _dmtMaxItems = Nothing
     , _dmtMarker = Nothing
@@ -128,14 +130,14 @@ instance ToQuery DescribeMountTargets where
 -- * 'dmtrsStatus'
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
     { _dmtrsMountTargets :: !(Maybe [MountTargetDescription])
-    , _dmtrsMarker       :: !(Maybe Text)
-    , _dmtrsNextMarker   :: !(Maybe Text)
-    , _dmtrsStatus       :: !Int
+    , _dmtrsMarker :: !(Maybe Text)
+    , _dmtrsNextMarker :: !(Maybe Text)
+    , _dmtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
 describeMountTargetsResponse :: Int -> DescribeMountTargetsResponse
-describeMountTargetsResponse pStatus_ =
+describeMountTargetsResponse pStatus_ = 
     DescribeMountTargetsResponse'
     { _dmtrsMountTargets = Nothing
     , _dmtrsMarker = Nothing

@@ -17,11 +17,11 @@
 --
 module Network.AWS.Config.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ChronologicalOrder
-    = Forward
-    | Reverse
+    = Forward 
+    | Reverse 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ChronologicalOrder where
@@ -45,10 +45,10 @@ instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
 
 data ConfigurationItemStatus
-    = OK
-    | Discovered
-    | Deleted
-    | Failed
+    = OK 
+    | Discovered 
+    | Deleted 
+    | Failed 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationItemStatus where
@@ -76,9 +76,9 @@ instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
 
 data DeliveryStatus
-    = Success
-    | NotApplicable
-    | Failure
+    = Success 
+    | NotApplicable 
+    | Failure 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeliveryStatus where
@@ -104,9 +104,9 @@ instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
 data RecorderStatus
-    = RSPending
-    | RSFailure
-    | RSSuccess
+    = RSPending 
+    | RSFailure 
+    | RSSuccess 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RecorderStatus where
@@ -132,20 +132,20 @@ instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"
 
 data ResourceType
-    = AWSCloudTrailTrail
-    | AWSEC2VPNConnection
-    | AWSEC2SecurityGroup
-    | AWSEC2Instance
-    | AWSEC2NetworkACL
-    | AWSEC2VPNGateway
-    | AWSEC2VPC
-    | AWSEC2NetworkInterface
-    | AWSEC2InternetGateway
-    | AWSEC2Subnet
-    | AWSEC2EIP
-    | AWSEC2CustomerGateway
-    | AWSEC2RouteTable
-    | AWSEC2Volume
+    = AWSCloudTrailTrail 
+    | AWSEC2VPNConnection 
+    | AWSEC2SecurityGroup 
+    | AWSEC2Instance 
+    | AWSEC2NetworkACL 
+    | AWSEC2VPNGateway 
+    | AWSEC2VPC 
+    | AWSEC2NetworkInterface 
+    | AWSEC2InternetGateway 
+    | AWSEC2Subnet 
+    | AWSEC2EIP 
+    | AWSEC2CustomerGateway 
+    | AWSEC2RouteTable 
+    | AWSEC2Volume 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceType where

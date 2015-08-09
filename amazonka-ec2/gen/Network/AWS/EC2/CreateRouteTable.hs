@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.CreateRouteTable
     , crtrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createRouteTable' smart constructor.
 --
@@ -56,12 +58,12 @@ import           Network.AWS.Response
 -- * 'crtVPCId'
 data CreateRouteTable = CreateRouteTable'
     { _crtDryRun :: !(Maybe Bool)
-    , _crtVPCId  :: !Text
+    , _crtVPCId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteTable' smart constructor.
 createRouteTable :: Text -> CreateRouteTable
-createRouteTable pVPCId_ =
+createRouteTable pVPCId_ = 
     CreateRouteTable'
     { _crtDryRun = Nothing
     , _crtVPCId = pVPCId_
@@ -110,12 +112,12 @@ instance ToQuery CreateRouteTable where
 -- * 'crtrsStatus'
 data CreateRouteTableResponse = CreateRouteTableResponse'
     { _crtrsRouteTable :: !(Maybe RouteTable)
-    , _crtrsStatus     :: !Int
+    , _crtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteTableResponse' smart constructor.
 createRouteTableResponse :: Int -> CreateRouteTableResponse
-createRouteTableResponse pStatus_ =
+createRouteTableResponse pStatus_ = 
     CreateRouteTableResponse'
     { _crtrsRouteTable = Nothing
     , _crtrsStatus = pStatus_

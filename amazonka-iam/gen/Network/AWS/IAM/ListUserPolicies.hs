@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,11 +51,12 @@ module Network.AWS.IAM.ListUserPolicies
     , luprsPolicyNames
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listUserPolicies' smart constructor.
 --
@@ -67,13 +69,13 @@ import           Network.AWS.Response
 -- * 'lupUserName'
 data ListUserPolicies = ListUserPolicies'
     { _lupMaxItems :: !(Maybe Nat)
-    , _lupMarker   :: !(Maybe Text)
+    , _lupMarker :: !(Maybe Text)
     , _lupUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUserPolicies' smart constructor.
 listUserPolicies :: Text -> ListUserPolicies
-listUserPolicies pUserName_ =
+listUserPolicies pUserName_ = 
     ListUserPolicies'
     { _lupMaxItems = Nothing
     , _lupMarker = Nothing
@@ -148,15 +150,15 @@ instance ToQuery ListUserPolicies where
 --
 -- * 'luprsPolicyNames'
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
-    { _luprsMarker      :: !(Maybe Text)
+    { _luprsMarker :: !(Maybe Text)
     , _luprsIsTruncated :: !(Maybe Bool)
-    , _luprsStatus      :: !Int
+    , _luprsStatus :: !Int
     , _luprsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUserPoliciesResponse' smart constructor.
 listUserPoliciesResponse :: Int -> ListUserPoliciesResponse
-listUserPoliciesResponse pStatus_ =
+listUserPoliciesResponse pStatus_ = 
     ListUserPoliciesResponse'
     { _luprsMarker = Nothing
     , _luprsIsTruncated = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.CognitoSync.BulkPublish
     , bprsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the BulkPublish operation.
 --
@@ -62,7 +64,7 @@ newtype BulkPublish = BulkPublish'
 
 -- | 'BulkPublish' smart constructor.
 bulkPublish :: Text -> BulkPublish
-bulkPublish pIdentityPoolId_ =
+bulkPublish pIdentityPoolId_ = 
     BulkPublish'
     { _bpIdentityPoolId = pIdentityPoolId_
     }
@@ -113,12 +115,12 @@ instance ToQuery BulkPublish where
 -- * 'bprsStatus'
 data BulkPublishResponse = BulkPublishResponse'
     { _bprsIdentityPoolId :: !(Maybe Text)
-    , _bprsStatus         :: !Int
+    , _bprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BulkPublishResponse' smart constructor.
 bulkPublishResponse :: Int -> BulkPublishResponse
-bulkPublishResponse pStatus_ =
+bulkPublishResponse pStatus_ = 
     BulkPublishResponse'
     { _bprsIdentityPoolId = Nothing
     , _bprsStatus = pStatus_

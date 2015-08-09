@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , cjrsStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @CreateJobRequest@ structure.
 --
@@ -74,18 +76,18 @@ import           Network.AWS.Response
 --
 -- * 'cjInput'
 data CreateJob = CreateJob'
-    { _cjOutputs         :: !(Maybe [CreateJobOutput])
-    , _cjUserMetadata    :: !(Maybe (Map Text Text))
-    , _cjOutput          :: !(Maybe CreateJobOutput)
-    , _cjPlaylists       :: !(Maybe [CreateJobPlaylist])
+    { _cjOutputs :: !(Maybe [CreateJobOutput])
+    , _cjUserMetadata :: !(Maybe (Map Text Text))
+    , _cjOutput :: !(Maybe CreateJobOutput)
+    , _cjPlaylists :: !(Maybe [CreateJobPlaylist])
     , _cjOutputKeyPrefix :: !(Maybe Text)
-    , _cjPipelineId      :: !Text
-    , _cjInput           :: !JobInput
+    , _cjPipelineId :: !Text
+    , _cjInput :: !JobInput
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJob' smart constructor.
 createJob :: Text -> JobInput -> CreateJob
-createJob pPipelineId_ pInput_ =
+createJob pPipelineId_ pInput_ = 
     CreateJob'
     { _cjOutputs = Nothing
     , _cjUserMetadata = Nothing
@@ -179,13 +181,13 @@ instance ToQuery CreateJob where
 --
 -- * 'cjrsStatus'
 data CreateJobResponse = CreateJobResponse'
-    { _cjrsJob    :: !(Maybe Job')
+    { _cjrsJob :: !(Maybe Job')
     , _cjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse
-createJobResponse pStatus_ =
+createJobResponse pStatus_ = 
     CreateJobResponse'
     { _cjrsJob = Nothing
     , _cjrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CloudSearch.DeleteIndexField
     , difrsIndexField
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteIndexField@ operation.
 -- Specifies the name of the domain you want to update and the name of the
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 --
 -- * 'difiIndexFieldName'
 data DeleteIndexField = DeleteIndexField'
-    { _difiDomainName     :: !Text
+    { _difiDomainName :: !Text
     , _difiIndexFieldName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexField' smart constructor.
 deleteIndexField :: Text -> Text -> DeleteIndexField
-deleteIndexField pDomainName_ pIndexFieldName_ =
+deleteIndexField pDomainName_ pIndexFieldName_ = 
     DeleteIndexField'
     { _difiDomainName = pDomainName_
     , _difiIndexFieldName = pIndexFieldName_
@@ -112,13 +114,13 @@ instance ToQuery DeleteIndexField where
 --
 -- * 'difrsIndexField'
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-    { _difrsStatus     :: !Int
+    { _difrsStatus :: !Int
     , _difrsIndexField :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
 deleteIndexFieldResponse :: Int -> IndexFieldStatus -> DeleteIndexFieldResponse
-deleteIndexFieldResponse pStatus_ pIndexField_ =
+deleteIndexFieldResponse pStatus_ pIndexField_ = 
     DeleteIndexFieldResponse'
     { _difrsStatus = pStatus_
     , _difrsIndexField = pIndexField_

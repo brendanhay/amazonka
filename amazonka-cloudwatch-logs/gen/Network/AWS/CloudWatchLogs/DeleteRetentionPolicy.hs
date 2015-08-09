@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     , deleteRetentionPolicyResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteRetentionPolicy' smart constructor.
 --
@@ -51,7 +53,7 @@ newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
 
 -- | 'DeleteRetentionPolicy' smart constructor.
 deleteRetentionPolicy :: Text -> DeleteRetentionPolicy
-deleteRetentionPolicy pLogGroupName_ =
+deleteRetentionPolicy pLogGroupName_ = 
     DeleteRetentionPolicy'
     { _drpLogGroupName = pLogGroupName_
     }
@@ -90,7 +92,7 @@ instance ToQuery DeleteRetentionPolicy where
 
 -- | /See:/ 'deleteRetentionPolicyResponse' smart constructor.
 data DeleteRetentionPolicyResponse =
-    DeleteRetentionPolicyResponse'
+    DeleteRetentionPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRetentionPolicyResponse' smart constructor.

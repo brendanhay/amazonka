@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     , createLaunchConfigurationResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLaunchConfiguration' smart constructor.
 --
@@ -103,29 +105,29 @@ import           Network.AWS.Response
 --
 -- * 'clcLaunchConfigurationName'
 data CreateLaunchConfiguration = CreateLaunchConfiguration'
-    { _clcInstanceId                   :: !(Maybe Text)
-    , _clcSecurityGroups               :: !(Maybe [Text])
-    , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
-    , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
-    , _clcSpotPrice                    :: !(Maybe Text)
-    , _clcKeyName                      :: !(Maybe Text)
+    { _clcInstanceId :: !(Maybe Text)
+    , _clcSecurityGroups :: !(Maybe [Text])
+    , _clcAssociatePublicIPAddress :: !(Maybe Bool)
+    , _clcInstanceMonitoring :: !(Maybe InstanceMonitoring)
+    , _clcSpotPrice :: !(Maybe Text)
+    , _clcKeyName :: !(Maybe Text)
     , _clcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
-    , _clcRAMDiskId                    :: !(Maybe Text)
-    , _clcKernelId                     :: !(Maybe Text)
-    , _clcInstanceType                 :: !(Maybe Text)
-    , _clcEBSOptimized                 :: !(Maybe Bool)
-    , _clcUserData                     :: !(Maybe Text)
-    , _clcClassicLinkVPCId             :: !(Maybe Text)
-    , _clcIAMInstanceProfile           :: !(Maybe Text)
-    , _clcImageId                      :: !(Maybe Text)
-    , _clcPlacementTenancy             :: !(Maybe Text)
-    , _clcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
-    , _clcLaunchConfigurationName      :: !Text
+    , _clcRAMDiskId :: !(Maybe Text)
+    , _clcKernelId :: !(Maybe Text)
+    , _clcInstanceType :: !(Maybe Text)
+    , _clcEBSOptimized :: !(Maybe Bool)
+    , _clcUserData :: !(Maybe Text)
+    , _clcClassicLinkVPCId :: !(Maybe Text)
+    , _clcIAMInstanceProfile :: !(Maybe Text)
+    , _clcImageId :: !(Maybe Text)
+    , _clcPlacementTenancy :: !(Maybe Text)
+    , _clcBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _clcLaunchConfigurationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLaunchConfiguration' smart constructor.
 createLaunchConfiguration :: Text -> CreateLaunchConfiguration
-createLaunchConfiguration pLaunchConfigurationName_ =
+createLaunchConfiguration pLaunchConfigurationName_ = 
     CreateLaunchConfiguration'
     { _clcInstanceId = Nothing
     , _clcSecurityGroups = Nothing
@@ -372,7 +374,7 @@ instance ToQuery CreateLaunchConfiguration where
 
 -- | /See:/ 'createLaunchConfigurationResponse' smart constructor.
 data CreateLaunchConfigurationResponse =
-    CreateLaunchConfigurationResponse'
+    CreateLaunchConfigurationResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLaunchConfigurationResponse' smart constructor.

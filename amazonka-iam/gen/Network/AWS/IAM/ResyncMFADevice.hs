@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.ResyncMFADevice
     , resyncMFADeviceResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'resyncMFADevice' smart constructor.
 --
@@ -58,15 +60,15 @@ import           Network.AWS.Response
 --
 -- * 'rmdAuthenticationCode2'
 data ResyncMFADevice = ResyncMFADevice'
-    { _rmdUserName            :: !Text
-    , _rmdSerialNumber        :: !Text
+    { _rmdUserName :: !Text
+    , _rmdSerialNumber :: !Text
     , _rmdAuthenticationCode1 :: !Text
     , _rmdAuthenticationCode2 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResyncMFADevice' smart constructor.
 resyncMFADevice :: Text -> Text -> Text -> Text -> ResyncMFADevice
-resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
+resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ = 
     ResyncMFADevice'
     { _rmdUserName = pUserName_
     , _rmdSerialNumber = pSerialNumber_
@@ -114,7 +116,7 @@ instance ToQuery ResyncMFADevice where
 
 -- | /See:/ 'resyncMFADeviceResponse' smart constructor.
 data ResyncMFADeviceResponse =
-    ResyncMFADeviceResponse'
+    ResyncMFADeviceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResyncMFADeviceResponse' smart constructor.

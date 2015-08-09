@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.IAM.UpdateSigningCertificate
     , updateSigningCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSigningCertificate' smart constructor.
 --
@@ -58,14 +60,14 @@ import           Network.AWS.Response
 --
 -- * 'uscStatus'
 data UpdateSigningCertificate = UpdateSigningCertificate'
-    { _uscUserName      :: !(Maybe Text)
+    { _uscUserName :: !(Maybe Text)
     , _uscCertificateId :: !Text
-    , _uscStatus        :: !StatusType
+    , _uscStatus :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSigningCertificate' smart constructor.
 updateSigningCertificate :: Text -> StatusType -> UpdateSigningCertificate
-updateSigningCertificate pCertificateId_ pStatus_ =
+updateSigningCertificate pCertificateId_ pStatus_ = 
     UpdateSigningCertificate'
     { _uscUserName = Nothing
     , _uscCertificateId = pCertificateId_
@@ -112,7 +114,7 @@ instance ToQuery UpdateSigningCertificate where
 
 -- | /See:/ 'updateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse =
-    UpdateSigningCertificateResponse'
+    UpdateSigningCertificateResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSigningCertificateResponse' smart constructor.

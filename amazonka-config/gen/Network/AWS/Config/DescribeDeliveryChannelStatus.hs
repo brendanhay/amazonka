@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     , ddcsrsStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeliveryChannelStatus action.
 --
@@ -58,7 +60,7 @@ newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
 
 -- | 'DescribeDeliveryChannelStatus' smart constructor.
 describeDeliveryChannelStatus :: DescribeDeliveryChannelStatus
-describeDeliveryChannelStatus =
+describeDeliveryChannelStatus = 
     DescribeDeliveryChannelStatus'
     { _ddcsDeliveryChannelNames = Nothing
     }
@@ -113,12 +115,12 @@ instance ToQuery DescribeDeliveryChannelStatus where
 -- * 'ddcsrsStatus'
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
     { _ddcsrsDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
-    , _ddcsrsStatus                 :: !Int
+    , _ddcsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeliveryChannelStatusResponse' smart constructor.
 describeDeliveryChannelStatusResponse :: Int -> DescribeDeliveryChannelStatusResponse
-describeDeliveryChannelStatusResponse pStatus_ =
+describeDeliveryChannelStatusResponse pStatus_ = 
     DescribeDeliveryChannelStatusResponse'
     { _ddcsrsDeliveryChannelsStatus = Nothing
     , _ddcsrsStatus = pStatus_

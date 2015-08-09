@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -55,10 +56,11 @@ module Network.AWS.EC2.ImportImage
     , irsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importImage' smart constructor.
 --
@@ -84,21 +86,21 @@ import           Network.AWS.Response
 --
 -- * 'impDiskContainers'
 data ImportImage = ImportImage'
-    { _impHypervisor     :: !(Maybe Text)
-    , _impPlatform       :: !(Maybe Text)
-    , _impClientToken    :: !(Maybe Text)
-    , _impLicenseType    :: !(Maybe Text)
-    , _impRoleName       :: !(Maybe Text)
-    , _impArchitecture   :: !(Maybe Text)
-    , _impDryRun         :: !(Maybe Bool)
-    , _impDescription    :: !(Maybe Text)
-    , _impClientData     :: !(Maybe ClientData)
+    { _impHypervisor :: !(Maybe Text)
+    , _impPlatform :: !(Maybe Text)
+    , _impClientToken :: !(Maybe Text)
+    , _impLicenseType :: !(Maybe Text)
+    , _impRoleName :: !(Maybe Text)
+    , _impArchitecture :: !(Maybe Text)
+    , _impDryRun :: !(Maybe Bool)
+    , _impDescription :: !(Maybe Text)
+    , _impClientData :: !(Maybe ClientData)
     , _impDiskContainers :: !(Maybe [ImageDiskContainer])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportImage' smart constructor.
 importImage :: ImportImage
-importImage =
+importImage = 
     ImportImage'
     { _impHypervisor = Nothing
     , _impPlatform = Nothing
@@ -240,22 +242,22 @@ instance ToQuery ImportImage where
 --
 -- * 'irsStatus'
 data ImportImageResponse = ImportImageResponse'
-    { _irsHypervisor      :: !(Maybe Text)
-    , _irsPlatform        :: !(Maybe Text)
-    , _irsProgress        :: !(Maybe Text)
-    , _irsLicenseType     :: !(Maybe Text)
+    { _irsHypervisor :: !(Maybe Text)
+    , _irsPlatform :: !(Maybe Text)
+    , _irsProgress :: !(Maybe Text)
+    , _irsLicenseType :: !(Maybe Text)
     , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
-    , _irsStatusMessage   :: !(Maybe Text)
-    , _irsImageId         :: !(Maybe Text)
-    , _irsImportTaskId    :: !(Maybe Text)
-    , _irsArchitecture    :: !(Maybe Text)
-    , _irsDescription     :: !(Maybe Text)
-    , _irsStatus          :: !Int
+    , _irsStatusMessage :: !(Maybe Text)
+    , _irsImageId :: !(Maybe Text)
+    , _irsImportTaskId :: !(Maybe Text)
+    , _irsArchitecture :: !(Maybe Text)
+    , _irsDescription :: !(Maybe Text)
+    , _irsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportImageResponse' smart constructor.
 importImageResponse :: Int -> ImportImageResponse
-importImageResponse pStatus_ =
+importImageResponse pStatus_ = 
     ImportImageResponse'
     { _irsHypervisor = Nothing
     , _irsPlatform = Nothing

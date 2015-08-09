@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.DescribeFlowLogs
     , dflsrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeFlowLogs' smart constructor.
 --
@@ -59,15 +61,15 @@ import           Network.AWS.Response
 --
 -- * 'dMaxResults'
 data DescribeFlowLogs = DescribeFlowLogs'
-    { _dNextToken  :: !(Maybe Text)
-    , _dFilter     :: !(Maybe [Filter])
+    { _dNextToken :: !(Maybe Text)
+    , _dFilter :: !(Maybe [Filter])
     , _dFlowLogIds :: !(Maybe [Text])
     , _dMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFlowLogs' smart constructor.
 describeFlowLogs :: DescribeFlowLogs
-describeFlowLogs =
+describeFlowLogs = 
     DescribeFlowLogs'
     { _dNextToken = Nothing
     , _dFilter = Nothing
@@ -148,13 +150,13 @@ instance ToQuery DescribeFlowLogs where
 -- * 'dflsrsStatus'
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
     { _dflsrsNextToken :: !(Maybe Text)
-    , _dflsrsFlowLogs  :: !(Maybe [FlowLog])
-    , _dflsrsStatus    :: !Int
+    , _dflsrsFlowLogs :: !(Maybe [FlowLog])
+    , _dflsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
 describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
-describeFlowLogsResponse pStatus_ =
+describeFlowLogsResponse pStatus_ = 
     DescribeFlowLogsResponse'
     { _dflsrsNextToken = Nothing
     , _dflsrsFlowLogs = Nothing

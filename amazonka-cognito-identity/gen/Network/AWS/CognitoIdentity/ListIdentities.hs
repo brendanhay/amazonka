@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , lirsStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the ListIdentities action.
 --
@@ -62,15 +64,15 @@ import           Network.AWS.Response
 --
 -- * 'liMaxResults'
 data ListIdentities = ListIdentities'
-    { _liHideDisabled   :: !(Maybe Bool)
-    , _liNextToken      :: !(Maybe Text)
+    { _liHideDisabled :: !(Maybe Bool)
+    , _liNextToken :: !(Maybe Text)
     , _liIdentityPoolId :: !Text
-    , _liMaxResults     :: !Nat
+    , _liMaxResults :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: Text -> Natural -> ListIdentities
-listIdentities pIdentityPoolId_ pMaxResults_ =
+listIdentities pIdentityPoolId_ pMaxResults_ = 
     ListIdentities'
     { _liHideDisabled = Nothing
     , _liNextToken = Nothing
@@ -147,14 +149,14 @@ instance ToQuery ListIdentities where
 -- * 'lirsStatus'
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirsIdentityPoolId :: !(Maybe Text)
-    , _lirsNextToken      :: !(Maybe Text)
-    , _lirsIdentities     :: !(Maybe [IdentityDescription])
-    , _lirsStatus         :: !Int
+    , _lirsNextToken :: !(Maybe Text)
+    , _lirsIdentities :: !(Maybe [IdentityDescription])
+    , _lirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse
-listIdentitiesResponse pStatus_ =
+listIdentitiesResponse pStatus_ = 
     ListIdentitiesResponse'
     { _lirsIdentityPoolId = Nothing
     , _lirsNextToken = Nothing

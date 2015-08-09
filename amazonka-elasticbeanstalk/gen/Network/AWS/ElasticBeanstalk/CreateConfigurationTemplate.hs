@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , csdDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -82,18 +84,18 @@ import           Network.AWS.Response
 --
 -- * 'cctTemplateName'
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
-    { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
+    { _cctOptionSettings :: !(Maybe [ConfigurationOptionSetting])
     , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
-    , _cctEnvironmentId       :: !(Maybe Text)
-    , _cctSolutionStackName   :: !(Maybe Text)
-    , _cctDescription         :: !(Maybe Text)
-    , _cctApplicationName     :: !Text
-    , _cctTemplateName        :: !Text
+    , _cctEnvironmentId :: !(Maybe Text)
+    , _cctSolutionStackName :: !(Maybe Text)
+    , _cctDescription :: !(Maybe Text)
+    , _cctApplicationName :: !Text
+    , _cctTemplateName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateConfigurationTemplate' smart constructor.
 createConfigurationTemplate :: Text -> Text -> CreateConfigurationTemplate
-createConfigurationTemplate pApplicationName_ pTemplateName_ =
+createConfigurationTemplate pApplicationName_ pTemplateName_ = 
     CreateConfigurationTemplate'
     { _cctOptionSettings = Nothing
     , _cctSourceConfiguration = Nothing

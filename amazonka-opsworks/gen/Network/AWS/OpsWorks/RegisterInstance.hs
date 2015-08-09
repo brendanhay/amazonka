@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.OpsWorks.RegisterInstance
     , rirsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerInstance' smart constructor.
 --
@@ -80,18 +82,18 @@ import           Network.AWS.Response
 --
 -- * 'riStackId'
 data RegisterInstance = RegisterInstance'
-    { _riPrivateIP               :: !(Maybe Text)
-    , _riHostname                :: !(Maybe Text)
-    , _riInstanceIdentity        :: !(Maybe InstanceIdentity)
-    , _riPublicIP                :: !(Maybe Text)
+    { _riPrivateIP :: !(Maybe Text)
+    , _riHostname :: !(Maybe Text)
+    , _riInstanceIdentity :: !(Maybe InstanceIdentity)
+    , _riPublicIP :: !(Maybe Text)
     , _riRsaPublicKeyFingerprint :: !(Maybe Text)
-    , _riRsaPublicKey            :: !(Maybe Text)
-    , _riStackId                 :: !Text
+    , _riRsaPublicKey :: !(Maybe Text)
+    , _riStackId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstance' smart constructor.
 registerInstance :: Text -> RegisterInstance
-registerInstance pStackId_ =
+registerInstance pStackId_ = 
     RegisterInstance'
     { _riPrivateIP = Nothing
     , _riHostname = Nothing
@@ -179,12 +181,12 @@ instance ToQuery RegisterInstance where
 -- * 'rirsStatus'
 data RegisterInstanceResponse = RegisterInstanceResponse'
     { _rirsInstanceId :: !(Maybe Text)
-    , _rirsStatus     :: !Int
+    , _rirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstanceResponse' smart constructor.
 registerInstanceResponse :: Int -> RegisterInstanceResponse
-registerInstanceResponse pStatus_ =
+registerInstanceResponse pStatus_ = 
     RegisterInstanceResponse'
     { _rirsInstanceId = Nothing
     , _rirsStatus = pStatus_

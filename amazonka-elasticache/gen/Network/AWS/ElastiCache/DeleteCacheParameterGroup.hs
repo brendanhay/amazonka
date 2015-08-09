@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     , deleteCacheParameterGroupResponse
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheParameterGroup/ action.
 --
@@ -53,7 +55,7 @@ newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
 
 -- | 'DeleteCacheParameterGroup' smart constructor.
 deleteCacheParameterGroup :: Text -> DeleteCacheParameterGroup
-deleteCacheParameterGroup pCacheParameterGroupName_ =
+deleteCacheParameterGroup pCacheParameterGroupName_ = 
     DeleteCacheParameterGroup'
     { _dCacheParameterGroupName = pCacheParameterGroupName_
     }
@@ -90,7 +92,7 @@ instance ToQuery DeleteCacheParameterGroup where
 
 -- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
 data DeleteCacheParameterGroupResponse =
-    DeleteCacheParameterGroupResponse'
+    DeleteCacheParameterGroupResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheParameterGroupResponse' smart constructor.

@@ -18,8 +18,8 @@
 --
 module Network.AWS.CognitoSync.Types.Product where
 
-import           Network.AWS.CognitoSync.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.CognitoSync.Types.Sum
+import Network.AWS.Prelude
 
 -- | Configuration options for configure Cognito streams.
 --
@@ -34,13 +34,13 @@ import           Network.AWS.Prelude
 -- * 'csRoleARN'
 data CognitoStreams = CognitoStreams'
     { _csStreamingStatus :: !(Maybe StreamingStatus)
-    , _csStreamName      :: !(Maybe Text)
-    , _csRoleARN         :: !(Maybe Text)
+    , _csStreamName :: !(Maybe Text)
+    , _csRoleARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CognitoStreams' smart constructor.
 cognitoStreams :: CognitoStreams
-cognitoStreams =
+cognitoStreams = 
     CognitoStreams'
     { _csStreamingStatus = Nothing
     , _csStreamName = Nothing
@@ -107,17 +107,17 @@ instance ToJSON CognitoStreams where
 -- * 'dIdentityId'
 data Dataset = Dataset'
     { _dLastModifiedDate :: !(Maybe POSIX)
-    , _dNumRecords       :: !(Maybe Integer)
-    , _dDataStorage      :: !(Maybe Integer)
-    , _dDatasetName      :: !(Maybe Text)
-    , _dCreationDate     :: !(Maybe POSIX)
-    , _dLastModifiedBy   :: !(Maybe Text)
-    , _dIdentityId       :: !(Maybe Text)
+    , _dNumRecords :: !(Maybe Integer)
+    , _dDataStorage :: !(Maybe Integer)
+    , _dDatasetName :: !(Maybe Text)
+    , _dCreationDate :: !(Maybe POSIX)
+    , _dLastModifiedBy :: !(Maybe Text)
+    , _dIdentityId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Dataset' smart constructor.
 dataset :: Dataset
-dataset =
+dataset = 
     Dataset'
     { _dLastModifiedDate = Nothing
     , _dNumRecords = Nothing
@@ -185,15 +185,15 @@ instance FromJSON Dataset where
 --
 -- * 'ipuSyncSessionsCount'
 data IdentityPoolUsage = IdentityPoolUsage'
-    { _ipuLastModifiedDate  :: !(Maybe POSIX)
-    , _ipuIdentityPoolId    :: !(Maybe Text)
-    , _ipuDataStorage       :: !(Maybe Integer)
+    { _ipuLastModifiedDate :: !(Maybe POSIX)
+    , _ipuIdentityPoolId :: !(Maybe Text)
+    , _ipuDataStorage :: !(Maybe Integer)
     , _ipuSyncSessionsCount :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityPoolUsage' smart constructor.
 identityPoolUsage :: IdentityPoolUsage
-identityPoolUsage =
+identityPoolUsage = 
     IdentityPoolUsage'
     { _ipuLastModifiedDate = Nothing
     , _ipuIdentityPoolId = Nothing
@@ -246,15 +246,15 @@ instance FromJSON IdentityPoolUsage where
 -- * 'iuIdentityId'
 data IdentityUsage = IdentityUsage'
     { _iuLastModifiedDate :: !(Maybe POSIX)
-    , _iuIdentityPoolId   :: !(Maybe Text)
-    , _iuDatasetCount     :: !(Maybe Int)
-    , _iuDataStorage      :: !(Maybe Integer)
-    , _iuIdentityId       :: !(Maybe Text)
+    , _iuIdentityPoolId :: !(Maybe Text)
+    , _iuDatasetCount :: !(Maybe Int)
+    , _iuDataStorage :: !(Maybe Integer)
+    , _iuIdentityId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityUsage' smart constructor.
 identityUsage :: IdentityUsage
-identityUsage =
+identityUsage = 
     IdentityUsage'
     { _iuLastModifiedDate = Nothing
     , _iuIdentityPoolId = Nothing
@@ -309,12 +309,12 @@ instance FromJSON IdentityUsage where
 -- * 'psRoleARN'
 data PushSync = PushSync'
     { _psApplicationARNs :: !(Maybe [Text])
-    , _psRoleARN         :: !(Maybe Text)
+    , _psRoleARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PushSync' smart constructor.
 pushSync :: PushSync
-pushSync =
+pushSync = 
     PushSync'
     { _psApplicationARNs = Nothing
     , _psRoleARN = Nothing
@@ -361,17 +361,17 @@ instance ToJSON PushSync where
 --
 -- * 'rLastModifiedBy'
 data Record = Record'
-    { _rSyncCount              :: !(Maybe Integer)
-    , _rLastModifiedDate       :: !(Maybe POSIX)
+    { _rSyncCount :: !(Maybe Integer)
+    , _rLastModifiedDate :: !(Maybe POSIX)
     , _rDeviceLastModifiedDate :: !(Maybe POSIX)
-    , _rValue                  :: !(Maybe Text)
-    , _rKey                    :: !(Maybe Text)
-    , _rLastModifiedBy         :: !(Maybe Text)
+    , _rValue :: !(Maybe Text)
+    , _rKey :: !(Maybe Text)
+    , _rLastModifiedBy :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Record
-record =
+record = 
     Record'
     { _rSyncCount = Nothing
     , _rLastModifiedDate = Nothing
@@ -433,15 +433,15 @@ instance FromJSON Record where
 -- * 'rpSyncCount'
 data RecordPatch = RecordPatch'
     { _rpDeviceLastModifiedDate :: !(Maybe POSIX)
-    , _rpValue                  :: !(Maybe Text)
-    , _rpOp                     :: !Operation
-    , _rpKey                    :: !Text
-    , _rpSyncCount              :: !Integer
+    , _rpValue :: !(Maybe Text)
+    , _rpOp :: !Operation
+    , _rpKey :: !Text
+    , _rpSyncCount :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordPatch' smart constructor.
 recordPatch :: Operation -> Text -> Integer -> RecordPatch
-recordPatch pOp_ pKey_ pSyncCount_ =
+recordPatch pOp_ pKey_ pSyncCount_ = 
     RecordPatch'
     { _rpDeviceLastModifiedDate = Nothing
     , _rpValue = Nothing

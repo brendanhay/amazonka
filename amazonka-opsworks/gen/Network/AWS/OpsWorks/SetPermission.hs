@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.OpsWorks.SetPermission
     , setPermissionResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setPermission' smart constructor.
 --
@@ -63,16 +65,16 @@ import           Network.AWS.Response
 --
 -- * 'spIAMUserARN'
 data SetPermission = SetPermission'
-    { _spAllowSudo  :: !(Maybe Bool)
-    , _spLevel      :: !(Maybe Text)
-    , _spAllowSSH   :: !(Maybe Bool)
-    , _spStackId    :: !Text
+    { _spAllowSudo :: !(Maybe Bool)
+    , _spLevel :: !(Maybe Text)
+    , _spAllowSSH :: !(Maybe Bool)
+    , _spStackId :: !Text
     , _spIAMUserARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPermission' smart constructor.
 setPermission :: Text -> Text -> SetPermission
-setPermission pStackId_ pIAMUserARN_ =
+setPermission pStackId_ pIAMUserARN_ = 
     SetPermission'
     { _spAllowSudo = Nothing
     , _spLevel = Nothing
@@ -142,7 +144,7 @@ instance ToQuery SetPermission where
 
 -- | /See:/ 'setPermissionResponse' smart constructor.
 data SetPermissionResponse =
-    SetPermissionResponse'
+    SetPermissionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPermissionResponse' smart constructor.

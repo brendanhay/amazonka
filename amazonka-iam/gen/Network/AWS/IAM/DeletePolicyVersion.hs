@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.IAM.DeletePolicyVersion
     , deletePolicyVersionResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deletePolicyVersion' smart constructor.
 --
@@ -62,7 +64,7 @@ data DeletePolicyVersion = DeletePolicyVersion'
 
 -- | 'DeletePolicyVersion' smart constructor.
 deletePolicyVersion :: Text -> Text -> DeletePolicyVersion
-deletePolicyVersion pPolicyARN_ pVersionId_ =
+deletePolicyVersion pPolicyARN_ pVersionId_ = 
     DeletePolicyVersion'
     { _dpvPolicyARN = pPolicyARN_
     , _dpvVersionId = pVersionId_
@@ -103,7 +105,7 @@ instance ToQuery DeletePolicyVersion where
 
 -- | /See:/ 'deletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse =
-    DeletePolicyVersionResponse'
+    DeletePolicyVersionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicyVersionResponse' smart constructor.

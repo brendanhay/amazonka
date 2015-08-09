@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CloudHSM.ListLunaClients
     , llcrsClientList
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listLunaClients' smart constructor.
 --
@@ -58,7 +60,7 @@ newtype ListLunaClients = ListLunaClients'
 
 -- | 'ListLunaClients' smart constructor.
 listLunaClients :: ListLunaClients
-listLunaClients =
+listLunaClients = 
     ListLunaClients'
     { _llcNextToken = Nothing
     }
@@ -109,14 +111,14 @@ instance ToQuery ListLunaClients where
 --
 -- * 'llcrsClientList'
 data ListLunaClientsResponse = ListLunaClientsResponse'
-    { _llcrsNextToken  :: !(Maybe Text)
-    , _llcrsStatus     :: !Int
+    { _llcrsNextToken :: !(Maybe Text)
+    , _llcrsStatus :: !Int
     , _llcrsClientList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLunaClientsResponse' smart constructor.
 listLunaClientsResponse :: Int -> ListLunaClientsResponse
-listLunaClientsResponse pStatus_ =
+listLunaClientsResponse pStatus_ = 
     ListLunaClientsResponse'
     { _llcrsNextToken = Nothing
     , _llcrsStatus = pStatus_

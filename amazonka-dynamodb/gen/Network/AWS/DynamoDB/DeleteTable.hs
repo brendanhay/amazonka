@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -55,10 +56,11 @@ module Network.AWS.DynamoDB.DeleteTable
     , dtrsStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DeleteTable/ operation.
 --
@@ -73,7 +75,7 @@ newtype DeleteTable = DeleteTable'
 
 -- | 'DeleteTable' smart constructor.
 deleteTable :: Text -> DeleteTable
-deleteTable pTableName_ =
+deleteTable pTableName_ = 
     DeleteTable'
     { _dtTableName = pTableName_
     }
@@ -122,12 +124,12 @@ instance ToQuery DeleteTable where
 -- * 'dtrsStatus'
 data DeleteTableResponse = DeleteTableResponse'
     { _dtrsTableDescription :: !(Maybe TableDescription)
-    , _dtrsStatus           :: !Int
+    , _dtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTableResponse' smart constructor.
 deleteTableResponse :: Int -> DeleteTableResponse
-deleteTableResponse pStatus_ =
+deleteTableResponse pStatus_ = 
     DeleteTableResponse'
     { _dtrsTableDescription = Nothing
     , _dtrsStatus = pStatus_

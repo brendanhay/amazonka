@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     , ldirsStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @LookupDeveloperIdentityInput@ action.
 --
@@ -75,15 +77,15 @@ import           Network.AWS.Response
 -- * 'ldiIdentityPoolId'
 data LookupDeveloperIdentity = LookupDeveloperIdentity'
     { _ldiDeveloperUserIdentifier :: !(Maybe Text)
-    , _ldiNextToken               :: !(Maybe Text)
-    , _ldiIdentityId              :: !(Maybe Text)
-    , _ldiMaxResults              :: !(Maybe Nat)
-    , _ldiIdentityPoolId          :: !Text
+    , _ldiNextToken :: !(Maybe Text)
+    , _ldiIdentityId :: !(Maybe Text)
+    , _ldiMaxResults :: !(Maybe Nat)
+    , _ldiIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupDeveloperIdentity' smart constructor.
 lookupDeveloperIdentity :: Text -> LookupDeveloperIdentity
-lookupDeveloperIdentity pIdentityPoolId_ =
+lookupDeveloperIdentity pIdentityPoolId_ = 
     LookupDeveloperIdentity'
     { _ldiDeveloperUserIdentifier = Nothing
     , _ldiNextToken = Nothing
@@ -172,15 +174,15 @@ instance ToQuery LookupDeveloperIdentity where
 --
 -- * 'ldirsStatus'
 data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
-    { _ldirsNextToken                   :: !(Maybe Text)
-    , _ldirsIdentityId                  :: !(Maybe Text)
+    { _ldirsNextToken :: !(Maybe Text)
+    , _ldirsIdentityId :: !(Maybe Text)
     , _ldirsDeveloperUserIdentifierList :: !(Maybe [Text])
-    , _ldirsStatus                      :: !Int
+    , _ldirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
 lookupDeveloperIdentityResponse :: Int -> LookupDeveloperIdentityResponse
-lookupDeveloperIdentityResponse pStatus_ =
+lookupDeveloperIdentityResponse pStatus_ = 
     LookupDeveloperIdentityResponse'
     { _ldirsNextToken = Nothing
     , _ldirsIdentityId = Nothing

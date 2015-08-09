@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -72,10 +73,11 @@ module Network.AWS.Glacier.ListParts
     , lprsStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving a list of parts of an archive that have
 -- been uploaded in a specific multipart upload.
@@ -94,16 +96,16 @@ import           Network.AWS.Response
 --
 -- * 'lpUploadId'
 data ListParts = ListParts'
-    { _lpMarker    :: !(Maybe Text)
-    , _lpLimit     :: !(Maybe Text)
+    { _lpMarker :: !(Maybe Text)
+    , _lpLimit :: !(Maybe Text)
     , _lpAccountId :: !Text
     , _lpVaultName :: !Text
-    , _lpUploadId  :: !Text
+    , _lpUploadId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListParts' smart constructor.
 listParts :: Text -> Text -> Text -> ListParts
-listParts pAccountId_ pVaultName_ pUploadId_ =
+listParts pAccountId_ pVaultName_ pUploadId_ = 
     ListParts'
     { _lpMarker = Nothing
     , _lpLimit = Nothing
@@ -196,19 +198,19 @@ instance ToQuery ListParts where
 --
 -- * 'lprsStatus'
 data ListPartsResponse = ListPartsResponse'
-    { _lprsParts              :: !(Maybe [PartListElement])
-    , _lprsMultipartUploadId  :: !(Maybe Text)
+    { _lprsParts :: !(Maybe [PartListElement])
+    , _lprsMultipartUploadId :: !(Maybe Text)
     , _lprsArchiveDescription :: !(Maybe Text)
-    , _lprsPartSizeInBytes    :: !(Maybe Integer)
-    , _lprsVaultARN           :: !(Maybe Text)
-    , _lprsMarker             :: !(Maybe Text)
-    , _lprsCreationDate       :: !(Maybe Text)
-    , _lprsStatus             :: !Int
+    , _lprsPartSizeInBytes :: !(Maybe Integer)
+    , _lprsVaultARN :: !(Maybe Text)
+    , _lprsMarker :: !(Maybe Text)
+    , _lprsCreationDate :: !(Maybe Text)
+    , _lprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse
-listPartsResponse pStatus_ =
+listPartsResponse pStatus_ = 
     ListPartsResponse'
     { _lprsParts = Nothing
     , _lprsMultipartUploadId = Nothing

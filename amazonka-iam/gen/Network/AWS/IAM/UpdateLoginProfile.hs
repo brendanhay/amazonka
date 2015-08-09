@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.IAM.UpdateLoginProfile
     , updateLoginProfileResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateLoginProfile' smart constructor.
 --
@@ -55,14 +57,14 @@ import           Network.AWS.Response
 --
 -- * 'ulpUserName'
 data UpdateLoginProfile = UpdateLoginProfile'
-    { _ulpPassword              :: !(Maybe (Sensitive Text))
+    { _ulpPassword :: !(Maybe (Sensitive Text))
     , _ulpPasswordResetRequired :: !(Maybe Bool)
-    , _ulpUserName              :: !Text
+    , _ulpUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLoginProfile' smart constructor.
 updateLoginProfile :: Text -> UpdateLoginProfile
-updateLoginProfile pUserName_ =
+updateLoginProfile pUserName_ = 
     UpdateLoginProfile'
     { _ulpPassword = Nothing
     , _ulpPasswordResetRequired = Nothing
@@ -105,7 +107,7 @@ instance ToQuery UpdateLoginProfile where
 
 -- | /See:/ 'updateLoginProfileResponse' smart constructor.
 data UpdateLoginProfileResponse =
-    UpdateLoginProfileResponse'
+    UpdateLoginProfileResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLoginProfileResponse' smart constructor.

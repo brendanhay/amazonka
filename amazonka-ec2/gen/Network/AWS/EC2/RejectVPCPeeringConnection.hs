@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.RejectVPCPeeringConnection
     , rvpcrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'rejectVPCPeeringConnection' smart constructor.
 --
@@ -55,13 +57,13 @@ import           Network.AWS.Response
 --
 -- * 'rvpcVPCPeeringConnectionId'
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
-    { _rvpcDryRun                 :: !(Maybe Bool)
+    { _rvpcDryRun :: !(Maybe Bool)
     , _rvpcVPCPeeringConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectVPCPeeringConnection' smart constructor.
 rejectVPCPeeringConnection :: Text -> RejectVPCPeeringConnection
-rejectVPCPeeringConnection pVPCPeeringConnectionId_ =
+rejectVPCPeeringConnection pVPCPeeringConnectionId_ = 
     RejectVPCPeeringConnection'
     { _rvpcDryRun = Nothing
     , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
@@ -119,7 +121,7 @@ data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
 rejectVPCPeeringConnectionResponse :: Int -> RejectVPCPeeringConnectionResponse
-rejectVPCPeeringConnectionResponse pStatus_ =
+rejectVPCPeeringConnectionResponse pStatus_ = 
     RejectVPCPeeringConnectionResponse'
     { _rvpcrsReturn = Nothing
     , _rvpcrsStatus = pStatus_

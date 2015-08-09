@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     , csdDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The result message containing the options for the specified solution
 -- stack.
@@ -79,15 +81,15 @@ import           Network.AWS.Response
 -- * 'uctTemplateName'
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
     { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
-    , _uctOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
-    , _uctDescription     :: !(Maybe Text)
+    , _uctOptionSettings :: !(Maybe [ConfigurationOptionSetting])
+    , _uctDescription :: !(Maybe Text)
     , _uctApplicationName :: !Text
-    , _uctTemplateName    :: !Text
+    , _uctTemplateName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateConfigurationTemplate' smart constructor.
 updateConfigurationTemplate :: Text -> Text -> UpdateConfigurationTemplate
-updateConfigurationTemplate pApplicationName_ pTemplateName_ =
+updateConfigurationTemplate pApplicationName_ pTemplateName_ = 
     UpdateConfigurationTemplate'
     { _uctOptionsToRemove = Nothing
     , _uctOptionSettings = Nothing

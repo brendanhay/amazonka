@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,11 +40,12 @@ module Network.AWS.EMR.ListBootstrapActions
     , lbarsStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which bootstrap actions to retrieve.
 --
@@ -55,13 +57,13 @@ import           Network.AWS.Response
 --
 -- * 'lbaClusterId'
 data ListBootstrapActions = ListBootstrapActions'
-    { _lbaMarker    :: !(Maybe Text)
+    { _lbaMarker :: !(Maybe Text)
     , _lbaClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBootstrapActions' smart constructor.
 listBootstrapActions :: Text -> ListBootstrapActions
-listBootstrapActions pClusterId_ =
+listBootstrapActions pClusterId_ = 
     ListBootstrapActions'
     { _lbaMarker = Nothing
     , _lbaClusterId = pClusterId_
@@ -131,13 +133,13 @@ instance ToQuery ListBootstrapActions where
 -- * 'lbarsStatus'
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
     { _lbarsBootstrapActions :: !(Maybe [Command])
-    , _lbarsMarker           :: !(Maybe Text)
-    , _lbarsStatus           :: !Int
+    , _lbarsMarker :: !(Maybe Text)
+    , _lbarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
 listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse
-listBootstrapActionsResponse pStatus_ =
+listBootstrapActionsResponse pStatus_ = 
     ListBootstrapActionsResponse'
     { _lbarsBootstrapActions = Nothing
     , _lbarsMarker = Nothing

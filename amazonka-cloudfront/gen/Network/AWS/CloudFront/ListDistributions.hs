@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudFront.ListDistributions
     , ldrsDistributionList
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list your distributions.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'ldMarker'
 data ListDistributions = ListDistributions'
     { _ldMaxItems :: !(Maybe Text)
-    , _ldMarker   :: !(Maybe Text)
+    , _ldMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDistributions' smart constructor.
 listDistributions :: ListDistributions
-listDistributions =
+listDistributions = 
     ListDistributions'
     { _ldMaxItems = Nothing
     , _ldMarker = Nothing
@@ -107,13 +109,13 @@ instance ToQuery ListDistributions where
 --
 -- * 'ldrsDistributionList'
 data ListDistributionsResponse = ListDistributionsResponse'
-    { _ldrsStatus           :: !Int
+    { _ldrsStatus :: !Int
     , _ldrsDistributionList :: !DistributionList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDistributionsResponse' smart constructor.
 listDistributionsResponse :: Int -> DistributionList -> ListDistributionsResponse
-listDistributionsResponse pStatus_ pDistributionList_ =
+listDistributionsResponse pStatus_ pDistributionList_ = 
     ListDistributionsResponse'
     { _ldrsStatus = pStatus_
     , _ldrsDistributionList = pDistributionList_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     , dlbfsrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
 --
@@ -57,12 +59,12 @@ import           Network.AWS.Response
 -- * 'dlbfsSubnets'
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
     { _dlbfsLoadBalancerName :: !Text
-    , _dlbfsSubnets          :: ![Text]
+    , _dlbfsSubnets :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancerFromSubnets' smart constructor.
 detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
-detachLoadBalancerFromSubnets pLoadBalancerName_ =
+detachLoadBalancerFromSubnets pLoadBalancerName_ = 
     DetachLoadBalancerFromSubnets'
     { _dlbfsLoadBalancerName = pLoadBalancerName_
     , _dlbfsSubnets = mempty
@@ -116,12 +118,12 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 -- * 'dlbfsrsStatus'
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets :: !(Maybe [Text])
-    , _dlbfsrsStatus  :: !Int
+    , _dlbfsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
 detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse
-detachLoadBalancerFromSubnetsResponse pStatus_ =
+detachLoadBalancerFromSubnetsResponse pStatus_ = 
     DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets = Nothing
     , _dlbfsrsStatus = pStatus_

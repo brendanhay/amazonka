@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.CloudHSM.DescribeHAPG
     , dhapgrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the DescribeHapg action.
 --
@@ -62,7 +64,7 @@ newtype DescribeHAPG = DescribeHAPG'
 
 -- | 'DescribeHAPG' smart constructor.
 describeHAPG :: Text -> DescribeHAPG
-describeHAPG pHAPGARN_ =
+describeHAPG pHAPGARN_ = 
     DescribeHAPG'
     { _dhapgHAPGARN = pHAPGARN_
     }
@@ -135,21 +137,21 @@ instance ToQuery DescribeHAPG where
 --
 -- * 'dhapgrsStatus'
 data DescribeHAPGResponse = DescribeHAPGResponse'
-    { _dhapgrsState                   :: !(Maybe CloudHSMObjectState)
-    , _dhapgrsLastModifiedTimestamp   :: !(Maybe Text)
+    { _dhapgrsState :: !(Maybe CloudHSMObjectState)
+    , _dhapgrsLastModifiedTimestamp :: !(Maybe Text)
     , _dhapgrsHSMsPendingRegistration :: !(Maybe [Text])
-    , _dhapgrsHAPGSerial              :: !(Maybe Text)
-    , _dhapgrsHSMsPendingDeletion     :: !(Maybe [Text])
-    , _dhapgrsHSMsLastActionFailed    :: !(Maybe [Text])
-    , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
-    , _dhapgrsHAPGARN                 :: !(Maybe Text)
-    , _dhapgrsLabel                   :: !(Maybe Text)
-    , _dhapgrsStatus                  :: !Int
+    , _dhapgrsHAPGSerial :: !(Maybe Text)
+    , _dhapgrsHSMsPendingDeletion :: !(Maybe [Text])
+    , _dhapgrsHSMsLastActionFailed :: !(Maybe [Text])
+    , _dhapgrsPartitionSerialList :: !(Maybe [Text])
+    , _dhapgrsHAPGARN :: !(Maybe Text)
+    , _dhapgrsLabel :: !(Maybe Text)
+    , _dhapgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHAPGResponse' smart constructor.
 describeHAPGResponse :: Int -> DescribeHAPGResponse
-describeHAPGResponse pStatus_ =
+describeHAPGResponse pStatus_ = 
     DescribeHAPGResponse'
     { _dhapgrsState = Nothing
     , _dhapgrsLastModifiedTimestamp = Nothing

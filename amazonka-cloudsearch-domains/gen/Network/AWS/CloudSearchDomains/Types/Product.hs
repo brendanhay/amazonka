@@ -18,8 +18,8 @@
 --
 module Network.AWS.CloudSearchDomains.Types.Product where
 
-import           Network.AWS.CloudSearchDomains.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.CloudSearchDomains.Types.Sum
+import Network.AWS.Prelude
 
 -- | A container for facet information.
 --
@@ -37,7 +37,7 @@ data Bucket = Bucket'
 
 -- | 'Bucket' smart constructor.
 bucket :: Bucket
-bucket =
+bucket = 
     Bucket'
     { _bValue = Nothing
     , _bCount = Nothing
@@ -71,7 +71,7 @@ newtype BucketInfo = BucketInfo'
 
 -- | 'BucketInfo' smart constructor.
 bucketInfo :: BucketInfo
-bucketInfo =
+bucketInfo = 
     BucketInfo'
     { _biBuckets = Nothing
     }
@@ -99,7 +99,7 @@ newtype DocumentServiceWarning = DocumentServiceWarning'
 
 -- | 'DocumentServiceWarning' smart constructor.
 documentServiceWarning :: DocumentServiceWarning
-documentServiceWarning =
+documentServiceWarning = 
     DocumentServiceWarning'
     { _dswMessage = Nothing
     }
@@ -128,15 +128,15 @@ instance FromJSON DocumentServiceWarning where
 --
 -- * 'hitFields'
 data Hit = Hit'
-    { _hitExprs      :: !(Maybe (Map Text Text))
-    , _hitId         :: !(Maybe Text)
+    { _hitExprs :: !(Maybe (Map Text Text))
+    , _hitId :: !(Maybe Text)
     , _hitHighlights :: !(Maybe (Map Text Text))
-    , _hitFields     :: !(Maybe (Map Text [Text]))
+    , _hitFields :: !(Maybe (Map Text [Text]))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Hit' smart constructor.
 hit :: Hit
-hit =
+hit = 
     Hit'
     { _hitExprs = Nothing
     , _hitId = Nothing
@@ -185,14 +185,14 @@ instance FromJSON Hit where
 -- * 'hFound'
 data Hits = Hits'
     { _hCursor :: !(Maybe Text)
-    , _hHit    :: !(Maybe [Hit])
-    , _hStart  :: !(Maybe Integer)
-    , _hFound  :: !(Maybe Integer)
+    , _hHit :: !(Maybe [Hit])
+    , _hStart :: !(Maybe Integer)
+    , _hFound :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Hits' smart constructor.
 hits :: Hits
-hits =
+hits = 
     Hits'
     { _hCursor = Nothing
     , _hHit = Nothing
@@ -237,13 +237,13 @@ instance FromJSON Hits where
 --
 -- * 'ssTimems'
 data SearchStatus = SearchStatus'
-    { _ssRid    :: !(Maybe Text)
+    { _ssRid :: !(Maybe Text)
     , _ssTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SearchStatus' smart constructor.
 searchStatus :: SearchStatus
-searchStatus =
+searchStatus = 
     SearchStatus'
     { _ssRid = Nothing
     , _ssTimems = Nothing
@@ -276,14 +276,14 @@ instance FromJSON SearchStatus where
 --
 -- * 'smQuery'
 data SuggestModel = SuggestModel'
-    { _smFound       :: !(Maybe Integer)
+    { _smFound :: !(Maybe Integer)
     , _smSuggestions :: !(Maybe [SuggestionMatch])
-    , _smQuery       :: !(Maybe Text)
+    , _smQuery :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestModel' smart constructor.
 suggestModel :: SuggestModel
-suggestModel =
+suggestModel = 
     SuggestModel'
     { _smFound = Nothing
     , _smSuggestions = Nothing
@@ -321,13 +321,13 @@ instance FromJSON SuggestModel where
 --
 -- * 'sTimems'
 data SuggestStatus = SuggestStatus'
-    { _sRid    :: !(Maybe Text)
+    { _sRid :: !(Maybe Text)
     , _sTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestStatus' smart constructor.
 suggestStatus :: SuggestStatus
-suggestStatus =
+suggestStatus = 
     SuggestStatus'
     { _sRid = Nothing
     , _sTimems = Nothing
@@ -362,13 +362,13 @@ instance FromJSON SuggestStatus where
 -- * 'smId'
 data SuggestionMatch = SuggestionMatch'
     { _smSuggestion :: !(Maybe Text)
-    , _smScore      :: !(Maybe Integer)
-    , _smId         :: !(Maybe Text)
+    , _smScore :: !(Maybe Integer)
+    , _smId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestionMatch' smart constructor.
 suggestionMatch :: SuggestionMatch
-suggestionMatch =
+suggestionMatch = 
     SuggestionMatch'
     { _smSuggestion = Nothing
     , _smScore = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.OpsWorks.StopInstance
     , stopInstanceResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopInstance' smart constructor.
 --
@@ -59,7 +61,7 @@ newtype StopInstance = StopInstance'
 
 -- | 'StopInstance' smart constructor.
 stopInstance :: Text -> StopInstance
-stopInstance pInstanceId_ =
+stopInstance pInstanceId_ = 
     StopInstance'
     { _siInstanceId = pInstanceId_
     }
@@ -95,7 +97,7 @@ instance ToQuery StopInstance where
 
 -- | /See:/ 'stopInstanceResponse' smart constructor.
 data StopInstanceResponse =
-    StopInstanceResponse'
+    StopInstanceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstanceResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     , delrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DeleteReplicationGroup/ action.
 --
@@ -64,13 +66,13 @@ import           Network.AWS.Response
 -- * 'drgReplicationGroupId'
 data DeleteReplicationGroup = DeleteReplicationGroup'
     { _drgFinalSnapshotIdentifier :: !(Maybe Text)
-    , _drgRetainPrimaryCluster    :: !(Maybe Bool)
-    , _drgReplicationGroupId      :: !Text
+    , _drgRetainPrimaryCluster :: !(Maybe Bool)
+    , _drgReplicationGroupId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReplicationGroup' smart constructor.
 deleteReplicationGroup :: Text -> DeleteReplicationGroup
-deleteReplicationGroup pReplicationGroupId_ =
+deleteReplicationGroup pReplicationGroupId_ = 
     DeleteReplicationGroup'
     { _drgFinalSnapshotIdentifier = Nothing
     , _drgRetainPrimaryCluster = Nothing
@@ -131,12 +133,12 @@ instance ToQuery DeleteReplicationGroup where
 -- * 'delrsStatus'
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
     { _delrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _delrsStatus           :: !Int
+    , _delrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
 deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse
-deleteReplicationGroupResponse pStatus_ =
+deleteReplicationGroupResponse pStatus_ = 
     DeleteReplicationGroupResponse'
     { _delrsReplicationGroup = Nothing
     , _delrsStatus = pStatus_

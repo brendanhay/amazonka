@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     , lipursStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for usage information on an identity pool.
 --
@@ -59,13 +61,13 @@ import           Network.AWS.Response
 --
 -- * 'lipuMaxResults'
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
-    { _lipuNextToken  :: !(Maybe Text)
+    { _lipuNextToken :: !(Maybe Text)
     , _lipuMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolUsage' smart constructor.
 listIdentityPoolUsage :: ListIdentityPoolUsage
-listIdentityPoolUsage =
+listIdentityPoolUsage = 
     ListIdentityPoolUsage'
     { _lipuNextToken = Nothing
     , _lipuMaxResults = Nothing
@@ -127,15 +129,15 @@ instance ToQuery ListIdentityPoolUsage where
 -- * 'lipursStatus'
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
     { _lipursIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
-    , _lipursCount              :: !(Maybe Int)
-    , _lipursNextToken          :: !(Maybe Text)
-    , _lipursMaxResults         :: !(Maybe Int)
-    , _lipursStatus             :: !Int
+    , _lipursCount :: !(Maybe Int)
+    , _lipursNextToken :: !(Maybe Text)
+    , _lipursMaxResults :: !(Maybe Int)
+    , _lipursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
 listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
-listIdentityPoolUsageResponse pStatus_ =
+listIdentityPoolUsageResponse pStatus_ = 
     ListIdentityPoolUsageResponse'
     { _lipursIdentityPoolUsages = Nothing
     , _lipursCount = Nothing

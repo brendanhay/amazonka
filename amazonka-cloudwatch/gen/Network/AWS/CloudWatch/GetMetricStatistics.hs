@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -72,10 +73,11 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     , gmsrsStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getMetricStatistics' smart constructor.
 --
@@ -98,18 +100,18 @@ import           Network.AWS.Response
 -- * 'gmsStatistics'
 data GetMetricStatistics = GetMetricStatistics'
     { _gmsDimensions :: !(Maybe [Dimension])
-    , _gmsUnit       :: !(Maybe StandardUnit)
-    , _gmsNamespace  :: !Text
+    , _gmsUnit :: !(Maybe StandardUnit)
+    , _gmsNamespace :: !Text
     , _gmsMetricName :: !Text
-    , _gmsStartTime  :: !ISO8601
-    , _gmsEndTime    :: !ISO8601
-    , _gmsPeriod     :: !Nat
+    , _gmsStartTime :: !ISO8601
+    , _gmsEndTime :: !ISO8601
+    , _gmsPeriod :: !Nat
     , _gmsStatistics :: !(List1 Statistic)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMetricStatistics' smart constructor.
 getMetricStatistics :: Text -> Text -> UTCTime -> UTCTime -> Natural -> NonEmpty Statistic -> GetMetricStatistics
-getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ pStatistics_ =
+getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ pStatistics_ = 
     GetMetricStatistics'
     { _gmsDimensions = Nothing
     , _gmsUnit = Nothing
@@ -210,13 +212,13 @@ instance ToQuery GetMetricStatistics where
 -- * 'gmsrsStatus'
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
     { _gmsrsDatapoints :: !(Maybe [Datapoint])
-    , _gmsrsLabel      :: !(Maybe Text)
-    , _gmsrsStatus     :: !Int
+    , _gmsrsLabel :: !(Maybe Text)
+    , _gmsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
 getMetricStatisticsResponse :: Int -> GetMetricStatisticsResponse
-getMetricStatisticsResponse pStatus_ =
+getMetricStatisticsResponse pStatus_ = 
     GetMetricStatisticsResponse'
     { _gmsrsDatapoints = Nothing
     , _gmsrsLabel = Nothing

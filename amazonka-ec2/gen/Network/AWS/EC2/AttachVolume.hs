@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -73,10 +74,11 @@ module Network.AWS.EC2.AttachVolume
     , volAttachTime
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachVolume' smart constructor.
 --
@@ -90,15 +92,15 @@ import           Network.AWS.Response
 --
 -- * 'avDevice'
 data AttachVolume = AttachVolume'
-    { _avDryRun     :: !(Maybe Bool)
-    , _avVolumeId   :: !Text
+    { _avDryRun :: !(Maybe Bool)
+    , _avVolumeId :: !Text
     , _avInstanceId :: !Text
-    , _avDevice     :: !Text
+    , _avDevice :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVolume' smart constructor.
 attachVolume :: Text -> Text -> Text -> AttachVolume
-attachVolume pVolumeId_ pInstanceId_ pDevice_ =
+attachVolume pVolumeId_ pInstanceId_ pDevice_ = 
     AttachVolume'
     { _avDryRun = Nothing
     , _avVolumeId = pVolumeId_

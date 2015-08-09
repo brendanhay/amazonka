@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -48,10 +49,11 @@ module Network.AWS.DynamoDBStreams.GetRecords
     , grrsStatus
     ) where
 
-import           Network.AWS.DynamoDBStreams.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDBStreams.Types
+import Network.AWS.DynamoDBStreams.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /GetRecords/ operation.
 --
@@ -63,13 +65,13 @@ import           Network.AWS.Response
 --
 -- * 'grShardIterator'
 data GetRecords = GetRecords'
-    { _grLimit         :: !(Maybe Nat)
+    { _grLimit :: !(Maybe Nat)
     , _grShardIterator :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
-getRecords pShardIterator_ =
+getRecords pShardIterator_ = 
     GetRecords'
     { _grLimit = Nothing
     , _grShardIterator = pShardIterator_
@@ -132,14 +134,14 @@ instance ToQuery GetRecords where
 --
 -- * 'grrsStatus'
 data GetRecordsResponse = GetRecordsResponse'
-    { _grrsRecords           :: !(Maybe [Record])
+    { _grrsRecords :: !(Maybe [Record])
     , _grrsNextShardIterator :: !(Maybe Text)
-    , _grrsStatus            :: !Int
+    , _grrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRecordsResponse' smart constructor.
 getRecordsResponse :: Int -> GetRecordsResponse
-getRecordsResponse pStatus_ =
+getRecordsResponse pStatus_ = 
     GetRecordsResponse'
     { _grrsRecords = Nothing
     , _grrsNextShardIterator = Nothing

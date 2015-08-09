@@ -18,8 +18,8 @@
 --
 module Network.AWS.CodePipeline.Types.Product where
 
-import           Network.AWS.CodePipeline.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.CodePipeline.Types.Sum
+import Network.AWS.Prelude
 
 -- | Represents an AWS session credentials object. These credentials are
 -- temporary credentials that are issued by AWS Secure Token Service (STS).
@@ -36,14 +36,14 @@ import           Network.AWS.Prelude
 --
 -- * 'ascSessionToken'
 data AWSSessionCredentials = AWSSessionCredentials'
-    { _ascAccessKeyId     :: !Text
+    { _ascAccessKeyId :: !Text
     , _ascSecretAccessKey :: !Text
-    , _ascSessionToken    :: !Text
+    , _ascSessionToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AWSSessionCredentials' smart constructor.
 awsSessionCredentials :: Text -> Text -> Text -> AWSSessionCredentials
-awsSessionCredentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ =
+awsSessionCredentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ = 
     AWSSessionCredentials'
     { _ascAccessKeyId = pAccessKeyId_
     , _ascSecretAccessKey = pSecretAccessKey_
@@ -83,7 +83,7 @@ newtype ActionConfiguration = ActionConfiguration'
 
 -- | 'ActionConfiguration' smart constructor.
 actionConfiguration :: ActionConfiguration
-actionConfiguration =
+actionConfiguration = 
     ActionConfiguration'
     { _acConfiguration = Nothing
     }
@@ -119,18 +119,18 @@ instance FromJSON ActionConfiguration where
 --
 -- * 'acpSecret'
 data ActionConfigurationProperty = ActionConfigurationProperty'
-    { _acpQueryable   :: !(Maybe Bool)
-    , _acpType        :: !(Maybe ActionConfigurationPropertyType)
+    { _acpQueryable :: !(Maybe Bool)
+    , _acpType :: !(Maybe ActionConfigurationPropertyType)
     , _acpDescription :: !(Maybe Text)
-    , _acpName        :: !Text
-    , _acpRequired    :: !Bool
-    , _acpKey         :: !Bool
-    , _acpSecret      :: !Bool
+    , _acpName :: !Text
+    , _acpRequired :: !Bool
+    , _acpKey :: !Bool
+    , _acpSecret :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionConfigurationProperty' smart constructor.
 actionConfigurationProperty :: Text -> Bool -> Bool -> Bool -> ActionConfigurationProperty
-actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
+actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ = 
     ActionConfigurationProperty'
     { _acpQueryable = Nothing
     , _acpType = Nothing
@@ -218,7 +218,7 @@ newtype ActionContext = ActionContext'
 
 -- | 'ActionContext' smart constructor.
 actionContext :: ActionContext
-actionContext =
+actionContext = 
     ActionContext'
     { _acName = Nothing
     }
@@ -253,17 +253,17 @@ instance FromJSON ActionContext where
 -- * 'adActionTypeId'
 data ActionDeclaration = ActionDeclaration'
     { _adOutputArtifacts :: !(Maybe [OutputArtifact])
-    , _adRunOrder        :: !(Maybe Nat)
-    , _adConfiguration   :: !(Maybe (Map Text Text))
-    , _adInputArtifacts  :: !(Maybe [InputArtifact])
-    , _adRoleARN         :: !(Maybe Text)
-    , _adName            :: !Text
-    , _adActionTypeId    :: !ActionTypeId
+    , _adRunOrder :: !(Maybe Nat)
+    , _adConfiguration :: !(Maybe (Map Text Text))
+    , _adInputArtifacts :: !(Maybe [InputArtifact])
+    , _adRoleARN :: !(Maybe Text)
+    , _adName :: !Text
+    , _adActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionDeclaration' smart constructor.
 actionDeclaration :: Text -> ActionTypeId -> ActionDeclaration
-actionDeclaration pName_ pActionTypeId_ =
+actionDeclaration pName_ pActionTypeId_ = 
     ActionDeclaration'
     { _adOutputArtifacts = Nothing
     , _adRunOrder = Nothing
@@ -348,18 +348,18 @@ instance ToJSON ActionDeclaration where
 --
 -- * 'aeExternalExecutionId'
 data ActionExecution = ActionExecution'
-    { _aeSummary              :: !(Maybe Text)
-    , _aeStatus               :: !(Maybe ActionExecutionStatus)
-    , _aeLastStatusChange     :: !(Maybe POSIX)
+    { _aeSummary :: !(Maybe Text)
+    , _aeStatus :: !(Maybe ActionExecutionStatus)
+    , _aeLastStatusChange :: !(Maybe POSIX)
     , _aeExternalExecutionURL :: !(Maybe Text)
-    , _aePercentComplete      :: !(Maybe Nat)
-    , _aeErrorDetails         :: !(Maybe ErrorDetails)
-    , _aeExternalExecutionId  :: !(Maybe Text)
+    , _aePercentComplete :: !(Maybe Nat)
+    , _aeErrorDetails :: !(Maybe ErrorDetails)
+    , _aeExternalExecutionId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionExecution' smart constructor.
 actionExecution :: ActionExecution
-actionExecution =
+actionExecution = 
     ActionExecution'
     { _aeSummary = Nothing
     , _aeStatus = Nothing
@@ -425,13 +425,13 @@ instance FromJSON ActionExecution where
 -- * 'arCreated'
 data ActionRevision = ActionRevision'
     { _arRevisionChangeId :: !(Maybe Text)
-    , _arRevisionId       :: !Text
-    , _arCreated          :: !POSIX
+    , _arRevisionId :: !Text
+    , _arCreated :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionRevision' smart constructor.
 actionRevision :: Text -> UTCTime -> ActionRevision
-actionRevision pRevisionId_ pCreated_ =
+actionRevision pRevisionId_ pCreated_ = 
     ActionRevision'
     { _arRevisionChangeId = Nothing
     , _arRevisionId = pRevisionId_
@@ -484,16 +484,16 @@ instance ToJSON ActionRevision where
 --
 -- * 'asLatestExecution'
 data ActionState = ActionState'
-    { _asEntityURL       :: !(Maybe Text)
-    , _asRevisionURL     :: !(Maybe Text)
-    , _asActionName      :: !(Maybe Text)
+    { _asEntityURL :: !(Maybe Text)
+    , _asRevisionURL :: !(Maybe Text)
+    , _asActionName :: !(Maybe Text)
     , _asCurrentRevision :: !(Maybe ActionRevision)
     , _asLatestExecution :: !(Maybe ActionExecution)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionState' smart constructor.
 actionState :: ActionState
-actionState =
+actionState = 
     ActionState'
     { _asEntityURL = Nothing
     , _asRevisionURL = Nothing
@@ -550,16 +550,16 @@ instance FromJSON ActionState where
 --
 -- * 'atOutputArtifactDetails'
 data ActionType = ActionType'
-    { _atSettings                      :: !(Maybe ActionTypeSettings)
+    { _atSettings :: !(Maybe ActionTypeSettings)
     , _atActionConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _atId                            :: !ActionTypeId
-    , _atInputArtifactDetails          :: !ArtifactDetails
-    , _atOutputArtifactDetails         :: !ArtifactDetails
+    , _atId :: !ActionTypeId
+    , _atInputArtifactDetails :: !ArtifactDetails
+    , _atOutputArtifactDetails :: !ArtifactDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionType' smart constructor.
 actionType :: ActionTypeId -> ArtifactDetails -> ArtifactDetails -> ActionType
-actionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ =
+actionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ = 
     ActionType'
     { _atSettings = Nothing
     , _atActionConfigurationProperties = Nothing
@@ -614,14 +614,14 @@ instance FromJSON ActionType where
 -- * 'atiVersion'
 data ActionTypeId = ActionTypeId'
     { _atiCategory :: !ActionCategory
-    , _atiOwner    :: !ActionOwner
+    , _atiOwner :: !ActionOwner
     , _atiProvider :: !Text
-    , _atiVersion  :: !Text
+    , _atiVersion :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionTypeId' smart constructor.
 actionTypeId :: ActionCategory -> ActionOwner -> Text -> Text -> ActionTypeId
-actionTypeId pCategory_ pOwner_ pProvider_ pVersion_ =
+actionTypeId pCategory_ pOwner_ pProvider_ pVersion_ = 
     ActionTypeId'
     { _atiCategory = pCategory_
     , _atiOwner = pOwner_
@@ -680,14 +680,14 @@ instance ToJSON ActionTypeId where
 -- * 'atsRevisionURLTemplate'
 data ActionTypeSettings = ActionTypeSettings'
     { _atsThirdPartyConfigurationURL :: !(Maybe Text)
-    , _atsExecutionURLTemplate       :: !(Maybe Text)
-    , _atsEntityURLTemplate          :: !(Maybe Text)
-    , _atsRevisionURLTemplate        :: !(Maybe Text)
+    , _atsExecutionURLTemplate :: !(Maybe Text)
+    , _atsEntityURLTemplate :: !(Maybe Text)
+    , _atsRevisionURLTemplate :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActionTypeSettings' smart constructor.
 actionTypeSettings :: ActionTypeSettings
-actionTypeSettings =
+actionTypeSettings = 
     ActionTypeSettings'
     { _atsThirdPartyConfigurationURL = Nothing
     , _atsExecutionURLTemplate = Nothing
@@ -755,13 +755,13 @@ instance ToJSON ActionTypeSettings where
 -- * 'aRevision'
 data Artifact = Artifact'
     { _aLocation :: !(Maybe ArtifactLocation)
-    , _aName     :: !(Maybe Text)
+    , _aName :: !(Maybe Text)
     , _aRevision :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
-artifact =
+artifact = 
     Artifact'
     { _aLocation = Nothing
     , _aName = Nothing
@@ -805,7 +805,7 @@ data ArtifactDetails = ArtifactDetails'
 
 -- | 'ArtifactDetails' smart constructor.
 artifactDetails :: Natural -> Natural -> ArtifactDetails
-artifactDetails pMinimumCount_ pMaximumCount_ =
+artifactDetails pMinimumCount_ pMaximumCount_ = 
     ArtifactDetails'
     { _adMinimumCount = _Nat # pMinimumCount_
     , _adMaximumCount = _Nat # pMaximumCount_
@@ -843,12 +843,12 @@ instance ToJSON ArtifactDetails where
 -- * 'alType'
 data ArtifactLocation = ArtifactLocation'
     { _alS3Location :: !(Maybe S3ArtifactLocation)
-    , _alType       :: !(Maybe ArtifactLocationType)
+    , _alType :: !(Maybe ArtifactLocationType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ArtifactLocation' smart constructor.
 artifactLocation :: ArtifactLocation
-artifactLocation =
+artifactLocation = 
     ArtifactLocation'
     { _alS3Location = Nothing
     , _alType = Nothing
@@ -881,13 +881,13 @@ instance FromJSON ArtifactLocation where
 --
 -- * 'asLocation'
 data ArtifactStore = ArtifactStore'
-    { _asType     :: !ArtifactStoreType
+    { _asType :: !ArtifactStoreType
     , _asLocation :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ArtifactStore' smart constructor.
 artifactStore :: ArtifactStoreType -> Text -> ArtifactStore
-artifactStore pType_ pLocation_ =
+artifactStore pType_ pLocation_ = 
     ArtifactStore'
     { _asType = pType_
     , _asLocation = pLocation_
@@ -930,7 +930,7 @@ data BlockerDeclaration = BlockerDeclaration'
 
 -- | 'BlockerDeclaration' smart constructor.
 blockerDeclaration :: Text -> BlockerType -> BlockerDeclaration
-blockerDeclaration pName_ pType_ =
+blockerDeclaration pName_ pType_ = 
     BlockerDeclaration'
     { _bdName = pName_
     , _bdType = pType_
@@ -965,13 +965,13 @@ instance ToJSON BlockerDeclaration where
 --
 -- * 'crChangeIdentifier'
 data CurrentRevision = CurrentRevision'
-    { _crRevision         :: !Text
+    { _crRevision :: !Text
     , _crChangeIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CurrentRevision' smart constructor.
 currentRevision :: Text -> Text -> CurrentRevision
-currentRevision pRevision_ pChangeIdentifier_ =
+currentRevision pRevision_ pChangeIdentifier_ = 
     CurrentRevision'
     { _crRevision = pRevision_
     , _crChangeIdentifier = pChangeIdentifier_
@@ -1001,13 +1001,13 @@ instance ToJSON CurrentRevision where
 --
 -- * 'edMessage'
 data ErrorDetails = ErrorDetails'
-    { _edCode    :: !(Maybe Text)
+    { _edCode :: !(Maybe Text)
     , _edMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ErrorDetails' smart constructor.
 errorDetails :: ErrorDetails
-errorDetails =
+errorDetails = 
     ErrorDetails'
     { _edCode = Nothing
     , _edMessage = Nothing
@@ -1041,14 +1041,14 @@ instance FromJSON ErrorDetails where
 --
 -- * 'edExternalExecutionId'
 data ExecutionDetails = ExecutionDetails'
-    { _edSummary             :: !(Maybe Text)
-    , _edPercentComplete     :: !(Maybe Nat)
+    { _edSummary :: !(Maybe Text)
+    , _edPercentComplete :: !(Maybe Nat)
     , _edExternalExecutionId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExecutionDetails' smart constructor.
 executionDetails :: ExecutionDetails
-executionDetails =
+executionDetails = 
     ExecutionDetails'
     { _edSummary = Nothing
     , _edPercentComplete = Nothing
@@ -1089,13 +1089,13 @@ instance ToJSON ExecutionDetails where
 -- * 'fdType'
 data FailureDetails = FailureDetails'
     { _fdExternalExecutionId :: !(Maybe Text)
-    , _fdMessage             :: !(Maybe Text)
-    , _fdType                :: !FailureType
+    , _fdMessage :: !(Maybe Text)
+    , _fdType :: !FailureType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FailureDetails' smart constructor.
 failureDetails :: FailureType -> FailureDetails
-failureDetails pType_ =
+failureDetails pType_ = 
     FailureDetails'
     { _fdExternalExecutionId = Nothing
     , _fdMessage = Nothing
@@ -1134,7 +1134,7 @@ newtype InputArtifact = InputArtifact'
 
 -- | 'InputArtifact' smart constructor.
 inputArtifact :: Text -> InputArtifact
-inputArtifact pName_ =
+inputArtifact pName_ = 
     InputArtifact'
     { _iaName = pName_
     }
@@ -1172,15 +1172,15 @@ instance ToJSON InputArtifact where
 --
 -- * 'jNonce'
 data Job = Job'
-    { _jData      :: !(Maybe JobData)
+    { _jData :: !(Maybe JobData)
     , _jAccountId :: !(Maybe Text)
-    , _jId        :: !(Maybe Text)
-    , _jNonce     :: !(Maybe Text)
+    , _jId :: !(Maybe Text)
+    , _jNonce :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Job' smart constructor.
 job :: Job
-job =
+job = 
     Job'
     { _jData = Nothing
     , _jAccountId = Nothing
@@ -1236,18 +1236,18 @@ instance FromJSON Job where
 --
 -- * 'jdActionConfiguration'
 data JobData = JobData'
-    { _jdContinuationToken   :: !(Maybe Text)
-    , _jdOutputArtifacts     :: !(Maybe [Artifact])
+    { _jdContinuationToken :: !(Maybe Text)
+    , _jdOutputArtifacts :: !(Maybe [Artifact])
     , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
-    , _jdPipelineContext     :: !(Maybe PipelineContext)
-    , _jdActionTypeId        :: !(Maybe ActionTypeId)
-    , _jdInputArtifacts      :: !(Maybe [Artifact])
+    , _jdPipelineContext :: !(Maybe PipelineContext)
+    , _jdActionTypeId :: !(Maybe ActionTypeId)
+    , _jdInputArtifacts :: !(Maybe [Artifact])
     , _jdActionConfiguration :: !(Maybe ActionConfiguration)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'JobData' smart constructor.
 jobData :: JobData
-jobData =
+jobData = 
     JobData'
     { _jdContinuationToken = Nothing
     , _jdOutputArtifacts = Nothing
@@ -1312,14 +1312,14 @@ instance FromJSON JobData where
 --
 -- * 'jdId'
 data JobDetails = JobDetails'
-    { _jdData      :: !(Maybe JobData)
+    { _jdData :: !(Maybe JobData)
     , _jdAccountId :: !(Maybe Text)
-    , _jdId        :: !(Maybe Text)
+    , _jdId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'JobDetails' smart constructor.
 jobDetails :: JobDetails
-jobDetails =
+jobDetails = 
     JobDetails'
     { _jdData = Nothing
     , _jdAccountId = Nothing
@@ -1359,7 +1359,7 @@ newtype OutputArtifact = OutputArtifact'
 
 -- | 'OutputArtifact' smart constructor.
 outputArtifact :: Text -> OutputArtifact
-outputArtifact pName_ =
+outputArtifact pName_ = 
     OutputArtifact'
     { _oaName = pName_
     }
@@ -1397,14 +1397,14 @@ instance ToJSON OutputArtifact where
 --
 -- * 'pcAction'
 data PipelineContext = PipelineContext'
-    { _pcStage        :: !(Maybe StageContext)
+    { _pcStage :: !(Maybe StageContext)
     , _pcPipelineName :: !(Maybe Text)
-    , _pcAction       :: !(Maybe ActionContext)
+    , _pcAction :: !(Maybe ActionContext)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineContext' smart constructor.
 pipelineContext :: PipelineContext
-pipelineContext =
+pipelineContext = 
     PipelineContext'
     { _pcStage = Nothing
     , _pcPipelineName = Nothing
@@ -1450,16 +1450,16 @@ instance FromJSON PipelineContext where
 --
 -- * 'pdStages'
 data PipelineDeclaration = PipelineDeclaration'
-    { _pdVersion       :: !(Maybe Nat)
-    , _pdName          :: !Text
-    , _pdRoleARN       :: !Text
+    { _pdVersion :: !(Maybe Nat)
+    , _pdName :: !Text
+    , _pdRoleARN :: !Text
     , _pdArtifactStore :: !ArtifactStore
-    , _pdStages        :: ![StageDeclaration]
+    , _pdStages :: ![StageDeclaration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineDeclaration' smart constructor.
 pipelineDeclaration :: Text -> Text -> ArtifactStore -> PipelineDeclaration
-pipelineDeclaration pName_ pRoleARN_ pArtifactStore_ =
+pipelineDeclaration pName_ pRoleARN_ pArtifactStore_ = 
     PipelineDeclaration'
     { _pdVersion = Nothing
     , _pdName = pName_
@@ -1525,14 +1525,14 @@ instance ToJSON PipelineDeclaration where
 -- * 'psUpdated'
 data PipelineSummary = PipelineSummary'
     { _psCreated :: !(Maybe POSIX)
-    , _psName    :: !(Maybe Text)
+    , _psName :: !(Maybe Text)
     , _psVersion :: !(Maybe Nat)
     , _psUpdated :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineSummary' smart constructor.
 pipelineSummary :: PipelineSummary
-pipelineSummary =
+pipelineSummary = 
     PipelineSummary'
     { _psCreated = Nothing
     , _psName = Nothing
@@ -1577,12 +1577,12 @@ instance FromJSON PipelineSummary where
 -- * 'salObjectKey'
 data S3ArtifactLocation = S3ArtifactLocation'
     { _salBucketName :: !Text
-    , _salObjectKey  :: !Text
+    , _salObjectKey :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3ArtifactLocation' smart constructor.
 s3ArtifactLocation :: Text -> Text -> S3ArtifactLocation
-s3ArtifactLocation pBucketName_ pObjectKey_ =
+s3ArtifactLocation pBucketName_ pObjectKey_ = 
     S3ArtifactLocation'
     { _salBucketName = pBucketName_
     , _salObjectKey = pObjectKey_
@@ -1617,7 +1617,7 @@ newtype StageContext = StageContext'
 
 -- | 'StageContext' smart constructor.
 stageContext :: StageContext
-stageContext =
+stageContext = 
     StageContext'
     { _scName = Nothing
     }
@@ -1644,13 +1644,13 @@ instance FromJSON StageContext where
 -- * 'sdActions'
 data StageDeclaration = StageDeclaration'
     { _sdBlockers :: !(Maybe [BlockerDeclaration])
-    , _sdName     :: !Text
-    , _sdActions  :: ![ActionDeclaration]
+    , _sdName :: !Text
+    , _sdActions :: ![ActionDeclaration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StageDeclaration' smart constructor.
 stageDeclaration :: Text -> StageDeclaration
-stageDeclaration pName_ =
+stageDeclaration pName_ = 
     StageDeclaration'
     { _sdBlockers = Nothing
     , _sdName = pName_
@@ -1696,13 +1696,13 @@ instance ToJSON StageDeclaration where
 -- * 'ssStageName'
 data StageState = StageState'
     { _ssInboundTransitionState :: !(Maybe TransitionState)
-    , _ssActionStates           :: !(Maybe [ActionState])
-    , _ssStageName              :: !(Maybe Text)
+    , _ssActionStates :: !(Maybe [ActionState])
+    , _ssStageName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StageState' smart constructor.
 stageState :: StageState
-stageState =
+stageState = 
     StageState'
     { _ssInboundTransitionState = Nothing
     , _ssActionStates = Nothing
@@ -1743,12 +1743,12 @@ instance FromJSON StageState where
 -- * 'tpjJobId'
 data ThirdPartyJob = ThirdPartyJob'
     { _tpjClientId :: !(Maybe Text)
-    , _tpjJobId    :: !(Maybe Text)
+    , _tpjJobId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ThirdPartyJob' smart constructor.
 thirdPartyJob :: ThirdPartyJob
-thirdPartyJob =
+thirdPartyJob = 
     ThirdPartyJob'
     { _tpjClientId = Nothing
     , _tpjJobId = Nothing
@@ -1791,18 +1791,18 @@ instance FromJSON ThirdPartyJob where
 --
 -- * 'tpjdActionConfiguration'
 data ThirdPartyJobData = ThirdPartyJobData'
-    { _tpjdContinuationToken   :: !(Maybe Text)
-    , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
+    { _tpjdContinuationToken :: !(Maybe Text)
+    , _tpjdOutputArtifacts :: !(Maybe [Artifact])
     , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
-    , _tpjdPipelineContext     :: !(Maybe PipelineContext)
-    , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
-    , _tpjdInputArtifacts      :: !(Maybe [Artifact])
+    , _tpjdPipelineContext :: !(Maybe PipelineContext)
+    , _tpjdActionTypeId :: !(Maybe ActionTypeId)
+    , _tpjdInputArtifacts :: !(Maybe [Artifact])
     , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ThirdPartyJobData' smart constructor.
 thirdPartyJobData :: ThirdPartyJobData
-thirdPartyJobData =
+thirdPartyJobData = 
     ThirdPartyJobData'
     { _tpjdContinuationToken = Nothing
     , _tpjdOutputArtifacts = Nothing
@@ -1874,14 +1874,14 @@ instance FromJSON ThirdPartyJobData where
 --
 -- * 'tpjdNonce'
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
-    { _tpjdData  :: !(Maybe ThirdPartyJobData)
-    , _tpjdId    :: !(Maybe Text)
+    { _tpjdData :: !(Maybe ThirdPartyJobData)
+    , _tpjdId :: !(Maybe Text)
     , _tpjdNonce :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ThirdPartyJobDetails' smart constructor.
 thirdPartyJobDetails :: ThirdPartyJobDetails
-thirdPartyJobDetails =
+thirdPartyJobDetails = 
     ThirdPartyJobDetails'
     { _tpjdData = Nothing
     , _tpjdId = Nothing
@@ -1924,15 +1924,15 @@ instance FromJSON ThirdPartyJobDetails where
 --
 -- * 'tsLastChangedBy'
 data TransitionState = TransitionState'
-    { _tsEnabled        :: !(Maybe Bool)
+    { _tsEnabled :: !(Maybe Bool)
     , _tsDisabledReason :: !(Maybe Text)
-    , _tsLastChangedAt  :: !(Maybe POSIX)
-    , _tsLastChangedBy  :: !(Maybe Text)
+    , _tsLastChangedAt :: !(Maybe POSIX)
+    , _tsLastChangedBy :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TransitionState' smart constructor.
 transitionState :: TransitionState
-transitionState =
+transitionState = 
     TransitionState'
     { _tsEnabled = Nothing
     , _tsDisabledReason = Nothing

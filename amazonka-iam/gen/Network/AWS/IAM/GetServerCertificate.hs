@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.IAM.GetServerCertificate
     , gscrsServerCertificate
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getServerCertificate' smart constructor.
 --
@@ -52,7 +54,7 @@ newtype GetServerCertificate = GetServerCertificate'
 
 -- | 'GetServerCertificate' smart constructor.
 getServerCertificate :: Text -> GetServerCertificate
-getServerCertificate pServerCertificateName_ =
+getServerCertificate pServerCertificateName_ = 
     GetServerCertificate'
     { _gscServerCertificateName = pServerCertificateName_
     }
@@ -96,13 +98,13 @@ instance ToQuery GetServerCertificate where
 --
 -- * 'gscrsServerCertificate'
 data GetServerCertificateResponse = GetServerCertificateResponse'
-    { _gscrsStatus            :: !Int
+    { _gscrsStatus :: !Int
     , _gscrsServerCertificate :: !ServerCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetServerCertificateResponse' smart constructor.
 getServerCertificateResponse :: Int -> ServerCertificate -> GetServerCertificateResponse
-getServerCertificateResponse pStatus_ pServerCertificate_ =
+getServerCertificateResponse pStatus_ pServerCertificate_ = 
     GetServerCertificateResponse'
     { _gscrsStatus = pStatus_
     , _gscrsServerCertificate = pServerCertificate_

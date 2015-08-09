@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,14 +35,15 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , datrsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAdjustmentTypes' smart constructor.
 data DescribeAdjustmentTypes =
-    DescribeAdjustmentTypes'
+    DescribeAdjustmentTypes' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAdjustmentTypes' smart constructor.
@@ -84,12 +86,12 @@ instance ToQuery DescribeAdjustmentTypes where
 -- * 'datrsStatus'
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes :: !(Maybe [AdjustmentType])
-    , _datrsStatus          :: !Int
+    , _datrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
 describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse
-describeAdjustmentTypesResponse pStatus_ =
+describeAdjustmentTypesResponse pStatus_ = 
     DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes = Nothing
     , _datrsStatus = pStatus_

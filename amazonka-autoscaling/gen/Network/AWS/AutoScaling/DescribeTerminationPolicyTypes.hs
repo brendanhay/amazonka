@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,14 +35,15 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     , dtptrsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTerminationPolicyTypes' smart constructor.
 data DescribeTerminationPolicyTypes =
-    DescribeTerminationPolicyTypes'
+    DescribeTerminationPolicyTypes' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTerminationPolicyTypes' smart constructor.
@@ -87,12 +89,12 @@ instance ToQuery DescribeTerminationPolicyTypes where
 -- * 'dtptrsStatus'
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
-    , _dtptrsStatus                 :: !Int
+    , _dtptrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
 describeTerminationPolicyTypesResponse :: Int -> DescribeTerminationPolicyTypesResponse
-describeTerminationPolicyTypesResponse pStatus_ =
+describeTerminationPolicyTypesResponse pStatus_ = 
     DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes = Nothing
     , _dtptrsStatus = pStatus_

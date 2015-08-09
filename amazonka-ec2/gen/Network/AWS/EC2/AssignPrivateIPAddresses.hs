@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -48,10 +49,11 @@ module Network.AWS.EC2.AssignPrivateIPAddresses
     , assignPrivateIPAddressesResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'assignPrivateIPAddresses' smart constructor.
 --
@@ -65,15 +67,15 @@ import           Network.AWS.Response
 --
 -- * 'apiaNetworkInterfaceId'
 data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
-    { _apiaPrivateIPAddresses             :: !(Maybe [Text])
-    , _apiaAllowReassignment              :: !(Maybe Bool)
+    { _apiaPrivateIPAddresses :: !(Maybe [Text])
+    , _apiaAllowReassignment :: !(Maybe Bool)
     , _apiaSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _apiaNetworkInterfaceId             :: !Text
+    , _apiaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignPrivateIPAddresses' smart constructor.
 assignPrivateIPAddresses :: Text -> AssignPrivateIPAddresses
-assignPrivateIPAddresses pNetworkInterfaceId_ =
+assignPrivateIPAddresses pNetworkInterfaceId_ = 
     AssignPrivateIPAddresses'
     { _apiaPrivateIPAddresses = Nothing
     , _apiaAllowReassignment = Nothing
@@ -136,7 +138,7 @@ instance ToQuery AssignPrivateIPAddresses where
 
 -- | /See:/ 'assignPrivateIPAddressesResponse' smart constructor.
 data AssignPrivateIPAddressesResponse =
-    AssignPrivateIPAddressesResponse'
+    AssignPrivateIPAddressesResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignPrivateIPAddressesResponse' smart constructor.

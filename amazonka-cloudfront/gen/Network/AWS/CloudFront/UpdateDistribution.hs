@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CloudFront.UpdateDistribution
     , udrsStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to update a distribution.
 --
@@ -56,14 +58,14 @@ import           Network.AWS.Response
 --
 -- * 'udId'
 data UpdateDistribution = UpdateDistribution'
-    { _udIfMatch            :: !(Maybe Text)
+    { _udIfMatch :: !(Maybe Text)
     , _udDistributionConfig :: !DistributionConfig
-    , _udId                 :: !Text
+    , _udId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDistribution' smart constructor.
 updateDistribution :: DistributionConfig -> Text -> UpdateDistribution
-updateDistribution pDistributionConfig_ pId_ =
+updateDistribution pDistributionConfig_ pId_ = 
     UpdateDistribution'
     { _udIfMatch = Nothing
     , _udDistributionConfig = pDistributionConfig_
@@ -126,14 +128,14 @@ instance ToQuery UpdateDistribution where
 --
 -- * 'udrsStatus'
 data UpdateDistributionResponse = UpdateDistributionResponse'
-    { _udrsETag         :: !(Maybe Text)
+    { _udrsETag :: !(Maybe Text)
     , _udrsDistribution :: !(Maybe Distribution)
-    , _udrsStatus       :: !Int
+    , _udrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDistributionResponse' smart constructor.
 updateDistributionResponse :: Int -> UpdateDistributionResponse
-updateDistributionResponse pStatus_ =
+updateDistributionResponse pStatus_ = 
     UpdateDistributionResponse'
     { _udrsETag = Nothing
     , _udrsDistribution = Nothing

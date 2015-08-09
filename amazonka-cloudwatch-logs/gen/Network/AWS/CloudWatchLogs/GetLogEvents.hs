@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     , glersStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getLogEvents' smart constructor.
 --
@@ -76,18 +78,18 @@ import           Network.AWS.Response
 --
 -- * 'gleLogStreamName'
 data GetLogEvents = GetLogEvents'
-    { _gleStartTime     :: !(Maybe Nat)
+    { _gleStartTime :: !(Maybe Nat)
     , _gleStartFromHead :: !(Maybe Bool)
-    , _gleNextToken     :: !(Maybe Text)
-    , _gleEndTime       :: !(Maybe Nat)
-    , _gleLimit         :: !(Maybe Nat)
-    , _gleLogGroupName  :: !Text
+    , _gleNextToken :: !(Maybe Text)
+    , _gleEndTime :: !(Maybe Nat)
+    , _gleLimit :: !(Maybe Nat)
+    , _gleLogGroupName :: !Text
     , _gleLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLogEvents' smart constructor.
 getLogEvents :: Text -> Text -> GetLogEvents
-getLogEvents pLogGroupName_ pLogStreamName_ =
+getLogEvents pLogGroupName_ pLogStreamName_ = 
     GetLogEvents'
     { _gleStartTime = Nothing
     , _gleStartFromHead = Nothing
@@ -183,14 +185,14 @@ instance ToQuery GetLogEvents where
 -- * 'glersStatus'
 data GetLogEventsResponse = GetLogEventsResponse'
     { _glersNextBackwardToken :: !(Maybe Text)
-    , _glersNextForwardToken  :: !(Maybe Text)
-    , _glersEvents            :: !(Maybe [OutputLogEvent])
-    , _glersStatus            :: !Int
+    , _glersNextForwardToken :: !(Maybe Text)
+    , _glersEvents :: !(Maybe [OutputLogEvent])
+    , _glersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLogEventsResponse' smart constructor.
 getLogEventsResponse :: Int -> GetLogEventsResponse
-getLogEventsResponse pStatus_ =
+getLogEventsResponse pStatus_ = 
     GetLogEventsResponse'
     { _glersNextBackwardToken = Nothing
     , _glersNextForwardToken = Nothing

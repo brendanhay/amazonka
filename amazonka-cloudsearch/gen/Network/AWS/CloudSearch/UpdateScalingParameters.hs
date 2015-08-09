@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , usprsScalingParameters
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @UpdateScalingParameters@ operation.
 -- Specifies the name of the domain you want to update and the scaling
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 --
 -- * 'uspScalingParameters'
 data UpdateScalingParameters = UpdateScalingParameters'
-    { _uspDomainName        :: !Text
+    { _uspDomainName :: !Text
     , _uspScalingParameters :: !ScalingParameters
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateScalingParameters' smart constructor.
 updateScalingParameters :: Text -> ScalingParameters -> UpdateScalingParameters
-updateScalingParameters pDomainName_ pScalingParameters_ =
+updateScalingParameters pDomainName_ pScalingParameters_ = 
     UpdateScalingParameters'
     { _uspDomainName = pDomainName_
     , _uspScalingParameters = pScalingParameters_
@@ -119,13 +121,13 @@ instance ToQuery UpdateScalingParameters where
 --
 -- * 'usprsScalingParameters'
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
-    { _usprsStatus            :: !Int
+    { _usprsStatus :: !Int
     , _usprsScalingParameters :: !ScalingParametersStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
 updateScalingParametersResponse :: Int -> ScalingParametersStatus -> UpdateScalingParametersResponse
-updateScalingParametersResponse pStatus_ pScalingParameters_ =
+updateScalingParametersResponse pStatus_ pScalingParameters_ = 
     UpdateScalingParametersResponse'
     { _usprsStatus = pStatus_
     , _usprsScalingParameters = pScalingParameters_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,11 +47,12 @@ module Network.AWS.IAM.ListInstanceProfiles
     , liprsInstanceProfiles
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfiles' smart constructor.
 --
@@ -63,13 +65,13 @@ import           Network.AWS.Response
 -- * 'lipMarker'
 data ListInstanceProfiles = ListInstanceProfiles'
     { _lipPathPrefix :: !(Maybe Text)
-    , _lipMaxItems   :: !(Maybe Nat)
-    , _lipMarker     :: !(Maybe Text)
+    , _lipMaxItems :: !(Maybe Nat)
+    , _lipMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfiles' smart constructor.
 listInstanceProfiles :: ListInstanceProfiles
-listInstanceProfiles =
+listInstanceProfiles = 
     ListInstanceProfiles'
     { _lipPathPrefix = Nothing
     , _lipMaxItems = Nothing
@@ -150,15 +152,15 @@ instance ToQuery ListInstanceProfiles where
 --
 -- * 'liprsInstanceProfiles'
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-    { _liprsMarker           :: !(Maybe Text)
-    , _liprsIsTruncated      :: !(Maybe Bool)
-    , _liprsStatus           :: !Int
+    { _liprsMarker :: !(Maybe Text)
+    , _liprsIsTruncated :: !(Maybe Bool)
+    , _liprsStatus :: !Int
     , _liprsInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesResponse' smart constructor.
 listInstanceProfilesResponse :: Int -> ListInstanceProfilesResponse
-listInstanceProfilesResponse pStatus_ =
+listInstanceProfilesResponse pStatus_ = 
     ListInstanceProfilesResponse'
     { _liprsMarker = Nothing
     , _liprsIsTruncated = Nothing

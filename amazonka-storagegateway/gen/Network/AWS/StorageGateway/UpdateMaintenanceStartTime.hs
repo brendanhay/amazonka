@@ -45,6 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the following fields:
 --

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.EC2.AssociateRouteTable
     , artrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateRouteTable' smart constructor.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 --
 -- * 'artRouteTableId'
 data AssociateRouteTable = AssociateRouteTable'
-    { _artDryRun       :: !(Maybe Bool)
-    , _artSubnetId     :: !Text
+    { _artDryRun :: !(Maybe Bool)
+    , _artSubnetId :: !Text
     , _artRouteTableId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateRouteTable' smart constructor.
 associateRouteTable :: Text -> Text -> AssociateRouteTable
-associateRouteTable pSubnetId_ pRouteTableId_ =
+associateRouteTable pSubnetId_ pRouteTableId_ = 
     AssociateRouteTable'
     { _artDryRun = Nothing
     , _artSubnetId = pSubnetId_
@@ -125,12 +127,12 @@ instance ToQuery AssociateRouteTable where
 -- * 'artrsStatus'
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
     { _artrsAssociationId :: !(Maybe Text)
-    , _artrsStatus        :: !Int
+    , _artrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateRouteTableResponse' smart constructor.
 associateRouteTableResponse :: Int -> AssociateRouteTableResponse
-associateRouteTableResponse pStatus_ =
+associateRouteTableResponse pStatus_ = 
     AssociateRouteTableResponse'
     { _artrsAssociationId = Nothing
     , _artrsStatus = pStatus_

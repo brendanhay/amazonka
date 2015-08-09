@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.EC2.RebootInstances
     , rebootInstancesResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'rebootInstances' smart constructor.
 --
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 --
 -- * 'rebInstanceIds'
 data RebootInstances = RebootInstances'
-    { _rebDryRun      :: !(Maybe Bool)
+    { _rebDryRun :: !(Maybe Bool)
     , _rebInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstances' smart constructor.
 rebootInstances :: RebootInstances
-rebootInstances =
+rebootInstances = 
     RebootInstances'
     { _rebDryRun = Nothing
     , _rebInstanceIds = mempty
@@ -102,7 +104,7 @@ instance ToQuery RebootInstances where
 
 -- | /See:/ 'rebootInstancesResponse' smart constructor.
 data RebootInstancesResponse =
-    RebootInstancesResponse'
+    RebootInstancesResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstancesResponse' smart constructor.

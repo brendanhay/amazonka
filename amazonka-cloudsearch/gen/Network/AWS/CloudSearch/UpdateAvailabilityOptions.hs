@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     , uaorsStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @UpdateAvailabilityOptions@
 -- operation. Specifies the name of the domain you want to update and the
@@ -61,12 +63,12 @@ import           Network.AWS.Response
 -- * 'uaoMultiAZ'
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
     { _uaoDomainName :: !Text
-    , _uaoMultiAZ    :: !Bool
+    , _uaoMultiAZ :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAvailabilityOptions' smart constructor.
 updateAvailabilityOptions :: Text -> Bool -> UpdateAvailabilityOptions
-updateAvailabilityOptions pDomainName_ pMultiAZ_ =
+updateAvailabilityOptions pDomainName_ pMultiAZ_ = 
     UpdateAvailabilityOptions'
     { _uaoDomainName = pDomainName_
     , _uaoMultiAZ = pMultiAZ_
@@ -122,12 +124,12 @@ instance ToQuery UpdateAvailabilityOptions where
 -- * 'uaorsStatus'
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
     { _uaorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _uaorsStatus              :: !Int
+    , _uaorsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
 updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse
-updateAvailabilityOptionsResponse pStatus_ =
+updateAvailabilityOptionsResponse pStatus_ = 
     UpdateAvailabilityOptionsResponse'
     { _uaorsAvailabilityOptions = Nothing
     , _uaorsStatus = pStatus_

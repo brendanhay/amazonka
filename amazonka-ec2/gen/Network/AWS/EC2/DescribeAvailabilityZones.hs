@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     , dazrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAvailabilityZones' smart constructor.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 -- * 'dazDryRun'
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
     { _dazZoneNames :: !(Maybe [Text])
-    , _dazFilters   :: !(Maybe [Filter])
-    , _dazDryRun    :: !(Maybe Bool)
+    , _dazFilters :: !(Maybe [Filter])
+    , _dazDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityZones' smart constructor.
 describeAvailabilityZones :: DescribeAvailabilityZones
-describeAvailabilityZones =
+describeAvailabilityZones = 
     DescribeAvailabilityZones'
     { _dazZoneNames = Nothing
     , _dazFilters = Nothing
@@ -140,12 +142,12 @@ instance ToQuery DescribeAvailabilityZones where
 -- * 'dazrsStatus'
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
     { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _dazrsStatus            :: !Int
+    , _dazrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
 describeAvailabilityZonesResponse :: Int -> DescribeAvailabilityZonesResponse
-describeAvailabilityZonesResponse pStatus_ =
+describeAvailabilityZonesResponse pStatus_ = 
     DescribeAvailabilityZonesResponse'
     { _dazrsAvailabilityZones = Nothing
     , _dazrsStatus = pStatus_

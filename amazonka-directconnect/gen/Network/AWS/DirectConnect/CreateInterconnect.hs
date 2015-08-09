@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.DirectConnect.CreateInterconnect
     , iRegion
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreateInterconnect operation.
 --
@@ -76,13 +78,13 @@ import           Network.AWS.Response
 -- * 'ciLocation'
 data CreateInterconnect = CreateInterconnect'
     { _ciInterconnectName :: !Text
-    , _ciBandwidth        :: !Text
-    , _ciLocation         :: !Text
+    , _ciBandwidth :: !Text
+    , _ciLocation :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInterconnect' smart constructor.
 createInterconnect :: Text -> Text -> Text -> CreateInterconnect
-createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
+createInterconnect pInterconnectName_ pBandwidth_ pLocation_ = 
     CreateInterconnect'
     { _ciInterconnectName = pInterconnectName_
     , _ciBandwidth = pBandwidth_

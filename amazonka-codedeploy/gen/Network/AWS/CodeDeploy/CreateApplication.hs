@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodeDeploy.CreateApplication
     , carsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create application operation.
 --
@@ -54,7 +56,7 @@ newtype CreateApplication = CreateApplication'
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
-createApplication pApplicationName_ =
+createApplication pApplicationName_ = 
     CreateApplication'
     { _caApplicationName = pApplicationName_
     }
@@ -105,12 +107,12 @@ instance ToQuery CreateApplication where
 -- * 'carsStatus'
 data CreateApplicationResponse = CreateApplicationResponse'
     { _carsApplicationId :: !(Maybe Text)
-    , _carsStatus        :: !Int
+    , _carsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplicationResponse' smart constructor.
 createApplicationResponse :: Int -> CreateApplicationResponse
-createApplicationResponse pStatus_ =
+createApplicationResponse pStatus_ = 
     CreateApplicationResponse'
     { _carsApplicationId = Nothing
     , _carsStatus = pStatus_

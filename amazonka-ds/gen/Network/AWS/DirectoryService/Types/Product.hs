@@ -18,8 +18,8 @@
 --
 module Network.AWS.DirectoryService.Types.Product where
 
-import           Network.AWS.DirectoryService.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.DirectoryService.Types.Sum
+import Network.AWS.Prelude
 
 -- | Represents a named directory attribute.
 --
@@ -32,12 +32,12 @@ import           Network.AWS.Prelude
 -- * 'aName'
 data Attribute = Attribute'
     { _aValue :: !(Maybe Text)
-    , _aName  :: !(Maybe Text)
+    , _aName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Attribute' smart constructor.
 attribute :: Attribute
-attribute =
+attribute = 
     Attribute'
     { _aValue = Nothing
     , _aName = Nothing
@@ -73,14 +73,14 @@ instance ToJSON Attribute where
 --
 -- * 'cComputerName'
 data Computer = Computer'
-    { _cComputerId         :: !(Maybe Text)
+    { _cComputerId :: !(Maybe Text)
     , _cComputerAttributes :: !(Maybe [Attribute])
-    , _cComputerName       :: !(Maybe Text)
+    , _cComputerName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Computer' smart constructor.
 computer :: Computer
-computer =
+computer = 
     Computer'
     { _cComputerId = Nothing
     , _cComputerAttributes = Nothing
@@ -124,15 +124,15 @@ instance FromJSON Computer where
 --
 -- * 'dcsCustomerUserName'
 data DirectoryConnectSettings = DirectoryConnectSettings'
-    { _dcsVPCId            :: !Text
-    , _dcsSubnetIds        :: ![Text]
-    , _dcsCustomerDNSIPs   :: ![Text]
+    { _dcsVPCId :: !Text
+    , _dcsSubnetIds :: ![Text]
+    , _dcsCustomerDNSIPs :: ![Text]
     , _dcsCustomerUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryConnectSettings' smart constructor.
 directoryConnectSettings :: Text -> Text -> DirectoryConnectSettings
-directoryConnectSettings pVPCId_ pCustomerUserName_ =
+directoryConnectSettings pVPCId_ pCustomerUserName_ = 
     DirectoryConnectSettings'
     { _dcsVPCId = pVPCId_
     , _dcsSubnetIds = mempty
@@ -189,17 +189,17 @@ instance ToJSON DirectoryConnectSettings where
 --
 -- * 'dcsdAvailabilityZones'
 data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
-    { _dcsdCustomerUserName  :: !(Maybe Text)
-    , _dcsdSubnetIds         :: !(Maybe [Text])
-    , _dcsdVPCId             :: !(Maybe Text)
-    , _dcsdConnectIPs        :: !(Maybe [Text])
-    , _dcsdSecurityGroupId   :: !(Maybe Text)
+    { _dcsdCustomerUserName :: !(Maybe Text)
+    , _dcsdSubnetIds :: !(Maybe [Text])
+    , _dcsdVPCId :: !(Maybe Text)
+    , _dcsdConnectIPs :: !(Maybe [Text])
+    , _dcsdSecurityGroupId :: !(Maybe Text)
     , _dcsdAvailabilityZones :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryConnectSettingsDescription' smart constructor.
 directoryConnectSettingsDescription :: DirectoryConnectSettingsDescription
-directoryConnectSettingsDescription =
+directoryConnectSettingsDescription = 
     DirectoryConnectSettingsDescription'
     { _dcsdCustomerUserName = Nothing
     , _dcsdSubnetIds = Nothing
@@ -288,29 +288,29 @@ instance FromJSON DirectoryConnectSettingsDescription
 --
 -- * 'ddDescription'
 data DirectoryDescription = DirectoryDescription'
-    { _ddRadiusStatus             :: !(Maybe RadiusStatus)
-    , _ddDirectoryId              :: !(Maybe Text)
-    , _ddStage                    :: !(Maybe DirectoryStage)
-    , _ddAccessURL                :: !(Maybe Text)
-    , _ddShortName                :: !(Maybe Text)
-    , _ddSize                     :: !(Maybe DirectorySize)
-    , _ddRadiusSettings           :: !(Maybe RadiusSettings)
-    , _ddLaunchTime               :: !(Maybe POSIX)
-    , _ddAlias                    :: !(Maybe Text)
-    , _ddName                     :: !(Maybe Text)
-    , _ddSSOEnabled               :: !(Maybe Bool)
+    { _ddRadiusStatus :: !(Maybe RadiusStatus)
+    , _ddDirectoryId :: !(Maybe Text)
+    , _ddStage :: !(Maybe DirectoryStage)
+    , _ddAccessURL :: !(Maybe Text)
+    , _ddShortName :: !(Maybe Text)
+    , _ddSize :: !(Maybe DirectorySize)
+    , _ddRadiusSettings :: !(Maybe RadiusSettings)
+    , _ddLaunchTime :: !(Maybe POSIX)
+    , _ddAlias :: !(Maybe Text)
+    , _ddName :: !(Maybe Text)
+    , _ddSSOEnabled :: !(Maybe Bool)
     , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
-    , _ddStageReason              :: !(Maybe Text)
-    , _ddDNSIPAddrs               :: !(Maybe [Text])
-    , _ddVPCSettings              :: !(Maybe DirectoryVPCSettingsDescription)
-    , _ddType                     :: !(Maybe DirectoryType)
-    , _ddConnectSettings          :: !(Maybe DirectoryConnectSettingsDescription)
-    , _ddDescription              :: !(Maybe Text)
+    , _ddStageReason :: !(Maybe Text)
+    , _ddDNSIPAddrs :: !(Maybe [Text])
+    , _ddVPCSettings :: !(Maybe DirectoryVPCSettingsDescription)
+    , _ddType :: !(Maybe DirectoryType)
+    , _ddConnectSettings :: !(Maybe DirectoryConnectSettingsDescription)
+    , _ddDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryDescription' smart constructor.
 directoryDescription :: DirectoryDescription
-directoryDescription =
+directoryDescription = 
     DirectoryDescription'
     { _ddRadiusStatus = Nothing
     , _ddDirectoryId = Nothing
@@ -457,16 +457,16 @@ instance FromJSON DirectoryDescription where
 -- * 'dlCloudOnlyDirectoriesLimitReached'
 data DirectoryLimits = DirectoryLimits'
     { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
-    , _dlConnectedDirectoriesLimit        :: !(Maybe Nat)
+    , _dlConnectedDirectoriesLimit :: !(Maybe Nat)
     , _dlConnectedDirectoriesLimitReached :: !(Maybe Bool)
-    , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
+    , _dlCloudOnlyDirectoriesLimit :: !(Maybe Nat)
     , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
     , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryLimits' smart constructor.
 directoryLimits :: DirectoryLimits
-directoryLimits =
+directoryLimits = 
     DirectoryLimits'
     { _dlConnectedDirectoriesCurrentCount = Nothing
     , _dlConnectedDirectoriesLimit = Nothing
@@ -523,13 +523,13 @@ instance FromJSON DirectoryLimits where
 --
 -- * 'dvsSubnetIds'
 data DirectoryVPCSettings = DirectoryVPCSettings'
-    { _dvsVPCId     :: !Text
+    { _dvsVPCId :: !Text
     , _dvsSubnetIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryVPCSettings' smart constructor.
 directoryVPCSettings :: Text -> DirectoryVPCSettings
-directoryVPCSettings pVPCId_ =
+directoryVPCSettings pVPCId_ = 
     DirectoryVPCSettings'
     { _dvsVPCId = pVPCId_
     , _dvsSubnetIds = mempty
@@ -564,15 +564,15 @@ instance ToJSON DirectoryVPCSettings where
 --
 -- * 'dvsdAvailabilityZones'
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
-    { _dvsdSubnetIds         :: !(Maybe [Text])
-    , _dvsdVPCId             :: !(Maybe Text)
-    , _dvsdSecurityGroupId   :: !(Maybe Text)
+    { _dvsdSubnetIds :: !(Maybe [Text])
+    , _dvsdVPCId :: !(Maybe Text)
+    , _dvsdSecurityGroupId :: !(Maybe Text)
     , _dvsdAvailabilityZones :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryVPCSettingsDescription' smart constructor.
 directoryVPCSettingsDescription :: DirectoryVPCSettingsDescription
-directoryVPCSettingsDescription =
+directoryVPCSettingsDescription = 
     DirectoryVPCSettingsDescription'
     { _dvsdSubnetIds = Nothing
     , _dvsdVPCId = Nothing
@@ -629,19 +629,19 @@ instance FromJSON DirectoryVPCSettingsDescription
 --
 -- * 'rsRadiusPort'
 data RadiusSettings = RadiusSettings'
-    { _rsDisplayLabel           :: !(Maybe Text)
-    , _rsRadiusServers          :: !(Maybe [Text])
-    , _rsRadiusRetries          :: !(Maybe Nat)
+    { _rsDisplayLabel :: !(Maybe Text)
+    , _rsRadiusServers :: !(Maybe [Text])
+    , _rsRadiusRetries :: !(Maybe Nat)
     , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
-    , _rsUseSameUsername        :: !(Maybe Bool)
-    , _rsSharedSecret           :: !(Maybe (Sensitive Text))
-    , _rsRadiusTimeout          :: !(Maybe Nat)
-    , _rsRadiusPort             :: !(Maybe Nat)
+    , _rsUseSameUsername :: !(Maybe Bool)
+    , _rsSharedSecret :: !(Maybe (Sensitive Text))
+    , _rsRadiusTimeout :: !(Maybe Nat)
+    , _rsRadiusPort :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RadiusSettings' smart constructor.
 radiusSettings :: RadiusSettings
-radiusSettings =
+radiusSettings = 
     RadiusSettings'
     { _rsDisplayLabel = Nothing
     , _rsRadiusServers = Nothing
@@ -737,16 +737,16 @@ instance ToJSON RadiusSettings where
 -- * 'sSnapshotId'
 data Snapshot = Snapshot'
     { _sDirectoryId :: !(Maybe Text)
-    , _sStatus      :: !(Maybe SnapshotStatus)
-    , _sStartTime   :: !(Maybe POSIX)
-    , _sName        :: !(Maybe Text)
-    , _sType        :: !(Maybe SnapshotType)
-    , _sSnapshotId  :: !(Maybe Text)
+    , _sStatus :: !(Maybe SnapshotStatus)
+    , _sStartTime :: !(Maybe POSIX)
+    , _sName :: !(Maybe Text)
+    , _sType :: !(Maybe SnapshotType)
+    , _sSnapshotId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
-snapshot =
+snapshot = 
     Snapshot'
     { _sDirectoryId = Nothing
     , _sStatus = Nothing
@@ -805,12 +805,12 @@ instance FromJSON Snapshot where
 data SnapshotLimits = SnapshotLimits'
     { _slManualSnapshotsLimitReached :: !(Maybe Bool)
     , _slManualSnapshotsCurrentCount :: !(Maybe Nat)
-    , _slManualSnapshotsLimit        :: !(Maybe Nat)
+    , _slManualSnapshotsLimit :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SnapshotLimits' smart constructor.
 snapshotLimits :: SnapshotLimits
-snapshotLimits =
+snapshotLimits = 
     SnapshotLimits'
     { _slManualSnapshotsLimitReached = Nothing
     , _slManualSnapshotsCurrentCount = Nothing

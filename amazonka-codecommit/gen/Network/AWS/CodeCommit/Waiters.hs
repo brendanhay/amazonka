@@ -15,6 +15,6 @@
 --
 module Network.AWS.CodeCommit.Waiters where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.CodeCommit.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter

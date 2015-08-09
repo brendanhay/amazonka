@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.EC2.StartInstances
     , srsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startInstances' smart constructor.
 --
@@ -74,13 +76,13 @@ import           Network.AWS.Response
 -- * 'sInstanceIds'
 data StartInstances = StartInstances'
     { _sAdditionalInfo :: !(Maybe Text)
-    , _sDryRun         :: !(Maybe Bool)
-    , _sInstanceIds    :: ![Text]
+    , _sDryRun :: !(Maybe Bool)
+    , _sInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstances' smart constructor.
 startInstances :: StartInstances
-startInstances =
+startInstances = 
     StartInstances'
     { _sAdditionalInfo = Nothing
     , _sDryRun = Nothing
@@ -138,12 +140,12 @@ instance ToQuery StartInstances where
 -- * 'srsStatus'
 data StartInstancesResponse = StartInstancesResponse'
     { _srsStartingInstances :: !(Maybe [InstanceStateChange])
-    , _srsStatus            :: !Int
+    , _srsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstancesResponse' smart constructor.
 startInstancesResponse :: Int -> StartInstancesResponse
-startInstancesResponse pStatus_ =
+startInstancesResponse pStatus_ = 
     StartInstancesResponse'
     { _srsStartingInstances = Nothing
     , _srsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.KMS.Decrypt
     , drsStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'decrypt' smart constructor.
 --
@@ -69,13 +71,13 @@ import           Network.AWS.Response
 -- * 'dCiphertextBlob'
 data Decrypt = Decrypt'
     { _dEncryptionContext :: !(Maybe (Map Text Text))
-    , _dGrantTokens       :: !(Maybe [Text])
-    , _dCiphertextBlob    :: !Base64
+    , _dGrantTokens :: !(Maybe [Text])
+    , _dCiphertextBlob :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Decrypt' smart constructor.
 decrypt :: ByteString -> Decrypt
-decrypt pCiphertextBlob_ =
+decrypt pCiphertextBlob_ = 
     Decrypt'
     { _dEncryptionContext = Nothing
     , _dGrantTokens = Nothing
@@ -141,14 +143,14 @@ instance ToQuery Decrypt where
 --
 -- * 'drsStatus'
 data DecryptResponse = DecryptResponse'
-    { _drsKeyId     :: !(Maybe Text)
+    { _drsKeyId :: !(Maybe Text)
     , _drsPlaintext :: !(Maybe (Sensitive Base64))
-    , _drsStatus    :: !Int
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecryptResponse' smart constructor.
 decryptResponse :: Int -> DecryptResponse
-decryptResponse pStatus_ =
+decryptResponse pStatus_ = 
     DecryptResponse'
     { _drsKeyId = Nothing
     , _drsPlaintext = Nothing

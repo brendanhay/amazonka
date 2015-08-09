@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     , dsaprsAccessPolicies
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeServiceAccessPolicies@
 -- operation. Specifies the name of the domain you want to describe. To
@@ -61,13 +63,13 @@ import           Network.AWS.Response
 --
 -- * 'dsapDomainName'
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
-    { _dsapDeployed   :: !(Maybe Bool)
+    { _dsapDeployed :: !(Maybe Bool)
     , _dsapDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceAccessPolicies' smart constructor.
 describeServiceAccessPolicies :: Text -> DescribeServiceAccessPolicies
-describeServiceAccessPolicies pDomainName_ =
+describeServiceAccessPolicies pDomainName_ = 
     DescribeServiceAccessPolicies'
     { _dsapDeployed = Nothing
     , _dsapDomainName = pDomainName_
@@ -121,13 +123,13 @@ instance ToQuery DescribeServiceAccessPolicies where
 --
 -- * 'dsaprsAccessPolicies'
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-    { _dsaprsStatus         :: !Int
+    { _dsaprsStatus :: !Int
     , _dsaprsAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
 describeServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse
-describeServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
+describeServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ = 
     DescribeServiceAccessPoliciesResponse'
     { _dsaprsStatus = pStatus_
     , _dsaprsAccessPolicies = pAccessPolicies_

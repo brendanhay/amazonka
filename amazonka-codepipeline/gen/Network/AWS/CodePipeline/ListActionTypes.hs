@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CodePipeline.ListActionTypes
     , latrsActionTypes
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list action types action.
 --
@@ -55,12 +57,12 @@ import           Network.AWS.Response
 -- * 'latNextToken'
 data ListActionTypes = ListActionTypes'
     { _latActionOwnerFilter :: !(Maybe ActionOwner)
-    , _latNextToken         :: !(Maybe Text)
+    , _latNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActionTypes' smart constructor.
 listActionTypes :: ListActionTypes
-listActionTypes =
+listActionTypes = 
     ListActionTypes'
     { _latActionOwnerFilter = Nothing
     , _latNextToken = Nothing
@@ -121,14 +123,14 @@ instance ToQuery ListActionTypes where
 --
 -- * 'latrsActionTypes'
 data ListActionTypesResponse = ListActionTypesResponse'
-    { _latrsNextToken   :: !(Maybe Text)
-    , _latrsStatus      :: !Int
+    { _latrsNextToken :: !(Maybe Text)
+    , _latrsStatus :: !Int
     , _latrsActionTypes :: ![ActionType]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActionTypesResponse' smart constructor.
 listActionTypesResponse :: Int -> ListActionTypesResponse
-listActionTypesResponse pStatus_ =
+listActionTypesResponse pStatus_ = 
     ListActionTypesResponse'
     { _latrsNextToken = Nothing
     , _latrsStatus = pStatus_

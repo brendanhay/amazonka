@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -81,10 +82,11 @@ module Network.AWS.EFS.CreateFileSystem
     , fsdSizeInBytes
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createFileSystem' smart constructor.
 --
@@ -97,7 +99,7 @@ newtype CreateFileSystem = CreateFileSystem'
 
 -- | 'CreateFileSystem' smart constructor.
 createFileSystem :: Text -> CreateFileSystem
-createFileSystem pCreationToken_ =
+createFileSystem pCreationToken_ = 
     CreateFileSystem'
     { _cfsCreationToken = pCreationToken_
     }

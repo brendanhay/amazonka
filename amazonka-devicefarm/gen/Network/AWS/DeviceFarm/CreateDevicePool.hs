@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.DeviceFarm.CreateDevicePool
     , cdprsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the create device pool operation.
 --
@@ -59,14 +61,14 @@ import           Network.AWS.Response
 -- * 'cdpRules'
 data CreateDevicePool = CreateDevicePool'
     { _cdpDescription :: !(Maybe Text)
-    , _cdpProjectARN  :: !Text
-    , _cdpName        :: !Text
-    , _cdpRules       :: ![Rule]
+    , _cdpProjectARN :: !Text
+    , _cdpName :: !Text
+    , _cdpRules :: ![Rule]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDevicePool' smart constructor.
 createDevicePool :: Text -> Text -> CreateDevicePool
-createDevicePool pProjectARN_ pName_ =
+createDevicePool pProjectARN_ pName_ = 
     CreateDevicePool'
     { _cdpDescription = Nothing
     , _cdpProjectARN = pProjectARN_
@@ -134,12 +136,12 @@ instance ToQuery CreateDevicePool where
 -- * 'cdprsStatus'
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
     { _cdprsDevicePool :: !(Maybe DevicePool)
-    , _cdprsStatus     :: !Int
+    , _cdprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDevicePoolResponse' smart constructor.
 createDevicePoolResponse :: Int -> CreateDevicePoolResponse
-createDevicePoolResponse pStatus_ =
+createDevicePoolResponse pStatus_ = 
     CreateDevicePoolResponse'
     { _cdprsDevicePool = Nothing
     , _cdprsStatus = pStatus_

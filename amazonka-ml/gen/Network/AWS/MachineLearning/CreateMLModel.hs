@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -60,10 +61,11 @@ module Network.AWS.MachineLearning.CreateMLModel
     , cmlmrsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createMLModel' smart constructor.
 --
@@ -83,18 +85,18 @@ import           Network.AWS.Response
 --
 -- * 'cmlmTrainingDataSourceId'
 data CreateMLModel = CreateMLModel'
-    { _cmlmRecipe               :: !(Maybe Text)
-    , _cmlmRecipeURI            :: !(Maybe Text)
-    , _cmlmMLModelName          :: !(Maybe Text)
-    , _cmlmParameters           :: !(Maybe (Map Text Text))
-    , _cmlmMLModelId            :: !Text
-    , _cmlmMLModelType          :: !MLModelType
+    { _cmlmRecipe :: !(Maybe Text)
+    , _cmlmRecipeURI :: !(Maybe Text)
+    , _cmlmMLModelName :: !(Maybe Text)
+    , _cmlmParameters :: !(Maybe (Map Text Text))
+    , _cmlmMLModelId :: !Text
+    , _cmlmMLModelType :: !MLModelType
     , _cmlmTrainingDataSourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMLModel' smart constructor.
 createMLModel :: Text -> MLModelType -> Text -> CreateMLModel
-createMLModel pMLModelId_ pMLModelType_ pTrainingDataSourceId_ =
+createMLModel pMLModelId_ pMLModelType_ pTrainingDataSourceId_ = 
     CreateMLModel'
     { _cmlmRecipe = Nothing
     , _cmlmRecipeURI = Nothing
@@ -235,12 +237,12 @@ instance ToQuery CreateMLModel where
 -- * 'cmlmrsStatus'
 data CreateMLModelResponse = CreateMLModelResponse'
     { _cmlmrsMLModelId :: !(Maybe Text)
-    , _cmlmrsStatus    :: !Int
+    , _cmlmrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMLModelResponse' smart constructor.
 createMLModelResponse :: Int -> CreateMLModelResponse
-createMLModelResponse pStatus_ =
+createMLModelResponse pStatus_ = 
     CreateMLModelResponse'
     { _cmlmrsMLModelId = Nothing
     , _cmlmrsStatus = pStatus_

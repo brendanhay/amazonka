@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -33,10 +34,11 @@ module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     , deregisterOnPremisesInstanceResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a deregister on-premises instance operation.
 --
@@ -51,7 +53,7 @@ newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
 
 -- | 'DeregisterOnPremisesInstance' smart constructor.
 deregisterOnPremisesInstance :: Text -> DeregisterOnPremisesInstance
-deregisterOnPremisesInstance pInstanceName_ =
+deregisterOnPremisesInstance pInstanceName_ = 
     DeregisterOnPremisesInstance'
     { _dopiInstanceName = pInstanceName_
     }
@@ -91,7 +93,7 @@ instance ToQuery DeregisterOnPremisesInstance where
 
 -- | /See:/ 'deregisterOnPremisesInstanceResponse' smart constructor.
 data DeregisterOnPremisesInstanceResponse =
-    DeregisterOnPremisesInstanceResponse'
+    DeregisterOnPremisesInstanceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterOnPremisesInstanceResponse' smart constructor.

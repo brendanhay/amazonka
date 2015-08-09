@@ -18,8 +18,8 @@
 --
 module Network.AWS.CodeDeploy.Types.Product where
 
-import           Network.AWS.CodeDeploy.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.CodeDeploy.Types.Sum
+import Network.AWS.Prelude
 
 -- | Information about an application.
 --
@@ -35,15 +35,15 @@ import           Network.AWS.Prelude
 --
 -- * 'aiCreateTime'
 data ApplicationInfo = ApplicationInfo'
-    { _aiLinkedToGitHub  :: !(Maybe Bool)
-    , _aiApplicationId   :: !(Maybe Text)
+    { _aiLinkedToGitHub :: !(Maybe Bool)
+    , _aiApplicationId :: !(Maybe Text)
     , _aiApplicationName :: !(Maybe Text)
-    , _aiCreateTime      :: !(Maybe POSIX)
+    , _aiCreateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationInfo' smart constructor.
 applicationInfo :: ApplicationInfo
-applicationInfo =
+applicationInfo = 
     ApplicationInfo'
     { _aiLinkedToGitHub = Nothing
     , _aiApplicationId = Nothing
@@ -93,7 +93,7 @@ data AutoScalingGroup = AutoScalingGroup'
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: AutoScalingGroup
-autoScalingGroup =
+autoScalingGroup = 
     AutoScalingGroup'
     { _asgHook = Nothing
     , _asgName = Nothing
@@ -129,14 +129,14 @@ instance FromJSON AutoScalingGroup where
 -- * 'dciCreateTime'
 data DeploymentConfigInfo = DeploymentConfigInfo'
     { _dciDeploymentConfigName :: !(Maybe Text)
-    , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
-    , _dciDeploymentConfigId   :: !(Maybe Text)
-    , _dciCreateTime           :: !(Maybe POSIX)
+    , _dciMinimumHealthyHosts :: !(Maybe MinimumHealthyHosts)
+    , _dciDeploymentConfigId :: !(Maybe Text)
+    , _dciCreateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentConfigInfo' smart constructor.
 deploymentConfigInfo :: DeploymentConfigInfo
-deploymentConfigInfo =
+deploymentConfigInfo = 
     DeploymentConfigInfo'
     { _dciDeploymentConfigName = Nothing
     , _dciMinimumHealthyHosts = Nothing
@@ -194,20 +194,20 @@ instance FromJSON DeploymentConfigInfo where
 --
 -- * 'dgiDeploymentGroupName'
 data DeploymentGroupInfo = DeploymentGroupInfo'
-    { _dgiServiceRoleARN               :: !(Maybe Text)
-    , _dgiDeploymentConfigName         :: !(Maybe Text)
-    , _dgiTargetRevision               :: !(Maybe RevisionLocation)
-    , _dgiEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    { _dgiServiceRoleARN :: !(Maybe Text)
+    , _dgiDeploymentConfigName :: !(Maybe Text)
+    , _dgiTargetRevision :: !(Maybe RevisionLocation)
+    , _dgiEc2TagFilters :: !(Maybe [EC2TagFilter])
     , _dgiOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _dgiApplicationName              :: !(Maybe Text)
-    , _dgiDeploymentGroupId            :: !(Maybe Text)
-    , _dgiAutoScalingGroups            :: !(Maybe [AutoScalingGroup])
-    , _dgiDeploymentGroupName          :: !(Maybe Text)
+    , _dgiApplicationName :: !(Maybe Text)
+    , _dgiDeploymentGroupId :: !(Maybe Text)
+    , _dgiAutoScalingGroups :: !(Maybe [AutoScalingGroup])
+    , _dgiDeploymentGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentGroupInfo' smart constructor.
 deploymentGroupInfo :: DeploymentGroupInfo
-deploymentGroupInfo =
+deploymentGroupInfo = 
     DeploymentGroupInfo'
     { _dgiServiceRoleARN = Nothing
     , _dgiDeploymentConfigName = Nothing
@@ -306,25 +306,25 @@ instance FromJSON DeploymentGroupInfo where
 --
 -- * 'diCreateTime'
 data DeploymentInfo = DeploymentInfo'
-    { _diDeploymentId                  :: !(Maybe Text)
-    , _diCreator                       :: !(Maybe DeploymentCreator)
-    , _diStatus                        :: !(Maybe DeploymentStatus)
-    , _diDeploymentConfigName          :: !(Maybe Text)
-    , _diStartTime                     :: !(Maybe POSIX)
-    , _diCompleteTime                  :: !(Maybe POSIX)
-    , _diErrorInformation              :: !(Maybe ErrorInformation)
-    , _diDeploymentOverview            :: !(Maybe DeploymentOverview)
-    , _diApplicationName               :: !(Maybe Text)
-    , _diRevision                      :: !(Maybe RevisionLocation)
-    , _diDescription                   :: !(Maybe Text)
+    { _diDeploymentId :: !(Maybe Text)
+    , _diCreator :: !(Maybe DeploymentCreator)
+    , _diStatus :: !(Maybe DeploymentStatus)
+    , _diDeploymentConfigName :: !(Maybe Text)
+    , _diStartTime :: !(Maybe POSIX)
+    , _diCompleteTime :: !(Maybe POSIX)
+    , _diErrorInformation :: !(Maybe ErrorInformation)
+    , _diDeploymentOverview :: !(Maybe DeploymentOverview)
+    , _diApplicationName :: !(Maybe Text)
+    , _diRevision :: !(Maybe RevisionLocation)
+    , _diDescription :: !(Maybe Text)
     , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
-    , _diDeploymentGroupName           :: !(Maybe Text)
-    , _diCreateTime                    :: !(Maybe POSIX)
+    , _diDeploymentGroupName :: !(Maybe Text)
+    , _diCreateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentInfo' smart constructor.
 deploymentInfo :: DeploymentInfo
-deploymentInfo =
+deploymentInfo = 
     DeploymentInfo'
     { _diDeploymentId = Nothing
     , _diCreator = Nothing
@@ -452,16 +452,16 @@ instance FromJSON DeploymentInfo where
 --
 -- * 'doFailed'
 data DeploymentOverview = DeploymentOverview'
-    { _doPending    :: !(Maybe Integer)
-    , _doSkipped    :: !(Maybe Integer)
+    { _doPending :: !(Maybe Integer)
+    , _doSkipped :: !(Maybe Integer)
     , _doInProgress :: !(Maybe Integer)
-    , _doSucceeded  :: !(Maybe Integer)
-    , _doFailed     :: !(Maybe Integer)
+    , _doSucceeded :: !(Maybe Integer)
+    , _doFailed :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentOverview' smart constructor.
 deploymentOverview :: DeploymentOverview
-deploymentOverview =
+deploymentOverview = 
     DeploymentOverview'
     { _doPending = Nothing
     , _doSkipped = Nothing
@@ -515,15 +515,15 @@ instance FromJSON DeploymentOverview where
 --
 -- * 'dMessage'
 data Diagnostics = Diagnostics'
-    { _dLogTail    :: !(Maybe Text)
-    , _dErrorCode  :: !(Maybe LifecycleErrorCode)
+    { _dLogTail :: !(Maybe Text)
+    , _dErrorCode :: !(Maybe LifecycleErrorCode)
     , _dScriptName :: !(Maybe Text)
-    , _dMessage    :: !(Maybe Text)
+    , _dMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Diagnostics' smart constructor.
 diagnostics :: Diagnostics
-diagnostics =
+diagnostics = 
     Diagnostics'
     { _dLogTail = Nothing
     , _dErrorCode = Nothing
@@ -580,13 +580,13 @@ instance FromJSON Diagnostics where
 -- * 'etfType'
 data EC2TagFilter = EC2TagFilter'
     { _etfValue :: !(Maybe Text)
-    , _etfKey   :: !(Maybe Text)
-    , _etfType  :: !(Maybe EC2TagFilterType)
+    , _etfKey :: !(Maybe Text)
+    , _etfType :: !(Maybe EC2TagFilterType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EC2TagFilter' smart constructor.
 ec2TagFilter :: EC2TagFilter
-ec2TagFilter =
+ec2TagFilter = 
     EC2TagFilter'
     { _etfValue = Nothing
     , _etfKey = Nothing
@@ -632,13 +632,13 @@ instance ToJSON EC2TagFilter where
 --
 -- * 'eiMessage'
 data ErrorInformation = ErrorInformation'
-    { _eiCode    :: !(Maybe DeployErrorCode)
+    { _eiCode :: !(Maybe DeployErrorCode)
     , _eiMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ErrorInformation' smart constructor.
 errorInformation :: ErrorInformation
-errorInformation =
+errorInformation = 
     ErrorInformation'
     { _eiCode = Nothing
     , _eiMessage = Nothing
@@ -703,16 +703,16 @@ instance FromJSON ErrorInformation where
 --
 -- * 'griDescription'
 data GenericRevisionInfo = GenericRevisionInfo'
-    { _griRegisterTime     :: !(Maybe POSIX)
-    , _griFirstUsedTime    :: !(Maybe POSIX)
+    { _griRegisterTime :: !(Maybe POSIX)
+    , _griFirstUsedTime :: !(Maybe POSIX)
     , _griDeploymentGroups :: !(Maybe [Text])
-    , _griLastUsedTime     :: !(Maybe POSIX)
-    , _griDescription      :: !(Maybe Text)
+    , _griLastUsedTime :: !(Maybe POSIX)
+    , _griDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenericRevisionInfo' smart constructor.
 genericRevisionInfo :: GenericRevisionInfo
-genericRevisionInfo =
+genericRevisionInfo = 
     GenericRevisionInfo'
     { _griRegisterTime = Nothing
     , _griFirstUsedTime = Nothing
@@ -762,13 +762,13 @@ instance FromJSON GenericRevisionInfo where
 --
 -- * 'ghlRepository'
 data GitHubLocation = GitHubLocation'
-    { _ghlCommitId   :: !(Maybe Text)
+    { _ghlCommitId :: !(Maybe Text)
     , _ghlRepository :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GitHubLocation' smart constructor.
 gitHubLocation :: GitHubLocation
-gitHubLocation =
+gitHubLocation = 
     GitHubLocation'
     { _ghlCommitId = Nothing
     , _ghlRepository = Nothing
@@ -818,17 +818,17 @@ instance ToJSON GitHubLocation where
 --
 -- * 'iiTags'
 data InstanceInfo = InstanceInfo'
-    { _iiInstanceARN    :: !(Maybe Text)
-    , _iiRegisterTime   :: !(Maybe POSIX)
+    { _iiInstanceARN :: !(Maybe Text)
+    , _iiRegisterTime :: !(Maybe POSIX)
     , _iiDeregisterTime :: !(Maybe POSIX)
-    , _iiIamUserARN     :: !(Maybe Text)
-    , _iiInstanceName   :: !(Maybe Text)
-    , _iiTags           :: !(Maybe [Tag])
+    , _iiIamUserARN :: !(Maybe Text)
+    , _iiInstanceName :: !(Maybe Text)
+    , _iiTags :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceInfo' smart constructor.
 instanceInfo :: InstanceInfo
-instanceInfo =
+instanceInfo = 
     InstanceInfo'
     { _iiInstanceARN = Nothing
     , _iiRegisterTime = Nothing
@@ -890,16 +890,16 @@ instance FromJSON InstanceInfo where
 --
 -- * 'isLifecycleEvents'
 data InstanceSummary = InstanceSummary'
-    { _isInstanceId      :: !(Maybe Text)
-    , _isDeploymentId    :: !(Maybe Text)
-    , _isStatus          :: !(Maybe InstanceStatus)
-    , _isLastUpdatedAt   :: !(Maybe POSIX)
+    { _isInstanceId :: !(Maybe Text)
+    , _isDeploymentId :: !(Maybe Text)
+    , _isStatus :: !(Maybe InstanceStatus)
+    , _isLastUpdatedAt :: !(Maybe POSIX)
     , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceSummary' smart constructor.
 instanceSummary :: InstanceSummary
-instanceSummary =
+instanceSummary = 
     InstanceSummary'
     { _isInstanceId = Nothing
     , _isDeploymentId = Nothing
@@ -961,16 +961,16 @@ instance FromJSON InstanceSummary where
 --
 -- * 'leEndTime'
 data LifecycleEvent = LifecycleEvent'
-    { _leStatus             :: !(Maybe LifecycleEventStatus)
-    , _leStartTime          :: !(Maybe POSIX)
+    { _leStatus :: !(Maybe LifecycleEventStatus)
+    , _leStartTime :: !(Maybe POSIX)
     , _leLifecycleEventName :: !(Maybe Text)
-    , _leDiagnostics        :: !(Maybe Diagnostics)
-    , _leEndTime            :: !(Maybe POSIX)
+    , _leDiagnostics :: !(Maybe Diagnostics)
+    , _leEndTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LifecycleEvent' smart constructor.
 lifecycleEvent :: LifecycleEvent
-lifecycleEvent =
+lifecycleEvent = 
     LifecycleEvent'
     { _leStatus = Nothing
     , _leStartTime = Nothing
@@ -1028,12 +1028,12 @@ instance FromJSON LifecycleEvent where
 -- * 'mhhType'
 data MinimumHealthyHosts = MinimumHealthyHosts'
     { _mhhValue :: !(Maybe Int)
-    , _mhhType  :: !(Maybe MinimumHealthyHostsType)
+    , _mhhType :: !(Maybe MinimumHealthyHostsType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MinimumHealthyHosts' smart constructor.
 minimumHealthyHosts :: MinimumHealthyHosts
-minimumHealthyHosts =
+minimumHealthyHosts = 
     MinimumHealthyHosts'
     { _mhhValue = Nothing
     , _mhhType = Nothing
@@ -1088,14 +1088,14 @@ instance ToJSON MinimumHealthyHosts where
 --
 -- * 'rlGitHubLocation'
 data RevisionLocation = RevisionLocation'
-    { _rlRevisionType   :: !(Maybe RevisionLocationType)
-    , _rlS3Location     :: !(Maybe S3Location)
+    { _rlRevisionType :: !(Maybe RevisionLocationType)
+    , _rlS3Location :: !(Maybe S3Location)
     , _rlGitHubLocation :: !(Maybe GitHubLocation)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevisionLocation' smart constructor.
 revisionLocation :: RevisionLocation
-revisionLocation =
+revisionLocation = 
     RevisionLocation'
     { _rlRevisionType = Nothing
     , _rlS3Location = Nothing
@@ -1150,15 +1150,15 @@ instance ToJSON RevisionLocation where
 -- * 'slVersion'
 data S3Location = S3Location'
     { _slBundleType :: !(Maybe BundleType)
-    , _slETag       :: !(Maybe Text)
-    , _slBucket     :: !(Maybe Text)
-    , _slKey        :: !(Maybe Text)
-    , _slVersion    :: !(Maybe Text)
+    , _slETag :: !(Maybe Text)
+    , _slBucket :: !(Maybe Text)
+    , _slKey :: !(Maybe Text)
+    , _slVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3Location' smart constructor.
 s3Location :: S3Location
-s3Location =
+s3Location = 
     S3Location'
     { _slBundleType = Nothing
     , _slETag = Nothing
@@ -1229,12 +1229,12 @@ instance ToJSON S3Location where
 -- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
+    , _tagKey :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag =
+tag = 
     Tag'
     { _tagValue = Nothing
     , _tagKey = Nothing
@@ -1270,13 +1270,13 @@ instance ToJSON Tag where
 -- * 'tfType'
 data TagFilter = TagFilter'
     { _tfValue :: !(Maybe Text)
-    , _tfKey   :: !(Maybe Text)
-    , _tfType  :: !(Maybe TagFilterType)
+    , _tfKey :: !(Maybe Text)
+    , _tfType :: !(Maybe TagFilterType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TagFilter' smart constructor.
 tagFilter :: TagFilter
-tagFilter =
+tagFilter = 
     TagFilter'
     { _tfValue = Nothing
     , _tfKey = Nothing
@@ -1323,12 +1323,12 @@ instance ToJSON TagFilter where
 -- * 'trEnd'
 data TimeRange = TimeRange'
     { _trStart :: !(Maybe POSIX)
-    , _trEnd   :: !(Maybe POSIX)
+    , _trEnd :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TimeRange' smart constructor.
 timeRange :: TimeRange
-timeRange =
+timeRange = 
     TimeRange'
     { _trStart = Nothing
     , _trEnd = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,11 +42,12 @@ module Network.AWS.AutoScaling.DescribePolicies
     , dprsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describePolicies' smart constructor.
 --
@@ -61,16 +63,16 @@ import           Network.AWS.Response
 --
 -- * 'dpsPolicyTypes'
 data DescribePolicies = DescribePolicies'
-    { _dpsPolicyNames          :: !(Maybe [Text])
-    , _dpsNextToken            :: !(Maybe Text)
-    , _dpsMaxRecords           :: !(Maybe Int)
+    { _dpsPolicyNames :: !(Maybe [Text])
+    , _dpsNextToken :: !(Maybe Text)
+    , _dpsMaxRecords :: !(Maybe Int)
     , _dpsAutoScalingGroupName :: !(Maybe Text)
-    , _dpsPolicyTypes          :: !(Maybe [Text])
+    , _dpsPolicyTypes :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePolicies' smart constructor.
 describePolicies :: DescribePolicies
-describePolicies =
+describePolicies = 
     DescribePolicies'
     { _dpsPolicyNames = Nothing
     , _dpsNextToken = Nothing
@@ -153,14 +155,14 @@ instance ToQuery DescribePolicies where
 --
 -- * 'dprsStatus'
 data DescribePoliciesResponse = DescribePoliciesResponse'
-    { _dprsNextToken       :: !(Maybe Text)
+    { _dprsNextToken :: !(Maybe Text)
     , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dprsStatus          :: !Int
+    , _dprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePoliciesResponse' smart constructor.
 describePoliciesResponse :: Int -> DescribePoliciesResponse
-describePoliciesResponse pStatus_ =
+describePoliciesResponse pStatus_ = 
     DescribePoliciesResponse'
     { _dprsNextToken = Nothing
     , _dprsScalingPolicies = Nothing

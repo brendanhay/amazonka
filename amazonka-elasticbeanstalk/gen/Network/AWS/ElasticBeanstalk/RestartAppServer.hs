@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     , restartAppServerResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -51,12 +53,12 @@ import           Network.AWS.Response
 -- * 'rasEnvironmentId'
 data RestartAppServer = RestartAppServer'
     { _rasEnvironmentName :: !(Maybe Text)
-    , _rasEnvironmentId   :: !(Maybe Text)
+    , _rasEnvironmentId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestartAppServer' smart constructor.
 restartAppServer :: RestartAppServer
-restartAppServer =
+restartAppServer = 
     RestartAppServer'
     { _rasEnvironmentName = Nothing
     , _rasEnvironmentId = Nothing
@@ -100,7 +102,7 @@ instance ToQuery RestartAppServer where
 
 -- | /See:/ 'restartAppServerResponse' smart constructor.
 data RestartAppServerResponse =
-    RestartAppServerResponse'
+    RestartAppServerResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestartAppServerResponse' smart constructor.

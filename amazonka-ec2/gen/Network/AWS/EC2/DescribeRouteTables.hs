@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.EC2.DescribeRouteTables
     , drtrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeRouteTables' smart constructor.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 --
 -- * 'drtsRouteTableIds'
 data DescribeRouteTables = DescribeRouteTables'
-    { _drtsFilters       :: !(Maybe [Filter])
-    , _drtsDryRun        :: !(Maybe Bool)
+    { _drtsFilters :: !(Maybe [Filter])
+    , _drtsDryRun :: !(Maybe Bool)
     , _drtsRouteTableIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTables' smart constructor.
 describeRouteTables :: DescribeRouteTables
-describeRouteTables =
+describeRouteTables = 
     DescribeRouteTables'
     { _drtsFilters = Nothing
     , _drtsDryRun = Nothing
@@ -189,12 +191,12 @@ instance ToQuery DescribeRouteTables where
 -- * 'drtrsStatus'
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
     { _drtrsRouteTables :: !(Maybe [RouteTable])
-    , _drtrsStatus      :: !Int
+    , _drtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse
-describeRouteTablesResponse pStatus_ =
+describeRouteTablesResponse pStatus_ = 
     DescribeRouteTablesResponse'
     { _drtrsRouteTables = Nothing
     , _drtrsStatus = pStatus_

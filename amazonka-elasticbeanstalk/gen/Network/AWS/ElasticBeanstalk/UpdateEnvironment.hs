@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -70,10 +71,11 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , eDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -99,20 +101,20 @@ import           Network.AWS.Response
 --
 -- * 'ueDescription'
 data UpdateEnvironment = UpdateEnvironment'
-    { _ueTemplateName      :: !(Maybe Text)
-    , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
-    , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _ueVersionLabel      :: !(Maybe Text)
-    , _ueTier              :: !(Maybe EnvironmentTier)
-    , _ueEnvironmentName   :: !(Maybe Text)
-    , _ueEnvironmentId     :: !(Maybe Text)
+    { _ueTemplateName :: !(Maybe Text)
+    , _ueOptionsToRemove :: !(Maybe [OptionSpecification])
+    , _ueOptionSettings :: !(Maybe [ConfigurationOptionSetting])
+    , _ueVersionLabel :: !(Maybe Text)
+    , _ueTier :: !(Maybe EnvironmentTier)
+    , _ueEnvironmentName :: !(Maybe Text)
+    , _ueEnvironmentId :: !(Maybe Text)
     , _ueSolutionStackName :: !(Maybe Text)
-    , _ueDescription       :: !(Maybe Text)
+    , _ueDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEnvironment' smart constructor.
 updateEnvironment :: UpdateEnvironment
-updateEnvironment =
+updateEnvironment = 
     UpdateEnvironment'
     { _ueTemplateName = Nothing
     , _ueOptionsToRemove = Nothing

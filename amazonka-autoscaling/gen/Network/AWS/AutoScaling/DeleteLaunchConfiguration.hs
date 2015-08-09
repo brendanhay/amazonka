@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     , deleteLaunchConfigurationResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLaunchConfiguration' smart constructor.
 --
@@ -53,7 +55,7 @@ newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
 
 -- | 'DeleteLaunchConfiguration' smart constructor.
 deleteLaunchConfiguration :: Text -> DeleteLaunchConfiguration
-deleteLaunchConfiguration pLaunchConfigurationName_ =
+deleteLaunchConfiguration pLaunchConfigurationName_ = 
     DeleteLaunchConfiguration'
     { _dlcLaunchConfigurationName = pLaunchConfigurationName_
     }
@@ -87,7 +89,7 @@ instance ToQuery DeleteLaunchConfiguration where
 
 -- | /See:/ 'deleteLaunchConfigurationResponse' smart constructor.
 data DeleteLaunchConfigurationResponse =
-    DeleteLaunchConfigurationResponse'
+    DeleteLaunchConfigurationResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLaunchConfigurationResponse' smart constructor.

@@ -18,8 +18,8 @@
 --
 module Network.AWS.Config.Types.Product where
 
-import           Network.AWS.Config.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Config.Types.Sum
+import Network.AWS.Prelude
 
 -- | A list that contains the status of the delivery of either the snapshot
 -- or the configuration history to the specified Amazon S3 bucket.
@@ -38,16 +38,16 @@ import           Network.AWS.Prelude
 --
 -- * 'cediLastErrorMessage'
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
-    { _cediLastErrorCode      :: !(Maybe Text)
-    , _cediLastAttemptTime    :: !(Maybe POSIX)
+    { _cediLastErrorCode :: !(Maybe Text)
+    , _cediLastAttemptTime :: !(Maybe POSIX)
     , _cediLastSuccessfulTime :: !(Maybe POSIX)
-    , _cediLastStatus         :: !(Maybe DeliveryStatus)
-    , _cediLastErrorMessage   :: !(Maybe Text)
+    , _cediLastStatus :: !(Maybe DeliveryStatus)
+    , _cediLastErrorMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigExportDeliveryInfo' smart constructor.
 configExportDeliveryInfo :: ConfigExportDeliveryInfo
-configExportDeliveryInfo =
+configExportDeliveryInfo = 
     ConfigExportDeliveryInfo'
     { _cediLastErrorCode = Nothing
     , _cediLastAttemptTime = Nothing
@@ -101,15 +101,15 @@ instance FromJSON ConfigExportDeliveryInfo where
 --
 -- * 'csdiLastErrorMessage'
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
-    { _csdiLastErrorCode        :: !(Maybe Text)
+    { _csdiLastErrorCode :: !(Maybe Text)
     , _csdiLastStatusChangeTime :: !(Maybe POSIX)
-    , _csdiLastStatus           :: !(Maybe DeliveryStatus)
-    , _csdiLastErrorMessage     :: !(Maybe Text)
+    , _csdiLastStatus :: !(Maybe DeliveryStatus)
+    , _csdiLastErrorMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigStreamDeliveryInfo' smart constructor.
 configStreamDeliveryInfo :: ConfigStreamDeliveryInfo
-configStreamDeliveryInfo =
+configStreamDeliveryInfo = 
     ConfigStreamDeliveryInfo'
     { _csdiLastErrorCode = Nothing
     , _csdiLastStatusChangeTime = Nothing
@@ -187,26 +187,26 @@ instance FromJSON ConfigStreamDeliveryInfo where
 --
 -- * 'ciTags'
 data ConfigurationItem = ConfigurationItem'
-    { _ciResourceId                   :: !(Maybe Text)
-    , _ciConfigurationStateId         :: !(Maybe Text)
-    , _ciResourceType                 :: !(Maybe ResourceType)
-    , _ciArn                          :: !(Maybe Text)
-    , _ciResourceCreationTime         :: !(Maybe POSIX)
-    , _ciConfigurationItemStatus      :: !(Maybe ConfigurationItemStatus)
-    , _ciAccountId                    :: !(Maybe Text)
+    { _ciResourceId :: !(Maybe Text)
+    , _ciConfigurationStateId :: !(Maybe Text)
+    , _ciResourceType :: !(Maybe ResourceType)
+    , _ciArn :: !(Maybe Text)
+    , _ciResourceCreationTime :: !(Maybe POSIX)
+    , _ciConfigurationItemStatus :: !(Maybe ConfigurationItemStatus)
+    , _ciAccountId :: !(Maybe Text)
     , _ciConfigurationItemCaptureTime :: !(Maybe POSIX)
-    , _ciAvailabilityZone             :: !(Maybe Text)
-    , _ciRelationships                :: !(Maybe [Relationship])
-    , _ciVersion                      :: !(Maybe Text)
-    , _ciRelatedEvents                :: !(Maybe [Text])
-    , _ciConfiguration                :: !(Maybe Text)
-    , _ciConfigurationItemMD5Hash     :: !(Maybe Text)
-    , _ciTags                         :: !(Maybe (Map Text Text))
+    , _ciAvailabilityZone :: !(Maybe Text)
+    , _ciRelationships :: !(Maybe [Relationship])
+    , _ciVersion :: !(Maybe Text)
+    , _ciRelatedEvents :: !(Maybe [Text])
+    , _ciConfiguration :: !(Maybe Text)
+    , _ciConfigurationItemMD5Hash :: !(Maybe Text)
+    , _ciTags :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationItem' smart constructor.
 configurationItem :: ConfigurationItem
-configurationItem =
+configurationItem = 
     ConfigurationItem'
     { _ciResourceId = Nothing
     , _ciConfigurationStateId = Nothing
@@ -331,14 +331,14 @@ instance FromJSON ConfigurationItem where
 --
 -- * 'crRoleARN'
 data ConfigurationRecorder = ConfigurationRecorder'
-    { _crName           :: !(Maybe Text)
+    { _crName :: !(Maybe Text)
     , _crRecordingGroup :: !(Maybe RecordingGroup)
-    , _crRoleARN        :: !(Maybe Text)
+    , _crRoleARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationRecorder' smart constructor.
 configurationRecorder :: ConfigurationRecorder
-configurationRecorder =
+configurationRecorder = 
     ConfigurationRecorder'
     { _crName = Nothing
     , _crRecordingGroup = Nothing
@@ -399,19 +399,19 @@ instance ToJSON ConfigurationRecorder where
 --
 -- * 'crsLastStartTime'
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
-    { _crsLastErrorCode        :: !(Maybe Text)
-    , _crsLastStopTime         :: !(Maybe POSIX)
+    { _crsLastErrorCode :: !(Maybe Text)
+    , _crsLastStopTime :: !(Maybe POSIX)
     , _crsLastStatusChangeTime :: !(Maybe POSIX)
-    , _crsRecording            :: !(Maybe Bool)
-    , _crsLastStatus           :: !(Maybe RecorderStatus)
-    , _crsLastErrorMessage     :: !(Maybe Text)
-    , _crsName                 :: !(Maybe Text)
-    , _crsLastStartTime        :: !(Maybe POSIX)
+    , _crsRecording :: !(Maybe Bool)
+    , _crsLastStatus :: !(Maybe RecorderStatus)
+    , _crsLastErrorMessage :: !(Maybe Text)
+    , _crsName :: !(Maybe Text)
+    , _crsLastStartTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationRecorderStatus' smart constructor.
 configurationRecorderStatus :: ConfigurationRecorderStatus
-configurationRecorderStatus =
+configurationRecorderStatus = 
     ConfigurationRecorderStatus'
     { _crsLastErrorCode = Nothing
     , _crsLastStopTime = Nothing
@@ -483,15 +483,15 @@ instance FromJSON ConfigurationRecorderStatus where
 --
 -- * 'dcS3BucketName'
 data DeliveryChannel = DeliveryChannel'
-    { _dcS3KeyPrefix  :: !(Maybe Text)
-    , _dcSnsTopicARN  :: !(Maybe Text)
-    , _dcName         :: !(Maybe Text)
+    { _dcS3KeyPrefix :: !(Maybe Text)
+    , _dcSnsTopicARN :: !(Maybe Text)
+    , _dcName :: !(Maybe Text)
     , _dcS3BucketName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliveryChannel' smart constructor.
 deliveryChannel :: DeliveryChannel
-deliveryChannel =
+deliveryChannel = 
     DeliveryChannel'
     { _dcS3KeyPrefix = Nothing
     , _dcSnsTopicARN = Nothing
@@ -551,15 +551,15 @@ instance ToJSON DeliveryChannel where
 --
 -- * 'dcsName'
 data DeliveryChannelStatus = DeliveryChannelStatus'
-    { _dcsConfigStreamDeliveryInfo   :: !(Maybe ConfigStreamDeliveryInfo)
+    { _dcsConfigStreamDeliveryInfo :: !(Maybe ConfigStreamDeliveryInfo)
     , _dcsConfigSnapshotDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
-    , _dcsConfigHistoryDeliveryInfo  :: !(Maybe ConfigExportDeliveryInfo)
-    , _dcsName                       :: !(Maybe Text)
+    , _dcsConfigHistoryDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
+    , _dcsName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliveryChannelStatus' smart constructor.
 deliveryChannelStatus :: DeliveryChannelStatus
-deliveryChannelStatus =
+deliveryChannelStatus = 
     DeliveryChannelStatus'
     { _dcsConfigStreamDeliveryInfo = Nothing
     , _dcsConfigSnapshotDeliveryInfo = Nothing
@@ -610,13 +610,13 @@ instance FromJSON DeliveryChannelStatus where
 --
 -- * 'rgResourceTypes'
 data RecordingGroup = RecordingGroup'
-    { _rgAllSupported  :: !(Maybe Bool)
+    { _rgAllSupported :: !(Maybe Bool)
     , _rgResourceTypes :: !(Maybe [ResourceType])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordingGroup' smart constructor.
 recordingGroup :: RecordingGroup
-recordingGroup =
+recordingGroup = 
     RecordingGroup'
     { _rgAllSupported = Nothing
     , _rgResourceTypes = Nothing
@@ -665,14 +665,14 @@ instance ToJSON RecordingGroup where
 --
 -- * 'rRelationshipName'
 data Relationship = Relationship'
-    { _rResourceId       :: !(Maybe Text)
-    , _rResourceType     :: !(Maybe ResourceType)
+    { _rResourceId :: !(Maybe Text)
+    , _rResourceType :: !(Maybe ResourceType)
     , _rRelationshipName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Relationship' smart constructor.
 relationship :: Relationship
-relationship =
+relationship = 
     Relationship'
     { _rResourceId = Nothing
     , _rResourceType = Nothing

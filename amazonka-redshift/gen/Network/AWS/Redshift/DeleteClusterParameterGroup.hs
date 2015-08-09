@@ -36,6 +36,7 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
 
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 

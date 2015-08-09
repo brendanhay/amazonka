@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.Glacier.RemoveTagsFromVault
     , removeTagsFromVaultResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input value for @RemoveTagsFromVaultInput@.
 --
@@ -56,14 +58,14 @@ import           Network.AWS.Response
 --
 -- * 'rtfvVaultName'
 data RemoveTagsFromVault = RemoveTagsFromVault'
-    { _rtfvTagKeys   :: !(Maybe [Text])
+    { _rtfvTagKeys :: !(Maybe [Text])
     , _rtfvAccountId :: !Text
     , _rtfvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromVault' smart constructor.
 removeTagsFromVault :: Text -> Text -> RemoveTagsFromVault
-removeTagsFromVault pAccountId_ pVaultName_ =
+removeTagsFromVault pAccountId_ pVaultName_ = 
     RemoveTagsFromVault'
     { _rtfvTagKeys = Nothing
     , _rtfvAccountId = pAccountId_
@@ -111,7 +113,7 @@ instance ToQuery RemoveTagsFromVault where
 
 -- | /See:/ 'removeTagsFromVaultResponse' smart constructor.
 data RemoveTagsFromVaultResponse =
-    RemoveTagsFromVaultResponse'
+    RemoveTagsFromVaultResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromVaultResponse' smart constructor.

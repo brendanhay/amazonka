@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.CodeCommit.UpdateRepositoryName
     , updateRepositoryNameResponse
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an update repository description operation.
 --
@@ -55,7 +57,7 @@ data UpdateRepositoryName = UpdateRepositoryName'
 
 -- | 'UpdateRepositoryName' smart constructor.
 updateRepositoryName :: Text -> Text -> UpdateRepositoryName
-updateRepositoryName pOldName_ pNewName_ =
+updateRepositoryName pOldName_ pNewName_ = 
     UpdateRepositoryName'
     { _urnOldName = pOldName_
     , _urnNewName = pNewName_
@@ -99,7 +101,7 @@ instance ToQuery UpdateRepositoryName where
 
 -- | /See:/ 'updateRepositoryNameResponse' smart constructor.
 data UpdateRepositoryNameResponse =
-    UpdateRepositoryNameResponse'
+    UpdateRepositoryNameResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRepositoryNameResponse' smart constructor.

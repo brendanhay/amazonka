@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     , modifyMountTargetSecurityGroupsResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
 --
@@ -63,12 +65,12 @@ import           Network.AWS.Response
 -- * 'mmtsgMountTargetId'
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
     { _mmtsgSecurityGroups :: !(Maybe [Text])
-    , _mmtsgMountTargetId  :: !Text
+    , _mmtsgMountTargetId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyMountTargetSecurityGroups' smart constructor.
 modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
-modifyMountTargetSecurityGroups pMountTargetId_ =
+modifyMountTargetSecurityGroups pMountTargetId_ = 
     ModifyMountTargetSecurityGroups'
     { _mmtsgSecurityGroups = Nothing
     , _mmtsgMountTargetId = pMountTargetId_
@@ -112,10 +114,10 @@ instance ToQuery ModifyMountTargetSecurityGroups
 
 -- | /See:/ 'modifyMountTargetSecurityGroupsResponse' smart constructor.
 data ModifyMountTargetSecurityGroupsResponse =
-    ModifyMountTargetSecurityGroupsResponse'
+    ModifyMountTargetSecurityGroupsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyMountTargetSecurityGroupsResponse' smart constructor.
 modifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse
-modifyMountTargetSecurityGroupsResponse =
+modifyMountTargetSecurityGroupsResponse = 
     ModifyMountTargetSecurityGroupsResponse'

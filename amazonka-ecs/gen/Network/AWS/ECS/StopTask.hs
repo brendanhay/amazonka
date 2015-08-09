@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.ECS.StopTask
     , srsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopTask' smart constructor.
 --
@@ -51,12 +53,12 @@ import           Network.AWS.Response
 -- * 'stTask'
 data StopTask = StopTask'
     { _stCluster :: !(Maybe Text)
-    , _stTask    :: !Text
+    , _stTask :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopTask' smart constructor.
 stopTask :: Text -> StopTask
-stopTask pTask_ =
+stopTask pTask_ = 
     StopTask'
     { _stCluster = Nothing
     , _stTask = pTask_
@@ -111,13 +113,13 @@ instance ToQuery StopTask where
 --
 -- * 'srsStatus'
 data StopTaskResponse = StopTaskResponse'
-    { _srsTask   :: !(Maybe Task)
+    { _srsTask :: !(Maybe Task)
     , _srsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopTaskResponse' smart constructor.
 stopTaskResponse :: Int -> StopTaskResponse
-stopTaskResponse pStatus_ =
+stopTaskResponse pStatus_ = 
     StopTaskResponse'
     { _srsTask = Nothing
     , _srsStatus = pStatus_

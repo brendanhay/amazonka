@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.EC2.CreateKeyPair
     , ckprsKeyMaterial
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createKeyPair' smart constructor.
 --
@@ -66,13 +68,13 @@ import           Network.AWS.Response
 --
 -- * 'ckpKeyName'
 data CreateKeyPair = CreateKeyPair'
-    { _ckpDryRun  :: !(Maybe Bool)
+    { _ckpDryRun :: !(Maybe Bool)
     , _ckpKeyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyPair' smart constructor.
 createKeyPair :: Text -> CreateKeyPair
-createKeyPair pKeyName_ =
+createKeyPair pKeyName_ = 
     CreateKeyPair'
     { _ckpDryRun = Nothing
     , _ckpKeyName = pKeyName_
@@ -130,15 +132,15 @@ instance ToQuery CreateKeyPair where
 --
 -- * 'ckprsKeyMaterial'
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprsStatus         :: !Int
-    , _ckprsKeyName        :: !Text
+    { _ckprsStatus :: !Int
+    , _ckprsKeyName :: !Text
     , _ckprsKeyFingerprint :: !Text
-    , _ckprsKeyMaterial    :: !Text
+    , _ckprsKeyMaterial :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyPairResponse' smart constructor.
 createKeyPairResponse :: Int -> Text -> Text -> Text -> CreateKeyPairResponse
-createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
+createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ = 
     CreateKeyPairResponse'
     { _ckprsStatus = pStatus_
     , _ckprsKeyName = pKeyName_

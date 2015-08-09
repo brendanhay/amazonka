@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , fcDescription
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getFunctionConfiguration' smart constructor.
 --
@@ -65,7 +67,7 @@ newtype GetFunctionConfiguration = GetFunctionConfiguration'
 
 -- | 'GetFunctionConfiguration' smart constructor.
 getFunctionConfiguration :: Text -> GetFunctionConfiguration
-getFunctionConfiguration pFunctionName_ =
+getFunctionConfiguration pFunctionName_ = 
     GetFunctionConfiguration'
     { _gfcFunctionName = pFunctionName_
     }

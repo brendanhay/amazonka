@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -51,10 +52,11 @@ module Network.AWS.EC2.RequestSpotInstances
     , rsirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RequestSpotInstances.
 --
@@ -82,21 +84,21 @@ import           Network.AWS.Response
 --
 -- * 'rsiSpotPrice'
 data RequestSpotInstances = RequestSpotInstances'
-    { _rsiInstanceCount         :: !(Maybe Int)
-    , _rsiClientToken           :: !(Maybe Text)
+    { _rsiInstanceCount :: !(Maybe Int)
+    , _rsiClientToken :: !(Maybe Text)
     , _rsiAvailabilityZoneGroup :: !(Maybe Text)
-    , _rsiLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
-    , _rsiValidUntil            :: !(Maybe ISO8601)
-    , _rsiLaunchGroup           :: !(Maybe Text)
-    , _rsiType                  :: !(Maybe SpotInstanceType)
-    , _rsiValidFrom             :: !(Maybe ISO8601)
-    , _rsiDryRun                :: !(Maybe Bool)
-    , _rsiSpotPrice             :: !Text
+    , _rsiLaunchSpecification :: !(Maybe RequestSpotLaunchSpecification)
+    , _rsiValidUntil :: !(Maybe ISO8601)
+    , _rsiLaunchGroup :: !(Maybe Text)
+    , _rsiType :: !(Maybe SpotInstanceType)
+    , _rsiValidFrom :: !(Maybe ISO8601)
+    , _rsiDryRun :: !(Maybe Bool)
+    , _rsiSpotPrice :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotInstances' smart constructor.
 requestSpotInstances :: Text -> RequestSpotInstances
-requestSpotInstances pSpotPrice_ =
+requestSpotInstances pSpotPrice_ = 
     RequestSpotInstances'
     { _rsiInstanceCount = Nothing
     , _rsiClientToken = Nothing
@@ -238,12 +240,12 @@ instance ToQuery RequestSpotInstances where
 -- * 'rsirsStatus'
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
     { _rsirsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _rsirsStatus               :: !Int
+    , _rsirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
 requestSpotInstancesResponse :: Int -> RequestSpotInstancesResponse
-requestSpotInstancesResponse pStatus_ =
+requestSpotInstancesResponse pStatus_ = 
     RequestSpotInstancesResponse'
     { _rsirsSpotInstanceRequests = Nothing
     , _rsirsStatus = pStatus_

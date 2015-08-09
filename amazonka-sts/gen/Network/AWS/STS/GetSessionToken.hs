@@ -75,6 +75,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.STS.Types
+import           Network.AWS.STS.Types.Product
 
 -- | /See:/ 'getSessionToken' smart constructor.
 --

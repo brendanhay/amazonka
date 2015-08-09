@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
     , esmcLastModified
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteEventSourceMapping' smart constructor.
 --
@@ -62,7 +64,7 @@ newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
 
 -- | 'DeleteEventSourceMapping' smart constructor.
 deleteEventSourceMapping :: Text -> DeleteEventSourceMapping
-deleteEventSourceMapping pUUId_ =
+deleteEventSourceMapping pUUId_ = 
     DeleteEventSourceMapping'
     { _desmUUId = pUUId_
     }

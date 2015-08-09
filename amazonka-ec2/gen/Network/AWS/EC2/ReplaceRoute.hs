@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.EC2.ReplaceRoute
     , replaceRouteResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'replaceRoute' smart constructor.
 --
@@ -68,18 +70,18 @@ import           Network.AWS.Response
 --
 -- * 'rrDestinationCIdRBlock'
 data ReplaceRoute = ReplaceRoute'
-    { _rrInstanceId             :: !(Maybe Text)
+    { _rrInstanceId :: !(Maybe Text)
     , _rrVPCPeeringConnectionId :: !(Maybe Text)
-    , _rrNetworkInterfaceId     :: !(Maybe Text)
-    , _rrGatewayId              :: !(Maybe Text)
-    , _rrDryRun                 :: !(Maybe Bool)
-    , _rrRouteTableId           :: !Text
-    , _rrDestinationCIdRBlock   :: !Text
+    , _rrNetworkInterfaceId :: !(Maybe Text)
+    , _rrGatewayId :: !(Maybe Text)
+    , _rrDryRun :: !(Maybe Bool)
+    , _rrRouteTableId :: !Text
+    , _rrDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRoute' smart constructor.
 replaceRoute :: Text -> Text -> ReplaceRoute
-replaceRoute pRouteTableId_ pDestinationCIdRBlock_ =
+replaceRoute pRouteTableId_ pDestinationCIdRBlock_ = 
     ReplaceRoute'
     { _rrInstanceId = Nothing
     , _rrVPCPeeringConnectionId = Nothing
@@ -149,7 +151,7 @@ instance ToQuery ReplaceRoute where
 
 -- | /See:/ 'replaceRouteResponse' smart constructor.
 data ReplaceRouteResponse =
-    ReplaceRouteResponse'
+    ReplaceRouteResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteResponse' smart constructor.

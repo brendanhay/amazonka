@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.CloudFormation.UpdateStack
     , usrsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for UpdateStack action.
 --
@@ -91,22 +93,22 @@ import           Network.AWS.Response
 --
 -- * 'usStackName'
 data UpdateStack = UpdateStack'
-    { _usUsePreviousTemplate         :: !(Maybe Bool)
-    , _usNotificationARNs            :: !(Maybe [Text])
-    , _usStackPolicyBody             :: !(Maybe Text)
+    { _usUsePreviousTemplate :: !(Maybe Bool)
+    , _usNotificationARNs :: !(Maybe [Text])
+    , _usStackPolicyBody :: !(Maybe Text)
     , _usStackPolicyDuringUpdateBody :: !(Maybe Text)
-    , _usStackPolicyDuringUpdateURL  :: !(Maybe Text)
-    , _usParameters                  :: !(Maybe [Parameter])
-    , _usStackPolicyURL              :: !(Maybe Text)
-    , _usTemplateBody                :: !(Maybe Text)
-    , _usTemplateURL                 :: !(Maybe Text)
-    , _usCapabilities                :: !(Maybe [Capability])
-    , _usStackName                   :: !Text
+    , _usStackPolicyDuringUpdateURL :: !(Maybe Text)
+    , _usParameters :: !(Maybe [Parameter])
+    , _usStackPolicyURL :: !(Maybe Text)
+    , _usTemplateBody :: !(Maybe Text)
+    , _usTemplateURL :: !(Maybe Text)
+    , _usCapabilities :: !(Maybe [Capability])
+    , _usStackName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
-updateStack pStackName_ =
+updateStack pStackName_ = 
     UpdateStack'
     { _usUsePreviousTemplate = Nothing
     , _usNotificationARNs = Nothing
@@ -279,12 +281,12 @@ instance ToQuery UpdateStack where
 -- * 'usrsStatus'
 data UpdateStackResponse = UpdateStackResponse'
     { _usrsStackId :: !(Maybe Text)
-    , _usrsStatus  :: !Int
+    , _usrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStackResponse' smart constructor.
 updateStackResponse :: Int -> UpdateStackResponse
-updateStackResponse pStatus_ =
+updateStackResponse pStatus_ = 
     UpdateStackResponse'
     { _usrsStackId = Nothing
     , _usrsStatus = pStatus_

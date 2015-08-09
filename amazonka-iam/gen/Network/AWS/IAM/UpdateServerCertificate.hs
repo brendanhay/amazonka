@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -48,10 +49,11 @@ module Network.AWS.IAM.UpdateServerCertificate
     , updateServerCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateServerCertificate' smart constructor.
 --
@@ -64,13 +66,13 @@ import           Network.AWS.Response
 -- * 'uServerCertificateName'
 data UpdateServerCertificate = UpdateServerCertificate'
     { _uNewServerCertificateName :: !(Maybe Text)
-    , _uNewPath                  :: !(Maybe Text)
-    , _uServerCertificateName    :: !Text
+    , _uNewPath :: !(Maybe Text)
+    , _uServerCertificateName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServerCertificate' smart constructor.
 updateServerCertificate :: Text -> UpdateServerCertificate
-updateServerCertificate pServerCertificateName_ =
+updateServerCertificate pServerCertificateName_ = 
     UpdateServerCertificate'
     { _uNewServerCertificateName = Nothing
     , _uNewPath = Nothing
@@ -119,7 +121,7 @@ instance ToQuery UpdateServerCertificate where
 
 -- | /See:/ 'updateServerCertificateResponse' smart constructor.
 data UpdateServerCertificateResponse =
-    UpdateServerCertificateResponse'
+    UpdateServerCertificateResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServerCertificateResponse' smart constructor.

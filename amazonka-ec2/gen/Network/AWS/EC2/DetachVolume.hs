@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.EC2.DetachVolume
     , volAttachTime
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachVolume' smart constructor.
 --
@@ -78,15 +80,15 @@ import           Network.AWS.Response
 -- * 'dvVolumeId'
 data DetachVolume = DetachVolume'
     { _dvInstanceId :: !(Maybe Text)
-    , _dvForce      :: !(Maybe Bool)
-    , _dvDevice     :: !(Maybe Text)
-    , _dvDryRun     :: !(Maybe Bool)
-    , _dvVolumeId   :: !Text
+    , _dvForce :: !(Maybe Bool)
+    , _dvDevice :: !(Maybe Text)
+    , _dvDryRun :: !(Maybe Bool)
+    , _dvVolumeId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVolume' smart constructor.
 detachVolume :: Text -> DetachVolume
-detachVolume pVolumeId_ =
+detachVolume pVolumeId_ = 
     DetachVolume'
     { _dvInstanceId = Nothing
     , _dvForce = Nothing

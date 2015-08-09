@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.IAM.DeleteAccountAlias
     , deleteAccountAliasResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAccountAlias' smart constructor.
 --
@@ -52,7 +54,7 @@ newtype DeleteAccountAlias = DeleteAccountAlias'
 
 -- | 'DeleteAccountAlias' smart constructor.
 deleteAccountAlias :: Text -> DeleteAccountAlias
-deleteAccountAlias pAccountAlias_ =
+deleteAccountAlias pAccountAlias_ = 
     DeleteAccountAlias'
     { _daaAccountAlias = pAccountAlias_
     }
@@ -83,7 +85,7 @@ instance ToQuery DeleteAccountAlias where
 
 -- | /See:/ 'deleteAccountAliasResponse' smart constructor.
 data DeleteAccountAliasResponse =
-    DeleteAccountAliasResponse'
+    DeleteAccountAliasResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccountAliasResponse' smart constructor.

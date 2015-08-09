@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     , avdmApplicationVersion
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -65,16 +67,16 @@ import           Network.AWS.Response
 --
 -- * 'cavVersionLabel'
 data CreateApplicationVersion = CreateApplicationVersion'
-    { _cavSourceBundle          :: !(Maybe S3Location)
+    { _cavSourceBundle :: !(Maybe S3Location)
     , _cavAutoCreateApplication :: !(Maybe Bool)
-    , _cavDescription           :: !(Maybe Text)
-    , _cavApplicationName       :: !Text
-    , _cavVersionLabel          :: !Text
+    , _cavDescription :: !(Maybe Text)
+    , _cavApplicationName :: !Text
+    , _cavVersionLabel :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplicationVersion' smart constructor.
 createApplicationVersion :: Text -> Text -> CreateApplicationVersion
-createApplicationVersion pApplicationName_ pVersionLabel_ =
+createApplicationVersion pApplicationName_ pVersionLabel_ = 
     CreateApplicationVersion'
     { _cavSourceBundle = Nothing
     , _cavAutoCreateApplication = Nothing

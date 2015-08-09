@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     , dlbprsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerPolicies' smart constructor.
 --
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 --
 -- * 'dlbpLoadBalancerName'
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-    { _dlbpPolicyNames      :: !(Maybe [Text])
+    { _dlbpPolicyNames :: !(Maybe [Text])
     , _dlbpLoadBalancerName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicies' smart constructor.
 describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
-describeLoadBalancerPolicies =
+describeLoadBalancerPolicies = 
     DescribeLoadBalancerPolicies'
     { _dlbpPolicyNames = Nothing
     , _dlbpLoadBalancerName = Nothing
@@ -118,12 +120,12 @@ instance ToQuery DescribeLoadBalancerPolicies where
 -- * 'dlbprsStatus'
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions :: !(Maybe [PolicyDescription])
-    , _dlbprsStatus             :: !Int
+    , _dlbprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPoliciesResponse' smart constructor.
 describeLoadBalancerPoliciesResponse :: Int -> DescribeLoadBalancerPoliciesResponse
-describeLoadBalancerPoliciesResponse pStatus_ =
+describeLoadBalancerPoliciesResponse pStatus_ = 
     DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions = Nothing
     , _dlbprsStatus = pStatus_

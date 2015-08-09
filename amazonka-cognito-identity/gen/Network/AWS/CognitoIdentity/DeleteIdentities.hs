@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CognitoIdentity.DeleteIdentities
     , dirsStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @DeleteIdentities@ action.
 --
@@ -57,7 +59,7 @@ newtype DeleteIdentities = DeleteIdentities'
 
 -- | 'DeleteIdentities' smart constructor.
 deleteIdentities :: NonEmpty Text -> DeleteIdentities
-deleteIdentities pIdentityIdsToDelete_ =
+deleteIdentities pIdentityIdsToDelete_ = 
     DeleteIdentities'
     { _diIdentityIdsToDelete = _List1 # pIdentityIdsToDelete_
     }
@@ -109,12 +111,12 @@ instance ToQuery DeleteIdentities where
 -- * 'dirsStatus'
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
     { _dirsUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
-    , _dirsStatus                 :: !Int
+    , _dirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
 deleteIdentitiesResponse :: Int -> DeleteIdentitiesResponse
-deleteIdentitiesResponse pStatus_ =
+deleteIdentitiesResponse pStatus_ = 
     DeleteIdentitiesResponse'
     { _dirsUnprocessedIdentityIds = Nothing
     , _dirsStatus = pStatus_

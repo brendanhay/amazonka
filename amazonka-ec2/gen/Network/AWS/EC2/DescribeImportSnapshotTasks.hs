@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     , distrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeImportSnapshotTasks' smart constructor.
 --
@@ -60,16 +62,16 @@ import           Network.AWS.Response
 --
 -- * 'distMaxResults'
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-    { _distFilters       :: !(Maybe [Filter])
+    { _distFilters :: !(Maybe [Filter])
     , _distImportTaskIds :: !(Maybe [Text])
-    , _distNextToken     :: !(Maybe Text)
-    , _distDryRun        :: !(Maybe Bool)
-    , _distMaxResults    :: !(Maybe Int)
+    , _distNextToken :: !(Maybe Text)
+    , _distDryRun :: !(Maybe Bool)
+    , _distMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportSnapshotTasks' smart constructor.
 describeImportSnapshotTasks :: DescribeImportSnapshotTasks
-describeImportSnapshotTasks =
+describeImportSnapshotTasks = 
     DescribeImportSnapshotTasks'
     { _distFilters = Nothing
     , _distImportTaskIds = Nothing
@@ -144,14 +146,14 @@ instance ToQuery DescribeImportSnapshotTasks where
 --
 -- * 'distrsStatus'
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-    { _distrsNextToken           :: !(Maybe Text)
+    { _distrsNextToken :: !(Maybe Text)
     , _distrsImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
-    , _distrsStatus              :: !Int
+    , _distrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
 describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse
-describeImportSnapshotTasksResponse pStatus_ =
+describeImportSnapshotTasksResponse pStatus_ = 
     DescribeImportSnapshotTasksResponse'
     { _distrsNextToken = Nothing
     , _distrsImportSnapshotTasks = Nothing

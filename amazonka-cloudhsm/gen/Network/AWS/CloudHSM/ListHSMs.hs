@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CloudHSM.ListHSMs
     , lhsmrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listHSMs' smart constructor.
 --
@@ -59,7 +61,7 @@ newtype ListHSMs = ListHSMs'
 
 -- | 'ListHSMs' smart constructor.
 listHSMs :: ListHSMs
-listHSMs =
+listHSMs = 
     ListHSMs'
     { _lhsmNextToken = Nothing
     }
@@ -112,13 +114,13 @@ instance ToQuery ListHSMs where
 -- * 'lhsmrsStatus'
 data ListHSMsResponse = ListHSMsResponse'
     { _lhsmrsNextToken :: !(Maybe Text)
-    , _lhsmrsHSMList   :: !(Maybe [Text])
-    , _lhsmrsStatus    :: !Int
+    , _lhsmrsHSMList :: !(Maybe [Text])
+    , _lhsmrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHSMsResponse' smart constructor.
 listHSMsResponse :: Int -> ListHSMsResponse
-listHSMsResponse pStatus_ =
+listHSMsResponse pStatus_ = 
     ListHSMsResponse'
     { _lhsmrsNextToken = Nothing
     , _lhsmrsHSMList = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , gipcrsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the GetIdentityPoolConfiguration operation.
 --
@@ -60,7 +62,7 @@ newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
 
 -- | 'GetIdentityPoolConfiguration' smart constructor.
 getIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
-getIdentityPoolConfiguration pIdentityPoolId_ =
+getIdentityPoolConfiguration pIdentityPoolId_ = 
     GetIdentityPoolConfiguration'
     { _gipcIdentityPoolId = pIdentityPoolId_
     }
@@ -117,13 +119,13 @@ instance ToQuery GetIdentityPoolConfiguration where
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
     { _gipcrsIdentityPoolId :: !(Maybe Text)
     , _gipcrsCognitoStreams :: !(Maybe CognitoStreams)
-    , _gipcrsPushSync       :: !(Maybe PushSync)
-    , _gipcrsStatus         :: !Int
+    , _gipcrsPushSync :: !(Maybe PushSync)
+    , _gipcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolConfigurationResponse' smart constructor.
 getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
-getIdentityPoolConfigurationResponse pStatus_ =
+getIdentityPoolConfigurationResponse pStatus_ = 
     GetIdentityPoolConfigurationResponse'
     { _gipcrsIdentityPoolId = Nothing
     , _gipcrsCognitoStreams = Nothing

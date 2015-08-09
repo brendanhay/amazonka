@@ -60,6 +60,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
 -- | Given a list of verified identities, describes their DKIM attributes.
 -- The DKIM attributes of an email address identity includes whether DKIM

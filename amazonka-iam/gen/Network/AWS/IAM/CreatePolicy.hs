@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.IAM.CreatePolicy
     , cprsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createPolicy' smart constructor.
 --
@@ -66,15 +68,15 @@ import           Network.AWS.Response
 --
 -- * 'cpPolicyDocument'
 data CreatePolicy = CreatePolicy'
-    { _cpPath           :: !(Maybe Text)
-    , _cpDescription    :: !(Maybe Text)
-    , _cpPolicyName     :: !Text
+    { _cpPath :: !(Maybe Text)
+    , _cpDescription :: !(Maybe Text)
+    , _cpPolicyName :: !Text
     , _cpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicy' smart constructor.
 createPolicy :: Text -> Text -> CreatePolicy
-createPolicy pPolicyName_ pPolicyDocument_ =
+createPolicy pPolicyName_ pPolicyDocument_ = 
     CreatePolicy'
     { _cpPath = Nothing
     , _cpDescription = Nothing
@@ -152,7 +154,7 @@ data CreatePolicyResponse = CreatePolicyResponse'
 
 -- | 'CreatePolicyResponse' smart constructor.
 createPolicyResponse :: Int -> CreatePolicyResponse
-createPolicyResponse pStatus_ =
+createPolicyResponse pStatus_ = 
     CreatePolicyResponse'
     { _cprsPolicy = Nothing
     , _cprsStatus = pStatus_

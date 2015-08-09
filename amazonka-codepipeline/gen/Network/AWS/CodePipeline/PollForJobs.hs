@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.CodePipeline.PollForJobs
     , pfjrsStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a poll for jobs action.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 -- * 'pfjActionTypeId'
 data PollForJobs = PollForJobs'
     { _pfjMaxBatchSize :: !(Maybe Nat)
-    , _pfjQueryParam   :: !(Maybe (Map Text Text))
+    , _pfjQueryParam :: !(Maybe (Map Text Text))
     , _pfjActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForJobs' smart constructor.
 pollForJobs :: ActionTypeId -> PollForJobs
-pollForJobs pActionTypeId_ =
+pollForJobs pActionTypeId_ = 
     PollForJobs'
     { _pfjMaxBatchSize = Nothing
     , _pfjQueryParam = Nothing
@@ -133,13 +135,13 @@ instance ToQuery PollForJobs where
 --
 -- * 'pfjrsStatus'
 data PollForJobsResponse = PollForJobsResponse'
-    { _pfjrsJobs   :: !(Maybe [Job])
+    { _pfjrsJobs :: !(Maybe [Job])
     , _pfjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForJobsResponse' smart constructor.
 pollForJobsResponse :: Int -> PollForJobsResponse
-pollForJobsResponse pStatus_ =
+pollForJobsResponse pStatus_ = 
     PollForJobsResponse'
     { _pfjrsJobs = Nothing
     , _pfjrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.DeviceFarm.ListJobs
     , ljrsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list jobs operation.
 --
@@ -54,12 +56,12 @@ import           Network.AWS.Response
 -- * 'ljArn'
 data ListJobs = ListJobs'
     { _ljNextToken :: !(Maybe Text)
-    , _ljArn       :: !Text
+    , _ljArn :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: Text -> ListJobs
-listJobs pArn_ =
+listJobs pArn_ = 
     ListJobs'
     { _ljNextToken = Nothing
     , _ljArn = pArn_
@@ -118,14 +120,14 @@ instance ToQuery ListJobs where
 --
 -- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobs      :: !(Maybe [Job])
+    { _ljrsJobs :: !(Maybe [Job])
     , _ljrsNextToken :: !(Maybe Text)
-    , _ljrsStatus    :: !Int
+    , _ljrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatus_ =
+listJobsResponse pStatus_ = 
     ListJobsResponse'
     { _ljrsJobs = Nothing
     , _ljrsNextToken = Nothing

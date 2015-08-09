@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     , daorsStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeAvailabilityOptions@
 -- operation. Specifies the name of the domain you want to describe. To
@@ -60,13 +62,13 @@ import           Network.AWS.Response
 --
 -- * 'daoDomainName'
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
-    { _daoDeployed   :: !(Maybe Bool)
+    { _daoDeployed :: !(Maybe Bool)
     , _daoDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityOptions' smart constructor.
 describeAvailabilityOptions :: Text -> DescribeAvailabilityOptions
-describeAvailabilityOptions pDomainName_ =
+describeAvailabilityOptions pDomainName_ = 
     DescribeAvailabilityOptions'
     { _daoDeployed = Nothing
     , _daoDomainName = pDomainName_
@@ -122,12 +124,12 @@ instance ToQuery DescribeAvailabilityOptions where
 -- * 'daorsStatus'
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
     { _daorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _daorsStatus              :: !Int
+    , _daorsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
 describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse
-describeAvailabilityOptionsResponse pStatus_ =
+describeAvailabilityOptionsResponse pStatus_ = 
     DescribeAvailabilityOptionsResponse'
     { _daorsAvailabilityOptions = Nothing
     , _daorsStatus = pStatus_

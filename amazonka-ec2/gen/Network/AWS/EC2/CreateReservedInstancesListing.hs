@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -60,10 +61,11 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     , crersStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createReservedInstancesListing' smart constructor.
 --
@@ -78,14 +80,14 @@ import           Network.AWS.Response
 -- * 'crilClientToken'
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
     { _crilReservedInstancesId :: !Text
-    , _crilInstanceCount       :: !Int
-    , _crilPriceSchedules      :: ![PriceScheduleSpecification]
-    , _crilClientToken         :: !Text
+    , _crilInstanceCount :: !Int
+    , _crilPriceSchedules :: ![PriceScheduleSpecification]
+    , _crilClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListing' smart constructor.
 createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
-createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToken_ =
+createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToken_ = 
     CreateReservedInstancesListing'
     { _crilReservedInstancesId = pReservedInstancesId_
     , _crilInstanceCount = pInstanceCount_
@@ -157,12 +159,12 @@ instance ToQuery CreateReservedInstancesListing where
 -- * 'crersStatus'
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _crersStatus                    :: !Int
+    , _crersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
-createReservedInstancesListingResponse pStatus_ =
+createReservedInstancesListingResponse pStatus_ = 
     CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings = Nothing
     , _crersStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.IAM.GetSAMLProvider
     , gsamlprsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSAMLProvider' smart constructor.
 --
@@ -58,7 +60,7 @@ newtype GetSAMLProvider = GetSAMLProvider'
 
 -- | 'GetSAMLProvider' smart constructor.
 getSAMLProvider :: Text -> GetSAMLProvider
-getSAMLProvider pSAMLProviderARN_ =
+getSAMLProvider pSAMLProviderARN_ = 
     GetSAMLProvider'
     { _gsamlpSAMLProviderARN = pSAMLProviderARN_
     }
@@ -107,15 +109,15 @@ instance ToQuery GetSAMLProvider where
 --
 -- * 'gsamlprsStatus'
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-    { _gsamlprsCreateDate           :: !(Maybe ISO8601)
-    , _gsamlprsValidUntil           :: !(Maybe ISO8601)
+    { _gsamlprsCreateDate :: !(Maybe ISO8601)
+    , _gsamlprsValidUntil :: !(Maybe ISO8601)
     , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
-    , _gsamlprsStatus               :: !Int
+    , _gsamlprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
 getSAMLProviderResponse :: Int -> GetSAMLProviderResponse
-getSAMLProviderResponse pStatus_ =
+getSAMLProviderResponse pStatus_ = 
     GetSAMLProviderResponse'
     { _gsamlprsCreateDate = Nothing
     , _gsamlprsValidUntil = Nothing

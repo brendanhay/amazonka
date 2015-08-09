@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.OpsWorks.DisassociateElasticIP
     , disassociateElasticIPResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateElasticIP' smart constructor.
 --
@@ -57,7 +59,7 @@ newtype DisassociateElasticIP = DisassociateElasticIP'
 
 -- | 'DisassociateElasticIP' smart constructor.
 disassociateElasticIP :: Text -> DisassociateElasticIP
-disassociateElasticIP pElasticIP_ =
+disassociateElasticIP pElasticIP_ = 
     DisassociateElasticIP'
     { _deiElasticIP = pElasticIP_
     }
@@ -95,7 +97,7 @@ instance ToQuery DisassociateElasticIP where
 
 -- | /See:/ 'disassociateElasticIPResponse' smart constructor.
 data DisassociateElasticIPResponse =
-    DisassociateElasticIPResponse'
+    DisassociateElasticIPResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateElasticIPResponse' smart constructor.

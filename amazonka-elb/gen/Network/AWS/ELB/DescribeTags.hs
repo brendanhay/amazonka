@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.ELB.DescribeTags
     , dtrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 --
@@ -52,7 +54,7 @@ newtype DescribeTags = DescribeTags'
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: NonEmpty Text -> DescribeTags
-describeTags pLoadBalancerNames_ =
+describeTags pLoadBalancerNames_ = 
     DescribeTags'
     { _dtLoadBalancerNames = _List1 # pLoadBalancerNames_
     }
@@ -96,12 +98,12 @@ instance ToQuery DescribeTags where
 -- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsTagDescriptions :: !(Maybe [TagDescription])
-    , _dtrsStatus          :: !Int
+    , _dtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus_ =
+describeTagsResponse pStatus_ = 
     DescribeTagsResponse'
     { _dtrsTagDescriptions = Nothing
     , _dtrsStatus = pStatus_

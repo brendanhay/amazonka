@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     , putSubscriptionFilterResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putSubscriptionFilter' smart constructor.
 --
@@ -68,16 +70,16 @@ import           Network.AWS.Response
 --
 -- * 'psfDestinationARN'
 data PutSubscriptionFilter = PutSubscriptionFilter'
-    { _psfRoleARN        :: !(Maybe Text)
-    , _psfLogGroupName   :: !Text
-    , _psfFilterName     :: !Text
-    , _psfFilterPattern  :: !Text
+    { _psfRoleARN :: !(Maybe Text)
+    , _psfLogGroupName :: !Text
+    , _psfFilterName :: !Text
+    , _psfFilterPattern :: !Text
     , _psfDestinationARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutSubscriptionFilter' smart constructor.
 putSubscriptionFilter :: Text -> Text -> Text -> Text -> PutSubscriptionFilter
-putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ =
+putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ = 
     PutSubscriptionFilter'
     { _psfRoleARN = Nothing
     , _psfLogGroupName = pLogGroupName_
@@ -150,7 +152,7 @@ instance ToQuery PutSubscriptionFilter where
 
 -- | /See:/ 'putSubscriptionFilterResponse' smart constructor.
 data PutSubscriptionFilterResponse =
-    PutSubscriptionFilterResponse'
+    PutSubscriptionFilterResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutSubscriptionFilterResponse' smart constructor.

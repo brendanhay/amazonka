@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -66,10 +67,11 @@ module Network.AWS.OpsWorks.CreateLayer
     , clrsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLayer' smart constructor.
 --
@@ -109,28 +111,28 @@ import           Network.AWS.Response
 --
 -- * 'clShortname'
 data CreateLayer = CreateLayer'
-    { _clCustomInstanceProfileARN    :: !(Maybe Text)
-    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _clCustomSecurityGroupIds      :: !(Maybe [Text])
+    { _clCustomInstanceProfileARN :: !(Maybe Text)
+    , _clInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _clCustomSecurityGroupIds :: !(Maybe [Text])
     , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _clCustomRecipes               :: !(Maybe Recipes)
-    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _clCustomJSON                  :: !(Maybe Text)
-    , _clEnableAutoHealing           :: !(Maybe Bool)
-    , _clPackages                    :: !(Maybe [Text])
-    , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _clAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _clUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _clAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _clStackId                     :: !Text
-    , _clType                        :: !LayerType
-    , _clName                        :: !Text
-    , _clShortname                   :: !Text
+    , _clCustomRecipes :: !(Maybe Recipes)
+    , _clVolumeConfigurations :: !(Maybe [VolumeConfiguration])
+    , _clCustomJSON :: !(Maybe Text)
+    , _clEnableAutoHealing :: !(Maybe Bool)
+    , _clPackages :: !(Maybe [Text])
+    , _clAttributes :: !(Maybe (Map LayerAttributesKeys Text))
+    , _clAutoAssignPublicIPs :: !(Maybe Bool)
+    , _clUseEBSOptimizedInstances :: !(Maybe Bool)
+    , _clAutoAssignElasticIPs :: !(Maybe Bool)
+    , _clStackId :: !Text
+    , _clType :: !LayerType
+    , _clName :: !Text
+    , _clShortname :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLayer' smart constructor.
 createLayer :: Text -> LayerType -> Text -> Text -> CreateLayer
-createLayer pStackId_ pType_ pName_ pShortname_ =
+createLayer pStackId_ pType_ pName_ pShortname_ = 
     CreateLayer'
     { _clCustomInstanceProfileARN = Nothing
     , _clInstallUpdatesOnBoot = Nothing
@@ -312,12 +314,12 @@ instance ToQuery CreateLayer where
 -- * 'clrsStatus'
 data CreateLayerResponse = CreateLayerResponse'
     { _clrsLayerId :: !(Maybe Text)
-    , _clrsStatus  :: !Int
+    , _clrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLayerResponse' smart constructor.
 createLayerResponse :: Int -> CreateLayerResponse
-createLayerResponse pStatus_ =
+createLayerResponse pStatus_ = 
     CreateLayerResponse'
     { _clrsLayerId = Nothing
     , _clrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,11 +44,12 @@ module Network.AWS.ImportExport.ListJobs
     , ljrsStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input structure for the ListJobs operation.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 -- * 'ljMaxJobs'
 data ListJobs = ListJobs'
     { _ljAPIVersion :: !(Maybe Text)
-    , _ljMarker     :: !(Maybe Text)
-    , _ljMaxJobs    :: !(Maybe Int)
+    , _ljMarker :: !(Maybe Text)
+    , _ljMaxJobs :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: ListJobs
-listJobs =
+listJobs = 
     ListJobs'
     { _ljAPIVersion = Nothing
     , _ljMarker = Nothing
@@ -136,14 +138,14 @@ instance ToQuery ListJobs where
 --
 -- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobs        :: !(Maybe [Job])
+    { _ljrsJobs :: !(Maybe [Job])
     , _ljrsIsTruncated :: !(Maybe Bool)
-    , _ljrsStatus      :: !Int
+    , _ljrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatus_ =
+listJobsResponse pStatus_ = 
     ListJobsResponse'
     { _ljrsJobs = Nothing
     , _ljrsIsTruncated = Nothing

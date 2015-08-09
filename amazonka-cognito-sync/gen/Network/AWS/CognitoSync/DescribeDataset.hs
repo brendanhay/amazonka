@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.CognitoSync.DescribeDataset
     , ddrsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for meta data about a dataset (creation date, number of
 -- records, size) by owner and dataset name.
@@ -64,13 +66,13 @@ import           Network.AWS.Response
 -- * 'ddDatasetName'
 data DescribeDataset = DescribeDataset'
     { _ddIdentityPoolId :: !Text
-    , _ddIdentityId     :: !Text
-    , _ddDatasetName    :: !Text
+    , _ddIdentityId :: !Text
+    , _ddDatasetName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataset' smart constructor.
 describeDataset :: Text -> Text -> Text -> DescribeDataset
-describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ = 
     DescribeDataset'
     { _ddIdentityPoolId = pIdentityPoolId_
     , _ddIdentityId = pIdentityId_
@@ -132,12 +134,12 @@ instance ToQuery DescribeDataset where
 -- * 'ddrsStatus'
 data DescribeDatasetResponse = DescribeDatasetResponse'
     { _ddrsDataset :: !(Maybe Dataset)
-    , _ddrsStatus  :: !Int
+    , _ddrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDatasetResponse' smart constructor.
 describeDatasetResponse :: Int -> DescribeDatasetResponse
-describeDatasetResponse pStatus_ =
+describeDatasetResponse pStatus_ = 
     DescribeDatasetResponse'
     { _ddrsDataset = Nothing
     , _ddrsStatus = pStatus_

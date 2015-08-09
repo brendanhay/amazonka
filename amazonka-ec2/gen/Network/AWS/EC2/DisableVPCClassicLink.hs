@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.DisableVPCClassicLink
     , dvpcclrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableVPCClassicLink' smart constructor.
 --
@@ -52,12 +54,12 @@ import           Network.AWS.Response
 -- * 'dvpcclVPCId'
 data DisableVPCClassicLink = DisableVPCClassicLink'
     { _dvpcclDryRun :: !(Maybe Bool)
-    , _dvpcclVPCId  :: !Text
+    , _dvpcclVPCId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVPCClassicLink' smart constructor.
 disableVPCClassicLink :: Text -> DisableVPCClassicLink
-disableVPCClassicLink pVPCId_ =
+disableVPCClassicLink pVPCId_ = 
     DisableVPCClassicLink'
     { _dvpcclDryRun = Nothing
     , _dvpcclVPCId = pVPCId_
@@ -112,7 +114,7 @@ data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
 disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse
-disableVPCClassicLinkResponse pStatus_ =
+disableVPCClassicLinkResponse pStatus_ = 
     DisableVPCClassicLinkResponse'
     { _dvpcclrsReturn = Nothing
     , _dvpcclrsStatus = pStatus_

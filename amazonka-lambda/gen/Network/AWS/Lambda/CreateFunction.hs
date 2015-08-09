@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.Lambda.CreateFunction
     , fcDescription
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createFunction' smart constructor.
 --
@@ -82,19 +84,19 @@ import           Network.AWS.Response
 --
 -- * 'cfCode'
 data CreateFunction = CreateFunction'
-    { _cfMemorySize   :: !(Maybe Nat)
-    , _cfTimeout      :: !(Maybe Nat)
-    , _cfDescription  :: !(Maybe Text)
+    { _cfMemorySize :: !(Maybe Nat)
+    , _cfTimeout :: !(Maybe Nat)
+    , _cfDescription :: !(Maybe Text)
     , _cfFunctionName :: !Text
-    , _cfRuntime      :: !Runtime
-    , _cfRole         :: !Text
-    , _cfHandler      :: !Text
-    , _cfCode         :: !FunctionCode
+    , _cfRuntime :: !Runtime
+    , _cfRole :: !Text
+    , _cfHandler :: !Text
+    , _cfCode :: !FunctionCode
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFunction' smart constructor.
 createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> CreateFunction
-createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
+createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ = 
     CreateFunction'
     { _cfMemorySize = Nothing
     , _cfTimeout = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,11 +59,12 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     , driorsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesOfferings' smart constructor.
 --
@@ -96,25 +98,25 @@ import           Network.AWS.Response
 --
 -- * 'drioMaxInstanceCount'
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
-    { _drioMaxDuration                  :: !(Maybe Integer)
-    , _drioProductDescription           :: !(Maybe RIProductDescription)
-    , _drioIncludeMarketplace           :: !(Maybe Bool)
-    , _drioFilters                      :: !(Maybe [Filter])
-    , _drioInstanceType                 :: !(Maybe InstanceType)
-    , _drioNextToken                    :: !(Maybe Text)
-    , _drioMinDuration                  :: !(Maybe Integer)
-    , _drioAvailabilityZone             :: !(Maybe Text)
-    , _drioOfferingType                 :: !(Maybe OfferingTypeValues)
+    { _drioMaxDuration :: !(Maybe Integer)
+    , _drioProductDescription :: !(Maybe RIProductDescription)
+    , _drioIncludeMarketplace :: !(Maybe Bool)
+    , _drioFilters :: !(Maybe [Filter])
+    , _drioInstanceType :: !(Maybe InstanceType)
+    , _drioNextToken :: !(Maybe Text)
+    , _drioMinDuration :: !(Maybe Integer)
+    , _drioAvailabilityZone :: !(Maybe Text)
+    , _drioOfferingType :: !(Maybe OfferingTypeValues)
     , _drioReservedInstancesOfferingIds :: !(Maybe [Text])
-    , _drioInstanceTenancy              :: !(Maybe Tenancy)
-    , _drioDryRun                       :: !(Maybe Bool)
-    , _drioMaxResults                   :: !(Maybe Int)
-    , _drioMaxInstanceCount             :: !(Maybe Int)
+    , _drioInstanceTenancy :: !(Maybe Tenancy)
+    , _drioDryRun :: !(Maybe Bool)
+    , _drioMaxResults :: !(Maybe Int)
+    , _drioMaxInstanceCount :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesOfferings' smart constructor.
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
-describeReservedInstancesOfferings =
+describeReservedInstancesOfferings = 
     DescribeReservedInstancesOfferings'
     { _drioMaxDuration = Nothing
     , _drioProductDescription = Nothing
@@ -318,14 +320,14 @@ instance ToQuery DescribeReservedInstancesOfferings
 --
 -- * 'driorsStatus'
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
-    { _driorsNextToken                  :: !(Maybe Text)
+    { _driorsNextToken :: !(Maybe Text)
     , _driorsReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
-    , _driorsStatus                     :: !Int
+    , _driorsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
 describeReservedInstancesOfferingsResponse :: Int -> DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse pStatus_ =
+describeReservedInstancesOfferingsResponse pStatus_ = 
     DescribeReservedInstancesOfferingsResponse'
     { _driorsNextToken = Nothing
     , _driorsReservedInstancesOfferings = Nothing

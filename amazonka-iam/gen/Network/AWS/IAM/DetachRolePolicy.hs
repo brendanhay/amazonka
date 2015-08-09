@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.IAM.DetachRolePolicy
     , detachRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachRolePolicy' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'drpPolicyARN'
 data DetachRolePolicy = DetachRolePolicy'
-    { _drpRoleName  :: !Text
+    { _drpRoleName :: !Text
     , _drpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachRolePolicy' smart constructor.
 detachRolePolicy :: Text -> Text -> DetachRolePolicy
-detachRolePolicy pRoleName_ pPolicyARN_ =
+detachRolePolicy pRoleName_ pPolicyARN_ = 
     DetachRolePolicy'
     { _drpRoleName = pRoleName_
     , _drpPolicyARN = pPolicyARN_
@@ -95,7 +97,7 @@ instance ToQuery DetachRolePolicy where
 
 -- | /See:/ 'detachRolePolicyResponse' smart constructor.
 data DetachRolePolicyResponse =
-    DetachRolePolicyResponse'
+    DetachRolePolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachRolePolicyResponse' smart constructor.

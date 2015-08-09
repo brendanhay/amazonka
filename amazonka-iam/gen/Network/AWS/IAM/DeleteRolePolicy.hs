@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.DeleteRolePolicy
     , deleteRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteRolePolicy' smart constructor.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'delPolicyName'
 data DeleteRolePolicy = DeleteRolePolicy'
-    { _delRoleName   :: !Text
+    { _delRoleName :: !Text
     , _delPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRolePolicy' smart constructor.
 deleteRolePolicy :: Text -> Text -> DeleteRolePolicy
-deleteRolePolicy pRoleName_ pPolicyName_ =
+deleteRolePolicy pRoleName_ pPolicyName_ = 
     DeleteRolePolicy'
     { _delRoleName = pRoleName_
     , _delPolicyName = pPolicyName_
@@ -97,7 +99,7 @@ instance ToQuery DeleteRolePolicy where
 
 -- | /See:/ 'deleteRolePolicyResponse' smart constructor.
 data DeleteRolePolicyResponse =
-    DeleteRolePolicyResponse'
+    DeleteRolePolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRolePolicyResponse' smart constructor.

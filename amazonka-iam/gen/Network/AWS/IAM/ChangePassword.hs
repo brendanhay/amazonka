@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.IAM.ChangePassword
     , changePasswordResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'changePassword' smart constructor.
 --
@@ -59,7 +61,7 @@ data ChangePassword = ChangePassword'
 
 -- | 'ChangePassword' smart constructor.
 changePassword :: Text -> Text -> ChangePassword
-changePassword pOldPassword_ pNewPassword_ =
+changePassword pOldPassword_ pNewPassword_ = 
     ChangePassword'
     { _cpOldPassword = _Sensitive # pOldPassword_
     , _cpNewPassword = _Sensitive # pNewPassword_
@@ -96,7 +98,7 @@ instance ToQuery ChangePassword where
 
 -- | /See:/ 'changePasswordResponse' smart constructor.
 data ChangePasswordResponse =
-    ChangePasswordResponse'
+    ChangePasswordResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangePasswordResponse' smart constructor.

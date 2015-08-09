@@ -97,58 +97,58 @@ module Network.AWS.CognitoIdentity
     -- * Operations
     -- $operations
 
-    -- ** GetOpenIdToken
+    -- ** GetOpenIdToken 
     , module Network.AWS.CognitoIdentity.GetOpenIdToken
 
-    -- ** DescribeIdentityPool
+    -- ** DescribeIdentityPool 
     , module Network.AWS.CognitoIdentity.DescribeIdentityPool
 
-    -- ** GetOpenIdTokenForDeveloperIdentity
+    -- ** GetOpenIdTokenForDeveloperIdentity 
     , module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 
-    -- ** UnlinkDeveloperIdentity
+    -- ** UnlinkDeveloperIdentity 
     , module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 
-    -- ** GetCredentialsForIdentity
+    -- ** GetCredentialsForIdentity 
     , module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
 
-    -- ** ListIdentityPools
+    -- ** ListIdentityPools 
     , module Network.AWS.CognitoIdentity.ListIdentityPools
 
-    -- ** GetIdentityPoolRoles
+    -- ** GetIdentityPoolRoles 
     , module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
 
-    -- ** DeleteIdentityPool
+    -- ** DeleteIdentityPool 
     , module Network.AWS.CognitoIdentity.DeleteIdentityPool
 
-    -- ** UpdateIdentityPool
+    -- ** UpdateIdentityPool 
     , module Network.AWS.CognitoIdentity.UpdateIdentityPool
 
-    -- ** GetId
+    -- ** GetId 
     , module Network.AWS.CognitoIdentity.GetId
 
-    -- ** DeleteIdentities
+    -- ** DeleteIdentities 
     , module Network.AWS.CognitoIdentity.DeleteIdentities
 
-    -- ** SetIdentityPoolRoles
+    -- ** SetIdentityPoolRoles 
     , module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
 
-    -- ** ListIdentities
+    -- ** ListIdentities 
     , module Network.AWS.CognitoIdentity.ListIdentities
 
-    -- ** LookupDeveloperIdentity
+    -- ** LookupDeveloperIdentity 
     , module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 
-    -- ** UnlinkIdentity
+    -- ** UnlinkIdentity 
     , module Network.AWS.CognitoIdentity.UnlinkIdentity
 
-    -- ** DescribeIdentity
+    -- ** DescribeIdentity 
     , module Network.AWS.CognitoIdentity.DescribeIdentity
 
-    -- ** CreateIdentityPool
+    -- ** CreateIdentityPool 
     , module Network.AWS.CognitoIdentity.CreateIdentityPool
 
-    -- ** MergeDeveloperIdentities
+    -- ** MergeDeveloperIdentities 
     , module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 
     -- * Types
@@ -195,26 +195,26 @@ module Network.AWS.CognitoIdentity
     , uiiIdentityId
     ) where
 
-import           Network.AWS.CognitoIdentity.CreateIdentityPool
-import           Network.AWS.CognitoIdentity.DeleteIdentities
-import           Network.AWS.CognitoIdentity.DeleteIdentityPool
-import           Network.AWS.CognitoIdentity.DescribeIdentity
-import           Network.AWS.CognitoIdentity.DescribeIdentityPool
-import           Network.AWS.CognitoIdentity.GetCredentialsForIdentity
-import           Network.AWS.CognitoIdentity.GetId
-import           Network.AWS.CognitoIdentity.GetIdentityPoolRoles
-import           Network.AWS.CognitoIdentity.GetOpenIdToken
-import           Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
-import           Network.AWS.CognitoIdentity.ListIdentities
-import           Network.AWS.CognitoIdentity.ListIdentityPools
-import           Network.AWS.CognitoIdentity.LookupDeveloperIdentity
-import           Network.AWS.CognitoIdentity.MergeDeveloperIdentities
-import           Network.AWS.CognitoIdentity.SetIdentityPoolRoles
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
-import           Network.AWS.CognitoIdentity.UnlinkIdentity
-import           Network.AWS.CognitoIdentity.UpdateIdentityPool
-import           Network.AWS.CognitoIdentity.Waiters
+import Network.AWS.CognitoIdentity.CreateIdentityPool
+import Network.AWS.CognitoIdentity.DeleteIdentities
+import Network.AWS.CognitoIdentity.DeleteIdentityPool
+import Network.AWS.CognitoIdentity.DescribeIdentity
+import Network.AWS.CognitoIdentity.DescribeIdentityPool
+import Network.AWS.CognitoIdentity.GetCredentialsForIdentity
+import Network.AWS.CognitoIdentity.GetId
+import Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+import Network.AWS.CognitoIdentity.GetOpenIdToken
+import Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+import Network.AWS.CognitoIdentity.ListIdentities
+import Network.AWS.CognitoIdentity.ListIdentityPools
+import Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+import Network.AWS.CognitoIdentity.MergeDeveloperIdentities
+import Network.AWS.CognitoIdentity.SetIdentityPoolRoles
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+import Network.AWS.CognitoIdentity.UnlinkIdentity
+import Network.AWS.CognitoIdentity.UpdateIdentityPool
+import Network.AWS.CognitoIdentity.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

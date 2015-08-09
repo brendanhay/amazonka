@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.EC2.DeleteInternetGateway
     , deleteInternetGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteInternetGateway' smart constructor.
 --
@@ -48,13 +50,13 @@ import           Network.AWS.Response
 --
 -- * 'digiInternetGatewayId'
 data DeleteInternetGateway = DeleteInternetGateway'
-    { _digiDryRun            :: !(Maybe Bool)
+    { _digiDryRun :: !(Maybe Bool)
     , _digiInternetGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInternetGateway' smart constructor.
 deleteInternetGateway :: Text -> DeleteInternetGateway
-deleteInternetGateway pInternetGatewayId_ =
+deleteInternetGateway pInternetGatewayId_ = 
     DeleteInternetGateway'
     { _digiDryRun = Nothing
     , _digiInternetGatewayId = pInternetGatewayId_
@@ -94,7 +96,7 @@ instance ToQuery DeleteInternetGateway where
 
 -- | /See:/ 'deleteInternetGatewayResponse' smart constructor.
 data DeleteInternetGatewayResponse =
-    DeleteInternetGatewayResponse'
+    DeleteInternetGatewayResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInternetGatewayResponse' smart constructor.

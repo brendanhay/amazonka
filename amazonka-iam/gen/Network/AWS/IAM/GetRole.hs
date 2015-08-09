@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.GetRole
     , grrsRole
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getRole' smart constructor.
 --
@@ -57,7 +59,7 @@ newtype GetRole = GetRole'
 
 -- | 'GetRole' smart constructor.
 getRole :: Text -> GetRole
-getRole pRoleName_ =
+getRole pRoleName_ = 
     GetRole'
     { _grRoleName = pRoleName_
     }
@@ -100,12 +102,12 @@ instance ToQuery GetRole where
 -- * 'grrsRole'
 data GetRoleResponse = GetRoleResponse'
     { _grrsStatus :: !Int
-    , _grrsRole   :: !Role
+    , _grrsRole :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRoleResponse' smart constructor.
 getRoleResponse :: Int -> Role -> GetRoleResponse
-getRoleResponse pStatus_ pRole_ =
+getRoleResponse pStatus_ pRole_ = 
     GetRoleResponse'
     { _grrsStatus = pStatus_
     , _grrsRole = pRole_

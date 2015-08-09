@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.Kinesis.AddTagsToStream
     , addTagsToStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @AddTagsToStream@.
 --
@@ -54,12 +56,12 @@ import           Network.AWS.Response
 -- * 'attsTags'
 data AddTagsToStream = AddTagsToStream'
     { _attsStreamName :: !Text
-    , _attsTags       :: !(Map Text Text)
+    , _attsTags :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToStream' smart constructor.
 addTagsToStream :: Text -> AddTagsToStream
-addTagsToStream pStreamName_ =
+addTagsToStream pStreamName_ = 
     AddTagsToStream'
     { _attsStreamName = pStreamName_
     , _attsTags = mempty
@@ -102,7 +104,7 @@ instance ToQuery AddTagsToStream where
 
 -- | /See:/ 'addTagsToStreamResponse' smart constructor.
 data AddTagsToStreamResponse =
-    AddTagsToStreamResponse'
+    AddTagsToStreamResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToStreamResponse' smart constructor.

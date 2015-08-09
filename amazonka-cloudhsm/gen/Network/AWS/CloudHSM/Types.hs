@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -34,10 +34,10 @@ module Network.AWS.CloudHSM.Types
     , SubscriptionType (..)
     ) where
 
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.CloudHSM.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.CloudHSM.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2014-05-30@ of the Amazon CloudHSM SDK.
 data CloudHSM
@@ -46,7 +46,7 @@ instance AWSService CloudHSM where
     type Sg CloudHSM = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "CloudHSM"
             , _svcPrefix = "cloudhsm"
@@ -57,7 +57,7 @@ instance AWSService CloudHSM where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -65,7 +65,7 @@ instance AWSService CloudHSM where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -83,5 +83,5 @@ _CloudHSMServiceException = _ServiceError . hasCode "CloudHsmServiceException"
 
 -- | Indicates that an internal error occurred.
 _CloudHSMInternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_CloudHSMInternalException =
+_CloudHSMInternalException = 
     _ServiceError . hasCode "CloudHsmInternalException"

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     , enableMetricsCollectionResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableMetricsCollection' smart constructor.
 --
@@ -54,14 +56,14 @@ import           Network.AWS.Response
 --
 -- * 'emcGranularity'
 data EnableMetricsCollection = EnableMetricsCollection'
-    { _emcMetrics              :: !(Maybe [Text])
+    { _emcMetrics :: !(Maybe [Text])
     , _emcAutoScalingGroupName :: !Text
-    , _emcGranularity          :: !Text
+    , _emcGranularity :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMetricsCollection' smart constructor.
 enableMetricsCollection :: Text -> Text -> EnableMetricsCollection
-enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
+enableMetricsCollection pAutoScalingGroupName_ pGranularity_ = 
     EnableMetricsCollection'
     { _emcMetrics = Nothing
     , _emcAutoScalingGroupName = pAutoScalingGroupName_
@@ -128,7 +130,7 @@ instance ToQuery EnableMetricsCollection where
 
 -- | /See:/ 'enableMetricsCollectionResponse' smart constructor.
 data EnableMetricsCollectionResponse =
-    EnableMetricsCollectionResponse'
+    EnableMetricsCollectionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMetricsCollectionResponse' smart constructor.

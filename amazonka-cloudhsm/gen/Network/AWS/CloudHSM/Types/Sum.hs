@@ -17,11 +17,11 @@
 --
 module Network.AWS.CloudHSM.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ClientVersion
-    = V5_3
-    | V5_1
+    = V5_3 
+    | V5_1 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClientVersion where
@@ -45,9 +45,9 @@ instance ToJSON ClientVersion where
     toJSON = toJSONText
 
 data CloudHSMObjectState
-    = Updating
-    | Degraded
-    | Ready
+    = Updating 
+    | Degraded 
+    | Ready 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CloudHSMObjectState where
@@ -73,13 +73,13 @@ instance FromJSON CloudHSMObjectState where
     parseJSON = parseJSONText "CloudHSMObjectState"
 
 data HSMStatus
-    = HSRunning
-    | HSUpdating
-    | HSTerminated
-    | HSPending
-    | HSTerminating
-    | HSSuspended
-    | HSDegraded
+    = HSRunning 
+    | HSUpdating 
+    | HSTerminated 
+    | HSPending 
+    | HSTerminating 
+    | HSSuspended 
+    | HSDegraded 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HSMStatus where
@@ -113,7 +113,7 @@ instance FromJSON HSMStatus where
     parseJSON = parseJSONText "HSMStatus"
 
 data SubscriptionType =
-    Production
+    Production 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SubscriptionType where

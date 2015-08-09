@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CodeCommit.GetRepository
     , grrsStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get repository operation.
 --
@@ -61,7 +63,7 @@ newtype GetRepository = GetRepository'
 
 -- | 'GetRepository' smart constructor.
 getRepository :: Text -> GetRepository
-getRepository pRepositoryName_ =
+getRepository pRepositoryName_ = 
     GetRepository'
     { _grRepositoryName = pRepositoryName_
     }
@@ -110,12 +112,12 @@ instance ToQuery GetRepository where
 -- * 'grrsStatus'
 data GetRepositoryResponse = GetRepositoryResponse'
     { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _grrsStatus             :: !Int
+    , _grrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRepositoryResponse' smart constructor.
 getRepositoryResponse :: Int -> GetRepositoryResponse
-getRepositoryResponse pStatus_ =
+getRepositoryResponse pStatus_ = 
     GetRepositoryResponse'
     { _grrsRepositoryMetadata = Nothing
     , _grrsStatus = pStatus_

@@ -17,11 +17,11 @@
 --
 module Network.AWS.CloudWatchLogs.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data OrderBy
-    = LogStreamName
-    | LastEventTime
+    = LogStreamName 
+    | LastEventTime 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OrderBy where

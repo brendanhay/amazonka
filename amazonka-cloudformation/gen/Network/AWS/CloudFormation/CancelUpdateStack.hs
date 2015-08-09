@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     , cancelUpdateStackResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for CancelUpdateStack action.
 --
@@ -55,7 +57,7 @@ newtype CancelUpdateStack = CancelUpdateStack'
 
 -- | 'CancelUpdateStack' smart constructor.
 cancelUpdateStack :: Text -> CancelUpdateStack
-cancelUpdateStack pStackName_ =
+cancelUpdateStack pStackName_ = 
     CancelUpdateStack'
     { _cusStackName = pStackName_
     }
@@ -85,7 +87,7 @@ instance ToQuery CancelUpdateStack where
 
 -- | /See:/ 'cancelUpdateStackResponse' smart constructor.
 data CancelUpdateStackResponse =
-    CancelUpdateStackResponse'
+    CancelUpdateStackResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelUpdateStackResponse' smart constructor.

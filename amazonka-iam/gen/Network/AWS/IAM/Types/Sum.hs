@@ -17,12 +17,12 @@
 --
 module Network.AWS.IAM.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AssignmentStatusType
-    = Assigned
-    | Unassigned
-    | Any
+    = Assigned 
+    | Unassigned 
+    | Any 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AssignmentStatusType where
@@ -45,8 +45,8 @@ instance ToQuery      AssignmentStatusType
 instance ToHeader     AssignmentStatusType
 
 data EncodingType
-    = Pem
-    | SSH
+    = Pem 
+    | SSH 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EncodingType where
@@ -67,11 +67,11 @@ instance ToQuery      EncodingType
 instance ToHeader     EncodingType
 
 data EntityType
-    = Group
-    | LocalManagedPolicy
-    | AWSManagedPolicy
-    | User
-    | Role
+    = Group 
+    | LocalManagedPolicy 
+    | AWSManagedPolicy 
+    | User 
+    | Role 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityType where
@@ -98,9 +98,9 @@ instance ToQuery      EntityType
 instance ToHeader     EntityType
 
 data PolicyScopeType
-    = AWS
-    | Local
-    | All
+    = AWS 
+    | Local 
+    | All 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PolicyScopeType where
@@ -123,7 +123,7 @@ instance ToQuery      PolicyScopeType
 instance ToHeader     PolicyScopeType
 
 data ReportFormatType =
-    TextCSV
+    TextCSV 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportFormatType where
@@ -145,9 +145,9 @@ instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
 data ReportStateType
-    = Inprogress
-    | Started
-    | Complete
+    = Inprogress 
+    | Started 
+    | Complete 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportStateType where
@@ -173,8 +173,8 @@ instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
 
 data StatusType
-    = Inactive
-    | Active
+    = Inactive 
+    | Active 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusType where
@@ -198,31 +198,31 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SummaryKeyType
-    = AttachedPoliciesPerUserQuota
-    | UsersQuota
-    | Groups
-    | GroupsQuota
-    | Users
-    | MFADevicesInUse
-    | PolicyVersionsInUse
-    | SigningCertificatesPerUserQuota
-    | PoliciesQuota
-    | AccessKeysPerUserQuota
-    | PolicySizeQuota
-    | ServerCertificates
-    | AttachedPoliciesPerRoleQuota
-    | GroupsPerUserQuota
-    | GroupPolicySizeQuota
-    | AccountSigningCertificatesPresent
-    | UserPolicySizeQuota
-    | AttachedPoliciesPerGroupQuota
-    | AccountAccessKeysPresent
-    | ServerCertificatesQuota
-    | VersionsPerPolicyQuota
-    | PolicyVersionsInUseQuota
-    | Policies
-    | AccountMFAEnabled
-    | MFADevices
+    = AttachedPoliciesPerUserQuota 
+    | UsersQuota 
+    | Groups 
+    | GroupsQuota 
+    | Users 
+    | MFADevicesInUse 
+    | PolicyVersionsInUse 
+    | SigningCertificatesPerUserQuota 
+    | PoliciesQuota 
+    | AccessKeysPerUserQuota 
+    | PolicySizeQuota 
+    | ServerCertificates 
+    | AttachedPoliciesPerRoleQuota 
+    | GroupsPerUserQuota 
+    | GroupPolicySizeQuota 
+    | AccountSigningCertificatesPresent 
+    | UserPolicySizeQuota 
+    | AttachedPoliciesPerGroupQuota 
+    | AccountAccessKeysPresent 
+    | ServerCertificatesQuota 
+    | VersionsPerPolicyQuota 
+    | PolicyVersionsInUseQuota 
+    | Policies 
+    | AccountMFAEnabled 
+    | MFADevices 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SummaryKeyType where

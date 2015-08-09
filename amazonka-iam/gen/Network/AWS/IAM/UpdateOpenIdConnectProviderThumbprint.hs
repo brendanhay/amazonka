@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
     , updateOpenIdConnectProviderThumbprintResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateOpenIdConnectProviderThumbprint' smart constructor.
 --
@@ -64,12 +66,12 @@ import           Network.AWS.Response
 -- * 'uoicptThumbprintList'
 data UpdateOpenIdConnectProviderThumbprint = UpdateOpenIdConnectProviderThumbprint'
     { _uoicptOpenIdConnectProviderARN :: !Text
-    , _uoicptThumbprintList           :: ![Text]
+    , _uoicptThumbprintList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateOpenIdConnectProviderThumbprint' smart constructor.
 updateOpenIdConnectProviderThumbprint :: Text -> UpdateOpenIdConnectProviderThumbprint
-updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ =
+updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ = 
     UpdateOpenIdConnectProviderThumbprint'
     { _uoicptOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     , _uoicptThumbprintList = mempty
@@ -120,10 +122,10 @@ instance ToQuery
 
 -- | /See:/ 'updateOpenIdConnectProviderThumbprintResponse' smart constructor.
 data UpdateOpenIdConnectProviderThumbprintResponse =
-    UpdateOpenIdConnectProviderThumbprintResponse'
+    UpdateOpenIdConnectProviderThumbprintResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateOpenIdConnectProviderThumbprintResponse' smart constructor.
 updateOpenIdConnectProviderThumbprintResponse :: UpdateOpenIdConnectProviderThumbprintResponse
-updateOpenIdConnectProviderThumbprintResponse =
+updateOpenIdConnectProviderThumbprintResponse = 
     UpdateOpenIdConnectProviderThumbprintResponse'

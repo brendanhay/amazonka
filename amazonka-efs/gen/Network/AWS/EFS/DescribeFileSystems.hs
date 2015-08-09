@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -68,10 +69,11 @@ module Network.AWS.EFS.DescribeFileSystems
     , dfsrsStatus
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeFileSystems' smart constructor.
 --
@@ -85,15 +87,15 @@ import           Network.AWS.Response
 --
 -- * 'dfsMarker'
 data DescribeFileSystems = DescribeFileSystems'
-    { _dfsFileSystemId  :: !(Maybe Text)
-    , _dfsMaxItems      :: !(Maybe Nat)
+    { _dfsFileSystemId :: !(Maybe Text)
+    , _dfsMaxItems :: !(Maybe Nat)
     , _dfsCreationToken :: !(Maybe Text)
-    , _dfsMarker        :: !(Maybe Text)
+    , _dfsMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFileSystems' smart constructor.
 describeFileSystems :: DescribeFileSystems
-describeFileSystems =
+describeFileSystems = 
     DescribeFileSystems'
     { _dfsFileSystemId = Nothing
     , _dfsMaxItems = Nothing
@@ -165,14 +167,14 @@ instance ToQuery DescribeFileSystems where
 -- * 'dfsrsStatus'
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
     { _dfsrsFileSystems :: !(Maybe [FileSystemDescription])
-    , _dfsrsMarker      :: !(Maybe Text)
-    , _dfsrsNextMarker  :: !(Maybe Text)
-    , _dfsrsStatus      :: !Int
+    , _dfsrsMarker :: !(Maybe Text)
+    , _dfsrsNextMarker :: !(Maybe Text)
+    , _dfsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
 describeFileSystemsResponse :: Int -> DescribeFileSystemsResponse
-describeFileSystemsResponse pStatus_ =
+describeFileSystemsResponse pStatus_ = 
     DescribeFileSystemsResponse'
     { _dfsrsFileSystems = Nothing
     , _dfsrsMarker = Nothing

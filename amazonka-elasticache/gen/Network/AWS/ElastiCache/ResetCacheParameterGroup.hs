@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , cpgnmCacheParameterGroupName
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /ResetCacheParameterGroup/ action.
 --
@@ -58,14 +60,14 @@ import           Network.AWS.Response
 --
 -- * 'rcpgParameterNameValues'
 data ResetCacheParameterGroup = ResetCacheParameterGroup'
-    { _rcpgResetAllParameters      :: !(Maybe Bool)
+    { _rcpgResetAllParameters :: !(Maybe Bool)
     , _rcpgCacheParameterGroupName :: !Text
-    , _rcpgParameterNameValues     :: ![ParameterNameValue]
+    , _rcpgParameterNameValues :: ![ParameterNameValue]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetCacheParameterGroup' smart constructor.
 resetCacheParameterGroup :: Text -> ResetCacheParameterGroup
-resetCacheParameterGroup pCacheParameterGroupName_ =
+resetCacheParameterGroup pCacheParameterGroupName_ = 
     ResetCacheParameterGroup'
     { _rcpgResetAllParameters = Nothing
     , _rcpgCacheParameterGroupName = pCacheParameterGroupName_

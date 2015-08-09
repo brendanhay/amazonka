@@ -17,11 +17,11 @@
 --
 module Network.AWS.Glacier.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ActionCode
-    = InventoryRetrieval
-    | ArchiveRetrieval
+    = InventoryRetrieval 
+    | ArchiveRetrieval 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionCode where
@@ -45,9 +45,9 @@ instance FromJSON ActionCode where
     parseJSON = parseJSONText "ActionCode"
 
 data StatusCode
-    = InProgress
-    | Succeeded
-    | Failed
+    = InProgress 
+    | Succeeded 
+    | Failed 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusCode where

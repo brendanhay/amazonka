@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     , ccfoairsStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new origin access identity.
 --
@@ -56,7 +58,7 @@ newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdent
 
 -- | 'CreateCloudFrontOriginAccessIdentity' smart constructor.
 createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> CreateCloudFrontOriginAccessIdentity
-createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ =
+createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ = 
     CreateCloudFrontOriginAccessIdentity'
     { _ccfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
     }
@@ -116,15 +118,15 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity
 --
 -- * 'ccfoairsStatus'
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
-    { _ccfoairsETag                           :: !(Maybe Text)
-    , _ccfoairsLocation                       :: !(Maybe Text)
+    { _ccfoairsETag :: !(Maybe Text)
+    , _ccfoairsLocation :: !(Maybe Text)
     , _ccfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ccfoairsStatus                         :: !Int
+    , _ccfoairsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCloudFrontOriginAccessIdentityResponse' smart constructor.
 createCloudFrontOriginAccessIdentityResponse :: Int -> CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentityResponse pStatus_ =
+createCloudFrontOriginAccessIdentityResponse pStatus_ = 
     CreateCloudFrontOriginAccessIdentityResponse'
     { _ccfoairsETag = Nothing
     , _ccfoairsLocation = Nothing

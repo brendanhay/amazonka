@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -51,11 +52,12 @@ module Network.AWS.EC2.DescribeInstances
     , dirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeInstances' smart constructor.
 --
@@ -71,16 +73,16 @@ import           Network.AWS.Response
 --
 -- * 'diiMaxResults'
 data DescribeInstances = DescribeInstances'
-    { _diiFilters     :: !(Maybe [Filter])
-    , _diiNextToken   :: !(Maybe Text)
+    { _diiFilters :: !(Maybe [Filter])
+    , _diiNextToken :: !(Maybe Text)
     , _diiInstanceIds :: !(Maybe [Text])
-    , _diiDryRun      :: !(Maybe Bool)
-    , _diiMaxResults  :: !(Maybe Int)
+    , _diiDryRun :: !(Maybe Bool)
+    , _diiMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
-describeInstances =
+describeInstances = 
     DescribeInstances'
     { _diiFilters = Nothing
     , _diiNextToken = Nothing
@@ -411,14 +413,14 @@ instance ToQuery DescribeInstances where
 --
 -- * 'dirsStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _dirsNextToken    :: !(Maybe Text)
+    { _dirsNextToken :: !(Maybe Text)
     , _dirsReservations :: !(Maybe [Reservation])
-    , _dirsStatus       :: !Int
+    , _dirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
-describeInstancesResponse pStatus_ =
+describeInstancesResponse pStatus_ = 
     DescribeInstancesResponse'
     { _dirsNextToken = Nothing
     , _dirsReservations = Nothing

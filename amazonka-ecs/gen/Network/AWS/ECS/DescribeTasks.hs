@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.ECS.DescribeTasks
     , dtrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTasks' smart constructor.
 --
@@ -52,12 +54,12 @@ import           Network.AWS.Response
 -- * 'dtTasks'
 data DescribeTasks = DescribeTasks'
     { _dtCluster :: !(Maybe Text)
-    , _dtTasks   :: ![Text]
+    , _dtTasks :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTasks' smart constructor.
 describeTasks :: DescribeTasks
-describeTasks =
+describeTasks = 
     DescribeTasks'
     { _dtCluster = Nothing
     , _dtTasks = mempty
@@ -118,13 +120,13 @@ instance ToQuery DescribeTasks where
 -- * 'dtrsStatus'
 data DescribeTasksResponse = DescribeTasksResponse'
     { _dtrsFailures :: !(Maybe [Failure])
-    , _dtrsTasks    :: !(Maybe [Task])
-    , _dtrsStatus   :: !Int
+    , _dtrsTasks :: !(Maybe [Task])
+    , _dtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTasksResponse' smart constructor.
 describeTasksResponse :: Int -> DescribeTasksResponse
-describeTasksResponse pStatus_ =
+describeTasksResponse pStatus_ = 
     DescribeTasksResponse'
     { _dtrsFailures = Nothing
     , _dtrsTasks = Nothing

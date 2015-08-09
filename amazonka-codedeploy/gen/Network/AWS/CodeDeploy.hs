@@ -259,100 +259,100 @@ module Network.AWS.CodeDeploy
     -- * Operations
     -- $operations
 
-    -- ** RemoveTagsFromOnPremisesInstances
+    -- ** RemoveTagsFromOnPremisesInstances 
     , module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
 
-    -- ** GetDeployment
+    -- ** GetDeployment 
     , module Network.AWS.CodeDeploy.GetDeployment
 
-    -- ** CreateDeploymentConfig
+    -- ** CreateDeploymentConfig 
     , module Network.AWS.CodeDeploy.CreateDeploymentConfig
 
-    -- ** UpdateDeploymentGroup
+    -- ** UpdateDeploymentGroup 
     , module Network.AWS.CodeDeploy.UpdateDeploymentGroup
 
-    -- ** DeleteDeploymentGroup
+    -- ** DeleteDeploymentGroup 
     , module Network.AWS.CodeDeploy.DeleteDeploymentGroup
 
-    -- ** ListOnPremisesInstances
+    -- ** ListOnPremisesInstances 
     , module Network.AWS.CodeDeploy.ListOnPremisesInstances
 
-    -- ** GetApplicationRevision
+    -- ** GetApplicationRevision 
     , module Network.AWS.CodeDeploy.GetApplicationRevision
 
-    -- ** DeleteDeploymentConfig
+    -- ** DeleteDeploymentConfig 
     , module Network.AWS.CodeDeploy.DeleteDeploymentConfig
 
-    -- ** GetDeploymentConfig
+    -- ** GetDeploymentConfig 
     , module Network.AWS.CodeDeploy.GetDeploymentConfig
 
-    -- ** CreateDeployment
+    -- ** CreateDeployment 
     , module Network.AWS.CodeDeploy.CreateDeployment
 
-    -- ** GetOnPremisesInstance
+    -- ** GetOnPremisesInstance 
     , module Network.AWS.CodeDeploy.GetOnPremisesInstance
 
-    -- ** BatchGetDeployments
+    -- ** BatchGetDeployments 
     , module Network.AWS.CodeDeploy.BatchGetDeployments
 
-    -- ** RegisterApplicationRevision
+    -- ** RegisterApplicationRevision 
     , module Network.AWS.CodeDeploy.RegisterApplicationRevision
 
-    -- ** DeleteApplication
+    -- ** DeleteApplication 
     , module Network.AWS.CodeDeploy.DeleteApplication
 
-    -- ** UpdateApplication
+    -- ** UpdateApplication 
     , module Network.AWS.CodeDeploy.UpdateApplication
 
-    -- ** BatchGetApplications
+    -- ** BatchGetApplications 
     , module Network.AWS.CodeDeploy.BatchGetApplications
 
-    -- ** CreateApplication
+    -- ** CreateApplication 
     , module Network.AWS.CodeDeploy.CreateApplication
 
-    -- ** DeregisterOnPremisesInstance
+    -- ** DeregisterOnPremisesInstance 
     , module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
 
-    -- ** GetDeploymentInstance
+    -- ** GetDeploymentInstance 
     , module Network.AWS.CodeDeploy.GetDeploymentInstance
 
-    -- ** StopDeployment
+    -- ** StopDeployment 
     , module Network.AWS.CodeDeploy.StopDeployment
 
-    -- ** GetApplication
+    -- ** GetApplication 
     , module Network.AWS.CodeDeploy.GetApplication
 
-    -- ** ListDeploymentGroups
+    -- ** ListDeploymentGroups 
     , module Network.AWS.CodeDeploy.ListDeploymentGroups
 
-    -- ** RegisterOnPremisesInstance
+    -- ** RegisterOnPremisesInstance 
     , module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 
-    -- ** BatchGetOnPremisesInstances
+    -- ** BatchGetOnPremisesInstances 
     , module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
 
-    -- ** ListDeploymentConfigs
+    -- ** ListDeploymentConfigs 
     , module Network.AWS.CodeDeploy.ListDeploymentConfigs
 
-    -- ** CreateDeploymentGroup
+    -- ** CreateDeploymentGroup 
     , module Network.AWS.CodeDeploy.CreateDeploymentGroup
 
-    -- ** GetDeploymentGroup
+    -- ** GetDeploymentGroup 
     , module Network.AWS.CodeDeploy.GetDeploymentGroup
 
-    -- ** ListDeployments
+    -- ** ListDeployments 
     , module Network.AWS.CodeDeploy.ListDeployments
 
-    -- ** ListApplicationRevisions
+    -- ** ListApplicationRevisions 
     , module Network.AWS.CodeDeploy.ListApplicationRevisions
 
-    -- ** ListApplications
+    -- ** ListApplications 
     , module Network.AWS.CodeDeploy.ListApplications
 
-    -- ** AddTagsToOnPremisesInstances
+    -- ** AddTagsToOnPremisesInstances 
     , module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
 
-    -- ** ListDeploymentInstances
+    -- ** ListDeploymentInstances 
     , module Network.AWS.CodeDeploy.ListDeploymentInstances
 
     -- * Types
@@ -573,40 +573,40 @@ module Network.AWS.CodeDeploy
     , trEnd
     ) where
 
-import           Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
-import           Network.AWS.CodeDeploy.BatchGetApplications
-import           Network.AWS.CodeDeploy.BatchGetDeployments
-import           Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
-import           Network.AWS.CodeDeploy.CreateApplication
-import           Network.AWS.CodeDeploy.CreateDeployment
-import           Network.AWS.CodeDeploy.CreateDeploymentConfig
-import           Network.AWS.CodeDeploy.CreateDeploymentGroup
-import           Network.AWS.CodeDeploy.DeleteApplication
-import           Network.AWS.CodeDeploy.DeleteDeploymentConfig
-import           Network.AWS.CodeDeploy.DeleteDeploymentGroup
-import           Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
-import           Network.AWS.CodeDeploy.GetApplication
-import           Network.AWS.CodeDeploy.GetApplicationRevision
-import           Network.AWS.CodeDeploy.GetDeployment
-import           Network.AWS.CodeDeploy.GetDeploymentConfig
-import           Network.AWS.CodeDeploy.GetDeploymentGroup
-import           Network.AWS.CodeDeploy.GetDeploymentInstance
-import           Network.AWS.CodeDeploy.GetOnPremisesInstance
-import           Network.AWS.CodeDeploy.ListApplicationRevisions
-import           Network.AWS.CodeDeploy.ListApplications
-import           Network.AWS.CodeDeploy.ListDeploymentConfigs
-import           Network.AWS.CodeDeploy.ListDeploymentGroups
-import           Network.AWS.CodeDeploy.ListDeploymentInstances
-import           Network.AWS.CodeDeploy.ListDeployments
-import           Network.AWS.CodeDeploy.ListOnPremisesInstances
-import           Network.AWS.CodeDeploy.RegisterApplicationRevision
-import           Network.AWS.CodeDeploy.RegisterOnPremisesInstance
-import           Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
-import           Network.AWS.CodeDeploy.StopDeployment
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.UpdateApplication
-import           Network.AWS.CodeDeploy.UpdateDeploymentGroup
-import           Network.AWS.CodeDeploy.Waiters
+import Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
+import Network.AWS.CodeDeploy.BatchGetApplications
+import Network.AWS.CodeDeploy.BatchGetDeployments
+import Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
+import Network.AWS.CodeDeploy.CreateApplication
+import Network.AWS.CodeDeploy.CreateDeployment
+import Network.AWS.CodeDeploy.CreateDeploymentConfig
+import Network.AWS.CodeDeploy.CreateDeploymentGroup
+import Network.AWS.CodeDeploy.DeleteApplication
+import Network.AWS.CodeDeploy.DeleteDeploymentConfig
+import Network.AWS.CodeDeploy.DeleteDeploymentGroup
+import Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
+import Network.AWS.CodeDeploy.GetApplication
+import Network.AWS.CodeDeploy.GetApplicationRevision
+import Network.AWS.CodeDeploy.GetDeployment
+import Network.AWS.CodeDeploy.GetDeploymentConfig
+import Network.AWS.CodeDeploy.GetDeploymentGroup
+import Network.AWS.CodeDeploy.GetDeploymentInstance
+import Network.AWS.CodeDeploy.GetOnPremisesInstance
+import Network.AWS.CodeDeploy.ListApplicationRevisions
+import Network.AWS.CodeDeploy.ListApplications
+import Network.AWS.CodeDeploy.ListDeploymentConfigs
+import Network.AWS.CodeDeploy.ListDeploymentGroups
+import Network.AWS.CodeDeploy.ListDeploymentInstances
+import Network.AWS.CodeDeploy.ListDeployments
+import Network.AWS.CodeDeploy.ListOnPremisesInstances
+import Network.AWS.CodeDeploy.RegisterApplicationRevision
+import Network.AWS.CodeDeploy.RegisterOnPremisesInstance
+import Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
+import Network.AWS.CodeDeploy.StopDeployment
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.UpdateApplication
+import Network.AWS.CodeDeploy.UpdateDeploymentGroup
+import Network.AWS.CodeDeploy.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     , crersStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createRealtimeEndpoint' smart constructor.
 --
@@ -55,7 +57,7 @@ newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
 
 -- | 'CreateRealtimeEndpoint' smart constructor.
 createRealtimeEndpoint :: Text -> CreateRealtimeEndpoint
-createRealtimeEndpoint pMLModelId_ =
+createRealtimeEndpoint pMLModelId_ = 
     CreateRealtimeEndpoint'
     { _creMLModelId = pMLModelId_
     }
@@ -116,13 +118,13 @@ instance ToQuery CreateRealtimeEndpoint where
 -- * 'crersStatus'
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
     { _crersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
-    , _crersMLModelId            :: !(Maybe Text)
-    , _crersStatus               :: !Int
+    , _crersMLModelId :: !(Maybe Text)
+    , _crersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
 createRealtimeEndpointResponse :: Int -> CreateRealtimeEndpointResponse
-createRealtimeEndpointResponse pStatus_ =
+createRealtimeEndpointResponse pStatus_ = 
     CreateRealtimeEndpointResponse'
     { _crersRealtimeEndpointInfo = Nothing
     , _crersMLModelId = Nothing

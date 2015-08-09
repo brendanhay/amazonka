@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.EC2.DeleteNetworkACL
     , deleteNetworkACLResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkACL' smart constructor.
 --
@@ -48,13 +50,13 @@ import           Network.AWS.Response
 --
 -- * 'dnaNetworkACLId'
 data DeleteNetworkACL = DeleteNetworkACL'
-    { _dnaDryRun       :: !(Maybe Bool)
+    { _dnaDryRun :: !(Maybe Bool)
     , _dnaNetworkACLId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACL' smart constructor.
 deleteNetworkACL :: Text -> DeleteNetworkACL
-deleteNetworkACL pNetworkACLId_ =
+deleteNetworkACL pNetworkACLId_ = 
     DeleteNetworkACL'
     { _dnaDryRun = Nothing
     , _dnaNetworkACLId = pNetworkACLId_
@@ -93,7 +95,7 @@ instance ToQuery DeleteNetworkACL where
 
 -- | /See:/ 'deleteNetworkACLResponse' smart constructor.
 data DeleteNetworkACLResponse =
-    DeleteNetworkACLResponse'
+    DeleteNetworkACLResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACLResponse' smart constructor.

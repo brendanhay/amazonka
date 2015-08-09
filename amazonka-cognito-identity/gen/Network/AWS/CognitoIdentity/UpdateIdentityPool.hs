@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | An object representing a Cognito identity pool.
 --
@@ -70,17 +72,17 @@ import           Network.AWS.Response
 --
 -- * 'uipAllowUnauthenticatedIdentities'
 data UpdateIdentityPool = UpdateIdentityPool'
-    { _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _uipDeveloperProviderName          :: !(Maybe Text)
-    , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _uipIdentityPoolId                 :: !Text
-    , _uipIdentityPoolName               :: !Text
+    { _uipSupportedLoginProviders :: !(Maybe (Map Text Text))
+    , _uipDeveloperProviderName :: !(Maybe Text)
+    , _uipOpenIdConnectProviderARNs :: !(Maybe [Text])
+    , _uipIdentityPoolId :: !Text
+    , _uipIdentityPoolName :: !Text
     , _uipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateIdentityPool' smart constructor.
 updateIdentityPool :: Text -> Text -> Bool -> UpdateIdentityPool
-updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
+updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ = 
     UpdateIdentityPool'
     { _uipSupportedLoginProviders = Nothing
     , _uipDeveloperProviderName = Nothing

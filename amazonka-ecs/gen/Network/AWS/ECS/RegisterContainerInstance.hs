@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rcirsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerContainerInstance' smart constructor.
 --
@@ -67,16 +69,16 @@ import           Network.AWS.Response
 -- * 'rciTotalResources'
 data RegisterContainerInstance = RegisterContainerInstance'
     { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
-    , _rciCluster                           :: !(Maybe Text)
-    , _rciInstanceIdentityDocument          :: !(Maybe Text)
-    , _rciContainerInstanceARN              :: !(Maybe Text)
-    , _rciVersionInfo                       :: !(Maybe VersionInfo)
-    , _rciTotalResources                    :: !(Maybe [Resource])
+    , _rciCluster :: !(Maybe Text)
+    , _rciInstanceIdentityDocument :: !(Maybe Text)
+    , _rciContainerInstanceARN :: !(Maybe Text)
+    , _rciVersionInfo :: !(Maybe VersionInfo)
+    , _rciTotalResources :: !(Maybe [Resource])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterContainerInstance' smart constructor.
 registerContainerInstance :: RegisterContainerInstance
-registerContainerInstance =
+registerContainerInstance = 
     RegisterContainerInstance'
     { _rciInstanceIdentityDocumentSignature = Nothing
     , _rciCluster = Nothing
@@ -168,12 +170,12 @@ instance ToQuery RegisterContainerInstance where
 -- * 'rcirsStatus'
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
     { _rcirsContainerInstance :: !(Maybe ContainerInstance)
-    , _rcirsStatus            :: !Int
+    , _rcirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterContainerInstanceResponse' smart constructor.
 registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse
-registerContainerInstanceResponse pStatus_ =
+registerContainerInstanceResponse pStatus_ = 
     RegisterContainerInstanceResponse'
     { _rcirsContainerInstance = Nothing
     , _rcirsStatus = pStatus_

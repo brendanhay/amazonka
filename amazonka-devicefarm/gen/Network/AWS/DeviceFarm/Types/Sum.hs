@@ -17,12 +17,12 @@
 --
 module Network.AWS.DeviceFarm.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ArtifactCategory
-    = ACFile
-    | ACLog
-    | ACScreenshot
+    = ACFile 
+    | ACLog 
+    | ACScreenshot 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ArtifactCategory where
@@ -48,22 +48,22 @@ instance ToJSON ArtifactCategory where
     toJSON = toJSONText
 
 data ArtifactType
-    = DeviceLog
-    | Screenshot
-    | MessageLog
-    | AppiumServerOutput
-    | CalabashJavaXMLOutput
-    | Unknown
-    | ExerciserMonkeyOutput
-    | CalabashPrettyOutput
-    | InstrumentationOutput
-    | AppiumJavaXMLOutput
-    | ResultLog
-    | CalabashJSONOutput
-    | AutomationOutput
-    | CalabashStandardOutput
-    | AppiumJavaOutput
-    | ServiceLog
+    = DeviceLog 
+    | Screenshot 
+    | MessageLog 
+    | AppiumServerOutput 
+    | CalabashJavaXMLOutput 
+    | Unknown 
+    | ExerciserMonkeyOutput 
+    | CalabashPrettyOutput 
+    | InstrumentationOutput 
+    | AppiumJavaXMLOutput 
+    | ResultLog 
+    | CalabashJSONOutput 
+    | AutomationOutput 
+    | CalabashStandardOutput 
+    | AppiumJavaOutput 
+    | ServiceLog 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ArtifactType where
@@ -115,8 +115,8 @@ instance FromJSON ArtifactType where
     parseJSON = parseJSONText "ArtifactType"
 
 data BillingMethod
-    = Metered
-    | Unmetered
+    = Metered 
+    | Unmetered 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BillingMethod where
@@ -143,10 +143,10 @@ instance FromJSON BillingMethod where
     parseJSON = parseJSONText "BillingMethod"
 
 data DeviceAttribute
-    = Platform
-    | Manufacturer
-    | ARN
-    | FormFactor
+    = Platform 
+    | Manufacturer 
+    | ARN 
+    | FormFactor 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeviceAttribute where
@@ -177,8 +177,8 @@ instance FromJSON DeviceAttribute where
     parseJSON = parseJSONText "DeviceAttribute"
 
 data DeviceFormFactor
-    = Phone
-    | Tablet
+    = Phone 
+    | Tablet 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeviceFormFactor where
@@ -202,8 +202,8 @@ instance FromJSON DeviceFormFactor where
     parseJSON = parseJSONText "DeviceFormFactor"
 
 data DevicePlatform
-    = Ios
-    | Android
+    = Ios 
+    | Android 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DevicePlatform where
@@ -227,8 +227,8 @@ instance FromJSON DevicePlatform where
     parseJSON = parseJSONText "DevicePlatform"
 
 data DevicePoolType
-    = Private
-    | Curated
+    = Private 
+    | Curated 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DevicePoolType where
@@ -255,13 +255,13 @@ instance FromJSON DevicePoolType where
     parseJSON = parseJSONText "DevicePoolType"
 
 data ExecutionResult
-    = ERFailed
-    | ERSkipped
-    | ERPending
-    | ERErrored
-    | ERWarned
-    | ERPassed
-    | ERStopped
+    = ERFailed 
+    | ERSkipped 
+    | ERPending 
+    | ERErrored 
+    | ERWarned 
+    | ERPassed 
+    | ERStopped 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExecutionResult where
@@ -295,11 +295,11 @@ instance FromJSON ExecutionResult where
     parseJSON = parseJSONText "ExecutionResult"
 
 data ExecutionStatus
-    = Pending
-    | Running
-    | Completed
-    | Scheduling
-    | Processing
+    = Pending 
+    | Running 
+    | Completed 
+    | Scheduling 
+    | Processing 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExecutionStatus where
@@ -329,11 +329,11 @@ instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
 
 data RuleOperator
-    = LessThan
-    | IN
-    | Equals
-    | NotIn
-    | GreaterThan
+    = LessThan 
+    | IN 
+    | Equals 
+    | NotIn 
+    | GreaterThan 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RuleOperator where
@@ -366,23 +366,23 @@ instance FromJSON RuleOperator where
     parseJSON = parseJSONText "RuleOperator"
 
 data SampleType
-    = TX
-    | NativeAvgDrawtime
-    | NativeFps
-    | RX
-    | OpenglFps
-    | OpenglAvgDrawtime
-    | NativeMaxDrawtime
-    | TxRate
-    | NativeMinDrawtime
-    | Memory
-    | NativeFrames
-    | Threads
-    | RxRate
-    | OpenglMinDrawtime
-    | CPU
-    | OpenglMaxDrawtime
-    | OpenglFrames
+    = TX 
+    | NativeAvgDrawtime 
+    | NativeFps 
+    | RX 
+    | OpenglFps 
+    | OpenglAvgDrawtime 
+    | NativeMaxDrawtime 
+    | TxRate 
+    | NativeMinDrawtime 
+    | Memory 
+    | NativeFrames 
+    | Threads 
+    | RxRate 
+    | OpenglMinDrawtime 
+    | CPU 
+    | OpenglMaxDrawtime 
+    | OpenglFrames 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SampleType where
@@ -436,15 +436,15 @@ instance FromJSON SampleType where
     parseJSON = parseJSONText "SampleType"
 
 data TestType
-    = Calabash
-    | Instrumentation
-    | AppiumJavaJunit
-    | AppiumJavaTestng
-    | Uiautomator
-    | BuiltinExplorer
-    | BuiltinFuzz
-    | Xctest
-    | Uiautomation
+    = Calabash 
+    | Instrumentation 
+    | AppiumJavaJunit 
+    | AppiumJavaTestng 
+    | Uiautomator 
+    | BuiltinExplorer 
+    | BuiltinFuzz 
+    | Xctest 
+    | Uiautomation 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TestType where
@@ -485,10 +485,10 @@ instance FromJSON TestType where
     parseJSON = parseJSONText "TestType"
 
 data UploadStatus
-    = USInitialized
-    | USFailed
-    | USProcessing
-    | USSucceeded
+    = USInitialized 
+    | USFailed 
+    | USProcessing 
+    | USSucceeded 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText UploadStatus where
@@ -516,16 +516,16 @@ instance FromJSON UploadStatus where
     parseJSON = parseJSONText "UploadStatus"
 
 data UploadType
-    = AppiumJavaJunitTestPackage
-    | InstrumentationTestPackage
-    | UiautomationTestPackage
-    | AndroidApp
-    | ExternalData
-    | XctestTestPackage
-    | IosApp
-    | AppiumJavaTestngTestPackage
-    | UiautomatorTestPackage
-    | CalabashTestPackage
+    = AppiumJavaJunitTestPackage 
+    | InstrumentationTestPackage 
+    | UiautomationTestPackage 
+    | AndroidApp 
+    | ExternalData 
+    | XctestTestPackage 
+    | IosApp 
+    | AppiumJavaTestngTestPackage 
+    | UiautomatorTestPackage 
+    | CalabashTestPackage 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText UploadType where

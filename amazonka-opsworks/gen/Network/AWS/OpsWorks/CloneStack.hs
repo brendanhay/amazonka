@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -65,10 +66,11 @@ module Network.AWS.OpsWorks.CloneStack
     , csrsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cloneStack' smart constructor.
 --
@@ -118,33 +120,33 @@ import           Network.AWS.Response
 --
 -- * 'cServiceRoleARN'
 data CloneStack = CloneStack'
-    { _cCloneAppIds               :: !(Maybe [Text])
+    { _cCloneAppIds :: !(Maybe [Text])
     , _cDefaultInstanceProfileARN :: !(Maybe Text)
-    , _cDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _cChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _cVPCId                     :: !(Maybe Text)
-    , _cAgentVersion              :: !(Maybe Text)
-    , _cDefaultSSHKeyName         :: !(Maybe Text)
-    , _cCustomJSON                :: !(Maybe Text)
-    , _cClonePermissions          :: !(Maybe Bool)
-    , _cCustomCookbooksSource     :: !(Maybe Source)
-    , _cDefaultAvailabilityZone   :: !(Maybe Text)
-    , _cName                      :: !(Maybe Text)
+    , _cDefaultRootDeviceType :: !(Maybe RootDeviceType)
+    , _cChefConfiguration :: !(Maybe ChefConfiguration)
+    , _cVPCId :: !(Maybe Text)
+    , _cAgentVersion :: !(Maybe Text)
+    , _cDefaultSSHKeyName :: !(Maybe Text)
+    , _cCustomJSON :: !(Maybe Text)
+    , _cClonePermissions :: !(Maybe Bool)
+    , _cCustomCookbooksSource :: !(Maybe Source)
+    , _cDefaultAvailabilityZone :: !(Maybe Text)
+    , _cName :: !(Maybe Text)
     , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _cDefaultOS                 :: !(Maybe Text)
-    , _cAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _cUseCustomCookbooks        :: !(Maybe Bool)
-    , _cDefaultSubnetId           :: !(Maybe Text)
-    , _cRegion                    :: !(Maybe Text)
-    , _cConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _cHostnameTheme             :: !(Maybe Text)
-    , _cSourceStackId             :: !Text
-    , _cServiceRoleARN            :: !Text
+    , _cDefaultOS :: !(Maybe Text)
+    , _cAttributes :: !(Maybe (Map StackAttributesKeys Text))
+    , _cUseCustomCookbooks :: !(Maybe Bool)
+    , _cDefaultSubnetId :: !(Maybe Text)
+    , _cRegion :: !(Maybe Text)
+    , _cConfigurationManager :: !(Maybe StackConfigurationManager)
+    , _cHostnameTheme :: !(Maybe Text)
+    , _cSourceStackId :: !Text
+    , _cServiceRoleARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloneStack' smart constructor.
 cloneStack :: Text -> Text -> CloneStack
-cloneStack pSourceStackId_ pServiceRoleARN_ =
+cloneStack pSourceStackId_ pServiceRoleARN_ = 
     CloneStack'
     { _cCloneAppIds = Nothing
     , _cDefaultInstanceProfileARN = Nothing
@@ -471,12 +473,12 @@ instance ToQuery CloneStack where
 -- * 'csrsStatus'
 data CloneStackResponse = CloneStackResponse'
     { _csrsStackId :: !(Maybe Text)
-    , _csrsStatus  :: !Int
+    , _csrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloneStackResponse' smart constructor.
 cloneStackResponse :: Int -> CloneStackResponse
-cloneStackResponse pStatus_ =
+cloneStackResponse pStatus_ = 
     CloneStackResponse'
     { _csrsStackId = Nothing
     , _csrsStatus = pStatus_

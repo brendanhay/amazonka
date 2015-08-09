@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.DescribeVPCPeeringConnections
     , dvpcpcrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVPCPeeringConnections' smart constructor.
 --
@@ -53,14 +55,14 @@ import           Network.AWS.Response
 --
 -- * 'dvpcpcDryRun'
 data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
-    { _dvpcpcFilters                 :: !(Maybe [Filter])
+    { _dvpcpcFilters :: !(Maybe [Filter])
     , _dvpcpcVPCPeeringConnectionIds :: !(Maybe [Text])
-    , _dvpcpcDryRun                  :: !(Maybe Bool)
+    , _dvpcpcDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCPeeringConnections' smart constructor.
 describeVPCPeeringConnections :: DescribeVPCPeeringConnections
-describeVPCPeeringConnections =
+describeVPCPeeringConnections = 
     DescribeVPCPeeringConnections'
     { _dvpcpcFilters = Nothing
     , _dvpcpcVPCPeeringConnectionIds = Nothing
@@ -168,12 +170,12 @@ instance ToQuery DescribeVPCPeeringConnections where
 -- * 'dvpcpcrsStatus'
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrsVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
-    , _dvpcpcrsStatus                :: !Int
+    , _dvpcpcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
 describeVPCPeeringConnectionsResponse :: Int -> DescribeVPCPeeringConnectionsResponse
-describeVPCPeeringConnectionsResponse pStatus_ =
+describeVPCPeeringConnectionsResponse pStatus_ = 
     DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrsVPCPeeringConnections = Nothing
     , _dvpcpcrsStatus = pStatus_

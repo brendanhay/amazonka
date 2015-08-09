@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -33,10 +34,11 @@ module Network.AWS.KMS.EnableKeyRotation
     , enableKeyRotationResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableKeyRotation' smart constructor.
 --
@@ -49,7 +51,7 @@ newtype EnableKeyRotation = EnableKeyRotation'
 
 -- | 'EnableKeyRotation' smart constructor.
 enableKeyRotation :: Text -> EnableKeyRotation
-enableKeyRotation pKeyId_ =
+enableKeyRotation pKeyId_ = 
     EnableKeyRotation'
     { _ekrKeyId = pKeyId_
     }
@@ -91,7 +93,7 @@ instance ToQuery EnableKeyRotation where
 
 -- | /See:/ 'enableKeyRotationResponse' smart constructor.
 data EnableKeyRotationResponse =
-    EnableKeyRotationResponse'
+    EnableKeyRotationResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableKeyRotationResponse' smart constructor.

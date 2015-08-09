@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.EMR.ModifyInstanceGroups
     , modifyInstanceGroupsResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Change the size of some instance groups.
 --
@@ -54,7 +56,7 @@ newtype ModifyInstanceGroups = ModifyInstanceGroups'
 
 -- | 'ModifyInstanceGroups' smart constructor.
 modifyInstanceGroups :: ModifyInstanceGroups
-modifyInstanceGroups =
+modifyInstanceGroups = 
     ModifyInstanceGroups'
     { _migInstanceGroups = Nothing
     }
@@ -92,7 +94,7 @@ instance ToQuery ModifyInstanceGroups where
 
 -- | /See:/ 'modifyInstanceGroupsResponse' smart constructor.
 data ModifyInstanceGroupsResponse =
-    ModifyInstanceGroupsResponse'
+    ModifyInstanceGroupsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceGroupsResponse' smart constructor.

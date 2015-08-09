@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     , unlinkIdentityResponse
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the UnlinkIdentity action.
 --
@@ -56,14 +58,14 @@ import           Network.AWS.Response
 --
 -- * 'uiLoginsToRemove'
 data UnlinkIdentity = UnlinkIdentity'
-    { _uiIdentityId     :: !Text
-    , _uiLogins         :: !(Map Text Text)
+    { _uiIdentityId :: !Text
+    , _uiLogins :: !(Map Text Text)
     , _uiLoginsToRemove :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkIdentity' smart constructor.
 unlinkIdentity :: Text -> UnlinkIdentity
-unlinkIdentity pIdentityId_ =
+unlinkIdentity pIdentityId_ = 
     UnlinkIdentity'
     { _uiIdentityId = pIdentityId_
     , _uiLogins = mempty
@@ -114,7 +116,7 @@ instance ToQuery UnlinkIdentity where
 
 -- | /See:/ 'unlinkIdentityResponse' smart constructor.
 data UnlinkIdentityResponse =
-    UnlinkIdentityResponse'
+    UnlinkIdentityResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkIdentityResponse' smart constructor.

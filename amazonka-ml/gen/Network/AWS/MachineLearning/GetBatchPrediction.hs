@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     , gbprsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBatchPrediction' smart constructor.
 --
@@ -63,7 +65,7 @@ newtype GetBatchPrediction = GetBatchPrediction'
 
 -- | 'GetBatchPrediction' smart constructor.
 getBatchPrediction :: Text -> GetBatchPrediction
-getBatchPrediction pBatchPredictionId_ =
+getBatchPrediction pBatchPredictionId_ = 
     GetBatchPrediction'
     { _gbpBatchPredictionId = pBatchPredictionId_
     }
@@ -145,23 +147,23 @@ instance ToQuery GetBatchPrediction where
 --
 -- * 'gbprsStatus'
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
-    { _gbprsLastUpdatedAt               :: !(Maybe POSIX)
-    , _gbprsCreatedAt                   :: !(Maybe POSIX)
-    , _gbprsInputDataLocationS3         :: !(Maybe Text)
-    , _gbprsMLModelId                   :: !(Maybe Text)
+    { _gbprsLastUpdatedAt :: !(Maybe POSIX)
+    , _gbprsCreatedAt :: !(Maybe POSIX)
+    , _gbprsInputDataLocationS3 :: !(Maybe Text)
+    , _gbprsMLModelId :: !(Maybe Text)
     , _gbprsBatchPredictionDataSourceId :: !(Maybe Text)
-    , _gbprsBatchPredictionId           :: !(Maybe Text)
-    , _gbprsName                        :: !(Maybe Text)
-    , _gbprsCreatedByIAMUser            :: !(Maybe Text)
-    , _gbprsLogURI                      :: !(Maybe Text)
-    , _gbprsMessage                     :: !(Maybe Text)
-    , _gbprsOutputURI                   :: !(Maybe Text)
-    , _gbprsStatus                      :: !Int
+    , _gbprsBatchPredictionId :: !(Maybe Text)
+    , _gbprsName :: !(Maybe Text)
+    , _gbprsCreatedByIAMUser :: !(Maybe Text)
+    , _gbprsLogURI :: !(Maybe Text)
+    , _gbprsMessage :: !(Maybe Text)
+    , _gbprsOutputURI :: !(Maybe Text)
+    , _gbprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBatchPredictionResponse' smart constructor.
 getBatchPredictionResponse :: Int -> GetBatchPredictionResponse
-getBatchPredictionResponse pStatus_ =
+getBatchPredictionResponse pStatus_ = 
     GetBatchPredictionResponse'
     { _gbprsLastUpdatedAt = Nothing
     , _gbprsCreatedAt = Nothing

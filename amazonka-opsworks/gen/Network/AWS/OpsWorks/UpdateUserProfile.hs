@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     , updateUserProfileResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateUserProfile' smart constructor.
 --
@@ -58,15 +60,15 @@ import           Network.AWS.Response
 --
 -- * 'uupIAMUserARN'
 data UpdateUserProfile = UpdateUserProfile'
-    { _uupSSHUsername         :: !(Maybe Text)
-    , _uupSSHPublicKey        :: !(Maybe Text)
+    { _uupSSHUsername :: !(Maybe Text)
+    , _uupSSHPublicKey :: !(Maybe Text)
     , _uupAllowSelfManagement :: !(Maybe Bool)
-    , _uupIAMUserARN          :: !Text
+    , _uupIAMUserARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUserProfile' smart constructor.
 updateUserProfile :: Text -> UpdateUserProfile
-updateUserProfile pIAMUserARN_ =
+updateUserProfile pIAMUserARN_ = 
     UpdateUserProfile'
     { _uupSSHUsername = Nothing
     , _uupSSHPublicKey = Nothing
@@ -128,7 +130,7 @@ instance ToQuery UpdateUserProfile where
 
 -- | /See:/ 'updateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse =
-    UpdateUserProfileResponse'
+    UpdateUserProfileResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUserProfileResponse' smart constructor.

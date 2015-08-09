@@ -18,8 +18,8 @@
 --
 module Network.AWS.EMR.Types.Product where
 
-import           Network.AWS.EMR.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.EMR.Types.Sum
+import Network.AWS.Prelude
 
 -- | An application is any Amazon or third-party software that you can add to
 -- the cluster. This structure contains a list of strings that indicates
@@ -53,14 +53,14 @@ import           Network.AWS.Prelude
 -- * 'aVersion'
 data Application = Application'
     { _aAdditionalInfo :: !(Maybe (Map Text Text))
-    , _aArgs           :: !(Maybe [Text])
-    , _aName           :: !(Maybe Text)
-    , _aVersion        :: !(Maybe Text)
+    , _aArgs :: !(Maybe [Text])
+    , _aName :: !(Maybe Text)
+    , _aVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Application' smart constructor.
 application :: Application
-application =
+application = 
     Application'
     { _aAdditionalInfo = Nothing
     , _aArgs = Nothing
@@ -113,13 +113,13 @@ instance ToJSON Application where
 --
 -- * 'bacScriptBootstrapAction'
 data BootstrapActionConfig = BootstrapActionConfig'
-    { _bacName                  :: !Text
+    { _bacName :: !Text
     , _bacScriptBootstrapAction :: !ScriptBootstrapActionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BootstrapActionConfig' smart constructor.
 bootstrapActionConfig :: Text -> ScriptBootstrapActionConfig -> BootstrapActionConfig
-bootstrapActionConfig pName_ pScriptBootstrapAction_ =
+bootstrapActionConfig pName_ pScriptBootstrapAction_ = 
     BootstrapActionConfig'
     { _bacName = pName_
     , _bacScriptBootstrapAction = pScriptBootstrapAction_
@@ -179,28 +179,28 @@ instance ToJSON BootstrapActionConfig where
 --
 -- * 'cluStatus'
 data Cluster = Cluster'
-    { _cluRequestedAMIVersion     :: !(Maybe Text)
-    , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
+    { _cluRequestedAMIVersion :: !(Maybe Text)
+    , _cluEC2InstanceAttributes :: !(Maybe EC2InstanceAttributes)
     , _cluNormalizedInstanceHours :: !(Maybe Int)
-    , _cluConfigurations          :: !(Maybe [Configuration])
-    , _cluReleaseLabel            :: !(Maybe Text)
-    , _cluLogURI                  :: !(Maybe Text)
-    , _cluRunningAMIVersion       :: !(Maybe Text)
-    , _cluMasterPublicDNSName     :: !(Maybe Text)
-    , _cluAutoTerminate           :: !(Maybe Bool)
-    , _cluTerminationProtected    :: !(Maybe Bool)
-    , _cluVisibleToAllUsers       :: !(Maybe Bool)
-    , _cluApplications            :: !(Maybe [Application])
-    , _cluTags                    :: !(Maybe [Tag])
-    , _cluServiceRole             :: !(Maybe Text)
-    , _cluId                      :: !Text
-    , _cluName                    :: !Text
-    , _cluStatus                  :: !ClusterStatus
+    , _cluConfigurations :: !(Maybe [Configuration])
+    , _cluReleaseLabel :: !(Maybe Text)
+    , _cluLogURI :: !(Maybe Text)
+    , _cluRunningAMIVersion :: !(Maybe Text)
+    , _cluMasterPublicDNSName :: !(Maybe Text)
+    , _cluAutoTerminate :: !(Maybe Bool)
+    , _cluTerminationProtected :: !(Maybe Bool)
+    , _cluVisibleToAllUsers :: !(Maybe Bool)
+    , _cluApplications :: !(Maybe [Application])
+    , _cluTags :: !(Maybe [Tag])
+    , _cluServiceRole :: !(Maybe Text)
+    , _cluId :: !Text
+    , _cluName :: !Text
+    , _cluStatus :: !ClusterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
-cluster pId_ pName_ pStatus_ =
+cluster pId_ pName_ pStatus_ = 
     Cluster'
     { _cluRequestedAMIVersion = Nothing
     , _cluEC2InstanceAttributes = Nothing
@@ -340,13 +340,13 @@ instance FromJSON Cluster where
 --
 -- * 'cscrMessage'
 data ClusterStateChangeReason = ClusterStateChangeReason'
-    { _cscrCode    :: !(Maybe ClusterStateChangeReasonCode)
+    { _cscrCode :: !(Maybe ClusterStateChangeReasonCode)
     , _cscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterStateChangeReason' smart constructor.
 clusterStateChangeReason :: ClusterStateChangeReason
-clusterStateChangeReason =
+clusterStateChangeReason = 
     ClusterStateChangeReason'
     { _cscrCode = Nothing
     , _cscrMessage = Nothing
@@ -379,14 +379,14 @@ instance FromJSON ClusterStateChangeReason where
 --
 -- * 'csTimeline'
 data ClusterStatus = ClusterStatus'
-    { _csState             :: !(Maybe ClusterState)
+    { _csState :: !(Maybe ClusterState)
     , _csStateChangeReason :: !(Maybe ClusterStateChangeReason)
-    , _csTimeline          :: !(Maybe ClusterTimeline)
+    , _csTimeline :: !(Maybe ClusterTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterStatus' smart constructor.
 clusterStatus :: ClusterStatus
-clusterStatus =
+clusterStatus = 
     ClusterStatus'
     { _csState = Nothing
     , _csStateChangeReason = Nothing
@@ -428,15 +428,15 @@ instance FromJSON ClusterStatus where
 --
 -- * 'csId'
 data ClusterSummary = ClusterSummary'
-    { _csStatus                  :: !(Maybe ClusterStatus)
+    { _csStatus :: !(Maybe ClusterStatus)
     , _csNormalizedInstanceHours :: !(Maybe Int)
-    , _csName                    :: !(Maybe Text)
-    , _csId                      :: !(Maybe Text)
+    , _csName :: !(Maybe Text)
+    , _csId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterSummary' smart constructor.
 clusterSummary :: ClusterSummary
-clusterSummary =
+clusterSummary = 
     ClusterSummary'
     { _csStatus = Nothing
     , _csNormalizedInstanceHours = Nothing
@@ -487,14 +487,14 @@ instance FromJSON ClusterSummary where
 --
 -- * 'ctEndDateTime'
 data ClusterTimeline = ClusterTimeline'
-    { _ctReadyDateTime    :: !(Maybe POSIX)
+    { _ctReadyDateTime :: !(Maybe POSIX)
     , _ctCreationDateTime :: !(Maybe POSIX)
-    , _ctEndDateTime      :: !(Maybe POSIX)
+    , _ctEndDateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterTimeline' smart constructor.
 clusterTimeline :: ClusterTimeline
-clusterTimeline =
+clusterTimeline = 
     ClusterTimeline'
     { _ctReadyDateTime = Nothing
     , _ctCreationDateTime = Nothing
@@ -534,14 +534,14 @@ instance FromJSON ClusterTimeline where
 --
 -- * 'cName'
 data Command = Command'
-    { _cArgs       :: !(Maybe [Text])
+    { _cArgs :: !(Maybe [Text])
     , _cScriptPath :: !(Maybe Text)
-    , _cName       :: !(Maybe Text)
+    , _cName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Command' smart constructor.
 command :: Command
-command =
+command = 
     Command'
     { _cArgs = Nothing
     , _cScriptPath = Nothing
@@ -589,12 +589,12 @@ instance FromJSON Command where
 data Configuration = Configuration'
     { _cConfigurations :: !(Maybe [Configuration])
     , _cClassification :: !(Maybe Text)
-    , _cProperties     :: !(Maybe (Map Text Text))
+    , _cProperties :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Configuration' smart constructor.
 configuration :: Configuration
-configuration =
+configuration = 
     Configuration'
     { _cConfigurations = Nothing
     , _cClassification = Nothing
@@ -654,19 +654,19 @@ instance ToJSON Configuration where
 --
 -- * 'eiaEC2AvailabilityZone'
 data EC2InstanceAttributes = EC2InstanceAttributes'
-    { _eiaEC2KeyName                     :: !(Maybe Text)
-    , _eiaEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
-    , _eiaAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
-    , _eiaIAMInstanceProfile             :: !(Maybe Text)
+    { _eiaEC2KeyName :: !(Maybe Text)
+    , _eiaEmrManagedSlaveSecurityGroup :: !(Maybe Text)
+    , _eiaAdditionalSlaveSecurityGroups :: !(Maybe [Text])
+    , _eiaIAMInstanceProfile :: !(Maybe Text)
     , _eiaAdditionalMasterSecurityGroups :: !(Maybe [Text])
-    , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
-    , _eiaEC2SubnetId                    :: !(Maybe Text)
-    , _eiaEC2AvailabilityZone            :: !(Maybe Text)
+    , _eiaEmrManagedMasterSecurityGroup :: !(Maybe Text)
+    , _eiaEC2SubnetId :: !(Maybe Text)
+    , _eiaEC2AvailabilityZone :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EC2InstanceAttributes' smart constructor.
 ec2InstanceAttributes :: EC2InstanceAttributes
-ec2InstanceAttributes =
+ec2InstanceAttributes = 
     EC2InstanceAttributes'
     { _eiaEC2KeyName = Nothing
     , _eiaEmrManagedSlaveSecurityGroup = Nothing
@@ -753,15 +753,15 @@ instance FromJSON EC2InstanceAttributes where
 --
 -- * 'hjscJAR'
 data HadoopJARStepConfig = HadoopJARStepConfig'
-    { _hjscArgs       :: !(Maybe [Text])
-    , _hjscMainClass  :: !(Maybe Text)
+    { _hjscArgs :: !(Maybe [Text])
+    , _hjscMainClass :: !(Maybe Text)
     , _hjscProperties :: !(Maybe [KeyValue])
-    , _hjscJAR        :: !Text
+    , _hjscJAR :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HadoopJARStepConfig' smart constructor.
 hadoopJARStepConfig :: Text -> HadoopJARStepConfig
-hadoopJARStepConfig pJAR_ =
+hadoopJARStepConfig pJAR_ = 
     HadoopJARStepConfig'
     { _hjscArgs = Nothing
     , _hjscMainClass = Nothing
@@ -810,15 +810,15 @@ instance ToJSON HadoopJARStepConfig where
 --
 -- * 'hscProperties'
 data HadoopStepConfig = HadoopStepConfig'
-    { _hscArgs       :: !(Maybe [Text])
-    , _hscJAR        :: !(Maybe Text)
-    , _hscMainClass  :: !(Maybe Text)
+    { _hscArgs :: !(Maybe [Text])
+    , _hscJAR :: !(Maybe Text)
+    , _hscMainClass :: !(Maybe Text)
     , _hscProperties :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HadoopStepConfig' smart constructor.
 hadoopStepConfig :: HadoopStepConfig
-hadoopStepConfig =
+hadoopStepConfig = 
     HadoopStepConfig'
     { _hscArgs = Nothing
     , _hscJAR = Nothing
@@ -874,18 +874,18 @@ instance FromJSON HadoopStepConfig where
 --
 -- * 'iPublicIPAddress'
 data Instance = Instance'
-    { _iStatus           :: !(Maybe InstanceStatus)
-    , _iPublicDNSName    :: !(Maybe Text)
-    , _iEC2InstanceId    :: !(Maybe Text)
+    { _iStatus :: !(Maybe InstanceStatus)
+    , _iPublicDNSName :: !(Maybe Text)
+    , _iEC2InstanceId :: !(Maybe Text)
     , _iPrivateIPAddress :: !(Maybe Text)
-    , _iId               :: !(Maybe Text)
-    , _iPrivateDNSName   :: !(Maybe Text)
-    , _iPublicIPAddress  :: !(Maybe Text)
+    , _iId :: !(Maybe Text)
+    , _iPrivateDNSName :: !(Maybe Text)
+    , _iPublicIPAddress :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' =
+instance' = 
     Instance'
     { _iStatus = Nothing
     , _iPublicDNSName = Nothing
@@ -964,21 +964,21 @@ instance FromJSON Instance where
 --
 -- * 'igId'
 data InstanceGroup = InstanceGroup'
-    { _igStatus                 :: !(Maybe InstanceGroupStatus)
-    , _igBidPrice               :: !(Maybe Text)
+    { _igStatus :: !(Maybe InstanceGroupStatus)
+    , _igBidPrice :: !(Maybe Text)
     , _igRequestedInstanceCount :: !(Maybe Int)
-    , _igRunningInstanceCount   :: !(Maybe Int)
-    , _igConfigurations         :: !(Maybe [Configuration])
-    , _igInstanceGroupType      :: !(Maybe InstanceGroupType)
-    , _igInstanceType           :: !(Maybe Text)
-    , _igMarket                 :: !(Maybe MarketType)
-    , _igName                   :: !(Maybe Text)
-    , _igId                     :: !(Maybe Text)
+    , _igRunningInstanceCount :: !(Maybe Int)
+    , _igConfigurations :: !(Maybe [Configuration])
+    , _igInstanceGroupType :: !(Maybe InstanceGroupType)
+    , _igInstanceType :: !(Maybe Text)
+    , _igMarket :: !(Maybe MarketType)
+    , _igName :: !(Maybe Text)
+    , _igId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroup' smart constructor.
 instanceGroup :: InstanceGroup
-instanceGroup =
+instanceGroup = 
     InstanceGroup'
     { _igStatus = Nothing
     , _igBidPrice = Nothing
@@ -1073,18 +1073,18 @@ instance FromJSON InstanceGroup where
 --
 -- * 'igcInstanceCount'
 data InstanceGroupConfig = InstanceGroupConfig'
-    { _igcBidPrice       :: !(Maybe Text)
+    { _igcBidPrice :: !(Maybe Text)
     , _igcConfigurations :: !(Maybe [Configuration])
-    , _igcMarket         :: !(Maybe MarketType)
-    , _igcName           :: !(Maybe Text)
-    , _igcInstanceRole   :: !InstanceRoleType
-    , _igcInstanceType   :: !Text
-    , _igcInstanceCount  :: !Int
+    , _igcMarket :: !(Maybe MarketType)
+    , _igcName :: !(Maybe Text)
+    , _igcInstanceRole :: !InstanceRoleType
+    , _igcInstanceType :: !Text
+    , _igcInstanceCount :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupConfig' smart constructor.
 instanceGroupConfig :: InstanceRoleType -> Text -> Int -> InstanceGroupConfig
-instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
+instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ = 
     InstanceGroupConfig'
     { _igcBidPrice = Nothing
     , _igcConfigurations = Nothing
@@ -1150,14 +1150,14 @@ instance ToJSON InstanceGroupConfig where
 --
 -- * 'igmcInstanceGroupId'
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
-    { _igmcInstanceCount             :: !(Maybe Int)
+    { _igmcInstanceCount :: !(Maybe Int)
     , _igmcEC2InstanceIdsToTerminate :: !(Maybe [Text])
-    , _igmcInstanceGroupId           :: !Text
+    , _igmcInstanceGroupId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupModifyConfig' smart constructor.
 instanceGroupModifyConfig :: Text -> InstanceGroupModifyConfig
-instanceGroupModifyConfig pInstanceGroupId_ =
+instanceGroupModifyConfig pInstanceGroupId_ = 
     InstanceGroupModifyConfig'
     { _igmcInstanceCount = Nothing
     , _igmcEC2InstanceIdsToTerminate = Nothing
@@ -1196,13 +1196,13 @@ instance ToJSON InstanceGroupModifyConfig where
 --
 -- * 'igscrMessage'
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
-    { _igscrCode    :: !(Maybe InstanceGroupStateChangeReasonCode)
+    { _igscrCode :: !(Maybe InstanceGroupStateChangeReasonCode)
     , _igscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupStateChangeReason' smart constructor.
 instanceGroupStateChangeReason :: InstanceGroupStateChangeReason
-instanceGroupStateChangeReason =
+instanceGroupStateChangeReason = 
     InstanceGroupStateChangeReason'
     { _igscrCode = Nothing
     , _igscrMessage = Nothing
@@ -1236,14 +1236,14 @@ instance FromJSON InstanceGroupStateChangeReason
 --
 -- * 'igsTimeline'
 data InstanceGroupStatus = InstanceGroupStatus'
-    { _igsState             :: !(Maybe InstanceGroupState)
+    { _igsState :: !(Maybe InstanceGroupState)
     , _igsStateChangeReason :: !(Maybe InstanceGroupStateChangeReason)
-    , _igsTimeline          :: !(Maybe InstanceGroupTimeline)
+    , _igsTimeline :: !(Maybe InstanceGroupTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupStatus' smart constructor.
 instanceGroupStatus :: InstanceGroupStatus
-instanceGroupStatus =
+instanceGroupStatus = 
     InstanceGroupStatus'
     { _igsState = Nothing
     , _igsStateChangeReason = Nothing
@@ -1282,14 +1282,14 @@ instance FromJSON InstanceGroupStatus where
 --
 -- * 'igtEndDateTime'
 data InstanceGroupTimeline = InstanceGroupTimeline'
-    { _igtReadyDateTime    :: !(Maybe POSIX)
+    { _igtReadyDateTime :: !(Maybe POSIX)
     , _igtCreationDateTime :: !(Maybe POSIX)
-    , _igtEndDateTime      :: !(Maybe POSIX)
+    , _igtEndDateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupTimeline' smart constructor.
 instanceGroupTimeline :: InstanceGroupTimeline
-instanceGroupTimeline =
+instanceGroupTimeline = 
     InstanceGroupTimeline'
     { _igtReadyDateTime = Nothing
     , _igtCreationDateTime = Nothing
@@ -1327,13 +1327,13 @@ instance FromJSON InstanceGroupTimeline where
 --
 -- * 'iscrMessage'
 data InstanceStateChangeReason = InstanceStateChangeReason'
-    { _iscrCode    :: !(Maybe InstanceStateChangeReasonCode)
+    { _iscrCode :: !(Maybe InstanceStateChangeReasonCode)
     , _iscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStateChangeReason' smart constructor.
 instanceStateChangeReason :: InstanceStateChangeReason
-instanceStateChangeReason =
+instanceStateChangeReason = 
     InstanceStateChangeReason'
     { _iscrCode = Nothing
     , _iscrMessage = Nothing
@@ -1366,14 +1366,14 @@ instance FromJSON InstanceStateChangeReason where
 --
 -- * 'isTimeline'
 data InstanceStatus = InstanceStatus'
-    { _isState             :: !(Maybe InstanceState)
+    { _isState :: !(Maybe InstanceState)
     , _isStateChangeReason :: !(Maybe InstanceStateChangeReason)
-    , _isTimeline          :: !(Maybe InstanceTimeline)
+    , _isTimeline :: !(Maybe InstanceTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStatus' smart constructor.
 instanceStatus :: InstanceStatus
-instanceStatus =
+instanceStatus = 
     InstanceStatus'
     { _isState = Nothing
     , _isStateChangeReason = Nothing
@@ -1412,14 +1412,14 @@ instance FromJSON InstanceStatus where
 --
 -- * 'itEndDateTime'
 data InstanceTimeline = InstanceTimeline'
-    { _itReadyDateTime    :: !(Maybe POSIX)
+    { _itReadyDateTime :: !(Maybe POSIX)
     , _itCreationDateTime :: !(Maybe POSIX)
-    , _itEndDateTime      :: !(Maybe POSIX)
+    , _itEndDateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceTimeline' smart constructor.
 instanceTimeline :: InstanceTimeline
-instanceTimeline =
+instanceTimeline = 
     InstanceTimeline'
     { _itReadyDateTime = Nothing
     , _itCreationDateTime = Nothing
@@ -1485,25 +1485,25 @@ instance FromJSON InstanceTimeline where
 --
 -- * 'jficPlacement'
 data JobFlowInstancesConfig = JobFlowInstancesConfig'
-    { _jficSlaveInstanceType              :: !(Maybe Text)
-    , _jficEC2KeyName                     :: !(Maybe Text)
-    , _jficInstanceCount                  :: !(Maybe Int)
-    , _jficEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
-    , _jficAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
-    , _jficHadoopVersion                  :: !(Maybe Text)
+    { _jficSlaveInstanceType :: !(Maybe Text)
+    , _jficEC2KeyName :: !(Maybe Text)
+    , _jficInstanceCount :: !(Maybe Int)
+    , _jficEmrManagedSlaveSecurityGroup :: !(Maybe Text)
+    , _jficAdditionalSlaveSecurityGroups :: !(Maybe [Text])
+    , _jficHadoopVersion :: !(Maybe Text)
     , _jficAdditionalMasterSecurityGroups :: !(Maybe [Text])
-    , _jficEmrManagedMasterSecurityGroup  :: !(Maybe Text)
-    , _jficEC2SubnetId                    :: !(Maybe Text)
-    , _jficMasterInstanceType             :: !(Maybe Text)
-    , _jficInstanceGroups                 :: !(Maybe [InstanceGroupConfig])
-    , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
-    , _jficTerminationProtected           :: !(Maybe Bool)
-    , _jficPlacement                      :: !(Maybe PlacementType)
+    , _jficEmrManagedMasterSecurityGroup :: !(Maybe Text)
+    , _jficEC2SubnetId :: !(Maybe Text)
+    , _jficMasterInstanceType :: !(Maybe Text)
+    , _jficInstanceGroups :: !(Maybe [InstanceGroupConfig])
+    , _jficKeepJobFlowAliveWhenNoSteps :: !(Maybe Bool)
+    , _jficTerminationProtected :: !(Maybe Bool)
+    , _jficPlacement :: !(Maybe PlacementType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'JobFlowInstancesConfig' smart constructor.
 jobFlowInstancesConfig :: JobFlowInstancesConfig
-jobFlowInstancesConfig =
+jobFlowInstancesConfig = 
     JobFlowInstancesConfig'
     { _jficSlaveInstanceType = Nothing
     , _jficEC2KeyName = Nothing
@@ -1630,12 +1630,12 @@ instance ToJSON JobFlowInstancesConfig where
 -- * 'kvKey'
 data KeyValue = KeyValue'
     { _kvValue :: !(Maybe Text)
-    , _kvKey   :: !(Maybe Text)
+    , _kvKey :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyValue' smart constructor.
 keyValue :: KeyValue
-keyValue =
+keyValue = 
     KeyValue'
     { _kvValue = Nothing
     , _kvKey = Nothing
@@ -1666,7 +1666,7 @@ newtype PlacementType = PlacementType'
 
 -- | 'PlacementType' smart constructor.
 placementType :: Text -> PlacementType
-placementType pAvailabilityZone_ =
+placementType pAvailabilityZone_ = 
     PlacementType'
     { _ptAvailabilityZone = pAvailabilityZone_
     }
@@ -1695,7 +1695,7 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
 
 -- | 'ScriptBootstrapActionConfig' smart constructor.
 scriptBootstrapActionConfig :: Text -> ScriptBootstrapActionConfig
-scriptBootstrapActionConfig pPath_ =
+scriptBootstrapActionConfig pPath_ = 
     ScriptBootstrapActionConfig'
     { _sbacArgs = Nothing
     , _sbacPath = pPath_
@@ -1730,16 +1730,16 @@ instance ToJSON ScriptBootstrapActionConfig where
 --
 -- * 'sId'
 data Step = Step'
-    { _sStatus          :: !(Maybe StepStatus)
+    { _sStatus :: !(Maybe StepStatus)
     , _sActionOnFailure :: !(Maybe ActionOnFailure)
-    , _sConfig          :: !(Maybe HadoopStepConfig)
-    , _sName            :: !(Maybe Text)
-    , _sId              :: !(Maybe Text)
+    , _sConfig :: !(Maybe HadoopStepConfig)
+    , _sName :: !(Maybe Text)
+    , _sId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Step' smart constructor.
 step :: Step
-step =
+step = 
     Step'
     { _sStatus = Nothing
     , _sActionOnFailure = Nothing
@@ -1792,13 +1792,13 @@ instance FromJSON Step where
 -- * 'scHadoopJARStep'
 data StepConfig = StepConfig'
     { _scActionOnFailure :: !(Maybe ActionOnFailure)
-    , _scName            :: !Text
-    , _scHadoopJARStep   :: !HadoopJARStepConfig
+    , _scName :: !Text
+    , _scHadoopJARStep :: !HadoopJARStepConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepConfig' smart constructor.
 stepConfig :: Text -> HadoopJARStepConfig -> StepConfig
-stepConfig pName_ pHadoopJARStep_ =
+stepConfig pName_ pHadoopJARStep_ = 
     StepConfig'
     { _scActionOnFailure = Nothing
     , _scName = pName_
@@ -1834,13 +1834,13 @@ instance ToJSON StepConfig where
 --
 -- * 'sscrMessage'
 data StepStateChangeReason = StepStateChangeReason'
-    { _sscrCode    :: !(Maybe StepStateChangeReasonCode)
+    { _sscrCode :: !(Maybe StepStateChangeReasonCode)
     , _sscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepStateChangeReason' smart constructor.
 stepStateChangeReason :: StepStateChangeReason
-stepStateChangeReason =
+stepStateChangeReason = 
     StepStateChangeReason'
     { _sscrCode = Nothing
     , _sscrMessage = Nothing
@@ -1874,14 +1874,14 @@ instance FromJSON StepStateChangeReason where
 --
 -- * 'ssTimeline'
 data StepStatus = StepStatus'
-    { _ssState             :: !(Maybe StepState)
+    { _ssState :: !(Maybe StepState)
     , _ssStateChangeReason :: !(Maybe StepStateChangeReason)
-    , _ssTimeline          :: !(Maybe StepTimeline)
+    , _ssTimeline :: !(Maybe StepTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepStatus' smart constructor.
 stepStatus :: StepStatus
-stepStatus =
+stepStatus = 
     StepStatus'
     { _ssState = Nothing
     , _ssStateChangeReason = Nothing
@@ -1924,16 +1924,16 @@ instance FromJSON StepStatus where
 --
 -- * 'ssId'
 data StepSummary = StepSummary'
-    { _ssStatus          :: !(Maybe StepStatus)
+    { _ssStatus :: !(Maybe StepStatus)
     , _ssActionOnFailure :: !(Maybe ActionOnFailure)
-    , _ssConfig          :: !(Maybe HadoopStepConfig)
-    , _ssName            :: !(Maybe Text)
-    , _ssId              :: !(Maybe Text)
+    , _ssConfig :: !(Maybe HadoopStepConfig)
+    , _ssName :: !(Maybe Text)
+    , _ssId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepSummary' smart constructor.
 stepSummary :: StepSummary
-stepSummary =
+stepSummary = 
     StepSummary'
     { _ssStatus = Nothing
     , _ssActionOnFailure = Nothing
@@ -1986,13 +1986,13 @@ instance FromJSON StepSummary where
 -- * 'stStartDateTime'
 data StepTimeline = StepTimeline'
     { _stCreationDateTime :: !(Maybe POSIX)
-    , _stEndDateTime      :: !(Maybe POSIX)
-    , _stStartDateTime    :: !(Maybe POSIX)
+    , _stEndDateTime :: !(Maybe POSIX)
+    , _stStartDateTime :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepTimeline' smart constructor.
 stepTimeline :: StepTimeline
-stepTimeline =
+stepTimeline = 
     StepTimeline'
     { _stCreationDateTime = Nothing
     , _stEndDateTime = Nothing
@@ -2037,7 +2037,7 @@ data SupportedProductConfig = SupportedProductConfig'
 
 -- | 'SupportedProductConfig' smart constructor.
 supportedProductConfig :: SupportedProductConfig
-supportedProductConfig =
+supportedProductConfig = 
     SupportedProductConfig'
     { _spcArgs = Nothing
     , _spcName = Nothing
@@ -2070,12 +2070,12 @@ instance ToJSON SupportedProductConfig where
 -- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
+    , _tagKey :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
-tag =
+tag = 
     Tag'
     { _tagValue = Nothing
     , _tagKey = Nothing

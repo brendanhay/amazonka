@@ -15,15 +15,15 @@
 --
 module Network.AWS.ElasticTranscoder.Waiters where
 
-import           Network.AWS.ElasticTranscoder.ReadJob
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.ElasticTranscoder.ReadJob
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.ElasticTranscoder.ReadJob' every 30 seconds until a
 -- successful state is reached. An error is returned after 120 failed checks.
 jobComplete :: Wait ReadJob
-jobComplete =
+jobComplete = 
     Wait
     { _waitName = "JobComplete"
     , _waitAttempts = 120

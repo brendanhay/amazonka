@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.Glacier.DeleteVault
     , deleteVaultResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for deleting a vault from Amazon Glacier.
 --
@@ -79,7 +81,7 @@ data DeleteVault = DeleteVault'
 
 -- | 'DeleteVault' smart constructor.
 deleteVault :: Text -> Text -> DeleteVault
-deleteVault pAccountId_ pVaultName_ =
+deleteVault pAccountId_ pVaultName_ = 
     DeleteVault'
     { _dAccountId = pAccountId_
     , _dVaultName = pVaultName_
@@ -116,7 +118,7 @@ instance ToQuery DeleteVault where
 
 -- | /See:/ 'deleteVaultResponse' smart constructor.
 data DeleteVaultResponse =
-    DeleteVaultResponse'
+    DeleteVaultResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.Config.PutDeliveryChannel
     , putDeliveryChannelResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the PutDeliveryChannel action.
 --
@@ -61,7 +63,7 @@ newtype PutDeliveryChannel = PutDeliveryChannel'
 
 -- | 'PutDeliveryChannel' smart constructor.
 putDeliveryChannel :: DeliveryChannel -> PutDeliveryChannel
-putDeliveryChannel pDeliveryChannel_ =
+putDeliveryChannel pDeliveryChannel_ = 
     PutDeliveryChannel'
     { _pdcDeliveryChannel = pDeliveryChannel_
     }
@@ -101,7 +103,7 @@ instance ToQuery PutDeliveryChannel where
 
 -- | /See:/ 'putDeliveryChannelResponse' smart constructor.
 data PutDeliveryChannelResponse =
-    PutDeliveryChannelResponse'
+    PutDeliveryChannelResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDeliveryChannelResponse' smart constructor.

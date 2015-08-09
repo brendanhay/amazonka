@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.KMS.UpdateKeyDescription
     , updateKeyDescriptionResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateKeyDescription' smart constructor.
 --
@@ -47,13 +49,13 @@ import           Network.AWS.Response
 --
 -- * 'ukdDescription'
 data UpdateKeyDescription = UpdateKeyDescription'
-    { _ukdKeyId       :: !Text
+    { _ukdKeyId :: !Text
     , _ukdDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateKeyDescription' smart constructor.
 updateKeyDescription :: Text -> Text -> UpdateKeyDescription
-updateKeyDescription pKeyId_ pDescription_ =
+updateKeyDescription pKeyId_ pDescription_ = 
     UpdateKeyDescription'
     { _ukdKeyId = pKeyId_
     , _ukdDescription = pDescription_
@@ -103,7 +105,7 @@ instance ToQuery UpdateKeyDescription where
 
 -- | /See:/ 'updateKeyDescriptionResponse' smart constructor.
 data UpdateKeyDescriptionResponse =
-    UpdateKeyDescriptionResponse'
+    UpdateKeyDescriptionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateKeyDescriptionResponse' smart constructor.

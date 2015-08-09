@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     , admApplication
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'uaApplicationName'
 data UpdateApplication = UpdateApplication'
-    { _uaDescription     :: !(Maybe Text)
+    { _uaDescription :: !(Maybe Text)
     , _uaApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: Text -> UpdateApplication
-updateApplication pApplicationName_ =
+updateApplication pApplicationName_ = 
     UpdateApplication'
     { _uaDescription = Nothing
     , _uaApplicationName = pApplicationName_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,11 +44,12 @@ module Network.AWS.ECS.ListTaskDefinitions
     , ltdrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitions' smart constructor.
 --
@@ -63,16 +65,16 @@ import           Network.AWS.Response
 --
 -- * 'ltdMaxResults'
 data ListTaskDefinitions = ListTaskDefinitions'
-    { _ltdStatus       :: !(Maybe TaskDefinitionStatus)
+    { _ltdStatus :: !(Maybe TaskDefinitionStatus)
     , _ltdFamilyPrefix :: !(Maybe Text)
-    , _ltdNextToken    :: !(Maybe Text)
-    , _ltdSort         :: !(Maybe SortOrder)
-    , _ltdMaxResults   :: !(Maybe Int)
+    , _ltdNextToken :: !(Maybe Text)
+    , _ltdSort :: !(Maybe SortOrder)
+    , _ltdMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitions' smart constructor.
 listTaskDefinitions :: ListTaskDefinitions
-listTaskDefinitions =
+listTaskDefinitions = 
     ListTaskDefinitions'
     { _ltdStatus = Nothing
     , _ltdFamilyPrefix = Nothing
@@ -180,13 +182,13 @@ instance ToQuery ListTaskDefinitions where
 -- * 'ltdrsStatus'
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
     { _ltdrsTaskDefinitionARNs :: !(Maybe [Text])
-    , _ltdrsNextToken          :: !(Maybe Text)
-    , _ltdrsStatus             :: !Int
+    , _ltdrsNextToken :: !(Maybe Text)
+    , _ltdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
 listTaskDefinitionsResponse :: Int -> ListTaskDefinitionsResponse
-listTaskDefinitionsResponse pStatus_ =
+listTaskDefinitionsResponse pStatus_ = 
     ListTaskDefinitionsResponse'
     { _ltdrsTaskDefinitionARNs = Nothing
     , _ltdrsNextToken = Nothing

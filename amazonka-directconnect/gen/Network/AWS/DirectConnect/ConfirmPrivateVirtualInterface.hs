@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     , cpvirsStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPrivateVirtualInterface
 -- operation.
@@ -59,12 +61,12 @@ import           Network.AWS.Response
 -- * 'cpviVirtualGatewayId'
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
     { _cpviVirtualInterfaceId :: !Text
-    , _cpviVirtualGatewayId   :: !Text
+    , _cpviVirtualGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPrivateVirtualInterface' smart constructor.
 confirmPrivateVirtualInterface :: Text -> Text -> ConfirmPrivateVirtualInterface
-confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
+confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ = 
     ConfirmPrivateVirtualInterface'
     { _cpviVirtualInterfaceId = pVirtualInterfaceId_
     , _cpviVirtualGatewayId = pVirtualGatewayId_
@@ -134,12 +136,12 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 -- * 'cpvirsStatus'
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _cpvirsStatus                :: !Int
+    , _cpvirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
 confirmPrivateVirtualInterfaceResponse :: Int -> ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterfaceResponse pStatus_ =
+confirmPrivateVirtualInterfaceResponse pStatus_ = 
     ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState = Nothing
     , _cpvirsStatus = pStatus_

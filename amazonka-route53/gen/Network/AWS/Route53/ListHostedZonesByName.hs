@@ -58,6 +58,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.Route53.Types
+import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a list of your hosted zones in lexicographic order, send a
 -- @GET@ request to the @2013-04-01\/hostedzonesbyname@ resource. The

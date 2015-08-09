@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     , gaklursStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAccessKeyLastUsed' smart constructor.
 --
@@ -56,7 +58,7 @@ newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
 
 -- | 'GetAccessKeyLastUsed' smart constructor.
 getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
-getAccessKeyLastUsed pAccessKeyId_ =
+getAccessKeyLastUsed pAccessKeyId_ = 
     GetAccessKeyLastUsed'
     { _gakluAccessKeyId = pAccessKeyId_
     }
@@ -104,14 +106,14 @@ instance ToQuery GetAccessKeyLastUsed where
 --
 -- * 'gaklursStatus'
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-    { _gaklursUserName          :: !(Maybe Text)
+    { _gaklursUserName :: !(Maybe Text)
     , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
-    , _gaklursStatus            :: !Int
+    , _gaklursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
 getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse pStatus_ =
+getAccessKeyLastUsedResponse pStatus_ = 
     GetAccessKeyLastUsedResponse'
     { _gaklursUserName = Nothing
     , _gaklursAccessKeyLastUsed = Nothing

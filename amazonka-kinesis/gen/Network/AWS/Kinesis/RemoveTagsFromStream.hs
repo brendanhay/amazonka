@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     , removeTagsFromStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @RemoveTagsFromStream@.
 --
@@ -52,12 +54,12 @@ import           Network.AWS.Response
 -- * 'rtfsTagKeys'
 data RemoveTagsFromStream = RemoveTagsFromStream'
     { _rtfsStreamName :: !Text
-    , _rtfsTagKeys    :: !(List1 Text)
+    , _rtfsTagKeys :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromStream' smart constructor.
 removeTagsFromStream :: Text -> NonEmpty Text -> RemoveTagsFromStream
-removeTagsFromStream pStreamName_ pTagKeys_ =
+removeTagsFromStream pStreamName_ pTagKeys_ = 
     RemoveTagsFromStream'
     { _rtfsStreamName = pStreamName_
     , _rtfsTagKeys = _List1 # pTagKeys_
@@ -102,7 +104,7 @@ instance ToQuery RemoveTagsFromStream where
 
 -- | /See:/ 'removeTagsFromStreamResponse' smart constructor.
 data RemoveTagsFromStreamResponse =
-    RemoveTagsFromStreamResponse'
+    RemoveTagsFromStreamResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromStreamResponse' smart constructor.

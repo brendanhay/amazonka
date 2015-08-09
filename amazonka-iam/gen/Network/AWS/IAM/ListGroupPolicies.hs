@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -51,11 +52,12 @@ module Network.AWS.IAM.ListGroupPolicies
     , lgprsPolicyNames
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listGroupPolicies' smart constructor.
 --
@@ -67,14 +69,14 @@ import           Network.AWS.Response
 --
 -- * 'lgpGroupName'
 data ListGroupPolicies = ListGroupPolicies'
-    { _lgpMaxItems  :: !(Maybe Nat)
-    , _lgpMarker    :: !(Maybe Text)
+    { _lgpMaxItems :: !(Maybe Nat)
+    , _lgpMarker :: !(Maybe Text)
     , _lgpGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupPolicies' smart constructor.
 listGroupPolicies :: Text -> ListGroupPolicies
-listGroupPolicies pGroupName_ =
+listGroupPolicies pGroupName_ = 
     ListGroupPolicies'
     { _lgpMaxItems = Nothing
     , _lgpMarker = Nothing
@@ -149,15 +151,15 @@ instance ToQuery ListGroupPolicies where
 --
 -- * 'lgprsPolicyNames'
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
-    { _lgprsMarker      :: !(Maybe Text)
+    { _lgprsMarker :: !(Maybe Text)
     , _lgprsIsTruncated :: !(Maybe Bool)
-    , _lgprsStatus      :: !Int
+    , _lgprsStatus :: !Int
     , _lgprsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
 listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse
-listGroupPoliciesResponse pStatus_ =
+listGroupPoliciesResponse pStatus_ = 
     ListGroupPoliciesResponse'
     { _lgprsMarker = Nothing
     , _lgprsIsTruncated = Nothing

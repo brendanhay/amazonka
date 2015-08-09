@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     , lcfoairsCloudFrontOriginAccessIdentityList
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list origin access identities.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'lcfoaiMarker'
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
     { _lcfoaiMaxItems :: !(Maybe Text)
-    , _lcfoaiMarker   :: !(Maybe Text)
+    , _lcfoaiMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentities' smart constructor.
 listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities =
+listCloudFrontOriginAccessIdentities = 
     ListCloudFrontOriginAccessIdentities'
     { _lcfoaiMaxItems = Nothing
     , _lcfoaiMarker = Nothing
@@ -117,13 +119,13 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 --
 -- * 'lcfoairsCloudFrontOriginAccessIdentityList'
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairsStatus                             :: !Int
+    { _lcfoairsStatus :: !Int
     , _lcfoairsCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 listCloudFrontOriginAccessIdentitiesResponse :: Int -> CloudFrontOriginAccessIdentityList -> ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse pStatus_ pCloudFrontOriginAccessIdentityList_ =
+listCloudFrontOriginAccessIdentitiesResponse pStatus_ pCloudFrontOriginAccessIdentityList_ = 
     ListCloudFrontOriginAccessIdentitiesResponse'
     { _lcfoairsStatus = pStatus_
     , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , cdrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create deployment operation.
 --
@@ -64,17 +66,17 @@ import           Network.AWS.Response
 --
 -- * 'cdApplicationName'
 data CreateDeployment = CreateDeployment'
-    { _cdDeploymentConfigName          :: !(Maybe Text)
-    , _cdRevision                      :: !(Maybe RevisionLocation)
-    , _cdDescription                   :: !(Maybe Text)
+    { _cdDeploymentConfigName :: !(Maybe Text)
+    , _cdRevision :: !(Maybe RevisionLocation)
+    , _cdDescription :: !(Maybe Text)
     , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
-    , _cdDeploymentGroupName           :: !(Maybe Text)
-    , _cdApplicationName               :: !Text
+    , _cdDeploymentGroupName :: !(Maybe Text)
+    , _cdApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> CreateDeployment
-createDeployment pApplicationName_ =
+createDeployment pApplicationName_ = 
     CreateDeployment'
     { _cdDeploymentConfigName = Nothing
     , _cdRevision = Nothing
@@ -173,12 +175,12 @@ instance ToQuery CreateDeployment where
 -- * 'cdrsStatus'
 data CreateDeploymentResponse = CreateDeploymentResponse'
     { _cdrsDeploymentId :: !(Maybe Text)
-    , _cdrsStatus       :: !Int
+    , _cdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse
-createDeploymentResponse pStatus_ =
+createDeploymentResponse pStatus_ = 
     CreateDeploymentResponse'
     { _cdrsDeploymentId = Nothing
     , _cdrsStatus = pStatus_

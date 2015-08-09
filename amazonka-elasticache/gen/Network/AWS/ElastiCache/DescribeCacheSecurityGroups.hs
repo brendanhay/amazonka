@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,11 +42,12 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     , dcsgsrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheSecurityGroups/ action.
 --
@@ -60,13 +62,13 @@ import           Network.AWS.Response
 -- * 'dcsgsMarker'
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
     { _dcsgsCacheSecurityGroupName :: !(Maybe Text)
-    , _dcsgsMaxRecords             :: !(Maybe Int)
-    , _dcsgsMarker                 :: !(Maybe Text)
+    , _dcsgsMaxRecords :: !(Maybe Int)
+    , _dcsgsMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSecurityGroups' smart constructor.
 describeCacheSecurityGroups :: DescribeCacheSecurityGroups
-describeCacheSecurityGroups =
+describeCacheSecurityGroups = 
     DescribeCacheSecurityGroups'
     { _dcsgsCacheSecurityGroupName = Nothing
     , _dcsgsMaxRecords = Nothing
@@ -146,13 +148,13 @@ instance ToQuery DescribeCacheSecurityGroups where
 -- * 'dcsgsrsStatus'
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
     { _dcsgsrsCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
-    , _dcsgsrsMarker              :: !(Maybe Text)
-    , _dcsgsrsStatus              :: !Int
+    , _dcsgsrsMarker :: !(Maybe Text)
+    , _dcsgsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: Int -> DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse pStatus_ =
+describeCacheSecurityGroupsResponse pStatus_ = 
     DescribeCacheSecurityGroupsResponse'
     { _dcsgsrsCacheSecurityGroups = Nothing
     , _dcsgsrsMarker = Nothing

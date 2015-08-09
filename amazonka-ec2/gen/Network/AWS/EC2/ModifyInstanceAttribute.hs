@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     , modifyInstanceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyInstanceAttribute' smart constructor.
 --
@@ -92,26 +94,26 @@ import           Network.AWS.Response
 --
 -- * 'mInstanceId'
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-    { _mAttribute                         :: !(Maybe InstanceAttributeName)
-    , _mGroups                            :: !(Maybe [Text])
-    , _mSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
-    , _mDisableAPITermination             :: !(Maybe AttributeBooleanValue)
-    , _mRAMDisk                           :: !(Maybe AttributeValue)
-    , _mValue                             :: !(Maybe Text)
-    , _mKernel                            :: !(Maybe AttributeValue)
-    , _mInstanceType                      :: !(Maybe AttributeValue)
-    , _mEBSOptimized                      :: !(Maybe AttributeBooleanValue)
-    , _mUserData                          :: !(Maybe BlobAttributeValue)
-    , _mSRIOVNetSupport                   :: !(Maybe AttributeValue)
+    { _mAttribute :: !(Maybe InstanceAttributeName)
+    , _mGroups :: !(Maybe [Text])
+    , _mSourceDestCheck :: !(Maybe AttributeBooleanValue)
+    , _mDisableAPITermination :: !(Maybe AttributeBooleanValue)
+    , _mRAMDisk :: !(Maybe AttributeValue)
+    , _mValue :: !(Maybe Text)
+    , _mKernel :: !(Maybe AttributeValue)
+    , _mInstanceType :: !(Maybe AttributeValue)
+    , _mEBSOptimized :: !(Maybe AttributeBooleanValue)
+    , _mUserData :: !(Maybe BlobAttributeValue)
+    , _mSRIOVNetSupport :: !(Maybe AttributeValue)
     , _mInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _mBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
-    , _mDryRun                            :: !(Maybe Bool)
-    , _mInstanceId                        :: !Text
+    , _mBlockDeviceMappings :: !(Maybe [InstanceBlockDeviceMappingSpecification])
+    , _mDryRun :: !(Maybe Bool)
+    , _mInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceAttribute' smart constructor.
 modifyInstanceAttribute :: Text -> ModifyInstanceAttribute
-modifyInstanceAttribute pInstanceId_ =
+modifyInstanceAttribute pInstanceId_ = 
     ModifyInstanceAttribute'
     { _mAttribute = Nothing
     , _mGroups = Nothing
@@ -268,7 +270,7 @@ instance ToQuery ModifyInstanceAttribute where
 
 -- | /See:/ 'modifyInstanceAttributeResponse' smart constructor.
 data ModifyInstanceAttributeResponse =
-    ModifyInstanceAttributeResponse'
+    ModifyInstanceAttributeResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceAttributeResponse' smart constructor.

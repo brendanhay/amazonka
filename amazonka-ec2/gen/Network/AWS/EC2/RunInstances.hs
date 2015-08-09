@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -96,10 +97,11 @@ module Network.AWS.EC2.RunInstances
     , rOwnerId
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'runInstances' smart constructor.
 --
@@ -151,34 +153,34 @@ import           Network.AWS.Response
 --
 -- * 'rMaxCount'
 data RunInstances = RunInstances'
-    { _rSecurityGroupIds                  :: !(Maybe [Text])
-    , _rAdditionalInfo                    :: !(Maybe Text)
-    , _rSecurityGroups                    :: !(Maybe [Text])
-    , _rClientToken                       :: !(Maybe Text)
-    , _rDisableAPITermination             :: !(Maybe Bool)
-    , _rNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
-    , _rKeyName                           :: !(Maybe Text)
-    , _rRAMDiskId                         :: !(Maybe Text)
-    , _rKernelId                          :: !(Maybe Text)
-    , _rSubnetId                          :: !(Maybe Text)
-    , _rInstanceType                      :: !(Maybe InstanceType)
-    , _rEBSOptimized                      :: !(Maybe Bool)
-    , _rUserData                          :: !(Maybe Text)
-    , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
-    , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
+    { _rSecurityGroupIds :: !(Maybe [Text])
+    , _rAdditionalInfo :: !(Maybe Text)
+    , _rSecurityGroups :: !(Maybe [Text])
+    , _rClientToken :: !(Maybe Text)
+    , _rDisableAPITermination :: !(Maybe Bool)
+    , _rNetworkInterfaces :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _rKeyName :: !(Maybe Text)
+    , _rRAMDiskId :: !(Maybe Text)
+    , _rKernelId :: !(Maybe Text)
+    , _rSubnetId :: !(Maybe Text)
+    , _rInstanceType :: !(Maybe InstanceType)
+    , _rEBSOptimized :: !(Maybe Bool)
+    , _rUserData :: !(Maybe Text)
+    , _rMonitoring :: !(Maybe RunInstancesMonitoringEnabled)
+    , _rIAMInstanceProfile :: !(Maybe IAMInstanceProfileSpecification)
     , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
-    , _rPrivateIPAddress                  :: !(Maybe Text)
-    , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
-    , _rDryRun                            :: !(Maybe Bool)
-    , _rPlacement                         :: !(Maybe Placement)
-    , _rImageId                           :: !Text
-    , _rMinCount                          :: !Int
-    , _rMaxCount                          :: !Int
+    , _rPrivateIPAddress :: !(Maybe Text)
+    , _rBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _rDryRun :: !(Maybe Bool)
+    , _rPlacement :: !(Maybe Placement)
+    , _rImageId :: !Text
+    , _rMinCount :: !Int
+    , _rMaxCount :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunInstances' smart constructor.
 runInstances :: Text -> Int -> Int -> RunInstances
-runInstances pImageId_ pMinCount_ pMaxCount_ =
+runInstances pImageId_ pMinCount_ pMaxCount_ = 
     RunInstances'
     { _rSecurityGroupIds = Nothing
     , _rAdditionalInfo = Nothing

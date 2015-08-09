@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodeDeploy.GetApplication
     , garsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get application operation.
 --
@@ -54,7 +56,7 @@ newtype GetApplication = GetApplication'
 
 -- | 'GetApplication' smart constructor.
 getApplication :: Text -> GetApplication
-getApplication pApplicationName_ =
+getApplication pApplicationName_ = 
     GetApplication'
     { _gaApplicationName = pApplicationName_
     }
@@ -104,12 +106,12 @@ instance ToQuery GetApplication where
 -- * 'garsStatus'
 data GetApplicationResponse = GetApplicationResponse'
     { _garsApplication :: !(Maybe ApplicationInfo)
-    , _garsStatus      :: !Int
+    , _garsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationResponse' smart constructor.
 getApplicationResponse :: Int -> GetApplicationResponse
-getApplicationResponse pStatus_ =
+getApplicationResponse pStatus_ = 
     GetApplicationResponse'
     { _garsApplication = Nothing
     , _garsStatus = pStatus_

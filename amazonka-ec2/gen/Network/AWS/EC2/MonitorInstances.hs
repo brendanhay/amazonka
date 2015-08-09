@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.EC2.MonitorInstances
     , mirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'monitorInstances' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'miInstanceIds'
 data MonitorInstances = MonitorInstances'
-    { _miDryRun      :: !(Maybe Bool)
+    { _miDryRun :: !(Maybe Bool)
     , _miInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MonitorInstances' smart constructor.
 monitorInstances :: MonitorInstances
-monitorInstances =
+monitorInstances = 
     MonitorInstances'
     { _miDryRun = Nothing
     , _miInstanceIds = mempty
@@ -111,12 +113,12 @@ instance ToQuery MonitorInstances where
 -- * 'mirsStatus'
 data MonitorInstancesResponse = MonitorInstancesResponse'
     { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _mirsStatus              :: !Int
+    , _mirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MonitorInstancesResponse' smart constructor.
 monitorInstancesResponse :: Int -> MonitorInstancesResponse
-monitorInstancesResponse pStatus_ =
+monitorInstancesResponse pStatus_ = 
     MonitorInstancesResponse'
     { _mirsInstanceMonitorings = Nothing
     , _mirsStatus = pStatus_

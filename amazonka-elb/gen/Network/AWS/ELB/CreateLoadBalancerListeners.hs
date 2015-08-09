@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     , clblrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancerListeners' smart constructor.
 --
@@ -57,12 +59,12 @@ import           Network.AWS.Response
 -- * 'clblListeners'
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
     { _clblLoadBalancerName :: !Text
-    , _clblListeners        :: ![Listener]
+    , _clblListeners :: ![Listener]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerListeners' smart constructor.
 createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
-createLoadBalancerListeners pLoadBalancerName_ =
+createLoadBalancerListeners pLoadBalancerName_ = 
     CreateLoadBalancerListeners'
     { _clblLoadBalancerName = pLoadBalancerName_
     , _clblListeners = mempty
@@ -114,7 +116,7 @@ newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersRespons
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
 createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse
-createLoadBalancerListenersResponse pStatus_ =
+createLoadBalancerListenersResponse pStatus_ = 
     CreateLoadBalancerListenersResponse'
     { _clblrsStatus = pStatus_
     }

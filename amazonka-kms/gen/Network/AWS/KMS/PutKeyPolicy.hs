@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.KMS.PutKeyPolicy
     , putKeyPolicyResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putKeyPolicy' smart constructor.
 --
@@ -50,14 +52,14 @@ import           Network.AWS.Response
 --
 -- * 'pkpPolicy'
 data PutKeyPolicy = PutKeyPolicy'
-    { _pkpKeyId      :: !Text
+    { _pkpKeyId :: !Text
     , _pkpPolicyName :: !Text
-    , _pkpPolicy     :: !Text
+    , _pkpPolicy :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutKeyPolicy' smart constructor.
 putKeyPolicy :: Text -> Text -> Text -> PutKeyPolicy
-putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
+putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ = 
     PutKeyPolicy'
     { _pkpKeyId = pKeyId_
     , _pkpPolicyName = pPolicyName_
@@ -113,7 +115,7 @@ instance ToQuery PutKeyPolicy where
 
 -- | /See:/ 'putKeyPolicyResponse' smart constructor.
 data PutKeyPolicyResponse =
-    PutKeyPolicyResponse'
+    PutKeyPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutKeyPolicyResponse' smart constructor.

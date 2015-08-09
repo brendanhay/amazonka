@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     , lsdrsStreamingDistributionList
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list your streaming distributions.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'lsdMarker'
 data ListStreamingDistributions = ListStreamingDistributions'
     { _lsdMaxItems :: !(Maybe Text)
-    , _lsdMarker   :: !(Maybe Text)
+    , _lsdMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamingDistributions' smart constructor.
 listStreamingDistributions :: ListStreamingDistributions
-listStreamingDistributions =
+listStreamingDistributions = 
     ListStreamingDistributions'
     { _lsdMaxItems = Nothing
     , _lsdMarker = Nothing
@@ -109,13 +111,13 @@ instance ToQuery ListStreamingDistributions where
 --
 -- * 'lsdrsStreamingDistributionList'
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-    { _lsdrsStatus                    :: !Int
+    { _lsdrsStatus :: !Int
     , _lsdrsStreamingDistributionList :: !StreamingDistributionList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
 listStreamingDistributionsResponse :: Int -> StreamingDistributionList -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse pStatus_ pStreamingDistributionList_ =
+listStreamingDistributionsResponse pStatus_ pStreamingDistributionList_ = 
     ListStreamingDistributionsResponse'
     { _lsdrsStatus = pStatus_
     , _lsdrsStreamingDistributionList = pStreamingDistributionList_

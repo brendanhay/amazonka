@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     , dmfrsStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMetricFilters' smart constructor.
 --
@@ -65,14 +67,14 @@ import           Network.AWS.Response
 -- * 'dmfLogGroupName'
 data DescribeMetricFilters = DescribeMetricFilters'
     { _dmfFilterNamePrefix :: !(Maybe Text)
-    , _dmfNextToken        :: !(Maybe Text)
-    , _dmfLimit            :: !(Maybe Nat)
-    , _dmfLogGroupName     :: !Text
+    , _dmfNextToken :: !(Maybe Text)
+    , _dmfLimit :: !(Maybe Nat)
+    , _dmfLogGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricFilters' smart constructor.
 describeMetricFilters :: Text -> DescribeMetricFilters
-describeMetricFilters pLogGroupName_ =
+describeMetricFilters pLogGroupName_ = 
     DescribeMetricFilters'
     { _dmfFilterNamePrefix = Nothing
     , _dmfNextToken = Nothing
@@ -147,14 +149,14 @@ instance ToQuery DescribeMetricFilters where
 --
 -- * 'dmfrsStatus'
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
-    { _dmfrsNextToken     :: !(Maybe Text)
+    { _dmfrsNextToken :: !(Maybe Text)
     , _dmfrsMetricFilters :: !(Maybe [MetricFilter])
-    , _dmfrsStatus        :: !Int
+    , _dmfrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
 describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse
-describeMetricFiltersResponse pStatus_ =
+describeMetricFiltersResponse pStatus_ = 
     DescribeMetricFiltersResponse'
     { _dmfrsNextToken = Nothing
     , _dmfrsMetricFilters = Nothing

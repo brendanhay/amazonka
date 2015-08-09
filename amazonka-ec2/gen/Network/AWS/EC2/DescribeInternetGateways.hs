@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.DescribeInternetGateways
     , digrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeInternetGateways' smart constructor.
 --
@@ -53,14 +55,14 @@ import           Network.AWS.Response
 --
 -- * 'dDryRun'
 data DescribeInternetGateways = DescribeInternetGateways'
-    { _dFilters            :: !(Maybe [Filter])
+    { _dFilters :: !(Maybe [Filter])
     , _dInternetGatewayIds :: !(Maybe [Text])
-    , _dDryRun             :: !(Maybe Bool)
+    , _dDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGateways' smart constructor.
 describeInternetGateways :: DescribeInternetGateways
-describeInternetGateways =
+describeInternetGateways = 
     DescribeInternetGateways'
     { _dFilters = Nothing
     , _dInternetGatewayIds = Nothing
@@ -146,12 +148,12 @@ instance ToQuery DescribeInternetGateways where
 -- * 'digrsStatus'
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
     { _digrsInternetGateways :: !(Maybe [InternetGateway])
-    , _digrsStatus           :: !Int
+    , _digrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
-describeInternetGatewaysResponse pStatus_ =
+describeInternetGatewaysResponse pStatus_ = 
     DescribeInternetGatewaysResponse'
     { _digrsInternetGateways = Nothing
     , _digrsStatus = pStatus_

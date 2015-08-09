@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.EC2.CancelExportTask
     , cancelExportTaskResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelExportTask' smart constructor.
 --
@@ -52,7 +54,7 @@ newtype CancelExportTask = CancelExportTask'
 
 -- | 'CancelExportTask' smart constructor.
 cancelExportTask :: Text -> CancelExportTask
-cancelExportTask pExportTaskId_ =
+cancelExportTask pExportTaskId_ = 
     CancelExportTask'
     { _cetExportTaskId = pExportTaskId_
     }
@@ -83,7 +85,7 @@ instance ToQuery CancelExportTask where
 
 -- | /See:/ 'cancelExportTaskResponse' smart constructor.
 data CancelExportTaskResponse =
-    CancelExportTaskResponse'
+    CancelExportTaskResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelExportTaskResponse' smart constructor.

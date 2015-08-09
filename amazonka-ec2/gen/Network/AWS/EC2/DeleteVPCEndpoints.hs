@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     , dversStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteVPCEndpoints' smart constructor.
 --
@@ -52,13 +54,13 @@ import           Network.AWS.Response
 --
 -- * 'dveVPCEndpointIds'
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
-    { _dveDryRun         :: !(Maybe Bool)
+    { _dveDryRun :: !(Maybe Bool)
     , _dveVPCEndpointIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCEndpoints' smart constructor.
 deleteVPCEndpoints :: DeleteVPCEndpoints
-deleteVPCEndpoints =
+deleteVPCEndpoints = 
     DeleteVPCEndpoints'
     { _dveDryRun = Nothing
     , _dveVPCEndpointIds = mempty
@@ -111,12 +113,12 @@ instance ToQuery DeleteVPCEndpoints where
 -- * 'dversStatus'
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
     { _dversUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dversStatus       :: !Int
+    , _dversStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
 deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse
-deleteVPCEndpointsResponse pStatus_ =
+deleteVPCEndpointsResponse pStatus_ = 
     DeleteVPCEndpointsResponse'
     { _dversUnsuccessful = Nothing
     , _dversStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     , updateAssumeRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAssumeRolePolicy' smart constructor.
 --
@@ -49,13 +51,13 @@ import           Network.AWS.Response
 --
 -- * 'uarpPolicyDocument'
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
-    { _uarpRoleName       :: !Text
+    { _uarpRoleName :: !Text
     , _uarpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssumeRolePolicy' smart constructor.
 updateAssumeRolePolicy :: Text -> Text -> UpdateAssumeRolePolicy
-updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
+updateAssumeRolePolicy pRoleName_ pPolicyDocument_ = 
     UpdateAssumeRolePolicy'
     { _uarpRoleName = pRoleName_
     , _uarpPolicyDocument = pPolicyDocument_
@@ -94,7 +96,7 @@ instance ToQuery UpdateAssumeRolePolicy where
 
 -- | /See:/ 'updateAssumeRolePolicyResponse' smart constructor.
 data UpdateAssumeRolePolicyResponse =
-    UpdateAssumeRolePolicyResponse'
+    UpdateAssumeRolePolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssumeRolePolicyResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.Glacier.SetVaultAccessPolicy
     , setVaultAccessPolicyResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | SetVaultAccessPolicy input.
 --
@@ -58,14 +60,14 @@ import           Network.AWS.Response
 --
 -- * 'svapVaultName'
 data SetVaultAccessPolicy = SetVaultAccessPolicy'
-    { _svapPolicy    :: !(Maybe VaultAccessPolicy)
+    { _svapPolicy :: !(Maybe VaultAccessPolicy)
     , _svapAccountId :: !Text
     , _svapVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultAccessPolicy' smart constructor.
 setVaultAccessPolicy :: Text -> Text -> SetVaultAccessPolicy
-setVaultAccessPolicy pAccountId_ pVaultName_ =
+setVaultAccessPolicy pAccountId_ pVaultName_ = 
     SetVaultAccessPolicy'
     { _svapPolicy = Nothing
     , _svapAccountId = pAccountId_
@@ -113,7 +115,7 @@ instance ToQuery SetVaultAccessPolicy where
 
 -- | /See:/ 'setVaultAccessPolicyResponse' smart constructor.
 data SetVaultAccessPolicyResponse =
-    SetVaultAccessPolicyResponse'
+    SetVaultAccessPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultAccessPolicyResponse' smart constructor.

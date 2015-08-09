@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.EC2.CreateInternetGateway
     , cigrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createInternetGateway' smart constructor.
 --
@@ -56,7 +58,7 @@ newtype CreateInternetGateway = CreateInternetGateway'
 
 -- | 'CreateInternetGateway' smart constructor.
 createInternetGateway :: CreateInternetGateway
-createInternetGateway =
+createInternetGateway = 
     CreateInternetGateway'
     { _cigDryRun = Nothing
     }
@@ -101,12 +103,12 @@ instance ToQuery CreateInternetGateway where
 -- * 'cigrsStatus'
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
     { _cigrsInternetGateway :: !(Maybe InternetGateway)
-    , _cigrsStatus          :: !Int
+    , _cigrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInternetGatewayResponse' smart constructor.
 createInternetGatewayResponse :: Int -> CreateInternetGatewayResponse
-createInternetGatewayResponse pStatus_ =
+createInternetGatewayResponse pStatus_ = 
     CreateInternetGatewayResponse'
     { _cigrsInternetGateway = Nothing
     , _cigrsStatus = pStatus_

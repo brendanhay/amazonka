@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CloudFormation.ValidateTemplate
     , vtrsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for ValidateTemplate action.
 --
@@ -56,12 +58,12 @@ import           Network.AWS.Response
 -- * 'vtTemplateURL'
 data ValidateTemplate = ValidateTemplate'
     { _vtTemplateBody :: !(Maybe Text)
-    , _vtTemplateURL  :: !(Maybe Text)
+    , _vtTemplateURL :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateTemplate' smart constructor.
 validateTemplate :: ValidateTemplate
-validateTemplate =
+validateTemplate = 
     ValidateTemplate'
     { _vtTemplateBody = Nothing
     , _vtTemplateURL = Nothing
@@ -135,16 +137,16 @@ instance ToQuery ValidateTemplate where
 --
 -- * 'vtrsStatus'
 data ValidateTemplateResponse = ValidateTemplateResponse'
-    { _vtrsParameters         :: !(Maybe [TemplateParameter])
+    { _vtrsParameters :: !(Maybe [TemplateParameter])
     , _vtrsCapabilitiesReason :: !(Maybe Text)
-    , _vtrsCapabilities       :: !(Maybe [Capability])
-    , _vtrsDescription        :: !(Maybe Text)
-    , _vtrsStatus             :: !Int
+    , _vtrsCapabilities :: !(Maybe [Capability])
+    , _vtrsDescription :: !(Maybe Text)
+    , _vtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateTemplateResponse' smart constructor.
 validateTemplateResponse :: Int -> ValidateTemplateResponse
-validateTemplateResponse pStatus_ =
+validateTemplateResponse pStatus_ = 
     ValidateTemplateResponse'
     { _vtrsParameters = Nothing
     , _vtrsCapabilitiesReason = Nothing

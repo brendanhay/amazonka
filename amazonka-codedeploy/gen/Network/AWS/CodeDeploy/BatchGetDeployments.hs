@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     , bgdrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a batch get deployments operation.
 --
@@ -54,7 +56,7 @@ newtype BatchGetDeployments = BatchGetDeployments'
 
 -- | 'BatchGetDeployments' smart constructor.
 batchGetDeployments :: BatchGetDeployments
-batchGetDeployments =
+batchGetDeployments = 
     BatchGetDeployments'
     { _bgdDeploymentIds = Nothing
     }
@@ -107,12 +109,12 @@ instance ToQuery BatchGetDeployments where
 -- * 'bgdrsStatus'
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
-    , _bgdrsStatus          :: !Int
+    , _bgdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
 batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
-batchGetDeploymentsResponse pStatus_ =
+batchGetDeploymentsResponse pStatus_ = 
     BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo = Nothing
     , _bgdrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.ECS.CreateService
     , csrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createService' smart constructor.
 --
@@ -68,18 +70,18 @@ import           Network.AWS.Response
 --
 -- * 'cDesiredCount'
 data CreateService = CreateService'
-    { _cCluster        :: !(Maybe Text)
-    , _cClientToken    :: !(Maybe Text)
-    , _cLoadBalancers  :: !(Maybe [LoadBalancer])
-    , _cRole           :: !(Maybe Text)
-    , _cServiceName    :: !Text
+    { _cCluster :: !(Maybe Text)
+    , _cClientToken :: !(Maybe Text)
+    , _cLoadBalancers :: !(Maybe [LoadBalancer])
+    , _cRole :: !(Maybe Text)
+    , _cServiceName :: !Text
     , _cTaskDefinition :: !Text
-    , _cDesiredCount   :: !Int
+    , _cDesiredCount :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateService' smart constructor.
 createService :: Text -> Text -> Int -> CreateService
-createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
+createService pServiceName_ pTaskDefinition_ pDesiredCount_ = 
     CreateService'
     { _cCluster = Nothing
     , _cClientToken = Nothing
@@ -177,12 +179,12 @@ instance ToQuery CreateService where
 -- * 'csrsStatus'
 data CreateServiceResponse = CreateServiceResponse'
     { _csrsService :: !(Maybe ContainerService)
-    , _csrsStatus  :: !Int
+    , _csrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateServiceResponse' smart constructor.
 createServiceResponse :: Int -> CreateServiceResponse
-createServiceResponse pStatus_ =
+createServiceResponse pStatus_ = 
     CreateServiceResponse'
     { _csrsService = Nothing
     , _csrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.DirectoryService.EnableRadius
     , errsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the EnableRadius operation.
 --
@@ -52,13 +54,13 @@ import           Network.AWS.Response
 --
 -- * 'erRadiusSettings'
 data EnableRadius = EnableRadius'
-    { _erDirectoryId    :: !Text
+    { _erDirectoryId :: !Text
     , _erRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableRadius' smart constructor.
 enableRadius :: Text -> RadiusSettings -> EnableRadius
-enableRadius pDirectoryId_ pRadiusSettings_ =
+enableRadius pDirectoryId_ pRadiusSettings_ = 
     EnableRadius'
     { _erDirectoryId = pDirectoryId_
     , _erRadiusSettings = pRadiusSettings_
@@ -117,7 +119,7 @@ newtype EnableRadiusResponse = EnableRadiusResponse'
 
 -- | 'EnableRadiusResponse' smart constructor.
 enableRadiusResponse :: Int -> EnableRadiusResponse
-enableRadiusResponse pStatus_ =
+enableRadiusResponse pStatus_ = 
     EnableRadiusResponse'
     { _errsStatus = pStatus_
     }

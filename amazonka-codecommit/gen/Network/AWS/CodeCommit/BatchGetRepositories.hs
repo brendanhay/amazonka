@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.CodeCommit.BatchGetRepositories
     , bgrrsStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a batch get repositories operation.
 --
@@ -62,7 +64,7 @@ newtype BatchGetRepositories = BatchGetRepositories'
 
 -- | 'BatchGetRepositories' smart constructor.
 batchGetRepositories :: BatchGetRepositories
-batchGetRepositories =
+batchGetRepositories = 
     BatchGetRepositories'
     { _bgrRepositoryNames = mempty
     }
@@ -116,14 +118,14 @@ instance ToQuery BatchGetRepositories where
 --
 -- * 'bgrrsStatus'
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
-    { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
+    { _bgrrsRepositories :: !(Maybe [RepositoryMetadata])
     , _bgrrsRepositoriesNotFound :: !(Maybe [Text])
-    , _bgrrsStatus               :: !Int
+    , _bgrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetRepositoriesResponse' smart constructor.
 batchGetRepositoriesResponse :: Int -> BatchGetRepositoriesResponse
-batchGetRepositoriesResponse pStatus_ =
+batchGetRepositoriesResponse pStatus_ = 
     BatchGetRepositoriesResponse'
     { _bgrrsRepositories = Nothing
     , _bgrrsRepositoriesNotFound = Nothing

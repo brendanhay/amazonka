@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.MachineLearning.CreateEvaluation
     , cersStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createEvaluation' smart constructor.
 --
@@ -73,15 +75,15 @@ import           Network.AWS.Response
 --
 -- * 'ceEvaluationDataSourceId'
 data CreateEvaluation = CreateEvaluation'
-    { _ceEvaluationName         :: !(Maybe Text)
-    , _ceEvaluationId           :: !Text
-    , _ceMLModelId              :: !Text
+    { _ceEvaluationName :: !(Maybe Text)
+    , _ceEvaluationId :: !Text
+    , _ceMLModelId :: !Text
     , _ceEvaluationDataSourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEvaluation' smart constructor.
 createEvaluation :: Text -> Text -> Text -> CreateEvaluation
-createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ =
+createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ = 
     CreateEvaluation'
     { _ceEvaluationName = Nothing
     , _ceEvaluationId = pEvaluationId_
@@ -159,12 +161,12 @@ instance ToQuery CreateEvaluation where
 -- * 'cersStatus'
 data CreateEvaluationResponse = CreateEvaluationResponse'
     { _cersEvaluationId :: !(Maybe Text)
-    , _cersStatus       :: !Int
+    , _cersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEvaluationResponse' smart constructor.
 createEvaluationResponse :: Int -> CreateEvaluationResponse
-createEvaluationResponse pStatus_ =
+createEvaluationResponse pStatus_ = 
     CreateEvaluationResponse'
     { _cersEvaluationId = Nothing
     , _cersStatus = pStatus_

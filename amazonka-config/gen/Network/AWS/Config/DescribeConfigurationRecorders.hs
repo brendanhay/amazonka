@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.Config.DescribeConfigurationRecorders
     , dcrrsStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DescribeConfigurationRecorders action.
 --
@@ -58,7 +60,7 @@ newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
 
 -- | 'DescribeConfigurationRecorders' smart constructor.
 describeConfigurationRecorders :: DescribeConfigurationRecorders
-describeConfigurationRecorders =
+describeConfigurationRecorders = 
     DescribeConfigurationRecorders'
     { _dcrConfigurationRecorderNames = Nothing
     }
@@ -114,12 +116,12 @@ instance ToQuery DescribeConfigurationRecorders where
 -- * 'dcrrsStatus'
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
     { _dcrrsConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
-    , _dcrrsStatus                 :: !Int
+    , _dcrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecordersResponse' smart constructor.
 describeConfigurationRecordersResponse :: Int -> DescribeConfigurationRecordersResponse
-describeConfigurationRecordersResponse pStatus_ =
+describeConfigurationRecordersResponse pStatus_ = 
     DescribeConfigurationRecordersResponse'
     { _dcrrsConfigurationRecorders = Nothing
     , _dcrrsStatus = pStatus_

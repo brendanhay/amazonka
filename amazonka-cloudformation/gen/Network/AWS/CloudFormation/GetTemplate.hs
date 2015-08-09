@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CloudFormation.GetTemplate
     , gtrsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for a GetTemplate action.
 --
@@ -60,7 +62,7 @@ newtype GetTemplate = GetTemplate'
 
 -- | 'GetTemplate' smart constructor.
 getTemplate :: Text -> GetTemplate
-getTemplate pStackName_ =
+getTemplate pStackName_ = 
     GetTemplate'
     { _gtStackName = pStackName_
     }
@@ -110,12 +112,12 @@ instance ToQuery GetTemplate where
 -- * 'gtrsStatus'
 data GetTemplateResponse = GetTemplateResponse'
     { _gtrsTemplateBody :: !(Maybe Text)
-    , _gtrsStatus       :: !Int
+    , _gtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateResponse' smart constructor.
 getTemplateResponse :: Int -> GetTemplateResponse
-getTemplateResponse pStatus_ =
+getTemplateResponse pStatus_ = 
     GetTemplateResponse'
     { _gtrsTemplateBody = Nothing
     , _gtrsStatus = pStatus_

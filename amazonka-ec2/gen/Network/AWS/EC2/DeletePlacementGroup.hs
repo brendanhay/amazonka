@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.DeletePlacementGroup
     , deletePlacementGroupResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deletePlacementGroup' smart constructor.
 --
@@ -51,13 +53,13 @@ import           Network.AWS.Response
 --
 -- * 'dpgGroupName'
 data DeletePlacementGroup = DeletePlacementGroup'
-    { _dpgDryRun    :: !(Maybe Bool)
+    { _dpgDryRun :: !(Maybe Bool)
     , _dpgGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlacementGroup' smart constructor.
 deletePlacementGroup :: Text -> DeletePlacementGroup
-deletePlacementGroup pGroupName_ =
+deletePlacementGroup pGroupName_ = 
     DeletePlacementGroup'
     { _dpgDryRun = Nothing
     , _dpgGroupName = pGroupName_
@@ -96,7 +98,7 @@ instance ToQuery DeletePlacementGroup where
 
 -- | /See:/ 'deletePlacementGroupResponse' smart constructor.
 data DeletePlacementGroupResponse =
-    DeletePlacementGroupResponse'
+    DeletePlacementGroupResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlacementGroupResponse' smart constructor.

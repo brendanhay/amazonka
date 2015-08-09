@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,11 +46,12 @@ module Network.AWS.IAM.ListUsers
     , lursUsers
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listUsers' smart constructor.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 -- * 'luMarker'
 data ListUsers = ListUsers'
     { _luPathPrefix :: !(Maybe Text)
-    , _luMaxItems   :: !(Maybe Nat)
-    , _luMarker     :: !(Maybe Text)
+    , _luMaxItems :: !(Maybe Nat)
+    , _luMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUsers' smart constructor.
 listUsers :: ListUsers
-listUsers =
+listUsers = 
     ListUsers'
     { _luPathPrefix = Nothing
     , _luMaxItems = Nothing
@@ -147,15 +149,15 @@ instance ToQuery ListUsers where
 --
 -- * 'lursUsers'
 data ListUsersResponse = ListUsersResponse'
-    { _lursMarker      :: !(Maybe Text)
+    { _lursMarker :: !(Maybe Text)
     , _lursIsTruncated :: !(Maybe Bool)
-    , _lursStatus      :: !Int
-    , _lursUsers       :: ![User]
+    , _lursStatus :: !Int
+    , _lursUsers :: ![User]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUsersResponse' smart constructor.
 listUsersResponse :: Int -> ListUsersResponse
-listUsersResponse pStatus_ =
+listUsersResponse pStatus_ = 
     ListUsersResponse'
     { _lursMarker = Nothing
     , _lursIsTruncated = Nothing

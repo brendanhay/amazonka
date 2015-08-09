@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.Glacier.AbortMultipartUpload
     , abortMultipartUploadResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to abort a multipart upload identified by the upload
 -- ID.
@@ -81,12 +83,12 @@ import           Network.AWS.Response
 data AbortMultipartUpload = AbortMultipartUpload'
     { _amuAccountId :: !Text
     , _amuVaultName :: !Text
-    , _amuUploadId  :: !Text
+    , _amuUploadId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: Text -> Text -> Text -> AbortMultipartUpload
-abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
+abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ = 
     AbortMultipartUpload'
     { _amuAccountId = pAccountId_
     , _amuVaultName = pVaultName_
@@ -131,7 +133,7 @@ instance ToQuery AbortMultipartUpload where
 
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse =
-    AbortMultipartUploadResponse'
+    AbortMultipartUploadResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortMultipartUploadResponse' smart constructor.

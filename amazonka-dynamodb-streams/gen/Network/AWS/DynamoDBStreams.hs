@@ -71,16 +71,16 @@ module Network.AWS.DynamoDBStreams
     -- * Operations
     -- $operations
 
-    -- ** GetRecords
+    -- ** GetRecords 
     , module Network.AWS.DynamoDBStreams.GetRecords
 
-    -- ** GetShardIterator
+    -- ** GetShardIterator 
     , module Network.AWS.DynamoDBStreams.GetShardIterator
 
-    -- ** ListStreams
+    -- ** ListStreams 
     , module Network.AWS.DynamoDBStreams.ListStreams
 
-    -- ** DescribeStream
+    -- ** DescribeStream 
     , module Network.AWS.DynamoDBStreams.DescribeStream
 
     -- * Types
@@ -174,12 +174,12 @@ module Network.AWS.DynamoDBStreams
     , srNewImage
     ) where
 
-import           Network.AWS.DynamoDBStreams.DescribeStream
-import           Network.AWS.DynamoDBStreams.GetRecords
-import           Network.AWS.DynamoDBStreams.GetShardIterator
-import           Network.AWS.DynamoDBStreams.ListStreams
-import           Network.AWS.DynamoDBStreams.Types
-import           Network.AWS.DynamoDBStreams.Waiters
+import Network.AWS.DynamoDBStreams.DescribeStream
+import Network.AWS.DynamoDBStreams.GetRecords
+import Network.AWS.DynamoDBStreams.GetShardIterator
+import Network.AWS.DynamoDBStreams.ListStreams
+import Network.AWS.DynamoDBStreams.Types
+import Network.AWS.DynamoDBStreams.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

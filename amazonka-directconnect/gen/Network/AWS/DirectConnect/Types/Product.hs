@@ -18,8 +18,8 @@
 --
 module Network.AWS.DirectConnect.Types.Product where
 
-import           Network.AWS.DirectConnect.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.DirectConnect.Types.Sum
+import Network.AWS.Prelude
 
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
@@ -46,20 +46,20 @@ import           Network.AWS.Prelude
 --
 -- * 'cConnectionState'
 data Connection = Connection'
-    { _cVlan            :: !(Maybe Int)
-    , _cLocation        :: !(Maybe Text)
-    , _cConnectionId    :: !(Maybe Text)
-    , _cConnectionName  :: !(Maybe Text)
-    , _cPartnerName     :: !(Maybe Text)
-    , _cBandwidth       :: !(Maybe Text)
-    , _cRegion          :: !(Maybe Text)
-    , _cOwnerAccount    :: !(Maybe Text)
+    { _cVlan :: !(Maybe Int)
+    , _cLocation :: !(Maybe Text)
+    , _cConnectionId :: !(Maybe Text)
+    , _cConnectionName :: !(Maybe Text)
+    , _cPartnerName :: !(Maybe Text)
+    , _cBandwidth :: !(Maybe Text)
+    , _cRegion :: !(Maybe Text)
+    , _cOwnerAccount :: !(Maybe Text)
     , _cConnectionState :: !(Maybe ConnectionState)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Connection' smart constructor.
 connection :: Connection
-connection =
+connection = 
     Connection'
     { _cVlan = Nothing
     , _cLocation = Nothing
@@ -140,7 +140,7 @@ newtype Connections = Connections'
 
 -- | 'Connections' smart constructor.
 connections :: Connections
-connections =
+connections = 
     Connections'
     { _cConnections = Nothing
     }
@@ -184,17 +184,17 @@ instance FromJSON Connections where
 --
 -- * 'iRegion'
 data Interconnect = Interconnect'
-    { _iInterconnectId    :: !(Maybe Text)
-    , _iInterconnectName  :: !(Maybe Text)
-    , _iLocation          :: !(Maybe Text)
-    , _iBandwidth         :: !(Maybe Text)
+    { _iInterconnectId :: !(Maybe Text)
+    , _iInterconnectName :: !(Maybe Text)
+    , _iLocation :: !(Maybe Text)
+    , _iBandwidth :: !(Maybe Text)
     , _iInterconnectState :: !(Maybe InterconnectState)
-    , _iRegion            :: !(Maybe Text)
+    , _iRegion :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Interconnect' smart constructor.
 interconnect :: Interconnect
-interconnect =
+interconnect = 
     Interconnect'
     { _iInterconnectId = Nothing
     , _iInterconnectName = Nothing
@@ -257,7 +257,7 @@ data Location = Location'
 
 -- | 'Location' smart constructor.
 location :: Location
-location =
+location = 
     Location'
     { _lLocationName = Nothing
     , _lLocationCode = Nothing
@@ -300,18 +300,18 @@ instance FromJSON Location where
 --
 -- * 'nVirtualGatewayId'
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-    { _nCustomerAddress      :: !(Maybe Text)
-    , _nAmazonAddress        :: !(Maybe Text)
-    , _nAuthKey              :: !(Maybe Text)
+    { _nCustomerAddress :: !(Maybe Text)
+    , _nAmazonAddress :: !(Maybe Text)
+    , _nAuthKey :: !(Maybe Text)
     , _nVirtualInterfaceName :: !Text
-    , _nVlan                 :: !Int
-    , _nAsn                  :: !Int
-    , _nVirtualGatewayId     :: !Text
+    , _nVlan :: !Int
+    , _nAsn :: !Int
+    , _nVirtualGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPrivateVirtualInterface' smart constructor.
 newPrivateVirtualInterface :: Text -> Int -> Int -> Text -> NewPrivateVirtualInterface
-newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId_ =
+newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId_ = 
     NewPrivateVirtualInterface'
     { _nCustomerAddress = Nothing
     , _nAmazonAddress = Nothing
@@ -379,17 +379,17 @@ instance ToJSON NewPrivateVirtualInterface where
 --
 -- * 'npviaAsn'
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-    { _npviaCustomerAddress      :: !(Maybe Text)
-    , _npviaAmazonAddress        :: !(Maybe Text)
-    , _npviaAuthKey              :: !(Maybe Text)
+    { _npviaCustomerAddress :: !(Maybe Text)
+    , _npviaAmazonAddress :: !(Maybe Text)
+    , _npviaAuthKey :: !(Maybe Text)
     , _npviaVirtualInterfaceName :: !Text
-    , _npviaVlan                 :: !Int
-    , _npviaAsn                  :: !Int
+    , _npviaVlan :: !Int
+    , _npviaAsn :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPrivateVirtualInterfaceAllocation' smart constructor.
 newPrivateVirtualInterfaceAllocation :: Text -> Int -> Int -> NewPrivateVirtualInterfaceAllocation
-newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
+newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ = 
     NewPrivateVirtualInterfaceAllocation'
     { _npviaCustomerAddress = Nothing
     , _npviaAmazonAddress = Nothing
@@ -453,18 +453,18 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 --
 -- * 'npviRouteFilterPrefixes'
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
-    { _npviAuthKey              :: !(Maybe Text)
+    { _npviAuthKey :: !(Maybe Text)
     , _npviVirtualInterfaceName :: !Text
-    , _npviVlan                 :: !Int
-    , _npviAsn                  :: !Int
-    , _npviAmazonAddress        :: !Text
-    , _npviCustomerAddress      :: !Text
-    , _npviRouteFilterPrefixes  :: ![RouteFilterPrefix]
+    , _npviVlan :: !Int
+    , _npviAsn :: !Int
+    , _npviAmazonAddress :: !Text
+    , _npviCustomerAddress :: !Text
+    , _npviRouteFilterPrefixes :: ![RouteFilterPrefix]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPublicVirtualInterface' smart constructor.
 newPublicVirtualInterface :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterface
-newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
+newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ = 
     NewPublicVirtualInterface'
     { _npviAuthKey = Nothing
     , _npviVirtualInterfaceName = pVirtualInterfaceName_
@@ -534,18 +534,18 @@ instance ToJSON NewPublicVirtualInterface where
 --
 -- * 'newRouteFilterPrefixes'
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-    { _newAuthKey              :: !(Maybe Text)
+    { _newAuthKey :: !(Maybe Text)
     , _newVirtualInterfaceName :: !Text
-    , _newVlan                 :: !Int
-    , _newAsn                  :: !Int
-    , _newAmazonAddress        :: !Text
-    , _newCustomerAddress      :: !Text
-    , _newRouteFilterPrefixes  :: ![RouteFilterPrefix]
+    , _newVlan :: !Int
+    , _newAsn :: !Int
+    , _newAmazonAddress :: !Text
+    , _newCustomerAddress :: !Text
+    , _newRouteFilterPrefixes :: ![RouteFilterPrefix]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
 newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterfaceAllocation
-newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
+newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ = 
     NewPublicVirtualInterfaceAllocation'
     { _newAuthKey = Nothing
     , _newVirtualInterfaceName = pVirtualInterfaceName_
@@ -609,7 +609,7 @@ newtype RouteFilterPrefix = RouteFilterPrefix'
 
 -- | 'RouteFilterPrefix' smart constructor.
 routeFilterPrefix :: RouteFilterPrefix
-routeFilterPrefix =
+routeFilterPrefix = 
     RouteFilterPrefix'
     { _rfpCidr = Nothing
     }
@@ -645,13 +645,13 @@ instance ToJSON RouteFilterPrefix where
 --
 -- * 'vgVirtualGatewayState'
 data VirtualGateway = VirtualGateway'
-    { _vgVirtualGatewayId    :: !(Maybe Text)
+    { _vgVirtualGatewayId :: !(Maybe Text)
     , _vgVirtualGatewayState :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VirtualGateway' smart constructor.
 virtualGateway :: VirtualGateway
-virtualGateway =
+virtualGateway = 
     VirtualGateway'
     { _vgVirtualGatewayId = Nothing
     , _vgVirtualGatewayState = Nothing
@@ -710,26 +710,26 @@ instance FromJSON VirtualGateway where
 --
 -- * 'viVirtualInterfaceId'
 data VirtualInterface = VirtualInterface'
-    { _viVirtualGatewayId      :: !(Maybe Text)
-    , _viRouteFilterPrefixes   :: !(Maybe [RouteFilterPrefix])
-    , _viCustomerAddress       :: !(Maybe Text)
-    , _viVlan                  :: !(Maybe Int)
-    , _viLocation              :: !(Maybe Text)
-    , _viAmazonAddress         :: !(Maybe Text)
+    { _viVirtualGatewayId :: !(Maybe Text)
+    , _viRouteFilterPrefixes :: !(Maybe [RouteFilterPrefix])
+    , _viCustomerAddress :: !(Maybe Text)
+    , _viVlan :: !(Maybe Int)
+    , _viLocation :: !(Maybe Text)
+    , _viAmazonAddress :: !(Maybe Text)
     , _viVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _viConnectionId          :: !(Maybe Text)
-    , _viAsn                   :: !(Maybe Int)
-    , _viVirtualInterfaceType  :: !(Maybe Text)
-    , _viAuthKey               :: !(Maybe Text)
-    , _viCustomerRouterConfig  :: !(Maybe Text)
-    , _viOwnerAccount          :: !(Maybe Text)
-    , _viVirtualInterfaceName  :: !(Maybe Text)
-    , _viVirtualInterfaceId    :: !(Maybe Text)
+    , _viConnectionId :: !(Maybe Text)
+    , _viAsn :: !(Maybe Int)
+    , _viVirtualInterfaceType :: !(Maybe Text)
+    , _viAuthKey :: !(Maybe Text)
+    , _viCustomerRouterConfig :: !(Maybe Text)
+    , _viOwnerAccount :: !(Maybe Text)
+    , _viVirtualInterfaceName :: !(Maybe Text)
+    , _viVirtualInterfaceId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VirtualInterface' smart constructor.
 virtualInterface :: VirtualInterface
-virtualInterface =
+virtualInterface = 
     VirtualInterface'
     { _viVirtualGatewayId = Nothing
     , _viRouteFilterPrefixes = Nothing

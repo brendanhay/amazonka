@@ -82,95 +82,95 @@ module Network.AWS.ElasticBeanstalk
     -- * Operations
     -- $operations
 
-    -- ** DescribeApplications
+    -- ** DescribeApplications 
     , module Network.AWS.ElasticBeanstalk.DescribeApplications
 
-    -- ** CreateApplicationVersion
+    -- ** CreateApplicationVersion 
     , module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 
-    -- ** UpdateEnvironment
+    -- ** UpdateEnvironment 
     , module Network.AWS.ElasticBeanstalk.UpdateEnvironment
 
-    -- ** TerminateEnvironment
+    -- ** TerminateEnvironment 
     , module Network.AWS.ElasticBeanstalk.TerminateEnvironment
 
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- $pager
 
-    -- ** RequestEnvironmentInfo
+    -- ** RequestEnvironmentInfo 
     , module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 
-    -- ** RetrieveEnvironmentInfo
+    -- ** RetrieveEnvironmentInfo 
     , module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
 
-    -- ** DeleteApplication
+    -- ** DeleteApplication 
     , module Network.AWS.ElasticBeanstalk.DeleteApplication
 
-    -- ** UpdateApplication
+    -- ** UpdateApplication 
     , module Network.AWS.ElasticBeanstalk.UpdateApplication
 
-    -- ** CreateApplication
+    -- ** CreateApplication 
     , module Network.AWS.ElasticBeanstalk.CreateApplication
 
-    -- ** AbortEnvironmentUpdate
+    -- ** AbortEnvironmentUpdate 
     , module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
 
-    -- ** DeleteApplicationVersion
+    -- ** DeleteApplicationVersion 
     , module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 
-    -- ** UpdateApplicationVersion
+    -- ** UpdateApplicationVersion 
     , module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 
-    -- ** DescribeEnvironmentResources
+    -- ** DescribeEnvironmentResources 
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 
-    -- ** DeleteConfigurationTemplate
+    -- ** DeleteConfigurationTemplate 
     , module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
 
-    -- ** UpdateConfigurationTemplate
+    -- ** UpdateConfigurationTemplate 
     , module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 
-    -- ** RebuildEnvironment
+    -- ** RebuildEnvironment 
     , module Network.AWS.ElasticBeanstalk.RebuildEnvironment
 
-    -- ** DeleteEnvironmentConfiguration
+    -- ** DeleteEnvironmentConfiguration 
     , module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 
-    -- ** CreateConfigurationTemplate
+    -- ** CreateConfigurationTemplate 
     , module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
 
-    -- ** ListAvailableSolutionStacks
+    -- ** ListAvailableSolutionStacks 
     , module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 
-    -- ** SwapEnvironmentCNAMEs
+    -- ** SwapEnvironmentCNAMEs 
     , module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 
-    -- ** DescribeConfigurationOptions
+    -- ** DescribeConfigurationOptions 
     , module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 
-    -- ** DescribeConfigurationSettings
+    -- ** DescribeConfigurationSettings 
     , module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 
-    -- ** CreateStorageLocation
+    -- ** CreateStorageLocation 
     , module Network.AWS.ElasticBeanstalk.CreateStorageLocation
 
-    -- ** DescribeEnvironments
+    -- ** DescribeEnvironments 
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironments
 
-    -- ** RestartAppServer
+    -- ** RestartAppServer 
     , module Network.AWS.ElasticBeanstalk.RestartAppServer
 
-    -- ** ValidateConfigurationSettings
+    -- ** ValidateConfigurationSettings 
     , module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 
-    -- ** DescribeApplicationVersions
+    -- ** DescribeApplicationVersions 
     , module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 
-    -- ** CheckDNSAvailability
+    -- ** CheckDNSAvailability 
     , module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 
-    -- ** CreateEnvironment
+    -- ** CreateEnvironment 
     , module Network.AWS.ElasticBeanstalk.CreateEnvironment
 
     -- * Types
@@ -415,38 +415,38 @@ module Network.AWS.ElasticBeanstalk
     , vmMessage
     ) where
 
-import           Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
-import           Network.AWS.ElasticBeanstalk.CheckDNSAvailability
-import           Network.AWS.ElasticBeanstalk.CreateApplication
-import           Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-import           Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.CreateEnvironment
-import           Network.AWS.ElasticBeanstalk.CreateStorageLocation
-import           Network.AWS.ElasticBeanstalk.DeleteApplication
-import           Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
-import           Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
-import           Network.AWS.ElasticBeanstalk.DescribeApplications
-import           Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
-import           Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-import           Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironments
-import           Network.AWS.ElasticBeanstalk.DescribeEvents
-import           Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-import           Network.AWS.ElasticBeanstalk.RebuildEnvironment
-import           Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
-import           Network.AWS.ElasticBeanstalk.RestartAppServer
-import           Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-import           Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-import           Network.AWS.ElasticBeanstalk.TerminateEnvironment
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.UpdateApplication
-import           Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-import           Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.UpdateEnvironment
-import           Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
-import           Network.AWS.ElasticBeanstalk.Waiters
+import Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
+import Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+import Network.AWS.ElasticBeanstalk.CreateApplication
+import Network.AWS.ElasticBeanstalk.CreateApplicationVersion
+import Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.CreateEnvironment
+import Network.AWS.ElasticBeanstalk.CreateStorageLocation
+import Network.AWS.ElasticBeanstalk.DeleteApplication
+import Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
+import Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+import Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
+import Network.AWS.ElasticBeanstalk.DescribeApplications
+import Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
+import Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
+import Network.AWS.ElasticBeanstalk.DescribeEnvironments
+import Network.AWS.ElasticBeanstalk.DescribeEvents
+import Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
+import Network.AWS.ElasticBeanstalk.RebuildEnvironment
+import Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
+import Network.AWS.ElasticBeanstalk.RestartAppServer
+import Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+import Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
+import Network.AWS.ElasticBeanstalk.TerminateEnvironment
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.UpdateApplication
+import Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
+import Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.UpdateEnvironment
+import Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+import Network.AWS.ElasticBeanstalk.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.IAM.SetDefaultPolicyVersion
     , setDefaultPolicyVersionResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setDefaultPolicyVersion' smart constructor.
 --
@@ -62,7 +64,7 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
 
 -- | 'SetDefaultPolicyVersion' smart constructor.
 setDefaultPolicyVersion :: Text -> Text -> SetDefaultPolicyVersion
-setDefaultPolicyVersion pPolicyARN_ pVersionId_ =
+setDefaultPolicyVersion pPolicyARN_ pVersionId_ = 
     SetDefaultPolicyVersion'
     { _sdpvPolicyARN = pPolicyARN_
     , _sdpvVersionId = pVersionId_
@@ -105,7 +107,7 @@ instance ToQuery SetDefaultPolicyVersion where
 
 -- | /See:/ 'setDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse =
-    SetDefaultPolicyVersionResponse'
+    SetDefaultPolicyVersionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDefaultPolicyVersionResponse' smart constructor.

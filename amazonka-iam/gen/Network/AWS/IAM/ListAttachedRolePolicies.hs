@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     , larprsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAttachedRolePolicies' smart constructor.
 --
@@ -71,14 +73,14 @@ import           Network.AWS.Response
 -- * 'larpRoleName'
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
     { _larpPathPrefix :: !(Maybe Text)
-    , _larpMaxItems   :: !(Maybe Nat)
-    , _larpMarker     :: !(Maybe Text)
-    , _larpRoleName   :: !Text
+    , _larpMaxItems :: !(Maybe Nat)
+    , _larpMarker :: !(Maybe Text)
+    , _larpRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedRolePolicies' smart constructor.
 listAttachedRolePolicies :: Text -> ListAttachedRolePolicies
-listAttachedRolePolicies pRoleName_ =
+listAttachedRolePolicies pRoleName_ = 
     ListAttachedRolePolicies'
     { _larpPathPrefix = Nothing
     , _larpMaxItems = Nothing
@@ -158,14 +160,14 @@ instance ToQuery ListAttachedRolePolicies where
 -- * 'larprsStatus'
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
     { _larprsAttachedPolicies :: !(Maybe [AttachedPolicy])
-    , _larprsMarker           :: !(Maybe Text)
-    , _larprsIsTruncated      :: !(Maybe Bool)
-    , _larprsStatus           :: !Int
+    , _larprsMarker :: !(Maybe Text)
+    , _larprsIsTruncated :: !(Maybe Bool)
+    , _larprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedRolePoliciesResponse' smart constructor.
 listAttachedRolePoliciesResponse :: Int -> ListAttachedRolePoliciesResponse
-listAttachedRolePoliciesResponse pStatus_ =
+listAttachedRolePoliciesResponse pStatus_ = 
     ListAttachedRolePoliciesResponse'
     { _larprsAttachedPolicies = Nothing
     , _larprsMarker = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -61,10 +62,11 @@ module Network.AWS.Glacier.ListVaults
     , lvrsStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to retrieve the vault list owned by the calling user\'s
 -- account. The list provides metadata information for each vault.
@@ -79,14 +81,14 @@ import           Network.AWS.Response
 --
 -- * 'lvAccountId'
 data ListVaults = ListVaults'
-    { _lvMarker    :: !(Maybe Text)
-    , _lvLimit     :: !(Maybe Text)
+    { _lvMarker :: !(Maybe Text)
+    , _lvLimit :: !(Maybe Text)
     , _lvAccountId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVaults' smart constructor.
 listVaults :: Text -> ListVaults
-listVaults pAccountId_ =
+listVaults pAccountId_ = 
     ListVaults'
     { _lvMarker = Nothing
     , _lvLimit = Nothing
@@ -148,14 +150,14 @@ instance ToQuery ListVaults where
 --
 -- * 'lvrsStatus'
 data ListVaultsResponse = ListVaultsResponse'
-    { _lvrsMarker    :: !(Maybe Text)
+    { _lvrsMarker :: !(Maybe Text)
     , _lvrsVaultList :: !(Maybe [DescribeVaultOutput])
-    , _lvrsStatus    :: !Int
+    , _lvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVaultsResponse' smart constructor.
 listVaultsResponse :: Int -> ListVaultsResponse
-listVaultsResponse pStatus_ =
+listVaultsResponse pStatus_ = 
     ListVaultsResponse'
     { _lvrsMarker = Nothing
     , _lvrsVaultList = Nothing

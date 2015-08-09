@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -60,10 +61,11 @@ module Network.AWS.IAM.PutRolePolicy
     , putRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putRolePolicy' smart constructor.
 --
@@ -75,14 +77,14 @@ import           Network.AWS.Response
 --
 -- * 'prpPolicyDocument'
 data PutRolePolicy = PutRolePolicy'
-    { _prpRoleName       :: !Text
-    , _prpPolicyName     :: !Text
+    { _prpRoleName :: !Text
+    , _prpPolicyName :: !Text
     , _prpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRolePolicy' smart constructor.
 putRolePolicy :: Text -> Text -> Text -> PutRolePolicy
-putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
+putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ = 
     PutRolePolicy'
     { _prpRoleName = pRoleName_
     , _prpPolicyName = pPolicyName_
@@ -124,7 +126,7 @@ instance ToQuery PutRolePolicy where
 
 -- | /See:/ 'putRolePolicyResponse' smart constructor.
 data PutRolePolicyResponse =
-    PutRolePolicyResponse'
+    PutRolePolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRolePolicyResponse' smart constructor.

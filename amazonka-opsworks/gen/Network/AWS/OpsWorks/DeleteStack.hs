@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.OpsWorks.DeleteStack
     , deleteStackResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteStack' smart constructor.
 --
@@ -57,7 +59,7 @@ newtype DeleteStack = DeleteStack'
 
 -- | 'DeleteStack' smart constructor.
 deleteStack :: Text -> DeleteStack
-deleteStack pStackId_ =
+deleteStack pStackId_ = 
     DeleteStack'
     { _dsStackId = pStackId_
     }
@@ -93,7 +95,7 @@ instance ToQuery DeleteStack where
 
 -- | /See:/ 'deleteStackResponse' smart constructor.
 data DeleteStackResponse =
-    DeleteStackResponse'
+    DeleteStackResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStackResponse' smart constructor.

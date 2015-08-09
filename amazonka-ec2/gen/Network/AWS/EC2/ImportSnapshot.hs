@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.EC2.ImportSnapshot
     , isrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importSnapshot' smart constructor.
 --
@@ -65,16 +67,16 @@ import           Network.AWS.Response
 -- * 'isClientData'
 data ImportSnapshot = ImportSnapshot'
     { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
-    , _isClientToken   :: !(Maybe Text)
-    , _isRoleName      :: !(Maybe Text)
-    , _isDryRun        :: !(Maybe Bool)
-    , _isDescription   :: !(Maybe Text)
-    , _isClientData    :: !(Maybe ClientData)
+    , _isClientToken :: !(Maybe Text)
+    , _isRoleName :: !(Maybe Text)
+    , _isDryRun :: !(Maybe Bool)
+    , _isDescription :: !(Maybe Text)
+    , _isClientData :: !(Maybe ClientData)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportSnapshot' smart constructor.
 importSnapshot :: ImportSnapshot
-importSnapshot =
+importSnapshot = 
     ImportSnapshot'
     { _isDiskContainer = Nothing
     , _isClientToken = Nothing
@@ -155,14 +157,14 @@ instance ToQuery ImportSnapshot where
 -- * 'isrsStatus'
 data ImportSnapshotResponse = ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
-    , _isrsImportTaskId       :: !(Maybe Text)
-    , _isrsDescription        :: !(Maybe Text)
-    , _isrsStatus             :: !Int
+    , _isrsImportTaskId :: !(Maybe Text)
+    , _isrsDescription :: !(Maybe Text)
+    , _isrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportSnapshotResponse' smart constructor.
 importSnapshotResponse :: Int -> ImportSnapshotResponse
-importSnapshotResponse pStatus_ =
+importSnapshotResponse pStatus_ = 
     ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail = Nothing
     , _isrsImportTaskId = Nothing

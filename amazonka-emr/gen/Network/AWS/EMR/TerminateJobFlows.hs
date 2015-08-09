@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EMR.TerminateJobFlows
     , terminateJobFlowsResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the TerminateJobFlows operation.
 --
@@ -60,7 +62,7 @@ newtype TerminateJobFlows = TerminateJobFlows'
 
 -- | 'TerminateJobFlows' smart constructor.
 terminateJobFlows :: TerminateJobFlows
-terminateJobFlows =
+terminateJobFlows = 
     TerminateJobFlows'
     { _tjfJobFlowIds = mempty
     }
@@ -96,7 +98,7 @@ instance ToQuery TerminateJobFlows where
 
 -- | /See:/ 'terminateJobFlowsResponse' smart constructor.
 data TerminateJobFlowsResponse =
-    TerminateJobFlowsResponse'
+    TerminateJobFlowsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateJobFlowsResponse' smart constructor.

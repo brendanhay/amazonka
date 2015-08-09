@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     , gcfoaicrsStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to get an origin access identity\'s configuration.
 --
@@ -55,7 +57,7 @@ newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdent
 
 -- | 'GetCloudFrontOriginAccessIdentityConfig' smart constructor.
 getCloudFrontOriginAccessIdentityConfig :: Text -> GetCloudFrontOriginAccessIdentityConfig
-getCloudFrontOriginAccessIdentityConfig pId_ =
+getCloudFrontOriginAccessIdentityConfig pId_ = 
     GetCloudFrontOriginAccessIdentityConfig'
     { _gcfoaicId = pId_
     }
@@ -106,13 +108,13 @@ instance ToQuery
 -- * 'gcfoaicrsStatus'
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'
     { _gcfoaicrsCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
-    , _gcfoaicrsETag                                 :: !(Maybe Text)
-    , _gcfoaicrsStatus                               :: !Int
+    , _gcfoaicrsETag :: !(Maybe Text)
+    , _gcfoaicrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 getCloudFrontOriginAccessIdentityConfigResponse :: Int -> GetCloudFrontOriginAccessIdentityConfigResponse
-getCloudFrontOriginAccessIdentityConfigResponse pStatus_ =
+getCloudFrontOriginAccessIdentityConfigResponse pStatus_ = 
     GetCloudFrontOriginAccessIdentityConfigResponse'
     { _gcfoaicrsCloudFrontOriginAccessIdentityConfig = Nothing
     , _gcfoaicrsETag = Nothing

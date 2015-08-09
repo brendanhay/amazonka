@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.Config.StopConfigurationRecorder
     , stopConfigurationRecorderResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the StopConfigurationRecorder action.
 --
@@ -52,7 +54,7 @@ newtype StopConfigurationRecorder = StopConfigurationRecorder'
 
 -- | 'StopConfigurationRecorder' smart constructor.
 stopConfigurationRecorder :: Text -> StopConfigurationRecorder
-stopConfigurationRecorder pConfigurationRecorderName_ =
+stopConfigurationRecorder pConfigurationRecorderName_ = 
     StopConfigurationRecorder'
     { _scrConfigurationRecorderName = pConfigurationRecorderName_
     }
@@ -94,7 +96,7 @@ instance ToQuery StopConfigurationRecorder where
 
 -- | /See:/ 'stopConfigurationRecorderResponse' smart constructor.
 data StopConfigurationRecorderResponse =
-    StopConfigurationRecorderResponse'
+    StopConfigurationRecorderResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopConfigurationRecorderResponse' smart constructor.

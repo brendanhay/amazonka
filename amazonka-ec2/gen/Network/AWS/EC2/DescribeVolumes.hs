@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -52,10 +53,11 @@ module Network.AWS.EC2.DescribeVolumes
     , dvvrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVolumes' smart constructor.
 --
@@ -71,16 +73,16 @@ import           Network.AWS.Response
 --
 -- * 'desMaxResults'
 data DescribeVolumes = DescribeVolumes'
-    { _desFilters    :: !(Maybe [Filter])
-    , _desVolumeIds  :: !(Maybe [Text])
-    , _desNextToken  :: !(Maybe Text)
-    , _desDryRun     :: !(Maybe Bool)
+    { _desFilters :: !(Maybe [Filter])
+    , _desVolumeIds :: !(Maybe [Text])
+    , _desNextToken :: !(Maybe Text)
+    , _desDryRun :: !(Maybe Bool)
     , _desMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
-describeVolumes =
+describeVolumes = 
     DescribeVolumes'
     { _desFilters = Nothing
     , _desVolumeIds = Nothing
@@ -215,13 +217,13 @@ instance ToQuery DescribeVolumes where
 -- * 'dvvrsStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvvrsNextToken :: !(Maybe Text)
-    , _dvvrsVolumes   :: !(Maybe [Volume])
-    , _dvvrsStatus    :: !Int
+    , _dvvrsVolumes :: !(Maybe [Volume])
+    , _dvvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
-describeVolumesResponse pStatus_ =
+describeVolumesResponse pStatus_ = 
     DescribeVolumesResponse'
     { _dvvrsNextToken = Nothing
     , _dvvrsVolumes = Nothing

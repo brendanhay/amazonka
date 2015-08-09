@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.EFS.DeleteMountTarget
     , deleteMountTargetResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteMountTarget' smart constructor.
 --
@@ -74,7 +76,7 @@ newtype DeleteMountTarget = DeleteMountTarget'
 
 -- | 'DeleteMountTarget' smart constructor.
 deleteMountTarget :: Text -> DeleteMountTarget
-deleteMountTarget pMountTargetId_ =
+deleteMountTarget pMountTargetId_ = 
     DeleteMountTarget'
     { _dmtMountTargetId = pMountTargetId_
     }
@@ -103,7 +105,7 @@ instance ToQuery DeleteMountTarget where
 
 -- | /See:/ 'deleteMountTargetResponse' smart constructor.
 data DeleteMountTargetResponse =
-    DeleteMountTargetResponse'
+    DeleteMountTargetResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMountTargetResponse' smart constructor.

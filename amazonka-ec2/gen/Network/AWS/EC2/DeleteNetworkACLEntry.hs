@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.EC2.DeleteNetworkACLEntry
     , deleteNetworkACLEntryResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkACLEntry' smart constructor.
 --
@@ -54,15 +56,15 @@ import           Network.AWS.Response
 --
 -- * 'dnaeEgress'
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
-    { _dnaeDryRun       :: !(Maybe Bool)
+    { _dnaeDryRun :: !(Maybe Bool)
     , _dnaeNetworkACLId :: !Text
-    , _dnaeRuleNumber   :: !Int
-    , _dnaeEgress       :: !Bool
+    , _dnaeRuleNumber :: !Int
+    , _dnaeEgress :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACLEntry' smart constructor.
 deleteNetworkACLEntry :: Text -> Int -> Bool -> DeleteNetworkACLEntry
-deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
+deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ = 
     DeleteNetworkACLEntry'
     { _dnaeDryRun = Nothing
     , _dnaeNetworkACLId = pNetworkACLId_
@@ -114,7 +116,7 @@ instance ToQuery DeleteNetworkACLEntry where
 
 -- | /See:/ 'deleteNetworkACLEntryResponse' smart constructor.
 data DeleteNetworkACLEntryResponse =
-    DeleteNetworkACLEntryResponse'
+    DeleteNetworkACLEntryResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACLEntryResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CloudHSM.ModifyHSM
     , mhsmrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the ModifyHsm action.
 --
@@ -65,16 +67,16 @@ import           Network.AWS.Response
 -- * 'mhHSMARN'
 data ModifyHSM = ModifyHSM'
     { _mhIAMRoleARN :: !(Maybe Text)
-    , _mhSubnetId   :: !(Maybe Text)
-    , _mhSyslogIP   :: !(Maybe Text)
+    , _mhSubnetId :: !(Maybe Text)
+    , _mhSyslogIP :: !(Maybe Text)
     , _mhExternalId :: !(Maybe Text)
-    , _mhEniIP      :: !(Maybe Text)
-    , _mhHSMARN     :: !Text
+    , _mhEniIP :: !(Maybe Text)
+    , _mhHSMARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHSM' smart constructor.
 modifyHSM :: Text -> ModifyHSM
-modifyHSM pHSMARN_ =
+modifyHSM pHSMARN_ = 
     ModifyHSM'
     { _mhIAMRoleARN = Nothing
     , _mhSubnetId = Nothing
@@ -158,7 +160,7 @@ data ModifyHSMResponse = ModifyHSMResponse'
 
 -- | 'ModifyHSMResponse' smart constructor.
 modifyHSMResponse :: Int -> ModifyHSMResponse
-modifyHSMResponse pStatus_ =
+modifyHSMResponse pStatus_ = 
     ModifyHSMResponse'
     { _mhsmrsHSMARN = Nothing
     , _mhsmrsStatus = pStatus_

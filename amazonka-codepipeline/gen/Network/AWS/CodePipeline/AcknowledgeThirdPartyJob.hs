@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     , atpjrsStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an acknowledge third party job action.
 --
@@ -55,14 +57,14 @@ import           Network.AWS.Response
 --
 -- * 'atpjClientToken'
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
-    { _atpjJobId       :: !Text
-    , _atpjNonce       :: !Text
+    { _atpjJobId :: !Text
+    , _atpjNonce :: !Text
     , _atpjClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcknowledgeThirdPartyJob' smart constructor.
 acknowledgeThirdPartyJob :: Text -> Text -> Text -> AcknowledgeThirdPartyJob
-acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
+acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ = 
     AcknowledgeThirdPartyJob'
     { _atpjJobId = pJobId_
     , _atpjNonce = pNonce_
@@ -131,7 +133,7 @@ newtype AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
 
 -- | 'AcknowledgeThirdPartyJobResponse' smart constructor.
 acknowledgeThirdPartyJobResponse :: Int -> AcknowledgeThirdPartyJobResponse
-acknowledgeThirdPartyJobResponse pStatus_ =
+acknowledgeThirdPartyJobResponse pStatus_ = 
     AcknowledgeThirdPartyJobResponse'
     { _atpjrsStatus = pStatus_
     }

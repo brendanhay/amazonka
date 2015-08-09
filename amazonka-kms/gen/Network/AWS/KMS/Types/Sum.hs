@@ -17,11 +17,11 @@
 --
 module Network.AWS.KMS.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data DataKeySpec
-    = AES128
-    | AES256
+    = AES128 
+    | AES256 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DataKeySpec where
@@ -45,14 +45,14 @@ instance ToJSON DataKeySpec where
     toJSON = toJSONText
 
 data GrantOperation
-    = Encrypt
-    | GenerateDataKeyWithoutPlaintext
-    | CreateGrant
-    | RetireGrant
-    | GenerateDataKey
-    | Decrypt
-    | ReEncryptTo
-    | ReEncryptFrom
+    = Encrypt 
+    | GenerateDataKeyWithoutPlaintext 
+    | CreateGrant 
+    | RetireGrant 
+    | GenerateDataKey 
+    | Decrypt 
+    | ReEncryptTo 
+    | ReEncryptFrom 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GrantOperation where
@@ -91,7 +91,7 @@ instance FromJSON GrantOperation where
     parseJSON = parseJSONText "GrantOperation"
 
 data KeyUsageType =
-    EncryptDecrypt
+    EncryptDecrypt 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText KeyUsageType where

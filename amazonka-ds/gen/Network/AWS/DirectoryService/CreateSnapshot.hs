@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.DirectoryService.CreateSnapshot
     , csrsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the CreateSnapshot operation.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'csDirectoryId'
 data CreateSnapshot = CreateSnapshot'
-    { _csName        :: !(Maybe Text)
+    { _csName :: !(Maybe Text)
     , _csDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
-createSnapshot pDirectoryId_ =
+createSnapshot pDirectoryId_ = 
     CreateSnapshot'
     { _csName = Nothing
     , _csDirectoryId = pDirectoryId_
@@ -116,12 +118,12 @@ instance ToQuery CreateSnapshot where
 -- * 'csrsStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrsSnapshotId :: !(Maybe Text)
-    , _csrsStatus     :: !Int
+    , _csrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatus_ =
+createSnapshotResponse pStatus_ = 
     CreateSnapshotResponse'
     { _csrsSnapshotId = Nothing
     , _csrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     , addRoleToInstanceProfileResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addRoleToInstanceProfile' smart constructor.
 --
@@ -52,12 +54,12 @@ import           Network.AWS.Response
 -- * 'artipRoleName'
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
     { _artipInstanceProfileName :: !Text
-    , _artipRoleName            :: !Text
+    , _artipRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddRoleToInstanceProfile' smart constructor.
 addRoleToInstanceProfile :: Text -> Text -> AddRoleToInstanceProfile
-addRoleToInstanceProfile pInstanceProfileName_ pRoleName_ =
+addRoleToInstanceProfile pInstanceProfileName_ pRoleName_ = 
     AddRoleToInstanceProfile'
     { _artipInstanceProfileName = pInstanceProfileName_
     , _artipRoleName = pRoleName_
@@ -96,7 +98,7 @@ instance ToQuery AddRoleToInstanceProfile where
 
 -- | /See:/ 'addRoleToInstanceProfileResponse' smart constructor.
 data AddRoleToInstanceProfileResponse =
-    AddRoleToInstanceProfileResponse'
+    AddRoleToInstanceProfileResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddRoleToInstanceProfileResponse' smart constructor.

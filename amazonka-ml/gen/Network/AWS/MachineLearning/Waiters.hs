@@ -15,18 +15,18 @@
 --
 module Network.AWS.MachineLearning.Waiters where
 
-import           Network.AWS.MachineLearning.DescribeBatchPredictions
-import           Network.AWS.MachineLearning.DescribeDataSources
-import           Network.AWS.MachineLearning.DescribeEvaluations
-import           Network.AWS.MachineLearning.DescribeMLModels
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.MachineLearning.DescribeBatchPredictions
+import Network.AWS.MachineLearning.DescribeDataSources
+import Network.AWS.MachineLearning.DescribeEvaluations
+import Network.AWS.MachineLearning.DescribeMLModels
+import Network.AWS.MachineLearning.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 mLModelAvailable :: Wait DescribeMLModels
-mLModelAvailable =
+mLModelAvailable = 
     Wait
     { _waitName = "MLModelAvailable"
     , _waitAttempts = 60
@@ -46,7 +46,7 @@ mLModelAvailable =
 -- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 batchPredictionAvailable :: Wait DescribeBatchPredictions
-batchPredictionAvailable =
+batchPredictionAvailable = 
     Wait
     { _waitName = "BatchPredictionAvailable"
     , _waitAttempts = 60
@@ -66,7 +66,7 @@ batchPredictionAvailable =
 -- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 dataSourceAvailable :: Wait DescribeDataSources
-dataSourceAvailable =
+dataSourceAvailable = 
     Wait
     { _waitName = "DataSourceAvailable"
     , _waitAttempts = 60
@@ -86,7 +86,7 @@ dataSourceAvailable =
 -- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 evaluationAvailable :: Wait DescribeEvaluations
-evaluationAvailable =
+evaluationAvailable = 
     Wait
     { _waitName = "EvaluationAvailable"
     , _waitAttempts = 60

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,11 +41,12 @@ module Network.AWS.ElasticTranscoder.ListPresets
     , lrsStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @ListPresetsRequest@ structure.
 --
@@ -62,7 +64,7 @@ data ListPresets = ListPresets'
 
 -- | 'ListPresets' smart constructor.
 listPresets :: ListPresets
-listPresets =
+listPresets = 
     ListPresets'
     { _lAscending = Nothing
     , _lPageToken = Nothing
@@ -124,13 +126,13 @@ instance ToQuery ListPresets where
 -- * 'lrsStatus'
 data ListPresetsResponse = ListPresetsResponse'
     { _lrsNextPageToken :: !(Maybe Text)
-    , _lrsPresets       :: !(Maybe [Preset])
-    , _lrsStatus        :: !Int
+    , _lrsPresets :: !(Maybe [Preset])
+    , _lrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPresetsResponse' smart constructor.
 listPresetsResponse :: Int -> ListPresetsResponse
-listPresetsResponse pStatus_ =
+listPresetsResponse pStatus_ = 
     ListPresetsResponse'
     { _lrsNextPageToken = Nothing
     , _lrsPresets = Nothing

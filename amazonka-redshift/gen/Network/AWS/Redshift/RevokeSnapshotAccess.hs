@@ -46,6 +46,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
 
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 

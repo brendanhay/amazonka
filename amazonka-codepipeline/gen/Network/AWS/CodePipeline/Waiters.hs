@@ -15,6 +15,6 @@
 --
 module Network.AWS.CodePipeline.Waiters where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.CodePipeline.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     , cacsprsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAppCookieStickinessPolicy' smart constructor.
 --
@@ -69,13 +71,13 @@ import           Network.AWS.Response
 -- * 'cacspCookieName'
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
     { _cacspLoadBalancerName :: !Text
-    , _cacspPolicyName       :: !Text
-    , _cacspCookieName       :: !Text
+    , _cacspPolicyName :: !Text
+    , _cacspCookieName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAppCookieStickinessPolicy' smart constructor.
 createAppCookieStickinessPolicy :: Text -> Text -> Text -> CreateAppCookieStickinessPolicy
-createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ =
+createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ = 
     CreateAppCookieStickinessPolicy'
     { _cacspLoadBalancerName = pLoadBalancerName_
     , _cacspPolicyName = pPolicyName_
@@ -137,7 +139,7 @@ newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolic
 
 -- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
 createAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPolicyResponse
-createAppCookieStickinessPolicyResponse pStatus_ =
+createAppCookieStickinessPolicyResponse pStatus_ = 
     CreateAppCookieStickinessPolicyResponse'
     { _cacsprsStatus = pStatus_
     }

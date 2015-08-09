@@ -45,79 +45,79 @@ module Network.AWS.DeviceFarm
     -- * Operations
     -- $operations
 
-    -- ** ListProjects
+    -- ** ListProjects 
     , module Network.AWS.DeviceFarm.ListProjects
 
-    -- ** GetDevicePoolCompatibility
+    -- ** GetDevicePoolCompatibility 
     , module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 
-    -- ** ListTests
+    -- ** ListTests 
     , module Network.AWS.DeviceFarm.ListTests
 
-    -- ** CreateUpload
+    -- ** CreateUpload 
     , module Network.AWS.DeviceFarm.CreateUpload
 
-    -- ** ListArtifacts
+    -- ** ListArtifacts 
     , module Network.AWS.DeviceFarm.ListArtifacts
 
-    -- ** GetDevicePool
+    -- ** GetDevicePool 
     , module Network.AWS.DeviceFarm.GetDevicePool
 
-    -- ** GetUpload
+    -- ** GetUpload 
     , module Network.AWS.DeviceFarm.GetUpload
 
-    -- ** ListDevicePools
+    -- ** ListDevicePools 
     , module Network.AWS.DeviceFarm.ListDevicePools
 
-    -- ** GetTest
+    -- ** GetTest 
     , module Network.AWS.DeviceFarm.GetTest
 
-    -- ** CreateDevicePool
+    -- ** CreateDevicePool 
     , module Network.AWS.DeviceFarm.CreateDevicePool
 
-    -- ** ListRuns
+    -- ** ListRuns 
     , module Network.AWS.DeviceFarm.ListRuns
 
-    -- ** ListJobs
+    -- ** ListJobs 
     , module Network.AWS.DeviceFarm.ListJobs
 
-    -- ** GetDevice
+    -- ** GetDevice 
     , module Network.AWS.DeviceFarm.GetDevice
 
-    -- ** GetJob
+    -- ** GetJob 
     , module Network.AWS.DeviceFarm.GetJob
 
-    -- ** ScheduleRun
+    -- ** ScheduleRun 
     , module Network.AWS.DeviceFarm.ScheduleRun
 
-    -- ** GetRun
+    -- ** GetRun 
     , module Network.AWS.DeviceFarm.GetRun
 
-    -- ** ListSamples
+    -- ** ListSamples 
     , module Network.AWS.DeviceFarm.ListSamples
 
-    -- ** ListSuites
+    -- ** ListSuites 
     , module Network.AWS.DeviceFarm.ListSuites
 
-    -- ** GetAccountSettings
+    -- ** GetAccountSettings 
     , module Network.AWS.DeviceFarm.GetAccountSettings
 
-    -- ** ListUploads
+    -- ** ListUploads 
     , module Network.AWS.DeviceFarm.ListUploads
 
-    -- ** GetSuite
+    -- ** GetSuite 
     , module Network.AWS.DeviceFarm.GetSuite
 
-    -- ** GetProject
+    -- ** GetProject 
     , module Network.AWS.DeviceFarm.GetProject
 
-    -- ** ListDevices
+    -- ** ListDevices 
     , module Network.AWS.DeviceFarm.ListDevices
 
-    -- ** ListUniqueProblems
+    -- ** ListUniqueProblems 
     , module Network.AWS.DeviceFarm.ListUniqueProblems
 
-    -- ** CreateProject
+    -- ** CreateProject 
     , module Network.AWS.DeviceFarm.CreateProject
 
     -- * Types
@@ -395,33 +395,33 @@ module Network.AWS.DeviceFarm
     , uContentType
     ) where
 
-import           Network.AWS.DeviceFarm.CreateDevicePool
-import           Network.AWS.DeviceFarm.CreateProject
-import           Network.AWS.DeviceFarm.CreateUpload
-import           Network.AWS.DeviceFarm.GetAccountSettings
-import           Network.AWS.DeviceFarm.GetDevice
-import           Network.AWS.DeviceFarm.GetDevicePool
-import           Network.AWS.DeviceFarm.GetDevicePoolCompatibility
-import           Network.AWS.DeviceFarm.GetJob
-import           Network.AWS.DeviceFarm.GetProject
-import           Network.AWS.DeviceFarm.GetRun
-import           Network.AWS.DeviceFarm.GetSuite
-import           Network.AWS.DeviceFarm.GetTest
-import           Network.AWS.DeviceFarm.GetUpload
-import           Network.AWS.DeviceFarm.ListArtifacts
-import           Network.AWS.DeviceFarm.ListDevicePools
-import           Network.AWS.DeviceFarm.ListDevices
-import           Network.AWS.DeviceFarm.ListJobs
-import           Network.AWS.DeviceFarm.ListProjects
-import           Network.AWS.DeviceFarm.ListRuns
-import           Network.AWS.DeviceFarm.ListSamples
-import           Network.AWS.DeviceFarm.ListSuites
-import           Network.AWS.DeviceFarm.ListTests
-import           Network.AWS.DeviceFarm.ListUniqueProblems
-import           Network.AWS.DeviceFarm.ListUploads
-import           Network.AWS.DeviceFarm.ScheduleRun
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Waiters
+import Network.AWS.DeviceFarm.CreateDevicePool
+import Network.AWS.DeviceFarm.CreateProject
+import Network.AWS.DeviceFarm.CreateUpload
+import Network.AWS.DeviceFarm.GetAccountSettings
+import Network.AWS.DeviceFarm.GetDevice
+import Network.AWS.DeviceFarm.GetDevicePool
+import Network.AWS.DeviceFarm.GetDevicePoolCompatibility
+import Network.AWS.DeviceFarm.GetJob
+import Network.AWS.DeviceFarm.GetProject
+import Network.AWS.DeviceFarm.GetRun
+import Network.AWS.DeviceFarm.GetSuite
+import Network.AWS.DeviceFarm.GetTest
+import Network.AWS.DeviceFarm.GetUpload
+import Network.AWS.DeviceFarm.ListArtifacts
+import Network.AWS.DeviceFarm.ListDevicePools
+import Network.AWS.DeviceFarm.ListDevices
+import Network.AWS.DeviceFarm.ListJobs
+import Network.AWS.DeviceFarm.ListProjects
+import Network.AWS.DeviceFarm.ListRuns
+import Network.AWS.DeviceFarm.ListSamples
+import Network.AWS.DeviceFarm.ListSuites
+import Network.AWS.DeviceFarm.ListTests
+import Network.AWS.DeviceFarm.ListUniqueProblems
+import Network.AWS.DeviceFarm.ListUploads
+import Network.AWS.DeviceFarm.ScheduleRun
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     , stdrsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to SubscribeToDatasetRequest.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 -- * 'stdDeviceId'
 data SubscribeToDataset = SubscribeToDataset'
     { _stdIdentityPoolId :: !Text
-    , _stdIdentityId     :: !Text
-    , _stdDatasetName    :: !Text
-    , _stdDeviceId       :: !Text
+    , _stdIdentityId :: !Text
+    , _stdDatasetName :: !Text
+    , _stdDeviceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscribeToDataset' smart constructor.
 subscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
-subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
+subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ = 
     SubscribeToDataset'
     { _stdIdentityPoolId = pIdentityPoolId_
     , _stdIdentityId = pIdentityId_
@@ -139,7 +141,7 @@ newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
 
 -- | 'SubscribeToDatasetResponse' smart constructor.
 subscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
-subscribeToDatasetResponse pStatus_ =
+subscribeToDatasetResponse pStatus_ = 
     SubscribeToDatasetResponse'
     { _stdrsStatus = pStatus_
     }

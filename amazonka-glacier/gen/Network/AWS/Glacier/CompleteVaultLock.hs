@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -51,10 +52,11 @@ module Network.AWS.Glacier.CompleteVaultLock
     , completeVaultLockResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input values for @CompleteVaultLock@.
 --
@@ -70,12 +72,12 @@ import           Network.AWS.Response
 data CompleteVaultLock = CompleteVaultLock'
     { _cvlAccountId :: !Text
     , _cvlVaultName :: !Text
-    , _cvlLockId    :: !Text
+    , _cvlLockId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteVaultLock' smart constructor.
 completeVaultLock :: Text -> Text -> Text -> CompleteVaultLock
-completeVaultLock pAccountId_ pVaultName_ pLockId_ =
+completeVaultLock pAccountId_ pVaultName_ pLockId_ = 
     CompleteVaultLock'
     { _cvlAccountId = pAccountId_
     , _cvlVaultName = pVaultName_
@@ -124,7 +126,7 @@ instance ToQuery CompleteVaultLock where
 
 -- | /See:/ 'completeVaultLockResponse' smart constructor.
 data CompleteVaultLockResponse =
-    CompleteVaultLockResponse'
+    CompleteVaultLockResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteVaultLockResponse' smart constructor.

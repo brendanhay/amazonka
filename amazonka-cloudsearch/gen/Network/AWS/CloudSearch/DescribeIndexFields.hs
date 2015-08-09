@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     , difsrsIndexFields
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeIndexFields@ operation.
 -- Specifies the name of the domain you want to describe. To restrict the
@@ -65,14 +67,14 @@ import           Network.AWS.Response
 --
 -- * 'difDomainName'
 data DescribeIndexFields = DescribeIndexFields'
-    { _difDeployed   :: !(Maybe Bool)
+    { _difDeployed :: !(Maybe Bool)
     , _difFieldNames :: !(Maybe [Text])
     , _difDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFields' smart constructor.
 describeIndexFields :: Text -> DescribeIndexFields
-describeIndexFields pDomainName_ =
+describeIndexFields pDomainName_ = 
     DescribeIndexFields'
     { _difDeployed = Nothing
     , _difFieldNames = Nothing
@@ -133,13 +135,13 @@ instance ToQuery DescribeIndexFields where
 --
 -- * 'difsrsIndexFields'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-    { _difsrsStatus      :: !Int
+    { _difsrsStatus :: !Int
     , _difsrsIndexFields :: ![IndexFieldStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
-describeIndexFieldsResponse pStatus_ =
+describeIndexFieldsResponse pStatus_ = 
     DescribeIndexFieldsResponse'
     { _difsrsStatus = pStatus_
     , _difsrsIndexFields = mempty

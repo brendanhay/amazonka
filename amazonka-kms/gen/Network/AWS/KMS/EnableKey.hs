@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.KMS.EnableKey
     , enableKeyResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableKey' smart constructor.
 --
@@ -50,7 +52,7 @@ newtype EnableKey = EnableKey'
 
 -- | 'EnableKey' smart constructor.
 enableKey :: Text -> EnableKey
-enableKey pKeyId_ =
+enableKey pKeyId_ = 
     EnableKey'
     { _ekKeyId = pKeyId_
     }
@@ -91,7 +93,7 @@ instance ToQuery EnableKey where
 
 -- | /See:/ 'enableKeyResponse' smart constructor.
 data EnableKeyResponse =
-    EnableKeyResponse'
+    EnableKeyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableKeyResponse' smart constructor.

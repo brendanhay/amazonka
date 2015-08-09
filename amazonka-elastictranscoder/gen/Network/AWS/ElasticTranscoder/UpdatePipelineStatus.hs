@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     , upsrsStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @UpdatePipelineStatusRequest@ structure.
 --
@@ -59,13 +61,13 @@ import           Network.AWS.Response
 --
 -- * 'upsStatus'
 data UpdatePipelineStatus = UpdatePipelineStatus'
-    { _upsId     :: !Text
+    { _upsId :: !Text
     , _upsStatus :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineStatus' smart constructor.
 updatePipelineStatus :: Text -> Text -> UpdatePipelineStatus
-updatePipelineStatus pId_ pStatus_ =
+updatePipelineStatus pId_ pStatus_ = 
     UpdatePipelineStatus'
     { _upsId = pId_
     , _upsStatus = pStatus_
@@ -120,12 +122,12 @@ instance ToQuery UpdatePipelineStatus where
 -- * 'upsrsStatus'
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
     { _upsrsPipeline :: !(Maybe Pipeline)
-    , _upsrsStatus   :: !Int
+    , _upsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineStatusResponse' smart constructor.
 updatePipelineStatusResponse :: Int -> UpdatePipelineStatusResponse
-updatePipelineStatusResponse pStatus_ =
+updatePipelineStatusResponse pStatus_ = 
     UpdatePipelineStatusResponse'
     { _upsrsPipeline = Nothing
     , _upsrsStatus = pStatus_

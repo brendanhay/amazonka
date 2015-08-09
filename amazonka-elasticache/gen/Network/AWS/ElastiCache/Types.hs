@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -367,10 +367,10 @@ module Network.AWS.ElastiCache.Types
     , tlmTagList
     ) where
 
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.ElastiCache.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.ElastiCache.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2015-02-02@ of the Amazon ElastiCache SDK.
 data ElastiCache
@@ -379,7 +379,7 @@ instance AWSService ElastiCache where
     type Sg ElastiCache = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "ElastiCache"
             , _svcPrefix = "elasticache"
@@ -390,7 +390,7 @@ instance AWSService ElastiCache where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -398,7 +398,7 @@ instance AWSService ElastiCache where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -409,51 +409,51 @@ instance AWSService ElastiCache where
 -- | The requested cache subnet group name is already in use by an existing
 -- cache subnet group.
 _CacheSubnetGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSubnetGroupAlreadyExistsFault =
+_CacheSubnetGroupAlreadyExistsFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupAlreadyExists"
 
 -- | The requested cache subnet group is currently in use.
 _CacheSubnetGroupInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSubnetGroupInUse =
+_CacheSubnetGroupInUse = 
     _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupInUse"
 
 -- | The requested cache security group name does not refer to an existing
 -- cache security group.
 _CacheSecurityGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSecurityGroupNotFoundFault =
+_CacheSecurityGroupNotFoundFault = 
     _ServiceError . hasStatus 404 . hasCode "CacheSecurityGroupNotFound"
 
 -- | You already have a reservation with the given identifier.
 _ReservedCacheNodeAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ReservedCacheNodeAlreadyExistsFault =
+_ReservedCacheNodeAlreadyExistsFault = 
     _ServiceError . hasStatus 404 . hasCode "ReservedCacheNodeAlreadyExists"
 
 -- | The specified Amazon EC2 security group is already authorized for the
 -- specified cache security group.
 _AuthorizationAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_AuthorizationAlreadyExistsFault =
+_AuthorizationAlreadyExistsFault = 
     _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
 
 -- | The request cannot be processed because it would exceed the user\'s
 -- cache node quota.
 _ReservedCacheNodeQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ReservedCacheNodeQuotaExceededFault =
+_ReservedCacheNodeQuotaExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "ReservedCacheNodeQuotaExceeded"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache subnet groups.
 _CacheSubnetGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSubnetGroupQuotaExceededFault =
+_CacheSubnetGroupQuotaExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupQuotaExceeded"
 
 -- | The specified replication group does not exist.
 _ReplicationGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ReplicationGroupNotFoundFault =
+_ReplicationGroupNotFoundFault = 
     _ServiceError . hasStatus 404 . hasCode "ReplicationGroupNotFoundFault"
 
 -- | The requested cache node offering does not exist.
 _ReservedCacheNodesOfferingNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ReservedCacheNodesOfferingNotFoundFault =
+_ReservedCacheNodesOfferingNotFoundFault = 
     _ServiceError .
     hasStatus 404 . hasCode "ReservedCacheNodesOfferingNotFound"
 
@@ -461,7 +461,7 @@ _ReservedCacheNodesOfferingNotFoundFault =
 -- have more than the allowed number of tags. The maximum number of tags
 -- permitted on a resource is 10.
 _TagQuotaPerResourceExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_TagQuotaPerResourceExceeded =
+_TagQuotaPerResourceExceeded = 
     _ServiceError . hasStatus 400 . hasCode "TagQuotaPerResourceExceeded"
 
 -- | An invalid subnet identifier was specified.
@@ -470,24 +470,24 @@ _InvalidSubnet = _ServiceError . hasStatus 400 . hasCode "InvalidSubnet"
 
 -- | The requested snapshot name does not refer to an existing snapshot.
 _SnapshotNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_SnapshotNotFoundFault =
+_SnapshotNotFoundFault = 
     _ServiceError . hasStatus 404 . hasCode "SnapshotNotFoundFault"
 
 -- | The requested cache node type is not available in the specified
 -- Availability Zone.
 _InsufficientCacheClusterCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InsufficientCacheClusterCapacityFault =
+_InsufficientCacheClusterCapacityFault = 
     _ServiceError . hasStatus 400 . hasCode "InsufficientCacheClusterCapacity"
 
 -- | The current state of the snapshot does not allow the requested action to
 -- occur.
 _InvalidSnapshotStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSnapshotStateFault =
+_InvalidSnapshotStateFault = 
     _ServiceError . hasStatus 400 . hasCode "InvalidSnapshotState"
 
 -- | You already have a snapshot with the given name.
 _SnapshotAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_SnapshotAlreadyExistsFault =
+_SnapshotAlreadyExistsFault = 
     _ServiceError . hasStatus 400 . hasCode "SnapshotAlreadyExistsFault"
 
 -- | The requested tag was not found on this resource.
@@ -497,18 +497,18 @@ _TagNotFoundFault = _ServiceError . hasStatus 404 . hasCode "TagNotFound"
 -- | The request cannot be processed because it would exceed the maximum
 -- number of snapshots.
 _SnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_SnapshotQuotaExceededFault =
+_SnapshotQuotaExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "SnapshotQuotaExceededFault"
 
 -- | A cache parameter group with the requested name already exists.
 _CacheParameterGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheParameterGroupAlreadyExistsFault =
+_CacheParameterGroupAlreadyExistsFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheParameterGroupAlreadyExists"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache nodes in a single cache cluster.
 _NodeQuotaForClusterExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_NodeQuotaForClusterExceededFault =
+_NodeQuotaForClusterExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "NodeQuotaForClusterExceeded"
 
 -- | You attempted one of the following actions:
@@ -521,44 +521,44 @@ _NodeQuotaForClusterExceededFault =
 --
 -- Neither of these are supported by ElastiCache.
 _SnapshotFeatureNotSupportedFault :: AsError a => Getting (First ServiceError) a ServiceError
-_SnapshotFeatureNotSupportedFault =
+_SnapshotFeatureNotSupportedFault = 
     _ServiceError . hasStatus 400 . hasCode "SnapshotFeatureNotSupportedFault"
 
 -- | The requested cache subnet group name does not refer to an existing
 -- cache subnet group.
 _CacheSubnetGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSubnetGroupNotFoundFault =
+_CacheSubnetGroupNotFoundFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupNotFoundFault"
 
 -- | The requested reserved cache node was not found.
 _ReservedCacheNodeNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ReservedCacheNodeNotFoundFault =
+_ReservedCacheNodeNotFoundFault = 
     _ServiceError . hasStatus 404 . hasCode "ReservedCacheNodeNotFound"
 
 -- | The value for a parameter is invalid.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValueException =
+_InvalidParameterValueException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
 -- | The VPC network is in an invalid state.
 _InvalidVPCNetworkStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidVPCNetworkStateFault =
+_InvalidVPCNetworkStateFault = 
     _ServiceError . hasStatus 400 . hasCode "InvalidVPCNetworkStateFault"
 
 -- | The requested cache cluster ID does not refer to an existing cache
 -- cluster.
 _CacheClusterNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheClusterNotFoundFault =
+_CacheClusterNotFoundFault = 
     _ServiceError . hasStatus 404 . hasCode "CacheClusterNotFound"
 
 -- | The requested replication group is not in the /available/ state.
 _InvalidReplicationGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidReplicationGroupStateFault =
+_InvalidReplicationGroupStateFault = 
     _ServiceError . hasStatus 400 . hasCode "InvalidReplicationGroupState"
 
 -- | The specified replication group already exists.
 _ReplicationGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ReplicationGroupAlreadyExistsFault =
+_ReplicationGroupAlreadyExistsFault = 
     _ServiceError . hasStatus 400 . hasCode "ReplicationGroupAlreadyExists"
 
 -- | The requested subnet is being used by another cache subnet group.
@@ -567,59 +567,59 @@ _SubnetInUse = _ServiceError . hasStatus 400 . hasCode "SubnetInUse"
 
 -- | You already have a cache cluster with the given identifier.
 _CacheClusterAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheClusterAlreadyExistsFault =
+_CacheClusterAlreadyExistsFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheClusterAlreadyExists"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache clusters per customer.
 _ClusterQuotaForCustomerExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ClusterQuotaForCustomerExceededFault =
+_ClusterQuotaForCustomerExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "ClusterQuotaForCustomerExceeded"
 
 -- | The specified Amazon EC2 security group is not authorized for the
 -- specified cache security group.
 _AuthorizationNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_AuthorizationNotFoundFault =
+_AuthorizationNotFoundFault = 
     _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache security groups.
 _CacheSecurityGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSecurityGroupQuotaExceededFault =
+_CacheSecurityGroupQuotaExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "QuotaExceeded.CacheSecurityGroup"
 
 -- | The requested cache cluster is not in the /available/ state.
 _InvalidCacheClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCacheClusterStateFault =
+_InvalidCacheClusterStateFault = 
     _ServiceError . hasStatus 400 . hasCode "InvalidCacheClusterState"
 
 -- | The request cannot be processed because it would exceed the maximum
 -- number of cache security groups.
 _CacheParameterGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheParameterGroupQuotaExceededFault =
+_CacheParameterGroupQuotaExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheParameterGroupQuotaExceeded"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of cache nodes per customer.
 _NodeQuotaForCustomerExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_NodeQuotaForCustomerExceededFault =
+_NodeQuotaForCustomerExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "NodeQuotaForCustomerExceeded"
 
 -- | The request cannot be processed because it would exceed the allowed
 -- number of subnets in a cache subnet group.
 _CacheSubnetQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSubnetQuotaExceededFault =
+_CacheSubnetQuotaExceededFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheSubnetQuotaExceededFault"
 
 -- | The requested cache parameter group name does not refer to an existing
 -- cache parameter group.
 _CacheParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheParameterGroupNotFoundFault =
+_CacheParameterGroupNotFoundFault = 
     _ServiceError . hasStatus 404 . hasCode "CacheParameterGroupNotFound"
 
 -- | Two or more incompatible parameters were specified.
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterCombinationException =
+_InvalidParameterCombinationException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
 
 -- | The requested Amazon Resource Name (ARN) does not refer to an existing
@@ -630,15 +630,15 @@ _InvalidARNFault = _ServiceError . hasStatus 400 . hasCode "InvalidARN"
 -- | The current state of the cache parameter group does not allow the
 -- requested action to occur.
 _InvalidCacheParameterGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCacheParameterGroupStateFault =
+_InvalidCacheParameterGroupStateFault = 
     _ServiceError . hasStatus 400 . hasCode "InvalidCacheParameterGroupState"
 
 -- | A cache security group with the specified name already exists.
 _CacheSecurityGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_CacheSecurityGroupAlreadyExistsFault =
+_CacheSecurityGroupAlreadyExistsFault = 
     _ServiceError . hasStatus 400 . hasCode "CacheSecurityGroupAlreadyExists"
 
 -- | The current state of the cache security group does not allow deletion.
 _InvalidCacheSecurityGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCacheSecurityGroupStateFault =
+_InvalidCacheSecurityGroupStateFault = 
     _ServiceError . hasStatus 400 . hasCode "InvalidCacheSecurityGroupState"

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,11 +43,12 @@ module Network.AWS.CloudFormation.ListStacks
     , lsrsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for ListStacks action.
 --
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 --
 -- * 'lsStackStatusFilter'
 data ListStacks = ListStacks'
-    { _lsNextToken         :: !(Maybe Text)
+    { _lsNextToken :: !(Maybe Text)
     , _lsStackStatusFilter :: !(Maybe [StackStatus])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStacks' smart constructor.
 listStacks :: ListStacks
-listStacks =
+listStacks = 
     ListStacks'
     { _lsNextToken = Nothing
     , _lsStackStatusFilter = Nothing
@@ -133,13 +135,13 @@ instance ToQuery ListStacks where
 -- * 'lsrsStatus'
 data ListStacksResponse = ListStacksResponse'
     { _lsrsStackSummaries :: !(Maybe [StackSummary])
-    , _lsrsNextToken      :: !(Maybe Text)
-    , _lsrsStatus         :: !Int
+    , _lsrsNextToken :: !(Maybe Text)
+    , _lsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStacksResponse' smart constructor.
 listStacksResponse :: Int -> ListStacksResponse
-listStacksResponse pStatus_ =
+listStacksResponse pStatus_ = 
     ListStacksResponse'
     { _lsrsStackSummaries = Nothing
     , _lsrsNextToken = Nothing

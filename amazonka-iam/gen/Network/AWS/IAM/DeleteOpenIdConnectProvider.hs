@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.IAM.DeleteOpenIdConnectProvider
     , deleteOpenIdConnectProviderResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteOpenIdConnectProvider' smart constructor.
 --
@@ -56,7 +58,7 @@ newtype DeleteOpenIdConnectProvider = DeleteOpenIdConnectProvider'
 
 -- | 'DeleteOpenIdConnectProvider' smart constructor.
 deleteOpenIdConnectProvider :: Text -> DeleteOpenIdConnectProvider
-deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
+deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ = 
     DeleteOpenIdConnectProvider'
     { _doicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     }
@@ -92,7 +94,7 @@ instance ToQuery DeleteOpenIdConnectProvider where
 
 -- | /See:/ 'deleteOpenIdConnectProviderResponse' smart constructor.
 data DeleteOpenIdConnectProviderResponse =
-    DeleteOpenIdConnectProviderResponse'
+    DeleteOpenIdConnectProviderResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteOpenIdConnectProviderResponse' smart constructor.

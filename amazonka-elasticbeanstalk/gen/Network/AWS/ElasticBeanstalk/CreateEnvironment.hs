@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -61,10 +62,11 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     , eDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -94,22 +96,22 @@ import           Network.AWS.Response
 --
 -- * 'ceEnvironmentName'
 data CreateEnvironment = CreateEnvironment'
-    { _ceCNAMEPrefix       :: !(Maybe Text)
-    , _ceTemplateName      :: !(Maybe Text)
-    , _ceOptionsToRemove   :: !(Maybe [OptionSpecification])
-    , _ceOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _ceVersionLabel      :: !(Maybe Text)
-    , _ceTier              :: !(Maybe EnvironmentTier)
+    { _ceCNAMEPrefix :: !(Maybe Text)
+    , _ceTemplateName :: !(Maybe Text)
+    , _ceOptionsToRemove :: !(Maybe [OptionSpecification])
+    , _ceOptionSettings :: !(Maybe [ConfigurationOptionSetting])
+    , _ceVersionLabel :: !(Maybe Text)
+    , _ceTier :: !(Maybe EnvironmentTier)
     , _ceSolutionStackName :: !(Maybe Text)
-    , _ceDescription       :: !(Maybe Text)
-    , _ceTags              :: !(Maybe [Tag])
-    , _ceApplicationName   :: !Text
-    , _ceEnvironmentName   :: !Text
+    , _ceDescription :: !(Maybe Text)
+    , _ceTags :: !(Maybe [Tag])
+    , _ceApplicationName :: !Text
+    , _ceEnvironmentName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEnvironment' smart constructor.
 createEnvironment :: Text -> Text -> CreateEnvironment
-createEnvironment pApplicationName_ pEnvironmentName_ =
+createEnvironment pApplicationName_ pEnvironmentName_ = 
     CreateEnvironment'
     { _ceCNAMEPrefix = Nothing
     , _ceTemplateName = Nothing

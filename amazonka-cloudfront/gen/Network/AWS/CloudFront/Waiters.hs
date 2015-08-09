@@ -15,6 +15,6 @@
 --
 module Network.AWS.CloudFront.Waiters where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.CloudFront.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter

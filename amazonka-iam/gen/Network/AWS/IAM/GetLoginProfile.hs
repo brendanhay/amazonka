@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.IAM.GetLoginProfile
     , glprsLoginProfile
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getLoginProfile' smart constructor.
 --
@@ -54,7 +56,7 @@ newtype GetLoginProfile = GetLoginProfile'
 
 -- | 'GetLoginProfile' smart constructor.
 getLoginProfile :: Text -> GetLoginProfile
-getLoginProfile pUserName_ =
+getLoginProfile pUserName_ = 
     GetLoginProfile'
     { _glpUserName = pUserName_
     }
@@ -96,13 +98,13 @@ instance ToQuery GetLoginProfile where
 --
 -- * 'glprsLoginProfile'
 data GetLoginProfileResponse = GetLoginProfileResponse'
-    { _glprsStatus       :: !Int
+    { _glprsStatus :: !Int
     , _glprsLoginProfile :: !LoginProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLoginProfileResponse' smart constructor.
 getLoginProfileResponse :: Int -> LoginProfile -> GetLoginProfileResponse
-getLoginProfileResponse pStatus_ pLoginProfile_ =
+getLoginProfileResponse pStatus_ pLoginProfile_ = 
     GetLoginProfileResponse'
     { _glprsStatus = pStatus_
     , _glprsLoginProfile = pLoginProfile_

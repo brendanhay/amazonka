@@ -18,8 +18,8 @@
 --
 module Network.AWS.DeviceFarm.Types.Product where
 
-import           Network.AWS.DeviceFarm.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.DeviceFarm.Types.Sum
+import Network.AWS.Prelude
 
 -- | A container for account-level settings within AWS Device Farm.
 --
@@ -37,7 +37,7 @@ data AccountSettings = AccountSettings'
 
 -- | 'AccountSettings' smart constructor.
 accountSettings :: AccountSettings
-accountSettings =
+accountSettings = 
     AccountSettings'
     { _asAwsAccountNumber = Nothing
     , _asUnmeteredDevices = Nothing
@@ -76,16 +76,16 @@ instance FromJSON AccountSettings where
 --
 -- * 'aType'
 data Artifact = Artifact'
-    { _aArn       :: !(Maybe Text)
-    , _aUrl       :: !(Maybe Text)
+    { _aArn :: !(Maybe Text)
+    , _aUrl :: !(Maybe Text)
     , _aExtension :: !(Maybe Text)
-    , _aName      :: !(Maybe Text)
-    , _aType      :: !(Maybe ArtifactType)
+    , _aName :: !(Maybe Text)
+    , _aType :: !(Maybe ArtifactType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
-artifact =
+artifact = 
     Artifact'
     { _aArn = Nothing
     , _aUrl = Nothing
@@ -175,14 +175,14 @@ instance FromJSON Artifact where
 --
 -- * 'cpuArchitecture'
 data CPU = CPU'
-    { _cpuFrequency    :: !(Maybe Text)
-    , _cpuClock        :: !(Maybe Double)
+    { _cpuFrequency :: !(Maybe Text)
+    , _cpuClock :: !(Maybe Double)
     , _cpuArchitecture :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CPU' smart constructor.
 cpu :: CPU
-cpu =
+cpu = 
     CPU'
     { _cpuFrequency = Nothing
     , _cpuClock = Nothing
@@ -230,18 +230,18 @@ instance FromJSON CPU where
 --
 -- * 'cErrored'
 data Counters = Counters'
-    { _cPassed  :: !(Maybe Int)
+    { _cPassed :: !(Maybe Int)
     , _cSkipped :: !(Maybe Int)
-    , _cWarned  :: !(Maybe Int)
+    , _cWarned :: !(Maybe Int)
     , _cStopped :: !(Maybe Int)
-    , _cTotal   :: !(Maybe Int)
-    , _cFailed  :: !(Maybe Int)
+    , _cTotal :: !(Maybe Int)
+    , _cFailed :: !(Maybe Int)
     , _cErrored :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Counters' smart constructor.
 counters :: Counters
-counters =
+counters = 
     Counters'
     { _cPassed = Nothing
     , _cSkipped = Nothing
@@ -326,25 +326,25 @@ instance FromJSON Counters where
 --
 -- * 'dHeapSize'
 data Device = Device'
-    { _dCarrier      :: !(Maybe Text)
-    , _dImage        :: !(Maybe Text)
+    { _dCarrier :: !(Maybe Text)
+    , _dImage :: !(Maybe Text)
     , _dManufacturer :: !(Maybe Text)
-    , _dPlatform     :: !(Maybe DevicePlatform)
-    , _dArn          :: !(Maybe Text)
-    , _dFormFactor   :: !(Maybe DeviceFormFactor)
-    , _dResolution   :: !(Maybe Resolution)
-    , _dMemory       :: !(Maybe Integer)
-    , _dRadio        :: !(Maybe Text)
-    , _dOs           :: !(Maybe Text)
-    , _dName         :: !(Maybe Text)
-    , _dModel        :: !(Maybe Text)
-    , _dCpu          :: !(Maybe CPU)
-    , _dHeapSize     :: !(Maybe Integer)
+    , _dPlatform :: !(Maybe DevicePlatform)
+    , _dArn :: !(Maybe Text)
+    , _dFormFactor :: !(Maybe DeviceFormFactor)
+    , _dResolution :: !(Maybe Resolution)
+    , _dMemory :: !(Maybe Integer)
+    , _dRadio :: !(Maybe Text)
+    , _dOs :: !(Maybe Text)
+    , _dName :: !(Maybe Text)
+    , _dModel :: !(Maybe Text)
+    , _dCpu :: !(Maybe CPU)
+    , _dHeapSize :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Device' smart constructor.
 device :: Device
-device =
+device = 
     Device'
     { _dCarrier = Nothing
     , _dImage = Nothing
@@ -467,16 +467,16 @@ instance FromJSON Device where
 --
 -- * 'dpDescription'
 data DevicePool = DevicePool'
-    { _dpArn         :: !(Maybe Text)
-    , _dpRules       :: !(Maybe [Rule])
-    , _dpName        :: !(Maybe Text)
-    , _dpType        :: !(Maybe DevicePoolType)
+    { _dpArn :: !(Maybe Text)
+    , _dpRules :: !(Maybe [Rule])
+    , _dpName :: !(Maybe Text)
+    , _dpType :: !(Maybe DevicePoolType)
     , _dpDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DevicePool' smart constructor.
 devicePool :: DevicePool
-devicePool =
+devicePool = 
     DevicePool'
     { _dpArn = Nothing
     , _dpRules = Nothing
@@ -536,14 +536,14 @@ instance FromJSON DevicePool where
 --
 -- * 'dpcrIncompatibilityMessages'
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
-    { _dpcrDevice                  :: !(Maybe Device)
-    , _dpcrCompatible              :: !(Maybe Bool)
+    { _dpcrDevice :: !(Maybe Device)
+    , _dpcrCompatible :: !(Maybe Bool)
     , _dpcrIncompatibilityMessages :: !(Maybe [IncompatibilityMessage])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DevicePoolCompatibilityResult' smart constructor.
 devicePoolCompatibilityResult :: DevicePoolCompatibilityResult
-devicePoolCompatibilityResult =
+devicePoolCompatibilityResult = 
     DevicePoolCompatibilityResult'
     { _dpcrDevice = Nothing
     , _dpcrCompatible = Nothing
@@ -580,13 +580,13 @@ instance FromJSON DevicePoolCompatibilityResult where
 --
 -- * 'imMessage'
 data IncompatibilityMessage = IncompatibilityMessage'
-    { _imType    :: !(Maybe DeviceAttribute)
+    { _imType :: !(Maybe DeviceAttribute)
     , _imMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IncompatibilityMessage' smart constructor.
 incompatibilityMessage :: IncompatibilityMessage
-incompatibilityMessage =
+incompatibilityMessage = 
     IncompatibilityMessage'
     { _imType = Nothing
     , _imMessage = Nothing
@@ -646,22 +646,22 @@ instance FromJSON IncompatibilityMessage where
 --
 -- * 'jobStarted'
 data Job = Job'
-    { _jobStatus   :: !(Maybe ExecutionStatus)
+    { _jobStatus :: !(Maybe ExecutionStatus)
     , _jobCounters :: !(Maybe Counters)
-    , _jobArn      :: !(Maybe Text)
-    , _jobCreated  :: !(Maybe POSIX)
-    , _jobDevice   :: !(Maybe Device)
-    , _jobStopped  :: !(Maybe POSIX)
-    , _jobResult   :: !(Maybe ExecutionResult)
-    , _jobName     :: !(Maybe Text)
-    , _jobType     :: !(Maybe TestType)
-    , _jobMessage  :: !(Maybe Text)
-    , _jobStarted  :: !(Maybe POSIX)
+    , _jobArn :: !(Maybe Text)
+    , _jobCreated :: !(Maybe POSIX)
+    , _jobDevice :: !(Maybe Device)
+    , _jobStopped :: !(Maybe POSIX)
+    , _jobResult :: !(Maybe ExecutionResult)
+    , _jobName :: !(Maybe Text)
+    , _jobType :: !(Maybe TestType)
+    , _jobMessage :: !(Maybe Text)
+    , _jobStarted :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Job' smart constructor.
 job :: Job
-job =
+job = 
     Job'
     { _jobStatus = Nothing
     , _jobCounters = Nothing
@@ -802,13 +802,13 @@ instance FromJSON Job where
 --
 -- * 'lLongitude'
 data Location = Location'
-    { _lLatitude  :: !Double
+    { _lLatitude :: !Double
     , _lLongitude :: !Double
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Location' smart constructor.
 location :: Double -> Double -> Location
-location pLatitude_ pLongitude_ =
+location pLatitude_ pLongitude_ = 
     Location'
     { _lLatitude = pLatitude_
     , _lLongitude = pLongitude_
@@ -848,18 +848,18 @@ instance ToJSON Location where
 --
 -- * 'pSuite'
 data Problem = Problem'
-    { _pDevice  :: !(Maybe Device)
-    , _pTest    :: !(Maybe ProblemDetail)
-    , _pResult  :: !(Maybe ExecutionResult)
-    , _pRun     :: !(Maybe ProblemDetail)
-    , _pJob     :: !(Maybe ProblemDetail)
+    { _pDevice :: !(Maybe Device)
+    , _pTest :: !(Maybe ProblemDetail)
+    , _pResult :: !(Maybe ExecutionResult)
+    , _pRun :: !(Maybe ProblemDetail)
+    , _pJob :: !(Maybe ProblemDetail)
     , _pMessage :: !(Maybe Text)
-    , _pSuite   :: !(Maybe ProblemDetail)
+    , _pSuite :: !(Maybe ProblemDetail)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Problem' smart constructor.
 problem :: Problem
-problem =
+problem = 
     Problem'
     { _pDevice = Nothing
     , _pTest = Nothing
@@ -937,13 +937,13 @@ instance FromJSON Problem where
 --
 -- * 'pdName'
 data ProblemDetail = ProblemDetail'
-    { _pdArn  :: !(Maybe Text)
+    { _pdArn :: !(Maybe Text)
     , _pdName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ProblemDetail' smart constructor.
 problemDetail :: ProblemDetail
-problemDetail =
+problemDetail = 
     ProblemDetail'
     { _pdArn = Nothing
     , _pdName = Nothing
@@ -976,14 +976,14 @@ instance FromJSON ProblemDetail where
 --
 -- * 'pName'
 data Project = Project'
-    { _pArn     :: !(Maybe Text)
+    { _pArn :: !(Maybe Text)
     , _pCreated :: !(Maybe POSIX)
-    , _pName    :: !(Maybe Text)
+    , _pName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Project' smart constructor.
 project :: Project
-project =
+project = 
     Project'
     { _pArn = Nothing
     , _pCreated = Nothing
@@ -1025,15 +1025,15 @@ instance FromJSON Project where
 --
 -- * 'rWifi'
 data Radios = Radios'
-    { _rNfc       :: !(Maybe Bool)
-    , _rGps       :: !(Maybe Bool)
+    { _rNfc :: !(Maybe Bool)
+    , _rGps :: !(Maybe Bool)
     , _rBluetooth :: !(Maybe Bool)
-    , _rWifi      :: !(Maybe Bool)
+    , _rWifi :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Radios' smart constructor.
 radios :: Radios
-radios =
+radios = 
     Radios'
     { _rNfc = Nothing
     , _rGps = Nothing
@@ -1076,12 +1076,12 @@ instance ToJSON Radios where
 -- * 'rWidth'
 data Resolution = Resolution'
     { _rHeight :: !(Maybe Int)
-    , _rWidth  :: !(Maybe Int)
+    , _rWidth :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Resolution' smart constructor.
 resolution :: Resolution
-resolution =
+resolution = 
     Resolution'
     { _rHeight = Nothing
     , _rWidth = Nothing
@@ -1114,13 +1114,13 @@ instance FromJSON Resolution where
 -- * 'rValue'
 data Rule = Rule'
     { _rAttribute :: !(Maybe DeviceAttribute)
-    , _rOperator  :: !(Maybe RuleOperator)
-    , _rValue     :: !(Maybe Text)
+    , _rOperator :: !(Maybe RuleOperator)
+    , _rValue :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Rule' smart constructor.
 rule :: Rule
-rule =
+rule = 
     Rule'
     { _rAttribute = Nothing
     , _rOperator = Nothing
@@ -1210,25 +1210,25 @@ instance ToJSON Rule where
 --
 -- * 'runStarted'
 data Run = Run'
-    { _runStatus        :: !(Maybe ExecutionStatus)
+    { _runStatus :: !(Maybe ExecutionStatus)
     , _runBillingMethod :: !(Maybe BillingMethod)
-    , _runCounters      :: !(Maybe Counters)
-    , _runPlatform      :: !(Maybe DevicePlatform)
-    , _runArn           :: !(Maybe Text)
-    , _runCreated       :: !(Maybe POSIX)
+    , _runCounters :: !(Maybe Counters)
+    , _runPlatform :: !(Maybe DevicePlatform)
+    , _runArn :: !(Maybe Text)
+    , _runCreated :: !(Maybe POSIX)
     , _runCompletedJobs :: !(Maybe Int)
-    , _runStopped       :: !(Maybe POSIX)
-    , _runResult        :: !(Maybe ExecutionResult)
-    , _runName          :: !(Maybe Text)
-    , _runType          :: !(Maybe TestType)
-    , _runMessage       :: !(Maybe Text)
-    , _runTotalJobs     :: !(Maybe Int)
-    , _runStarted       :: !(Maybe POSIX)
+    , _runStopped :: !(Maybe POSIX)
+    , _runResult :: !(Maybe ExecutionResult)
+    , _runName :: !(Maybe Text)
+    , _runType :: !(Maybe TestType)
+    , _runMessage :: !(Maybe Text)
+    , _runTotalJobs :: !(Maybe Int)
+    , _runStarted :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Run' smart constructor.
 run :: Run
-run =
+run = 
     Run'
     { _runStatus = Nothing
     , _runBillingMethod = Nothing
@@ -1394,14 +1394,14 @@ instance FromJSON Run where
 --
 -- * 'sType'
 data Sample = Sample'
-    { _sArn  :: !(Maybe Text)
-    , _sUrl  :: !(Maybe Text)
+    { _sArn :: !(Maybe Text)
+    , _sUrl :: !(Maybe Text)
     , _sType :: !(Maybe SampleType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Sample' smart constructor.
 sample :: Sample
-sample =
+sample = 
     Sample'
     { _sArn = Nothing
     , _sUrl = Nothing
@@ -1492,18 +1492,18 @@ instance FromJSON Sample where
 --
 -- * 'srcAuxiliaryApps'
 data ScheduleRunConfiguration = ScheduleRunConfiguration'
-    { _srcBillingMethod       :: !(Maybe BillingMethod)
-    , _srcRadios              :: !(Maybe Radios)
-    , _srcLocation            :: !(Maybe Location)
-    , _srcLocale              :: !(Maybe Text)
-    , _srcNetworkProfileARN   :: !(Maybe Text)
+    { _srcBillingMethod :: !(Maybe BillingMethod)
+    , _srcRadios :: !(Maybe Radios)
+    , _srcLocation :: !(Maybe Location)
+    , _srcLocale :: !(Maybe Text)
+    , _srcNetworkProfileARN :: !(Maybe Text)
     , _srcExtraDataPackageARN :: !(Maybe Text)
-    , _srcAuxiliaryApps       :: !(Maybe [Text])
+    , _srcAuxiliaryApps :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScheduleRunConfiguration' smart constructor.
 scheduleRunConfiguration :: ScheduleRunConfiguration
-scheduleRunConfiguration =
+scheduleRunConfiguration = 
     ScheduleRunConfiguration'
     { _srcBillingMethod = Nothing
     , _srcRadios = Nothing
@@ -1570,14 +1570,14 @@ instance ToJSON ScheduleRunConfiguration where
 -- * 'srtType'
 data ScheduleRunTest = ScheduleRunTest'
     { _srtTestPackageARN :: !(Maybe Text)
-    , _srtParameters     :: !(Maybe (Map Text Text))
-    , _srtFilter         :: !(Maybe Text)
-    , _srtType           :: !TestType
+    , _srtParameters :: !(Maybe (Map Text Text))
+    , _srtFilter :: !(Maybe Text)
+    , _srtType :: !TestType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScheduleRunTest' smart constructor.
 scheduleRunTest :: TestType -> ScheduleRunTest
-scheduleRunTest pType_ =
+scheduleRunTest pType_ = 
     ScheduleRunTest'
     { _srtTestPackageARN = Nothing
     , _srtParameters = Nothing
@@ -1658,21 +1658,21 @@ instance ToJSON ScheduleRunTest where
 --
 -- * 'suiStarted'
 data Suite = Suite'
-    { _suiStatus   :: !(Maybe ExecutionStatus)
+    { _suiStatus :: !(Maybe ExecutionStatus)
     , _suiCounters :: !(Maybe Counters)
-    , _suiArn      :: !(Maybe Text)
-    , _suiCreated  :: !(Maybe POSIX)
-    , _suiStopped  :: !(Maybe POSIX)
-    , _suiResult   :: !(Maybe ExecutionResult)
-    , _suiName     :: !(Maybe Text)
-    , _suiType     :: !(Maybe TestType)
-    , _suiMessage  :: !(Maybe Text)
-    , _suiStarted  :: !(Maybe POSIX)
+    , _suiArn :: !(Maybe Text)
+    , _suiCreated :: !(Maybe POSIX)
+    , _suiStopped :: !(Maybe POSIX)
+    , _suiResult :: !(Maybe ExecutionResult)
+    , _suiName :: !(Maybe Text)
+    , _suiType :: !(Maybe TestType)
+    , _suiMessage :: !(Maybe Text)
+    , _suiStarted :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suite' smart constructor.
 suite :: Suite
-suite =
+suite = 
     Suite'
     { _suiStatus = Nothing
     , _suiCounters = Nothing
@@ -1820,21 +1820,21 @@ instance FromJSON Suite where
 --
 -- * 'tStarted'
 data Test = Test'
-    { _tStatus   :: !(Maybe ExecutionStatus)
+    { _tStatus :: !(Maybe ExecutionStatus)
     , _tCounters :: !(Maybe Counters)
-    , _tArn      :: !(Maybe Text)
-    , _tCreated  :: !(Maybe POSIX)
-    , _tStopped  :: !(Maybe POSIX)
-    , _tResult   :: !(Maybe ExecutionResult)
-    , _tName     :: !(Maybe Text)
-    , _tType     :: !(Maybe TestType)
-    , _tMessage  :: !(Maybe Text)
-    , _tStarted  :: !(Maybe POSIX)
+    , _tArn :: !(Maybe Text)
+    , _tCreated :: !(Maybe POSIX)
+    , _tStopped :: !(Maybe POSIX)
+    , _tResult :: !(Maybe ExecutionResult)
+    , _tName :: !(Maybe Text)
+    , _tType :: !(Maybe TestType)
+    , _tMessage :: !(Maybe Text)
+    , _tStarted :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Test' smart constructor.
 test :: Test
-test =
+test = 
     Test'
     { _tStatus = Nothing
     , _tCounters = Nothing
@@ -1967,12 +1967,12 @@ instance FromJSON Test where
 -- * 'upMessage'
 data UniqueProblem = UniqueProblem'
     { _upProblems :: !(Maybe [Problem])
-    , _upMessage  :: !(Maybe Text)
+    , _upMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UniqueProblem' smart constructor.
 uniqueProblem :: UniqueProblem
-uniqueProblem =
+uniqueProblem = 
     UniqueProblem'
     { _upProblems = Nothing
     , _upMessage = Nothing
@@ -2018,20 +2018,20 @@ instance FromJSON UniqueProblem where
 --
 -- * 'uContentType'
 data Upload = Upload'
-    { _uStatus      :: !(Maybe UploadStatus)
-    , _uArn         :: !(Maybe Text)
-    , _uCreated     :: !(Maybe POSIX)
-    , _uUrl         :: !(Maybe Text)
-    , _uName        :: !(Maybe Text)
-    , _uMetadata    :: !(Maybe Text)
-    , _uType        :: !(Maybe UploadType)
-    , _uMessage     :: !(Maybe Text)
+    { _uStatus :: !(Maybe UploadStatus)
+    , _uArn :: !(Maybe Text)
+    , _uCreated :: !(Maybe POSIX)
+    , _uUrl :: !(Maybe Text)
+    , _uName :: !(Maybe Text)
+    , _uMetadata :: !(Maybe Text)
+    , _uType :: !(Maybe UploadType)
+    , _uMessage :: !(Maybe Text)
     , _uContentType :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Upload' smart constructor.
 upload :: Upload
-upload =
+upload = 
     Upload'
     { _uStatus = Nothing
     , _uArn = Nothing

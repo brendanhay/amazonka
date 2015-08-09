@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     , liprsStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the ListIdentityPools action.
 --
@@ -55,13 +57,13 @@ import           Network.AWS.Response
 --
 -- * 'lipMaxResults'
 data ListIdentityPools = ListIdentityPools'
-    { _lipNextToken  :: !(Maybe Text)
+    { _lipNextToken :: !(Maybe Text)
     , _lipMaxResults :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPools' smart constructor.
 listIdentityPools :: Natural -> ListIdentityPools
-listIdentityPools pMaxResults_ =
+listIdentityPools pMaxResults_ = 
     ListIdentityPools'
     { _lipNextToken = Nothing
     , _lipMaxResults = _Nat # pMaxResults_
@@ -122,13 +124,13 @@ instance ToQuery ListIdentityPools where
 -- * 'liprsStatus'
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
     { _liprsIdentityPools :: !(Maybe [IdentityPoolShortDescription])
-    , _liprsNextToken     :: !(Maybe Text)
-    , _liprsStatus        :: !Int
+    , _liprsNextToken :: !(Maybe Text)
+    , _liprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
 listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse
-listIdentityPoolsResponse pStatus_ =
+listIdentityPoolsResponse pStatus_ = 
     ListIdentityPoolsResponse'
     { _liprsIdentityPools = Nothing
     , _liprsNextToken = Nothing

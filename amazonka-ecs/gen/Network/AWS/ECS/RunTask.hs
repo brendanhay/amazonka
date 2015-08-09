@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.ECS.RunTask
     , rtrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'runTask' smart constructor.
 --
@@ -64,16 +66,16 @@ import           Network.AWS.Response
 --
 -- * 'rtTaskDefinition'
 data RunTask = RunTask'
-    { _rtOverrides      :: !(Maybe TaskOverride)
-    , _rtCluster        :: !(Maybe Text)
-    , _rtCount          :: !(Maybe Int)
-    , _rtStartedBy      :: !(Maybe Text)
+    { _rtOverrides :: !(Maybe TaskOverride)
+    , _rtCluster :: !(Maybe Text)
+    , _rtCount :: !(Maybe Int)
+    , _rtStartedBy :: !(Maybe Text)
     , _rtTaskDefinition :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunTask' smart constructor.
 runTask :: Text -> RunTask
-runTask pTaskDefinition_ =
+runTask pTaskDefinition_ = 
     RunTask'
     { _rtOverrides = Nothing
     , _rtCluster = Nothing
@@ -172,13 +174,13 @@ instance ToQuery RunTask where
 -- * 'rtrsStatus'
 data RunTaskResponse = RunTaskResponse'
     { _rtrsFailures :: !(Maybe [Failure])
-    , _rtrsTasks    :: !(Maybe [Task])
-    , _rtrsStatus   :: !Int
+    , _rtrsTasks :: !(Maybe [Task])
+    , _rtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunTaskResponse' smart constructor.
 runTaskResponse :: Int -> RunTaskResponse
-runTaskResponse pStatus_ =
+runTaskResponse pStatus_ = 
     RunTaskResponse'
     { _rtrsFailures = Nothing
     , _rtrsTasks = Nothing

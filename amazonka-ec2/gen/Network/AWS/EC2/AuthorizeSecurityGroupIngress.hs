@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -62,10 +63,11 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     , authorizeSecurityGroupIngressResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'authorizeSecurityGroupIngress' smart constructor.
 --
@@ -91,21 +93,21 @@ import           Network.AWS.Response
 --
 -- * 'asgiDryRun'
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
-    { _asgiFromPort                   :: !(Maybe Int)
-    , _asgiIPPermissions              :: !(Maybe [IPPermission])
-    , _asgiIPProtocol                 :: !(Maybe Text)
-    , _asgiGroupId                    :: !(Maybe Text)
-    , _asgiToPort                     :: !(Maybe Int)
-    , _asgiCIdRIP                     :: !(Maybe Text)
-    , _asgiGroupName                  :: !(Maybe Text)
+    { _asgiFromPort :: !(Maybe Int)
+    , _asgiIPPermissions :: !(Maybe [IPPermission])
+    , _asgiIPProtocol :: !(Maybe Text)
+    , _asgiGroupId :: !(Maybe Text)
+    , _asgiToPort :: !(Maybe Int)
+    , _asgiCIdRIP :: !(Maybe Text)
+    , _asgiGroupName :: !(Maybe Text)
     , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _asgiSourceSecurityGroupName    :: !(Maybe Text)
-    , _asgiDryRun                     :: !(Maybe Bool)
+    , _asgiSourceSecurityGroupName :: !(Maybe Text)
+    , _asgiDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupIngress' smart constructor.
 authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
-authorizeSecurityGroupIngress =
+authorizeSecurityGroupIngress = 
     AuthorizeSecurityGroupIngress'
     { _asgiFromPort = Nothing
     , _asgiIPPermissions = Nothing
@@ -216,7 +218,7 @@ instance ToQuery AuthorizeSecurityGroupIngress where
 
 -- | /See:/ 'authorizeSecurityGroupIngressResponse' smart constructor.
 data AuthorizeSecurityGroupIngressResponse =
-    AuthorizeSecurityGroupIngressResponse'
+    AuthorizeSecurityGroupIngressResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupIngressResponse' smart constructor.

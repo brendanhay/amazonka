@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CodeDeploy.ListApplications
     , larsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list applications operation.
 --
@@ -56,7 +58,7 @@ newtype ListApplications = ListApplications'
 
 -- | 'ListApplications' smart constructor.
 listApplications :: ListApplications
-listApplications =
+listApplications = 
     ListApplications'
     { _laNextToken = Nothing
     }
@@ -111,14 +113,14 @@ instance ToQuery ListApplications where
 --
 -- * 'larsStatus'
 data ListApplicationsResponse = ListApplicationsResponse'
-    { _larsNextToken    :: !(Maybe Text)
+    { _larsNextToken :: !(Maybe Text)
     , _larsApplications :: !(Maybe [Text])
-    , _larsStatus       :: !Int
+    , _larsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationsResponse' smart constructor.
 listApplicationsResponse :: Int -> ListApplicationsResponse
-listApplicationsResponse pStatus_ =
+listApplicationsResponse pStatus_ = 
     ListApplicationsResponse'
     { _larsNextToken = Nothing
     , _larsApplications = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -89,11 +90,12 @@ module Network.AWS.EC2.DescribeSnapshots
     , dssrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSnapshots' smart constructor.
 --
@@ -113,18 +115,18 @@ import           Network.AWS.Response
 --
 -- * 'dssMaxResults'
 data DescribeSnapshots = DescribeSnapshots'
-    { _dssOwnerIds            :: !(Maybe [Text])
-    , _dssFilters             :: !(Maybe [Filter])
-    , _dssNextToken           :: !(Maybe Text)
-    , _dssSnapshotIds         :: !(Maybe [Text])
+    { _dssOwnerIds :: !(Maybe [Text])
+    , _dssFilters :: !(Maybe [Filter])
+    , _dssNextToken :: !(Maybe Text)
+    , _dssSnapshotIds :: !(Maybe [Text])
     , _dssRestorableByUserIds :: !(Maybe [Text])
-    , _dssDryRun              :: !(Maybe Bool)
-    , _dssMaxResults          :: !(Maybe Int)
+    , _dssDryRun :: !(Maybe Bool)
+    , _dssMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
-describeSnapshots =
+describeSnapshots = 
     DescribeSnapshots'
     { _dssOwnerIds = Nothing
     , _dssFilters = Nothing
@@ -272,12 +274,12 @@ instance ToQuery DescribeSnapshots where
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dssrsNextToken :: !(Maybe Text)
     , _dssrsSnapshots :: !(Maybe [Snapshot])
-    , _dssrsStatus    :: !Int
+    , _dssrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus_ =
+describeSnapshotsResponse pStatus_ = 
     DescribeSnapshotsResponse'
     { _dssrsNextToken = Nothing
     , _dssrsSnapshots = Nothing

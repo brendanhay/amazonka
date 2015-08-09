@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.Glacier.DeleteVaultNotifications
     , deleteVaultNotificationsResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for deleting a vault notification configuration from an
 -- Amazon Glacier vault.
@@ -72,7 +74,7 @@ data DeleteVaultNotifications = DeleteVaultNotifications'
 
 -- | 'DeleteVaultNotifications' smart constructor.
 deleteVaultNotifications :: Text -> Text -> DeleteVaultNotifications
-deleteVaultNotifications pAccountId_ pVaultName_ =
+deleteVaultNotifications pAccountId_ pVaultName_ = 
     DeleteVaultNotifications'
     { _dvnAccountId = pAccountId_
     , _dvnVaultName = pVaultName_
@@ -112,7 +114,7 @@ instance ToQuery DeleteVaultNotifications where
 
 -- | /See:/ 'deleteVaultNotificationsResponse' smart constructor.
 data DeleteVaultNotificationsResponse =
-    DeleteVaultNotificationsResponse'
+    DeleteVaultNotificationsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultNotificationsResponse' smart constructor.

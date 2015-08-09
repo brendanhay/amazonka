@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.ImportExport.GetShippingLabel
     , gslrsStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getShippingLabel' smart constructor.
 --
@@ -82,23 +84,23 @@ import           Network.AWS.Response
 --
 -- * 'gslJobIds'
 data GetShippingLabel = GetShippingLabel'
-    { _gslStreet3         :: !(Maybe Text)
-    , _gslAPIVersion      :: !(Maybe Text)
-    , _gslPostalCode      :: !(Maybe Text)
-    , _gslCountry         :: !(Maybe Text)
+    { _gslStreet3 :: !(Maybe Text)
+    , _gslAPIVersion :: !(Maybe Text)
+    , _gslPostalCode :: !(Maybe Text)
+    , _gslCountry :: !(Maybe Text)
     , _gslStateOrProvince :: !(Maybe Text)
-    , _gslStreet2         :: !(Maybe Text)
-    , _gslName            :: !(Maybe Text)
-    , _gslCompany         :: !(Maybe Text)
-    , _gslCity            :: !(Maybe Text)
-    , _gslPhoneNumber     :: !(Maybe Text)
-    , _gslStreet1         :: !(Maybe Text)
-    , _gslJobIds          :: ![Text]
+    , _gslStreet2 :: !(Maybe Text)
+    , _gslName :: !(Maybe Text)
+    , _gslCompany :: !(Maybe Text)
+    , _gslCity :: !(Maybe Text)
+    , _gslPhoneNumber :: !(Maybe Text)
+    , _gslStreet1 :: !(Maybe Text)
+    , _gslJobIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShippingLabel' smart constructor.
 getShippingLabel :: GetShippingLabel
-getShippingLabel =
+getShippingLabel = 
     GetShippingLabel'
     { _gslStreet3 = Nothing
     , _gslAPIVersion = Nothing
@@ -207,13 +209,13 @@ instance ToQuery GetShippingLabel where
 -- * 'gslrsStatus'
 data GetShippingLabelResponse = GetShippingLabelResponse'
     { _gslrsShippingLabelURL :: !(Maybe Text)
-    , _gslrsWarning          :: !(Maybe Text)
-    , _gslrsStatus           :: !Int
+    , _gslrsWarning :: !(Maybe Text)
+    , _gslrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShippingLabelResponse' smart constructor.
 getShippingLabelResponse :: Int -> GetShippingLabelResponse
-getShippingLabelResponse pStatus_ =
+getShippingLabelResponse pStatus_ = 
     GetShippingLabelResponse'
     { _gslrsShippingLabelURL = Nothing
     , _gslrsWarning = Nothing

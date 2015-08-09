@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -96,10 +97,11 @@ module Network.AWS.Kinesis.PutRecords
     , prsRecords
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A @PutRecords@ request.
 --
@@ -112,12 +114,12 @@ import           Network.AWS.Response
 -- * 'pStreamName'
 data PutRecords = PutRecords'
     { _pRecordEntries :: !(List1 PutRecordsRequestEntry)
-    , _pStreamName    :: !Text
+    , _pStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecords' smart constructor.
 putRecords :: NonEmpty PutRecordsRequestEntry -> Text -> PutRecords
-putRecords pRecordEntries_ pStreamName_ =
+putRecords pRecordEntries_ pStreamName_ = 
     PutRecords'
     { _pRecordEntries = _List1 # pRecordEntries_
     , _pStreamName = pStreamName_
@@ -176,13 +178,13 @@ instance ToQuery PutRecords where
 -- * 'prsRecords'
 data PutRecordsResponse = PutRecordsResponse'
     { _prsFailedRecordCount :: !(Maybe Nat)
-    , _prsStatus            :: !Int
-    , _prsRecords           :: !(List1 PutRecordsResultEntry)
+    , _prsStatus :: !Int
+    , _prsRecords :: !(List1 PutRecordsResultEntry)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsResponse' smart constructor.
 putRecordsResponse :: Int -> NonEmpty PutRecordsResultEntry -> PutRecordsResponse
-putRecordsResponse pStatus_ pRecords_ =
+putRecordsResponse pStatus_ pRecords_ = 
     PutRecordsResponse'
     { _prsFailedRecordCount = Nothing
     , _prsStatus = pStatus_

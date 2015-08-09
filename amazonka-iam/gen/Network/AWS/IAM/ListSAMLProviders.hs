@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,14 +38,15 @@ module Network.AWS.IAM.ListSAMLProviders
     , lsamlprsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listSAMLProviders' smart constructor.
 data ListSAMLProviders =
-    ListSAMLProviders'
+    ListSAMLProviders' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSAMLProviders' smart constructor.
@@ -87,12 +89,12 @@ instance ToQuery ListSAMLProviders where
 -- * 'lsamlprsStatus'
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
     { _lsamlprsSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
-    , _lsamlprsStatus           :: !Int
+    , _lsamlprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
 listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse
-listSAMLProvidersResponse pStatus_ =
+listSAMLProvidersResponse pStatus_ = 
     ListSAMLProvidersResponse'
     { _lsamlprsSAMLProviderList = Nothing
     , _lsamlprsStatus = pStatus_

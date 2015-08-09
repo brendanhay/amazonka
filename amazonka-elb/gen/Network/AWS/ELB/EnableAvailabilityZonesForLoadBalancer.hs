@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     , eazflbrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
 --
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 --
 -- * 'eazflbAvailabilityZones'
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
-    { _eazflbLoadBalancerName  :: !Text
+    { _eazflbLoadBalancerName :: !Text
     , _eazflbAvailabilityZones :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableAvailabilityZonesForLoadBalancer' smart constructor.
 enableAvailabilityZonesForLoadBalancer :: Text -> EnableAvailabilityZonesForLoadBalancer
-enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
+enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ = 
     EnableAvailabilityZonesForLoadBalancer'
     { _eazflbLoadBalancerName = pLoadBalancerName_
     , _eazflbAvailabilityZones = mempty
@@ -123,12 +125,12 @@ instance ToQuery
 -- * 'eazflbrsStatus'
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones :: !(Maybe [Text])
-    , _eazflbrsStatus            :: !Int
+    , _eazflbrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 enableAvailabilityZonesForLoadBalancerResponse :: Int -> EnableAvailabilityZonesForLoadBalancerResponse
-enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
+enableAvailabilityZonesForLoadBalancerResponse pStatus_ = 
     EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones = Nothing
     , _eazflbrsStatus = pStatus_

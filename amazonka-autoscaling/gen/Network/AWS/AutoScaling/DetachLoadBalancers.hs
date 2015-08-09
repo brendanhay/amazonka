@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     , dlbsrsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancers' smart constructor.
 --
@@ -56,12 +58,12 @@ import           Network.AWS.Response
 -- * 'dLoadBalancerNames'
 data DetachLoadBalancers = DetachLoadBalancers'
     { _dAutoScalingGroupName :: !(Maybe Text)
-    , _dLoadBalancerNames    :: !(Maybe [Text])
+    , _dLoadBalancerNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancers' smart constructor.
 detachLoadBalancers :: DetachLoadBalancers
-detachLoadBalancers =
+detachLoadBalancers = 
     DetachLoadBalancers'
     { _dAutoScalingGroupName = Nothing
     , _dLoadBalancerNames = Nothing
@@ -112,7 +114,7 @@ newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
 detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
-detachLoadBalancersResponse pStatus_ =
+detachLoadBalancersResponse pStatus_ = 
     DetachLoadBalancersResponse'
     { _dlbsrsStatus = pStatus_
     }

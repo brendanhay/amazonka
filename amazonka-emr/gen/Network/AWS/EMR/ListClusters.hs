@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,11 +45,12 @@ module Network.AWS.EMR.ListClusters
     , lcrsStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines how the ListClusters action filters the list of
 -- clusters that it returns.
@@ -65,15 +67,15 @@ import           Network.AWS.Response
 --
 -- * 'lcCreatedBefore'
 data ListClusters = ListClusters'
-    { _lcCreatedAfter  :: !(Maybe POSIX)
-    , _lcMarker        :: !(Maybe Text)
+    { _lcCreatedAfter :: !(Maybe POSIX)
+    , _lcMarker :: !(Maybe Text)
     , _lcClusterStates :: !(Maybe [ClusterState])
     , _lcCreatedBefore :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
-listClusters =
+listClusters = 
     ListClusters'
     { _lcCreatedAfter = Nothing
     , _lcMarker = Nothing
@@ -151,14 +153,14 @@ instance ToQuery ListClusters where
 --
 -- * 'lcrsStatus'
 data ListClustersResponse = ListClustersResponse'
-    { _lcrsMarker   :: !(Maybe Text)
+    { _lcrsMarker :: !(Maybe Text)
     , _lcrsClusters :: !(Maybe [ClusterSummary])
-    , _lcrsStatus   :: !Int
+    , _lcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
-listClustersResponse pStatus_ =
+listClustersResponse pStatus_ = 
     ListClustersResponse'
     { _lcrsMarker = Nothing
     , _lcrsClusters = Nothing

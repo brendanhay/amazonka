@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.EC2.DeleteVPNConnection
     , deleteVPNConnectionResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteVPNConnection' smart constructor.
 --
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 --
 -- * 'dvcVPNConnectionId'
 data DeleteVPNConnection = DeleteVPNConnection'
-    { _dvcDryRun          :: !(Maybe Bool)
+    { _dvcDryRun :: !(Maybe Bool)
     , _dvcVPNConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNConnection' smart constructor.
 deleteVPNConnection :: Text -> DeleteVPNConnection
-deleteVPNConnection pVPNConnectionId_ =
+deleteVPNConnection pVPNConnectionId_ = 
     DeleteVPNConnection'
     { _dvcDryRun = Nothing
     , _dvcVPNConnectionId = pVPNConnectionId_
@@ -103,7 +105,7 @@ instance ToQuery DeleteVPNConnection where
 
 -- | /See:/ 'deleteVPNConnectionResponse' smart constructor.
 data DeleteVPNConnectionResponse =
-    DeleteVPNConnectionResponse'
+    DeleteVPNConnectionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNConnectionResponse' smart constructor.

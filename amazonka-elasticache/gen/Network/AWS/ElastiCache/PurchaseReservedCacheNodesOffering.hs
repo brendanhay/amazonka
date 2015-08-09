@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     , prcnorsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /PurchaseReservedCacheNodesOffering/ action.
 --
@@ -56,14 +58,14 @@ import           Network.AWS.Response
 --
 -- * 'prcnoReservedCacheNodesOfferingId'
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-    { _prcnoCacheNodeCount               :: !(Maybe Int)
-    , _prcnoReservedCacheNodeId          :: !(Maybe Text)
+    { _prcnoCacheNodeCount :: !(Maybe Int)
+    , _prcnoReservedCacheNodeId :: !(Maybe Text)
     , _prcnoReservedCacheNodesOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedCacheNodesOffering' smart constructor.
 purchaseReservedCacheNodesOffering :: Text -> PurchaseReservedCacheNodesOffering
-purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
+purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ = 
     PurchaseReservedCacheNodesOffering'
     { _prcnoCacheNodeCount = Nothing
     , _prcnoReservedCacheNodeId = Nothing
@@ -131,12 +133,12 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 -- * 'prcnorsStatus'
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorsReservedCacheNode :: !(Maybe ReservedCacheNode)
-    , _prcnorsStatus            :: !Int
+    , _prcnorsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
 purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse
-purchaseReservedCacheNodesOfferingResponse pStatus_ =
+purchaseReservedCacheNodesOfferingResponse pStatus_ = 
     PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorsReservedCacheNode = Nothing
     , _prcnorsStatus = pStatus_

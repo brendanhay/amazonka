@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.CloudWatchLogs.PutDestination
     , pdrsStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putDestination' smart constructor.
 --
@@ -66,13 +68,13 @@ import           Network.AWS.Response
 -- * 'pdRoleARN'
 data PutDestination = PutDestination'
     { _pdDestinationName :: !Text
-    , _pdTargetARN       :: !Text
-    , _pdRoleARN         :: !Text
+    , _pdTargetARN :: !Text
+    , _pdRoleARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDestination' smart constructor.
 putDestination :: Text -> Text -> Text -> PutDestination
-putDestination pDestinationName_ pTargetARN_ pRoleARN_ =
+putDestination pDestinationName_ pTargetARN_ pRoleARN_ = 
     PutDestination'
     { _pdDestinationName = pDestinationName_
     , _pdTargetARN = pTargetARN_
@@ -132,12 +134,12 @@ instance ToQuery PutDestination where
 -- * 'pdrsStatus'
 data PutDestinationResponse = PutDestinationResponse'
     { _pdrsDestination :: !(Maybe Destination)
-    , _pdrsStatus      :: !Int
+    , _pdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDestinationResponse' smart constructor.
 putDestinationResponse :: Int -> PutDestinationResponse
-putDestinationResponse pStatus_ =
+putDestinationResponse pStatus_ = 
     PutDestinationResponse'
     { _pdrsDestination = Nothing
     , _pdrsStatus = pStatus_

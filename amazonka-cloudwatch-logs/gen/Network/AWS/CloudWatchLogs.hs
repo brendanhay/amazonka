@@ -92,70 +92,70 @@ module Network.AWS.CloudWatchLogs
     -- * Operations
     -- $operations
 
-    -- ** DescribeDestinations
+    -- ** DescribeDestinations 
     , module Network.AWS.CloudWatchLogs.DescribeDestinations
 
-    -- ** DeleteDestination
+    -- ** DeleteDestination 
     , module Network.AWS.CloudWatchLogs.DeleteDestination
 
-    -- ** PutDestination
+    -- ** PutDestination 
     , module Network.AWS.CloudWatchLogs.PutDestination
 
-    -- ** DescribeSubscriptionFilters
+    -- ** DescribeSubscriptionFilters 
     , module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
 
-    -- ** GetLogEvents
+    -- ** GetLogEvents 
     , module Network.AWS.CloudWatchLogs.GetLogEvents
 
-    -- ** DescribeLogGroups
+    -- ** DescribeLogGroups 
     , module Network.AWS.CloudWatchLogs.DescribeLogGroups
 
-    -- ** FilterLogEvents
+    -- ** FilterLogEvents 
     , module Network.AWS.CloudWatchLogs.FilterLogEvents
 
-    -- ** DeleteLogStream
+    -- ** DeleteLogStream 
     , module Network.AWS.CloudWatchLogs.DeleteLogStream
 
-    -- ** CreateLogStream
+    -- ** CreateLogStream 
     , module Network.AWS.CloudWatchLogs.CreateLogStream
 
-    -- ** CreateLogGroup
+    -- ** CreateLogGroup 
     , module Network.AWS.CloudWatchLogs.CreateLogGroup
 
-    -- ** PutLogEvents
+    -- ** PutLogEvents 
     , module Network.AWS.CloudWatchLogs.PutLogEvents
 
-    -- ** DeleteSubscriptionFilter
+    -- ** DeleteSubscriptionFilter 
     , module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
 
-    -- ** PutSubscriptionFilter
+    -- ** PutSubscriptionFilter 
     , module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
 
-    -- ** DeleteLogGroup
+    -- ** DeleteLogGroup 
     , module Network.AWS.CloudWatchLogs.DeleteLogGroup
 
-    -- ** TestMetricFilter
+    -- ** TestMetricFilter 
     , module Network.AWS.CloudWatchLogs.TestMetricFilter
 
-    -- ** DescribeMetricFilters
+    -- ** DescribeMetricFilters 
     , module Network.AWS.CloudWatchLogs.DescribeMetricFilters
 
-    -- ** DeleteMetricFilter
+    -- ** DeleteMetricFilter 
     , module Network.AWS.CloudWatchLogs.DeleteMetricFilter
 
-    -- ** PutRetentionPolicy
+    -- ** PutRetentionPolicy 
     , module Network.AWS.CloudWatchLogs.PutRetentionPolicy
 
-    -- ** DeleteRetentionPolicy
+    -- ** DeleteRetentionPolicy 
     , module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 
-    -- ** PutMetricFilter
+    -- ** PutMetricFilter 
     , module Network.AWS.CloudWatchLogs.PutMetricFilter
 
-    -- ** PutDestinationPolicy
+    -- ** PutDestinationPolicy 
     , module Network.AWS.CloudWatchLogs.PutDestinationPolicy
 
-    -- ** DescribeLogStreams
+    -- ** DescribeLogStreams 
     , module Network.AWS.CloudWatchLogs.DescribeLogStreams
 
     -- * Types
@@ -263,30 +263,30 @@ module Network.AWS.CloudWatchLogs
     , sfRoleARN
     ) where
 
-import           Network.AWS.CloudWatchLogs.CreateLogGroup
-import           Network.AWS.CloudWatchLogs.CreateLogStream
-import           Network.AWS.CloudWatchLogs.DeleteDestination
-import           Network.AWS.CloudWatchLogs.DeleteLogGroup
-import           Network.AWS.CloudWatchLogs.DeleteLogStream
-import           Network.AWS.CloudWatchLogs.DeleteMetricFilter
-import           Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-import           Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-import           Network.AWS.CloudWatchLogs.DescribeDestinations
-import           Network.AWS.CloudWatchLogs.DescribeLogGroups
-import           Network.AWS.CloudWatchLogs.DescribeLogStreams
-import           Network.AWS.CloudWatchLogs.DescribeMetricFilters
-import           Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-import           Network.AWS.CloudWatchLogs.FilterLogEvents
-import           Network.AWS.CloudWatchLogs.GetLogEvents
-import           Network.AWS.CloudWatchLogs.PutDestination
-import           Network.AWS.CloudWatchLogs.PutDestinationPolicy
-import           Network.AWS.CloudWatchLogs.PutLogEvents
-import           Network.AWS.CloudWatchLogs.PutMetricFilter
-import           Network.AWS.CloudWatchLogs.PutRetentionPolicy
-import           Network.AWS.CloudWatchLogs.PutSubscriptionFilter
-import           Network.AWS.CloudWatchLogs.TestMetricFilter
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Waiters
+import Network.AWS.CloudWatchLogs.CreateLogGroup
+import Network.AWS.CloudWatchLogs.CreateLogStream
+import Network.AWS.CloudWatchLogs.DeleteDestination
+import Network.AWS.CloudWatchLogs.DeleteLogGroup
+import Network.AWS.CloudWatchLogs.DeleteLogStream
+import Network.AWS.CloudWatchLogs.DeleteMetricFilter
+import Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+import Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+import Network.AWS.CloudWatchLogs.DescribeDestinations
+import Network.AWS.CloudWatchLogs.DescribeLogGroups
+import Network.AWS.CloudWatchLogs.DescribeLogStreams
+import Network.AWS.CloudWatchLogs.DescribeMetricFilters
+import Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+import Network.AWS.CloudWatchLogs.FilterLogEvents
+import Network.AWS.CloudWatchLogs.GetLogEvents
+import Network.AWS.CloudWatchLogs.PutDestination
+import Network.AWS.CloudWatchLogs.PutDestinationPolicy
+import Network.AWS.CloudWatchLogs.PutLogEvents
+import Network.AWS.CloudWatchLogs.PutMetricFilter
+import Network.AWS.CloudWatchLogs.PutRetentionPolicy
+import Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+import Network.AWS.CloudWatchLogs.TestMetricFilter
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

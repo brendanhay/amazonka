@@ -15,18 +15,18 @@
 --
 module Network.AWS.ElastiCache.Waiters where
 
-import           Network.AWS.ElastiCache.DescribeCacheClusters
-import           Network.AWS.ElastiCache.DescribeCacheClusters
-import           Network.AWS.ElastiCache.DescribeReplicationGroups
-import           Network.AWS.ElastiCache.DescribeReplicationGroups
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.ElastiCache.DescribeCacheClusters
+import Network.AWS.ElastiCache.DescribeCacheClusters
+import Network.AWS.ElastiCache.DescribeReplicationGroups
+import Network.AWS.ElastiCache.DescribeReplicationGroups
+import Network.AWS.ElastiCache.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 cacheClusterAvailable :: Wait DescribeCacheClusters
-cacheClusterAvailable =
+cacheClusterAvailable = 
     Wait
     { _waitName = "CacheClusterAvailable"
     , _waitAttempts = 60
@@ -61,7 +61,7 @@ cacheClusterAvailable =
 -- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 cacheClusterDeleted :: Wait DescribeCacheClusters
-cacheClusterDeleted =
+cacheClusterDeleted = 
     Wait
     { _waitName = "CacheClusterDeleted"
     , _waitAttempts = 60
@@ -87,7 +87,7 @@ cacheClusterDeleted =
 -- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 replicationGroupDeleted :: Wait DescribeReplicationGroups
-replicationGroupDeleted =
+replicationGroupDeleted = 
     Wait
     { _waitName = "ReplicationGroupDeleted"
     , _waitAttempts = 60
@@ -115,7 +115,7 @@ replicationGroupDeleted =
 -- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a
 -- successful state is reached. An error is returned after 60 failed checks.
 replicationGroupAvailable :: Wait DescribeReplicationGroups
-replicationGroupAvailable =
+replicationGroupAvailable = 
     Wait
     { _waitName = "ReplicationGroupAvailable"
     , _waitAttempts = 60

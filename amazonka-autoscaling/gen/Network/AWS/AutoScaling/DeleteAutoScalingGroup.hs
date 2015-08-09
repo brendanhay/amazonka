@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     , deleteAutoScalingGroupResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAutoScalingGroup' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'dasgAutoScalingGroupName'
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
-    { _dasgForceDelete          :: !(Maybe Bool)
+    { _dasgForceDelete :: !(Maybe Bool)
     , _dasgAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAutoScalingGroup' smart constructor.
 deleteAutoScalingGroup :: Text -> DeleteAutoScalingGroup
-deleteAutoScalingGroup pAutoScalingGroupName_ =
+deleteAutoScalingGroup pAutoScalingGroupName_ = 
     DeleteAutoScalingGroup'
     { _dasgForceDelete = Nothing
     , _dasgAutoScalingGroupName = pAutoScalingGroupName_
@@ -101,7 +103,7 @@ instance ToQuery DeleteAutoScalingGroup where
 
 -- | /See:/ 'deleteAutoScalingGroupResponse' smart constructor.
 data DeleteAutoScalingGroupResponse =
-    DeleteAutoScalingGroupResponse'
+    DeleteAutoScalingGroupResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAutoScalingGroupResponse' smart constructor.

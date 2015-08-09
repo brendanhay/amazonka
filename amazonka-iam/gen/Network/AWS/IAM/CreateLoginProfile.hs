@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.IAM.CreateLoginProfile
     , clprsLoginProfile
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLoginProfile' smart constructor.
 --
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 -- * 'clpPassword'
 data CreateLoginProfile = CreateLoginProfile'
     { _clpPasswordResetRequired :: !(Maybe Bool)
-    , _clpUserName              :: !Text
-    , _clpPassword              :: !(Sensitive Text)
+    , _clpUserName :: !Text
+    , _clpPassword :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoginProfile' smart constructor.
 createLoginProfile :: Text -> Text -> CreateLoginProfile
-createLoginProfile pUserName_ pPassword_ =
+createLoginProfile pUserName_ pPassword_ = 
     CreateLoginProfile'
     { _clpPasswordResetRequired = Nothing
     , _clpUserName = pUserName_
@@ -120,13 +122,13 @@ instance ToQuery CreateLoginProfile where
 --
 -- * 'clprsLoginProfile'
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
-    { _clprsStatus       :: !Int
+    { _clprsStatus :: !Int
     , _clprsLoginProfile :: !LoginProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoginProfileResponse' smart constructor.
 createLoginProfileResponse :: Int -> LoginProfile -> CreateLoginProfileResponse
-createLoginProfileResponse pStatus_ pLoginProfile_ =
+createLoginProfileResponse pStatus_ pLoginProfile_ = 
     CreateLoginProfileResponse'
     { _clprsStatus = pStatus_
     , _clprsLoginProfile = pLoginProfile_

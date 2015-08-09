@@ -45,6 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.Route53Domains.Types
+import           Network.AWS.Route53Domains.Types.Product
 
 -- | The GetOperationDetail request includes the following element.
 --

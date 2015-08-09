@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.DirectConnect.ConfirmConnection
     , ccrsStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmConnection operation.
 --
@@ -58,7 +60,7 @@ newtype ConfirmConnection = ConfirmConnection'
 
 -- | 'ConfirmConnection' smart constructor.
 confirmConnection :: Text -> ConfirmConnection
-confirmConnection pConnectionId_ =
+confirmConnection pConnectionId_ = 
     ConfirmConnection'
     { _ccConnectionId = pConnectionId_
     }
@@ -107,12 +109,12 @@ instance ToQuery ConfirmConnection where
 -- * 'ccrsStatus'
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
     { _ccrsConnectionState :: !(Maybe ConnectionState)
-    , _ccrsStatus          :: !Int
+    , _ccrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmConnectionResponse' smart constructor.
 confirmConnectionResponse :: Int -> ConfirmConnectionResponse
-confirmConnectionResponse pStatus_ =
+confirmConnectionResponse pStatus_ = 
     ConfirmConnectionResponse'
     { _ccrsConnectionState = Nothing
     , _ccrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.IAM.GetUser
     , gursUser
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getUser' smart constructor.
 --
@@ -56,7 +58,7 @@ newtype GetUser = GetUser'
 
 -- | 'GetUser' smart constructor.
 getUser :: GetUser
-getUser =
+getUser = 
     GetUser'
     { _guUserName = Nothing
     }
@@ -102,12 +104,12 @@ instance ToQuery GetUser where
 -- * 'gursUser'
 data GetUserResponse = GetUserResponse'
     { _gursStatus :: !Int
-    , _gursUser   :: !User
+    , _gursUser :: !User
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserResponse' smart constructor.
 getUserResponse :: Int -> User -> GetUserResponse
-getUserResponse pStatus_ pUser_ =
+getUserResponse pStatus_ pUser_ = 
     GetUserResponse'
     { _gursStatus = pStatus_
     , _gursUser = pUser_

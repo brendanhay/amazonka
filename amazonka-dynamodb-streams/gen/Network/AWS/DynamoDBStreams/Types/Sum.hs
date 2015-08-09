@@ -17,11 +17,11 @@
 --
 module Network.AWS.DynamoDBStreams.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data KeyType
-    = Hash
-    | Range
+    = Hash 
+    | Range 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText KeyType where
@@ -45,9 +45,9 @@ instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
 
 data OperationType
-    = Insert
-    | Remove
-    | Modify
+    = Insert 
+    | Remove 
+    | Modify 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperationType where
@@ -73,10 +73,10 @@ instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
 
 data ShardIteratorType
-    = AfterSequenceNumber
-    | AtSequenceNumber
-    | TrimHorizon
-    | Latest
+    = AfterSequenceNumber 
+    | AtSequenceNumber 
+    | TrimHorizon 
+    | Latest 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
@@ -104,10 +104,10 @@ instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
 data StreamStatus
-    = Enabled
-    | Disabled
-    | Disabling
-    | Enabling
+    = Enabled 
+    | Disabled 
+    | Disabling 
+    | Enabling 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamStatus where
@@ -135,10 +135,10 @@ instance FromJSON StreamStatus where
     parseJSON = parseJSONText "StreamStatus"
 
 data StreamViewType
-    = NewAndOldImages
-    | KeysOnly
-    | OldImage
-    | NewImage
+    = NewAndOldImages 
+    | KeysOnly 
+    | OldImage 
+    | NewImage 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamViewType where

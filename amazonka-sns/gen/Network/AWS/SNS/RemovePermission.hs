@@ -38,6 +38,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 
 -- | Input for RemovePermission action.
 --

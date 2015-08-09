@@ -67,54 +67,54 @@ module Network.AWS.Lambda
     -- * Operations
     -- $operations
 
-    -- ** GetFunctionConfiguration
+    -- ** GetFunctionConfiguration 
     , module Network.AWS.Lambda.GetFunctionConfiguration
 
-    -- ** UpdateEventSourceMapping
+    -- ** UpdateEventSourceMapping 
     , module Network.AWS.Lambda.UpdateEventSourceMapping
 
-    -- ** DeleteEventSourceMapping
+    -- ** DeleteEventSourceMapping 
     , module Network.AWS.Lambda.DeleteEventSourceMapping
 
-    -- ** RemovePermission
+    -- ** RemovePermission 
     , module Network.AWS.Lambda.RemovePermission
 
-    -- ** Invoke
+    -- ** Invoke 
     , module Network.AWS.Lambda.Invoke
 
-    -- ** GetEventSourceMapping
+    -- ** GetEventSourceMapping 
     , module Network.AWS.Lambda.GetEventSourceMapping
 
-    -- ** CreateFunction
+    -- ** CreateFunction 
     , module Network.AWS.Lambda.CreateFunction
 
-    -- ** CreateEventSourceMapping
+    -- ** CreateEventSourceMapping 
     , module Network.AWS.Lambda.CreateEventSourceMapping
 
-    -- ** GetFunction
+    -- ** GetFunction 
     , module Network.AWS.Lambda.GetFunction
 
     -- ** ListEventSourceMappings (Paginated)
     , module Network.AWS.Lambda.ListEventSourceMappings
     -- $pager
 
-    -- ** AddPermission
+    -- ** AddPermission 
     , module Network.AWS.Lambda.AddPermission
 
-    -- ** DeleteFunction
+    -- ** DeleteFunction 
     , module Network.AWS.Lambda.DeleteFunction
 
-    -- ** UpdateFunctionConfiguration
+    -- ** UpdateFunctionConfiguration 
     , module Network.AWS.Lambda.UpdateFunctionConfiguration
 
     -- ** ListFunctions (Paginated)
     , module Network.AWS.Lambda.ListFunctions
     -- $pager
 
-    -- ** UpdateFunctionCode
+    -- ** UpdateFunctionCode 
     , module Network.AWS.Lambda.UpdateFunctionCode
 
-    -- ** GetPolicy
+    -- ** GetPolicy 
     , module Network.AWS.Lambda.GetPolicy
 
     -- * Types
@@ -172,24 +172,24 @@ module Network.AWS.Lambda
     , fcDescription
     ) where
 
-import           Network.AWS.Lambda.AddPermission
-import           Network.AWS.Lambda.CreateEventSourceMapping
-import           Network.AWS.Lambda.CreateFunction
-import           Network.AWS.Lambda.DeleteEventSourceMapping
-import           Network.AWS.Lambda.DeleteFunction
-import           Network.AWS.Lambda.GetEventSourceMapping
-import           Network.AWS.Lambda.GetFunction
-import           Network.AWS.Lambda.GetFunctionConfiguration
-import           Network.AWS.Lambda.GetPolicy
-import           Network.AWS.Lambda.Invoke
-import           Network.AWS.Lambda.ListEventSourceMappings
-import           Network.AWS.Lambda.ListFunctions
-import           Network.AWS.Lambda.RemovePermission
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.UpdateEventSourceMapping
-import           Network.AWS.Lambda.UpdateFunctionCode
-import           Network.AWS.Lambda.UpdateFunctionConfiguration
-import           Network.AWS.Lambda.Waiters
+import Network.AWS.Lambda.AddPermission
+import Network.AWS.Lambda.CreateEventSourceMapping
+import Network.AWS.Lambda.CreateFunction
+import Network.AWS.Lambda.DeleteEventSourceMapping
+import Network.AWS.Lambda.DeleteFunction
+import Network.AWS.Lambda.GetEventSourceMapping
+import Network.AWS.Lambda.GetFunction
+import Network.AWS.Lambda.GetFunctionConfiguration
+import Network.AWS.Lambda.GetPolicy
+import Network.AWS.Lambda.Invoke
+import Network.AWS.Lambda.ListEventSourceMappings
+import Network.AWS.Lambda.ListFunctions
+import Network.AWS.Lambda.RemovePermission
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.UpdateEventSourceMapping
+import Network.AWS.Lambda.UpdateFunctionCode
+import Network.AWS.Lambda.UpdateFunctionConfiguration
+import Network.AWS.Lambda.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

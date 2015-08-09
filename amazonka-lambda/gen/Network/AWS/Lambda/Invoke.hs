@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.Lambda.Invoke
     , irsStatusCode
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'invoke' smart constructor.
 --
@@ -65,15 +67,15 @@ import           Network.AWS.Response
 -- * 'iFunctionName'
 data Invoke = Invoke'
     { _iInvocationType :: !(Maybe InvocationType)
-    , _iPayload        :: !(Maybe Base64)
-    , _iLogType        :: !(Maybe LogType)
-    , _iClientContext  :: !(Maybe Text)
-    , _iFunctionName   :: !Text
+    , _iPayload :: !(Maybe Base64)
+    , _iLogType :: !(Maybe LogType)
+    , _iClientContext :: !(Maybe Text)
+    , _iFunctionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Invoke' smart constructor.
 invoke :: Text -> Invoke
-invoke pFunctionName_ =
+invoke pFunctionName_ = 
     Invoke'
     { _iInvocationType = Nothing
     , _iPayload = Nothing
@@ -176,14 +178,14 @@ instance ToQuery Invoke where
 -- * 'irsStatusCode'
 data InvokeResponse = InvokeResponse'
     { _irsFunctionError :: !(Maybe Text)
-    , _irsLogResult     :: !(Maybe Text)
-    , _irsPayload       :: !(Maybe Base64)
-    , _irsStatusCode    :: !Int
+    , _irsLogResult :: !(Maybe Text)
+    , _irsPayload :: !(Maybe Base64)
+    , _irsStatusCode :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvokeResponse' smart constructor.
 invokeResponse :: Int -> InvokeResponse
-invokeResponse pStatusCode_ =
+invokeResponse pStatusCode_ = 
     InvokeResponse'
     { _irsFunctionError = Nothing
     , _irsLogResult = Nothing

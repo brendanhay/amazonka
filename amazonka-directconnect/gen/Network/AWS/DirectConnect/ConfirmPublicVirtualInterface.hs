@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     , crsStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPublicVirtualInterface
 -- operation.
@@ -60,7 +62,7 @@ newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
 
 -- | 'ConfirmPublicVirtualInterface' smart constructor.
 confirmPublicVirtualInterface :: Text -> ConfirmPublicVirtualInterface
-confirmPublicVirtualInterface pVirtualInterfaceId_ =
+confirmPublicVirtualInterface pVirtualInterfaceId_ = 
     ConfirmPublicVirtualInterface'
     { _cVirtualInterfaceId = pVirtualInterfaceId_
     }
@@ -115,12 +117,12 @@ instance ToQuery ConfirmPublicVirtualInterface where
 -- * 'crsStatus'
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _crsStatus                :: !Int
+    , _crsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
 confirmPublicVirtualInterfaceResponse :: Int -> ConfirmPublicVirtualInterfaceResponse
-confirmPublicVirtualInterfaceResponse pStatus_ =
+confirmPublicVirtualInterfaceResponse pStatus_ = 
     ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState = Nothing
     , _crsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -83,10 +84,11 @@ module Network.AWS.Kinesis.SplitShard
     , splitShardResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @SplitShard@.
 --
@@ -100,14 +102,14 @@ import           Network.AWS.Response
 --
 -- * 'ssNewStartingHashKey'
 data SplitShard = SplitShard'
-    { _ssStreamName         :: !Text
-    , _ssShardToSplit       :: !Text
+    { _ssStreamName :: !Text
+    , _ssShardToSplit :: !Text
     , _ssNewStartingHashKey :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SplitShard' smart constructor.
 splitShard :: Text -> Text -> Text -> SplitShard
-splitShard pStreamName_ pShardToSplit_ pNewStartingHashKey_ =
+splitShard pStreamName_ pShardToSplit_ pNewStartingHashKey_ = 
     SplitShard'
     { _ssStreamName = pStreamName_
     , _ssShardToSplit = pShardToSplit_
@@ -163,7 +165,7 @@ instance ToQuery SplitShard where
 
 -- | /See:/ 'splitShardResponse' smart constructor.
 data SplitShardResponse =
-    SplitShardResponse'
+    SplitShardResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SplitShardResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.CloudWatchLogs.DescribeDestinations
     , ddrsStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDestinations' smart constructor.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 --
 -- * 'ddDestinationNamePrefix'
 data DescribeDestinations = DescribeDestinations'
-    { _ddNextToken             :: !(Maybe Text)
-    , _ddLimit                 :: !(Maybe Nat)
+    { _ddNextToken :: !(Maybe Text)
+    , _ddLimit :: !(Maybe Nat)
     , _ddDestinationNamePrefix :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDestinations' smart constructor.
 describeDestinations :: DescribeDestinations
-describeDestinations =
+describeDestinations = 
     DescribeDestinations'
     { _ddNextToken = Nothing
     , _ddLimit = Nothing
@@ -134,14 +136,14 @@ instance ToQuery DescribeDestinations where
 --
 -- * 'ddrsStatus'
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-    { _ddrsNextToken    :: !(Maybe Text)
+    { _ddrsNextToken :: !(Maybe Text)
     , _ddrsDestinations :: !(Maybe [Destination])
-    , _ddrsStatus       :: !Int
+    , _ddrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDestinationsResponse' smart constructor.
 describeDestinationsResponse :: Int -> DescribeDestinationsResponse
-describeDestinationsResponse pStatus_ =
+describeDestinationsResponse pStatus_ = 
     DescribeDestinationsResponse'
     { _ddrsNextToken = Nothing
     , _ddrsDestinations = Nothing

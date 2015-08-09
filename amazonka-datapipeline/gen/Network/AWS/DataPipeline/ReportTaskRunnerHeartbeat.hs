@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     , rtrhrsTerminate
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReportTaskRunnerHeartbeat.
 --
@@ -59,14 +61,14 @@ import           Network.AWS.Response
 --
 -- * 'rtrhTaskrunnerId'
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-    { _rtrhHostname     :: !(Maybe Text)
-    , _rtrhWorkerGroup  :: !(Maybe Text)
+    { _rtrhHostname :: !(Maybe Text)
+    , _rtrhWorkerGroup :: !(Maybe Text)
     , _rtrhTaskrunnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.
 reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
-reportTaskRunnerHeartbeat pTaskrunnerId_ =
+reportTaskRunnerHeartbeat pTaskrunnerId_ = 
     ReportTaskRunnerHeartbeat'
     { _rtrhHostname = Nothing
     , _rtrhWorkerGroup = Nothing
@@ -138,13 +140,13 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 --
 -- * 'rtrhrsTerminate'
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrsStatus    :: !Int
+    { _rtrhrsStatus :: !Int
     , _rtrhrsTerminate :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
 reportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
-reportTaskRunnerHeartbeatResponse pStatus_ pTerminate_ =
+reportTaskRunnerHeartbeatResponse pStatus_ pTerminate_ = 
     ReportTaskRunnerHeartbeatResponse'
     { _rtrhrsStatus = pStatus_
     , _rtrhrsTerminate = pTerminate_

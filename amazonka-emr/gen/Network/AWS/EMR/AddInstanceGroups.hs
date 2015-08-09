@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EMR.AddInstanceGroups
     , aigrsStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to an AddInstanceGroups call.
 --
@@ -54,12 +56,12 @@ import           Network.AWS.Response
 -- * 'aigJobFlowId'
 data AddInstanceGroups = AddInstanceGroups'
     { _aigInstanceGroups :: ![InstanceGroupConfig]
-    , _aigJobFlowId      :: !Text
+    , _aigJobFlowId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddInstanceGroups' smart constructor.
 addInstanceGroups :: Text -> AddInstanceGroups
-addInstanceGroups pJobFlowId_ =
+addInstanceGroups pJobFlowId_ = 
     AddInstanceGroups'
     { _aigInstanceGroups = mempty
     , _aigJobFlowId = pJobFlowId_
@@ -118,14 +120,14 @@ instance ToQuery AddInstanceGroups where
 --
 -- * 'aigrsStatus'
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
-    { _aigrsJobFlowId        :: !(Maybe Text)
+    { _aigrsJobFlowId :: !(Maybe Text)
     , _aigrsInstanceGroupIds :: !(Maybe [Text])
-    , _aigrsStatus           :: !Int
+    , _aigrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
 addInstanceGroupsResponse :: Int -> AddInstanceGroupsResponse
-addInstanceGroupsResponse pStatus_ =
+addInstanceGroupsResponse pStatus_ = 
     AddInstanceGroupsResponse'
     { _aigrsJobFlowId = Nothing
     , _aigrsInstanceGroupIds = Nothing

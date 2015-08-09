@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodeDeploy.GetOnPremisesInstance
     , gopirsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get on-premises instance operation.
 --
@@ -54,7 +56,7 @@ newtype GetOnPremisesInstance = GetOnPremisesInstance'
 
 -- | 'GetOnPremisesInstance' smart constructor.
 getOnPremisesInstance :: Text -> GetOnPremisesInstance
-getOnPremisesInstance pInstanceName_ =
+getOnPremisesInstance pInstanceName_ = 
     GetOnPremisesInstance'
     { _gopiInstanceName = pInstanceName_
     }
@@ -105,12 +107,12 @@ instance ToQuery GetOnPremisesInstance where
 -- * 'gopirsStatus'
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
     { _gopirsInstanceInfo :: !(Maybe InstanceInfo)
-    , _gopirsStatus       :: !Int
+    , _gopirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOnPremisesInstanceResponse' smart constructor.
 getOnPremisesInstanceResponse :: Int -> GetOnPremisesInstanceResponse
-getOnPremisesInstanceResponse pStatus_ =
+getOnPremisesInstanceResponse pStatus_ = 
     GetOnPremisesInstanceResponse'
     { _gopirsInstanceInfo = Nothing
     , _gopirsStatus = pStatus_

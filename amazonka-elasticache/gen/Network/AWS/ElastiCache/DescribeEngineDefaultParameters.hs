@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,11 +40,12 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     , dedprsEngineDefaults
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DescribeEngineDefaultParameters/ action.
 --
@@ -57,14 +59,14 @@ import           Network.AWS.Response
 --
 -- * 'dedpCacheParameterGroupFamily'
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedpMaxRecords                :: !(Maybe Int)
-    , _dedpMarker                    :: !(Maybe Text)
+    { _dedpMaxRecords :: !(Maybe Int)
+    , _dedpMarker :: !(Maybe Text)
     , _dedpCacheParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters pCacheParameterGroupFamily_ =
+describeEngineDefaultParameters pCacheParameterGroupFamily_ = 
     DescribeEngineDefaultParameters'
     { _dedpMaxRecords = Nothing
     , _dedpMarker = Nothing
@@ -146,13 +148,13 @@ instance ToQuery DescribeEngineDefaultParameters
 --
 -- * 'dedprsEngineDefaults'
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-    { _dedprsStatus         :: !Int
+    { _dedprsStatus :: !Int
     , _dedprsEngineDefaults :: !EngineDefaults
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: Int -> EngineDefaults -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pStatus_ pEngineDefaults_ =
+describeEngineDefaultParametersResponse pStatus_ pEngineDefaults_ = 
     DescribeEngineDefaultParametersResponse'
     { _dedprsStatus = pStatus_
     , _dedprsEngineDefaults = pEngineDefaults_

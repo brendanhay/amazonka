@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -116,10 +117,11 @@ module Network.AWS.DynamoDB.BatchWriteItem
     , bwirsStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /BatchWriteItem/ operation.
 --
@@ -133,14 +135,14 @@ import           Network.AWS.Response
 --
 -- * 'bwiRequestItems'
 data BatchWriteItem = BatchWriteItem'
-    { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    { _bwiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
     , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
+    , _bwiRequestItems :: !(Map Text (List1 WriteRequest))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItem' smart constructor.
 batchWriteItem :: BatchWriteItem
-batchWriteItem =
+batchWriteItem = 
     BatchWriteItem'
     { _bwiReturnConsumedCapacity = Nothing
     , _bwiReturnItemCollectionMetrics = Nothing
@@ -241,15 +243,15 @@ instance ToQuery BatchWriteItem where
 --
 -- * 'bwirsStatus'
 data BatchWriteItemResponse = BatchWriteItemResponse'
-    { _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
+    { _bwirsConsumedCapacity :: !(Maybe [ConsumedCapacity])
     , _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
-    , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
-    , _bwirsStatus                :: !Int
+    , _bwirsUnprocessedItems :: !(Maybe (Map Text (List1 WriteRequest)))
+    , _bwirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItemResponse' smart constructor.
 batchWriteItemResponse :: Int -> BatchWriteItemResponse
-batchWriteItemResponse pStatus_ =
+batchWriteItemResponse pStatus_ = 
     BatchWriteItemResponse'
     { _bwirsConsumedCapacity = Nothing
     , _bwirsItemCollectionMetrics = Nothing

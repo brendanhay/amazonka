@@ -17,7 +17,7 @@
 --
 module Network.AWS.DirectConnect.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 -- | State of the connection.
 --
@@ -37,14 +37,14 @@ import           Network.AWS.Prelude
 -- -   __Rejected__: A hosted connection in the \'Ordering\' state will
 --     enter the \'Rejected\' state if it is deleted by the end customer.
 data ConnectionState
-    = CSDeleted
-    | CSOrdering
-    | CSAvailable
-    | CSDeleting
-    | CSPending
-    | CSDown
-    | CSRequested
-    | CSRejected
+    = CSDeleted 
+    | CSOrdering 
+    | CSAvailable 
+    | CSDeleting 
+    | CSPending 
+    | CSDown 
+    | CSRequested 
+    | CSRejected 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConnectionState where
@@ -91,12 +91,12 @@ instance FromJSON ConnectionState where
 -- -   __Down__: The network link is down.
 -- -   __Deleted__: The interconnect has been deleted.
 data InterconnectState
-    = ISDeleted
-    | ISAvailable
-    | ISDeleting
-    | ISRequested
-    | ISPending
-    | ISDown
+    = ISDeleted 
+    | ISAvailable 
+    | ISDeleting 
+    | ISRequested 
+    | ISPending 
+    | ISDown 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InterconnectState where
@@ -150,13 +150,13 @@ instance FromJSON InterconnectState where
 --     state is deleted by the virtual interface owner, the virtual
 --     interface will enter the \'Rejected\' state.
 data VirtualInterfaceState
-    = Deleting
-    | Pending
-    | Confirming
-    | Rejected
-    | Verifying
-    | Deleted
-    | Available
+    = Deleting 
+    | Pending 
+    | Confirming 
+    | Rejected 
+    | Verifying 
+    | Deleted 
+    | Available 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VirtualInterfaceState where

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.ECS.DeleteCluster
     , drsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCluster' smart constructor.
 --
@@ -55,7 +57,7 @@ newtype DeleteCluster = DeleteCluster'
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
-deleteCluster pCluster_ =
+deleteCluster pCluster_ = 
     DeleteCluster'
     { _dcCluster = pCluster_
     }
@@ -104,12 +106,12 @@ instance ToQuery DeleteCluster where
 -- * 'drsStatus'
 data DeleteClusterResponse = DeleteClusterResponse'
     { _drsCluster :: !(Maybe Cluster)
-    , _drsStatus  :: !Int
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse
-deleteClusterResponse pStatus_ =
+deleteClusterResponse pStatus_ = 
     DeleteClusterResponse'
     { _drsCluster = Nothing
     , _drsStatus = pStatus_

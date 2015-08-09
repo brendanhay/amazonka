@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,11 +57,12 @@ module Network.AWS.IAM.ListPolicies
     , lprsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listPolicies' smart constructor.
 --
@@ -76,16 +78,16 @@ import           Network.AWS.Response
 --
 -- * 'lpMarker'
 data ListPolicies = ListPolicies'
-    { _lpPathPrefix   :: !(Maybe Text)
+    { _lpPathPrefix :: !(Maybe Text)
     , _lpOnlyAttached :: !(Maybe Bool)
-    , _lpScope        :: !(Maybe PolicyScopeType)
-    , _lpMaxItems     :: !(Maybe Nat)
-    , _lpMarker       :: !(Maybe Text)
+    , _lpScope :: !(Maybe PolicyScopeType)
+    , _lpMaxItems :: !(Maybe Nat)
+    , _lpMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicies' smart constructor.
 listPolicies :: ListPolicies
-listPolicies =
+listPolicies = 
     ListPolicies'
     { _lpPathPrefix = Nothing
     , _lpOnlyAttached = Nothing
@@ -185,15 +187,15 @@ instance ToQuery ListPolicies where
 --
 -- * 'lprsStatus'
 data ListPoliciesResponse = ListPoliciesResponse'
-    { _lprsMarker      :: !(Maybe Text)
+    { _lprsMarker :: !(Maybe Text)
     , _lprsIsTruncated :: !(Maybe Bool)
-    , _lprsPolicies    :: !(Maybe [Policy])
-    , _lprsStatus      :: !Int
+    , _lprsPolicies :: !(Maybe [Policy])
+    , _lprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPoliciesResponse' smart constructor.
 listPoliciesResponse :: Int -> ListPoliciesResponse
-listPoliciesResponse pStatus_ =
+listPoliciesResponse pStatus_ = 
     ListPoliciesResponse'
     { _lprsMarker = Nothing
     , _lprsIsTruncated = Nothing

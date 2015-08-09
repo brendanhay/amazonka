@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     , ccpgrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheParameterGroup/ action.
 --
@@ -57,14 +59,14 @@ import           Network.AWS.Response
 --
 -- * 'ccpgDescription'
 data CreateCacheParameterGroup = CreateCacheParameterGroup'
-    { _ccpgCacheParameterGroupName   :: !Text
+    { _ccpgCacheParameterGroupName :: !Text
     , _ccpgCacheParameterGroupFamily :: !Text
-    , _ccpgDescription               :: !Text
+    , _ccpgDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheParameterGroup' smart constructor.
 createCacheParameterGroup :: Text -> Text -> Text -> CreateCacheParameterGroup
-createCacheParameterGroup pCacheParameterGroupName_ pCacheParameterGroupFamily_ pDescription_ =
+createCacheParameterGroup pCacheParameterGroupName_ pCacheParameterGroupFamily_ pDescription_ = 
     CreateCacheParameterGroup'
     { _ccpgCacheParameterGroupName = pCacheParameterGroupName_
     , _ccpgCacheParameterGroupFamily = pCacheParameterGroupFamily_
@@ -125,12 +127,12 @@ instance ToQuery CreateCacheParameterGroup where
 -- * 'ccpgrsStatus'
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
     { _ccpgrsCacheParameterGroup :: !(Maybe CacheParameterGroup)
-    , _ccpgrsStatus              :: !Int
+    , _ccpgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
 createCacheParameterGroupResponse :: Int -> CreateCacheParameterGroupResponse
-createCacheParameterGroupResponse pStatus_ =
+createCacheParameterGroupResponse pStatus_ = 
     CreateCacheParameterGroupResponse'
     { _ccpgrsCacheParameterGroup = Nothing
     , _ccpgrsStatus = pStatus_

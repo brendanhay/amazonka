@@ -82,37 +82,37 @@ module Network.AWS.EFS
     -- * Operations
     -- $operations
 
-    -- ** DescribeTags
+    -- ** DescribeTags 
     , module Network.AWS.EFS.DescribeTags
 
-    -- ** DescribeMountTargets
+    -- ** DescribeMountTargets 
     , module Network.AWS.EFS.DescribeMountTargets
 
-    -- ** DeleteMountTarget
+    -- ** DeleteMountTarget 
     , module Network.AWS.EFS.DeleteMountTarget
 
-    -- ** CreateTags
+    -- ** CreateTags 
     , module Network.AWS.EFS.CreateTags
 
-    -- ** DescribeFileSystems
+    -- ** DescribeFileSystems 
     , module Network.AWS.EFS.DescribeFileSystems
 
-    -- ** DeleteTags
+    -- ** DeleteTags 
     , module Network.AWS.EFS.DeleteTags
 
-    -- ** DescribeMountTargetSecurityGroups
+    -- ** DescribeMountTargetSecurityGroups 
     , module Network.AWS.EFS.DescribeMountTargetSecurityGroups
 
-    -- ** ModifyMountTargetSecurityGroups
+    -- ** ModifyMountTargetSecurityGroups 
     , module Network.AWS.EFS.ModifyMountTargetSecurityGroups
 
-    -- ** CreateFileSystem
+    -- ** CreateFileSystem 
     , module Network.AWS.EFS.CreateFileSystem
 
-    -- ** DeleteFileSystem
+    -- ** DeleteFileSystem 
     , module Network.AWS.EFS.DeleteFileSystem
 
-    -- ** CreateMountTarget
+    -- ** CreateMountTarget 
     , module Network.AWS.EFS.CreateMountTarget
 
     -- * Types
@@ -156,19 +156,19 @@ module Network.AWS.EFS
     , tagValue
     ) where
 
-import           Network.AWS.EFS.CreateFileSystem
-import           Network.AWS.EFS.CreateMountTarget
-import           Network.AWS.EFS.CreateTags
-import           Network.AWS.EFS.DeleteFileSystem
-import           Network.AWS.EFS.DeleteMountTarget
-import           Network.AWS.EFS.DeleteTags
-import           Network.AWS.EFS.DescribeFileSystems
-import           Network.AWS.EFS.DescribeMountTargets
-import           Network.AWS.EFS.DescribeMountTargetSecurityGroups
-import           Network.AWS.EFS.DescribeTags
-import           Network.AWS.EFS.ModifyMountTargetSecurityGroups
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Waiters
+import Network.AWS.EFS.CreateFileSystem
+import Network.AWS.EFS.CreateMountTarget
+import Network.AWS.EFS.CreateTags
+import Network.AWS.EFS.DeleteFileSystem
+import Network.AWS.EFS.DeleteMountTarget
+import Network.AWS.EFS.DeleteTags
+import Network.AWS.EFS.DescribeFileSystems
+import Network.AWS.EFS.DescribeMountTargetSecurityGroups
+import Network.AWS.EFS.DescribeMountTargets
+import Network.AWS.EFS.DescribeTags
+import Network.AWS.EFS.ModifyMountTargetSecurityGroups
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

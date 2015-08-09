@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     , dsersStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeServiceErrors' smart constructor.
 --
@@ -59,14 +61,14 @@ import           Network.AWS.Response
 --
 -- * 'dseStackId'
 data DescribeServiceErrors = DescribeServiceErrors'
-    { _dseInstanceId      :: !(Maybe Text)
+    { _dseInstanceId :: !(Maybe Text)
     , _dseServiceErrorIds :: !(Maybe [Text])
-    , _dseStackId         :: !(Maybe Text)
+    , _dseStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceErrors' smart constructor.
 describeServiceErrors :: DescribeServiceErrors
-describeServiceErrors =
+describeServiceErrors = 
     DescribeServiceErrors'
     { _dseInstanceId = Nothing
     , _dseServiceErrorIds = Nothing
@@ -136,12 +138,12 @@ instance ToQuery DescribeServiceErrors where
 -- * 'dsersStatus'
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
     { _dsersServiceErrors :: !(Maybe [ServiceError'])
-    , _dsersStatus        :: !Int
+    , _dsersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceErrorsResponse' smart constructor.
 describeServiceErrorsResponse :: Int -> DescribeServiceErrorsResponse
-describeServiceErrorsResponse pStatus_ =
+describeServiceErrorsResponse pStatus_ = 
     DescribeServiceErrorsResponse'
     { _dsersServiceErrors = Nothing
     , _dsersStatus = pStatus_

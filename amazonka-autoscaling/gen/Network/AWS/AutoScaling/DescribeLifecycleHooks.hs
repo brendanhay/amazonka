@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     , dlhrsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLifecycleHooks' smart constructor.
 --
@@ -50,13 +52,13 @@ import           Network.AWS.Response
 --
 -- * 'dlhAutoScalingGroupName'
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
-    { _dlhLifecycleHookNames   :: !(Maybe [Text])
+    { _dlhLifecycleHookNames :: !(Maybe [Text])
     , _dlhAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHooks' smart constructor.
 describeLifecycleHooks :: Text -> DescribeLifecycleHooks
-describeLifecycleHooks pAutoScalingGroupName_ =
+describeLifecycleHooks pAutoScalingGroupName_ = 
     DescribeLifecycleHooks'
     { _dlhLifecycleHookNames = Nothing
     , _dlhAutoScalingGroupName = pAutoScalingGroupName_
@@ -109,12 +111,12 @@ instance ToQuery DescribeLifecycleHooks where
 -- * 'dlhrsStatus'
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
-    , _dlhrsStatus         :: !Int
+    , _dlhrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
 describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse pStatus_ =
+describeLifecycleHooksResponse pStatus_ = 
     DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks = Nothing
     , _dlhrsStatus = pStatus_

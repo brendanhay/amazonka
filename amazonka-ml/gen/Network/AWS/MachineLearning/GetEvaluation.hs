@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gersStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getEvaluation' smart constructor.
 --
@@ -63,7 +65,7 @@ newtype GetEvaluation = GetEvaluation'
 
 -- | 'GetEvaluation' smart constructor.
 getEvaluation :: Text -> GetEvaluation
-getEvaluation pEvaluationId_ =
+getEvaluation pEvaluationId_ = 
     GetEvaluation'
     { _geEvaluationId = pEvaluationId_
     }
@@ -145,23 +147,23 @@ instance ToQuery GetEvaluation where
 --
 -- * 'gersStatus'
 data GetEvaluationResponse = GetEvaluationResponse'
-    { _gersPerformanceMetrics     :: !(Maybe PerformanceMetrics)
-    , _gersLastUpdatedAt          :: !(Maybe POSIX)
-    , _gersCreatedAt              :: !(Maybe POSIX)
-    , _gersInputDataLocationS3    :: !(Maybe Text)
-    , _gersMLModelId              :: !(Maybe Text)
-    , _gersName                   :: !(Maybe Text)
-    , _gersCreatedByIAMUser       :: !(Maybe Text)
-    , _gersLogURI                 :: !(Maybe Text)
-    , _gersMessage                :: !(Maybe Text)
-    , _gersEvaluationId           :: !(Maybe Text)
+    { _gersPerformanceMetrics :: !(Maybe PerformanceMetrics)
+    , _gersLastUpdatedAt :: !(Maybe POSIX)
+    , _gersCreatedAt :: !(Maybe POSIX)
+    , _gersInputDataLocationS3 :: !(Maybe Text)
+    , _gersMLModelId :: !(Maybe Text)
+    , _gersName :: !(Maybe Text)
+    , _gersCreatedByIAMUser :: !(Maybe Text)
+    , _gersLogURI :: !(Maybe Text)
+    , _gersMessage :: !(Maybe Text)
+    , _gersEvaluationId :: !(Maybe Text)
     , _gersEvaluationDataSourceId :: !(Maybe Text)
-    , _gersStatus                 :: !Int
+    , _gersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEvaluationResponse' smart constructor.
 getEvaluationResponse :: Int -> GetEvaluationResponse
-getEvaluationResponse pStatus_ =
+getEvaluationResponse pStatus_ = 
     GetEvaluationResponse'
     { _gersPerformanceMetrics = Nothing
     , _gersLastUpdatedAt = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.DynamoDB.GetItem
     , girsStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /GetItem/ operation.
 --
@@ -75,18 +77,18 @@ import           Network.AWS.Response
 --
 -- * 'giKey'
 data GetItem = GetItem'
-    { _giProjectionExpression     :: !(Maybe Text)
-    , _giConsistentRead           :: !(Maybe Bool)
+    { _giProjectionExpression :: !(Maybe Text)
+    , _giConsistentRead :: !(Maybe Bool)
     , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _giAttributesToGet          :: !(Maybe (List1 Text))
-    , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
-    , _giTableName                :: !Text
-    , _giKey                      :: !(Map Text AttributeValue)
+    , _giAttributesToGet :: !(Maybe (List1 Text))
+    , _giReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
+    , _giTableName :: !Text
+    , _giKey :: !(Map Text AttributeValue)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetItem' smart constructor.
 getItem :: Text -> GetItem
-getItem pTableName_ =
+getItem pTableName_ = 
     GetItem'
     { _giProjectionExpression = Nothing
     , _giConsistentRead = Nothing
@@ -247,13 +249,13 @@ instance ToQuery GetItem where
 -- * 'girsStatus'
 data GetItemResponse = GetItemResponse'
     { _girsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _girsItem             :: !(Maybe (Map Text AttributeValue))
-    , _girsStatus           :: !Int
+    , _girsItem :: !(Maybe (Map Text AttributeValue))
+    , _girsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetItemResponse' smart constructor.
 getItemResponse :: Int -> GetItemResponse
-getItemResponse pStatus_ =
+getItemResponse pStatus_ = 
     GetItemResponse'
     { _girsConsumedCapacity = Nothing
     , _girsItem = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcDescription
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateFunctionConfiguration' smart constructor.
 --
@@ -77,17 +79,17 @@ import           Network.AWS.Response
 --
 -- * 'ufcFunctionName'
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-    { _ufcMemorySize   :: !(Maybe Nat)
-    , _ufcRole         :: !(Maybe Text)
-    , _ufcHandler      :: !(Maybe Text)
-    , _ufcTimeout      :: !(Maybe Nat)
-    , _ufcDescription  :: !(Maybe Text)
+    { _ufcMemorySize :: !(Maybe Nat)
+    , _ufcRole :: !(Maybe Text)
+    , _ufcHandler :: !(Maybe Text)
+    , _ufcTimeout :: !(Maybe Nat)
+    , _ufcDescription :: !(Maybe Text)
     , _ufcFunctionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateFunctionConfiguration' smart constructor.
 updateFunctionConfiguration :: Text -> UpdateFunctionConfiguration
-updateFunctionConfiguration pFunctionName_ =
+updateFunctionConfiguration pFunctionName_ = 
     UpdateFunctionConfiguration'
     { _ufcMemorySize = Nothing
     , _ufcRole = Nothing

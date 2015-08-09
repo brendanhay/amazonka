@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CodeDeploy.ListDeployments
     , ldrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list deployments operation.
 --
@@ -63,16 +65,16 @@ import           Network.AWS.Response
 --
 -- * 'ldDeploymentGroupName'
 data ListDeployments = ListDeployments'
-    { _ldCreateTimeRange     :: !(Maybe TimeRange)
-    , _ldNextToken           :: !(Maybe Text)
+    { _ldCreateTimeRange :: !(Maybe TimeRange)
+    , _ldNextToken :: !(Maybe Text)
     , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
-    , _ldApplicationName     :: !(Maybe Text)
+    , _ldApplicationName :: !(Maybe Text)
     , _ldDeploymentGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeployments' smart constructor.
 listDeployments :: ListDeployments
-listDeployments =
+listDeployments = 
     ListDeployments'
     { _ldCreateTimeRange = Nothing
     , _ldNextToken = Nothing
@@ -160,14 +162,14 @@ instance ToQuery ListDeployments where
 --
 -- * 'ldrsStatus'
 data ListDeploymentsResponse = ListDeploymentsResponse'
-    { _ldrsNextToken   :: !(Maybe Text)
+    { _ldrsNextToken :: !(Maybe Text)
     , _ldrsDeployments :: !(Maybe [Text])
-    , _ldrsStatus      :: !Int
+    , _ldrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentsResponse' smart constructor.
 listDeploymentsResponse :: Int -> ListDeploymentsResponse
-listDeploymentsResponse pStatus_ =
+listDeploymentsResponse pStatus_ = 
     ListDeploymentsResponse'
     { _ldrsNextToken = Nothing
     , _ldrsDeployments = Nothing

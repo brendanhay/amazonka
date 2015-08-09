@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdrsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDeployment' smart constructor.
 --
@@ -71,17 +73,17 @@ import           Network.AWS.Response
 --
 -- * 'cdCommand'
 data CreateDeployment = CreateDeployment'
-    { _cdCustomJSON  :: !(Maybe Text)
-    , _cdAppId       :: !(Maybe Text)
+    { _cdCustomJSON :: !(Maybe Text)
+    , _cdAppId :: !(Maybe Text)
     , _cdInstanceIds :: !(Maybe [Text])
-    , _cdComment     :: !(Maybe Text)
-    , _cdStackId     :: !Text
-    , _cdCommand     :: !DeploymentCommand
+    , _cdComment :: !(Maybe Text)
+    , _cdStackId :: !Text
+    , _cdCommand :: !DeploymentCommand
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> DeploymentCommand -> CreateDeployment
-createDeployment pStackId_ pCommand_ =
+createDeployment pStackId_ pCommand_ = 
     CreateDeployment'
     { _cdCustomJSON = Nothing
     , _cdAppId = Nothing
@@ -169,12 +171,12 @@ instance ToQuery CreateDeployment where
 -- * 'cdrsStatus'
 data CreateDeploymentResponse = CreateDeploymentResponse'
     { _cdrsDeploymentId :: !(Maybe Text)
-    , _cdrsStatus       :: !Int
+    , _cdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse
-createDeploymentResponse pStatus_ =
+createDeploymentResponse pStatus_ = 
     CreateDeploymentResponse'
     { _cdrsDeploymentId = Nothing
     , _cdrsStatus = pStatus_

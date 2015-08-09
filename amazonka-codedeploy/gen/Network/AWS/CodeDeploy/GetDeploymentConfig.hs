@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     , gdcrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get deployment configuration operation.
 --
@@ -54,7 +56,7 @@ newtype GetDeploymentConfig = GetDeploymentConfig'
 
 -- | 'GetDeploymentConfig' smart constructor.
 getDeploymentConfig :: Text -> GetDeploymentConfig
-getDeploymentConfig pDeploymentConfigName_ =
+getDeploymentConfig pDeploymentConfigName_ = 
     GetDeploymentConfig'
     { _gdcDeploymentConfigName = pDeploymentConfigName_
     }
@@ -108,12 +110,12 @@ instance ToQuery GetDeploymentConfig where
 -- * 'gdcrsStatus'
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
-    , _gdcrsStatus               :: !Int
+    , _gdcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
 getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse
-getDeploymentConfigResponse pStatus_ =
+getDeploymentConfigResponse pStatus_ = 
     GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo = Nothing
     , _gdcrsStatus = pStatus_

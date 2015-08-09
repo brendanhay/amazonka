@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.ELB.RemoveTags
     , rtrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeTags' smart constructor.
 --
@@ -50,12 +52,12 @@ import           Network.AWS.Response
 -- * 'rtTags'
 data RemoveTags = RemoveTags'
     { _rtLoadBalancerNames :: ![Text]
-    , _rtTags              :: !(List1 TagKeyOnly)
+    , _rtTags :: !(List1 TagKeyOnly)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: NonEmpty TagKeyOnly -> RemoveTags
-removeTags pTags_ =
+removeTags pTags_ = 
     RemoveTags'
     { _rtLoadBalancerNames = mempty
     , _rtTags = _List1 # pTags_
@@ -105,7 +107,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatus_ =
+removeTagsResponse pStatus_ = 
     RemoveTagsResponse'
     { _rtrsStatus = pStatus_
     }

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodePipeline.CreatePipeline
     , cprsStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create pipeline action.
 --
@@ -54,7 +56,7 @@ newtype CreatePipeline = CreatePipeline'
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: PipelineDeclaration -> CreatePipeline
-createPipeline pPipeline_ =
+createPipeline pPipeline_ = 
     CreatePipeline'
     { _cpPipeline = pPipeline_
     }
@@ -104,12 +106,12 @@ instance ToQuery CreatePipeline where
 -- * 'cprsStatus'
 data CreatePipelineResponse = CreatePipelineResponse'
     { _cprsPipeline :: !(Maybe PipelineDeclaration)
-    , _cprsStatus   :: !Int
+    , _cprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> CreatePipelineResponse
-createPipelineResponse pStatus_ =
+createPipelineResponse pStatus_ = 
     CreatePipelineResponse'
     { _cprsPipeline = Nothing
     , _cprsStatus = pStatus_

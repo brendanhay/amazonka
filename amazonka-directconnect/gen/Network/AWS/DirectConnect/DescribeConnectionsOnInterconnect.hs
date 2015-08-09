@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     , cConnections
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DescribeConnectionsOnInterconnect
 -- operation.
@@ -55,7 +57,7 @@ newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
 
 -- | 'DescribeConnectionsOnInterconnect' smart constructor.
 describeConnectionsOnInterconnect :: Text -> DescribeConnectionsOnInterconnect
-describeConnectionsOnInterconnect pInterconnectId_ =
+describeConnectionsOnInterconnect pInterconnectId_ = 
     DescribeConnectionsOnInterconnect'
     { _dcoiInterconnectId = pInterconnectId_
     }

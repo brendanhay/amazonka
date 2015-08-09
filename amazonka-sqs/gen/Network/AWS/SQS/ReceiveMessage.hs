@@ -89,6 +89,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.SQS.Types
+import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'receiveMessage' smart constructor.
 --

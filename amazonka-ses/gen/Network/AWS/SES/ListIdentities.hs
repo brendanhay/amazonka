@@ -47,6 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
 -- | Represents a request instructing the service to list all identities for
 -- the AWS Account.

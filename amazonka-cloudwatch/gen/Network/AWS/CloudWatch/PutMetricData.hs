@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -51,10 +52,11 @@ module Network.AWS.CloudWatch.PutMetricData
     , putMetricDataResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putMetricData' smart constructor.
 --
@@ -64,13 +66,13 @@ import           Network.AWS.Response
 --
 -- * 'pmdMetricData'
 data PutMetricData = PutMetricData'
-    { _pmdNamespace  :: !Text
+    { _pmdNamespace :: !Text
     , _pmdMetricData :: ![MetricDatum]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricData' smart constructor.
 putMetricData :: Text -> PutMetricData
-putMetricData pNamespace_ =
+putMetricData pNamespace_ = 
     PutMetricData'
     { _pmdNamespace = pNamespace_
     , _pmdMetricData = mempty
@@ -106,7 +108,7 @@ instance ToQuery PutMetricData where
 
 -- | /See:/ 'putMetricDataResponse' smart constructor.
 data PutMetricDataResponse =
-    PutMetricDataResponse'
+    PutMetricDataResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricDataResponse' smart constructor.

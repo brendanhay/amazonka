@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -61,10 +62,11 @@ module Network.AWS.EC2.AssociateAddress
     , arsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateAddress' smart constructor.
 --
@@ -84,18 +86,18 @@ import           Network.AWS.Response
 --
 -- * 'aasDryRun'
 data AssociateAddress = AssociateAddress'
-    { _aasInstanceId         :: !(Maybe Text)
-    , _aasAllocationId       :: !(Maybe Text)
+    { _aasInstanceId :: !(Maybe Text)
+    , _aasAllocationId :: !(Maybe Text)
     , _aasNetworkInterfaceId :: !(Maybe Text)
     , _aasAllowReassociation :: !(Maybe Bool)
-    , _aasPrivateIPAddress   :: !(Maybe Text)
-    , _aasPublicIP           :: !(Maybe Text)
-    , _aasDryRun             :: !(Maybe Bool)
+    , _aasPrivateIPAddress :: !(Maybe Text)
+    , _aasPublicIP :: !(Maybe Text)
+    , _aasDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateAddress' smart constructor.
 associateAddress :: AssociateAddress
-associateAddress =
+associateAddress = 
     AssociateAddress'
     { _aasInstanceId = Nothing
     , _aasAllocationId = Nothing
@@ -184,12 +186,12 @@ instance ToQuery AssociateAddress where
 -- * 'arsStatus'
 data AssociateAddressResponse = AssociateAddressResponse'
     { _arsAssociationId :: !(Maybe Text)
-    , _arsStatus        :: !Int
+    , _arsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateAddressResponse' smart constructor.
 associateAddressResponse :: Int -> AssociateAddressResponse
-associateAddressResponse pStatus_ =
+associateAddressResponse pStatus_ = 
     AssociateAddressResponse'
     { _arsAssociationId = Nothing
     , _arsStatus = pStatus_

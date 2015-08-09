@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DeviceFarm.GetSuite
     , gsrsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get suite operation.
 --
@@ -54,7 +56,7 @@ newtype GetSuite = GetSuite'
 
 -- | 'GetSuite' smart constructor.
 getSuite :: Text -> GetSuite
-getSuite pArn_ =
+getSuite pArn_ = 
     GetSuite'
     { _gsArn = pArn_
     }
@@ -101,13 +103,13 @@ instance ToQuery GetSuite where
 --
 -- * 'gsrsStatus'
 data GetSuiteResponse = GetSuiteResponse'
-    { _gsrsSuite  :: !(Maybe Suite)
+    { _gsrsSuite :: !(Maybe Suite)
     , _gsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSuiteResponse' smart constructor.
 getSuiteResponse :: Int -> GetSuiteResponse
-getSuiteResponse pStatus_ =
+getSuiteResponse pStatus_ = 
     GetSuiteResponse'
     { _gsrsSuite = Nothing
     , _gsrsStatus = pStatus_

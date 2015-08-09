@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     , deleteCloudFrontOriginAccessIdentityResponse
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to delete a origin access identity.
 --
@@ -50,12 +52,12 @@ import           Network.AWS.Response
 -- * 'dcfoaiId'
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
     { _dcfoaiIfMatch :: !(Maybe Text)
-    , _dcfoaiId      :: !Text
+    , _dcfoaiId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' smart constructor.
 deleteCloudFrontOriginAccessIdentity :: Text -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity pId_ =
+deleteCloudFrontOriginAccessIdentity pId_ = 
     DeleteCloudFrontOriginAccessIdentity'
     { _dcfoaiIfMatch = Nothing
     , _dcfoaiId = pId_
@@ -99,10 +101,10 @@ instance ToQuery DeleteCloudFrontOriginAccessIdentity
 
 -- | /See:/ 'deleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 data DeleteCloudFrontOriginAccessIdentityResponse =
-    DeleteCloudFrontOriginAccessIdentityResponse'
+    DeleteCloudFrontOriginAccessIdentityResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
-deleteCloudFrontOriginAccessIdentityResponse =
+deleteCloudFrontOriginAccessIdentityResponse = 
     DeleteCloudFrontOriginAccessIdentityResponse'

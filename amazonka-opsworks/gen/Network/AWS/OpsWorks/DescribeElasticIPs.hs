@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.OpsWorks.DescribeElasticIPs
     , deirsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeElasticIPs' smart constructor.
 --
@@ -63,13 +65,13 @@ import           Network.AWS.Response
 -- * 'deiStackId'
 data DescribeElasticIPs = DescribeElasticIPs'
     { _deiInstanceId :: !(Maybe Text)
-    , _deiIPs        :: !(Maybe [Text])
-    , _deiStackId    :: !(Maybe Text)
+    , _deiIPs :: !(Maybe [Text])
+    , _deiStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticIPs' smart constructor.
 describeElasticIPs :: DescribeElasticIPs
-describeElasticIPs =
+describeElasticIPs = 
     DescribeElasticIPs'
     { _deiInstanceId = Nothing
     , _deiIPs = Nothing
@@ -140,12 +142,12 @@ instance ToQuery DescribeElasticIPs where
 -- * 'deirsStatus'
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
     { _deirsElasticIPs :: !(Maybe [ElasticIP])
-    , _deirsStatus     :: !Int
+    , _deirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
 describeElasticIPsResponse :: Int -> DescribeElasticIPsResponse
-describeElasticIPsResponse pStatus_ =
+describeElasticIPsResponse pStatus_ = 
     DescribeElasticIPsResponse'
     { _deirsElasticIPs = Nothing
     , _deirsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DeviceFarm.GetDevice
     , gdrsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get device request.
 --
@@ -54,7 +56,7 @@ newtype GetDevice = GetDevice'
 
 -- | 'GetDevice' smart constructor.
 getDevice :: Text -> GetDevice
-getDevice pArn_ =
+getDevice pArn_ = 
     GetDevice'
     { _gdArn = pArn_
     }
@@ -107,7 +109,7 @@ data GetDeviceResponse = GetDeviceResponse'
 
 -- | 'GetDeviceResponse' smart constructor.
 getDeviceResponse :: Int -> GetDeviceResponse
-getDeviceResponse pStatus_ =
+getDeviceResponse pStatus_ = 
     GetDeviceResponse'
     { _gdrsDevice = Nothing
     , _gdrsStatus = pStatus_

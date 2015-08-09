@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -59,10 +60,11 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     , createNetworkACLEntryResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createNetworkACLEntry' smart constructor.
 --
@@ -87,19 +89,19 @@ import           Network.AWS.Response
 -- * 'cnaeCIdRBlock'
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
     { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _cnaePortRange    :: !(Maybe PortRange)
-    , _cnaeDryRun       :: !(Maybe Bool)
+    , _cnaePortRange :: !(Maybe PortRange)
+    , _cnaeDryRun :: !(Maybe Bool)
     , _cnaeNetworkACLId :: !Text
-    , _cnaeRuleNumber   :: !Int
-    , _cnaeProtocol     :: !Text
-    , _cnaeRuleAction   :: !RuleAction
-    , _cnaeEgress       :: !Bool
-    , _cnaeCIdRBlock    :: !Text
+    , _cnaeRuleNumber :: !Int
+    , _cnaeProtocol :: !Text
+    , _cnaeRuleAction :: !RuleAction
+    , _cnaeEgress :: !Bool
+    , _cnaeCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLEntry' smart constructor.
 createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
-createNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ =
+createNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ = 
     CreateNetworkACLEntry'
     { _cnaeICMPTypeCode = Nothing
     , _cnaePortRange = Nothing
@@ -187,7 +189,7 @@ instance ToQuery CreateNetworkACLEntry where
 
 -- | /See:/ 'createNetworkACLEntryResponse' smart constructor.
 data CreateNetworkACLEntryResponse =
-    CreateNetworkACLEntryResponse'
+    CreateNetworkACLEntryResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLEntryResponse' smart constructor.

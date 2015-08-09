@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -286,10 +286,10 @@ module Network.AWS.CloudSearch.Types
     , toDefaultValue
     ) where
 
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.CloudSearch.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.CloudSearch.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2013-01-01@ of the Amazon CloudSearch SDK.
 data CloudSearch
@@ -298,7 +298,7 @@ instance AWSService CloudSearch where
     type Sg CloudSearch = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "CloudSearch"
             , _svcPrefix = "cloudsearch"
@@ -309,7 +309,7 @@ instance AWSService CloudSearch where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -317,9 +317,9 @@ instance AWSService CloudSearch where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e =
+          | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e = 
               Just "request_limit_exceeded"
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -334,14 +334,14 @@ _BaseException = _ServiceError . hasCode "BaseException"
 -- | The request was rejected because it attempted an operation which is not
 -- enabled.
 _DisabledOperationException :: AsError a => Getting (First ServiceError) a ServiceError
-_DisabledOperationException =
+_DisabledOperationException = 
     _ServiceError . hasStatus 409 . hasCode "DisabledAction"
 
 -- | An internal error occurred while processing the request. If this problem
 -- persists, report an issue from the
 -- <http://status.aws.amazon.com/ Service Health Dashboard>.
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalException =
+_InternalException = 
     _ServiceError . hasStatus 500 . hasCode "InternalException"
 
 -- | The request was rejected because it specified an invalid type
@@ -352,10 +352,10 @@ _InvalidTypeException = _ServiceError . hasStatus 409 . hasCode "InvalidType"
 -- | The request was rejected because it attempted to reference a resource
 -- that does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
+_ResourceNotFoundException = 
     _ServiceError . hasStatus 409 . hasCode "ResourceNotFound"
 
 -- | The request was rejected because a resource limit has already been met.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
+_LimitExceededException = 
     _ServiceError . hasStatus 409 . hasCode "LimitExceeded"

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.EC2.DeleteVPCPeeringConnection
     , dvpcrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteVPCPeeringConnection' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'dvpcVPCPeeringConnectionId'
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
-    { _dvpcDryRun                 :: !(Maybe Bool)
+    { _dvpcDryRun :: !(Maybe Bool)
     , _dvpcVPCPeeringConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCPeeringConnection' smart constructor.
 deleteVPCPeeringConnection :: Text -> DeleteVPCPeeringConnection
-deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
+deleteVPCPeeringConnection pVPCPeeringConnectionId_ = 
     DeleteVPCPeeringConnection'
     { _dvpcDryRun = Nothing
     , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
@@ -117,7 +119,7 @@ data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
 
 -- | 'DeleteVPCPeeringConnectionResponse' smart constructor.
 deleteVPCPeeringConnectionResponse :: Int -> DeleteVPCPeeringConnectionResponse
-deleteVPCPeeringConnectionResponse pStatus_ =
+deleteVPCPeeringConnectionResponse pStatus_ = 
     DeleteVPCPeeringConnectionResponse'
     { _dvpcrsReturn = Nothing
     , _dvpcrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     , dmtsgrsSecurityGroups
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMountTargetSecurityGroups' smart constructor.
 --
@@ -62,7 +64,7 @@ newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
 
 -- | 'DescribeMountTargetSecurityGroups' smart constructor.
 describeMountTargetSecurityGroups :: Text -> DescribeMountTargetSecurityGroups
-describeMountTargetSecurityGroups pMountTargetId_ =
+describeMountTargetSecurityGroups pMountTargetId_ = 
     DescribeMountTargetSecurityGroups'
     { _dmtsgMountTargetId = pMountTargetId_
     }
@@ -107,13 +109,13 @@ instance ToQuery DescribeMountTargetSecurityGroups
 --
 -- * 'dmtsgrsSecurityGroups'
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrsStatus         :: !Int
+    { _dmtsgrsStatus :: !Int
     , _dmtsgrsSecurityGroups :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
 describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse
-describeMountTargetSecurityGroupsResponse pStatus_ =
+describeMountTargetSecurityGroupsResponse pStatus_ = 
     DescribeMountTargetSecurityGroupsResponse'
     { _dmtsgrsStatus = pStatus_
     , _dmtsgrsSecurityGroups = mempty

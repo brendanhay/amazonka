@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     , defersAnalysisScheme
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DefineAnalysisScheme@ operation.
 -- Specifies the name of the domain you want to update and the analysis
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 --
 -- * 'dasaAnalysisScheme'
 data DefineAnalysisScheme = DefineAnalysisScheme'
-    { _dasaDomainName     :: !Text
+    { _dasaDomainName :: !Text
     , _dasaAnalysisScheme :: !AnalysisScheme
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineAnalysisScheme' smart constructor.
 defineAnalysisScheme :: Text -> AnalysisScheme -> DefineAnalysisScheme
-defineAnalysisScheme pDomainName_ pAnalysisScheme_ =
+defineAnalysisScheme pDomainName_ pAnalysisScheme_ = 
     DefineAnalysisScheme'
     { _dasaDomainName = pDomainName_
     , _dasaAnalysisScheme = pAnalysisScheme_
@@ -114,13 +116,13 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- * 'defersAnalysisScheme'
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-    { _defersStatus         :: !Int
+    { _defersStatus :: !Int
     , _defersAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
 defineAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
-defineAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
+defineAnalysisSchemeResponse pStatus_ pAnalysisScheme_ = 
     DefineAnalysisSchemeResponse'
     { _defersStatus = pStatus_
     , _defersAnalysisScheme = pAnalysisScheme_

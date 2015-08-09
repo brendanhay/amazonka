@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.OpsWorks.DescribeLayers
     , dlrsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLayers' smart constructor.
 --
@@ -59,12 +61,12 @@ import           Network.AWS.Response
 -- * 'dlStackId'
 data DescribeLayers = DescribeLayers'
     { _dlLayerIds :: !(Maybe [Text])
-    , _dlStackId  :: !(Maybe Text)
+    , _dlStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLayers' smart constructor.
 describeLayers :: DescribeLayers
-describeLayers =
+describeLayers = 
     DescribeLayers'
     { _dlLayerIds = Nothing
     , _dlStackId = Nothing
@@ -126,7 +128,7 @@ data DescribeLayersResponse = DescribeLayersResponse'
 
 -- | 'DescribeLayersResponse' smart constructor.
 describeLayersResponse :: Int -> DescribeLayersResponse
-describeLayersResponse pStatus_ =
+describeLayersResponse pStatus_ = 
     DescribeLayersResponse'
     { _dlrsLayers = Nothing
     , _dlrsStatus = pStatus_

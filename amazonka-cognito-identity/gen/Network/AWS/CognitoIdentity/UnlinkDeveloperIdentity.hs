@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     , unlinkDeveloperIdentityResponse
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @UnlinkDeveloperIdentity@ action.
 --
@@ -61,15 +63,15 @@ import           Network.AWS.Response
 --
 -- * 'udiDeveloperUserIdentifier'
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
-    { _udiIdentityId              :: !Text
-    , _udiIdentityPoolId          :: !Text
-    , _udiDeveloperProviderName   :: !Text
+    { _udiIdentityId :: !Text
+    , _udiIdentityPoolId :: !Text
+    , _udiDeveloperProviderName :: !Text
     , _udiDeveloperUserIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkDeveloperIdentity' smart constructor.
 unlinkDeveloperIdentity :: Text -> Text -> Text -> Text -> UnlinkDeveloperIdentity
-unlinkDeveloperIdentity pIdentityId_ pIdentityPoolId_ pDeveloperProviderName_ pDeveloperUserIdentifier_ =
+unlinkDeveloperIdentity pIdentityId_ pIdentityPoolId_ pDeveloperProviderName_ pDeveloperUserIdentifier_ = 
     UnlinkDeveloperIdentity'
     { _udiIdentityId = pIdentityId_
     , _udiIdentityPoolId = pIdentityPoolId_
@@ -129,7 +131,7 @@ instance ToQuery UnlinkDeveloperIdentity where
 
 -- | /See:/ 'unlinkDeveloperIdentityResponse' smart constructor.
 data UnlinkDeveloperIdentityResponse =
-    UnlinkDeveloperIdentityResponse'
+    UnlinkDeveloperIdentityResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkDeveloperIdentityResponse' smart constructor.

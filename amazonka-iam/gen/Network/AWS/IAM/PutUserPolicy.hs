@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.IAM.PutUserPolicy
     , putUserPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putUserPolicy' smart constructor.
 --
@@ -68,14 +70,14 @@ import           Network.AWS.Response
 --
 -- * 'pupPolicyDocument'
 data PutUserPolicy = PutUserPolicy'
-    { _pupUserName       :: !Text
-    , _pupPolicyName     :: !Text
+    { _pupUserName :: !Text
+    , _pupPolicyName :: !Text
     , _pupPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutUserPolicy' smart constructor.
 putUserPolicy :: Text -> Text -> Text -> PutUserPolicy
-putUserPolicy pUserName_ pPolicyName_ pPolicyDocument_ =
+putUserPolicy pUserName_ pPolicyName_ pPolicyDocument_ = 
     PutUserPolicy'
     { _pupUserName = pUserName_
     , _pupPolicyName = pPolicyName_
@@ -117,7 +119,7 @@ instance ToQuery PutUserPolicy where
 
 -- | /See:/ 'putUserPolicyResponse' smart constructor.
 data PutUserPolicyResponse =
-    PutUserPolicyResponse'
+    PutUserPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutUserPolicyResponse' smart constructor.

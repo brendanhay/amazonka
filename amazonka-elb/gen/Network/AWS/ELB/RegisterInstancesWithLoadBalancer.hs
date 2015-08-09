@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -67,10 +68,11 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     , riwlbrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
 --
@@ -81,12 +83,12 @@ import           Network.AWS.Response
 -- * 'riwlbInstances'
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
     { _riwlbLoadBalancerName :: !Text
-    , _riwlbInstances        :: ![Instance]
+    , _riwlbInstances :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstancesWithLoadBalancer' smart constructor.
 registerInstancesWithLoadBalancer :: Text -> RegisterInstancesWithLoadBalancer
-registerInstancesWithLoadBalancer pLoadBalancerName_ =
+registerInstancesWithLoadBalancer pLoadBalancerName_ = 
     RegisterInstancesWithLoadBalancer'
     { _riwlbLoadBalancerName = pLoadBalancerName_
     , _riwlbInstances = mempty
@@ -142,12 +144,12 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 -- * 'riwlbrsStatus'
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances :: !(Maybe [Instance])
-    , _riwlbrsStatus    :: !Int
+    , _riwlbrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
 registerInstancesWithLoadBalancerResponse :: Int -> RegisterInstancesWithLoadBalancerResponse
-registerInstancesWithLoadBalancerResponse pStatus_ =
+registerInstancesWithLoadBalancerResponse pStatus_ = 
     RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances = Nothing
     , _riwlbrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     , registerApplicationRevisionResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a register application revision operation.
 --
@@ -52,14 +54,14 @@ import           Network.AWS.Response
 --
 -- * 'rarRevision'
 data RegisterApplicationRevision = RegisterApplicationRevision'
-    { _rarDescription     :: !(Maybe Text)
+    { _rarDescription :: !(Maybe Text)
     , _rarApplicationName :: !Text
-    , _rarRevision        :: !RevisionLocation
+    , _rarRevision :: !RevisionLocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterApplicationRevision' smart constructor.
 registerApplicationRevision :: Text -> RevisionLocation -> RegisterApplicationRevision
-registerApplicationRevision pApplicationName_ pRevision_ =
+registerApplicationRevision pApplicationName_ pRevision_ = 
     RegisterApplicationRevision'
     { _rarDescription = Nothing
     , _rarApplicationName = pApplicationName_
@@ -113,7 +115,7 @@ instance ToQuery RegisterApplicationRevision where
 
 -- | /See:/ 'registerApplicationRevisionResponse' smart constructor.
 data RegisterApplicationRevisionResponse =
-    RegisterApplicationRevisionResponse'
+    RegisterApplicationRevisionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterApplicationRevisionResponse' smart constructor.

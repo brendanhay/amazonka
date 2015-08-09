@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.DeviceFarm.ListDevices
     , ldrsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the result of a list devices request.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'ldNextToken'
 data ListDevices = ListDevices'
-    { _ldArn       :: !(Maybe Text)
+    { _ldArn :: !(Maybe Text)
     , _ldNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevices' smart constructor.
 listDevices :: ListDevices
-listDevices =
+listDevices = 
     ListDevices'
     { _ldArn = Nothing
     , _ldNextToken = Nothing
@@ -119,13 +121,13 @@ instance ToQuery ListDevices where
 -- * 'ldrsStatus'
 data ListDevicesResponse = ListDevicesResponse'
     { _ldrsNextToken :: !(Maybe Text)
-    , _ldrsDevices   :: !(Maybe [Device])
-    , _ldrsStatus    :: !Int
+    , _ldrsDevices :: !(Maybe [Device])
+    , _ldrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevicesResponse' smart constructor.
 listDevicesResponse :: Int -> ListDevicesResponse
-listDevicesResponse pStatus_ =
+listDevicesResponse pStatus_ = 
     ListDevicesResponse'
     { _ldrsNextToken = Nothing
     , _ldrsDevices = Nothing

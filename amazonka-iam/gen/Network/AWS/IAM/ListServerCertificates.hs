@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,11 +45,12 @@ module Network.AWS.IAM.ListServerCertificates
     , lscrsServerCertificateMetadataList
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listServerCertificates' smart constructor.
 --
@@ -61,13 +63,13 @@ import           Network.AWS.Response
 -- * 'lscMarker'
 data ListServerCertificates = ListServerCertificates'
     { _lscPathPrefix :: !(Maybe Text)
-    , _lscMaxItems   :: !(Maybe Nat)
-    , _lscMarker     :: !(Maybe Text)
+    , _lscMaxItems :: !(Maybe Nat)
+    , _lscMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServerCertificates' smart constructor.
 listServerCertificates :: ListServerCertificates
-listServerCertificates =
+listServerCertificates = 
     ListServerCertificates'
     { _lscPathPrefix = Nothing
     , _lscMaxItems = Nothing
@@ -149,15 +151,15 @@ instance ToQuery ListServerCertificates where
 --
 -- * 'lscrsServerCertificateMetadataList'
 data ListServerCertificatesResponse = ListServerCertificatesResponse'
-    { _lscrsMarker                        :: !(Maybe Text)
-    , _lscrsIsTruncated                   :: !(Maybe Bool)
-    , _lscrsStatus                        :: !Int
+    { _lscrsMarker :: !(Maybe Text)
+    , _lscrsIsTruncated :: !(Maybe Bool)
+    , _lscrsStatus :: !Int
     , _lscrsServerCertificateMetadataList :: ![ServerCertificateMetadata]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServerCertificatesResponse' smart constructor.
 listServerCertificatesResponse :: Int -> ListServerCertificatesResponse
-listServerCertificatesResponse pStatus_ =
+listServerCertificatesResponse pStatus_ = 
     ListServerCertificatesResponse'
     { _lscrsMarker = Nothing
     , _lscrsIsTruncated = Nothing

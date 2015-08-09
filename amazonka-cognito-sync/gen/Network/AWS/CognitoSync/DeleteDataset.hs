@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.CognitoSync.DeleteDataset
     , drsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to delete the specific dataset.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 -- * 'delDatasetName'
 data DeleteDataset = DeleteDataset'
     { _delIdentityPoolId :: !Text
-    , _delIdentityId     :: !Text
-    , _delDatasetName    :: !Text
+    , _delIdentityId :: !Text
+    , _delDatasetName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataset' smart constructor.
 deleteDataset :: Text -> Text -> Text -> DeleteDataset
-deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ = 
     DeleteDataset'
     { _delIdentityPoolId = pIdentityPoolId_
     , _delIdentityId = pIdentityId_
@@ -130,12 +132,12 @@ instance ToQuery DeleteDataset where
 -- * 'drsStatus'
 data DeleteDatasetResponse = DeleteDatasetResponse'
     { _drsDataset :: !(Maybe Dataset)
-    , _drsStatus  :: !Int
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDatasetResponse' smart constructor.
 deleteDatasetResponse :: Int -> DeleteDatasetResponse
-deleteDatasetResponse pStatus_ =
+deleteDatasetResponse pStatus_ = 
     DeleteDatasetResponse'
     { _drsDataset = Nothing
     , _drsStatus = pStatus_

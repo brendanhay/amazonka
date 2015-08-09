@@ -179,19 +179,19 @@ module Network.AWS.ElastiCache
     -- * Operations
     -- $operations
 
-    -- ** DeleteCacheSecurityGroup
+    -- ** DeleteCacheSecurityGroup 
     , module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
 
-    -- ** CreateReplicationGroup
+    -- ** CreateReplicationGroup 
     , module Network.AWS.ElastiCache.CreateReplicationGroup
 
-    -- ** DeleteCacheCluster
+    -- ** DeleteCacheCluster 
     , module Network.AWS.ElastiCache.DeleteCacheCluster
 
-    -- ** RebootCacheCluster
+    -- ** RebootCacheCluster 
     , module Network.AWS.ElastiCache.RebootCacheCluster
 
-    -- ** RevokeCacheSecurityGroupIngress
+    -- ** RevokeCacheSecurityGroupIngress 
     , module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 
     -- ** DescribeEvents (Paginated)
@@ -202,29 +202,29 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     -- $pager
 
-    -- ** ModifyCacheParameterGroup
+    -- ** ModifyCacheParameterGroup 
     , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
 
-    -- ** CreateCacheCluster
+    -- ** CreateCacheCluster 
     , module Network.AWS.ElastiCache.CreateCacheCluster
 
-    -- ** ListTagsForResource
+    -- ** ListTagsForResource 
     , module Network.AWS.ElastiCache.ListTagsForResource
 
-    -- ** DeleteReplicationGroup
+    -- ** DeleteReplicationGroup 
     , module Network.AWS.ElastiCache.DeleteReplicationGroup
 
-    -- ** PurchaseReservedCacheNodesOffering
+    -- ** PurchaseReservedCacheNodesOffering 
     , module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 
     -- ** DescribeCacheClusters (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheClusters
     -- $pager
 
-    -- ** ModifyReplicationGroup
+    -- ** ModifyReplicationGroup 
     , module Network.AWS.ElastiCache.ModifyReplicationGroup
 
-    -- ** RemoveTagsFromResource
+    -- ** RemoveTagsFromResource 
     , module Network.AWS.ElastiCache.RemoveTagsFromResource
 
     -- ** DescribeCacheParameters (Paginated)
@@ -235,26 +235,26 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- $pager
 
-    -- ** CreateCacheSecurityGroup
+    -- ** CreateCacheSecurityGroup 
     , module Network.AWS.ElastiCache.CreateCacheSecurityGroup
 
-    -- ** AddTagsToResource
+    -- ** AddTagsToResource 
     , module Network.AWS.ElastiCache.AddTagsToResource
 
-    -- ** AuthorizeCacheSecurityGroupIngress
+    -- ** AuthorizeCacheSecurityGroupIngress 
     , module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 
-    -- ** CopySnapshot
+    -- ** CopySnapshot 
     , module Network.AWS.ElastiCache.CopySnapshot
 
-    -- ** CreateCacheSubnetGroup
+    -- ** CreateCacheSubnetGroup 
     , module Network.AWS.ElastiCache.CreateCacheSubnetGroup
 
     -- ** DescribeCacheParameterGroups (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- $pager
 
-    -- ** ResetCacheParameterGroup
+    -- ** ResetCacheParameterGroup 
     , module Network.AWS.ElastiCache.ResetCacheParameterGroup
 
     -- ** DescribeSnapshots (Paginated)
@@ -265,24 +265,24 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     -- $pager
 
-    -- ** DeleteSnapshot
+    -- ** DeleteSnapshot 
     , module Network.AWS.ElastiCache.DeleteSnapshot
 
     -- ** DescribeReplicationGroups (Paginated)
     , module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- $pager
 
-    -- ** ModifyCacheSubnetGroup
+    -- ** ModifyCacheSubnetGroup 
     , module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 
-    -- ** CreateSnapshot
+    -- ** CreateSnapshot 
     , module Network.AWS.ElastiCache.CreateSnapshot
 
     -- ** DescribeCacheSecurityGroups (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- $pager
 
-    -- ** DeleteCacheParameterGroup
+    -- ** DeleteCacheParameterGroup 
     , module Network.AWS.ElastiCache.DeleteCacheParameterGroup
 
     -- ** DescribeReservedCacheNodes (Paginated)
@@ -293,13 +293,13 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- $pager
 
-    -- ** ModifyCacheCluster
+    -- ** ModifyCacheCluster 
     , module Network.AWS.ElastiCache.ModifyCacheCluster
 
-    -- ** CreateCacheParameterGroup
+    -- ** CreateCacheParameterGroup 
     , module Network.AWS.ElastiCache.CreateCacheParameterGroup
 
-    -- ** DeleteCacheSubnetGroup
+    -- ** DeleteCacheSubnetGroup 
     , module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
 
     -- * Types
@@ -611,45 +611,45 @@ module Network.AWS.ElastiCache
     , tlmTagList
     ) where
 
-import           Network.AWS.ElastiCache.AddTagsToResource
-import           Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
-import           Network.AWS.ElastiCache.CopySnapshot
-import           Network.AWS.ElastiCache.CreateCacheCluster
-import           Network.AWS.ElastiCache.CreateCacheParameterGroup
-import           Network.AWS.ElastiCache.CreateCacheSecurityGroup
-import           Network.AWS.ElastiCache.CreateCacheSubnetGroup
-import           Network.AWS.ElastiCache.CreateReplicationGroup
-import           Network.AWS.ElastiCache.CreateSnapshot
-import           Network.AWS.ElastiCache.DeleteCacheCluster
-import           Network.AWS.ElastiCache.DeleteCacheParameterGroup
-import           Network.AWS.ElastiCache.DeleteCacheSecurityGroup
-import           Network.AWS.ElastiCache.DeleteCacheSubnetGroup
-import           Network.AWS.ElastiCache.DeleteReplicationGroup
-import           Network.AWS.ElastiCache.DeleteSnapshot
-import           Network.AWS.ElastiCache.DescribeCacheClusters
-import           Network.AWS.ElastiCache.DescribeCacheEngineVersions
-import           Network.AWS.ElastiCache.DescribeCacheParameterGroups
-import           Network.AWS.ElastiCache.DescribeCacheParameters
-import           Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-import           Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-import           Network.AWS.ElastiCache.DescribeEngineDefaultParameters
-import           Network.AWS.ElastiCache.DescribeEvents
-import           Network.AWS.ElastiCache.DescribeReplicationGroups
-import           Network.AWS.ElastiCache.DescribeReservedCacheNodes
-import           Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
-import           Network.AWS.ElastiCache.DescribeSnapshots
-import           Network.AWS.ElastiCache.ListTagsForResource
-import           Network.AWS.ElastiCache.ModifyCacheCluster
-import           Network.AWS.ElastiCache.ModifyCacheParameterGroup
-import           Network.AWS.ElastiCache.ModifyCacheSubnetGroup
-import           Network.AWS.ElastiCache.ModifyReplicationGroup
-import           Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
-import           Network.AWS.ElastiCache.RebootCacheCluster
-import           Network.AWS.ElastiCache.RemoveTagsFromResource
-import           Network.AWS.ElastiCache.ResetCacheParameterGroup
-import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Waiters
+import Network.AWS.ElastiCache.AddTagsToResource
+import Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
+import Network.AWS.ElastiCache.CopySnapshot
+import Network.AWS.ElastiCache.CreateCacheCluster
+import Network.AWS.ElastiCache.CreateCacheParameterGroup
+import Network.AWS.ElastiCache.CreateCacheSecurityGroup
+import Network.AWS.ElastiCache.CreateCacheSubnetGroup
+import Network.AWS.ElastiCache.CreateReplicationGroup
+import Network.AWS.ElastiCache.CreateSnapshot
+import Network.AWS.ElastiCache.DeleteCacheCluster
+import Network.AWS.ElastiCache.DeleteCacheParameterGroup
+import Network.AWS.ElastiCache.DeleteCacheSecurityGroup
+import Network.AWS.ElastiCache.DeleteCacheSubnetGroup
+import Network.AWS.ElastiCache.DeleteReplicationGroup
+import Network.AWS.ElastiCache.DeleteSnapshot
+import Network.AWS.ElastiCache.DescribeCacheClusters
+import Network.AWS.ElastiCache.DescribeCacheEngineVersions
+import Network.AWS.ElastiCache.DescribeCacheParameterGroups
+import Network.AWS.ElastiCache.DescribeCacheParameters
+import Network.AWS.ElastiCache.DescribeCacheSecurityGroups
+import Network.AWS.ElastiCache.DescribeCacheSubnetGroups
+import Network.AWS.ElastiCache.DescribeEngineDefaultParameters
+import Network.AWS.ElastiCache.DescribeEvents
+import Network.AWS.ElastiCache.DescribeReplicationGroups
+import Network.AWS.ElastiCache.DescribeReservedCacheNodes
+import Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
+import Network.AWS.ElastiCache.DescribeSnapshots
+import Network.AWS.ElastiCache.ListTagsForResource
+import Network.AWS.ElastiCache.ModifyCacheCluster
+import Network.AWS.ElastiCache.ModifyCacheParameterGroup
+import Network.AWS.ElastiCache.ModifyCacheSubnetGroup
+import Network.AWS.ElastiCache.ModifyReplicationGroup
+import Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
+import Network.AWS.ElastiCache.RebootCacheCluster
+import Network.AWS.ElastiCache.RemoveTagsFromResource
+import Network.AWS.ElastiCache.ResetCacheParameterGroup
+import Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

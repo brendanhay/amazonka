@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.MachineLearning.UpdateDataSource
     , udsrsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateDataSource' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'udsDataSourceName'
 data UpdateDataSource = UpdateDataSource'
-    { _udsDataSourceId   :: !Text
+    { _udsDataSourceId :: !Text
     , _udsDataSourceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDataSource' smart constructor.
 updateDataSource :: Text -> Text -> UpdateDataSource
-updateDataSource pDataSourceId_ pDataSourceName_ =
+updateDataSource pDataSourceId_ pDataSourceName_ = 
     UpdateDataSource'
     { _udsDataSourceId = pDataSourceId_
     , _udsDataSourceName = pDataSourceName_
@@ -119,12 +121,12 @@ instance ToQuery UpdateDataSource where
 -- * 'udsrsStatus'
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
     { _udsrsDataSourceId :: !(Maybe Text)
-    , _udsrsStatus       :: !Int
+    , _udsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
 updateDataSourceResponse :: Int -> UpdateDataSourceResponse
-updateDataSourceResponse pStatus_ =
+updateDataSourceResponse pStatus_ = 
     UpdateDataSourceResponse'
     { _udsrsDataSourceId = Nothing
     , _udsrsStatus = pStatus_

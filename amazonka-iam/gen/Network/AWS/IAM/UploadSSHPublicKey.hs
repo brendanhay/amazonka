@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.IAM.UploadSSHPublicKey
     , uspkrsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'uploadSSHPublicKey' smart constructor.
 --
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 --
 -- * 'usshpkSSHPublicKeyBody'
 data UploadSSHPublicKey = UploadSSHPublicKey'
-    { _usshpkUserName         :: !Text
+    { _usshpkUserName :: !Text
     , _usshpkSSHPublicKeyBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSSHPublicKey' smart constructor.
 uploadSSHPublicKey :: Text -> Text -> UploadSSHPublicKey
-uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
+uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ = 
     UploadSSHPublicKey'
     { _usshpkUserName = pUserName_
     , _usshpkSSHPublicKeyBody = pSSHPublicKeyBody_
@@ -114,12 +116,12 @@ instance ToQuery UploadSSHPublicKey where
 -- * 'uspkrsStatus'
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
     { _uspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
-    , _uspkrsStatus       :: !Int
+    , _uspkrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSSHPublicKeyResponse' smart constructor.
 uploadSSHPublicKeyResponse :: Int -> UploadSSHPublicKeyResponse
-uploadSSHPublicKeyResponse pStatus_ =
+uploadSSHPublicKeyResponse pStatus_ = 
     UploadSSHPublicKeyResponse'
     { _uspkrsSSHPublicKey = Nothing
     , _uspkrsStatus = pStatus_

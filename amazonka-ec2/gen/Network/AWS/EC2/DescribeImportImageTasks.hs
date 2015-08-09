@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.DescribeImportImageTasks
     , diitrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeImportImageTasks' smart constructor.
 --
@@ -61,16 +63,16 @@ import           Network.AWS.Response
 --
 -- * 'diitMaxResults'
 data DescribeImportImageTasks = DescribeImportImageTasks'
-    { _diitFilters       :: !(Maybe [Filter])
+    { _diitFilters :: !(Maybe [Filter])
     , _diitImportTaskIds :: !(Maybe [Text])
-    , _diitNextToken     :: !(Maybe Text)
-    , _diitDryRun        :: !(Maybe Bool)
-    , _diitMaxResults    :: !(Maybe Int)
+    , _diitNextToken :: !(Maybe Text)
+    , _diitDryRun :: !(Maybe Bool)
+    , _diitMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportImageTasks' smart constructor.
 describeImportImageTasks :: DescribeImportImageTasks
-describeImportImageTasks =
+describeImportImageTasks = 
     DescribeImportImageTasks'
     { _diitFilters = Nothing
     , _diitImportTaskIds = Nothing
@@ -146,13 +148,13 @@ instance ToQuery DescribeImportImageTasks where
 -- * 'diitrsStatus'
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
-    , _diitrsNextToken        :: !(Maybe Text)
-    , _diitrsStatus           :: !Int
+    , _diitrsNextToken :: !(Maybe Text)
+    , _diitrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
 describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse
-describeImportImageTasksResponse pStatus_ =
+describeImportImageTasksResponse pStatus_ = 
     DescribeImportImageTasksResponse'
     { _diitrsImportImageTasks = Nothing
     , _diitrsNextToken = Nothing

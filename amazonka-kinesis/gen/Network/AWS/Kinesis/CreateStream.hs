@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -75,10 +76,11 @@ module Network.AWS.Kinesis.CreateStream
     , createStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @CreateStream@.
 --
@@ -96,7 +98,7 @@ data CreateStream = CreateStream'
 
 -- | 'CreateStream' smart constructor.
 createStream :: Text -> Natural -> CreateStream
-createStream pStreamName_ pShardCount_ =
+createStream pStreamName_ pShardCount_ = 
     CreateStream'
     { _csStreamName = pStreamName_
     , _csShardCount = _Nat # pShardCount_
@@ -147,7 +149,7 @@ instance ToQuery CreateStream where
 
 -- | /See:/ 'createStreamResponse' smart constructor.
 data CreateStreamResponse =
-    CreateStreamResponse'
+    CreateStreamResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamResponse' smart constructor.

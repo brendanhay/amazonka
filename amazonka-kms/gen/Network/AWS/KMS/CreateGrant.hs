@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -51,10 +52,11 @@ module Network.AWS.KMS.CreateGrant
     , cgrsStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGrant' smart constructor.
 --
@@ -73,16 +75,16 @@ import           Network.AWS.Response
 -- * 'cgGranteePrincipal'
 data CreateGrant = CreateGrant'
     { _cgRetiringPrincipal :: !(Maybe Text)
-    , _cgConstraints       :: !(Maybe GrantConstraints)
-    , _cgGrantTokens       :: !(Maybe [Text])
-    , _cgOperations        :: !(Maybe [GrantOperation])
-    , _cgKeyId             :: !Text
-    , _cgGranteePrincipal  :: !Text
+    , _cgConstraints :: !(Maybe GrantConstraints)
+    , _cgGrantTokens :: !(Maybe [Text])
+    , _cgOperations :: !(Maybe [GrantOperation])
+    , _cgKeyId :: !Text
+    , _cgGranteePrincipal :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGrant' smart constructor.
 createGrant :: Text -> Text -> CreateGrant
-createGrant pKeyId_ pGranteePrincipal_ =
+createGrant pKeyId_ pGranteePrincipal_ = 
     CreateGrant'
     { _cgRetiringPrincipal = Nothing
     , _cgConstraints = Nothing
@@ -181,14 +183,14 @@ instance ToQuery CreateGrant where
 --
 -- * 'cgrsStatus'
 data CreateGrantResponse = CreateGrantResponse'
-    { _cgrsGrantId    :: !(Maybe Text)
+    { _cgrsGrantId :: !(Maybe Text)
     , _cgrsGrantToken :: !(Maybe Text)
-    , _cgrsStatus     :: !Int
+    , _cgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGrantResponse' smart constructor.
 createGrantResponse :: Int -> CreateGrantResponse
-createGrantResponse pStatus_ =
+createGrantResponse pStatus_ = 
     CreateGrantResponse'
     { _cgrsGrantId = Nothing
     , _cgrsGrantToken = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.EC2.CreatePlacementGroup
     , createPlacementGroupResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createPlacementGroup' smart constructor.
 --
@@ -56,14 +58,14 @@ import           Network.AWS.Response
 --
 -- * 'cpgStrategy'
 data CreatePlacementGroup = CreatePlacementGroup'
-    { _cpgDryRun    :: !(Maybe Bool)
+    { _cpgDryRun :: !(Maybe Bool)
     , _cpgGroupName :: !Text
-    , _cpgStrategy  :: !PlacementStrategy
+    , _cpgStrategy :: !PlacementStrategy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlacementGroup' smart constructor.
 createPlacementGroup :: Text -> PlacementStrategy -> CreatePlacementGroup
-createPlacementGroup pGroupName_ pStrategy_ =
+createPlacementGroup pGroupName_ pStrategy_ = 
     CreatePlacementGroup'
     { _cpgDryRun = Nothing
     , _cpgGroupName = pGroupName_
@@ -110,7 +112,7 @@ instance ToQuery CreatePlacementGroup where
 
 -- | /See:/ 'createPlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse =
-    CreatePlacementGroupResponse'
+    CreatePlacementGroupResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlacementGroupResponse' smart constructor.

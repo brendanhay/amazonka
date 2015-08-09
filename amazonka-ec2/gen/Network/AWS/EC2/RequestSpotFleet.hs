@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.EC2.RequestSpotFleet
     , rsfrsSpotFleetRequestId
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RequestSpotFleet.
 --
@@ -56,13 +58,13 @@ import           Network.AWS.Response
 --
 -- * 'rsfSpotFleetRequestConfig'
 data RequestSpotFleet = RequestSpotFleet'
-    { _rsfDryRun                 :: !(Maybe Bool)
+    { _rsfDryRun :: !(Maybe Bool)
     , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotFleet' smart constructor.
 requestSpotFleet :: SpotFleetRequestConfigData -> RequestSpotFleet
-requestSpotFleet pSpotFleetRequestConfig_ =
+requestSpotFleet pSpotFleetRequestConfig_ = 
     RequestSpotFleet'
     { _rsfDryRun = Nothing
     , _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig_
@@ -114,13 +116,13 @@ instance ToQuery RequestSpotFleet where
 --
 -- * 'rsfrsSpotFleetRequestId'
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-    { _rsfrsStatus             :: !Int
+    { _rsfrsStatus :: !Int
     , _rsfrsSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
 requestSpotFleetResponse :: Int -> Text -> RequestSpotFleetResponse
-requestSpotFleetResponse pStatus_ pSpotFleetRequestId_ =
+requestSpotFleetResponse pStatus_ pSpotFleetRequestId_ = 
     RequestSpotFleetResponse'
     { _rsfrsStatus = pStatus_
     , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_

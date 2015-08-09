@@ -45,13 +45,13 @@ module Network.AWS.CloudSearchDomains
     -- * Operations
     -- $operations
 
-    -- ** Suggest
+    -- ** Suggest 
     , module Network.AWS.CloudSearchDomains.Suggest
 
-    -- ** UploadDocuments
+    -- ** UploadDocuments 
     , module Network.AWS.CloudSearchDomains.UploadDocuments
 
-    -- ** Search
+    -- ** Search 
     , module Network.AWS.CloudSearchDomains.Search
 
     -- * Types
@@ -121,11 +121,11 @@ module Network.AWS.CloudSearchDomains
     , smId
     ) where
 
-import           Network.AWS.CloudSearchDomains.Search
-import           Network.AWS.CloudSearchDomains.Suggest
-import           Network.AWS.CloudSearchDomains.Types
-import           Network.AWS.CloudSearchDomains.UploadDocuments
-import           Network.AWS.CloudSearchDomains.Waiters
+import Network.AWS.CloudSearchDomains.Search
+import Network.AWS.CloudSearchDomains.Suggest
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.CloudSearchDomains.UploadDocuments
+import Network.AWS.CloudSearchDomains.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

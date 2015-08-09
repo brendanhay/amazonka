@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CloudSearch.DefineExpression
     , dersExpression
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DefineExpression@ operation.
 -- Specifies the name of the domain you want to update and the expression
@@ -64,7 +66,7 @@ data DefineExpression = DefineExpression'
 
 -- | 'DefineExpression' smart constructor.
 defineExpression :: Text -> Expression -> DefineExpression
-defineExpression pDomainName_ pExpression_ =
+defineExpression pDomainName_ pExpression_ = 
     DefineExpression'
     { _dDomainName = pDomainName_
     , _dExpression = pExpression_
@@ -113,13 +115,13 @@ instance ToQuery DefineExpression where
 --
 -- * 'dersExpression'
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _dersStatus     :: !Int
+    { _dersStatus :: !Int
     , _dersExpression :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineExpressionResponse' smart constructor.
 defineExpressionResponse :: Int -> ExpressionStatus -> DefineExpressionResponse
-defineExpressionResponse pStatus_ pExpression_ =
+defineExpressionResponse pStatus_ pExpression_ = 
     DefineExpressionResponse'
     { _dersStatus = pStatus_
     , _dersExpression = pExpression_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,11 +47,12 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     , lipfrrsInstanceProfiles
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfilesForRole' smart constructor.
 --
@@ -63,13 +65,13 @@ import           Network.AWS.Response
 -- * 'lipfrRoleName'
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
     { _lipfrMaxItems :: !(Maybe Nat)
-    , _lipfrMarker   :: !(Maybe Text)
+    , _lipfrMarker :: !(Maybe Text)
     , _lipfrRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesForRole' smart constructor.
 listInstanceProfilesForRole :: Text -> ListInstanceProfilesForRole
-listInstanceProfilesForRole pRoleName_ =
+listInstanceProfilesForRole pRoleName_ = 
     ListInstanceProfilesForRole'
     { _lipfrMaxItems = Nothing
     , _lipfrMarker = Nothing
@@ -149,15 +151,15 @@ instance ToQuery ListInstanceProfilesForRole where
 --
 -- * 'lipfrrsInstanceProfiles'
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
-    { _lipfrrsMarker           :: !(Maybe Text)
-    , _lipfrrsIsTruncated      :: !(Maybe Bool)
-    , _lipfrrsStatus           :: !Int
+    { _lipfrrsMarker :: !(Maybe Text)
+    , _lipfrrsIsTruncated :: !(Maybe Bool)
+    , _lipfrrsStatus :: !Int
     , _lipfrrsInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
 listInstanceProfilesForRoleResponse :: Int -> ListInstanceProfilesForRoleResponse
-listInstanceProfilesForRoleResponse pStatus_ =
+listInstanceProfilesForRoleResponse pStatus_ = 
     ListInstanceProfilesForRoleResponse'
     { _lipfrrsMarker = Nothing
     , _lipfrrsIsTruncated = Nothing

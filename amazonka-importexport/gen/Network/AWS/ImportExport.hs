@@ -94,23 +94,23 @@ module Network.AWS.ImportExport
     -- * Operations
     -- $operations
 
-    -- ** GetShippingLabel
+    -- ** GetShippingLabel 
     , module Network.AWS.ImportExport.GetShippingLabel
 
-    -- ** CreateJob
+    -- ** CreateJob 
     , module Network.AWS.ImportExport.CreateJob
 
     -- ** ListJobs (Paginated)
     , module Network.AWS.ImportExport.ListJobs
     -- $pager
 
-    -- ** UpdateJob
+    -- ** UpdateJob 
     , module Network.AWS.ImportExport.UpdateJob
 
-    -- ** GetStatus
+    -- ** GetStatus 
     , module Network.AWS.ImportExport.GetStatus
 
-    -- ** CancelJob
+    -- ** CancelJob 
     , module Network.AWS.ImportExport.CancelJob
 
     -- * Types
@@ -133,14 +133,14 @@ module Network.AWS.ImportExport
     , jobCreationDate
     ) where
 
-import           Network.AWS.ImportExport.CancelJob
-import           Network.AWS.ImportExport.CreateJob
-import           Network.AWS.ImportExport.GetShippingLabel
-import           Network.AWS.ImportExport.GetStatus
-import           Network.AWS.ImportExport.ListJobs
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.UpdateJob
-import           Network.AWS.ImportExport.Waiters
+import Network.AWS.ImportExport.CancelJob
+import Network.AWS.ImportExport.CreateJob
+import Network.AWS.ImportExport.GetShippingLabel
+import Network.AWS.ImportExport.GetStatus
+import Network.AWS.ImportExport.ListJobs
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.UpdateJob
+import Network.AWS.ImportExport.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

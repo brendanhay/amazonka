@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,11 +47,12 @@ module Network.AWS.IAM.ListRoles
     , lrrsRoles
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listRoles' smart constructor.
 --
@@ -63,13 +65,13 @@ import           Network.AWS.Response
 -- * 'lrMarker'
 data ListRoles = ListRoles'
     { _lrPathPrefix :: !(Maybe Text)
-    , _lrMaxItems   :: !(Maybe Nat)
-    , _lrMarker     :: !(Maybe Text)
+    , _lrMaxItems :: !(Maybe Nat)
+    , _lrMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRoles' smart constructor.
 listRoles :: ListRoles
-listRoles =
+listRoles = 
     ListRoles'
     { _lrPathPrefix = Nothing
     , _lrMaxItems = Nothing
@@ -148,15 +150,15 @@ instance ToQuery ListRoles where
 --
 -- * 'lrrsRoles'
 data ListRolesResponse = ListRolesResponse'
-    { _lrrsMarker      :: !(Maybe Text)
+    { _lrrsMarker :: !(Maybe Text)
     , _lrrsIsTruncated :: !(Maybe Bool)
-    , _lrrsStatus      :: !Int
-    , _lrrsRoles       :: ![Role]
+    , _lrrsStatus :: !Int
+    , _lrrsRoles :: ![Role]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolesResponse' smart constructor.
 listRolesResponse :: Int -> ListRolesResponse
-listRolesResponse pStatus_ =
+listRolesResponse pStatus_ = 
     ListRolesResponse'
     { _lrrsMarker = Nothing
     , _lrrsIsTruncated = Nothing

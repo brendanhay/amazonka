@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,11 +40,12 @@ module Network.AWS.ECS.ListServices
     , lsrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listServices' smart constructor.
 --
@@ -55,14 +57,14 @@ import           Network.AWS.Response
 --
 -- * 'lsMaxResults'
 data ListServices = ListServices'
-    { _lsCluster    :: !(Maybe Text)
-    , _lsNextToken  :: !(Maybe Text)
+    { _lsCluster :: !(Maybe Text)
+    , _lsNextToken :: !(Maybe Text)
     , _lsMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServices' smart constructor.
 listServices :: ListServices
-listServices =
+listServices = 
     ListServices'
     { _lsCluster = Nothing
     , _lsNextToken = Nothing
@@ -147,13 +149,13 @@ instance ToQuery ListServices where
 -- * 'lsrsStatus'
 data ListServicesResponse = ListServicesResponse'
     { _lsrsServiceARNs :: !(Maybe [Text])
-    , _lsrsNextToken   :: !(Maybe Text)
-    , _lsrsStatus      :: !Int
+    , _lsrsNextToken :: !(Maybe Text)
+    , _lsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServicesResponse' smart constructor.
 listServicesResponse :: Int -> ListServicesResponse
-listServicesResponse pStatus_ =
+listServicesResponse pStatus_ = 
     ListServicesResponse'
     { _lsrsServiceARNs = Nothing
     , _lsrsNextToken = Nothing

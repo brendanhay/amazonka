@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -54,10 +55,11 @@ module Network.AWS.OpsWorks.UpdateLayer
     , updateLayerResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateLayer' smart constructor.
 --
@@ -95,27 +97,27 @@ import           Network.AWS.Response
 --
 -- * 'ulLayerId'
 data UpdateLayer = UpdateLayer'
-    { _ulCustomInstanceProfileARN    :: !(Maybe Text)
-    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
+    { _ulCustomInstanceProfileARN :: !(Maybe Text)
+    , _ulInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _ulCustomSecurityGroupIds :: !(Maybe [Text])
     , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _ulShortname                   :: !(Maybe Text)
-    , _ulCustomRecipes               :: !(Maybe Recipes)
-    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _ulCustomJSON                  :: !(Maybe Text)
-    , _ulEnableAutoHealing           :: !(Maybe Bool)
-    , _ulPackages                    :: !(Maybe [Text])
-    , _ulName                        :: !(Maybe Text)
-    , _ulAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _ulAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _ulLayerId                     :: !Text
+    , _ulShortname :: !(Maybe Text)
+    , _ulCustomRecipes :: !(Maybe Recipes)
+    , _ulVolumeConfigurations :: !(Maybe [VolumeConfiguration])
+    , _ulCustomJSON :: !(Maybe Text)
+    , _ulEnableAutoHealing :: !(Maybe Bool)
+    , _ulPackages :: !(Maybe [Text])
+    , _ulName :: !(Maybe Text)
+    , _ulAttributes :: !(Maybe (Map LayerAttributesKeys Text))
+    , _ulAutoAssignPublicIPs :: !(Maybe Bool)
+    , _ulUseEBSOptimizedInstances :: !(Maybe Bool)
+    , _ulAutoAssignElasticIPs :: !(Maybe Bool)
+    , _ulLayerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLayer' smart constructor.
 updateLayer :: Text -> UpdateLayer
-updateLayer pLayerId_ =
+updateLayer pLayerId_ = 
     UpdateLayer'
     { _ulCustomInstanceProfileARN = Nothing
     , _ulInstallUpdatesOnBoot = Nothing
@@ -274,7 +276,7 @@ instance ToQuery UpdateLayer where
 
 -- | /See:/ 'updateLayerResponse' smart constructor.
 data UpdateLayerResponse =
-    UpdateLayerResponse'
+    UpdateLayerResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLayerResponse' smart constructor.

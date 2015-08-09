@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -72,10 +73,11 @@ module Network.AWS.EC2.RegisterImage
     , rirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerImage' smart constructor.
 --
@@ -103,22 +105,22 @@ import           Network.AWS.Response
 --
 -- * 'riName'
 data RegisterImage = RegisterImage'
-    { _riVirtualizationType  :: !(Maybe Text)
-    , _riImageLocation       :: !(Maybe Text)
-    , _riRAMDiskId           :: !(Maybe Text)
-    , _riKernelId            :: !(Maybe Text)
-    , _riRootDeviceName      :: !(Maybe Text)
-    , _riSRIOVNetSupport     :: !(Maybe Text)
-    , _riArchitecture        :: !(Maybe ArchitectureValues)
+    { _riVirtualizationType :: !(Maybe Text)
+    , _riImageLocation :: !(Maybe Text)
+    , _riRAMDiskId :: !(Maybe Text)
+    , _riKernelId :: !(Maybe Text)
+    , _riRootDeviceName :: !(Maybe Text)
+    , _riSRIOVNetSupport :: !(Maybe Text)
+    , _riArchitecture :: !(Maybe ArchitectureValues)
     , _riBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _riDryRun              :: !(Maybe Bool)
-    , _riDescription         :: !(Maybe Text)
-    , _riName                :: !Text
+    , _riDryRun :: !(Maybe Bool)
+    , _riDescription :: !(Maybe Text)
+    , _riName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterImage' smart constructor.
 registerImage :: Text -> RegisterImage
-registerImage pName_ =
+registerImage pName_ = 
     RegisterImage'
     { _riVirtualizationType = Nothing
     , _riImageLocation = Nothing
@@ -239,12 +241,12 @@ instance ToQuery RegisterImage where
 -- * 'rirsStatus'
 data RegisterImageResponse = RegisterImageResponse'
     { _rirsImageId :: !(Maybe Text)
-    , _rirsStatus  :: !Int
+    , _rirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterImageResponse' smart constructor.
 registerImageResponse :: Int -> RegisterImageResponse
-registerImageResponse pStatus_ =
+registerImageResponse pStatus_ = 
     RegisterImageResponse'
     { _rirsImageId = Nothing
     , _rirsStatus = pStatus_

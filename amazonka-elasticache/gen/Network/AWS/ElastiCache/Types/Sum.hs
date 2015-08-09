@@ -17,11 +17,11 @@
 --
 module Network.AWS.ElastiCache.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AZMode
-    = SingleAz
-    | CrossAz
+    = SingleAz 
+    | CrossAz 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AZMode where
@@ -42,10 +42,10 @@ instance ToQuery      AZMode
 instance ToHeader     AZMode
 
 data AutomaticFailoverStatus
-    = AFSEnabling
-    | AFSDisabled
-    | AFSDisabling
-    | AFSEnabled
+    = AFSEnabling 
+    | AFSDisabled 
+    | AFSDisabling 
+    | AFSEnabled 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AutomaticFailoverStatus where
@@ -73,8 +73,8 @@ instance FromXML AutomaticFailoverStatus where
     parseXML = parseXMLText "AutomaticFailoverStatus"
 
 data PendingAutomaticFailoverStatus
-    = Enabled
-    | Disabled
+    = Enabled 
+    | Disabled 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PendingAutomaticFailoverStatus where
@@ -98,10 +98,10 @@ instance FromXML PendingAutomaticFailoverStatus where
     parseXML = parseXMLText "PendingAutomaticFailoverStatus"
 
 data SourceType
-    = CacheSubnetGroup
-    | CacheCluster
-    | CacheParameterGroup
-    | CacheSecurityGroup
+    = CacheSubnetGroup 
+    | CacheCluster 
+    | CacheParameterGroup 
+    | CacheSecurityGroup 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where

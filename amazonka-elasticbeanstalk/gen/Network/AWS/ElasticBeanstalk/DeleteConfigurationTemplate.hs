@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     , deleteConfigurationTemplateResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -55,12 +57,12 @@ import           Network.AWS.Response
 -- * 'dctTemplateName'
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
     { _dctApplicationName :: !Text
-    , _dctTemplateName    :: !Text
+    , _dctTemplateName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteConfigurationTemplate' smart constructor.
 deleteConfigurationTemplate :: Text -> Text -> DeleteConfigurationTemplate
-deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
+deleteConfigurationTemplate pApplicationName_ pTemplateName_ = 
     DeleteConfigurationTemplate'
     { _dctApplicationName = pApplicationName_
     , _dctTemplateName = pTemplateName_
@@ -100,7 +102,7 @@ instance ToQuery DeleteConfigurationTemplate where
 
 -- | /See:/ 'deleteConfigurationTemplateResponse' smart constructor.
 data DeleteConfigurationTemplateResponse =
-    DeleteConfigurationTemplateResponse'
+    DeleteConfigurationTemplateResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteConfigurationTemplateResponse' smart constructor.

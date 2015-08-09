@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     , dipursStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for usage information about the identity pool.
 --
@@ -59,7 +61,7 @@ newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
 
 -- | 'DescribeIdentityPoolUsage' smart constructor.
 describeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
-describeIdentityPoolUsage pIdentityPoolId_ =
+describeIdentityPoolUsage pIdentityPoolId_ = 
     DescribeIdentityPoolUsage'
     { _dipuIdentityPoolId = pIdentityPoolId_
     }
@@ -107,12 +109,12 @@ instance ToQuery DescribeIdentityPoolUsage where
 -- * 'dipursStatus'
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
     { _dipursIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
-    , _dipursStatus            :: !Int
+    , _dipursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPoolUsageResponse' smart constructor.
 describeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
-describeIdentityPoolUsageResponse pStatus_ =
+describeIdentityPoolUsageResponse pStatus_ = 
     DescribeIdentityPoolUsageResponse'
     { _dipursIdentityPoolUsage = Nothing
     , _dipursStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DirectoryService.DeleteDirectory
     , drsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the DeleteDirectory operation.
 --
@@ -54,7 +56,7 @@ newtype DeleteDirectory = DeleteDirectory'
 
 -- | 'DeleteDirectory' smart constructor.
 deleteDirectory :: Text -> DeleteDirectory
-deleteDirectory pDirectoryId_ =
+deleteDirectory pDirectoryId_ = 
     DeleteDirectory'
     { _dDirectoryId = pDirectoryId_
     }
@@ -104,12 +106,12 @@ instance ToQuery DeleteDirectory where
 -- * 'drsStatus'
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
     { _drsDirectoryId :: !(Maybe Text)
-    , _drsStatus      :: !Int
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDirectoryResponse' smart constructor.
 deleteDirectoryResponse :: Int -> DeleteDirectoryResponse
-deleteDirectoryResponse pStatus_ =
+deleteDirectoryResponse pStatus_ = 
     DeleteDirectoryResponse'
     { _drsDirectoryId = Nothing
     , _drsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -75,10 +76,11 @@ module Network.AWS.EC2.CreateDHCPOptions
     , cdorsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDHCPOptions' smart constructor.
 --
@@ -88,13 +90,13 @@ import           Network.AWS.Response
 --
 -- * 'cdoDHCPConfigurations'
 data CreateDHCPOptions = CreateDHCPOptions'
-    { _cdoDryRun             :: !(Maybe Bool)
+    { _cdoDryRun :: !(Maybe Bool)
     , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDHCPOptions' smart constructor.
 createDHCPOptions :: CreateDHCPOptions
-createDHCPOptions =
+createDHCPOptions = 
     CreateDHCPOptions'
     { _cdoDryRun = Nothing
     , _cdoDHCPConfigurations = mempty
@@ -144,12 +146,12 @@ instance ToQuery CreateDHCPOptions where
 -- * 'cdorsStatus'
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
     { _cdorsDHCPOptions :: !(Maybe DHCPOptions)
-    , _cdorsStatus      :: !Int
+    , _cdorsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
 createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse
-createDHCPOptionsResponse pStatus_ =
+createDHCPOptionsResponse pStatus_ = 
     CreateDHCPOptionsResponse'
     { _cdorsDHCPOptions = Nothing
     , _cdorsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.Lambda.GetPolicy
     , gprsStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getPolicy' smart constructor.
 --
@@ -55,7 +57,7 @@ newtype GetPolicy = GetPolicy'
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
-getPolicy pFunctionName_ =
+getPolicy pFunctionName_ = 
     GetPolicy'
     { _gpFunctionName = pFunctionName_
     }
@@ -109,7 +111,7 @@ data GetPolicyResponse = GetPolicyResponse'
 
 -- | 'GetPolicyResponse' smart constructor.
 getPolicyResponse :: Int -> GetPolicyResponse
-getPolicyResponse pStatus_ =
+getPolicyResponse pStatus_ = 
     GetPolicyResponse'
     { _gprsPolicy = Nothing
     , _gprsStatus = pStatus_

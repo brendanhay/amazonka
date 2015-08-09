@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.IAM.GetOpenIdConnectProvider
     , goicprsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getOpenIdConnectProvider' smart constructor.
 --
@@ -55,7 +57,7 @@ newtype GetOpenIdConnectProvider = GetOpenIdConnectProvider'
 
 -- | 'GetOpenIdConnectProvider' smart constructor.
 getOpenIdConnectProvider :: Text -> GetOpenIdConnectProvider
-getOpenIdConnectProvider pOpenIdConnectProviderARN_ =
+getOpenIdConnectProvider pOpenIdConnectProviderARN_ = 
     GetOpenIdConnectProvider'
     { _goicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     }
@@ -114,16 +116,16 @@ instance ToQuery GetOpenIdConnectProvider where
 --
 -- * 'goicprsStatus'
 data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
-    { _goicprsCreateDate     :: !(Maybe ISO8601)
-    , _goicprsURL            :: !(Maybe Text)
+    { _goicprsCreateDate :: !(Maybe ISO8601)
+    , _goicprsURL :: !(Maybe Text)
     , _goicprsThumbprintList :: !(Maybe [Text])
-    , _goicprsClientIdList   :: !(Maybe [Text])
-    , _goicprsStatus         :: !Int
+    , _goicprsClientIdList :: !(Maybe [Text])
+    , _goicprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdConnectProviderResponse' smart constructor.
 getOpenIdConnectProviderResponse :: Int -> GetOpenIdConnectProviderResponse
-getOpenIdConnectProviderResponse pStatus_ =
+getOpenIdConnectProviderResponse pStatus_ = 
     GetOpenIdConnectProviderResponse'
     { _goicprsCreateDate = Nothing
     , _goicprsURL = Nothing

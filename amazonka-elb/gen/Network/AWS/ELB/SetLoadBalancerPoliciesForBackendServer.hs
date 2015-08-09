@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -48,10 +49,11 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     , slbpfbsrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
 --
@@ -64,13 +66,13 @@ import           Network.AWS.Response
 -- * 'slbpfbsPolicyNames'
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
     { _slbpfbsLoadBalancerName :: !Text
-    , _slbpfbsInstancePort     :: !Int
-    , _slbpfbsPolicyNames      :: ![Text]
+    , _slbpfbsInstancePort :: !Int
+    , _slbpfbsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' smart constructor.
 setLoadBalancerPoliciesForBackendServer :: Text -> Int -> SetLoadBalancerPoliciesForBackendServer
-setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
+setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ = 
     SetLoadBalancerPoliciesForBackendServer'
     { _slbpfbsLoadBalancerName = pLoadBalancerName_
     , _slbpfbsInstancePort = pInstancePort_
@@ -135,7 +137,7 @@ newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPolicie
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: Int -> SetLoadBalancerPoliciesForBackendServerResponse
-setLoadBalancerPoliciesForBackendServerResponse pStatus_ =
+setLoadBalancerPoliciesForBackendServerResponse pStatus_ = 
     SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrsStatus = pStatus_
     }

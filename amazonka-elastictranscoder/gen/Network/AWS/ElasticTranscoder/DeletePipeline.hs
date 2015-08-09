@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     , drsStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @DeletePipelineRequest@ structure.
 --
@@ -57,7 +59,7 @@ newtype DeletePipeline = DeletePipeline'
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
-deletePipeline pId_ =
+deletePipeline pId_ = 
     DeletePipeline'
     { _dId = pId_
     }
@@ -98,7 +100,7 @@ newtype DeletePipelineResponse = DeletePipelineResponse'
 
 -- | 'DeletePipelineResponse' smart constructor.
 deletePipelineResponse :: Int -> DeletePipelineResponse
-deletePipelineResponse pStatus_ =
+deletePipelineResponse pStatus_ = 
     DeletePipelineResponse'
     { _drsStatus = pStatus_
     }

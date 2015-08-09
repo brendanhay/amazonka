@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.Glacier.GetVaultNotifications
     , gvnrsStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving the notification configuration set on an
 -- Amazon Glacier vault.
@@ -78,7 +80,7 @@ data GetVaultNotifications = GetVaultNotifications'
 
 -- | 'GetVaultNotifications' smart constructor.
 getVaultNotifications :: Text -> Text -> GetVaultNotifications
-getVaultNotifications pAccountId_ pVaultName_ =
+getVaultNotifications pAccountId_ pVaultName_ = 
     GetVaultNotifications'
     { _gvnAccountId = pAccountId_
     , _gvnVaultName = pVaultName_
@@ -131,12 +133,12 @@ instance ToQuery GetVaultNotifications where
 -- * 'gvnrsStatus'
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
     { _gvnrsVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
-    , _gvnrsStatus                  :: !Int
+    , _gvnrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
 getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse
-getVaultNotificationsResponse pStatus_ =
+getVaultNotificationsResponse pStatus_ = 
     GetVaultNotificationsResponse'
     { _gvnrsVaultNotificationConfig = Nothing
     , _gvnrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     , ccsgrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheSecurityGroup/ action.
 --
@@ -61,12 +63,12 @@ import           Network.AWS.Response
 -- * 'ccsgDescription'
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
     { _ccsgCacheSecurityGroupName :: !Text
-    , _ccsgDescription            :: !Text
+    , _ccsgDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSecurityGroup' smart constructor.
 createCacheSecurityGroup :: Text -> Text -> CreateCacheSecurityGroup
-createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
+createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ = 
     CreateCacheSecurityGroup'
     { _ccsgCacheSecurityGroupName = pCacheSecurityGroupName_
     , _ccsgDescription = pDescription_
@@ -122,12 +124,12 @@ instance ToQuery CreateCacheSecurityGroup where
 -- * 'ccsgrsStatus'
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
     { _ccsgrsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _ccsgrsStatus             :: !Int
+    , _ccsgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
 createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse
-createCacheSecurityGroupResponse pStatus_ =
+createCacheSecurityGroupResponse pStatus_ = 
     CreateCacheSecurityGroupResponse'
     { _ccsgrsCacheSecurityGroup = Nothing
     , _ccsgrsStatus = pStatus_

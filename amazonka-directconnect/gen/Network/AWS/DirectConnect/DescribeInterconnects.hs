@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     , dirsStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DescribeInterconnects operation.
 --
@@ -57,7 +59,7 @@ newtype DescribeInterconnects = DescribeInterconnects'
 
 -- | 'DescribeInterconnects' smart constructor.
 describeInterconnects :: DescribeInterconnects
-describeInterconnects =
+describeInterconnects = 
     DescribeInterconnects'
     { _diInterconnectId = Nothing
     }
@@ -109,12 +111,12 @@ instance ToQuery DescribeInterconnects where
 -- * 'dirsStatus'
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
     { _dirsInterconnects :: !(Maybe [Interconnect])
-    , _dirsStatus        :: !Int
+    , _dirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse
-describeInterconnectsResponse pStatus_ =
+describeInterconnectsResponse pStatus_ = 
     DescribeInterconnectsResponse'
     { _dirsInterconnects = Nothing
     , _dirsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , cdgrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create deployment group operation.
 --
@@ -68,18 +70,18 @@ import           Network.AWS.Response
 --
 -- * 'cdgServiceRoleARN'
 data CreateDeploymentGroup = CreateDeploymentGroup'
-    { _cdgDeploymentConfigName         :: !(Maybe Text)
-    , _cdgEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    { _cdgDeploymentConfigName :: !(Maybe Text)
+    , _cdgEc2TagFilters :: !(Maybe [EC2TagFilter])
     , _cdgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _cdgAutoScalingGroups            :: !(Maybe [Text])
-    , _cdgApplicationName              :: !Text
-    , _cdgDeploymentGroupName          :: !Text
-    , _cdgServiceRoleARN               :: !Text
+    , _cdgAutoScalingGroups :: !(Maybe [Text])
+    , _cdgApplicationName :: !Text
+    , _cdgDeploymentGroupName :: !Text
+    , _cdgServiceRoleARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentGroup' smart constructor.
 createDeploymentGroup :: Text -> Text -> Text -> CreateDeploymentGroup
-createDeploymentGroup pApplicationName_ pDeploymentGroupName_ pServiceRoleARN_ =
+createDeploymentGroup pApplicationName_ pDeploymentGroupName_ pServiceRoleARN_ = 
     CreateDeploymentGroup'
     { _cdgDeploymentConfigName = Nothing
     , _cdgEc2TagFilters = Nothing
@@ -204,12 +206,12 @@ instance ToQuery CreateDeploymentGroup where
 -- * 'cdgrsStatus'
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId :: !(Maybe Text)
-    , _cdgrsStatus            :: !Int
+    , _cdgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
 createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse
-createDeploymentGroupResponse pStatus_ =
+createDeploymentGroupResponse pStatus_ = 
     CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId = Nothing
     , _cdgrsStatus = pStatus_

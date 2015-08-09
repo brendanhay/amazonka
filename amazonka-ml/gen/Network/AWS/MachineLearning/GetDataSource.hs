@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDataSource' smart constructor.
 --
@@ -70,13 +72,13 @@ import           Network.AWS.Response
 --
 -- * 'gdsDataSourceId'
 data GetDataSource = GetDataSource'
-    { _gdsVerbose      :: !(Maybe Bool)
+    { _gdsVerbose :: !(Maybe Bool)
     , _gdsDataSourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataSource' smart constructor.
 getDataSource :: Text -> GetDataSource
-getDataSource pDataSourceId_ =
+getDataSource pDataSourceId_ = 
     GetDataSource'
     { _gdsVerbose = Nothing
     , _gdsDataSourceId = pDataSourceId_
@@ -182,28 +184,28 @@ instance ToQuery GetDataSource where
 --
 -- * 'gdsrsStatus'
 data GetDataSourceResponse = GetDataSourceResponse'
-    { _gdsrsNumberOfFiles     :: !(Maybe Integer)
-    , _gdsrsLastUpdatedAt     :: !(Maybe POSIX)
-    , _gdsrsCreatedAt         :: !(Maybe POSIX)
-    , _gdsrsRDSMetadata       :: !(Maybe RDSMetadata)
-    , _gdsrsDataSourceId      :: !(Maybe Text)
-    , _gdsrsDataSizeInBytes   :: !(Maybe Integer)
-    , _gdsrsDataSourceSchema  :: !(Maybe Text)
-    , _gdsrsName              :: !(Maybe Text)
-    , _gdsrsCreatedByIAMUser  :: !(Maybe Text)
-    , _gdsrsLogURI            :: !(Maybe Text)
-    , _gdsrsDataLocationS3    :: !(Maybe Text)
+    { _gdsrsNumberOfFiles :: !(Maybe Integer)
+    , _gdsrsLastUpdatedAt :: !(Maybe POSIX)
+    , _gdsrsCreatedAt :: !(Maybe POSIX)
+    , _gdsrsRDSMetadata :: !(Maybe RDSMetadata)
+    , _gdsrsDataSourceId :: !(Maybe Text)
+    , _gdsrsDataSizeInBytes :: !(Maybe Integer)
+    , _gdsrsDataSourceSchema :: !(Maybe Text)
+    , _gdsrsName :: !(Maybe Text)
+    , _gdsrsCreatedByIAMUser :: !(Maybe Text)
+    , _gdsrsLogURI :: !(Maybe Text)
+    , _gdsrsDataLocationS3 :: !(Maybe Text)
     , _gdsrsComputeStatistics :: !(Maybe Bool)
-    , _gdsrsMessage           :: !(Maybe Text)
-    , _gdsrsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
-    , _gdsrsRoleARN           :: !(Maybe Text)
+    , _gdsrsMessage :: !(Maybe Text)
+    , _gdsrsRedshiftMetadata :: !(Maybe RedshiftMetadata)
+    , _gdsrsRoleARN :: !(Maybe Text)
     , _gdsrsDataRearrangement :: !(Maybe Text)
-    , _gdsrsStatus            :: !Int
+    , _gdsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataSourceResponse' smart constructor.
 getDataSourceResponse :: Int -> GetDataSourceResponse
-getDataSourceResponse pStatus_ =
+getDataSourceResponse pStatus_ = 
     GetDataSourceResponse'
     { _gdsrsNumberOfFiles = Nothing
     , _gdsrsLastUpdatedAt = Nothing

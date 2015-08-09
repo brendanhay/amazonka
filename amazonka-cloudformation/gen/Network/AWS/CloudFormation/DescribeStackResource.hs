@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CloudFormation.DescribeStackResource
     , dsrrsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for DescribeStackResource action.
 --
@@ -55,13 +57,13 @@ import           Network.AWS.Response
 --
 -- * 'desLogicalResourceId'
 data DescribeStackResource = DescribeStackResource'
-    { _desStackName         :: !Text
+    { _desStackName :: !Text
     , _desLogicalResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResource' smart constructor.
 describeStackResource :: Text -> Text -> DescribeStackResource
-describeStackResource pStackName_ pLogicalResourceId_ =
+describeStackResource pStackName_ pLogicalResourceId_ = 
     DescribeStackResource'
     { _desStackName = pStackName_
     , _desLogicalResourceId = pLogicalResourceId_
@@ -121,12 +123,12 @@ instance ToQuery DescribeStackResource where
 -- * 'dsrrsStatus'
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
     { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
-    , _dsrrsStatus              :: !Int
+    , _dsrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResourceResponse' smart constructor.
 describeStackResourceResponse :: Int -> DescribeStackResourceResponse
-describeStackResourceResponse pStatus_ =
+describeStackResourceResponse pStatus_ = 
     DescribeStackResourceResponse'
     { _dsrrsStackResourceDetail = Nothing
     , _dsrrsStatus = pStatus_

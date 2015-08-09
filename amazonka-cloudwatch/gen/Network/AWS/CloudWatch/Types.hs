@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -124,10 +124,10 @@ module Network.AWS.CloudWatch.Types
     , ssMaximum
     ) where
 
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.CloudWatch.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.CloudWatch.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2010-08-01@ of the Amazon CloudWatch SDK.
 data CloudWatch
@@ -136,7 +136,7 @@ instance AWSService CloudWatch where
     type Sg CloudWatch = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "CloudWatch"
             , _svcPrefix = "monitoring"
@@ -147,7 +147,7 @@ instance AWSService CloudWatch where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -155,7 +155,7 @@ instance AWSService CloudWatch where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -174,12 +174,12 @@ _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 -- | Indicates that the request processing has failed due to some unknown
 -- error, exception, or failure.
 _InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceFault =
+_InternalServiceFault = 
     _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
 
 -- | Bad or out-of-range value was supplied for the input parameter.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValueException =
+_InvalidParameterValueException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
 -- | Data was not syntactically valid JSON.
@@ -189,12 +189,12 @@ _InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
 -- | An input parameter that is mandatory for processing the request is not
 -- supplied.
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingRequiredParameterException =
+_MissingRequiredParameterException = 
     _ServiceError . hasStatus 400 . hasCode "MissingParameter"
 
 -- | Parameters that must not be used together were used together.
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterCombinationException =
+_InvalidParameterCombinationException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
 
 -- | The named resource does not exist.

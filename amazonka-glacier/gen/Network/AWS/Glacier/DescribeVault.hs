@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -62,10 +63,11 @@ module Network.AWS.Glacier.DescribeVault
     , dvoNumberOfArchives
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving metadata for a specific vault in Amazon
 -- Glacier.
@@ -84,7 +86,7 @@ data DescribeVault = DescribeVault'
 
 -- | 'DescribeVault' smart constructor.
 describeVault :: Text -> Text -> DescribeVault
-describeVault pAccountId_ pVaultName_ =
+describeVault pAccountId_ pVaultName_ = 
     DescribeVault'
     { _dvAccountId = pAccountId_
     , _dvVaultName = pVaultName_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -33,10 +34,11 @@ module Network.AWS.CodePipeline.DeletePipeline
     , deletePipelineResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a delete pipeline action.
 --
@@ -51,7 +53,7 @@ newtype DeletePipeline = DeletePipeline'
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
-deletePipeline pName_ =
+deletePipeline pName_ = 
     DeletePipeline'
     { _dpName = pName_
     }
@@ -88,7 +90,7 @@ instance ToQuery DeletePipeline where
 
 -- | /See:/ 'deletePipelineResponse' smart constructor.
 data DeletePipelineResponse =
-    DeletePipelineResponse'
+    DeletePipelineResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePipelineResponse' smart constructor.

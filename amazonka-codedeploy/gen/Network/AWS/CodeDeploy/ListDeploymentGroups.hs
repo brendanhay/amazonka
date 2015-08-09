@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , ldgrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list deployment groups operation.
 --
@@ -55,13 +57,13 @@ import           Network.AWS.Response
 --
 -- * 'ldgApplicationName'
 data ListDeploymentGroups = ListDeploymentGroups'
-    { _ldgNextToken       :: !(Maybe Text)
+    { _ldgNextToken :: !(Maybe Text)
     , _ldgApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentGroups' smart constructor.
 listDeploymentGroups :: Text -> ListDeploymentGroups
-listDeploymentGroups pApplicationName_ =
+listDeploymentGroups pApplicationName_ = 
     ListDeploymentGroups'
     { _ldgNextToken = Nothing
     , _ldgApplicationName = pApplicationName_
@@ -127,15 +129,15 @@ instance ToQuery ListDeploymentGroups where
 --
 -- * 'ldgrsStatus'
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-    { _ldgrsNextToken        :: !(Maybe Text)
-    , _ldgrsApplicationName  :: !(Maybe Text)
+    { _ldgrsNextToken :: !(Maybe Text)
+    , _ldgrsApplicationName :: !(Maybe Text)
     , _ldgrsDeploymentGroups :: !(Maybe [Text])
-    , _ldgrsStatus           :: !Int
+    , _ldgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
 listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse
-listDeploymentGroupsResponse pStatus_ =
+listDeploymentGroupsResponse pStatus_ = 
     ListDeploymentGroupsResponse'
     { _ldgrsNextToken = Nothing
     , _ldgrsApplicationName = Nothing

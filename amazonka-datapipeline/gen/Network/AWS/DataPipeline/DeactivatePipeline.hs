@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     , drsStatus
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeactivatePipeline.
 --
@@ -57,12 +59,12 @@ import           Network.AWS.Response
 -- * 'dPipelineId'
 data DeactivatePipeline = DeactivatePipeline'
     { _dCancelActive :: !(Maybe Bool)
-    , _dPipelineId   :: !Text
+    , _dPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivatePipeline' smart constructor.
 deactivatePipeline :: Text -> DeactivatePipeline
-deactivatePipeline pPipelineId_ =
+deactivatePipeline pPipelineId_ = 
     DeactivatePipeline'
     { _dCancelActive = Nothing
     , _dPipelineId = pPipelineId_
@@ -122,7 +124,7 @@ newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
 
 -- | 'DeactivatePipelineResponse' smart constructor.
 deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
-deactivatePipelineResponse pStatus_ =
+deactivatePipelineResponse pStatus_ = 
     DeactivatePipelineResponse'
     { _drsStatus = pStatus_
     }

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     , slblscrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
 --
@@ -65,7 +67,7 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 
 -- | 'SetLoadBalancerListenerSSLCertificate' smart constructor.
 setLoadBalancerListenerSSLCertificate :: Text -> Int -> Text -> SetLoadBalancerListenerSSLCertificate
-setLoadBalancerListenerSSLCertificate pLoadBalancerName_ pLoadBalancerPort_ pSSLCertificateId_ =
+setLoadBalancerListenerSSLCertificate pLoadBalancerName_ pLoadBalancerPort_ pSSLCertificateId_ = 
     SetLoadBalancerListenerSSLCertificate'
     { _slblscLoadBalancerName = pLoadBalancerName_
     , _slblscLoadBalancerPort = pLoadBalancerPort_
@@ -128,7 +130,7 @@ newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerS
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' smart constructor.
 setLoadBalancerListenerSSLCertificateResponse :: Int -> SetLoadBalancerListenerSSLCertificateResponse
-setLoadBalancerListenerSSLCertificateResponse pStatus_ =
+setLoadBalancerListenerSSLCertificateResponse pStatus_ = 
     SetLoadBalancerListenerSSLCertificateResponse'
     { _slblscrsStatus = pStatus_
     }

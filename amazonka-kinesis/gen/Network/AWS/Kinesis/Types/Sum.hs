@@ -17,13 +17,13 @@
 --
 module Network.AWS.Kinesis.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ShardIteratorType
-    = AfterSequenceNumber
-    | AtSequenceNumber
-    | TrimHorizon
-    | Latest
+    = AfterSequenceNumber 
+    | AtSequenceNumber 
+    | TrimHorizon 
+    | Latest 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
@@ -51,10 +51,10 @@ instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
 data StreamStatus
-    = Deleting
-    | Updating
-    | Creating
-    | Active
+    = Deleting 
+    | Updating 
+    | Creating 
+    | Active 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamStatus where

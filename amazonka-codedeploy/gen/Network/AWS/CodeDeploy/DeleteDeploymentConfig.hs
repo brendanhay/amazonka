@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     , deleteDeploymentConfigResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a delete deployment configuration operation.
 --
@@ -54,7 +56,7 @@ newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
 
 -- | 'DeleteDeploymentConfig' smart constructor.
 deleteDeploymentConfig :: Text -> DeleteDeploymentConfig
-deleteDeploymentConfig pDeploymentConfigName_ =
+deleteDeploymentConfig pDeploymentConfigName_ = 
     DeleteDeploymentConfig'
     { _ddcDeploymentConfigName = pDeploymentConfigName_
     }
@@ -95,7 +97,7 @@ instance ToQuery DeleteDeploymentConfig where
 
 -- | /See:/ 'deleteDeploymentConfigResponse' smart constructor.
 data DeleteDeploymentConfigResponse =
-    DeleteDeploymentConfigResponse'
+    DeleteDeploymentConfigResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentConfigResponse' smart constructor.

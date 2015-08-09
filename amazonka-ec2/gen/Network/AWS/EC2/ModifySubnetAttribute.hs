@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.EC2.ModifySubnetAttribute
     , modifySubnetAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifySubnetAttribute' smart constructor.
 --
@@ -48,12 +50,12 @@ import           Network.AWS.Response
 -- * 'msaSubnetId'
 data ModifySubnetAttribute = ModifySubnetAttribute'
     { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
-    , _msaSubnetId            :: !Text
+    , _msaSubnetId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySubnetAttribute' smart constructor.
 modifySubnetAttribute :: Text -> ModifySubnetAttribute
-modifySubnetAttribute pSubnetId_ =
+modifySubnetAttribute pSubnetId_ = 
     ModifySubnetAttribute'
     { _msaMapPublicIPOnLaunch = Nothing
     , _msaSubnetId = pSubnetId_
@@ -91,7 +93,7 @@ instance ToQuery ModifySubnetAttribute where
 
 -- | /See:/ 'modifySubnetAttributeResponse' smart constructor.
 data ModifySubnetAttributeResponse =
-    ModifySubnetAttributeResponse'
+    ModifySubnetAttributeResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySubnetAttributeResponse' smart constructor.

@@ -18,8 +18,8 @@
 --
 module Network.AWS.CodeCommit.Types.Product where
 
-import           Network.AWS.CodeCommit.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.CodeCommit.Types.Sum
+import Network.AWS.Prelude
 
 -- | Returns information about a branch.
 --
@@ -31,13 +31,13 @@ import           Network.AWS.Prelude
 --
 -- * 'biBranchName'
 data BranchInfo = BranchInfo'
-    { _biCommitId   :: !(Maybe Text)
+    { _biCommitId :: !(Maybe Text)
     , _biBranchName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BranchInfo' smart constructor.
 branchInfo :: BranchInfo
-branchInfo =
+branchInfo = 
     BranchInfo'
     { _biCommitId = Nothing
     , _biBranchName = Nothing
@@ -85,20 +85,20 @@ instance FromJSON BranchInfo where
 -- * 'rmCloneURLSSH'
 data RepositoryMetadata = RepositoryMetadata'
     { _rmRepositoryDescription :: !(Maybe Text)
-    , _rmLastModifiedDate      :: !(Maybe POSIX)
-    , _rmARN                   :: !(Maybe Text)
-    , _rmCloneURLHTTP          :: !(Maybe Text)
-    , _rmAccountId             :: !(Maybe Text)
-    , _rmDefaultBranch         :: !(Maybe Text)
-    , _rmRepositoryId          :: !(Maybe Text)
-    , _rmCreationDate          :: !(Maybe POSIX)
-    , _rmRepositoryName        :: !(Maybe Text)
-    , _rmCloneURLSSH           :: !(Maybe Text)
+    , _rmLastModifiedDate :: !(Maybe POSIX)
+    , _rmARN :: !(Maybe Text)
+    , _rmCloneURLHTTP :: !(Maybe Text)
+    , _rmAccountId :: !(Maybe Text)
+    , _rmDefaultBranch :: !(Maybe Text)
+    , _rmRepositoryId :: !(Maybe Text)
+    , _rmCreationDate :: !(Maybe POSIX)
+    , _rmRepositoryName :: !(Maybe Text)
+    , _rmCloneURLSSH :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RepositoryMetadata' smart constructor.
 repositoryMetadata :: RepositoryMetadata
-repositoryMetadata =
+repositoryMetadata = 
     RepositoryMetadata'
     { _rmRepositoryDescription = Nothing
     , _rmLastModifiedDate = Nothing
@@ -178,13 +178,13 @@ instance FromJSON RepositoryMetadata where
 --
 -- * 'rnipRepositoryName'
 data RepositoryNameIdPair = RepositoryNameIdPair'
-    { _rnipRepositoryId   :: !(Maybe Text)
+    { _rnipRepositoryId :: !(Maybe Text)
     , _rnipRepositoryName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RepositoryNameIdPair' smart constructor.
 repositoryNameIdPair :: RepositoryNameIdPair
-repositoryNameIdPair =
+repositoryNameIdPair = 
     RepositoryNameIdPair'
     { _rnipRepositoryId = Nothing
     , _rnipRepositoryName = Nothing

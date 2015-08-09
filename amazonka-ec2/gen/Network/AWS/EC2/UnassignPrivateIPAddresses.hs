@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.EC2.UnassignPrivateIPAddresses
     , unassignPrivateIPAddressesResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'unassignPrivateIPAddresses' smart constructor.
 --
@@ -54,7 +56,7 @@ data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
 
 -- | 'UnassignPrivateIPAddresses' smart constructor.
 unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
-unassignPrivateIPAddresses pNetworkInterfaceId_ =
+unassignPrivateIPAddresses pNetworkInterfaceId_ = 
     UnassignPrivateIPAddresses'
     { _upiaNetworkInterfaceId = pNetworkInterfaceId_
     , _upiaPrivateIPAddresses = mempty
@@ -96,7 +98,7 @@ instance ToQuery UnassignPrivateIPAddresses where
 
 -- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
 data UnassignPrivateIPAddressesResponse =
-    UnassignPrivateIPAddressesResponse'
+    UnassignPrivateIPAddressesResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignPrivateIPAddressesResponse' smart constructor.

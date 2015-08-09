@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.MachineLearning.Predict
     , prsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'predict' smart constructor.
 --
@@ -59,14 +61,14 @@ import           Network.AWS.Response
 --
 -- * 'pPredictEndpoint'
 data Predict = Predict'
-    { _pMLModelId       :: !Text
-    , _pRecord          :: !(Map Text Text)
+    { _pMLModelId :: !Text
+    , _pRecord :: !(Map Text Text)
     , _pPredictEndpoint :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Predict' smart constructor.
 predict :: Text -> Text -> Predict
-predict pMLModelId_ pPredictEndpoint_ =
+predict pMLModelId_ pPredictEndpoint_ = 
     Predict'
     { _pMLModelId = pMLModelId_
     , _pRecord = mempty
@@ -125,12 +127,12 @@ instance ToQuery Predict where
 -- * 'prsStatus'
 data PredictResponse = PredictResponse'
     { _prsPrediction :: !(Maybe Prediction)
-    , _prsStatus     :: !Int
+    , _prsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PredictResponse' smart constructor.
 predictResponse :: Int -> PredictResponse
-predictResponse pStatus_ =
+predictResponse pStatus_ = 
     PredictResponse'
     { _prsPrediction = Nothing
     , _prsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.DirectoryService.EnableSSO
     , esrsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the EnableSso operation.
 --
@@ -54,14 +56,14 @@ import           Network.AWS.Response
 --
 -- * 'esDirectoryId'
 data EnableSSO = EnableSSO'
-    { _esUserName    :: !(Maybe Text)
-    , _esPassword    :: !(Maybe (Sensitive Text))
+    { _esUserName :: !(Maybe Text)
+    , _esPassword :: !(Maybe (Sensitive Text))
     , _esDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableSSO' smart constructor.
 enableSSO :: Text -> EnableSSO
-enableSSO pDirectoryId_ =
+enableSSO pDirectoryId_ = 
     EnableSSO'
     { _esUserName = Nothing
     , _esPassword = Nothing
@@ -135,7 +137,7 @@ newtype EnableSSOResponse = EnableSSOResponse'
 
 -- | 'EnableSSOResponse' smart constructor.
 enableSSOResponse :: Int -> EnableSSOResponse
-enableSSOResponse pStatus_ =
+enableSSOResponse pStatus_ = 
     EnableSSOResponse'
     { _esrsStatus = pStatus_
     }

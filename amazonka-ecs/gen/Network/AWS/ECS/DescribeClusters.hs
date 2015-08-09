@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.ECS.DescribeClusters
     , dcrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeClusters' smart constructor.
 --
@@ -53,7 +55,7 @@ newtype DescribeClusters = DescribeClusters'
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
-describeClusters =
+describeClusters = 
     DescribeClusters'
     { _dcClusters = Nothing
     }
@@ -108,12 +110,12 @@ instance ToQuery DescribeClusters where
 data DescribeClustersResponse = DescribeClustersResponse'
     { _dcrsFailures :: !(Maybe [Failure])
     , _dcrsClusters :: !(Maybe [Cluster])
-    , _dcrsStatus   :: !Int
+    , _dcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse
-describeClustersResponse pStatus_ =
+describeClustersResponse pStatus_ = 
     DescribeClustersResponse'
     { _dcrsFailures = Nothing
     , _dcrsClusters = Nothing

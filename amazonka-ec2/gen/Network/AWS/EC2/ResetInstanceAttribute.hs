@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.EC2.ResetInstanceAttribute
     , resetInstanceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'resetInstanceAttribute' smart constructor.
 --
@@ -59,14 +61,14 @@ import           Network.AWS.Response
 --
 -- * 'riaAttribute'
 data ResetInstanceAttribute = ResetInstanceAttribute'
-    { _riaDryRun     :: !(Maybe Bool)
+    { _riaDryRun :: !(Maybe Bool)
     , _riaInstanceId :: !Text
-    , _riaAttribute  :: !InstanceAttributeName
+    , _riaAttribute :: !InstanceAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetInstanceAttribute' smart constructor.
 resetInstanceAttribute :: Text -> InstanceAttributeName -> ResetInstanceAttribute
-resetInstanceAttribute pInstanceId_ pAttribute_ =
+resetInstanceAttribute pInstanceId_ pAttribute_ = 
     ResetInstanceAttribute'
     { _riaDryRun = Nothing
     , _riaInstanceId = pInstanceId_
@@ -114,7 +116,7 @@ instance ToQuery ResetInstanceAttribute where
 
 -- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse =
-    ResetInstanceAttributeResponse'
+    ResetInstanceAttributeResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetInstanceAttributeResponse' smart constructor.

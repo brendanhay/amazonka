@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
     , putThirdPartyJobSuccessResultResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a put third party job success result action.
 --
@@ -60,15 +62,15 @@ import           Network.AWS.Response
 -- * 'ptpjsrClientToken'
 data PutThirdPartyJobSuccessResult = PutThirdPartyJobSuccessResult'
     { _ptpjsrContinuationToken :: !(Maybe Text)
-    , _ptpjsrExecutionDetails  :: !(Maybe ExecutionDetails)
-    , _ptpjsrCurrentRevision   :: !(Maybe CurrentRevision)
-    , _ptpjsrJobId             :: !Text
-    , _ptpjsrClientToken       :: !Text
+    , _ptpjsrExecutionDetails :: !(Maybe ExecutionDetails)
+    , _ptpjsrCurrentRevision :: !(Maybe CurrentRevision)
+    , _ptpjsrJobId :: !Text
+    , _ptpjsrClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutThirdPartyJobSuccessResult' smart constructor.
 putThirdPartyJobSuccessResult :: Text -> Text -> PutThirdPartyJobSuccessResult
-putThirdPartyJobSuccessResult pJobId_ pClientToken_ =
+putThirdPartyJobSuccessResult pJobId_ pClientToken_ = 
     PutThirdPartyJobSuccessResult'
     { _ptpjsrContinuationToken = Nothing
     , _ptpjsrExecutionDetails = Nothing
@@ -138,7 +140,7 @@ instance ToQuery PutThirdPartyJobSuccessResult where
 
 -- | /See:/ 'putThirdPartyJobSuccessResultResponse' smart constructor.
 data PutThirdPartyJobSuccessResultResponse =
-    PutThirdPartyJobSuccessResultResponse'
+    PutThirdPartyJobSuccessResultResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutThirdPartyJobSuccessResultResponse' smart constructor.

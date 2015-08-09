@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     , dsfrhrsHistoryRecords
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetRequestHistory.
 --
@@ -73,17 +75,17 @@ import           Network.AWS.Response
 --
 -- * 'dsfrhStartTime'
 data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
-    { _dsfrhNextToken          :: !(Maybe Text)
-    , _dsfrhEventType          :: !(Maybe EventType)
-    , _dsfrhDryRun             :: !(Maybe Bool)
-    , _dsfrhMaxResults         :: !(Maybe Int)
+    { _dsfrhNextToken :: !(Maybe Text)
+    , _dsfrhEventType :: !(Maybe EventType)
+    , _dsfrhDryRun :: !(Maybe Bool)
+    , _dsfrhMaxResults :: !(Maybe Int)
     , _dsfrhSpotFleetRequestId :: !Text
-    , _dsfrhStartTime          :: !ISO8601
+    , _dsfrhStartTime :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestHistory' smart constructor.
 describeSpotFleetRequestHistory :: Text -> UTCTime -> DescribeSpotFleetRequestHistory
-describeSpotFleetRequestHistory pSpotFleetRequestId_ pStartTime_ =
+describeSpotFleetRequestHistory pSpotFleetRequestId_ pStartTime_ = 
     DescribeSpotFleetRequestHistory'
     { _dsfrhNextToken = Nothing
     , _dsfrhEventType = Nothing
@@ -181,17 +183,17 @@ instance ToQuery DescribeSpotFleetRequestHistory
 --
 -- * 'dsfrhrsHistoryRecords'
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
-    { _dsfrhrsNextToken          :: !(Maybe Text)
-    , _dsfrhrsStatus             :: !Int
+    { _dsfrhrsNextToken :: !(Maybe Text)
+    , _dsfrhrsStatus :: !Int
     , _dsfrhrsSpotFleetRequestId :: !Text
-    , _dsfrhrsStartTime          :: !ISO8601
-    , _dsfrhrsLastEvaluatedTime  :: !ISO8601
-    , _dsfrhrsHistoryRecords     :: ![HistoryRecord]
+    , _dsfrhrsStartTime :: !ISO8601
+    , _dsfrhrsLastEvaluatedTime :: !ISO8601
+    , _dsfrhrsHistoryRecords :: ![HistoryRecord]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
 describeSpotFleetRequestHistoryResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
-describeSpotFleetRequestHistoryResponse pStatus_ pSpotFleetRequestId_ pStartTime_ pLastEvaluatedTime_ =
+describeSpotFleetRequestHistoryResponse pStatus_ pSpotFleetRequestId_ pStartTime_ pLastEvaluatedTime_ = 
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrsNextToken = Nothing
     , _dsfrhrsStatus = pStatus_

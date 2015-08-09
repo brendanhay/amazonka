@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CloudSearch.DescribeDomains
     , ddsrsDomainStatusList
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeDomains@ operation. By
 -- default shows the status of all domains. To restrict the response to
@@ -64,7 +66,7 @@ newtype DescribeDomains = DescribeDomains'
 
 -- | 'DescribeDomains' smart constructor.
 describeDomains :: DescribeDomains
-describeDomains =
+describeDomains = 
     DescribeDomains'
     { _ddDomainNames = Nothing
     }
@@ -110,13 +112,13 @@ instance ToQuery DescribeDomains where
 --
 -- * 'ddsrsDomainStatusList'
 data DescribeDomainsResponse = DescribeDomainsResponse'
-    { _ddsrsStatus           :: !Int
+    { _ddsrsStatus :: !Int
     , _ddsrsDomainStatusList :: ![DomainStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Int -> DescribeDomainsResponse
-describeDomainsResponse pStatus_ =
+describeDomainsResponse pStatus_ = 
     DescribeDomainsResponse'
     { _ddsrsStatus = pStatus_
     , _ddsrsDomainStatusList = mempty

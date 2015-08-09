@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.Glacier.DeleteVaultAccessPolicy
     , deleteVaultAccessPolicyResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | DeleteVaultAccessPolicy input.
 --
@@ -64,7 +66,7 @@ data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
 
 -- | 'DeleteVaultAccessPolicy' smart constructor.
 deleteVaultAccessPolicy :: Text -> Text -> DeleteVaultAccessPolicy
-deleteVaultAccessPolicy pAccountId_ pVaultName_ =
+deleteVaultAccessPolicy pAccountId_ pVaultName_ = 
     DeleteVaultAccessPolicy'
     { _dvapAccountId = pAccountId_
     , _dvapVaultName = pVaultName_
@@ -104,7 +106,7 @@ instance ToQuery DeleteVaultAccessPolicy where
 
 -- | /See:/ 'deleteVaultAccessPolicyResponse' smart constructor.
 data DeleteVaultAccessPolicyResponse =
-    DeleteVaultAccessPolicyResponse'
+    DeleteVaultAccessPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultAccessPolicyResponse' smart constructor.

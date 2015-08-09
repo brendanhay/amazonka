@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.EC2.CancelImportTask
     , citrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelImportTask' smart constructor.
 --
@@ -57,12 +59,12 @@ import           Network.AWS.Response
 data CancelImportTask = CancelImportTask'
     { _citCancelReason :: !(Maybe Text)
     , _citImportTaskId :: !(Maybe Text)
-    , _citDryRun       :: !(Maybe Bool)
+    , _citDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelImportTask' smart constructor.
 cancelImportTask :: CancelImportTask
-cancelImportTask =
+cancelImportTask = 
     CancelImportTask'
     { _citCancelReason = Nothing
     , _citImportTaskId = Nothing
@@ -123,15 +125,15 @@ instance ToQuery CancelImportTask where
 --
 -- * 'citrsStatus'
 data CancelImportTaskResponse = CancelImportTaskResponse'
-    { _citrsState         :: !(Maybe Text)
-    , _citrsImportTaskId  :: !(Maybe Text)
+    { _citrsState :: !(Maybe Text)
+    , _citrsImportTaskId :: !(Maybe Text)
     , _citrsPreviousState :: !(Maybe Text)
-    , _citrsStatus        :: !Int
+    , _citrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelImportTaskResponse' smart constructor.
 cancelImportTaskResponse :: Int -> CancelImportTaskResponse
-cancelImportTaskResponse pStatus_ =
+cancelImportTaskResponse pStatus_ = 
     CancelImportTaskResponse'
     { _citrsState = Nothing
     , _citrsImportTaskId = Nothing

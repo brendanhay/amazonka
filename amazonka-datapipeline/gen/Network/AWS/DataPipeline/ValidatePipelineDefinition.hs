@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     , vpdrsErrored
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ValidatePipelineDefinition.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 -- * 'vpdPipelineObjects'
 data ValidatePipelineDefinition = ValidatePipelineDefinition'
     { _vpdParameterObjects :: !(Maybe [ParameterObject])
-    , _vpdParameterValues  :: !(Maybe [ParameterValue])
-    , _vpdPipelineId       :: !Text
-    , _vpdPipelineObjects  :: ![PipelineObject]
+    , _vpdParameterValues :: !(Maybe [ParameterValue])
+    , _vpdPipelineId :: !Text
+    , _vpdPipelineObjects :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidatePipelineDefinition' smart constructor.
 validatePipelineDefinition :: Text -> ValidatePipelineDefinition
-validatePipelineDefinition pPipelineId_ =
+validatePipelineDefinition pPipelineId_ = 
     ValidatePipelineDefinition'
     { _vpdParameterObjects = Nothing
     , _vpdParameterValues = Nothing
@@ -146,15 +148,15 @@ instance ToQuery ValidatePipelineDefinition where
 --
 -- * 'vpdrsErrored'
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
-    { _vpdrsValidationErrors   :: !(Maybe [ValidationError])
+    { _vpdrsValidationErrors :: !(Maybe [ValidationError])
     , _vpdrsValidationWarnings :: !(Maybe [ValidationWarning])
-    , _vpdrsStatus             :: !Int
-    , _vpdrsErrored            :: !Bool
+    , _vpdrsStatus :: !Int
+    , _vpdrsErrored :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
 validatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pStatus_ pErrored_ =
+validatePipelineDefinitionResponse pStatus_ pErrored_ = 
     ValidatePipelineDefinitionResponse'
     { _vpdrsValidationErrors = Nothing
     , _vpdrsValidationWarnings = Nothing

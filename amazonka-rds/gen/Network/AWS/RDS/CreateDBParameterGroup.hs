@@ -63,6 +63,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
 
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 

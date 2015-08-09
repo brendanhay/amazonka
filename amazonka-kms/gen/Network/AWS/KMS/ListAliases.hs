@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.KMS.ListAliases
     , larsStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAliases' smart constructor.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'laLimit'
 data ListAliases = ListAliases'
     { _laMarker :: !(Maybe Text)
-    , _laLimit  :: !(Maybe Nat)
+    , _laLimit :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAliases' smart constructor.
 listAliases :: ListAliases
-listAliases =
+listAliases = 
     ListAliases'
     { _laMarker = Nothing
     , _laLimit = Nothing
@@ -121,15 +123,15 @@ instance ToQuery ListAliases where
 --
 -- * 'larsStatus'
 data ListAliasesResponse = ListAliasesResponse'
-    { _larsTruncated  :: !(Maybe Bool)
-    , _larsAliases    :: !(Maybe [AliasListEntry])
+    { _larsTruncated :: !(Maybe Bool)
+    , _larsAliases :: !(Maybe [AliasListEntry])
     , _larsNextMarker :: !(Maybe Text)
-    , _larsStatus     :: !Int
+    , _larsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAliasesResponse' smart constructor.
 listAliasesResponse :: Int -> ListAliasesResponse
-listAliasesResponse pStatus_ =
+listAliasesResponse pStatus_ = 
     ListAliasesResponse'
     { _larsTruncated = Nothing
     , _larsAliases = Nothing

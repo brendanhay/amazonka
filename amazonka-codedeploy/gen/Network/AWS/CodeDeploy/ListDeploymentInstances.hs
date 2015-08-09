@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     , ldirsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list deployment instances operation.
 --
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 -- * 'ldiDeploymentId'
 data ListDeploymentInstances = ListDeploymentInstances'
     { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
-    , _ldiNextToken            :: !(Maybe Text)
-    , _ldiDeploymentId         :: !Text
+    , _ldiNextToken :: !(Maybe Text)
+    , _ldiDeploymentId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentInstances' smart constructor.
 listDeploymentInstances :: Text -> ListDeploymentInstances
-listDeploymentInstances pDeploymentId_ =
+listDeploymentInstances pDeploymentId_ = 
     ListDeploymentInstances'
     { _ldiInstanceStatusFilter = Nothing
     , _ldiNextToken = Nothing
@@ -146,14 +148,14 @@ instance ToQuery ListDeploymentInstances where
 --
 -- * 'ldirsStatus'
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
-    { _ldirsNextToken     :: !(Maybe Text)
+    { _ldirsNextToken :: !(Maybe Text)
     , _ldirsInstancesList :: !(Maybe [Text])
-    , _ldirsStatus        :: !Int
+    , _ldirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
 listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse
-listDeploymentInstancesResponse pStatus_ =
+listDeploymentInstancesResponse pStatus_ = 
     ListDeploymentInstancesResponse'
     { _ldirsNextToken = Nothing
     , _ldirsInstancesList = Nothing

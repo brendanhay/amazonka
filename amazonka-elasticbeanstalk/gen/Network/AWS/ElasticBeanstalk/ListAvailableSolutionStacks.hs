@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,14 +36,15 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     , lassrsStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAvailableSolutionStacks' smart constructor.
 data ListAvailableSolutionStacks =
-    ListAvailableSolutionStacks'
+    ListAvailableSolutionStacks' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAvailableSolutionStacks' smart constructor.
@@ -93,14 +95,14 @@ instance ToQuery ListAvailableSolutionStacks where
 --
 -- * 'lassrsStatus'
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-    { _lassrsSolutionStacks       :: !(Maybe [Text])
+    { _lassrsSolutionStacks :: !(Maybe [Text])
     , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
-    , _lassrsStatus               :: !Int
+    , _lassrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
 listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse pStatus_ =
+listAvailableSolutionStacksResponse pStatus_ = 
     ListAvailableSolutionStacksResponse'
     { _lassrsSolutionStacks = Nothing
     , _lassrsSolutionStackDetails = Nothing

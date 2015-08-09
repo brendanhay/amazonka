@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.EC2.DescribeExportTasks
     , detrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeExportTasks' smart constructor.
 --
@@ -52,7 +54,7 @@ newtype DescribeExportTasks = DescribeExportTasks'
 
 -- | 'DescribeExportTasks' smart constructor.
 describeExportTasks :: DescribeExportTasks
-describeExportTasks =
+describeExportTasks = 
     DescribeExportTasks'
     { _detExportTaskIds = Nothing
     }
@@ -97,12 +99,12 @@ instance ToQuery DescribeExportTasks where
 -- * 'detrsStatus'
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrsExportTasks :: !(Maybe [ExportTask])
-    , _detrsStatus      :: !Int
+    , _detrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
 describeExportTasksResponse :: Int -> DescribeExportTasksResponse
-describeExportTasksResponse pStatus_ =
+describeExportTasksResponse pStatus_ = 
     DescribeExportTasksResponse'
     { _detrsExportTasks = Nothing
     , _detrsStatus = pStatus_

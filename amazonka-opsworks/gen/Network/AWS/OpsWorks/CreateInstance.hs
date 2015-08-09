@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -59,10 +60,11 @@ module Network.AWS.OpsWorks.CreateInstance
     , cirsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createInstance' smart constructor.
 --
@@ -103,27 +105,27 @@ import           Network.AWS.Response
 -- * 'ciInstanceType'
 data CreateInstance = CreateInstance'
     { _ciInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _ciVirtualizationType   :: !(Maybe Text)
-    , _ciHostname             :: !(Maybe Text)
-    , _ciSSHKeyName           :: !(Maybe Text)
-    , _ciAgentVersion         :: !(Maybe Text)
-    , _ciSubnetId             :: !(Maybe Text)
-    , _ciEBSOptimized         :: !(Maybe Bool)
-    , _ciOS                   :: !(Maybe Text)
-    , _ciAvailabilityZone     :: !(Maybe Text)
-    , _ciAutoScalingType      :: !(Maybe AutoScalingType)
-    , _ciArchitecture         :: !(Maybe Architecture)
-    , _ciAMIId                :: !(Maybe Text)
-    , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
-    , _ciRootDeviceType       :: !(Maybe RootDeviceType)
-    , _ciStackId              :: !Text
-    , _ciLayerIds             :: ![Text]
-    , _ciInstanceType         :: !Text
+    , _ciVirtualizationType :: !(Maybe Text)
+    , _ciHostname :: !(Maybe Text)
+    , _ciSSHKeyName :: !(Maybe Text)
+    , _ciAgentVersion :: !(Maybe Text)
+    , _ciSubnetId :: !(Maybe Text)
+    , _ciEBSOptimized :: !(Maybe Bool)
+    , _ciOS :: !(Maybe Text)
+    , _ciAvailabilityZone :: !(Maybe Text)
+    , _ciAutoScalingType :: !(Maybe AutoScalingType)
+    , _ciArchitecture :: !(Maybe Architecture)
+    , _ciAMIId :: !(Maybe Text)
+    , _ciBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _ciRootDeviceType :: !(Maybe RootDeviceType)
+    , _ciStackId :: !Text
+    , _ciLayerIds :: ![Text]
+    , _ciInstanceType :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstance' smart constructor.
 createInstance :: Text -> Text -> CreateInstance
-createInstance pStackId_ pInstanceType_ =
+createInstance pStackId_ pInstanceType_ = 
     CreateInstance'
     { _ciInstallUpdatesOnBoot = Nothing
     , _ciVirtualizationType = Nothing
@@ -325,12 +327,12 @@ instance ToQuery CreateInstance where
 -- * 'cirsStatus'
 data CreateInstanceResponse = CreateInstanceResponse'
     { _cirsInstanceId :: !(Maybe Text)
-    , _cirsStatus     :: !Int
+    , _cirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceResponse' smart constructor.
 createInstanceResponse :: Int -> CreateInstanceResponse
-createInstanceResponse pStatus_ =
+createInstanceResponse pStatus_ = 
     CreateInstanceResponse'
     { _cirsInstanceId = Nothing
     , _cirsStatus = pStatus_

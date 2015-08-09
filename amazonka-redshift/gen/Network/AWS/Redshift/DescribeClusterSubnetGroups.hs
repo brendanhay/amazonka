@@ -57,6 +57,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 

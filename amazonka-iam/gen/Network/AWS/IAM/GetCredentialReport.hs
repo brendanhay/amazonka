@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,14 +40,15 @@ module Network.AWS.IAM.GetCredentialReport
     , grsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCredentialReport' smart constructor.
 data GetCredentialReport =
-    GetCredentialReport'
+    GetCredentialReport' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialReport' smart constructor.
@@ -93,15 +95,15 @@ instance ToQuery GetCredentialReport where
 --
 -- * 'grsStatus'
 data GetCredentialReportResponse = GetCredentialReportResponse'
-    { _grsContent       :: !(Maybe Base64)
+    { _grsContent :: !(Maybe Base64)
     , _grsGeneratedTime :: !(Maybe ISO8601)
-    , _grsReportFormat  :: !(Maybe ReportFormatType)
-    , _grsStatus        :: !Int
+    , _grsReportFormat :: !(Maybe ReportFormatType)
+    , _grsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialReportResponse' smart constructor.
 getCredentialReportResponse :: Int -> GetCredentialReportResponse
-getCredentialReportResponse pStatus_ =
+getCredentialReportResponse pStatus_ = 
     GetCredentialReportResponse'
     { _grsContent = Nothing
     , _grsGeneratedTime = Nothing

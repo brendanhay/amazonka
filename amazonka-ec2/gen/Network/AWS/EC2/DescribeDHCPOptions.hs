@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.DescribeDHCPOptions
     , ddorsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDHCPOptions' smart constructor.
 --
@@ -57,14 +59,14 @@ import           Network.AWS.Response
 --
 -- * 'ddoDryRun'
 data DescribeDHCPOptions = DescribeDHCPOptions'
-    { _ddoFilters        :: !(Maybe [Filter])
+    { _ddoFilters :: !(Maybe [Filter])
     , _ddoDHCPOptionsIds :: !(Maybe [Text])
-    , _ddoDryRun         :: !(Maybe Bool)
+    , _ddoDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDHCPOptions' smart constructor.
 describeDHCPOptions :: DescribeDHCPOptions
-describeDHCPOptions =
+describeDHCPOptions = 
     DescribeDHCPOptions'
     { _ddoFilters = Nothing
     , _ddoDHCPOptionsIds = Nothing
@@ -147,12 +149,12 @@ instance ToQuery DescribeDHCPOptions where
 -- * 'ddorsStatus'
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions :: !(Maybe [DHCPOptions])
-    , _ddorsStatus      :: !Int
+    , _ddorsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
 describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse
-describeDHCPOptionsResponse pStatus_ =
+describeDHCPOptionsResponse pStatus_ = 
     DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions = Nothing
     , _ddorsStatus = pStatus_

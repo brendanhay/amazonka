@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.EC2.ReportInstanceStatus
     , reportInstanceStatusResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'reportInstanceStatus' smart constructor.
 --
@@ -69,18 +71,18 @@ import           Network.AWS.Response
 --
 -- * 'risReasonCodes'
 data ReportInstanceStatus = ReportInstanceStatus'
-    { _risStartTime   :: !(Maybe ISO8601)
-    , _risEndTime     :: !(Maybe ISO8601)
-    , _risDryRun      :: !(Maybe Bool)
+    { _risStartTime :: !(Maybe ISO8601)
+    , _risEndTime :: !(Maybe ISO8601)
+    , _risDryRun :: !(Maybe Bool)
     , _risDescription :: !(Maybe Text)
-    , _risInstances   :: ![Text]
-    , _risStatus      :: !ReportStatusType
+    , _risInstances :: ![Text]
+    , _risStatus :: !ReportStatusType
     , _risReasonCodes :: ![ReportInstanceReasonCodes]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportInstanceStatus' smart constructor.
 reportInstanceStatus :: ReportStatusType -> ReportInstanceStatus
-reportInstanceStatus pStatus_ =
+reportInstanceStatus pStatus_ = 
     ReportInstanceStatus'
     { _risStartTime = Nothing
     , _risEndTime = Nothing
@@ -176,7 +178,7 @@ instance ToQuery ReportInstanceStatus where
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =
-    ReportInstanceStatusResponse'
+    ReportInstanceStatusResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportInstanceStatusResponse' smart constructor.

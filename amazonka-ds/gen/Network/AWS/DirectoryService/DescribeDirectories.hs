@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -52,10 +53,11 @@ module Network.AWS.DirectoryService.DescribeDirectories
     , ddrsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the DescribeDirectories operation.
 --
@@ -69,14 +71,14 @@ import           Network.AWS.Response
 --
 -- * 'ddLimit'
 data DescribeDirectories = DescribeDirectories'
-    { _ddNextToken    :: !(Maybe Text)
+    { _ddNextToken :: !(Maybe Text)
     , _ddDirectoryIds :: !(Maybe [Text])
-    , _ddLimit        :: !(Maybe Nat)
+    , _ddLimit :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDirectories' smart constructor.
 describeDirectories :: DescribeDirectories
-describeDirectories =
+describeDirectories = 
     DescribeDirectories'
     { _ddNextToken = Nothing
     , _ddDirectoryIds = Nothing
@@ -151,13 +153,13 @@ instance ToQuery DescribeDirectories where
 -- * 'ddrsStatus'
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions :: !(Maybe [DirectoryDescription])
-    , _ddrsNextToken             :: !(Maybe Text)
-    , _ddrsStatus                :: !Int
+    , _ddrsNextToken :: !(Maybe Text)
+    , _ddrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
 describeDirectoriesResponse :: Int -> DescribeDirectoriesResponse
-describeDirectoriesResponse pStatus_ =
+describeDirectoriesResponse pStatus_ = 
     DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions = Nothing
     , _ddrsNextToken = Nothing

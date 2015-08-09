@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -71,10 +72,11 @@ module Network.AWS.EC2.StopInstances
     , sirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopInstances' smart constructor.
 --
@@ -86,14 +88,14 @@ import           Network.AWS.Response
 --
 -- * 'siInstanceIds'
 data StopInstances = StopInstances'
-    { _siForce       :: !(Maybe Bool)
-    , _siDryRun      :: !(Maybe Bool)
+    { _siForce :: !(Maybe Bool)
+    , _siDryRun :: !(Maybe Bool)
     , _siInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstances' smart constructor.
 stopInstances :: StopInstances
-stopInstances =
+stopInstances = 
     StopInstances'
     { _siForce = Nothing
     , _siDryRun = Nothing
@@ -155,12 +157,12 @@ instance ToQuery StopInstances where
 -- * 'sirsStatus'
 data StopInstancesResponse = StopInstancesResponse'
     { _sirsStoppingInstances :: !(Maybe [InstanceStateChange])
-    , _sirsStatus            :: !Int
+    , _sirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstancesResponse' smart constructor.
 stopInstancesResponse :: Int -> StopInstancesResponse
-stopInstancesResponse pStatus_ =
+stopInstancesResponse pStatus_ = 
     StopInstancesResponse'
     { _sirsStoppingInstances = Nothing
     , _sirsStatus = pStatus_

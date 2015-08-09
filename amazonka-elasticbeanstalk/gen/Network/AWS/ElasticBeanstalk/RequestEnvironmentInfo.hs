@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     , requestEnvironmentInfoResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -68,13 +70,13 @@ import           Network.AWS.Response
 -- * 'reiInfoType'
 data RequestEnvironmentInfo = RequestEnvironmentInfo'
     { _reiEnvironmentName :: !(Maybe Text)
-    , _reiEnvironmentId   :: !(Maybe Text)
-    , _reiInfoType        :: !EnvironmentInfoType
+    , _reiEnvironmentId :: !(Maybe Text)
+    , _reiInfoType :: !EnvironmentInfoType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestEnvironmentInfo' smart constructor.
 requestEnvironmentInfo :: EnvironmentInfoType -> RequestEnvironmentInfo
-requestEnvironmentInfo pInfoType_ =
+requestEnvironmentInfo pInfoType_ = 
     RequestEnvironmentInfo'
     { _reiEnvironmentName = Nothing
     , _reiEnvironmentId = Nothing
@@ -133,7 +135,7 @@ instance ToQuery RequestEnvironmentInfo where
 
 -- | /See:/ 'requestEnvironmentInfoResponse' smart constructor.
 data RequestEnvironmentInfoResponse =
-    RequestEnvironmentInfoResponse'
+    RequestEnvironmentInfoResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestEnvironmentInfoResponse' smart constructor.

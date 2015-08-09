@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.ElastiCache.AddTagsToResource
     , tlmTagList
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an /AddTagsToResource/ action.
 --
@@ -63,12 +65,12 @@ import           Network.AWS.Response
 -- * 'attrTags'
 data AddTagsToResource = AddTagsToResource'
     { _attrResourceName :: !Text
-    , _attrTags         :: ![Tag]
+    , _attrTags :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
-addTagsToResource pResourceName_ =
+addTagsToResource pResourceName_ = 
     AddTagsToResource'
     { _attrResourceName = pResourceName_
     , _attrTags = mempty

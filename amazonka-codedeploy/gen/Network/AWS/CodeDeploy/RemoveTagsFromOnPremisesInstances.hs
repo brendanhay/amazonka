@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     , removeTagsFromOnPremisesInstancesResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a remove tags from on-premises instances
 -- operation.
@@ -50,13 +52,13 @@ import           Network.AWS.Response
 --
 -- * 'rtfopiInstanceNames'
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
-    { _rtfopiTags          :: ![Tag]
+    { _rtfopiTags :: ![Tag]
     , _rtfopiInstanceNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromOnPremisesInstances' smart constructor.
 removeTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances
-removeTagsFromOnPremisesInstances =
+removeTagsFromOnPremisesInstances = 
     RemoveTagsFromOnPremisesInstances'
     { _rtfopiTags = mempty
     , _rtfopiInstanceNames = mempty
@@ -109,10 +111,10 @@ instance ToQuery RemoveTagsFromOnPremisesInstances
 
 -- | /See:/ 'removeTagsFromOnPremisesInstancesResponse' smart constructor.
 data RemoveTagsFromOnPremisesInstancesResponse =
-    RemoveTagsFromOnPremisesInstancesResponse'
+    RemoveTagsFromOnPremisesInstancesResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromOnPremisesInstancesResponse' smart constructor.
 removeTagsFromOnPremisesInstancesResponse :: RemoveTagsFromOnPremisesInstancesResponse
-removeTagsFromOnPremisesInstancesResponse =
+removeTagsFromOnPremisesInstancesResponse = 
     RemoveTagsFromOnPremisesInstancesResponse'

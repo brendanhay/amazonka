@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     , admApplication
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -52,13 +54,13 @@ import           Network.AWS.Response
 --
 -- * 'caApplicationName'
 data CreateApplication = CreateApplication'
-    { _caDescription     :: !(Maybe Text)
+    { _caDescription :: !(Maybe Text)
     , _caApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
-createApplication pApplicationName_ =
+createApplication pApplicationName_ = 
     CreateApplication'
     { _caDescription = Nothing
     , _caApplicationName = pApplicationName_

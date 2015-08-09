@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CloudSearch.CreateDomain
     , cdrsStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @CreateDomain@ operation. Specifies
 -- a name for the new search domain.
@@ -57,7 +59,7 @@ newtype CreateDomain = CreateDomain'
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
-createDomain pDomainName_ =
+createDomain pDomainName_ = 
     CreateDomain'
     { _cdDomainName = pDomainName_
     }
@@ -104,12 +106,12 @@ instance ToQuery CreateDomain where
 -- * 'cdrsStatus'
 data CreateDomainResponse = CreateDomainResponse'
     { _cdrsDomainStatus :: !(Maybe DomainStatus)
-    , _cdrsStatus       :: !Int
+    , _cdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: Int -> CreateDomainResponse
-createDomainResponse pStatus_ =
+createDomainResponse pStatus_ = 
     CreateDomainResponse'
     { _cdrsDomainStatus = Nothing
     , _cdrsStatus = pStatus_

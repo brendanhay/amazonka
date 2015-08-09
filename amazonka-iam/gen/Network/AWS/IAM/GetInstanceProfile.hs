@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.GetInstanceProfile
     , giprsInstanceProfile
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstanceProfile' smart constructor.
 --
@@ -57,7 +59,7 @@ newtype GetInstanceProfile = GetInstanceProfile'
 
 -- | 'GetInstanceProfile' smart constructor.
 getInstanceProfile :: Text -> GetInstanceProfile
-getInstanceProfile pInstanceProfileName_ =
+getInstanceProfile pInstanceProfileName_ = 
     GetInstanceProfile'
     { _gipInstanceProfileName = pInstanceProfileName_
     }
@@ -100,13 +102,13 @@ instance ToQuery GetInstanceProfile where
 --
 -- * 'giprsInstanceProfile'
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-    { _giprsStatus          :: !Int
+    { _giprsStatus :: !Int
     , _giprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
 getInstanceProfileResponse :: Int -> InstanceProfile -> GetInstanceProfileResponse
-getInstanceProfileResponse pStatus_ pInstanceProfile_ =
+getInstanceProfileResponse pStatus_ pInstanceProfile_ = 
     GetInstanceProfileResponse'
     { _giprsStatus = pStatus_
     , _giprsInstanceProfile = pInstanceProfile_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.DescribeCustomerGateways
     , dcgrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeCustomerGateways' smart constructor.
 --
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 -- * 'dcgDryRun'
 data DescribeCustomerGateways = DescribeCustomerGateways'
     { _dcgCustomerGatewayIds :: !(Maybe [Text])
-    , _dcgFilters            :: !(Maybe [Filter])
-    , _dcgDryRun             :: !(Maybe Bool)
+    , _dcgFilters :: !(Maybe [Filter])
+    , _dcgDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCustomerGateways' smart constructor.
 describeCustomerGateways :: DescribeCustomerGateways
-describeCustomerGateways =
+describeCustomerGateways = 
     DescribeCustomerGateways'
     { _dcgCustomerGatewayIds = Nothing
     , _dcgFilters = Nothing
@@ -157,12 +159,12 @@ instance ToQuery DescribeCustomerGateways where
 -- * 'dcgrsStatus'
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
-    , _dcgrsStatus           :: !Int
+    , _dcgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
 describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse
-describeCustomerGatewaysResponse pStatus_ =
+describeCustomerGatewaysResponse pStatus_ = 
     DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways = Nothing
     , _dcgrsStatus = pStatus_

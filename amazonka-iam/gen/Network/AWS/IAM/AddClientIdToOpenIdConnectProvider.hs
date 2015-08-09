@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     , addClientIdToOpenIdConnectProviderResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addClientIdToOpenIdConnectProvider' smart constructor.
 --
@@ -52,12 +54,12 @@ import           Network.AWS.Response
 -- * 'acitoicpClientId'
 data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
     { _acitoicpOpenIdConnectProviderARN :: !Text
-    , _acitoicpClientId                 :: !Text
+    , _acitoicpClientId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddClientIdToOpenIdConnectProvider' smart constructor.
 addClientIdToOpenIdConnectProvider :: Text -> Text -> AddClientIdToOpenIdConnectProvider
-addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
+addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ = 
     AddClientIdToOpenIdConnectProvider'
     { _acitoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     , _acitoicpClientId = pClientId_
@@ -105,10 +107,10 @@ instance ToQuery AddClientIdToOpenIdConnectProvider
 
 -- | /See:/ 'addClientIdToOpenIdConnectProviderResponse' smart constructor.
 data AddClientIdToOpenIdConnectProviderResponse =
-    AddClientIdToOpenIdConnectProviderResponse'
+    AddClientIdToOpenIdConnectProviderResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddClientIdToOpenIdConnectProviderResponse' smart constructor.
 addClientIdToOpenIdConnectProviderResponse :: AddClientIdToOpenIdConnectProviderResponse
-addClientIdToOpenIdConnectProviderResponse =
+addClientIdToOpenIdConnectProviderResponse = 
     AddClientIdToOpenIdConnectProviderResponse'

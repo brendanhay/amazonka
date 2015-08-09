@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     , reirsStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -61,13 +63,13 @@ import           Network.AWS.Response
 -- * 'rInfoType'
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
     { _rEnvironmentName :: !(Maybe Text)
-    , _rEnvironmentId   :: !(Maybe Text)
-    , _rInfoType        :: !EnvironmentInfoType
+    , _rEnvironmentId :: !(Maybe Text)
+    , _rInfoType :: !EnvironmentInfoType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveEnvironmentInfo' smart constructor.
 retrieveEnvironmentInfo :: EnvironmentInfoType -> RetrieveEnvironmentInfo
-retrieveEnvironmentInfo pInfoType_ =
+retrieveEnvironmentInfo pInfoType_ = 
     RetrieveEnvironmentInfo'
     { _rEnvironmentName = Nothing
     , _rEnvironmentId = Nothing
@@ -141,12 +143,12 @@ instance ToQuery RetrieveEnvironmentInfo where
 -- * 'reirsStatus'
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
     { _reirsEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
-    , _reirsStatus          :: !Int
+    , _reirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
 retrieveEnvironmentInfoResponse :: Int -> RetrieveEnvironmentInfoResponse
-retrieveEnvironmentInfoResponse pStatus_ =
+retrieveEnvironmentInfoResponse pStatus_ = 
     RetrieveEnvironmentInfoResponse'
     { _reirsEnvironmentInfo = Nothing
     , _reirsStatus = pStatus_

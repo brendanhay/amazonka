@@ -47,6 +47,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 

@@ -58,13 +58,13 @@ module Network.AWS.CloudFormation
     -- * Operations
     -- $operations
 
-    -- ** DeleteStack
+    -- ** DeleteStack 
     , module Network.AWS.CloudFormation.DeleteStack
 
-    -- ** UpdateStack
+    -- ** UpdateStack 
     , module Network.AWS.CloudFormation.UpdateStack
 
-    -- ** GetTemplateSummary
+    -- ** GetTemplateSummary 
     , module Network.AWS.CloudFormation.GetTemplateSummary
 
     -- ** ListStackResources (Paginated)
@@ -75,42 +75,42 @@ module Network.AWS.CloudFormation
     , module Network.AWS.CloudFormation.DescribeStacks
     -- $pager
 
-    -- ** GetStackPolicy
+    -- ** GetStackPolicy 
     , module Network.AWS.CloudFormation.GetStackPolicy
 
-    -- ** ValidateTemplate
+    -- ** ValidateTemplate 
     , module Network.AWS.CloudFormation.ValidateTemplate
 
-    -- ** CancelUpdateStack
+    -- ** CancelUpdateStack 
     , module Network.AWS.CloudFormation.CancelUpdateStack
 
-    -- ** SetStackPolicy
+    -- ** SetStackPolicy 
     , module Network.AWS.CloudFormation.SetStackPolicy
 
     -- ** DescribeStackEvents (Paginated)
     , module Network.AWS.CloudFormation.DescribeStackEvents
     -- $pager
 
-    -- ** SignalResource
+    -- ** SignalResource 
     , module Network.AWS.CloudFormation.SignalResource
 
     -- ** ListStacks (Paginated)
     , module Network.AWS.CloudFormation.ListStacks
     -- $pager
 
-    -- ** CreateStack
+    -- ** CreateStack 
     , module Network.AWS.CloudFormation.CreateStack
 
-    -- ** DescribeStackResources
+    -- ** DescribeStackResources 
     , module Network.AWS.CloudFormation.DescribeStackResources
 
-    -- ** EstimateTemplateCost
+    -- ** EstimateTemplateCost 
     , module Network.AWS.CloudFormation.EstimateTemplateCost
 
-    -- ** GetTemplate
+    -- ** GetTemplate 
     , module Network.AWS.CloudFormation.GetTemplate
 
-    -- ** DescribeStackResource
+    -- ** DescribeStackResource 
     , module Network.AWS.CloudFormation.DescribeStackResource
 
     -- * Types
@@ -255,25 +255,25 @@ module Network.AWS.CloudFormation
     , tpDescription
     ) where
 
-import           Network.AWS.CloudFormation.CancelUpdateStack
-import           Network.AWS.CloudFormation.CreateStack
-import           Network.AWS.CloudFormation.DeleteStack
-import           Network.AWS.CloudFormation.DescribeStackEvents
-import           Network.AWS.CloudFormation.DescribeStackResource
-import           Network.AWS.CloudFormation.DescribeStackResources
-import           Network.AWS.CloudFormation.DescribeStacks
-import           Network.AWS.CloudFormation.EstimateTemplateCost
-import           Network.AWS.CloudFormation.GetStackPolicy
-import           Network.AWS.CloudFormation.GetTemplate
-import           Network.AWS.CloudFormation.GetTemplateSummary
-import           Network.AWS.CloudFormation.ListStackResources
-import           Network.AWS.CloudFormation.ListStacks
-import           Network.AWS.CloudFormation.SetStackPolicy
-import           Network.AWS.CloudFormation.SignalResource
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.UpdateStack
-import           Network.AWS.CloudFormation.ValidateTemplate
-import           Network.AWS.CloudFormation.Waiters
+import Network.AWS.CloudFormation.CancelUpdateStack
+import Network.AWS.CloudFormation.CreateStack
+import Network.AWS.CloudFormation.DeleteStack
+import Network.AWS.CloudFormation.DescribeStackEvents
+import Network.AWS.CloudFormation.DescribeStackResource
+import Network.AWS.CloudFormation.DescribeStackResources
+import Network.AWS.CloudFormation.DescribeStacks
+import Network.AWS.CloudFormation.EstimateTemplateCost
+import Network.AWS.CloudFormation.GetStackPolicy
+import Network.AWS.CloudFormation.GetTemplate
+import Network.AWS.CloudFormation.GetTemplateSummary
+import Network.AWS.CloudFormation.ListStackResources
+import Network.AWS.CloudFormation.ListStacks
+import Network.AWS.CloudFormation.SetStackPolicy
+import Network.AWS.CloudFormation.SignalResource
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.UpdateStack
+import Network.AWS.CloudFormation.ValidateTemplate
+import Network.AWS.CloudFormation.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

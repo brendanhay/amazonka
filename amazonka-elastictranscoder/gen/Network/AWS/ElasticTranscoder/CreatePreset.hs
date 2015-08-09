@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -59,10 +60,11 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     , cprsStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @CreatePresetRequest@ structure.
 --
@@ -82,17 +84,17 @@ import           Network.AWS.Response
 --
 -- * 'cpContainer'
 data CreatePreset = CreatePreset'
-    { _cpVideo       :: !(Maybe VideoParameters)
-    , _cpThumbnails  :: !(Maybe Thumbnails)
-    , _cpAudio       :: !(Maybe AudioParameters)
+    { _cpVideo :: !(Maybe VideoParameters)
+    , _cpThumbnails :: !(Maybe Thumbnails)
+    , _cpAudio :: !(Maybe AudioParameters)
     , _cpDescription :: !(Maybe Text)
-    , _cpName        :: !Text
-    , _cpContainer   :: !Text
+    , _cpName :: !Text
+    , _cpContainer :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePreset' smart constructor.
 createPreset :: Text -> Text -> CreatePreset
-createPreset pName_ pContainer_ =
+createPreset pName_ pContainer_ = 
     CreatePreset'
     { _cpVideo = Nothing
     , _cpThumbnails = Nothing
@@ -170,13 +172,13 @@ instance ToQuery CreatePreset where
 -- * 'cprsStatus'
 data CreatePresetResponse = CreatePresetResponse'
     { _cprsWarning :: !(Maybe Text)
-    , _cprsPreset  :: !(Maybe Preset)
-    , _cprsStatus  :: !Int
+    , _cprsPreset :: !(Maybe Preset)
+    , _cprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePresetResponse' smart constructor.
 createPresetResponse :: Int -> CreatePresetResponse
-createPresetResponse pStatus_ =
+createPresetResponse pStatus_ = 
     CreatePresetResponse'
     { _cprsWarning = Nothing
     , _cprsPreset = Nothing

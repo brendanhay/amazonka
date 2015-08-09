@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CognitoSync.RegisterDevice
     , rdrsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to RegisterDevice.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 -- * 'rdToken'
 data RegisterDevice = RegisterDevice'
     { _rdIdentityPoolId :: !Text
-    , _rdIdentityId     :: !Text
-    , _rdPlatform       :: !Platform
-    , _rdToken          :: !Text
+    , _rdIdentityId :: !Text
+    , _rdPlatform :: !Platform
+    , _rdToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDevice' smart constructor.
 registerDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
-registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
+registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ = 
     RegisterDevice'
     { _rdIdentityPoolId = pIdentityPoolId_
     , _rdIdentityId = pIdentityId_
@@ -137,12 +139,12 @@ instance ToQuery RegisterDevice where
 -- * 'rdrsStatus'
 data RegisterDeviceResponse = RegisterDeviceResponse'
     { _rdrsDeviceId :: !(Maybe Text)
-    , _rdrsStatus   :: !Int
+    , _rdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDeviceResponse' smart constructor.
 registerDeviceResponse :: Int -> RegisterDeviceResponse
-registerDeviceResponse pStatus_ =
+registerDeviceResponse pStatus_ = 
     RegisterDeviceResponse'
     { _rdrsDeviceId = Nothing
     , _rdrsStatus = pStatus_

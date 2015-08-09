@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.DeleteVPNGateway
     , deleteVPNGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteVPNGateway' smart constructor.
 --
@@ -51,13 +53,13 @@ import           Network.AWS.Response
 --
 -- * 'dvgVPNGatewayId'
 data DeleteVPNGateway = DeleteVPNGateway'
-    { _dvgDryRun       :: !(Maybe Bool)
+    { _dvgDryRun :: !(Maybe Bool)
     , _dvgVPNGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNGateway' smart constructor.
 deleteVPNGateway :: Text -> DeleteVPNGateway
-deleteVPNGateway pVPNGatewayId_ =
+deleteVPNGateway pVPNGatewayId_ = 
     DeleteVPNGateway'
     { _dvgDryRun = Nothing
     , _dvgVPNGatewayId = pVPNGatewayId_
@@ -96,7 +98,7 @@ instance ToQuery DeleteVPNGateway where
 
 -- | /See:/ 'deleteVPNGatewayResponse' smart constructor.
 data DeleteVPNGatewayResponse =
-    DeleteVPNGatewayResponse'
+    DeleteVPNGatewayResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNGatewayResponse' smart constructor.

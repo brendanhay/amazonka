@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     , attachElasticLoadBalancerResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachElasticLoadBalancer' smart constructor.
 --
@@ -61,12 +63,12 @@ import           Network.AWS.Response
 -- * 'aelbLayerId'
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
     { _aelbElasticLoadBalancerName :: !Text
-    , _aelbLayerId                 :: !Text
+    , _aelbLayerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachElasticLoadBalancer' smart constructor.
 attachElasticLoadBalancer :: Text -> Text -> AttachElasticLoadBalancer
-attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
+attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ = 
     AttachElasticLoadBalancer'
     { _aelbElasticLoadBalancerName = pElasticLoadBalancerName_
     , _aelbLayerId = pLayerId_
@@ -114,7 +116,7 @@ instance ToQuery AttachElasticLoadBalancer where
 
 -- | /See:/ 'attachElasticLoadBalancerResponse' smart constructor.
 data AttachElasticLoadBalancerResponse =
-    AttachElasticLoadBalancerResponse'
+    AttachElasticLoadBalancerResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachElasticLoadBalancerResponse' smart constructor.

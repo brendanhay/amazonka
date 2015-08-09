@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -83,10 +83,10 @@ module Network.AWS.KMS.Types
     , kmKeyId
     ) where
 
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.KMS.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.KMS.Types.Product
+import Network.AWS.KMS.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2014-11-01@ of the Amazon Key Management Service SDK.
 data KMS
@@ -95,7 +95,7 @@ instance AWSService KMS where
     type Sg KMS = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "KMS"
             , _svcPrefix = "kms"
@@ -106,7 +106,7 @@ instance AWSService KMS where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -114,7 +114,7 @@ instance AWSService KMS where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -125,24 +125,24 @@ instance AWSService KMS where
 -- | The request was rejected because the marker that specifies where
 -- pagination should next begin is not valid.
 _InvalidMarkerException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidMarkerException =
+_InvalidMarkerException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidMarker"
 
 -- | The request was rejected because the specified KeySpec parameter is not
 -- valid. The currently supported value is ENCRYPT\/DECRYPT.
 _InvalidKeyUsageException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidKeyUsageException =
+_InvalidKeyUsageException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidKeyUsage"
 
 -- | The request was rejected because a specified parameter is not supported.
 _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedOperationException =
+_UnsupportedOperationException = 
     _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
 
 -- | The request was rejected because the specified policy is not
 -- syntactically or semantically correct.
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_MalformedPolicyDocumentException =
+_MalformedPolicyDocumentException = 
     _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
 -- | A request was rejected because the specified key was marked as disabled.
@@ -152,7 +152,7 @@ _DisabledException = _ServiceError . hasStatus 409 . hasCode "Disabled"
 -- | The request was rejected because the key was disabled, not found, or
 -- otherwise not available.
 _KeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_KeyUnavailableException =
+_KeyUnavailableException = 
     _ServiceError . hasStatus 500 . hasCode "KeyUnavailable"
 
 -- | The request was rejected because an internal exception occurred. This
@@ -167,7 +167,7 @@ _NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
 
 -- | The request was rejected because the specified alias name is not valid.
 _InvalidAliasNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidAliasNameException =
+_InvalidAliasNameException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidAliasName"
 
 -- | The request was rejected because a specified ARN was not valid.
@@ -176,27 +176,27 @@ _InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn"
 
 -- | The system timed out while trying to fulfill the request.
 _DependencyTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
-_DependencyTimeoutException =
+_DependencyTimeoutException = 
     _ServiceError . hasStatus 503 . hasCode "DependencyTimeout"
 
 -- | A grant token provided as part of the request is invalid.
 _InvalidGrantTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidGrantTokenException =
+_InvalidGrantTokenException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken"
 
 -- | The request was rejected because the specified ciphertext has been
 -- corrupted or is otherwise invalid.
 _InvalidCiphertextException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCiphertextException =
+_InvalidCiphertextException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidCiphertext"
 
 -- | The request was rejected because a quota was exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
+_LimitExceededException = 
     _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_AlreadyExistsException =
+_AlreadyExistsException = 
     _ServiceError . hasStatus 400 . hasCode "AlreadyExists"

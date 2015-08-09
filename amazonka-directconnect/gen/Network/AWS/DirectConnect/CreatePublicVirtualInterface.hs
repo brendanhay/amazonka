@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreatePublicVirtualInterface
 -- operation.
@@ -69,13 +71,13 @@ import           Network.AWS.Response
 --
 -- * 'cpviNewPublicVirtualInterface'
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
-    { _cpviConnectionId              :: !Text
+    { _cpviConnectionId :: !Text
     , _cpviNewPublicVirtualInterface :: !NewPublicVirtualInterface
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePublicVirtualInterface' smart constructor.
 createPublicVirtualInterface :: Text -> NewPublicVirtualInterface -> CreatePublicVirtualInterface
-createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ =
+createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ = 
     CreatePublicVirtualInterface'
     { _cpviConnectionId = pConnectionId_
     , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface_

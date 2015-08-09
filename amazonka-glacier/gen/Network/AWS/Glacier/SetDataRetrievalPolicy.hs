@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.Glacier.SetDataRetrievalPolicy
     , setDataRetrievalPolicyResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | SetDataRetrievalPolicy input.
 --
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 --
 -- * 'sdrpAccountId'
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
-    { _sdrpPolicy    :: !(Maybe DataRetrievalPolicy)
+    { _sdrpPolicy :: !(Maybe DataRetrievalPolicy)
     , _sdrpAccountId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDataRetrievalPolicy' smart constructor.
 setDataRetrievalPolicy :: Text -> SetDataRetrievalPolicy
-setDataRetrievalPolicy pAccountId_ =
+setDataRetrievalPolicy pAccountId_ = 
     SetDataRetrievalPolicy'
     { _sdrpPolicy = Nothing
     , _sdrpAccountId = pAccountId_
@@ -109,7 +111,7 @@ instance ToQuery SetDataRetrievalPolicy where
 
 -- | /See:/ 'setDataRetrievalPolicyResponse' smart constructor.
 data SetDataRetrievalPolicyResponse =
-    SetDataRetrievalPolicyResponse'
+    SetDataRetrievalPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDataRetrievalPolicyResponse' smart constructor.

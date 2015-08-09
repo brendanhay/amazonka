@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,11 +42,12 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     , dcsgrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /DescribeCacheSubnetGroups/ action.
 --
@@ -60,13 +62,13 @@ import           Network.AWS.Response
 -- * 'dcsgMarker'
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
     { _dcsgCacheSubnetGroupName :: !(Maybe Text)
-    , _dcsgMaxRecords           :: !(Maybe Int)
-    , _dcsgMarker               :: !(Maybe Text)
+    , _dcsgMaxRecords :: !(Maybe Int)
+    , _dcsgMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSubnetGroups' smart constructor.
 describeCacheSubnetGroups :: DescribeCacheSubnetGroups
-describeCacheSubnetGroups =
+describeCacheSubnetGroups = 
     DescribeCacheSubnetGroups'
     { _dcsgCacheSubnetGroupName = Nothing
     , _dcsgMaxRecords = Nothing
@@ -143,14 +145,14 @@ instance ToQuery DescribeCacheSubnetGroups where
 --
 -- * 'dcsgrsStatus'
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
-    { _dcsgrsMarker            :: !(Maybe Text)
+    { _dcsgrsMarker :: !(Maybe Text)
     , _dcsgrsCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
-    , _dcsgrsStatus            :: !Int
+    , _dcsgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
 describeCacheSubnetGroupsResponse :: Int -> DescribeCacheSubnetGroupsResponse
-describeCacheSubnetGroupsResponse pStatus_ =
+describeCacheSubnetGroupsResponse pStatus_ = 
     DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker = Nothing
     , _dcsgrsCacheSubnetGroups = Nothing

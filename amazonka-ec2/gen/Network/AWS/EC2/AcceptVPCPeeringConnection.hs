@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     , avpcrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'acceptVPCPeeringConnection' smart constructor.
 --
@@ -55,12 +57,12 @@ import           Network.AWS.Response
 -- * 'avpcDryRun'
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
     { _avpcVPCPeeringConnectionId :: !(Maybe Text)
-    , _avpcDryRun                 :: !(Maybe Bool)
+    , _avpcDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcceptVPCPeeringConnection' smart constructor.
 acceptVPCPeeringConnection :: AcceptVPCPeeringConnection
-acceptVPCPeeringConnection =
+acceptVPCPeeringConnection = 
     AcceptVPCPeeringConnection'
     { _avpcVPCPeeringConnectionId = Nothing
     , _avpcDryRun = Nothing
@@ -114,12 +116,12 @@ instance ToQuery AcceptVPCPeeringConnection where
 -- * 'avpcrsStatus'
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
     { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _avpcrsStatus               :: !Int
+    , _avpcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
 acceptVPCPeeringConnectionResponse :: Int -> AcceptVPCPeeringConnectionResponse
-acceptVPCPeeringConnectionResponse pStatus_ =
+acceptVPCPeeringConnectionResponse pStatus_ = 
     AcceptVPCPeeringConnectionResponse'
     { _avpcrsVPCPeeringConnection = Nothing
     , _avpcrsStatus = pStatus_

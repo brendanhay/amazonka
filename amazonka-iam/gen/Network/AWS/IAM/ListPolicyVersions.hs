@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.IAM.ListPolicyVersions
     , lpvrsStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listPolicyVersions' smart constructor.
 --
@@ -60,14 +62,14 @@ import           Network.AWS.Response
 --
 -- * 'lpvPolicyARN'
 data ListPolicyVersions = ListPolicyVersions'
-    { _lpvMaxItems  :: !(Maybe Nat)
-    , _lpvMarker    :: !(Maybe Text)
+    { _lpvMaxItems :: !(Maybe Nat)
+    , _lpvMarker :: !(Maybe Text)
     , _lpvPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicyVersions' smart constructor.
 listPolicyVersions :: Text -> ListPolicyVersions
-listPolicyVersions pPolicyARN_ =
+listPolicyVersions pPolicyARN_ = 
     ListPolicyVersions'
     { _lpvMaxItems = Nothing
     , _lpvMarker = Nothing
@@ -136,15 +138,15 @@ instance ToQuery ListPolicyVersions where
 --
 -- * 'lpvrsStatus'
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-    { _lpvrsVersions    :: !(Maybe [PolicyVersion])
-    , _lpvrsMarker      :: !(Maybe Text)
+    { _lpvrsVersions :: !(Maybe [PolicyVersion])
+    , _lpvrsMarker :: !(Maybe Text)
     , _lpvrsIsTruncated :: !(Maybe Bool)
-    , _lpvrsStatus      :: !Int
+    , _lpvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
 listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse
-listPolicyVersionsResponse pStatus_ =
+listPolicyVersionsResponse pStatus_ = 
     ListPolicyVersionsResponse'
     { _lpvrsVersions = Nothing
     , _lpvrsMarker = Nothing

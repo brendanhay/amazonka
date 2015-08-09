@@ -18,8 +18,8 @@
 --
 module Network.AWS.Lambda.Types.Product where
 
-import           Network.AWS.Lambda.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lambda.Types.Sum
+import Network.AWS.Prelude
 
 -- | Describes mapping between an Amazon Kinesis stream and a Lambda
 -- function.
@@ -44,19 +44,19 @@ import           Network.AWS.Prelude
 --
 -- * 'esmcLastModified'
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
-    { _esmcEventSourceARN        :: !(Maybe Text)
-    , _esmcFunctionARN           :: !(Maybe Text)
-    , _esmcState                 :: !(Maybe Text)
-    , _esmcUUId                  :: !(Maybe Text)
-    , _esmcLastProcessingResult  :: !(Maybe Text)
-    , _esmcBatchSize             :: !(Maybe Nat)
+    { _esmcEventSourceARN :: !(Maybe Text)
+    , _esmcFunctionARN :: !(Maybe Text)
+    , _esmcState :: !(Maybe Text)
+    , _esmcUUId :: !(Maybe Text)
+    , _esmcLastProcessingResult :: !(Maybe Text)
+    , _esmcBatchSize :: !(Maybe Nat)
     , _esmcStateTransitionReason :: !(Maybe Text)
-    , _esmcLastModified          :: !(Maybe POSIX)
+    , _esmcLastModified :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventSourceMappingConfiguration' smart constructor.
 eventSourceMappingConfiguration :: EventSourceMappingConfiguration
-eventSourceMappingConfiguration =
+eventSourceMappingConfiguration = 
     EventSourceMappingConfiguration'
     { _esmcEventSourceARN = Nothing
     , _esmcFunctionARN = Nothing
@@ -137,14 +137,14 @@ instance FromJSON EventSourceMappingConfiguration
 -- * 'fcS3Bucket'
 data FunctionCode = FunctionCode'
     { _fcS3ObjectVersion :: !(Maybe Text)
-    , _fcS3Key           :: !(Maybe Text)
-    , _fcZipFile         :: !(Maybe Base64)
-    , _fcS3Bucket        :: !(Maybe Text)
+    , _fcS3Key :: !(Maybe Text)
+    , _fcZipFile :: !(Maybe Base64)
+    , _fcS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FunctionCode' smart constructor.
 functionCode :: FunctionCode
-functionCode =
+functionCode = 
     FunctionCode'
     { _fcS3ObjectVersion = Nothing
     , _fcS3Key = Nothing
@@ -192,13 +192,13 @@ instance ToJSON FunctionCode where
 --
 -- * 'fclRepositoryType'
 data FunctionCodeLocation = FunctionCodeLocation'
-    { _fclLocation       :: !(Maybe Text)
+    { _fclLocation :: !(Maybe Text)
     , _fclRepositoryType :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FunctionCodeLocation' smart constructor.
 functionCodeLocation :: FunctionCodeLocation
-functionCodeLocation =
+functionCodeLocation = 
     FunctionCodeLocation'
     { _fclLocation = Nothing
     , _fclRepositoryType = Nothing
@@ -246,21 +246,21 @@ instance FromJSON FunctionCodeLocation where
 --
 -- * 'fcDescription'
 data FunctionConfiguration = FunctionConfiguration'
-    { _fcRuntime      :: !(Maybe Runtime)
-    , _fcMemorySize   :: !(Maybe Nat)
-    , _fcFunctionARN  :: !(Maybe Text)
-    , _fcRole         :: !(Maybe Text)
+    { _fcRuntime :: !(Maybe Runtime)
+    , _fcMemorySize :: !(Maybe Nat)
+    , _fcFunctionARN :: !(Maybe Text)
+    , _fcRole :: !(Maybe Text)
     , _fcFunctionName :: !(Maybe Text)
-    , _fcCodeSize     :: !(Maybe Integer)
-    , _fcHandler      :: !(Maybe Text)
-    , _fcTimeout      :: !(Maybe Nat)
+    , _fcCodeSize :: !(Maybe Integer)
+    , _fcHandler :: !(Maybe Text)
+    , _fcTimeout :: !(Maybe Nat)
     , _fcLastModified :: !(Maybe Text)
-    , _fcDescription  :: !(Maybe Text)
+    , _fcDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FunctionConfiguration' smart constructor.
 functionConfiguration :: FunctionConfiguration
-functionConfiguration =
+functionConfiguration = 
     FunctionConfiguration'
     { _fcRuntime = Nothing
     , _fcMemorySize = Nothing

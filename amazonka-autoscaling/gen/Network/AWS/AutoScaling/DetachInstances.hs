@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.AutoScaling.DetachInstances
     , dirsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachInstances' smart constructor.
 --
@@ -59,14 +61,14 @@ import           Network.AWS.Response
 --
 -- * 'diShouldDecrementDesiredCapacity'
 data DetachInstances = DetachInstances'
-    { _diInstanceIds                    :: !(Maybe [Text])
-    , _diAutoScalingGroupName           :: !Text
+    { _diInstanceIds :: !(Maybe [Text])
+    , _diAutoScalingGroupName :: !Text
     , _diShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInstances' smart constructor.
 detachInstances :: Text -> Bool -> DetachInstances
-detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
+detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ = 
     DetachInstances'
     { _diInstanceIds = Nothing
     , _diAutoScalingGroupName = pAutoScalingGroupName_
@@ -124,12 +126,12 @@ instance ToQuery DetachInstances where
 -- * 'dirsStatus'
 data DetachInstancesResponse = DetachInstancesResponse'
     { _dirsActivities :: !(Maybe [Activity])
-    , _dirsStatus     :: !Int
+    , _dirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInstancesResponse' smart constructor.
 detachInstancesResponse :: Int -> DetachInstancesResponse
-detachInstancesResponse pStatus_ =
+detachInstancesResponse pStatus_ = 
     DetachInstancesResponse'
     { _dirsActivities = Nothing
     , _dirsStatus = pStatus_

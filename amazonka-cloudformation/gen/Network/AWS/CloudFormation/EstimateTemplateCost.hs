@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     , etcrsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'estimateTemplateCost' smart constructor.
 --
@@ -55,14 +57,14 @@ import           Network.AWS.Response
 --
 -- * 'etcTemplateURL'
 data EstimateTemplateCost = EstimateTemplateCost'
-    { _etcParameters   :: !(Maybe [Parameter])
+    { _etcParameters :: !(Maybe [Parameter])
     , _etcTemplateBody :: !(Maybe Text)
-    , _etcTemplateURL  :: !(Maybe Text)
+    , _etcTemplateURL :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EstimateTemplateCost' smart constructor.
 estimateTemplateCost :: EstimateTemplateCost
-estimateTemplateCost =
+estimateTemplateCost = 
     EstimateTemplateCost'
     { _etcParameters = Nothing
     , _etcTemplateBody = Nothing
@@ -131,13 +133,13 @@ instance ToQuery EstimateTemplateCost where
 --
 -- * 'etcrsStatus'
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-    { _etcrsURL    :: !(Maybe Text)
+    { _etcrsURL :: !(Maybe Text)
     , _etcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
 estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse
-estimateTemplateCostResponse pStatus_ =
+estimateTemplateCostResponse pStatus_ = 
     EstimateTemplateCostResponse'
     { _etcrsURL = Nothing
     , _etcrsStatus = pStatus_

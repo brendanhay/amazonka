@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     , putDestinationPolicyResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putDestinationPolicy' smart constructor.
 --
@@ -52,12 +54,12 @@ import           Network.AWS.Response
 -- * 'pdpAccessPolicy'
 data PutDestinationPolicy = PutDestinationPolicy'
     { _pdpDestinationName :: !Text
-    , _pdpAccessPolicy    :: !Text
+    , _pdpAccessPolicy :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDestinationPolicy' smart constructor.
 putDestinationPolicy :: Text -> Text -> PutDestinationPolicy
-putDestinationPolicy pDestinationName_ pAccessPolicy_ =
+putDestinationPolicy pDestinationName_ pAccessPolicy_ = 
     PutDestinationPolicy'
     { _pdpDestinationName = pDestinationName_
     , _pdpAccessPolicy = pAccessPolicy_
@@ -102,7 +104,7 @@ instance ToQuery PutDestinationPolicy where
 
 -- | /See:/ 'putDestinationPolicyResponse' smart constructor.
 data PutDestinationPolicyResponse =
-    PutDestinationPolicyResponse'
+    PutDestinationPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDestinationPolicyResponse' smart constructor.

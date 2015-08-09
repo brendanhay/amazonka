@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -296,10 +296,10 @@ module Network.AWS.DeviceFarm.Types
     , uContentType
     ) where
 
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.DeviceFarm.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.DeviceFarm.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2015-06-23@ of the Amazon Device Farm SDK.
 data DeviceFarm
@@ -308,7 +308,7 @@ instance AWSService DeviceFarm where
     type Sg DeviceFarm = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "DeviceFarm"
             , _svcPrefix = "devicefarm"
@@ -319,7 +319,7 @@ instance AWSService DeviceFarm where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -327,7 +327,7 @@ instance AWSService DeviceFarm where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"

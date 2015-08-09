@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,11 +44,12 @@ module Network.AWS.Lambda.ListFunctions
     , lfrsStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listFunctions' smart constructor.
 --
@@ -58,12 +60,12 @@ import           Network.AWS.Response
 -- * 'lfMarker'
 data ListFunctions = ListFunctions'
     { _lfMaxItems :: !(Maybe Nat)
-    , _lfMarker   :: !(Maybe Text)
+    , _lfMarker :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListFunctions' smart constructor.
 listFunctions :: ListFunctions
-listFunctions =
+listFunctions = 
     ListFunctions'
     { _lfMaxItems = Nothing
     , _lfMarker = Nothing
@@ -124,13 +126,13 @@ instance ToQuery ListFunctions where
 -- * 'lfrsStatus'
 data ListFunctionsResponse = ListFunctionsResponse'
     { _lfrsNextMarker :: !(Maybe Text)
-    , _lfrsFunctions  :: !(Maybe [FunctionConfiguration])
-    , _lfrsStatus     :: !Int
+    , _lfrsFunctions :: !(Maybe [FunctionConfiguration])
+    , _lfrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListFunctionsResponse' smart constructor.
 listFunctionsResponse :: Int -> ListFunctionsResponse
-listFunctionsResponse pStatus_ =
+listFunctionsResponse pStatus_ = 
     ListFunctionsResponse'
     { _lfrsNextMarker = Nothing
     , _lfrsFunctions = Nothing

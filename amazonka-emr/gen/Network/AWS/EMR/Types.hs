@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -338,10 +338,10 @@ module Network.AWS.EMR.Types
     , tagKey
     ) where
 
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.EMR.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.EMR.Types.Product
+import Network.AWS.EMR.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2009-03-31@ of the Amazon Elastic MapReduce SDK.
 data EMR
@@ -350,7 +350,7 @@ instance AWSService EMR where
     type Sg EMR = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "EMR"
             , _svcPrefix = "elasticmapreduce"
@@ -361,7 +361,7 @@ instance AWSService EMR where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -369,7 +369,7 @@ instance AWSService EMR where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -384,7 +384,7 @@ _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError =
+_InternalServerError = 
     _ServiceError . hasStatus 500 . hasCode "InternalFailure"
 
 -- | This exception occurs when there is an internal failure in the EMR

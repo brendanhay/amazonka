@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DataPipeline.AddTags
     , atrsStatus
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AddTags.
 --
@@ -52,12 +54,12 @@ import           Network.AWS.Response
 -- * 'atTags'
 data AddTags = AddTags'
     { _atPipelineId :: !Text
-    , _atTags       :: ![Tag]
+    , _atTags :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
-addTags pPipelineId_ =
+addTags pPipelineId_ = 
     AddTags'
     { _atPipelineId = pPipelineId_
     , _atTags = mempty
@@ -112,7 +114,7 @@ newtype AddTagsResponse = AddTagsResponse'
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatus_ =
+addTagsResponse pStatus_ = 
     AddTagsResponse'
     { _atrsStatus = pStatus_
     }

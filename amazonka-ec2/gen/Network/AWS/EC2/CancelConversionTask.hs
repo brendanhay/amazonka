@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.EC2.CancelConversionTask
     , cancelConversionTaskResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelConversionTask' smart constructor.
 --
@@ -58,14 +60,14 @@ import           Network.AWS.Response
 --
 -- * 'cctConversionTaskId'
 data CancelConversionTask = CancelConversionTask'
-    { _cctReasonMessage    :: !(Maybe Text)
-    , _cctDryRun           :: !(Maybe Bool)
+    { _cctReasonMessage :: !(Maybe Text)
+    , _cctDryRun :: !(Maybe Bool)
     , _cctConversionTaskId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelConversionTask' smart constructor.
 cancelConversionTask :: Text -> CancelConversionTask
-cancelConversionTask pConversionTaskId_ =
+cancelConversionTask pConversionTaskId_ = 
     CancelConversionTask'
     { _cctReasonMessage = Nothing
     , _cctDryRun = Nothing
@@ -111,7 +113,7 @@ instance ToQuery CancelConversionTask where
 
 -- | /See:/ 'cancelConversionTaskResponse' smart constructor.
 data CancelConversionTaskResponse =
-    CancelConversionTaskResponse'
+    CancelConversionTaskResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelConversionTaskResponse' smart constructor.

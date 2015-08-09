@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , vcsrsStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A list of validation messages for a specified configuration template.
 --
@@ -62,15 +64,15 @@ import           Network.AWS.Response
 --
 -- * 'vcsOptionSettings'
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-    { _vcsTemplateName    :: !(Maybe Text)
+    { _vcsTemplateName :: !(Maybe Text)
     , _vcsEnvironmentName :: !(Maybe Text)
     , _vcsApplicationName :: !Text
-    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
+    , _vcsOptionSettings :: ![ConfigurationOptionSetting]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateConfigurationSettings' smart constructor.
 validateConfigurationSettings :: Text -> ValidateConfigurationSettings
-validateConfigurationSettings pApplicationName_ =
+validateConfigurationSettings pApplicationName_ = 
     ValidateConfigurationSettings'
     { _vcsTemplateName = Nothing
     , _vcsEnvironmentName = Nothing
@@ -146,12 +148,12 @@ instance ToQuery ValidateConfigurationSettings where
 -- * 'vcsrsStatus'
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
     { _vcsrsMessages :: !(Maybe [ValidationMessage])
-    , _vcsrsStatus   :: !Int
+    , _vcsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
 validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
-validateConfigurationSettingsResponse pStatus_ =
+validateConfigurationSettingsResponse pStatus_ = 
     ValidateConfigurationSettingsResponse'
     { _vcsrsMessages = Nothing
     , _vcsrsStatus = pStatus_

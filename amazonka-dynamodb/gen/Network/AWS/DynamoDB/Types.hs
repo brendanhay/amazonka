@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -265,10 +265,10 @@ module Network.AWS.DynamoDB.Types
     , wrDeleteRequest
     ) where
 
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.DynamoDB.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.DynamoDB.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2012-08-10@ of the Amazon DynamoDB SDK.
 data DynamoDB
@@ -277,7 +277,7 @@ instance AWSService DynamoDB where
     type Sg DynamoDB = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "DynamoDB"
             , _svcPrefix = "dynamodb"
@@ -288,7 +288,7 @@ instance AWSService DynamoDB where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -296,13 +296,13 @@ instance AWSService DynamoDB where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has
                (hasCode "ProvisionedThroughputExceededException" .
                 hasStatus 400)
-               e =
+               e = 
               Just "throughput_exceeded"
           | has (hasStatus 503) e = Just "service_unavailable"
           | has (hasStatus 500) e = Just "general_server_error"
@@ -317,18 +317,18 @@ instance AWSService DynamoDB where
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff>
 -- in the /Amazon DynamoDB Developer Guide/.
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_ProvisionedThroughputExceededException =
+_ProvisionedThroughputExceededException = 
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
 -- | A condition specified in the operation could not be evaluated.
 _ConditionalCheckFailedException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConditionalCheckFailedException =
+_ConditionalCheckFailedException = 
     _ServiceError . hasCode "ConditionalCheckFailedException"
 
 -- | An item collection is too large. This exception is only returned for
 -- tables that have one or more local secondary indexes.
 _ItemCollectionSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_ItemCollectionSizeLimitExceededException =
+_ItemCollectionSizeLimitExceededException = 
     _ServiceError . hasCode "ItemCollectionSizeLimitExceededException"
 
 -- | An error occurred on the server side.
@@ -338,7 +338,7 @@ _InternalServerError = _ServiceError . hasCode "InternalServerError"
 -- | The operation tried to access a nonexistent table or index. The resource
 -- might not be specified correctly, or its status might not be @ACTIVE@.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
+_ResourceNotFoundException = 
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | The operation conflicts with the resource\'s availability. For example,

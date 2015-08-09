@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -54,10 +55,11 @@ module Network.AWS.KMS.ReEncrypt
     , rersStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'reEncrypt' smart constructor.
 --
@@ -74,15 +76,15 @@ import           Network.AWS.Response
 -- * 'reDestinationKeyId'
 data ReEncrypt = ReEncrypt'
     { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
-    , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
-    , _reGrantTokens                  :: !(Maybe [Text])
-    , _reCiphertextBlob               :: !Base64
-    , _reDestinationKeyId             :: !Text
+    , _reSourceEncryptionContext :: !(Maybe (Map Text Text))
+    , _reGrantTokens :: !(Maybe [Text])
+    , _reCiphertextBlob :: !Base64
+    , _reDestinationKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReEncrypt' smart constructor.
 reEncrypt :: ByteString -> Text -> ReEncrypt
-reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
+reEncrypt pCiphertextBlob_ pDestinationKeyId_ = 
     ReEncrypt'
     { _reDestinationEncryptionContext = Nothing
     , _reSourceEncryptionContext = Nothing
@@ -174,15 +176,15 @@ instance ToQuery ReEncrypt where
 --
 -- * 'rersStatus'
 data ReEncryptResponse = ReEncryptResponse'
-    { _rersSourceKeyId    :: !(Maybe Text)
-    , _rersKeyId          :: !(Maybe Text)
+    { _rersSourceKeyId :: !(Maybe Text)
+    , _rersKeyId :: !(Maybe Text)
     , _rersCiphertextBlob :: !(Maybe Base64)
-    , _rersStatus         :: !Int
+    , _rersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReEncryptResponse' smart constructor.
 reEncryptResponse :: Int -> ReEncryptResponse
-reEncryptResponse pStatus_ =
+reEncryptResponse pStatus_ = 
     ReEncryptResponse'
     { _rersSourceKeyId = Nothing
     , _rersKeyId = Nothing

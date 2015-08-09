@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.DirectoryService.CreateDirectory
     , crsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the CreateDirectory operation.
 --
@@ -64,17 +66,17 @@ import           Network.AWS.Response
 --
 -- * 'cSize'
 data CreateDirectory = CreateDirectory'
-    { _cShortName   :: !(Maybe Text)
+    { _cShortName :: !(Maybe Text)
     , _cVPCSettings :: !(Maybe DirectoryVPCSettings)
     , _cDescription :: !(Maybe Text)
-    , _cName        :: !Text
-    , _cPassword    :: !(Sensitive Text)
-    , _cSize        :: !DirectorySize
+    , _cName :: !Text
+    , _cPassword :: !(Sensitive Text)
+    , _cSize :: !DirectorySize
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDirectory' smart constructor.
 createDirectory :: Text -> Text -> DirectorySize -> CreateDirectory
-createDirectory pName_ pPassword_ pSize_ =
+createDirectory pName_ pPassword_ pSize_ = 
     CreateDirectory'
     { _cShortName = Nothing
     , _cVPCSettings = Nothing
@@ -156,12 +158,12 @@ instance ToQuery CreateDirectory where
 -- * 'crsStatus'
 data CreateDirectoryResponse = CreateDirectoryResponse'
     { _crsDirectoryId :: !(Maybe Text)
-    , _crsStatus      :: !Int
+    , _crsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDirectoryResponse' smart constructor.
 createDirectoryResponse :: Int -> CreateDirectoryResponse
-createDirectoryResponse pStatus_ =
+createDirectoryResponse pStatus_ = 
     CreateDirectoryResponse'
     { _crsDirectoryId = Nothing
     , _crsStatus = pStatus_

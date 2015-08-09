@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -137,10 +137,10 @@ module Network.AWS.DirectConnect.Types
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.DirectConnect.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.DirectConnect.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2012-10-25@ of the Amazon Direct Connect SDK.
 data DirectConnect
@@ -149,7 +149,7 @@ instance AWSService DirectConnect where
     type Sg DirectConnect = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "DirectConnect"
             , _svcPrefix = "directconnect"
@@ -160,7 +160,7 @@ instance AWSService DirectConnect where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -168,7 +168,7 @@ instance AWSService DirectConnect where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -179,11 +179,11 @@ instance AWSService DirectConnect where
 -- | The API was called with invalid parameters. The error message will
 -- contain additional details about the cause.
 _DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectConnectClientException =
+_DirectConnectClientException = 
     _ServiceError . hasCode "DirectConnectClientException"
 
 -- | A server-side error occurred during the API call. The error message will
 -- contain additional details about the cause.
 _DirectConnectServerException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectConnectServerException =
+_DirectConnectServerException = 
     _ServiceError . hasCode "DirectConnectServerException"

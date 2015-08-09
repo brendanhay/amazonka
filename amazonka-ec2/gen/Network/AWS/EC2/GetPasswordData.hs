@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.EC2.GetPasswordData
     , gpdrsTimestamp
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getPasswordData' smart constructor.
 --
@@ -66,13 +68,13 @@ import           Network.AWS.Response
 --
 -- * 'gpdInstanceId'
 data GetPasswordData = GetPasswordData'
-    { _gpdDryRun     :: !(Maybe Bool)
+    { _gpdDryRun :: !(Maybe Bool)
     , _gpdInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPasswordData' smart constructor.
 getPasswordData :: Text -> GetPasswordData
-getPasswordData pInstanceId_ =
+getPasswordData pInstanceId_ = 
     GetPasswordData'
     { _gpdDryRun = Nothing
     , _gpdInstanceId = pInstanceId_
@@ -127,15 +129,15 @@ instance ToQuery GetPasswordData where
 --
 -- * 'gpdrsTimestamp'
 data GetPasswordDataResponse = GetPasswordDataResponse'
-    { _gpdrsStatus       :: !Int
-    , _gpdrsInstanceId   :: !Text
+    { _gpdrsStatus :: !Int
+    , _gpdrsInstanceId :: !Text
     , _gpdrsPasswordData :: !Text
-    , _gpdrsTimestamp    :: !ISO8601
+    , _gpdrsTimestamp :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPasswordDataResponse' smart constructor.
 getPasswordDataResponse :: Int -> Text -> Text -> UTCTime -> GetPasswordDataResponse
-getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
+getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ = 
     GetPasswordDataResponse'
     { _gpdrsStatus = pStatus_
     , _gpdrsInstanceId = pInstanceId_

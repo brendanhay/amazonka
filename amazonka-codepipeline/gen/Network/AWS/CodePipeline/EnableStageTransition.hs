@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CodePipeline.EnableStageTransition
     , enableStageTransitionResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an enable stage transition action.
 --
@@ -52,14 +54,14 @@ import           Network.AWS.Response
 --
 -- * 'estTransitionType'
 data EnableStageTransition = EnableStageTransition'
-    { _estPipelineName   :: !Text
-    , _estStageName      :: !Text
+    { _estPipelineName :: !Text
+    , _estStageName :: !Text
     , _estTransitionType :: !StageTransitionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableStageTransition' smart constructor.
 enableStageTransition :: Text -> Text -> StageTransitionType -> EnableStageTransition
-enableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
+enableStageTransition pPipelineName_ pStageName_ pTransitionType_ = 
     EnableStageTransition'
     { _estPipelineName = pPipelineName_
     , _estStageName = pStageName_
@@ -116,7 +118,7 @@ instance ToQuery EnableStageTransition where
 
 -- | /See:/ 'enableStageTransitionResponse' smart constructor.
 data EnableStageTransitionResponse =
-    EnableStageTransitionResponse'
+    EnableStageTransitionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableStageTransitionResponse' smart constructor.

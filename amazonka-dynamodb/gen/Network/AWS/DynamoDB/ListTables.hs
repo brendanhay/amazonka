@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,11 +41,12 @@ module Network.AWS.DynamoDB.ListTables
     , ltrsStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /ListTables/ operation.
 --
@@ -57,12 +59,12 @@ import           Network.AWS.Response
 -- * 'ltLimit'
 data ListTables = ListTables'
     { _ltExclusiveStartTableName :: !(Maybe Text)
-    , _ltLimit                   :: !(Maybe Nat)
+    , _ltLimit :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTables' smart constructor.
 listTables :: ListTables
-listTables =
+listTables = 
     ListTables'
     { _ltExclusiveStartTableName = Nothing
     , _ltLimit = Nothing
@@ -135,13 +137,13 @@ instance ToQuery ListTables where
 -- * 'ltrsStatus'
 data ListTablesResponse = ListTablesResponse'
     { _ltrsLastEvaluatedTableName :: !(Maybe Text)
-    , _ltrsTableNames             :: !(Maybe [Text])
-    , _ltrsStatus                 :: !Int
+    , _ltrsTableNames :: !(Maybe [Text])
+    , _ltrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTablesResponse' smart constructor.
 listTablesResponse :: Int -> ListTablesResponse
-listTablesResponse pStatus_ =
+listTablesResponse pStatus_ = 
     ListTablesResponse'
     { _ltrsLastEvaluatedTableName = Nothing
     , _ltrsTableNames = Nothing

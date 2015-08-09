@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -79,10 +80,11 @@ module Network.AWS.Kinesis.GetShardIterator
     , gsirsStatus
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @GetShardIterator@.
 --
@@ -99,14 +101,14 @@ import           Network.AWS.Response
 -- * 'gsiShardIteratorType'
 data GetShardIterator = GetShardIterator'
     { _gsiStartingSequenceNumber :: !(Maybe Text)
-    , _gsiStreamName             :: !Text
-    , _gsiShardId                :: !Text
-    , _gsiShardIteratorType      :: !ShardIteratorType
+    , _gsiStreamName :: !Text
+    , _gsiShardId :: !Text
+    , _gsiShardIteratorType :: !ShardIteratorType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
-getShardIterator pStreamName_ pShardId_ pShardIteratorType_ =
+getShardIterator pStreamName_ pShardId_ pShardIteratorType_ = 
     GetShardIterator'
     { _gsiStartingSequenceNumber = Nothing
     , _gsiStreamName = pStreamName_
@@ -188,12 +190,12 @@ instance ToQuery GetShardIterator where
 -- * 'gsirsStatus'
 data GetShardIteratorResponse = GetShardIteratorResponse'
     { _gsirsShardIterator :: !(Maybe Text)
-    , _gsirsStatus        :: !Int
+    , _gsirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIteratorResponse' smart constructor.
 getShardIteratorResponse :: Int -> GetShardIteratorResponse
-getShardIteratorResponse pStatus_ =
+getShardIteratorResponse pStatus_ = 
     GetShardIteratorResponse'
     { _gsirsShardIterator = Nothing
     , _gsirsStatus = pStatus_

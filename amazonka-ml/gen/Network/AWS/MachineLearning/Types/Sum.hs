@@ -17,7 +17,7 @@
 --
 module Network.AWS.MachineLearning.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 -- | The function used to train a @MLModel@. Training choices supported by
 -- Amazon ML include the following:
@@ -25,7 +25,7 @@ import           Network.AWS.Prelude
 -- -   SGD - Stochastic Gradient Descent.
 -- -   RandomForest - Random forest of decision trees.
 data Algorithm =
-    Sgd
+    Sgd 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Algorithm where
@@ -64,14 +64,14 @@ instance FromJSON Algorithm where
 --     @BatchPrediction@. The URL can identify either a file or an Amazon
 --     Simple Storage Service (Amazon S3) bucket or directory.
 data BatchPredictionFilterVariable
-    = BatchDataSourceId
-    | BatchMLModelId
-    | BatchIAMUser
-    | BatchStatus
-    | BatchCreatedAt
-    | BatchDataURI
-    | BatchName
-    | BatchLastUpdatedAt
+    = BatchDataSourceId 
+    | BatchMLModelId 
+    | BatchIAMUser 
+    | BatchStatus 
+    | BatchCreatedAt 
+    | BatchDataURI 
+    | BatchName 
+    | BatchLastUpdatedAt 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BatchPredictionFilterVariable where
@@ -123,12 +123,12 @@ instance ToJSON BatchPredictionFilterVariable where
 --
 -- The variable names should match the variable names in the @DataSource@.
 data DataSourceFilterVariable
-    = DataStatus
-    | DataIAMUser
-    | DataLastUpdatedAt
-    | DataCreatedAt
-    | DataName
-    | DataDATALOCATIONS3
+    = DataStatus 
+    | DataIAMUser 
+    | DataLastUpdatedAt 
+    | DataCreatedAt 
+    | DataName 
+    | DataDATALOCATIONS3 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DataSourceFilterVariable where
@@ -163,8 +163,8 @@ instance ToJSON DataSourceFilterVariable where
 -- the type of the @MLModel@. Algorithm - Indicates the algorithm was used
 -- for the @MLModel@.
 data DetailsAttributes
-    = Algorithm
-    | PredictiveModelType
+    = Algorithm 
+    | PredictiveModelType 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DetailsAttributes where
@@ -195,11 +195,11 @@ instance FromJSON DetailsAttributes where
 -- -   COMPLETED
 -- -   DELETED
 data EntityStatus
-    = Pending
-    | Inprogress
-    | Deleted
-    | Completed
-    | Failed
+    = Pending 
+    | Inprogress 
+    | Deleted 
+    | Completed 
+    | Failed 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityStatus where
@@ -245,14 +245,14 @@ instance FromJSON EntityStatus where
 --     evaluation. The URL can identify either a file or an Amazon Simple
 --     Storage Service (Amazon S3) bucket or directory.
 data EvaluationFilterVariable
-    = EvalDataURI
-    | EvalDataSourceId
-    | EvalName
-    | EvalLastUpdatedAt
-    | EvalIAMUser
-    | EvalStatus
-    | EvalMLModelId
-    | EvalCreatedAt
+    = EvalDataURI 
+    | EvalDataSourceId 
+    | EvalName 
+    | EvalLastUpdatedAt 
+    | EvalIAMUser 
+    | EvalStatus 
+    | EvalMLModelId 
+    | EvalCreatedAt 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EvaluationFilterVariable where
@@ -288,16 +288,16 @@ instance ToJSON EvaluationFilterVariable where
     toJSON = toJSONText
 
 data MLModelFilterVariable
-    = MLMFVRealtimeEndpointStatus
-    | MLMFVMLModelType
-    | MLMFVTrainingDataURI
-    | MLMFVStatus
-    | MLMFVIAMUser
-    | MLMFVCreatedAt
-    | MLMFVTrainingDataSourceId
-    | MLMFVAlgorithm
-    | MLMFVName
-    | MLMFVLastUpdatedAt
+    = MLMFVRealtimeEndpointStatus 
+    | MLMFVMLModelType 
+    | MLMFVTrainingDataURI 
+    | MLMFVStatus 
+    | MLMFVIAMUser 
+    | MLMFVCreatedAt 
+    | MLMFVTrainingDataSourceId 
+    | MLMFVAlgorithm 
+    | MLMFVName 
+    | MLMFVLastUpdatedAt 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MLModelFilterVariable where
@@ -337,9 +337,9 @@ instance ToJSON MLModelFilterVariable where
     toJSON = toJSONText
 
 data MLModelType
-    = Multiclass
-    | Regression
-    | Binary
+    = Multiclass 
+    | Regression 
+    | Binary 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MLModelType where
@@ -368,10 +368,10 @@ instance FromJSON MLModelType where
     parseJSON = parseJSONText "MLModelType"
 
 data RealtimeEndpointStatus
-    = RESUpdating
-    | RESReady
-    | RESFailed
-    | RESNone
+    = RESUpdating 
+    | RESReady 
+    | RESFailed 
+    | RESNone 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RealtimeEndpointStatus where
@@ -404,8 +404,8 @@ instance FromJSON RealtimeEndpointStatus where
 -- -   @asc@ - Present the information in ascending order (from A-Z).
 -- -   @dsc@ - Present the information in descending order (from Z-A).
 data SortOrder
-    = Dsc
-    | Asc
+    = Dsc 
+    | Asc 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortOrder where

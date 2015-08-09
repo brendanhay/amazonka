@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     , dazflbrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableAvailabilityZonesForLoadBalancer' smart constructor.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 --
 -- * 'dazflbAvailabilityZones'
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'
-    { _dazflbLoadBalancerName  :: !Text
+    { _dazflbLoadBalancerName :: !Text
     , _dazflbAvailabilityZones :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableAvailabilityZonesForLoadBalancer' smart constructor.
 disableAvailabilityZonesForLoadBalancer :: Text -> DisableAvailabilityZonesForLoadBalancer
-disableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
+disableAvailabilityZonesForLoadBalancer pLoadBalancerName_ = 
     DisableAvailabilityZonesForLoadBalancer'
     { _dazflbLoadBalancerName = pLoadBalancerName_
     , _dazflbAvailabilityZones = mempty
@@ -126,12 +128,12 @@ instance ToQuery
 -- * 'dazflbrsStatus'
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones :: !(Maybe [Text])
-    , _dazflbrsStatus            :: !Int
+    , _dazflbrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 disableAvailabilityZonesForLoadBalancerResponse :: Int -> DisableAvailabilityZonesForLoadBalancerResponse
-disableAvailabilityZonesForLoadBalancerResponse pStatus_ =
+disableAvailabilityZonesForLoadBalancerResponse pStatus_ = 
     DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones = Nothing
     , _dazflbrsStatus = pStatus_

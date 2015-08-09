@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     , derrsStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'derEnvironmentId'
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
     { _derEnvironmentName :: !(Maybe Text)
-    , _derEnvironmentId   :: !(Maybe Text)
+    , _derEnvironmentId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironmentResources' smart constructor.
 describeEnvironmentResources :: DescribeEnvironmentResources
-describeEnvironmentResources =
+describeEnvironmentResources = 
     DescribeEnvironmentResources'
     { _derEnvironmentName = Nothing
     , _derEnvironmentId = Nothing
@@ -121,12 +123,12 @@ instance ToQuery DescribeEnvironmentResources where
 -- * 'derrsStatus'
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
-    , _derrsStatus               :: !Int
+    , _derrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironmentResourcesResponse' smart constructor.
 describeEnvironmentResourcesResponse :: Int -> DescribeEnvironmentResourcesResponse
-describeEnvironmentResourcesResponse pStatus_ =
+describeEnvironmentResourcesResponse pStatus_ = 
     DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources = Nothing
     , _derrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     , ucfoairsStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to update an origin access identity.
 --
@@ -56,14 +58,14 @@ import           Network.AWS.Response
 --
 -- * 'ucfoaiId'
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoaiIfMatch                              :: !(Maybe Text)
+    { _ucfoaiIfMatch :: !(Maybe Text)
     , _ucfoaiCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
-    , _ucfoaiId                                   :: !Text
+    , _ucfoaiId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' smart constructor.
 updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> Text -> UpdateCloudFrontOriginAccessIdentity
-updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_ =
+updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_ = 
     UpdateCloudFrontOriginAccessIdentity'
     { _ucfoaiIfMatch = Nothing
     , _ucfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
@@ -133,14 +135,14 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 --
 -- * 'ucfoairsStatus'
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
-    { _ucfoairsETag                           :: !(Maybe Text)
+    { _ucfoairsETag :: !(Maybe Text)
     , _ucfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ucfoairsStatus                         :: !Int
+    , _ucfoairsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 updateCloudFrontOriginAccessIdentityResponse :: Int -> UpdateCloudFrontOriginAccessIdentityResponse
-updateCloudFrontOriginAccessIdentityResponse pStatus_ =
+updateCloudFrontOriginAccessIdentityResponse pStatus_ = 
     UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairsETag = Nothing
     , _ucfoairsCloudFrontOriginAccessIdentity = Nothing

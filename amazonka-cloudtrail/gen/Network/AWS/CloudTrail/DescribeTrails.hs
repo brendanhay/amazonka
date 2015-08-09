@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudTrail.DescribeTrails
     , dtrsStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Returns information about the trail.
 --
@@ -55,7 +57,7 @@ newtype DescribeTrails = DescribeTrails'
 
 -- | 'DescribeTrails' smart constructor.
 describeTrails :: DescribeTrails
-describeTrails =
+describeTrails = 
     DescribeTrails'
     { _dtTrailNameList = Nothing
     }
@@ -107,12 +109,12 @@ instance ToQuery DescribeTrails where
 -- * 'dtrsStatus'
 data DescribeTrailsResponse = DescribeTrailsResponse'
     { _dtrsTrailList :: !(Maybe [Trail])
-    , _dtrsStatus    :: !Int
+    , _dtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrailsResponse' smart constructor.
 describeTrailsResponse :: Int -> DescribeTrailsResponse
-describeTrailsResponse pStatus_ =
+describeTrailsResponse pStatus_ = 
     DescribeTrailsResponse'
     { _dtrsTrailList = Nothing
     , _dtrsStatus = pStatus_

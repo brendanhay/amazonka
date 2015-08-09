@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.CloudHSM.DeleteHSM
     , dhsmrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the DeleteHsm action.
 --
@@ -54,7 +56,7 @@ newtype DeleteHSM = DeleteHSM'
 
 -- | 'DeleteHSM' smart constructor.
 deleteHSM :: Text -> DeleteHSM
-deleteHSM pHSMARN_ =
+deleteHSM pHSMARN_ = 
     DeleteHSM'
     { _dhHSMARN = pHSMARN_
     }
@@ -104,7 +106,7 @@ newtype DeleteHSMResponse = DeleteHSMResponse'
 
 -- | 'DeleteHSMResponse' smart constructor.
 deleteHSMResponse :: Int -> DeleteHSMResponse
-deleteHSMResponse pStatus_ =
+deleteHSMResponse pStatus_ = 
     DeleteHSMResponse'
     { _dhsmrsStatus = pStatus_
     }

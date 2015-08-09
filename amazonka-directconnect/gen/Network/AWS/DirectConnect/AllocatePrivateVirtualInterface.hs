@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -60,10 +61,11 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the AllocatePrivateVirtualInterface
 -- operation.
@@ -78,14 +80,14 @@ import           Network.AWS.Response
 --
 -- * 'apviNewPrivateVirtualInterfaceAllocation'
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
-    { _apviConnectionId                         :: !Text
-    , _apviOwnerAccount                         :: !Text
+    { _apviConnectionId :: !Text
+    , _apviOwnerAccount :: !Text
     , _apviNewPrivateVirtualInterfaceAllocation :: !NewPrivateVirtualInterfaceAllocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocatePrivateVirtualInterface' smart constructor.
 allocatePrivateVirtualInterface :: Text -> Text -> NewPrivateVirtualInterfaceAllocation -> AllocatePrivateVirtualInterface
-allocatePrivateVirtualInterface pConnectionId_ pOwnerAccount_ pNewPrivateVirtualInterfaceAllocation_ =
+allocatePrivateVirtualInterface pConnectionId_ pOwnerAccount_ pNewPrivateVirtualInterfaceAllocation_ = 
     AllocatePrivateVirtualInterface'
     { _apviConnectionId = pConnectionId_
     , _apviOwnerAccount = pOwnerAccount_

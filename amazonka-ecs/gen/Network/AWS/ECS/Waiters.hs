@@ -15,17 +15,17 @@
 --
 module Network.AWS.ECS.Waiters where
 
-import           Network.AWS.ECS.DescribeServices
-import           Network.AWS.ECS.DescribeTasks
-import           Network.AWS.ECS.DescribeTasks
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.ECS.DescribeServices
+import Network.AWS.ECS.DescribeTasks
+import Network.AWS.ECS.DescribeTasks
+import Network.AWS.ECS.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.ECS.DescribeServices' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 servicesInactive :: Wait DescribeServices
-servicesInactive =
+servicesInactive = 
     Wait
     { _waitName = "ServicesInactive"
     , _waitAttempts = 40
@@ -45,7 +45,7 @@ servicesInactive =
 -- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a
 -- successful state is reached. An error is returned after 100 failed checks.
 tasksRunning :: Wait DescribeTasks
-tasksRunning =
+tasksRunning = 
     Wait
     { _waitName = "TasksRunning"
     , _waitAttempts = 100
@@ -70,7 +70,7 @@ tasksRunning =
 -- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a
 -- successful state is reached. An error is returned after 100 failed checks.
 tasksStopped :: Wait DescribeTasks
-tasksStopped =
+tasksStopped = 
     Wait
     { _waitName = "TasksStopped"
     , _waitAttempts = 100

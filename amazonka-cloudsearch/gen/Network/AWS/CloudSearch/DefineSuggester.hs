@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.CloudSearch.DefineSuggester
     , dsrsSuggester
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DefineSuggester@ operation.
 -- Specifies the name of the domain you want to update and the suggester
@@ -61,12 +63,12 @@ import           Network.AWS.Response
 -- * 'defSuggester'
 data DefineSuggester = DefineSuggester'
     { _defDomainName :: !Text
-    , _defSuggester  :: !Suggester
+    , _defSuggester :: !Suggester
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggester' smart constructor.
 defineSuggester :: Text -> Suggester -> DefineSuggester
-defineSuggester pDomainName_ pSuggester_ =
+defineSuggester pDomainName_ pSuggester_ = 
     DefineSuggester'
     { _defDomainName = pDomainName_
     , _defSuggester = pSuggester_
@@ -115,13 +117,13 @@ instance ToQuery DefineSuggester where
 --
 -- * 'dsrsSuggester'
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _dsrsStatus    :: !Int
+    { _dsrsStatus :: !Int
     , _dsrsSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggesterResponse' smart constructor.
 defineSuggesterResponse :: Int -> SuggesterStatus -> DefineSuggesterResponse
-defineSuggesterResponse pStatus_ pSuggester_ =
+defineSuggesterResponse pStatus_ pSuggester_ = 
     DefineSuggesterResponse'
     { _dsrsStatus = pStatus_
     , _dsrsSuggester = pSuggester_

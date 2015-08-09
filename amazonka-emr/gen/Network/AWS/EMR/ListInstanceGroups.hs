@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,11 +39,12 @@ module Network.AWS.EMR.ListInstanceGroups
     , ligrsStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which instance groups to retrieve.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'ligClusterId'
 data ListInstanceGroups = ListInstanceGroups'
-    { _ligMarker    :: !(Maybe Text)
+    { _ligMarker :: !(Maybe Text)
     , _ligClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceGroups' smart constructor.
 listInstanceGroups :: Text -> ListInstanceGroups
-listInstanceGroups pClusterId_ =
+listInstanceGroups pClusterId_ = 
     ListInstanceGroups'
     { _ligMarker = Nothing
     , _ligClusterId = pClusterId_
@@ -128,14 +130,14 @@ instance ToQuery ListInstanceGroups where
 --
 -- * 'ligrsStatus'
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-    { _ligrsMarker         :: !(Maybe Text)
+    { _ligrsMarker :: !(Maybe Text)
     , _ligrsInstanceGroups :: !(Maybe [InstanceGroup])
-    , _ligrsStatus         :: !Int
+    , _ligrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
 listInstanceGroupsResponse :: Int -> ListInstanceGroupsResponse
-listInstanceGroupsResponse pStatus_ =
+listInstanceGroupsResponse pStatus_ = 
     ListInstanceGroupsResponse'
     { _ligrsMarker = Nothing
     , _ligrsInstanceGroups = Nothing

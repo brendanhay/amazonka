@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.EC2.CreateVPNConnection
     , cvcrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createVPNConnection' smart constructor.
 --
@@ -75,16 +77,16 @@ import           Network.AWS.Response
 --
 -- * 'cvcVPNGatewayId'
 data CreateVPNConnection = CreateVPNConnection'
-    { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
-    , _cvcDryRun            :: !(Maybe Bool)
-    , _cvcType              :: !Text
+    { _cvcOptions :: !(Maybe VPNConnectionOptionsSpecification)
+    , _cvcDryRun :: !(Maybe Bool)
+    , _cvcType :: !Text
     , _cvcCustomerGatewayId :: !Text
-    , _cvcVPNGatewayId      :: !Text
+    , _cvcVPNGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnection' smart constructor.
 createVPNConnection :: Text -> Text -> Text -> CreateVPNConnection
-createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
+createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ = 
     CreateVPNConnection'
     { _cvcOptions = Nothing
     , _cvcDryRun = Nothing
@@ -156,12 +158,12 @@ instance ToQuery CreateVPNConnection where
 -- * 'cvcrsStatus'
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
     { _cvcrsVPNConnection :: !(Maybe VPNConnection)
-    , _cvcrsStatus        :: !Int
+    , _cvcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnectionResponse' smart constructor.
 createVPNConnectionResponse :: Int -> CreateVPNConnectionResponse
-createVPNConnectionResponse pStatus_ =
+createVPNConnectionResponse pStatus_ = 
     CreateVPNConnectionResponse'
     { _cvcrsVPNConnection = Nothing
     , _cvcrsStatus = pStatus_

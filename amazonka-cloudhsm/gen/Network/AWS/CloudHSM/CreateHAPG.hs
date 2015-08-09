@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CloudHSM.CreateHAPG
     , chrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the CreateHapgRequest action.
 --
@@ -56,7 +58,7 @@ newtype CreateHAPG = CreateHAPG'
 
 -- | 'CreateHAPG' smart constructor.
 createHAPG :: Text -> CreateHAPG
-createHAPG pLabel_ =
+createHAPG pLabel_ = 
     CreateHAPG'
     { _chLabel = pLabel_
     }
@@ -104,12 +106,12 @@ instance ToQuery CreateHAPG where
 -- * 'chrsStatus'
 data CreateHAPGResponse = CreateHAPGResponse'
     { _chrsHAPGARN :: !(Maybe Text)
-    , _chrsStatus  :: !Int
+    , _chrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHAPGResponse' smart constructor.
 createHAPGResponse :: Int -> CreateHAPGResponse
-createHAPGResponse pStatus_ =
+createHAPGResponse pStatus_ = 
     CreateHAPGResponse'
     { _chrsHAPGARN = Nothing
     , _chrsStatus = pStatus_

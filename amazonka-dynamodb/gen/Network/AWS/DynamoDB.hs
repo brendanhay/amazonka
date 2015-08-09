@@ -169,31 +169,31 @@ module Network.AWS.DynamoDB
     -- * Operations
     -- $operations
 
-    -- ** UpdateItem
+    -- ** UpdateItem 
     , module Network.AWS.DynamoDB.UpdateItem
 
-    -- ** DeleteItem
+    -- ** DeleteItem 
     , module Network.AWS.DynamoDB.DeleteItem
 
-    -- ** PutItem
+    -- ** PutItem 
     , module Network.AWS.DynamoDB.PutItem
 
-    -- ** DeleteTable
+    -- ** DeleteTable 
     , module Network.AWS.DynamoDB.DeleteTable
 
-    -- ** UpdateTable
+    -- ** UpdateTable 
     , module Network.AWS.DynamoDB.UpdateTable
 
-    -- ** BatchGetItem
+    -- ** BatchGetItem 
     , module Network.AWS.DynamoDB.BatchGetItem
 
-    -- ** DescribeTable
+    -- ** DescribeTable 
     , module Network.AWS.DynamoDB.DescribeTable
 
-    -- ** GetItem
+    -- ** GetItem 
     , module Network.AWS.DynamoDB.GetItem
 
-    -- ** BatchWriteItem
+    -- ** BatchWriteItem 
     , module Network.AWS.DynamoDB.BatchWriteItem
 
     -- ** Scan (Paginated)
@@ -208,7 +208,7 @@ module Network.AWS.DynamoDB
     , module Network.AWS.DynamoDB.Query
     -- $pager
 
-    -- ** CreateTable
+    -- ** CreateTable 
     , module Network.AWS.DynamoDB.CreateTable
 
     -- * Types
@@ -453,21 +453,21 @@ module Network.AWS.DynamoDB
     , wrDeleteRequest
     ) where
 
-import           Network.AWS.DynamoDB.BatchGetItem
-import           Network.AWS.DynamoDB.BatchWriteItem
-import           Network.AWS.DynamoDB.CreateTable
-import           Network.AWS.DynamoDB.DeleteItem
-import           Network.AWS.DynamoDB.DeleteTable
-import           Network.AWS.DynamoDB.DescribeTable
-import           Network.AWS.DynamoDB.GetItem
-import           Network.AWS.DynamoDB.ListTables
-import           Network.AWS.DynamoDB.PutItem
-import           Network.AWS.DynamoDB.Query
-import           Network.AWS.DynamoDB.Scan
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.UpdateItem
-import           Network.AWS.DynamoDB.UpdateTable
-import           Network.AWS.DynamoDB.Waiters
+import Network.AWS.DynamoDB.BatchGetItem
+import Network.AWS.DynamoDB.BatchWriteItem
+import Network.AWS.DynamoDB.CreateTable
+import Network.AWS.DynamoDB.DeleteItem
+import Network.AWS.DynamoDB.DeleteTable
+import Network.AWS.DynamoDB.DescribeTable
+import Network.AWS.DynamoDB.GetItem
+import Network.AWS.DynamoDB.ListTables
+import Network.AWS.DynamoDB.PutItem
+import Network.AWS.DynamoDB.Query
+import Network.AWS.DynamoDB.Scan
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.UpdateItem
+import Network.AWS.DynamoDB.UpdateTable
+import Network.AWS.DynamoDB.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

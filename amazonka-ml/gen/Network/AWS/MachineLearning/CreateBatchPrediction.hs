@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -54,10 +55,11 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     , cbprsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createBatchPrediction' smart constructor.
 --
@@ -73,16 +75,16 @@ import           Network.AWS.Response
 --
 -- * 'cbpOutputURI'
 data CreateBatchPrediction = CreateBatchPrediction'
-    { _cbpBatchPredictionName         :: !(Maybe Text)
-    , _cbpBatchPredictionId           :: !Text
-    , _cbpMLModelId                   :: !Text
+    { _cbpBatchPredictionName :: !(Maybe Text)
+    , _cbpBatchPredictionId :: !Text
+    , _cbpMLModelId :: !Text
     , _cbpBatchPredictionDataSourceId :: !Text
-    , _cbpOutputURI                   :: !Text
+    , _cbpOutputURI :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBatchPrediction' smart constructor.
 createBatchPrediction :: Text -> Text -> Text -> Text -> CreateBatchPrediction
-createBatchPrediction pBatchPredictionId_ pMLModelId_ pBatchPredictionDataSourceId_ pOutputURI_ =
+createBatchPrediction pBatchPredictionId_ pMLModelId_ pBatchPredictionDataSourceId_ pOutputURI_ = 
     CreateBatchPrediction'
     { _cbpBatchPredictionName = Nothing
     , _cbpBatchPredictionId = pBatchPredictionId_
@@ -174,12 +176,12 @@ instance ToQuery CreateBatchPrediction where
 -- * 'cbprsStatus'
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
     { _cbprsBatchPredictionId :: !(Maybe Text)
-    , _cbprsStatus            :: !Int
+    , _cbprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
 createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse
-createBatchPredictionResponse pStatus_ =
+createBatchPredictionResponse pStatus_ = 
     CreateBatchPredictionResponse'
     { _cbprsBatchPredictionId = Nothing
     , _cbprsStatus = pStatus_

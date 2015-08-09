@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     , deleteLogStreamResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLogStream' smart constructor.
 --
@@ -48,13 +50,13 @@ import           Network.AWS.Response
 --
 -- * 'dlsLogStreamName'
 data DeleteLogStream = DeleteLogStream'
-    { _dlsLogGroupName  :: !Text
+    { _dlsLogGroupName :: !Text
     , _dlsLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogStream' smart constructor.
 deleteLogStream :: Text -> Text -> DeleteLogStream
-deleteLogStream pLogGroupName_ pLogStreamName_ =
+deleteLogStream pLogGroupName_ pLogStreamName_ = 
     DeleteLogStream'
     { _dlsLogGroupName = pLogGroupName_
     , _dlsLogStreamName = pLogStreamName_
@@ -97,7 +99,7 @@ instance ToQuery DeleteLogStream where
 
 -- | /See:/ 'deleteLogStreamResponse' smart constructor.
 data DeleteLogStreamResponse =
-    DeleteLogStreamResponse'
+    DeleteLogStreamResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogStreamResponse' smart constructor.

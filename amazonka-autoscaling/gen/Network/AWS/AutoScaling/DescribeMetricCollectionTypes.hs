@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,14 +40,15 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     , dmctrsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMetricCollectionTypes' smart constructor.
 data DescribeMetricCollectionTypes =
-    DescribeMetricCollectionTypes'
+    DescribeMetricCollectionTypes' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricCollectionTypes' smart constructor.
@@ -96,14 +98,14 @@ instance ToQuery DescribeMetricCollectionTypes where
 --
 -- * 'dmctrsStatus'
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-    { _dmctrsMetrics       :: !(Maybe [MetricCollectionType])
+    { _dmctrsMetrics :: !(Maybe [MetricCollectionType])
     , _dmctrsGranularities :: !(Maybe [MetricGranularityType])
-    , _dmctrsStatus        :: !Int
+    , _dmctrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricCollectionTypesResponse' smart constructor.
 describeMetricCollectionTypesResponse :: Int -> DescribeMetricCollectionTypesResponse
-describeMetricCollectionTypesResponse pStatus_ =
+describeMetricCollectionTypesResponse pStatus_ = 
     DescribeMetricCollectionTypesResponse'
     { _dmctrsMetrics = Nothing
     , _dmctrsGranularities = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CloudFormation.SignalResource
     , signalResourceResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the SignalResource action.
 --
@@ -61,15 +63,15 @@ import           Network.AWS.Response
 --
 -- * 'sigStatus'
 data SignalResource = SignalResource'
-    { _sigStackName         :: !Text
+    { _sigStackName :: !Text
     , _sigLogicalResourceId :: !Text
-    , _sigUniqueId          :: !Text
-    , _sigStatus            :: !ResourceSignalStatus
+    , _sigUniqueId :: !Text
+    , _sigStatus :: !ResourceSignalStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalResource' smart constructor.
 signalResource :: Text -> Text -> Text -> ResourceSignalStatus -> SignalResource
-signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ =
+signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ = 
     SignalResource'
     { _sigStackName = pStackName_
     , _sigLogicalResourceId = pLogicalResourceId_
@@ -123,7 +125,7 @@ instance ToQuery SignalResource where
 
 -- | /See:/ 'signalResourceResponse' smart constructor.
 data SignalResourceResponse =
-    SignalResourceResponse'
+    SignalResourceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalResourceResponse' smart constructor.

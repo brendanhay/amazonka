@@ -17,12 +17,12 @@
 --
 module Network.AWS.ElasticBeanstalk.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ConfigurationDeploymentStatus
-    = Pending
-    | Deployed
-    | Failed
+    = Pending 
+    | Deployed 
+    | Failed 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationDeploymentStatus where
@@ -48,8 +48,8 @@ instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
 data ConfigurationOptionValueType
-    = List
-    | Scalar
+    = List 
+    | Scalar 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationOptionValueType where
@@ -73,10 +73,10 @@ instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
 
 data EnvironmentHealth
-    = Red
-    | Yellow
-    | Green
-    | Grey
+    = Red 
+    | Yellow 
+    | Green 
+    | Grey 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealth where
@@ -104,8 +104,8 @@ instance FromXML EnvironmentHealth where
     parseXML = parseXMLText "EnvironmentHealth"
 
 data EnvironmentInfoType
-    = Bundle
-    | Tail
+    = Bundle 
+    | Tail 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentInfoType where
@@ -129,11 +129,11 @@ instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
 data EnvironmentStatus
-    = Updating
-    | Terminating
-    | Launching
-    | Terminated
-    | Ready
+    = Updating 
+    | Terminating 
+    | Launching 
+    | Terminated 
+    | Ready 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentStatus where
@@ -163,12 +163,12 @@ instance FromXML EnvironmentStatus where
     parseXML = parseXMLText "EnvironmentStatus"
 
 data EventSeverity
-    = LevelDebug
-    | LevelInfo
-    | LevelError'
-    | LevelWarn
-    | LevelTrace
-    | LevelFatal
+    = LevelDebug 
+    | LevelInfo 
+    | LevelError' 
+    | LevelWarn 
+    | LevelTrace 
+    | LevelFatal 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventSeverity where
@@ -200,8 +200,8 @@ instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
 data ValidationSeverity
-    = Error'
-    | Warning
+    = Error' 
+    | Warning 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ValidationSeverity where

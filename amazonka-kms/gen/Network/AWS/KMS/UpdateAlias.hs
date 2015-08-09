@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.KMS.UpdateAlias
     , updateAliasResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAlias' smart constructor.
 --
@@ -60,13 +62,13 @@ import           Network.AWS.Response
 --
 -- * 'uaTargetKeyId'
 data UpdateAlias = UpdateAlias'
-    { _uaAliasName   :: !Text
+    { _uaAliasName :: !Text
     , _uaTargetKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAlias' smart constructor.
 updateAlias :: Text -> Text -> UpdateAlias
-updateAlias pAliasName_ pTargetKeyId_ =
+updateAlias pAliasName_ pTargetKeyId_ = 
     UpdateAlias'
     { _uaAliasName = pAliasName_
     , _uaTargetKeyId = pTargetKeyId_
@@ -118,7 +120,7 @@ instance ToQuery UpdateAlias where
 
 -- | /See:/ 'updateAliasResponse' smart constructor.
 data UpdateAliasResponse =
-    UpdateAliasResponse'
+    UpdateAliasResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAliasResponse' smart constructor.

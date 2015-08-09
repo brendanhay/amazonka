@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.Kinesis.ListTagsForStream
     , ltfsrsHasMoreTags
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @ListTagsForStream@.
 --
@@ -56,14 +58,14 @@ import           Network.AWS.Response
 --
 -- * 'ltfsStreamName'
 data ListTagsForStream = ListTagsForStream'
-    { _ltfsLimit                :: !(Maybe Nat)
+    { _ltfsLimit :: !(Maybe Nat)
     , _ltfsExclusiveStartTagKey :: !(Maybe Text)
-    , _ltfsStreamName           :: !Text
+    , _ltfsStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForStream' smart constructor.
 listTagsForStream :: Text -> ListTagsForStream
-listTagsForStream pStreamName_ =
+listTagsForStream pStreamName_ = 
     ListTagsForStream'
     { _ltfsLimit = Nothing
     , _ltfsExclusiveStartTagKey = Nothing
@@ -132,14 +134,14 @@ instance ToQuery ListTagsForStream where
 --
 -- * 'ltfsrsHasMoreTags'
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-    { _ltfsrsStatus      :: !Int
-    , _ltfsrsTags        :: ![Tag]
+    { _ltfsrsStatus :: !Int
+    , _ltfsrsTags :: ![Tag]
     , _ltfsrsHasMoreTags :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
 listTagsForStreamResponse :: Int -> Bool -> ListTagsForStreamResponse
-listTagsForStreamResponse pStatus_ pHasMoreTags_ =
+listTagsForStreamResponse pStatus_ pHasMoreTags_ = 
     ListTagsForStreamResponse'
     { _ltfsrsStatus = pStatus_
     , _ltfsrsTags = mempty

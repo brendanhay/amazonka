@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.OpsWorks.DeregisterInstance
     , deregisterInstanceResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterInstance' smart constructor.
 --
@@ -58,7 +60,7 @@ newtype DeregisterInstance = DeregisterInstance'
 
 -- | 'DeregisterInstance' smart constructor.
 deregisterInstance :: Text -> DeregisterInstance
-deregisterInstance pInstanceId_ =
+deregisterInstance pInstanceId_ = 
     DeregisterInstance'
     { _dInstanceId = pInstanceId_
     }
@@ -96,7 +98,7 @@ instance ToQuery DeregisterInstance where
 
 -- | /See:/ 'deregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse =
-    DeregisterInstanceResponse'
+    DeregisterInstanceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstanceResponse' smart constructor.

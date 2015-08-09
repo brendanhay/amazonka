@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.DataPipeline.SetStatus
     , setStatusResponse
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetStatus.
 --
@@ -58,13 +60,13 @@ import           Network.AWS.Response
 -- * 'ssStatus'
 data SetStatus = SetStatus'
     { _ssPipelineId :: !Text
-    , _ssObjectIds  :: ![Text]
-    , _ssStatus     :: !Text
+    , _ssObjectIds :: ![Text]
+    , _ssStatus :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStatus' smart constructor.
 setStatus :: Text -> Text -> SetStatus
-setStatus pPipelineId_ pStatus_ =
+setStatus pPipelineId_ pStatus_ = 
     SetStatus'
     { _ssPipelineId = pPipelineId_
     , _ssObjectIds = mempty
@@ -115,7 +117,7 @@ instance ToQuery SetStatus where
 
 -- | /See:/ 'setStatusResponse' smart constructor.
 data SetStatusResponse =
-    SetStatusResponse'
+    SetStatusResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStatusResponse' smart constructor.

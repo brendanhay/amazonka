@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.CancelBundleTask
     , cbtrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelBundleTask' smart constructor.
 --
@@ -51,13 +53,13 @@ import           Network.AWS.Response
 --
 -- * 'cbtBundleId'
 data CancelBundleTask = CancelBundleTask'
-    { _cbtDryRun   :: !(Maybe Bool)
+    { _cbtDryRun :: !(Maybe Bool)
     , _cbtBundleId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelBundleTask' smart constructor.
 cancelBundleTask :: Text -> CancelBundleTask
-cancelBundleTask pBundleId_ =
+cancelBundleTask pBundleId_ = 
     CancelBundleTask'
     { _cbtDryRun = Nothing
     , _cbtBundleId = pBundleId_
@@ -106,12 +108,12 @@ instance ToQuery CancelBundleTask where
 -- * 'cbtrsStatus'
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
     { _cbtrsBundleTask :: !(Maybe BundleTask)
-    , _cbtrsStatus     :: !Int
+    , _cbtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelBundleTaskResponse' smart constructor.
 cancelBundleTaskResponse :: Int -> CancelBundleTaskResponse
-cancelBundleTaskResponse pStatus_ =
+cancelBundleTaskResponse pStatus_ = 
     CancelBundleTaskResponse'
     { _cbtrsBundleTask = Nothing
     , _cbtrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     , dsprsScalingParameters
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeScalingParameters@
 -- operation. Specifies the name of the domain you want to describe.
@@ -59,7 +61,7 @@ newtype DescribeScalingParameters = DescribeScalingParameters'
 
 -- | 'DescribeScalingParameters' smart constructor.
 describeScalingParameters :: Text -> DescribeScalingParameters
-describeScalingParameters pDomainName_ =
+describeScalingParameters pDomainName_ = 
     DescribeScalingParameters'
     { _dspDomainName = pDomainName_
     }
@@ -104,13 +106,13 @@ instance ToQuery DescribeScalingParameters where
 --
 -- * 'dsprsScalingParameters'
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
-    { _dsprsStatus            :: !Int
+    { _dsprsStatus :: !Int
     , _dsprsScalingParameters :: !ScalingParametersStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingParametersResponse' smart constructor.
 describeScalingParametersResponse :: Int -> ScalingParametersStatus -> DescribeScalingParametersResponse
-describeScalingParametersResponse pStatus_ pScalingParameters_ =
+describeScalingParametersResponse pStatus_ pScalingParameters_ = 
     DescribeScalingParametersResponse'
     { _dsprsStatus = pStatus_
     , _dsprsScalingParameters = pScalingParameters_

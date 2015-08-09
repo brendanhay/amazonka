@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.ELB.AddTags
     , atrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addTags' smart constructor.
 --
@@ -59,12 +61,12 @@ import           Network.AWS.Response
 -- * 'atTags'
 data AddTags = AddTags'
     { _atLoadBalancerNames :: ![Text]
-    , _atTags              :: !(List1 Tag)
+    , _atTags :: !(List1 Tag)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: NonEmpty Tag -> AddTags
-addTags pTags_ =
+addTags pTags_ = 
     AddTags'
     { _atLoadBalancerNames = mempty
     , _atTags = _List1 # pTags_
@@ -112,7 +114,7 @@ newtype AddTagsResponse = AddTagsResponse'
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatus_ =
+addTagsResponse pStatus_ = 
     AddTagsResponse'
     { _atrsStatus = pStatus_
     }

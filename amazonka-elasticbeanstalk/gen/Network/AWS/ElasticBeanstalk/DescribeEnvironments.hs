@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , drsStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This documentation target is not reported in the API reference.
 --
@@ -64,17 +66,17 @@ import           Network.AWS.Response
 --
 -- * 'dIncludeDeleted'
 data DescribeEnvironments = DescribeEnvironments'
-    { _dEnvironmentIds        :: !(Maybe [Text])
-    , _dEnvironmentNames      :: !(Maybe [Text])
-    , _dVersionLabel          :: !(Maybe Text)
+    { _dEnvironmentIds :: !(Maybe [Text])
+    , _dEnvironmentNames :: !(Maybe [Text])
+    , _dVersionLabel :: !(Maybe Text)
     , _dIncludedDeletedBackTo :: !(Maybe ISO8601)
-    , _dApplicationName       :: !(Maybe Text)
-    , _dIncludeDeleted        :: !(Maybe Bool)
+    , _dApplicationName :: !(Maybe Text)
+    , _dIncludeDeleted :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironments' smart constructor.
 describeEnvironments :: DescribeEnvironments
-describeEnvironments =
+describeEnvironments = 
     DescribeEnvironments'
     { _dEnvironmentIds = Nothing
     , _dEnvironmentNames = Nothing
@@ -163,12 +165,12 @@ instance ToQuery DescribeEnvironments where
 -- * 'drsStatus'
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
     { _drsEnvironments :: !(Maybe [EnvironmentDescription])
-    , _drsStatus       :: !Int
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
 describeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
-describeEnvironmentsResponse pStatus_ =
+describeEnvironmentsResponse pStatus_ = 
     DescribeEnvironmentsResponse'
     { _drsEnvironments = Nothing
     , _drsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.CloudSearchDomains.Suggest
     , srsStatus
     ) where
 
-import           Network.AWS.CloudSearchDomains.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.CloudSearchDomains.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @Suggest@ request.
 --
@@ -73,14 +75,14 @@ import           Network.AWS.Response
 --
 -- * 'sSuggester'
 data Suggest = Suggest'
-    { _sSize      :: !(Maybe Integer)
-    , _sQuery     :: !Text
+    { _sSize :: !(Maybe Integer)
+    , _sQuery :: !Text
     , _sSuggester :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suggest' smart constructor.
 suggest :: Text -> Text -> Suggest
-suggest pQuery_ pSuggester_ =
+suggest pQuery_ pSuggester_ = 
     Suggest'
     { _sSize = Nothing
     , _sQuery = pQuery_
@@ -136,12 +138,12 @@ instance ToQuery Suggest where
 -- * 'srsStatus'
 data SuggestResponse = SuggestResponse'
     { _srsSuggest :: !(Maybe SuggestModel)
-    , _srsStatus  :: !Int
+    , _srsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestResponse' smart constructor.
 suggestResponse :: Int -> SuggestResponse
-suggestResponse pStatus_ =
+suggestResponse pStatus_ = 
     SuggestResponse'
     { _srsSuggest = Nothing
     , _srsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.DirectoryService.RestoreFromSnapshot
     , rfsrsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | An object representing the inputs for the RestoreFromSnapshot operation.
 --
@@ -62,7 +64,7 @@ newtype RestoreFromSnapshot = RestoreFromSnapshot'
 
 -- | 'RestoreFromSnapshot' smart constructor.
 restoreFromSnapshot :: Text -> RestoreFromSnapshot
-restoreFromSnapshot pSnapshotId_ =
+restoreFromSnapshot pSnapshotId_ = 
     RestoreFromSnapshot'
     { _rfsSnapshotId = pSnapshotId_
     }
@@ -114,7 +116,7 @@ newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
 restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse
-restoreFromSnapshotResponse pStatus_ =
+restoreFromSnapshotResponse pStatus_ = 
     RestoreFromSnapshotResponse'
     { _rfsrsStatus = pStatus_
     }

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -54,10 +55,11 @@ module Network.AWS.ECS.UpdateService
     , usrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
 --
@@ -71,15 +73,15 @@ import           Network.AWS.Response
 --
 -- * 'usService'
 data UpdateService = UpdateService'
-    { _usCluster        :: !(Maybe Text)
-    , _usDesiredCount   :: !(Maybe Int)
+    { _usCluster :: !(Maybe Text)
+    , _usDesiredCount :: !(Maybe Int)
     , _usTaskDefinition :: !(Maybe Text)
-    , _usService        :: !Text
+    , _usService :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateService' smart constructor.
 updateService :: Text -> UpdateService
-updateService pService_ =
+updateService pService_ = 
     UpdateService'
     { _usCluster = Nothing
     , _usDesiredCount = Nothing
@@ -154,12 +156,12 @@ instance ToQuery UpdateService where
 -- * 'usrsStatus'
 data UpdateServiceResponse = UpdateServiceResponse'
     { _usrsService :: !(Maybe ContainerService)
-    , _usrsStatus  :: !Int
+    , _usrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServiceResponse' smart constructor.
 updateServiceResponse :: Int -> UpdateServiceResponse
-updateServiceResponse pStatus_ =
+updateServiceResponse pStatus_ = 
     UpdateServiceResponse'
     { _usrsService = Nothing
     , _usrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.EC2.ImportInstance
     , iirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importInstance' smart constructor.
 --
@@ -66,15 +68,15 @@ import           Network.AWS.Response
 -- * 'iiPlatform'
 data ImportInstance = ImportInstance'
     { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
-    , _iiDiskImages          :: !(Maybe [DiskImage])
-    , _iiDryRun              :: !(Maybe Bool)
-    , _iiDescription         :: !(Maybe Text)
-    , _iiPlatform            :: !PlatformValues
+    , _iiDiskImages :: !(Maybe [DiskImage])
+    , _iiDryRun :: !(Maybe Bool)
+    , _iiDescription :: !(Maybe Text)
+    , _iiPlatform :: !PlatformValues
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstance' smart constructor.
 importInstance :: PlatformValues -> ImportInstance
-importInstance pPlatform_ =
+importInstance pPlatform_ = 
     ImportInstance'
     { _iiLaunchSpecification = Nothing
     , _iiDiskImages = Nothing
@@ -142,12 +144,12 @@ instance ToQuery ImportInstance where
 -- * 'iirsStatus'
 data ImportInstanceResponse = ImportInstanceResponse'
     { _iirsConversionTask :: !(Maybe ConversionTask)
-    , _iirsStatus         :: !Int
+    , _iirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstanceResponse' smart constructor.
 importInstanceResponse :: Int -> ImportInstanceResponse
-importInstanceResponse pStatus_ =
+importInstanceResponse pStatus_ = 
     ImportInstanceResponse'
     { _iirsConversionTask = Nothing
     , _iirsStatus = pStatus_

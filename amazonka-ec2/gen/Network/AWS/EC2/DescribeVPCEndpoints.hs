@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.EC2.DescribeVPCEndpoints
     , dvpcersStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVPCEndpoints' smart constructor.
 --
@@ -60,16 +62,16 @@ import           Network.AWS.Response
 --
 -- * 'dvpceMaxResults'
 data DescribeVPCEndpoints = DescribeVPCEndpoints'
-    { _dvpceFilters        :: !(Maybe [Filter])
-    , _dvpceNextToken      :: !(Maybe Text)
+    { _dvpceFilters :: !(Maybe [Filter])
+    , _dvpceNextToken :: !(Maybe Text)
     , _dvpceVPCEndpointIds :: !(Maybe [Text])
-    , _dvpceDryRun         :: !(Maybe Bool)
-    , _dvpceMaxResults     :: !(Maybe Int)
+    , _dvpceDryRun :: !(Maybe Bool)
+    , _dvpceMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpoints' smart constructor.
 describeVPCEndpoints :: DescribeVPCEndpoints
-describeVPCEndpoints =
+describeVPCEndpoints = 
     DescribeVPCEndpoints'
     { _dvpceFilters = Nothing
     , _dvpceNextToken = Nothing
@@ -159,14 +161,14 @@ instance ToQuery DescribeVPCEndpoints where
 --
 -- * 'dvpcersStatus'
 data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
-    { _dvpcersNextToken    :: !(Maybe Text)
+    { _dvpcersNextToken :: !(Maybe Text)
     , _dvpcersVPCEndpoints :: !(Maybe [VPCEndpoint])
-    , _dvpcersStatus       :: !Int
+    , _dvpcersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpointsResponse' smart constructor.
 describeVPCEndpointsResponse :: Int -> DescribeVPCEndpointsResponse
-describeVPCEndpointsResponse pStatus_ =
+describeVPCEndpointsResponse pStatus_ = 
     DescribeVPCEndpointsResponse'
     { _dvpcersNextToken = Nothing
     , _dvpcersVPCEndpoints = Nothing

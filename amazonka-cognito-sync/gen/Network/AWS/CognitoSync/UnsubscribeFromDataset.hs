@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     , ufdrsStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to UnsubscribeFromDataset.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 -- * 'ufdDeviceId'
 data UnsubscribeFromDataset = UnsubscribeFromDataset'
     { _ufdIdentityPoolId :: !Text
-    , _ufdIdentityId     :: !Text
-    , _ufdDatasetName    :: !Text
-    , _ufdDeviceId       :: !Text
+    , _ufdIdentityId :: !Text
+    , _ufdDatasetName :: !Text
+    , _ufdDeviceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnsubscribeFromDataset' smart constructor.
 unsubscribeFromDataset :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
-unsubscribeFromDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
+unsubscribeFromDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ = 
     UnsubscribeFromDataset'
     { _ufdIdentityPoolId = pIdentityPoolId_
     , _ufdIdentityId = pIdentityId_
@@ -137,7 +139,7 @@ newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
 
 -- | 'UnsubscribeFromDatasetResponse' smart constructor.
 unsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
-unsubscribeFromDatasetResponse pStatus_ =
+unsubscribeFromDatasetResponse pStatus_ = 
     UnsubscribeFromDatasetResponse'
     { _ufdrsStatus = pStatus_
     }

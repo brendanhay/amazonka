@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.CloudSearch.DefineIndexField
     , defrsIndexField
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DefineIndexField@ operation.
 -- Specifies the name of the domain you want to update and the index field
@@ -68,7 +70,7 @@ data DefineIndexField = DefineIndexField'
 
 -- | 'DefineIndexField' smart constructor.
 defineIndexField :: Text -> IndexField -> DefineIndexField
-defineIndexField pDomainName_ pIndexField_ =
+defineIndexField pDomainName_ pIndexField_ = 
     DefineIndexField'
     { _defeDomainName = pDomainName_
     , _defeIndexField = pIndexField_
@@ -117,13 +119,13 @@ instance ToQuery DefineIndexField where
 --
 -- * 'defrsIndexField'
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-    { _defrsStatus     :: !Int
+    { _defrsStatus :: !Int
     , _defrsIndexField :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
 defineIndexFieldResponse :: Int -> IndexFieldStatus -> DefineIndexFieldResponse
-defineIndexFieldResponse pStatus_ pIndexField_ =
+defineIndexFieldResponse pStatus_ pIndexField_ = 
     DefineIndexFieldResponse'
     { _defrsStatus = pStatus_
     , _defrsIndexField = pIndexField_

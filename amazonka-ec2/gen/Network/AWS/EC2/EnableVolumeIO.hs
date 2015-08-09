@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.EC2.EnableVolumeIO
     , enableVolumeIOResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableVolumeIO' smart constructor.
 --
@@ -48,13 +50,13 @@ import           Network.AWS.Response
 --
 -- * 'evioVolumeId'
 data EnableVolumeIO = EnableVolumeIO'
-    { _evioDryRun   :: !(Maybe Bool)
+    { _evioDryRun :: !(Maybe Bool)
     , _evioVolumeId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVolumeIO' smart constructor.
 enableVolumeIO :: Text -> EnableVolumeIO
-enableVolumeIO pVolumeId_ =
+enableVolumeIO pVolumeId_ = 
     EnableVolumeIO'
     { _evioDryRun = Nothing
     , _evioVolumeId = pVolumeId_
@@ -92,7 +94,7 @@ instance ToQuery EnableVolumeIO where
 
 -- | /See:/ 'enableVolumeIOResponse' smart constructor.
 data EnableVolumeIOResponse =
-    EnableVolumeIOResponse'
+    EnableVolumeIOResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVolumeIOResponse' smart constructor.

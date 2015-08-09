@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -60,10 +61,11 @@ module Network.AWS.OpsWorks.CreateStack
     , crsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 --
@@ -107,30 +109,30 @@ import           Network.AWS.Response
 --
 -- * 'csDefaultInstanceProfileARN'
 data CreateStack = CreateStack'
-    { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _csChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _csVPCId                     :: !(Maybe Text)
-    , _csAgentVersion              :: !(Maybe Text)
-    , _csDefaultSSHKeyName         :: !(Maybe Text)
-    , _csCustomJSON                :: !(Maybe Text)
-    , _csCustomCookbooksSource     :: !(Maybe Source)
-    , _csDefaultAvailabilityZone   :: !(Maybe Text)
+    { _csDefaultRootDeviceType :: !(Maybe RootDeviceType)
+    , _csChefConfiguration :: !(Maybe ChefConfiguration)
+    , _csVPCId :: !(Maybe Text)
+    , _csAgentVersion :: !(Maybe Text)
+    , _csDefaultSSHKeyName :: !(Maybe Text)
+    , _csCustomJSON :: !(Maybe Text)
+    , _csCustomCookbooksSource :: !(Maybe Source)
+    , _csDefaultAvailabilityZone :: !(Maybe Text)
     , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _csDefaultOS                 :: !(Maybe Text)
-    , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _csUseCustomCookbooks        :: !(Maybe Bool)
-    , _csDefaultSubnetId           :: !(Maybe Text)
-    , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _csHostnameTheme             :: !(Maybe Text)
-    , _csName                      :: !Text
-    , _csRegion                    :: !Text
-    , _csServiceRoleARN            :: !Text
+    , _csDefaultOS :: !(Maybe Text)
+    , _csAttributes :: !(Maybe (Map StackAttributesKeys Text))
+    , _csUseCustomCookbooks :: !(Maybe Bool)
+    , _csDefaultSubnetId :: !(Maybe Text)
+    , _csConfigurationManager :: !(Maybe StackConfigurationManager)
+    , _csHostnameTheme :: !(Maybe Text)
+    , _csName :: !Text
+    , _csRegion :: !Text
+    , _csServiceRoleARN :: !Text
     , _csDefaultInstanceProfileARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> Text -> Text -> Text -> CreateStack
-createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
+createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ = 
     CreateStack'
     { _csDefaultRootDeviceType = Nothing
     , _csChefConfiguration = Nothing
@@ -429,12 +431,12 @@ instance ToQuery CreateStack where
 -- * 'crsStatus'
 data CreateStackResponse = CreateStackResponse'
     { _crsStackId :: !(Maybe Text)
-    , _crsStatus  :: !Int
+    , _crsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse
-createStackResponse pStatus_ =
+createStackResponse pStatus_ = 
     CreateStackResponse'
     { _crsStackId = Nothing
     , _crsStatus = pStatus_

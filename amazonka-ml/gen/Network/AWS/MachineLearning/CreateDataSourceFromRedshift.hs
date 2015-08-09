@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -73,10 +74,11 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     , cdsfrrsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRedshift' smart constructor.
 --
@@ -92,16 +94,16 @@ import           Network.AWS.Response
 --
 -- * 'cdsfrRoleARN'
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-    { _cdsfrDataSourceName    :: !(Maybe Text)
+    { _cdsfrDataSourceName :: !(Maybe Text)
     , _cdsfrComputeStatistics :: !(Maybe Bool)
-    , _cdsfrDataSourceId      :: !Text
-    , _cdsfrDataSpec          :: !RedshiftDataSpec
-    , _cdsfrRoleARN           :: !Text
+    , _cdsfrDataSourceId :: !Text
+    , _cdsfrDataSpec :: !RedshiftDataSpec
+    , _cdsfrRoleARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRedshift' smart constructor.
 createDataSourceFromRedshift :: Text -> RedshiftDataSpec -> Text -> CreateDataSourceFromRedshift
-createDataSourceFromRedshift pDataSourceId_ pDataSpec_ pRoleARN_ =
+createDataSourceFromRedshift pDataSourceId_ pDataSpec_ pRoleARN_ = 
     CreateDataSourceFromRedshift'
     { _cdsfrDataSourceName = Nothing
     , _cdsfrComputeStatistics = Nothing
@@ -225,12 +227,12 @@ instance ToQuery CreateDataSourceFromRedshift where
 -- * 'cdsfrrsStatus'
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
     { _cdsfrrsDataSourceId :: !(Maybe Text)
-    , _cdsfrrsStatus       :: !Int
+    , _cdsfrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
 createDataSourceFromRedshiftResponse :: Int -> CreateDataSourceFromRedshiftResponse
-createDataSourceFromRedshiftResponse pStatus_ =
+createDataSourceFromRedshiftResponse pStatus_ = 
     CreateDataSourceFromRedshiftResponse'
     { _cdsfrrsDataSourceId = Nothing
     , _cdsfrrsStatus = pStatus_

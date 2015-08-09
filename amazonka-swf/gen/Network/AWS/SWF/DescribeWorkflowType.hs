@@ -67,6 +67,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.SWF.Types
+import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeWorkflowType' smart constructor.
 --

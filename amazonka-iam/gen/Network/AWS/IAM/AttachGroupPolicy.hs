@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.AttachGroupPolicy
     , attachGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachGroupPolicy' smart constructor.
 --
@@ -60,7 +62,7 @@ data AttachGroupPolicy = AttachGroupPolicy'
 
 -- | 'AttachGroupPolicy' smart constructor.
 attachGroupPolicy :: Text -> Text -> AttachGroupPolicy
-attachGroupPolicy pGroupName_ pPolicyARN_ =
+attachGroupPolicy pGroupName_ pPolicyARN_ = 
     AttachGroupPolicy'
     { _agpGroupName = pGroupName_
     , _agpPolicyARN = pPolicyARN_
@@ -96,7 +98,7 @@ instance ToQuery AttachGroupPolicy where
 
 -- | /See:/ 'attachGroupPolicyResponse' smart constructor.
 data AttachGroupPolicyResponse =
-    AttachGroupPolicyResponse'
+    AttachGroupPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachGroupPolicyResponse' smart constructor.

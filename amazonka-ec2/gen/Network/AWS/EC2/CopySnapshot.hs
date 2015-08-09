@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -58,10 +59,11 @@ module Network.AWS.EC2.CopySnapshot
     , csrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'copySnapshot' smart constructor.
 --
@@ -83,19 +85,19 @@ import           Network.AWS.Response
 --
 -- * 'csSourceSnapshotId'
 data CopySnapshot = CopySnapshot'
-    { _csEncrypted         :: !(Maybe Bool)
-    , _csPresignedURL      :: !(Maybe Text)
+    { _csEncrypted :: !(Maybe Bool)
+    , _csPresignedURL :: !(Maybe Text)
     , _csDestinationRegion :: !(Maybe Text)
-    , _csKMSKeyId          :: !(Maybe Text)
-    , _csDryRun            :: !(Maybe Bool)
-    , _csDescription       :: !(Maybe Text)
-    , _csSourceRegion      :: !Text
-    , _csSourceSnapshotId  :: !Text
+    , _csKMSKeyId :: !(Maybe Text)
+    , _csDryRun :: !(Maybe Bool)
+    , _csDescription :: !(Maybe Text)
+    , _csSourceRegion :: !Text
+    , _csSourceSnapshotId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
-copySnapshot pSourceRegion_ pSourceSnapshotId_ =
+copySnapshot pSourceRegion_ pSourceSnapshotId_ = 
     CopySnapshot'
     { _csEncrypted = Nothing
     , _csPresignedURL = Nothing
@@ -215,12 +217,12 @@ instance ToQuery CopySnapshot where
 -- * 'csrsStatus'
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrsSnapshotId :: !(Maybe Text)
-    , _csrsStatus     :: !Int
+    , _csrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse
-copySnapshotResponse pStatus_ =
+copySnapshotResponse pStatus_ = 
     CopySnapshotResponse'
     { _csrsSnapshotId = Nothing
     , _csrsStatus = pStatus_

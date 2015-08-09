@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -60,10 +61,11 @@ module Network.AWS.EC2.TerminateInstances
     , tirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'terminateInstances' smart constructor.
 --
@@ -73,13 +75,13 @@ import           Network.AWS.Response
 --
 -- * 'tiInstanceIds'
 data TerminateInstances = TerminateInstances'
-    { _tiDryRun      :: !(Maybe Bool)
+    { _tiDryRun :: !(Maybe Bool)
     , _tiInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstances' smart constructor.
 terminateInstances :: TerminateInstances
-terminateInstances =
+terminateInstances = 
     TerminateInstances'
     { _tiDryRun = Nothing
     , _tiInstanceIds = mempty
@@ -132,12 +134,12 @@ instance ToQuery TerminateInstances where
 -- * 'tirsStatus'
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
-    , _tirsStatus               :: !Int
+    , _tirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstancesResponse' smart constructor.
 terminateInstancesResponse :: Int -> TerminateInstancesResponse
-terminateInstancesResponse pStatus_ =
+terminateInstancesResponse pStatus_ = 
     TerminateInstancesResponse'
     { _tirsTerminatingInstances = Nothing
     , _tirsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -56,10 +57,11 @@ module Network.AWS.OpsWorks.UpdateStack
     , updateStackResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 --
@@ -102,28 +104,28 @@ import           Network.AWS.Response
 -- * 'usStackId'
 data UpdateStack = UpdateStack'
     { _usDefaultInstanceProfileARN :: !(Maybe Text)
-    , _usServiceRoleARN            :: !(Maybe Text)
-    , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _usChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _usAgentVersion              :: !(Maybe Text)
-    , _usDefaultSSHKeyName         :: !(Maybe Text)
-    , _usCustomJSON                :: !(Maybe Text)
-    , _usCustomCookbooksSource     :: !(Maybe Source)
-    , _usDefaultAvailabilityZone   :: !(Maybe Text)
-    , _usName                      :: !(Maybe Text)
+    , _usServiceRoleARN :: !(Maybe Text)
+    , _usDefaultRootDeviceType :: !(Maybe RootDeviceType)
+    , _usChefConfiguration :: !(Maybe ChefConfiguration)
+    , _usAgentVersion :: !(Maybe Text)
+    , _usDefaultSSHKeyName :: !(Maybe Text)
+    , _usCustomJSON :: !(Maybe Text)
+    , _usCustomCookbooksSource :: !(Maybe Source)
+    , _usDefaultAvailabilityZone :: !(Maybe Text)
+    , _usName :: !(Maybe Text)
     , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _usDefaultOS                 :: !(Maybe Text)
-    , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _usUseCustomCookbooks        :: !(Maybe Bool)
-    , _usDefaultSubnetId           :: !(Maybe Text)
-    , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _usHostnameTheme             :: !(Maybe Text)
-    , _usStackId                   :: !Text
+    , _usDefaultOS :: !(Maybe Text)
+    , _usAttributes :: !(Maybe (Map StackAttributesKeys Text))
+    , _usUseCustomCookbooks :: !(Maybe Bool)
+    , _usDefaultSubnetId :: !(Maybe Text)
+    , _usConfigurationManager :: !(Maybe StackConfigurationManager)
+    , _usHostnameTheme :: !(Maybe Text)
+    , _usStackId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
-updateStack pStackId_ =
+updateStack pStackId_ = 
     UpdateStack'
     { _usDefaultInstanceProfileARN = Nothing
     , _usServiceRoleARN = Nothing
@@ -372,7 +374,7 @@ instance ToQuery UpdateStack where
 
 -- | /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse =
-    UpdateStackResponse'
+    UpdateStackResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStackResponse' smart constructor.

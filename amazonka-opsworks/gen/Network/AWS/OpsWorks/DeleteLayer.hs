@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.OpsWorks.DeleteLayer
     , deleteLayerResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLayer' smart constructor.
 --
@@ -58,7 +60,7 @@ newtype DeleteLayer = DeleteLayer'
 
 -- | 'DeleteLayer' smart constructor.
 deleteLayer :: Text -> DeleteLayer
-deleteLayer pLayerId_ =
+deleteLayer pLayerId_ = 
     DeleteLayer'
     { _dlLayerId = pLayerId_
     }
@@ -94,7 +96,7 @@ instance ToQuery DeleteLayer where
 
 -- | /See:/ 'deleteLayerResponse' smart constructor.
 data DeleteLayerResponse =
-    DeleteLayerResponse'
+    DeleteLayerResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLayerResponse' smart constructor.

@@ -145,82 +145,82 @@ module Network.AWS.KMS
     -- * Operations
     -- $operations
 
-    -- ** DisableKeyRotation
+    -- ** DisableKeyRotation 
     , module Network.AWS.KMS.DisableKeyRotation
 
-    -- ** GenerateDataKeyWithoutPlaintext
+    -- ** GenerateDataKeyWithoutPlaintext 
     , module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 
-    -- ** ListGrants
+    -- ** ListGrants 
     , module Network.AWS.KMS.ListGrants
 
-    -- ** Encrypt
+    -- ** Encrypt 
     , module Network.AWS.KMS.Encrypt
 
-    -- ** EnableKeyRotation
+    -- ** EnableKeyRotation 
     , module Network.AWS.KMS.EnableKeyRotation
 
-    -- ** CreateGrant
+    -- ** CreateGrant 
     , module Network.AWS.KMS.CreateGrant
 
-    -- ** CreateAlias
+    -- ** CreateAlias 
     , module Network.AWS.KMS.CreateAlias
 
-    -- ** ListAliases
+    -- ** ListAliases 
     , module Network.AWS.KMS.ListAliases
 
-    -- ** GenerateRandom
+    -- ** GenerateRandom 
     , module Network.AWS.KMS.GenerateRandom
 
-    -- ** DisableKey
+    -- ** DisableKey 
     , module Network.AWS.KMS.DisableKey
 
-    -- ** CreateKey
+    -- ** CreateKey 
     , module Network.AWS.KMS.CreateKey
 
-    -- ** RetireGrant
+    -- ** RetireGrant 
     , module Network.AWS.KMS.RetireGrant
 
-    -- ** ListKeys
+    -- ** ListKeys 
     , module Network.AWS.KMS.ListKeys
 
-    -- ** GetKeyRotationStatus
+    -- ** GetKeyRotationStatus 
     , module Network.AWS.KMS.GetKeyRotationStatus
 
-    -- ** GenerateDataKey
+    -- ** GenerateDataKey 
     , module Network.AWS.KMS.GenerateDataKey
 
-    -- ** DeleteAlias
+    -- ** DeleteAlias 
     , module Network.AWS.KMS.DeleteAlias
 
-    -- ** UpdateAlias
+    -- ** UpdateAlias 
     , module Network.AWS.KMS.UpdateAlias
 
-    -- ** DescribeKey
+    -- ** DescribeKey 
     , module Network.AWS.KMS.DescribeKey
 
-    -- ** Decrypt
+    -- ** Decrypt 
     , module Network.AWS.KMS.Decrypt
 
-    -- ** UpdateKeyDescription
+    -- ** UpdateKeyDescription 
     , module Network.AWS.KMS.UpdateKeyDescription
 
-    -- ** ReEncrypt
+    -- ** ReEncrypt 
     , module Network.AWS.KMS.ReEncrypt
 
-    -- ** ListKeyPolicies
+    -- ** ListKeyPolicies 
     , module Network.AWS.KMS.ListKeyPolicies
 
-    -- ** EnableKey
+    -- ** EnableKey 
     , module Network.AWS.KMS.EnableKey
 
-    -- ** PutKeyPolicy
+    -- ** PutKeyPolicy 
     , module Network.AWS.KMS.PutKeyPolicy
 
-    -- ** RevokeGrant
+    -- ** RevokeGrant 
     , module Network.AWS.KMS.RevokeGrant
 
-    -- ** GetKeyPolicy
+    -- ** GetKeyPolicy 
     , module Network.AWS.KMS.GetKeyPolicy
 
     -- * Types
@@ -275,34 +275,34 @@ module Network.AWS.KMS
     , kmKeyId
     ) where
 
-import           Network.AWS.KMS.CreateAlias
-import           Network.AWS.KMS.CreateGrant
-import           Network.AWS.KMS.CreateKey
-import           Network.AWS.KMS.Decrypt
-import           Network.AWS.KMS.DeleteAlias
-import           Network.AWS.KMS.DescribeKey
-import           Network.AWS.KMS.DisableKey
-import           Network.AWS.KMS.DisableKeyRotation
-import           Network.AWS.KMS.EnableKey
-import           Network.AWS.KMS.EnableKeyRotation
-import           Network.AWS.KMS.Encrypt
-import           Network.AWS.KMS.GenerateDataKey
-import           Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
-import           Network.AWS.KMS.GenerateRandom
-import           Network.AWS.KMS.GetKeyPolicy
-import           Network.AWS.KMS.GetKeyRotationStatus
-import           Network.AWS.KMS.ListAliases
-import           Network.AWS.KMS.ListGrants
-import           Network.AWS.KMS.ListKeyPolicies
-import           Network.AWS.KMS.ListKeys
-import           Network.AWS.KMS.PutKeyPolicy
-import           Network.AWS.KMS.ReEncrypt
-import           Network.AWS.KMS.RetireGrant
-import           Network.AWS.KMS.RevokeGrant
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.UpdateAlias
-import           Network.AWS.KMS.UpdateKeyDescription
-import           Network.AWS.KMS.Waiters
+import Network.AWS.KMS.CreateAlias
+import Network.AWS.KMS.CreateGrant
+import Network.AWS.KMS.CreateKey
+import Network.AWS.KMS.Decrypt
+import Network.AWS.KMS.DeleteAlias
+import Network.AWS.KMS.DescribeKey
+import Network.AWS.KMS.DisableKey
+import Network.AWS.KMS.DisableKeyRotation
+import Network.AWS.KMS.EnableKey
+import Network.AWS.KMS.EnableKeyRotation
+import Network.AWS.KMS.Encrypt
+import Network.AWS.KMS.GenerateDataKey
+import Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
+import Network.AWS.KMS.GenerateRandom
+import Network.AWS.KMS.GetKeyPolicy
+import Network.AWS.KMS.GetKeyRotationStatus
+import Network.AWS.KMS.ListAliases
+import Network.AWS.KMS.ListGrants
+import Network.AWS.KMS.ListKeyPolicies
+import Network.AWS.KMS.ListKeys
+import Network.AWS.KMS.PutKeyPolicy
+import Network.AWS.KMS.ReEncrypt
+import Network.AWS.KMS.RetireGrant
+import Network.AWS.KMS.RevokeGrant
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.UpdateAlias
+import Network.AWS.KMS.UpdateKeyDescription
+import Network.AWS.KMS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

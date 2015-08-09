@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.ImportExport.CreateJob
     , cjrsStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input structure for the CreateJob operation.
 --
@@ -71,16 +73,16 @@ import           Network.AWS.Response
 --
 -- * 'cjValidateOnly'
 data CreateJob = CreateJob'
-    { _cjAPIVersion       :: !(Maybe Text)
+    { _cjAPIVersion :: !(Maybe Text)
     , _cjManifestAddendum :: !(Maybe Text)
-    , _cjJobType          :: !JobType
-    , _cjManifest         :: !Text
-    , _cjValidateOnly     :: !Bool
+    , _cjJobType :: !JobType
+    , _cjManifest :: !Text
+    , _cjValidateOnly :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJob' smart constructor.
 createJob :: JobType -> Text -> Bool -> CreateJob
-createJob pJobType_ pManifest_ pValidateOnly_ =
+createJob pJobType_ pManifest_ pValidateOnly_ = 
     CreateJob'
     { _cjAPIVersion = Nothing
     , _cjManifestAddendum = Nothing
@@ -163,18 +165,18 @@ instance ToQuery CreateJob where
 --
 -- * 'cjrsStatus'
 data CreateJobResponse = CreateJobResponse'
-    { _cjrsSignature             :: !(Maybe Text)
-    , _cjrsJobType               :: !(Maybe JobType)
-    , _cjrsJobId                 :: !(Maybe Text)
+    { _cjrsSignature :: !(Maybe Text)
+    , _cjrsJobType :: !(Maybe JobType)
+    , _cjrsJobId :: !(Maybe Text)
     , _cjrsSignatureFileContents :: !(Maybe Text)
-    , _cjrsWarningMessage        :: !(Maybe Text)
-    , _cjrsArtifactList          :: !(Maybe [Artifact])
-    , _cjrsStatus                :: !Int
+    , _cjrsWarningMessage :: !(Maybe Text)
+    , _cjrsArtifactList :: !(Maybe [Artifact])
+    , _cjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse
-createJobResponse pStatus_ =
+createJobResponse pStatus_ = 
     CreateJobResponse'
     { _cjrsSignature = Nothing
     , _cjrsJobType = Nothing

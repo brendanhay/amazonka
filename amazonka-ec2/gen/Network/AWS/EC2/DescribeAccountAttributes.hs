@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -57,10 +58,11 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , daarsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAccountAttributes' smart constructor.
 --
@@ -71,12 +73,12 @@ import           Network.AWS.Response
 -- * 'daaDryRun'
 data DescribeAccountAttributes = DescribeAccountAttributes'
     { _daaAttributeNames :: !(Maybe [AccountAttributeName])
-    , _daaDryRun         :: !(Maybe Bool)
+    , _daaDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributes' smart constructor.
 describeAccountAttributes :: DescribeAccountAttributes
-describeAccountAttributes =
+describeAccountAttributes = 
     DescribeAccountAttributes'
     { _daaAttributeNames = Nothing
     , _daaDryRun = Nothing
@@ -131,12 +133,12 @@ instance ToQuery DescribeAccountAttributes where
 -- * 'daarsStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountAttributes :: !(Maybe [AccountAttribute])
-    , _daarsStatus            :: !Int
+    , _daarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pStatus_ =
+describeAccountAttributesResponse pStatus_ = 
     DescribeAccountAttributesResponse'
     { _daarsAccountAttributes = Nothing
     , _daarsStatus = pStatus_

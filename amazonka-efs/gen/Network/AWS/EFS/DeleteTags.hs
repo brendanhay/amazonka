@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EFS.DeleteTags
     , deleteTagsResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 --
@@ -56,12 +58,12 @@ import           Network.AWS.Response
 -- * 'dTagKeys'
 data DeleteTags = DeleteTags'
     { _dFileSystemId :: !Text
-    , _dTagKeys      :: ![Text]
+    , _dTagKeys :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
-deleteTags pFileSystemId_ =
+deleteTags pFileSystemId_ = 
     DeleteTags'
     { _dFileSystemId = pFileSystemId_
     , _dTagKeys = mempty
@@ -98,7 +100,7 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
-    DeleteTagsResponse'
+    DeleteTagsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTagsResponse' smart constructor.

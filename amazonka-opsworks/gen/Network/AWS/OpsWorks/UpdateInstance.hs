@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.OpsWorks.UpdateInstance
     , updateInstanceResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateInstance' smart constructor.
 --
@@ -84,22 +86,22 @@ import           Network.AWS.Response
 -- * 'uiInstanceId'
 data UpdateInstance = UpdateInstance'
     { _uiInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _uiHostname             :: !(Maybe Text)
-    , _uiSSHKeyName           :: !(Maybe Text)
-    , _uiAgentVersion         :: !(Maybe Text)
-    , _uiInstanceType         :: !(Maybe Text)
-    , _uiEBSOptimized         :: !(Maybe Bool)
-    , _uiOS                   :: !(Maybe Text)
-    , _uiAutoScalingType      :: !(Maybe AutoScalingType)
-    , _uiLayerIds             :: !(Maybe [Text])
-    , _uiArchitecture         :: !(Maybe Architecture)
-    , _uiAMIId                :: !(Maybe Text)
-    , _uiInstanceId           :: !Text
+    , _uiHostname :: !(Maybe Text)
+    , _uiSSHKeyName :: !(Maybe Text)
+    , _uiAgentVersion :: !(Maybe Text)
+    , _uiInstanceType :: !(Maybe Text)
+    , _uiEBSOptimized :: !(Maybe Bool)
+    , _uiOS :: !(Maybe Text)
+    , _uiAutoScalingType :: !(Maybe AutoScalingType)
+    , _uiLayerIds :: !(Maybe [Text])
+    , _uiArchitecture :: !(Maybe Architecture)
+    , _uiAMIId :: !(Maybe Text)
+    , _uiInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateInstance' smart constructor.
 updateInstance :: Text -> UpdateInstance
-updateInstance pInstanceId_ =
+updateInstance pInstanceId_ = 
     UpdateInstance'
     { _uiInstallUpdatesOnBoot = Nothing
     , _uiHostname = Nothing
@@ -255,7 +257,7 @@ instance ToQuery UpdateInstance where
 
 -- | /See:/ 'updateInstanceResponse' smart constructor.
 data UpdateInstanceResponse =
-    UpdateInstanceResponse'
+    UpdateInstanceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateInstanceResponse' smart constructor.

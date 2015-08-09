@@ -17,12 +17,12 @@
 --
 module Network.AWS.DynamoDB.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AttributeAction
-    = Add
-    | Put
-    | Delete
+    = Add 
+    | Put 
+    | Delete 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AttributeAction where
@@ -48,19 +48,19 @@ instance ToJSON AttributeAction where
     toJSON = toJSONText
 
 data ComparisonOperator
-    = GE
-    | EQ'
-    | NE
-    | Null
-    | NotContains
-    | GT'
-    | LT'
-    | IN
-    | Between
-    | Contains
-    | BeginsWith
-    | NotNull
-    | LE
+    = GE 
+    | EQ' 
+    | NE 
+    | Null 
+    | NotContains 
+    | GT' 
+    | LT' 
+    | IN 
+    | Between 
+    | Contains 
+    | BeginsWith 
+    | NotNull 
+    | LE 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ComparisonOperator where
@@ -106,8 +106,8 @@ instance ToJSON ComparisonOperator where
     toJSON = toJSONText
 
 data ConditionalOperator
-    = And
-    | OR
+    = And 
+    | OR 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConditionalOperator where
@@ -131,10 +131,10 @@ instance ToJSON ConditionalOperator where
     toJSON = toJSONText
 
 data IndexStatus
-    = ISUpdating
-    | ISDeleting
-    | ISCreating
-    | ISActive
+    = ISUpdating 
+    | ISDeleting 
+    | ISCreating 
+    | ISActive 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText IndexStatus where
@@ -162,8 +162,8 @@ instance FromJSON IndexStatus where
     parseJSON = parseJSONText "IndexStatus"
 
 data KeyType
-    = Hash
-    | Range
+    = Hash 
+    | Range 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText KeyType where
@@ -190,9 +190,9 @@ instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
 
 data ProjectionType
-    = Include
-    | All
-    | KeysOnly
+    = Include 
+    | All 
+    | KeysOnly 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ProjectionType where
@@ -237,9 +237,9 @@ instance FromJSON ProjectionType where
 -- -   /NONE/ - No /ConsumedCapacity/ details are included in the response.
 --
 data ReturnConsumedCapacity
-    = RCCNone
-    | RCCIndexes
-    | RCCTotal
+    = RCCNone 
+    | RCCIndexes 
+    | RCCTotal 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReturnConsumedCapacity where
@@ -265,8 +265,8 @@ instance ToJSON ReturnConsumedCapacity where
     toJSON = toJSONText
 
 data ReturnItemCollectionMetrics
-    = RICMNone
-    | RICMSize
+    = RICMNone 
+    | RICMSize 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReturnItemCollectionMetrics where
@@ -290,11 +290,11 @@ instance ToJSON ReturnItemCollectionMetrics where
     toJSON = toJSONText
 
 data ReturnValue
-    = UpdatedOld
-    | None
-    | AllNew
-    | AllOld
-    | UpdatedNew
+    = UpdatedOld 
+    | None 
+    | AllNew 
+    | AllOld 
+    | UpdatedNew 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReturnValue where
@@ -324,9 +324,9 @@ instance ToJSON ReturnValue where
     toJSON = toJSONText
 
 data ScalarAttributeType
-    = N
-    | B
-    | S
+    = N 
+    | B 
+    | S 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ScalarAttributeType where
@@ -355,10 +355,10 @@ instance FromJSON ScalarAttributeType where
     parseJSON = parseJSONText "ScalarAttributeType"
 
 data Select
-    = Count
-    | AllAttributes
-    | SpecificAttributes
-    | AllProjectedAttributes
+    = Count 
+    | AllAttributes 
+    | SpecificAttributes 
+    | AllProjectedAttributes 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Select where
@@ -386,10 +386,10 @@ instance ToJSON Select where
     toJSON = toJSONText
 
 data StreamViewType
-    = SVTNewImage
-    | SVTNewAndOldImages
-    | SVTOldImage
-    | SVTKeysOnly
+    = SVTNewImage 
+    | SVTNewAndOldImages 
+    | SVTOldImage 
+    | SVTKeysOnly 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamViewType where
@@ -420,10 +420,10 @@ instance FromJSON StreamViewType where
     parseJSON = parseJSONText "StreamViewType"
 
 data TableStatus
-    = Deleting
-    | Updating
-    | Creating
-    | Active
+    = Deleting 
+    | Updating 
+    | Creating 
+    | Active 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TableStatus where

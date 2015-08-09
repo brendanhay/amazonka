@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -54,10 +55,11 @@ module Network.AWS.IAM.PutGroupPolicy
     , putGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putGroupPolicy' smart constructor.
 --
@@ -69,14 +71,14 @@ import           Network.AWS.Response
 --
 -- * 'pgpPolicyDocument'
 data PutGroupPolicy = PutGroupPolicy'
-    { _pgpGroupName      :: !Text
-    , _pgpPolicyName     :: !Text
+    { _pgpGroupName :: !Text
+    , _pgpPolicyName :: !Text
     , _pgpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutGroupPolicy' smart constructor.
 putGroupPolicy :: Text -> Text -> Text -> PutGroupPolicy
-putGroupPolicy pGroupName_ pPolicyName_ pPolicyDocument_ =
+putGroupPolicy pGroupName_ pPolicyName_ pPolicyDocument_ = 
     PutGroupPolicy'
     { _pgpGroupName = pGroupName_
     , _pgpPolicyName = pPolicyName_
@@ -118,7 +120,7 @@ instance ToQuery PutGroupPolicy where
 
 -- | /See:/ 'putGroupPolicyResponse' smart constructor.
 data PutGroupPolicyResponse =
-    PutGroupPolicyResponse'
+    PutGroupPolicyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutGroupPolicyResponse' smart constructor.

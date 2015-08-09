@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudFront.GetStreamingDistribution
     , gsdrsStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to get a streaming distribution\'s information.
 --
@@ -55,7 +57,7 @@ newtype GetStreamingDistribution = GetStreamingDistribution'
 
 -- | 'GetStreamingDistribution' smart constructor.
 getStreamingDistribution :: Text -> GetStreamingDistribution
-getStreamingDistribution pId_ =
+getStreamingDistribution pId_ = 
     GetStreamingDistribution'
     { _gsdId = pId_
     }
@@ -99,14 +101,14 @@ instance ToQuery GetStreamingDistribution where
 --
 -- * 'gsdrsStatus'
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
-    { _gsdrsETag                  :: !(Maybe Text)
+    { _gsdrsETag :: !(Maybe Text)
     , _gsdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _gsdrsStatus                :: !Int
+    , _gsdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistributionResponse' smart constructor.
 getStreamingDistributionResponse :: Int -> GetStreamingDistributionResponse
-getStreamingDistributionResponse pStatus_ =
+getStreamingDistributionResponse pStatus_ = 
     GetStreamingDistributionResponse'
     { _gsdrsETag = Nothing
     , _gsdrsStreamingDistribution = Nothing

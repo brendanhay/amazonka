@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , modifyNetworkInterfaceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
 --
@@ -60,17 +62,17 @@ import           Network.AWS.Response
 --
 -- * 'mniaNetworkInterfaceId'
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
-    { _mniaGroups             :: !(Maybe [Text])
-    , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
-    , _mniaAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
-    , _mniaDryRun             :: !(Maybe Bool)
-    , _mniaDescription        :: !(Maybe AttributeValue)
+    { _mniaGroups :: !(Maybe [Text])
+    , _mniaSourceDestCheck :: !(Maybe AttributeBooleanValue)
+    , _mniaAttachment :: !(Maybe NetworkInterfaceAttachmentChanges)
+    , _mniaDryRun :: !(Maybe Bool)
+    , _mniaDescription :: !(Maybe AttributeValue)
     , _mniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyNetworkInterfaceAttribute' smart constructor.
 modifyNetworkInterfaceAttribute :: Text -> ModifyNetworkInterfaceAttribute
-modifyNetworkInterfaceAttribute pNetworkInterfaceId_ =
+modifyNetworkInterfaceAttribute pNetworkInterfaceId_ = 
     ModifyNetworkInterfaceAttribute'
     { _mniaGroups = Nothing
     , _mniaSourceDestCheck = Nothing
@@ -151,10 +153,10 @@ instance ToQuery ModifyNetworkInterfaceAttribute
 
 -- | /See:/ 'modifyNetworkInterfaceAttributeResponse' smart constructor.
 data ModifyNetworkInterfaceAttributeResponse =
-    ModifyNetworkInterfaceAttributeResponse'
+    ModifyNetworkInterfaceAttributeResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyNetworkInterfaceAttributeResponse' smart constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
-modifyNetworkInterfaceAttributeResponse =
+modifyNetworkInterfaceAttributeResponse = 
     ModifyNetworkInterfaceAttributeResponse'

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     , dlgrsStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLogGroups' smart constructor.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 --
 -- * 'dlgLimit'
 data DescribeLogGroups = DescribeLogGroups'
-    { _dlgNextToken          :: !(Maybe Text)
+    { _dlgNextToken :: !(Maybe Text)
     , _dlgLogGroupNamePrefix :: !(Maybe Text)
-    , _dlgLimit              :: !(Maybe Nat)
+    , _dlgLimit :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogGroups' smart constructor.
 describeLogGroups :: DescribeLogGroups
-describeLogGroups =
+describeLogGroups = 
     DescribeLogGroups'
     { _dlgNextToken = Nothing
     , _dlgLogGroupNamePrefix = Nothing
@@ -138,12 +140,12 @@ instance ToQuery DescribeLogGroups where
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
     { _dlgrsLogGroups :: !(Maybe [LogGroup])
     , _dlgrsNextToken :: !(Maybe Text)
-    , _dlgrsStatus    :: !Int
+    , _dlgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
 describeLogGroupsResponse :: Int -> DescribeLogGroupsResponse
-describeLogGroupsResponse pStatus_ =
+describeLogGroupsResponse pStatus_ = 
     DescribeLogGroupsResponse'
     { _dlgrsLogGroups = Nothing
     , _dlgrsNextToken = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,11 +41,12 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     , dasgrsAutoScalingGroups
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingGroups' smart constructor.
 --
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 -- * 'dasgMaxRecords'
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
     { _dasgAutoScalingGroupNames :: !(Maybe [Text])
-    , _dasgNextToken             :: !(Maybe Text)
-    , _dasgMaxRecords            :: !(Maybe Int)
+    , _dasgNextToken :: !(Maybe Text)
+    , _dasgMaxRecords :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingGroups' smart constructor.
 describeAutoScalingGroups :: DescribeAutoScalingGroups
-describeAutoScalingGroups =
+describeAutoScalingGroups = 
     DescribeAutoScalingGroups'
     { _dasgAutoScalingGroupNames = Nothing
     , _dasgNextToken = Nothing
@@ -132,14 +134,14 @@ instance ToQuery DescribeAutoScalingGroups where
 --
 -- * 'dasgrsAutoScalingGroups'
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
-    { _dasgrsNextToken         :: !(Maybe Text)
-    , _dasgrsStatus            :: !Int
+    { _dasgrsNextToken :: !(Maybe Text)
+    , _dasgrsStatus :: !Int
     , _dasgrsAutoScalingGroups :: ![AutoScalingGroup]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
 describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
-describeAutoScalingGroupsResponse pStatus_ =
+describeAutoScalingGroupsResponse pStatus_ = 
     DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken = Nothing
     , _dasgrsStatus = pStatus_

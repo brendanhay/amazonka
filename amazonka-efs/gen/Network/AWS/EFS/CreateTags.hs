@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EFS.CreateTags
     , createTagsResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
 --
@@ -56,12 +58,12 @@ import           Network.AWS.Response
 -- * 'ctTags'
 data CreateTags = CreateTags'
     { _ctFileSystemId :: !Text
-    , _ctTags         :: ![Tag]
+    , _ctTags :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTags' smart constructor.
 createTags :: Text -> CreateTags
-createTags pFileSystemId_ =
+createTags pFileSystemId_ = 
     CreateTags'
     { _ctFileSystemId = pFileSystemId_
     , _ctTags = mempty
@@ -98,7 +100,7 @@ instance ToQuery CreateTags where
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =
-    CreateTagsResponse'
+    CreateTagsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTagsResponse' smart constructor.

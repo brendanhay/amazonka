@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.ELB.DescribeInstanceHealth
     , dihrsStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeInstanceHealth' smart constructor.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'dihLoadBalancerName'
 data DescribeInstanceHealth = DescribeInstanceHealth'
-    { _dihInstances        :: !(Maybe [Instance])
+    { _dihInstances :: !(Maybe [Instance])
     , _dihLoadBalancerName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceHealth' smart constructor.
 describeInstanceHealth :: Text -> DescribeInstanceHealth
-describeInstanceHealth pLoadBalancerName_ =
+describeInstanceHealth pLoadBalancerName_ = 
     DescribeInstanceHealth'
     { _dihInstances = Nothing
     , _dihLoadBalancerName = pLoadBalancerName_
@@ -111,12 +113,12 @@ instance ToQuery DescribeInstanceHealth where
 -- * 'dihrsStatus'
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrsInstanceStates :: !(Maybe [InstanceState])
-    , _dihrsStatus         :: !Int
+    , _dihrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
 describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
-describeInstanceHealthResponse pStatus_ =
+describeInstanceHealthResponse pStatus_ = 
     DescribeInstanceHealthResponse'
     { _dihrsInstanceStates = Nothing
     , _dihrsStatus = pStatus_

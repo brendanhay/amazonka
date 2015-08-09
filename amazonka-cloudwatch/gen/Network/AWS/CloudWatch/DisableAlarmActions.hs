@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     , disableAlarmActionsResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,7 +55,7 @@ newtype DisableAlarmActions = DisableAlarmActions'
 
 -- | 'DisableAlarmActions' smart constructor.
 disableAlarmActions :: DisableAlarmActions
-disableAlarmActions =
+disableAlarmActions = 
     DisableAlarmActions'
     { _daaAlarmNames = mempty
     }
@@ -84,7 +86,7 @@ instance ToQuery DisableAlarmActions where
 
 -- | /See:/ 'disableAlarmActionsResponse' smart constructor.
 data DisableAlarmActionsResponse =
-    DisableAlarmActionsResponse'
+    DisableAlarmActionsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableAlarmActionsResponse' smart constructor.

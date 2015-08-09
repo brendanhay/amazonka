@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , cdrsStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the ConnectDirectory operation.
 --
@@ -64,17 +66,17 @@ import           Network.AWS.Response
 --
 -- * 'cdConnectSettings'
 data ConnectDirectory = ConnectDirectory'
-    { _cdShortName       :: !(Maybe Text)
-    , _cdDescription     :: !(Maybe Text)
-    , _cdName            :: !Text
-    , _cdPassword        :: !(Sensitive Text)
-    , _cdSize            :: !DirectorySize
+    { _cdShortName :: !(Maybe Text)
+    , _cdDescription :: !(Maybe Text)
+    , _cdName :: !Text
+    , _cdPassword :: !(Sensitive Text)
+    , _cdSize :: !DirectorySize
     , _cdConnectSettings :: !DirectoryConnectSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConnectDirectory' smart constructor.
 connectDirectory :: Text -> Text -> DirectorySize -> DirectoryConnectSettings -> ConnectDirectory
-connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
+connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ = 
     ConnectDirectory'
     { _cdShortName = Nothing
     , _cdDescription = Nothing
@@ -155,12 +157,12 @@ instance ToQuery ConnectDirectory where
 -- * 'cdrsStatus'
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
     { _cdrsDirectoryId :: !(Maybe Text)
-    , _cdrsStatus      :: !Int
+    , _cdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConnectDirectoryResponse' smart constructor.
 connectDirectoryResponse :: Int -> ConnectDirectoryResponse
-connectDirectoryResponse pStatus_ =
+connectDirectoryResponse pStatus_ = 
     ConnectDirectoryResponse'
     { _cdrsDirectoryId = Nothing
     , _cdrsStatus = pStatus_

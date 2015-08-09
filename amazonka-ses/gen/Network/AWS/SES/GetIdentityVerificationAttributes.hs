@@ -45,6 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
 -- | Represents a request instructing the service to provide the verification
 -- attributes for a list of identities.

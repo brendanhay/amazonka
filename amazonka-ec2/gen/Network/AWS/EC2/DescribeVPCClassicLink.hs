@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.DescribeVPCClassicLink
     , dvclrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVPCClassicLink' smart constructor.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 -- * 'dvclDryRun'
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
     { _dvclFilters :: !(Maybe [Filter])
-    , _dvclVPCIds  :: !(Maybe [Text])
-    , _dvclDryRun  :: !(Maybe Bool)
+    , _dvclVPCIds :: !(Maybe [Text])
+    , _dvclDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCClassicLink' smart constructor.
 describeVPCClassicLink :: DescribeVPCClassicLink
-describeVPCClassicLink =
+describeVPCClassicLink = 
     DescribeVPCClassicLink'
     { _dvclFilters = Nothing
     , _dvclVPCIds = Nothing
@@ -137,13 +139,13 @@ instance ToQuery DescribeVPCClassicLink where
 --
 -- * 'dvclrsStatus'
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
-    { _dvclrsVPCs   :: !(Maybe [VPCClassicLink])
+    { _dvclrsVPCs :: !(Maybe [VPCClassicLink])
     , _dvclrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
 describeVPCClassicLinkResponse :: Int -> DescribeVPCClassicLinkResponse
-describeVPCClassicLinkResponse pStatus_ =
+describeVPCClassicLinkResponse pStatus_ = 
     DescribeVPCClassicLinkResponse'
     { _dvclrsVPCs = Nothing
     , _dvclrsStatus = pStatus_

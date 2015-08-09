@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.CreateTags
     , createTagsResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
 --
@@ -57,14 +59,14 @@ import           Network.AWS.Response
 --
 -- * 'cTags'
 data CreateTags = CreateTags'
-    { _cDryRun    :: !(Maybe Bool)
+    { _cDryRun :: !(Maybe Bool)
     , _cResources :: ![Text]
-    , _cTags      :: ![Tag]
+    , _cTags :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTags' smart constructor.
 createTags :: CreateTags
-createTags =
+createTags = 
     CreateTags'
     { _cDryRun = Nothing
     , _cResources = mempty
@@ -111,7 +113,7 @@ instance ToQuery CreateTags where
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =
-    CreateTagsResponse'
+    CreateTagsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTagsResponse' smart constructor.

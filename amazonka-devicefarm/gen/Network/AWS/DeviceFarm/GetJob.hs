@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DeviceFarm.GetJob
     , gjrsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get job operation.
 --
@@ -54,7 +56,7 @@ newtype GetJob = GetJob'
 
 -- | 'GetJob' smart constructor.
 getJob :: Text -> GetJob
-getJob pArn_ =
+getJob pArn_ = 
     GetJob'
     { _gjArn = pArn_
     }
@@ -101,13 +103,13 @@ instance ToQuery GetJob where
 --
 -- * 'gjrsStatus'
 data GetJobResponse = GetJobResponse'
-    { _gjrsJob    :: !(Maybe Job)
+    { _gjrsJob :: !(Maybe Job)
     , _gjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobResponse' smart constructor.
 getJobResponse :: Int -> GetJobResponse
-getJobResponse pStatus_ =
+getJobResponse pStatus_ = 
     GetJobResponse'
     { _gjrsJob = Nothing
     , _gjrsStatus = pStatus_

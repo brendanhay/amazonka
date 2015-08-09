@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -1656,10 +1656,10 @@ module Network.AWS.EC2.Types
     , vsiVolumeId
     ) where
 
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.EC2.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.EC2.Types.Product
+import Network.AWS.EC2.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2015-04-15@ of the Amazon Elastic Compute Cloud SDK.
 data EC2
@@ -1668,7 +1668,7 @@ instance AWSService EC2 where
     type Sg EC2 = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "EC2"
             , _svcPrefix = "ec2"
@@ -1679,7 +1679,7 @@ instance AWSService EC2 where
             , _svcError = parseXMLError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -1687,9 +1687,9 @@ instance AWSService EC2 where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "RequestLimitExceeded" . hasStatus 503) e =
+          | has (hasCode "RequestLimitExceeded" . hasStatus 503) e = 
               Just "request_limit_exceeded"
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"

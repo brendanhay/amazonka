@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CloudFront.CreateDistribution
     , cdrsStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new distribution.
 --
@@ -56,7 +58,7 @@ newtype CreateDistribution = CreateDistribution'
 
 -- | 'CreateDistribution' smart constructor.
 createDistribution :: DistributionConfig -> CreateDistribution
-createDistribution pDistributionConfig_ =
+createDistribution pDistributionConfig_ = 
     CreateDistribution'
     { _cdDistributionConfig = pDistributionConfig_
     }
@@ -108,15 +110,15 @@ instance ToQuery CreateDistribution where
 --
 -- * 'cdrsStatus'
 data CreateDistributionResponse = CreateDistributionResponse'
-    { _cdrsETag         :: !(Maybe Text)
+    { _cdrsETag :: !(Maybe Text)
     , _cdrsDistribution :: !(Maybe Distribution)
-    , _cdrsLocation     :: !(Maybe Text)
-    , _cdrsStatus       :: !Int
+    , _cdrsLocation :: !(Maybe Text)
+    , _cdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDistributionResponse' smart constructor.
 createDistributionResponse :: Int -> CreateDistributionResponse
-createDistributionResponse pStatus_ =
+createDistributionResponse pStatus_ = 
     CreateDistributionResponse'
     { _cdrsETag = Nothing
     , _cdrsDistribution = Nothing

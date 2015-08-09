@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,14 +36,15 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , dsptrsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeScalingProcessTypes' smart constructor.
 data DescribeScalingProcessTypes =
-    DescribeScalingProcessTypes'
+    DescribeScalingProcessTypes' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingProcessTypes' smart constructor.
@@ -86,12 +88,12 @@ instance ToQuery DescribeScalingProcessTypes where
 -- * 'dsptrsStatus'
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses :: !(Maybe [ProcessType])
-    , _dsptrsStatus    :: !Int
+    , _dsptrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
 describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse
-describeScalingProcessTypesResponse pStatus_ =
+describeScalingProcessTypesResponse pStatus_ = 
     DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses = Nothing
     , _dsptrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     , deleteStreamingDistributionResponse
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to delete a streaming distribution.
 --
@@ -50,12 +52,12 @@ import           Network.AWS.Response
 -- * 'dsdId'
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
     { _dsdIfMatch :: !(Maybe Text)
-    , _dsdId      :: !Text
+    , _dsdId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStreamingDistribution' smart constructor.
 deleteStreamingDistribution :: Text -> DeleteStreamingDistribution
-deleteStreamingDistribution pId_ =
+deleteStreamingDistribution pId_ = 
     DeleteStreamingDistribution'
     { _dsdIfMatch = Nothing
     , _dsdId = pId_
@@ -92,7 +94,7 @@ instance ToQuery DeleteStreamingDistribution where
 
 -- | /See:/ 'deleteStreamingDistributionResponse' smart constructor.
 data DeleteStreamingDistributionResponse =
-    DeleteStreamingDistributionResponse'
+    DeleteStreamingDistributionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStreamingDistributionResponse' smart constructor.

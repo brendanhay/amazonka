@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CloudFront.GetDistribution
     , gdrsStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to get a distribution\'s information.
 --
@@ -55,7 +57,7 @@ newtype GetDistribution = GetDistribution'
 
 -- | 'GetDistribution' smart constructor.
 getDistribution :: Text -> GetDistribution
-getDistribution pId_ =
+getDistribution pId_ = 
     GetDistribution'
     { _gdId = pId_
     }
@@ -97,14 +99,14 @@ instance ToQuery GetDistribution where
 --
 -- * 'gdrsStatus'
 data GetDistributionResponse = GetDistributionResponse'
-    { _gdrsETag         :: !(Maybe Text)
+    { _gdrsETag :: !(Maybe Text)
     , _gdrsDistribution :: !(Maybe Distribution)
-    , _gdrsStatus       :: !Int
+    , _gdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistributionResponse' smart constructor.
 getDistributionResponse :: Int -> GetDistributionResponse
-getDistributionResponse pStatus_ =
+getDistributionResponse pStatus_ = 
     GetDistributionResponse'
     { _gdrsETag = Nothing
     , _gdrsDistribution = Nothing

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     , acsgirsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an /AuthorizeCacheSecurityGroupIngress/ action.
 --
@@ -61,14 +63,14 @@ import           Network.AWS.Response
 --
 -- * 'acsgiEC2SecurityGroupOwnerId'
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
-    { _acsgiCacheSecurityGroupName  :: !Text
-    , _acsgiEC2SecurityGroupName    :: !Text
+    { _acsgiCacheSecurityGroupName :: !Text
+    , _acsgiEC2SecurityGroupName :: !Text
     , _acsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
 authorizeCacheSecurityGroupIngress :: Text -> Text -> Text -> AuthorizeCacheSecurityGroupIngress
-authorizeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
+authorizeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ = 
     AuthorizeCacheSecurityGroupIngress'
     { _acsgiCacheSecurityGroupName = pCacheSecurityGroupName_
     , _acsgiEC2SecurityGroupName = pEC2SecurityGroupName_
@@ -134,12 +136,12 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 -- * 'acsgirsStatus'
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _acsgirsStatus             :: !Int
+    , _acsgirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse
-authorizeCacheSecurityGroupIngressResponse pStatus_ =
+authorizeCacheSecurityGroupIngressResponse pStatus_ = 
     AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirsCacheSecurityGroup = Nothing
     , _acsgirsStatus = pStatus_

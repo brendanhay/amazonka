@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.CloudTrail.GetTrailStatus
     , gtsrsStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The name of a trail about which you want the current status.
 --
@@ -64,7 +66,7 @@ newtype GetTrailStatus = GetTrailStatus'
 
 -- | 'GetTrailStatus' smart constructor.
 getTrailStatus :: Text -> GetTrailStatus
-getTrailStatus pName_ =
+getTrailStatus pName_ = 
     GetTrailStatus'
     { _gtsName = pName_
     }
@@ -139,21 +141,21 @@ instance ToQuery GetTrailStatus where
 --
 -- * 'gtsrsStatus'
 data GetTrailStatusResponse = GetTrailStatusResponse'
-    { _gtsrsLatestDeliveryError               :: !(Maybe Text)
-    , _gtsrsStartLoggingTime                  :: !(Maybe POSIX)
-    , _gtsrsLatestNotificationError           :: !(Maybe Text)
-    , _gtsrsIsLogging                         :: !(Maybe Bool)
-    , _gtsrsLatestDeliveryTime                :: !(Maybe POSIX)
-    , _gtsrsLatestCloudWatchLogsDeliveryTime  :: !(Maybe POSIX)
+    { _gtsrsLatestDeliveryError :: !(Maybe Text)
+    , _gtsrsStartLoggingTime :: !(Maybe POSIX)
+    , _gtsrsLatestNotificationError :: !(Maybe Text)
+    , _gtsrsIsLogging :: !(Maybe Bool)
+    , _gtsrsLatestDeliveryTime :: !(Maybe POSIX)
+    , _gtsrsLatestCloudWatchLogsDeliveryTime :: !(Maybe POSIX)
     , _gtsrsLatestCloudWatchLogsDeliveryError :: !(Maybe Text)
-    , _gtsrsLatestNotificationTime            :: !(Maybe POSIX)
-    , _gtsrsStopLoggingTime                   :: !(Maybe POSIX)
-    , _gtsrsStatus                            :: !Int
+    , _gtsrsLatestNotificationTime :: !(Maybe POSIX)
+    , _gtsrsStopLoggingTime :: !(Maybe POSIX)
+    , _gtsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTrailStatusResponse' smart constructor.
 getTrailStatusResponse :: Int -> GetTrailStatusResponse
-getTrailStatusResponse pStatus_ =
+getTrailStatusResponse pStatus_ = 
     GetTrailStatusResponse'
     { _gtsrsLatestDeliveryError = Nothing
     , _gtsrsStartLoggingTime = Nothing

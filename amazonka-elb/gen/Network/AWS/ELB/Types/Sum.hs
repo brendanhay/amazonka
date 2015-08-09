@@ -17,4 +17,4 @@
 --
 module Network.AWS.ELB.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude

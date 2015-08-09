@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -332,10 +332,10 @@ module Network.AWS.CodePipeline.Types
     , tsLastChangedBy
     ) where
 
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.CodePipeline.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.CodePipeline.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2015-07-09@ of the Amazon CodePipeline SDK.
 data CodePipeline
@@ -344,7 +344,7 @@ instance AWSService CodePipeline where
     type Sg CodePipeline = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "CodePipeline"
             , _svcPrefix = "codepipeline"
@@ -355,7 +355,7 @@ instance AWSService CodePipeline where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -363,7 +363,7 @@ instance AWSService CodePipeline where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -377,7 +377,7 @@ _ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | The client token was specified in an invalid format
 _InvalidClientTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidClientTokenException =
+_InvalidClientTokenException = 
     _ServiceError . hasCode "InvalidClientTokenException"
 
 -- | The specified nonce was specified in an invalid format.
@@ -390,7 +390,7 @@ _ActionNotFoundException = _ServiceError . hasCode "ActionNotFoundException"
 
 -- | The specified gate declaration was specified in an invalid format.
 _InvalidBlockerDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidBlockerDeclarationException =
+_InvalidBlockerDeclarationException = 
     _ServiceError . hasCode "InvalidBlockerDeclarationException"
 
 -- | The specified job state was specified in an invalid format.
@@ -404,28 +404,28 @@ _InvalidJobException = _ServiceError . hasCode "InvalidJobException"
 -- | The specified pipeline version was specified in an invalid format or
 -- cannot be found.
 _PipelineVersionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineVersionNotFoundException =
+_PipelineVersionNotFoundException = 
     _ServiceError . hasCode "PipelineVersionNotFoundException"
 
 -- | The specified action type cannot be found.
 _ActionTypeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ActionTypeNotFoundException =
+_ActionTypeNotFoundException = 
     _ServiceError . hasCode "ActionTypeNotFoundException"
 
 -- | The next token was specified in an invalid format. Make sure that the
 -- next token you provided is the token returned by a previous call.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
+_InvalidNextTokenException = 
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | The specified stage declaration was specified in an invalid format.
 _InvalidStageDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidStageDeclarationException =
+_InvalidStageDeclarationException = 
     _ServiceError . hasCode "InvalidStageDeclarationException"
 
 -- | The specified action declaration was specified in an invalid format.
 _InvalidActionDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidActionDeclarationException =
+_InvalidActionDeclarationException = 
     _ServiceError . hasCode "InvalidActionDeclarationException"
 
 -- | The specified stage was specified in an invalid format or cannot be
@@ -439,18 +439,18 @@ _JobNotFoundException = _ServiceError . hasCode "JobNotFoundException"
 
 -- | The specified structure was specified in an invalid format.
 _InvalidStructureException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidStructureException =
+_InvalidStructureException = 
     _ServiceError . hasCode "InvalidStructureException"
 
 -- | The specified pipeline was specified in an invalid format or cannot be
 -- found.
 _PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineNotFoundException =
+_PipelineNotFoundException = 
     _ServiceError . hasCode "PipelineNotFoundException"
 
 -- | The specified pipeline name is already in use.
 _PipelineNameInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineNameInUseException =
+_PipelineNameInUseException = 
     _ServiceError . hasCode "PipelineNameInUseException"
 
 -- | The number of pipelines associated with the AWS account has exceeded the

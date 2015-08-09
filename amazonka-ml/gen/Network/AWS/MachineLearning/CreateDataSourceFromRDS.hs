@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -55,10 +56,11 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     , cdsfrdsrsStatus
     ) where
 
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRDS' smart constructor.
 --
@@ -74,16 +76,16 @@ import           Network.AWS.Response
 --
 -- * 'cdsfrdsRoleARN'
 data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
-    { _cdsfrdsDataSourceName    :: !(Maybe Text)
+    { _cdsfrdsDataSourceName :: !(Maybe Text)
     , _cdsfrdsComputeStatistics :: !(Maybe Bool)
-    , _cdsfrdsDataSourceId      :: !Text
-    , _cdsfrdsRDSData           :: !RDSDataSpec
-    , _cdsfrdsRoleARN           :: !Text
+    , _cdsfrdsDataSourceId :: !Text
+    , _cdsfrdsRDSData :: !RDSDataSpec
+    , _cdsfrdsRoleARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRDS' smart constructor.
 createDataSourceFromRDS :: Text -> RDSDataSpec -> Text -> CreateDataSourceFromRDS
-createDataSourceFromRDS pDataSourceId_ pRDSData_ pRoleARN_ =
+createDataSourceFromRDS pDataSourceId_ pRDSData_ pRoleARN_ = 
     CreateDataSourceFromRDS'
     { _cdsfrdsDataSourceName = Nothing
     , _cdsfrdsComputeStatistics = Nothing
@@ -221,12 +223,12 @@ instance ToQuery CreateDataSourceFromRDS where
 -- * 'cdsfrdsrsStatus'
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
     { _cdsfrdsrsDataSourceId :: !(Maybe Text)
-    , _cdsfrdsrsStatus       :: !Int
+    , _cdsfrdsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
 createDataSourceFromRDSResponse :: Int -> CreateDataSourceFromRDSResponse
-createDataSourceFromRDSResponse pStatus_ =
+createDataSourceFromRDSResponse pStatus_ = 
     CreateDataSourceFromRDSResponse'
     { _cdsfrdsrsDataSourceId = Nothing
     , _cdsfrdsrsStatus = pStatus_

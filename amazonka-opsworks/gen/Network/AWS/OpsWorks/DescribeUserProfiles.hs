@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     , duprsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeUserProfiles' smart constructor.
 --
@@ -57,7 +59,7 @@ newtype DescribeUserProfiles = DescribeUserProfiles'
 
 -- | 'DescribeUserProfiles' smart constructor.
 describeUserProfiles :: DescribeUserProfiles
-describeUserProfiles =
+describeUserProfiles = 
     DescribeUserProfiles'
     { _dupIAMUserARNs = Nothing
     }
@@ -109,12 +111,12 @@ instance ToQuery DescribeUserProfiles where
 -- * 'duprsStatus'
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
     { _duprsUserProfiles :: !(Maybe [UserProfile])
-    , _duprsStatus       :: !Int
+    , _duprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
 describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse
-describeUserProfilesResponse pStatus_ =
+describeUserProfilesResponse pStatus_ = 
     DescribeUserProfilesResponse'
     { _duprsUserProfiles = Nothing
     , _duprsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -50,10 +51,11 @@ module Network.AWS.OpsWorks.DescribeEcsClusters
     , decrsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEcsClusters' smart constructor.
 --
@@ -67,15 +69,15 @@ import           Network.AWS.Response
 --
 -- * 'decEcsClusterARNs'
 data DescribeEcsClusters = DescribeEcsClusters'
-    { _decNextToken      :: !(Maybe Text)
-    , _decStackId        :: !(Maybe Text)
-    , _decMaxResults     :: !(Maybe Int)
+    { _decNextToken :: !(Maybe Text)
+    , _decStackId :: !(Maybe Text)
+    , _decMaxResults :: !(Maybe Int)
     , _decEcsClusterARNs :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEcsClusters' smart constructor.
 describeEcsClusters :: DescribeEcsClusters
-describeEcsClusters =
+describeEcsClusters = 
     DescribeEcsClusters'
     { _decNextToken = Nothing
     , _decStackId = Nothing
@@ -158,14 +160,14 @@ instance ToQuery DescribeEcsClusters where
 --
 -- * 'decrsStatus'
 data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
-    { _decrsNextToken   :: !(Maybe Text)
+    { _decrsNextToken :: !(Maybe Text)
     , _decrsEcsClusters :: !(Maybe [EcsCluster])
-    , _decrsStatus      :: !Int
+    , _decrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEcsClustersResponse' smart constructor.
 describeEcsClustersResponse :: Int -> DescribeEcsClustersResponse
-describeEcsClustersResponse pStatus_ =
+describeEcsClustersResponse pStatus_ = 
     DescribeEcsClustersResponse'
     { _decrsNextToken = Nothing
     , _decrsEcsClusters = Nothing

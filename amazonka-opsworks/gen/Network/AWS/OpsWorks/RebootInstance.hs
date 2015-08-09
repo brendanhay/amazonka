@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.OpsWorks.RebootInstance
     , rebootInstanceResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'rebootInstance' smart constructor.
 --
@@ -56,7 +58,7 @@ newtype RebootInstance = RebootInstance'
 
 -- | 'RebootInstance' smart constructor.
 rebootInstance :: Text -> RebootInstance
-rebootInstance pInstanceId_ =
+rebootInstance pInstanceId_ = 
     RebootInstance'
     { _riInstanceId = pInstanceId_
     }
@@ -92,7 +94,7 @@ instance ToQuery RebootInstance where
 
 -- | /See:/ 'rebootInstanceResponse' smart constructor.
 data RebootInstanceResponse =
-    RebootInstanceResponse'
+    RebootInstanceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstanceResponse' smart constructor.

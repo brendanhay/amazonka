@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.EC2.DeleteFlowLogs
     , dflrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteFlowLogs' smart constructor.
 --
@@ -52,7 +54,7 @@ newtype DeleteFlowLogs = DeleteFlowLogs'
 
 -- | 'DeleteFlowLogs' smart constructor.
 deleteFlowLogs :: DeleteFlowLogs
-deleteFlowLogs =
+deleteFlowLogs = 
     DeleteFlowLogs'
     { _dflFlowLogIds = mempty
     }
@@ -95,12 +97,12 @@ instance ToQuery DeleteFlowLogs where
 -- * 'dflrsStatus'
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
     { _dflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dflrsStatus       :: !Int
+    , _dflrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFlowLogsResponse' smart constructor.
 deleteFlowLogsResponse :: Int -> DeleteFlowLogsResponse
-deleteFlowLogsResponse pStatus_ =
+deleteFlowLogsResponse pStatus_ = 
     DeleteFlowLogsResponse'
     { _dflrsUnsuccessful = Nothing
     , _dflrsStatus = pStatus_

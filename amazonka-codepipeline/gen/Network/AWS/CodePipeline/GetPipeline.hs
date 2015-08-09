@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.CodePipeline.GetPipeline
     , gprsStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get pipeline action.
 --
@@ -56,12 +58,12 @@ import           Network.AWS.Response
 -- * 'gpName'
 data GetPipeline = GetPipeline'
     { _gpVersion :: !(Maybe Nat)
-    , _gpName    :: !Text
+    , _gpName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipeline' smart constructor.
 getPipeline :: Text -> GetPipeline
-getPipeline pName_ =
+getPipeline pName_ = 
     GetPipeline'
     { _gpVersion = Nothing
     , _gpName = pName_
@@ -117,12 +119,12 @@ instance ToQuery GetPipeline where
 -- * 'gprsStatus'
 data GetPipelineResponse = GetPipelineResponse'
     { _gprsPipeline :: !(Maybe PipelineDeclaration)
-    , _gprsStatus   :: !Int
+    , _gprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineResponse' smart constructor.
 getPipelineResponse :: Int -> GetPipelineResponse
-getPipelineResponse pStatus_ =
+getPipelineResponse pStatus_ = 
     GetPipelineResponse'
     { _gprsPipeline = Nothing
     , _gprsStatus = pStatus_

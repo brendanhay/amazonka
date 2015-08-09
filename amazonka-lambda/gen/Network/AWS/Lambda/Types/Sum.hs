@@ -17,11 +17,11 @@
 --
 module Network.AWS.Lambda.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data EventSourcePosition
-    = TrimHorizon
-    | Latest
+    = TrimHorizon 
+    | Latest 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventSourcePosition where
@@ -45,9 +45,9 @@ instance ToJSON EventSourcePosition where
     toJSON = toJSONText
 
 data InvocationType
-    = Event
-    | RequestResponse
-    | DryRun
+    = Event 
+    | RequestResponse 
+    | DryRun 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InvocationType where
@@ -73,8 +73,8 @@ instance ToJSON InvocationType where
     toJSON = toJSONText
 
 data LogType
-    = None
-    | Tail
+    = None 
+    | Tail 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LogType where
@@ -98,8 +98,8 @@ instance ToJSON LogType where
     toJSON = toJSONText
 
 data Runtime
-    = JAVA8
-    | Nodejs
+    = JAVA8 
+    | Nodejs 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Runtime where

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -48,10 +49,11 @@ module Network.AWS.ECS.UpdateContainerAgent
     , ucarsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateContainerAgent' smart constructor.
 --
@@ -61,13 +63,13 @@ import           Network.AWS.Response
 --
 -- * 'ucaContainerInstance'
 data UpdateContainerAgent = UpdateContainerAgent'
-    { _ucaCluster           :: !(Maybe Text)
+    { _ucaCluster :: !(Maybe Text)
     , _ucaContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateContainerAgent' smart constructor.
 updateContainerAgent :: Text -> UpdateContainerAgent
-updateContainerAgent pContainerInstance_ =
+updateContainerAgent pContainerInstance_ = 
     UpdateContainerAgent'
     { _ucaCluster = Nothing
     , _ucaContainerInstance = pContainerInstance_
@@ -127,12 +129,12 @@ instance ToQuery UpdateContainerAgent where
 -- * 'ucarsStatus'
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
     { _ucarsContainerInstance :: !(Maybe ContainerInstance)
-    , _ucarsStatus            :: !Int
+    , _ucarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
 updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse
-updateContainerAgentResponse pStatus_ =
+updateContainerAgentResponse pStatus_ = 
     UpdateContainerAgentResponse'
     { _ucarsContainerInstance = Nothing
     , _ucarsStatus = pStatus_

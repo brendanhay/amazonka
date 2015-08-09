@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CognitoSync.SetCognitoEvents
     , setCognitoEventsResponse
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to configure Cognito Events\"
 --
@@ -59,12 +61,12 @@ import           Network.AWS.Response
 -- * 'sceEvents'
 data SetCognitoEvents = SetCognitoEvents'
     { _sceIdentityPoolId :: !Text
-    , _sceEvents         :: !(Map Text Text)
+    , _sceEvents :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetCognitoEvents' smart constructor.
 setCognitoEvents :: Text -> SetCognitoEvents
-setCognitoEvents pIdentityPoolId_ =
+setCognitoEvents pIdentityPoolId_ = 
     SetCognitoEvents'
     { _sceIdentityPoolId = pIdentityPoolId_
     , _sceEvents = mempty
@@ -106,7 +108,7 @@ instance ToQuery SetCognitoEvents where
 
 -- | /See:/ 'setCognitoEventsResponse' smart constructor.
 data SetCognitoEventsResponse =
-    SetCognitoEventsResponse'
+    SetCognitoEventsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetCognitoEventsResponse' smart constructor.

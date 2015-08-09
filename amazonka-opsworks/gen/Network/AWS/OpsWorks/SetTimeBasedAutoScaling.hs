@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     , setTimeBasedAutoScalingResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setTimeBasedAutoScaling' smart constructor.
 --
@@ -56,12 +58,12 @@ import           Network.AWS.Response
 -- * 'stbasInstanceId'
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
     { _stbasAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
-    , _stbasInstanceId          :: !Text
+    , _stbasInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTimeBasedAutoScaling' smart constructor.
 setTimeBasedAutoScaling :: Text -> SetTimeBasedAutoScaling
-setTimeBasedAutoScaling pInstanceId_ =
+setTimeBasedAutoScaling pInstanceId_ = 
     SetTimeBasedAutoScaling'
     { _stbasAutoScalingSchedule = Nothing
     , _stbasInstanceId = pInstanceId_
@@ -107,7 +109,7 @@ instance ToQuery SetTimeBasedAutoScaling where
 
 -- | /See:/ 'setTimeBasedAutoScalingResponse' smart constructor.
 data SetTimeBasedAutoScalingResponse =
-    SetTimeBasedAutoScalingResponse'
+    SetTimeBasedAutoScalingResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTimeBasedAutoScalingResponse' smart constructor.

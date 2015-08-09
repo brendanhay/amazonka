@@ -18,8 +18,8 @@
 --
 module Network.AWS.CloudWatch.Types.Product where
 
-import           Network.AWS.CloudWatch.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.CloudWatch.Types.Sum
+import Network.AWS.Prelude
 
 -- | The @AlarmHistoryItem@ data type contains descriptive information about
 -- the history of a specific alarm. If you call DescribeAlarmHistory,
@@ -40,16 +40,16 @@ import           Network.AWS.Prelude
 --
 -- * 'ahiHistorySummary'
 data AlarmHistoryItem = AlarmHistoryItem'
-    { _ahiAlarmName       :: !(Maybe Text)
+    { _ahiAlarmName :: !(Maybe Text)
     , _ahiHistoryItemType :: !(Maybe HistoryItemType)
-    , _ahiHistoryData     :: !(Maybe Text)
-    , _ahiTimestamp       :: !(Maybe ISO8601)
-    , _ahiHistorySummary  :: !(Maybe Text)
+    , _ahiHistoryData :: !(Maybe Text)
+    , _ahiTimestamp :: !(Maybe ISO8601)
+    , _ahiHistorySummary :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AlarmHistoryItem' smart constructor.
 alarmHistoryItem :: AlarmHistoryItem
-alarmHistoryItem =
+alarmHistoryItem = 
     AlarmHistoryItem'
     { _ahiAlarmName = Nothing
     , _ahiHistoryItemType = Nothing
@@ -113,17 +113,17 @@ instance FromXML AlarmHistoryItem where
 -- * 'dUnit'
 data Datapoint = Datapoint'
     { _dSampleCount :: !(Maybe Double)
-    , _dMaximum     :: !(Maybe Double)
-    , _dAverage     :: !(Maybe Double)
-    , _dMinimum     :: !(Maybe Double)
-    , _dSum         :: !(Maybe Double)
-    , _dTimestamp   :: !(Maybe ISO8601)
-    , _dUnit        :: !(Maybe StandardUnit)
+    , _dMaximum :: !(Maybe Double)
+    , _dAverage :: !(Maybe Double)
+    , _dMinimum :: !(Maybe Double)
+    , _dSum :: !(Maybe Double)
+    , _dTimestamp :: !(Maybe ISO8601)
+    , _dUnit :: !(Maybe StandardUnit)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Datapoint' smart constructor.
 datapoint :: Datapoint
-datapoint =
+datapoint = 
     Datapoint'
     { _dSampleCount = Nothing
     , _dMaximum = Nothing
@@ -191,13 +191,13 @@ instance FromXML Datapoint where
 --
 -- * 'dValue'
 data Dimension = Dimension'
-    { _dName  :: !Text
+    { _dName :: !Text
     , _dValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Dimension' smart constructor.
 dimension :: Text -> Text -> Dimension
-dimension pName_ pValue_ =
+dimension pName_ pValue_ = 
     Dimension'
     { _dName = pName_
     , _dValue = pValue_
@@ -230,12 +230,12 @@ instance ToQuery Dimension where
 -- * 'dfName'
 data DimensionFilter = DimensionFilter'
     { _dfValue :: !(Maybe Text)
-    , _dfName  :: !Text
+    , _dfName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DimensionFilter' smart constructor.
 dimensionFilter :: Text -> DimensionFilter
-dimensionFilter pName_ =
+dimensionFilter pName_ = 
     DimensionFilter'
     { _dfValue = Nothing
     , _dfName = pName_
@@ -272,13 +272,13 @@ instance ToQuery DimensionFilter where
 -- * 'mDimensions'
 data Metric = Metric'
     { _mMetricName :: !(Maybe Text)
-    , _mNamespace  :: !(Maybe Text)
+    , _mNamespace :: !(Maybe Text)
     , _mDimensions :: !(Maybe [Dimension])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Metric' smart constructor.
 metric :: Metric
-metric =
+metric = 
     Metric'
     { _mMetricName = Nothing
     , _mNamespace = Nothing
@@ -353,32 +353,32 @@ instance FromXML Metric where
 --
 -- * 'maUnit'
 data MetricAlarm = MetricAlarm'
-    { _maAlarmName                          :: !(Maybe Text)
-    , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
-    , _maAlarmDescription                   :: !(Maybe Text)
-    , _maPeriod                             :: !(Maybe Nat)
-    , _maEvaluationPeriods                  :: !(Maybe Nat)
-    , _maMetricName                         :: !(Maybe Text)
-    , _maNamespace                          :: !(Maybe Text)
-    , _maOKActions                          :: !(Maybe [Text])
-    , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
-    , _maStateValue                         :: !(Maybe StateValue)
-    , _maThreshold                          :: !(Maybe Double)
-    , _maActionsEnabled                     :: !(Maybe Bool)
+    { _maAlarmName :: !(Maybe Text)
+    , _maStateUpdatedTimestamp :: !(Maybe ISO8601)
+    , _maAlarmDescription :: !(Maybe Text)
+    , _maPeriod :: !(Maybe Nat)
+    , _maEvaluationPeriods :: !(Maybe Nat)
+    , _maMetricName :: !(Maybe Text)
+    , _maNamespace :: !(Maybe Text)
+    , _maOKActions :: !(Maybe [Text])
+    , _maComparisonOperator :: !(Maybe ComparisonOperator)
+    , _maStateValue :: !(Maybe StateValue)
+    , _maThreshold :: !(Maybe Double)
+    , _maActionsEnabled :: !(Maybe Bool)
     , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
-    , _maInsufficientDataActions            :: !(Maybe [Text])
-    , _maDimensions                         :: !(Maybe [Dimension])
-    , _maStateReasonData                    :: !(Maybe Text)
-    , _maStateReason                        :: !(Maybe Text)
-    , _maAlarmARN                           :: !(Maybe Text)
-    , _maAlarmActions                       :: !(Maybe [Text])
-    , _maStatistic                          :: !(Maybe Statistic)
-    , _maUnit                               :: !(Maybe StandardUnit)
+    , _maInsufficientDataActions :: !(Maybe [Text])
+    , _maDimensions :: !(Maybe [Dimension])
+    , _maStateReasonData :: !(Maybe Text)
+    , _maStateReason :: !(Maybe Text)
+    , _maAlarmARN :: !(Maybe Text)
+    , _maAlarmActions :: !(Maybe [Text])
+    , _maStatistic :: !(Maybe Statistic)
+    , _maUnit :: !(Maybe StandardUnit)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricAlarm' smart constructor.
 metricAlarm :: MetricAlarm
-metricAlarm =
+metricAlarm = 
     MetricAlarm'
     { _maAlarmName = Nothing
     , _maStateUpdatedTimestamp = Nothing
@@ -566,17 +566,17 @@ instance FromXML MetricAlarm where
 --
 -- * 'mdMetricName'
 data MetricDatum = MetricDatum'
-    { _mdValue           :: !(Maybe Double)
-    , _mdDimensions      :: !(Maybe [Dimension])
-    , _mdTimestamp       :: !(Maybe ISO8601)
+    { _mdValue :: !(Maybe Double)
+    , _mdDimensions :: !(Maybe [Dimension])
+    , _mdTimestamp :: !(Maybe ISO8601)
     , _mdStatisticValues :: !(Maybe StatisticSet)
-    , _mdUnit            :: !(Maybe StandardUnit)
-    , _mdMetricName      :: !Text
+    , _mdUnit :: !(Maybe StandardUnit)
+    , _mdMetricName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricDatum' smart constructor.
 metricDatum :: Text -> MetricDatum
-metricDatum pMetricName_ =
+metricDatum pMetricName_ = 
     MetricDatum'
     { _mdValue = Nothing
     , _mdDimensions = Nothing
@@ -651,14 +651,14 @@ instance ToQuery MetricDatum where
 -- * 'ssMaximum'
 data StatisticSet = StatisticSet'
     { _ssSampleCount :: !Double
-    , _ssSum         :: !Double
-    , _ssMinimum     :: !Double
-    , _ssMaximum     :: !Double
+    , _ssSum :: !Double
+    , _ssMinimum :: !Double
+    , _ssMaximum :: !Double
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StatisticSet' smart constructor.
 statisticSet :: Double -> Double -> Double -> Double -> StatisticSet
-statisticSet pSampleCount_ pSum_ pMinimum_ pMaximum_ =
+statisticSet pSampleCount_ pSum_ pMinimum_ pMaximum_ = 
     StatisticSet'
     { _ssSampleCount = pSampleCount_
     , _ssSum = pSum_

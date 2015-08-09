@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.DataPipeline.CreatePipeline
     , cprsPipelineId
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreatePipeline.
 --
@@ -60,14 +62,14 @@ import           Network.AWS.Response
 -- * 'cpUniqueId'
 data CreatePipeline = CreatePipeline'
     { _cpDescription :: !(Maybe Text)
-    , _cpTags        :: !(Maybe [Tag])
-    , _cpName        :: !Text
-    , _cpUniqueId    :: !Text
+    , _cpTags :: !(Maybe [Tag])
+    , _cpName :: !Text
+    , _cpUniqueId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> CreatePipeline
-createPipeline pName_ pUniqueId_ =
+createPipeline pName_ pUniqueId_ = 
     CreatePipeline'
     { _cpDescription = Nothing
     , _cpTags = Nothing
@@ -148,13 +150,13 @@ instance ToQuery CreatePipeline where
 --
 -- * 'cprsPipelineId'
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprsStatus     :: !Int
+    { _cprsStatus :: !Int
     , _cprsPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> Text -> CreatePipelineResponse
-createPipelineResponse pStatus_ pPipelineId_ =
+createPipelineResponse pStatus_ pPipelineId_ = 
     CreatePipelineResponse'
     { _cprsStatus = pStatus_
     , _cprsPipelineId = pPipelineId_

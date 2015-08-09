@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -242,10 +242,10 @@ module Network.AWS.ECS.Types
     , vfReadOnly
     ) where
 
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.ECS.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.ECS.Types.Product
+import Network.AWS.ECS.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2014-11-13@ of the Amazon EC2 Container Service SDK.
 data ECS
@@ -254,7 +254,7 @@ instance AWSService ECS where
     type Sg ECS = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "ECS"
             , _svcPrefix = "ecs"
@@ -265,7 +265,7 @@ instance AWSService ECS where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -273,7 +273,7 @@ instance AWSService ECS where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -284,7 +284,7 @@ instance AWSService ECS where
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterException =
+_InvalidParameterException = 
     _ServiceError . hasCode "InvalidParameterException"
 
 -- | These errors are usually caused by a server-side issue.
@@ -295,28 +295,28 @@ _ServerException = _ServiceError . hasCode "ServerException"
 -- update the service to reduce its desired task count to 0 and then delete
 -- the service. For more information, see UpdateService and DeleteService.
 _ClusterContainsServicesException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClusterContainsServicesException =
+_ClusterContainsServicesException = 
     _ServiceError . hasCode "ClusterContainsServicesException"
 
 -- | You cannot delete a cluster that has registered container instances. You
 -- must first deregister the container instances before you can delete the
 -- cluster. For more information, see DeregisterContainerInstance.
 _ClusterContainsContainerInstancesException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClusterContainsContainerInstancesException =
+_ClusterContainsContainerInstancesException = 
     _ServiceError . hasCode "ClusterContainsContainerInstancesException"
 
 -- | The specified service is not active. You cannot update a service that is
 -- not active. If you have previously deleted a service, you can recreate
 -- it with CreateService.
 _ServiceNotActiveException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceNotActiveException =
+_ServiceNotActiveException = 
     _ServiceError . hasCode "ServiceNotActiveException"
 
 -- | There is no update available for this Amazon ECS container agent. This
 -- could be because the agent is already running the latest version, or it
 -- is so old that there is no update path to the current version.
 _NoUpdateAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_NoUpdateAvailableException =
+_NoUpdateAvailableException = 
     _ServiceError . hasCode "NoUpdateAvailableException"
 
 -- | The specified cluster could not be found. You can view your available
@@ -344,7 +344,7 @@ _MissingVersionException = _ServiceError . hasCode "MissingVersionException"
 -- @STAGING@, the update process can get stuck in that state. However, when
 -- the agent reconnects, it will resume where it stopped previously.
 _UpdateInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
-_UpdateInProgressException =
+_UpdateInProgressException = 
     _ServiceError . hasCode "UpdateInProgressException"
 
 -- | These errors are usually caused by something the client did, such as use

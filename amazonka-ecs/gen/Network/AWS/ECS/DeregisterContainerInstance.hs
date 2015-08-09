@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -52,10 +53,11 @@ module Network.AWS.ECS.DeregisterContainerInstance
     , dcirsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterContainerInstance' smart constructor.
 --
@@ -67,14 +69,14 @@ import           Network.AWS.Response
 --
 -- * 'derContainerInstance'
 data DeregisterContainerInstance = DeregisterContainerInstance'
-    { _derCluster           :: !(Maybe Text)
-    , _derForce             :: !(Maybe Bool)
+    { _derCluster :: !(Maybe Text)
+    , _derForce :: !(Maybe Bool)
     , _derContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstance' smart constructor.
 deregisterContainerInstance :: Text -> DeregisterContainerInstance
-deregisterContainerInstance pContainerInstance_ =
+deregisterContainerInstance pContainerInstance_ = 
     DeregisterContainerInstance'
     { _derCluster = Nothing
     , _derForce = Nothing
@@ -151,12 +153,12 @@ instance ToQuery DeregisterContainerInstance where
 -- * 'dcirsStatus'
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
     { _dcirsContainerInstance :: !(Maybe ContainerInstance)
-    , _dcirsStatus            :: !Int
+    , _dcirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
 deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
-deregisterContainerInstanceResponse pStatus_ =
+deregisterContainerInstanceResponse pStatus_ = 
     DeregisterContainerInstanceResponse'
     { _dcirsContainerInstance = Nothing
     , _dcirsStatus = pStatus_

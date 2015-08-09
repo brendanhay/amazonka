@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     , rccrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /RebootCacheCluster/ action.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 --
 -- * 'rccCacheNodeIdsToReboot'
 data RebootCacheCluster = RebootCacheCluster'
-    { _rccCacheClusterId       :: !Text
+    { _rccCacheClusterId :: !Text
     , _rccCacheNodeIdsToReboot :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCacheCluster' smart constructor.
 rebootCacheCluster :: Text -> RebootCacheCluster
-rebootCacheCluster pCacheClusterId_ =
+rebootCacheCluster pCacheClusterId_ = 
     RebootCacheCluster'
     { _rccCacheClusterId = pCacheClusterId_
     , _rccCacheNodeIdsToReboot = mempty
@@ -120,12 +122,12 @@ instance ToQuery RebootCacheCluster where
 -- * 'rccrsStatus'
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
     { _rccrsCacheCluster :: !(Maybe CacheCluster)
-    , _rccrsStatus       :: !Int
+    , _rccrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCacheClusterResponse' smart constructor.
 rebootCacheClusterResponse :: Int -> RebootCacheClusterResponse
-rebootCacheClusterResponse pStatus_ =
+rebootCacheClusterResponse pStatus_ = 
     RebootCacheClusterResponse'
     { _rccrsCacheCluster = Nothing
     , _rccrsStatus = pStatus_

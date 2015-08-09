@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -69,10 +70,11 @@ module Network.AWS.Glacier.SetVaultNotifications
     , setVaultNotificationsResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to configure notifications that will be sent when
 -- specific events happen to a vault.
@@ -88,13 +90,13 @@ import           Network.AWS.Response
 -- * 'svnVaultName'
 data SetVaultNotifications = SetVaultNotifications'
     { _svnVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
-    , _svnAccountId               :: !Text
-    , _svnVaultName               :: !Text
+    , _svnAccountId :: !Text
+    , _svnVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultNotifications' smart constructor.
 setVaultNotifications :: Text -> Text -> SetVaultNotifications
-setVaultNotifications pAccountId_ pVaultName_ =
+setVaultNotifications pAccountId_ pVaultName_ = 
     SetVaultNotifications'
     { _svnVaultNotificationConfig = Nothing
     , _svnAccountId = pAccountId_
@@ -144,7 +146,7 @@ instance ToQuery SetVaultNotifications where
 
 -- | /See:/ 'setVaultNotificationsResponse' smart constructor.
 data SetVaultNotificationsResponse =
-    SetVaultNotificationsResponse'
+    SetVaultNotificationsResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultNotificationsResponse' smart constructor.

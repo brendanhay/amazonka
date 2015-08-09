@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.DeviceFarm.ListArtifacts
     , larsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list artifacts operation.
 --
@@ -57,13 +59,13 @@ import           Network.AWS.Response
 -- * 'laType'
 data ListArtifacts = ListArtifacts'
     { _laNextToken :: !(Maybe Text)
-    , _laArn       :: !Text
-    , _laType      :: !ArtifactCategory
+    , _laArn :: !Text
+    , _laType :: !ArtifactCategory
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListArtifacts' smart constructor.
 listArtifacts :: Text -> ArtifactCategory -> ListArtifacts
-listArtifacts pArn_ pType_ =
+listArtifacts pArn_ pType_ = 
     ListArtifacts'
     { _laNextToken = Nothing
     , _laArn = pArn_
@@ -137,12 +139,12 @@ instance ToQuery ListArtifacts where
 data ListArtifactsResponse = ListArtifactsResponse'
     { _larsArtifacts :: !(Maybe [Artifact])
     , _larsNextToken :: !(Maybe Text)
-    , _larsStatus    :: !Int
+    , _larsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListArtifactsResponse' smart constructor.
 listArtifactsResponse :: Int -> ListArtifactsResponse
-listArtifactsResponse pStatus_ =
+listArtifactsResponse pStatus_ = 
     ListArtifactsResponse'
     { _larsArtifacts = Nothing
     , _larsNextToken = Nothing

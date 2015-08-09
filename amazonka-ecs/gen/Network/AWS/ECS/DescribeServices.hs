@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.ECS.DescribeServices
     , dssrsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeServices' smart constructor.
 --
@@ -51,13 +53,13 @@ import           Network.AWS.Response
 --
 -- * 'dServices'
 data DescribeServices = DescribeServices'
-    { _dCluster  :: !(Maybe Text)
+    { _dCluster :: !(Maybe Text)
     , _dServices :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
-describeServices =
+describeServices = 
     DescribeServices'
     { _dCluster = Nothing
     , _dServices = mempty
@@ -116,12 +118,12 @@ instance ToQuery DescribeServices where
 data DescribeServicesResponse = DescribeServicesResponse'
     { _dssrsFailures :: !(Maybe [Failure])
     , _dssrsServices :: !(Maybe [ContainerService])
-    , _dssrsStatus   :: !Int
+    , _dssrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
-describeServicesResponse pStatus_ =
+describeServicesResponse pStatus_ = 
     DescribeServicesResponse'
     { _dssrsFailures = Nothing
     , _dssrsServices = Nothing

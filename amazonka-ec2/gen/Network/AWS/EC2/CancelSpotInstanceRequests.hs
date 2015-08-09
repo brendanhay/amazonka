@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     , csirrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CancelSpotInstanceRequests.
 --
@@ -61,13 +63,13 @@ import           Network.AWS.Response
 --
 -- * 'csirSpotInstanceRequestIds'
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-    { _csirDryRun                 :: !(Maybe Bool)
+    { _csirDryRun :: !(Maybe Bool)
     , _csirSpotInstanceRequestIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotInstanceRequests' smart constructor.
 cancelSpotInstanceRequests :: CancelSpotInstanceRequests
-cancelSpotInstanceRequests =
+cancelSpotInstanceRequests = 
     CancelSpotInstanceRequests'
     { _csirDryRun = Nothing
     , _csirSpotInstanceRequestIds = mempty
@@ -124,12 +126,12 @@ instance ToQuery CancelSpotInstanceRequests where
 -- * 'csirrsStatus'
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
     { _csirrsCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
-    , _csirrsStatus                        :: !Int
+    , _csirrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
 cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse pStatus_ =
+cancelSpotInstanceRequestsResponse pStatus_ = 
     CancelSpotInstanceRequestsResponse'
     { _csirrsCancelledSpotInstanceRequests = Nothing
     , _csirrsStatus = pStatus_

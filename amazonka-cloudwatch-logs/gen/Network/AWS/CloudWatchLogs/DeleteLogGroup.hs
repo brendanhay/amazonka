@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     , deleteLogGroupResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLogGroup' smart constructor.
 --
@@ -50,7 +52,7 @@ newtype DeleteLogGroup = DeleteLogGroup'
 
 -- | 'DeleteLogGroup' smart constructor.
 deleteLogGroup :: Text -> DeleteLogGroup
-deleteLogGroup pLogGroupName_ =
+deleteLogGroup pLogGroupName_ = 
     DeleteLogGroup'
     { _dlgLogGroupName = pLogGroupName_
     }
@@ -86,7 +88,7 @@ instance ToQuery DeleteLogGroup where
 
 -- | /See:/ 'deleteLogGroupResponse' smart constructor.
 data DeleteLogGroupResponse =
-    DeleteLogGroupResponse'
+    DeleteLogGroupResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogGroupResponse' smart constructor.

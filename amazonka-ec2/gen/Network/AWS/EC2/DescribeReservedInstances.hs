@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -43,10 +44,11 @@ module Network.AWS.EC2.DescribeReservedInstances
     , drirsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstances' smart constructor.
 --
@@ -60,15 +62,15 @@ import           Network.AWS.Response
 --
 -- * 'driDryRun'
 data DescribeReservedInstances = DescribeReservedInstances'
-    { _driFilters              :: !(Maybe [Filter])
-    , _driOfferingType         :: !(Maybe OfferingTypeValues)
+    { _driFilters :: !(Maybe [Filter])
+    , _driOfferingType :: !(Maybe OfferingTypeValues)
     , _driReservedInstancesIds :: !(Maybe [Text])
-    , _driDryRun               :: !(Maybe Bool)
+    , _driDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstances' smart constructor.
 describeReservedInstances :: DescribeReservedInstances
-describeReservedInstances =
+describeReservedInstances = 
     DescribeReservedInstances'
     { _driFilters = Nothing
     , _driOfferingType = Nothing
@@ -196,12 +198,12 @@ instance ToQuery DescribeReservedInstances where
 -- * 'drirsStatus'
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
     { _drirsReservedInstances :: !(Maybe [ReservedInstances])
-    , _drirsStatus            :: !Int
+    , _drirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesResponse' smart constructor.
 describeReservedInstancesResponse :: Int -> DescribeReservedInstancesResponse
-describeReservedInstancesResponse pStatus_ =
+describeReservedInstancesResponse pStatus_ = 
     DescribeReservedInstancesResponse'
     { _drirsReservedInstances = Nothing
     , _drirsStatus = pStatus_

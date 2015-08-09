@@ -15,38 +15,38 @@
 --
 module Network.AWS.EC2.Waiters where
 
-import           Network.AWS.EC2.DescribeBundleTasks
-import           Network.AWS.EC2.DescribeConversionTasks
-import           Network.AWS.EC2.DescribeConversionTasks
-import           Network.AWS.EC2.DescribeConversionTasks
-import           Network.AWS.EC2.DescribeCustomerGateways
-import           Network.AWS.EC2.DescribeExportTasks
-import           Network.AWS.EC2.DescribeExportTasks
-import           Network.AWS.EC2.DescribeImages
-import           Network.AWS.EC2.DescribeInstances
-import           Network.AWS.EC2.DescribeInstances
-import           Network.AWS.EC2.DescribeInstances
-import           Network.AWS.EC2.DescribeInstances
-import           Network.AWS.EC2.DescribeInstanceStatus
-import           Network.AWS.EC2.DescribeInstanceStatus
-import           Network.AWS.EC2.DescribeSnapshots
-import           Network.AWS.EC2.DescribeSpotInstanceRequests
-import           Network.AWS.EC2.DescribeSubnets
-import           Network.AWS.EC2.DescribeVolumes
-import           Network.AWS.EC2.DescribeVolumes
-import           Network.AWS.EC2.DescribeVolumes
-import           Network.AWS.EC2.DescribeVPCs
-import           Network.AWS.EC2.DescribeVPNConnections
-import           Network.AWS.EC2.DescribeVPNConnections
-import           Network.AWS.EC2.GetPasswordData
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.EC2.DescribeBundleTasks
+import Network.AWS.EC2.DescribeConversionTasks
+import Network.AWS.EC2.DescribeConversionTasks
+import Network.AWS.EC2.DescribeConversionTasks
+import Network.AWS.EC2.DescribeCustomerGateways
+import Network.AWS.EC2.DescribeExportTasks
+import Network.AWS.EC2.DescribeExportTasks
+import Network.AWS.EC2.DescribeImages
+import Network.AWS.EC2.DescribeInstanceStatus
+import Network.AWS.EC2.DescribeInstanceStatus
+import Network.AWS.EC2.DescribeInstances
+import Network.AWS.EC2.DescribeInstances
+import Network.AWS.EC2.DescribeInstances
+import Network.AWS.EC2.DescribeInstances
+import Network.AWS.EC2.DescribeSnapshots
+import Network.AWS.EC2.DescribeSpotInstanceRequests
+import Network.AWS.EC2.DescribeSubnets
+import Network.AWS.EC2.DescribeVPCs
+import Network.AWS.EC2.DescribeVPNConnections
+import Network.AWS.EC2.DescribeVPNConnections
+import Network.AWS.EC2.DescribeVolumes
+import Network.AWS.EC2.DescribeVolumes
+import Network.AWS.EC2.DescribeVolumes
+import Network.AWS.EC2.GetPasswordData
+import Network.AWS.EC2.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 instanceTerminated :: Wait DescribeInstances
-instanceTerminated =
+instanceTerminated = 
     Wait
     { _waitName = "InstanceTerminated"
     , _waitAttempts = 40
@@ -74,7 +74,7 @@ instanceTerminated =
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 volumeInUse :: Wait DescribeVolumes
-volumeInUse =
+volumeInUse = 
     Wait
     { _waitName = "VolumeInUse"
     , _waitAttempts = 40
@@ -94,7 +94,7 @@ volumeInUse =
 -- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 subnetAvailable :: Wait DescribeSubnets
-subnetAvailable =
+subnetAvailable = 
     Wait
     { _waitName = "SubnetAvailable"
     , _waitAttempts = 40
@@ -109,7 +109,7 @@ subnetAvailable =
 -- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 systemStatusOK :: Wait DescribeInstanceStatus
-systemStatusOK =
+systemStatusOK = 
     Wait
     { _waitName = "SystemStatusOk"
     , _waitAttempts = 40
@@ -124,7 +124,7 @@ systemStatusOK =
 -- | Polls 'Network.AWS.EC2.DescribeCustomerGateways' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 customerGatewayAvailable :: Wait DescribeCustomerGateways
-customerGatewayAvailable =
+customerGatewayAvailable = 
     Wait
     { _waitName = "CustomerGatewayAvailable"
     , _waitAttempts = 40
@@ -149,7 +149,7 @@ customerGatewayAvailable =
 -- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 conversionTaskCompleted :: Wait DescribeConversionTasks
-conversionTaskCompleted =
+conversionTaskCompleted = 
     Wait
     { _waitName = "ConversionTaskCompleted"
     , _waitAttempts = 40
@@ -174,7 +174,7 @@ conversionTaskCompleted =
 -- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 conversionTaskDeleted :: Wait DescribeConversionTasks
-conversionTaskDeleted =
+conversionTaskDeleted = 
     Wait
     { _waitName = "ConversionTaskDeleted"
     , _waitAttempts = 40
@@ -189,7 +189,7 @@ conversionTaskDeleted =
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 instanceStopped :: Wait DescribeInstances
-instanceStopped =
+instanceStopped = 
     Wait
     { _waitName = "InstanceStopped"
     , _waitAttempts = 40
@@ -217,7 +217,7 @@ instanceStopped =
 -- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 passwordDataAvailable :: Wait GetPasswordData
-passwordDataAvailable =
+passwordDataAvailable = 
     Wait
     { _waitName = "PasswordDataAvailable"
     , _waitAttempts = 40
@@ -231,7 +231,7 @@ passwordDataAvailable =
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 instanceRunning :: Wait DescribeInstances
-instanceRunning =
+instanceRunning = 
     Wait
     { _waitName = "InstanceRunning"
     , _waitAttempts = 40
@@ -265,7 +265,7 @@ instanceRunning =
 -- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 spotInstanceRequestFulfilled :: Wait DescribeSpotInstanceRequests
-spotInstanceRequestFulfilled =
+spotInstanceRequestFulfilled = 
     Wait
     { _waitName = "SpotInstanceRequestFulfilled"
     , _waitAttempts = 40
@@ -300,7 +300,7 @@ spotInstanceRequestFulfilled =
 -- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 exportTaskCompleted :: Wait DescribeExportTasks
-exportTaskCompleted =
+exportTaskCompleted = 
     Wait
     { _waitName = "ExportTaskCompleted"
     , _waitAttempts = 40
@@ -315,7 +315,7 @@ exportTaskCompleted =
 -- | Polls 'Network.AWS.EC2.DescribeVPCs' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 vpcAvailable :: Wait DescribeVPCs
-vpcAvailable =
+vpcAvailable = 
     Wait
     { _waitName = "VpcAvailable"
     , _waitAttempts = 40
@@ -330,7 +330,7 @@ vpcAvailable =
 -- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionAvailable :: Wait DescribeVPNConnections
-vpnConnectionAvailable =
+vpnConnectionAvailable = 
     Wait
     { _waitName = "VpnConnectionAvailable"
     , _waitAttempts = 40
@@ -355,7 +355,7 @@ vpnConnectionAvailable =
 -- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 exportTaskCancelled :: Wait DescribeExportTasks
-exportTaskCancelled =
+exportTaskCancelled = 
     Wait
     { _waitName = "ExportTaskCancelled"
     , _waitAttempts = 40
@@ -370,7 +370,7 @@ exportTaskCancelled =
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 volumeDeleted :: Wait DescribeVolumes
-volumeDeleted =
+volumeDeleted = 
     Wait
     { _waitName = "VolumeDeleted"
     , _waitAttempts = 40
@@ -386,7 +386,7 @@ volumeDeleted =
 -- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 bundleTaskComplete :: Wait DescribeBundleTasks
-bundleTaskComplete =
+bundleTaskComplete = 
     Wait
     { _waitName = "BundleTaskComplete"
     , _waitAttempts = 40
@@ -406,7 +406,7 @@ bundleTaskComplete =
 -- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionDeleted :: Wait DescribeVPNConnections
-vpnConnectionDeleted =
+vpnConnectionDeleted = 
     Wait
     { _waitName = "VpnConnectionDeleted"
     , _waitAttempts = 40
@@ -426,7 +426,7 @@ vpnConnectionDeleted =
 -- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 imageAvailable :: Wait DescribeImages
-imageAvailable =
+imageAvailable = 
     Wait
     { _waitName = "ImageAvailable"
     , _waitAttempts = 40
@@ -446,7 +446,7 @@ imageAvailable =
 -- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 conversionTaskCancelled :: Wait DescribeConversionTasks
-conversionTaskCancelled =
+conversionTaskCancelled = 
     Wait
     { _waitName = "ConversionTaskCancelled"
     , _waitAttempts = 40
@@ -461,7 +461,7 @@ conversionTaskCancelled =
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 instanceExists :: Wait DescribeInstances
-instanceExists =
+instanceExists = 
     Wait
     { _waitName = "InstanceExists"
     , _waitAttempts = 40
@@ -473,7 +473,7 @@ instanceExists =
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 volumeAvailable :: Wait DescribeVolumes
-volumeAvailable =
+volumeAvailable = 
     Wait
     { _waitName = "VolumeAvailable"
     , _waitAttempts = 40
@@ -493,7 +493,7 @@ volumeAvailable =
 -- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 snapshotCompleted :: Wait DescribeSnapshots
-snapshotCompleted =
+snapshotCompleted = 
     Wait
     { _waitName = "SnapshotCompleted"
     , _waitAttempts = 40
@@ -508,7 +508,7 @@ snapshotCompleted =
 -- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a
 -- successful state is reached. An error is returned after 40 failed checks.
 instanceStatusOK :: Wait DescribeInstanceStatus
-instanceStatusOK =
+instanceStatusOK = 
     Wait
     { _waitName = "InstanceStatusOk"
     , _waitAttempts = 40

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.OpsWorks.AssignVolume
     , assignVolumeResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'assignVolume' smart constructor.
 --
@@ -59,12 +61,12 @@ import           Network.AWS.Response
 -- * 'avVolumeId'
 data AssignVolume = AssignVolume'
     { _avInstanceId :: !(Maybe Text)
-    , _avVolumeId   :: !Text
+    , _avVolumeId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignVolume' smart constructor.
 assignVolume :: Text -> AssignVolume
-assignVolume pVolumeId_ =
+assignVolume pVolumeId_ = 
     AssignVolume'
     { _avInstanceId = Nothing
     , _avVolumeId = pVolumeId_
@@ -107,7 +109,7 @@ instance ToQuery AssignVolume where
 
 -- | /See:/ 'assignVolumeResponse' smart constructor.
 data AssignVolumeResponse =
-    AssignVolumeResponse'
+    AssignVolumeResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignVolumeResponse' smart constructor.

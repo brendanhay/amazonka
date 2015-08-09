@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CodeCommit.UpdateRepositoryDescription
     , updateRepositoryDescriptionResponse
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an update repository description operation.
 --
@@ -57,12 +59,12 @@ import           Network.AWS.Response
 -- * 'urdRepositoryName'
 data UpdateRepositoryDescription = UpdateRepositoryDescription'
     { _urdRepositoryDescription :: !(Maybe Text)
-    , _urdRepositoryName        :: !Text
+    , _urdRepositoryName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRepositoryDescription' smart constructor.
 updateRepositoryDescription :: Text -> UpdateRepositoryDescription
-updateRepositoryDescription pRepositoryName_ =
+updateRepositoryDescription pRepositoryName_ = 
     UpdateRepositoryDescription'
     { _urdRepositoryDescription = Nothing
     , _urdRepositoryName = pRepositoryName_
@@ -110,7 +112,7 @@ instance ToQuery UpdateRepositoryDescription where
 
 -- | /See:/ 'updateRepositoryDescriptionResponse' smart constructor.
 data UpdateRepositoryDescriptionResponse =
-    UpdateRepositoryDescriptionResponse'
+    UpdateRepositoryDescriptionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRepositoryDescriptionResponse' smart constructor.

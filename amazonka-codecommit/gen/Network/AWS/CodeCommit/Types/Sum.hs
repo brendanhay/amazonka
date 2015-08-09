@@ -17,11 +17,11 @@
 --
 module Network.AWS.CodeCommit.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data OrderEnum
-    = Ascending
-    | Descending
+    = Ascending 
+    | Descending 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OrderEnum where
@@ -45,8 +45,8 @@ instance ToJSON OrderEnum where
     toJSON = toJSONText
 
 data SortByEnum
-    = LastModifiedDate
-    | RepositoryName
+    = LastModifiedDate 
+    | RepositoryName 
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortByEnum where

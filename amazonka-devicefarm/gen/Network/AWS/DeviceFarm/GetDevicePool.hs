@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DeviceFarm.GetDevicePool
     , gdprsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get device pool operation.
 --
@@ -54,7 +56,7 @@ newtype GetDevicePool = GetDevicePool'
 
 -- | 'GetDevicePool' smart constructor.
 getDevicePool :: Text -> GetDevicePool
-getDevicePool pArn_ =
+getDevicePool pArn_ = 
     GetDevicePool'
     { _gdpArn = pArn_
     }
@@ -102,12 +104,12 @@ instance ToQuery GetDevicePool where
 -- * 'gdprsStatus'
 data GetDevicePoolResponse = GetDevicePoolResponse'
     { _gdprsDevicePool :: !(Maybe DevicePool)
-    , _gdprsStatus     :: !Int
+    , _gdprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePoolResponse' smart constructor.
 getDevicePoolResponse :: Int -> GetDevicePoolResponse
-getDevicePoolResponse pStatus_ =
+getDevicePoolResponse pStatus_ = 
     GetDevicePoolResponse'
     { _gdprsDevicePool = Nothing
     , _gdprsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.CodeCommit.CreateRepository
     , crrsStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create repository operation.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'crRepositoryName'
 data CreateRepository = CreateRepository'
     { _crRepositoryDescription :: !(Maybe Text)
-    , _crRepositoryName        :: !Text
+    , _crRepositoryName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRepository' smart constructor.
 createRepository :: Text -> CreateRepository
-createRepository pRepositoryName_ =
+createRepository pRepositoryName_ = 
     CreateRepository'
     { _crRepositoryDescription = Nothing
     , _crRepositoryName = pRepositoryName_
@@ -119,12 +121,12 @@ instance ToQuery CreateRepository where
 -- * 'crrsStatus'
 data CreateRepositoryResponse = CreateRepositoryResponse'
     { _crrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _crrsStatus             :: !Int
+    , _crrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRepositoryResponse' smart constructor.
 createRepositoryResponse :: Int -> CreateRepositoryResponse
-createRepositoryResponse pStatus_ =
+createRepositoryResponse pStatus_ = 
     CreateRepositoryResponse'
     { _crrsRepositoryMetadata = Nothing
     , _crrsStatus = pStatus_

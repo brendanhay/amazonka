@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     , deleteScheduledActionResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteScheduledAction' smart constructor.
 --
@@ -48,12 +50,12 @@ import           Network.AWS.Response
 -- * 'dsaScheduledActionName'
 data DeleteScheduledAction = DeleteScheduledAction'
     { _dsaAutoScalingGroupName :: !(Maybe Text)
-    , _dsaScheduledActionName  :: !Text
+    , _dsaScheduledActionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteScheduledAction' smart constructor.
 deleteScheduledAction :: Text -> DeleteScheduledAction
-deleteScheduledAction pScheduledActionName_ =
+deleteScheduledAction pScheduledActionName_ = 
     DeleteScheduledAction'
     { _dsaAutoScalingGroupName = Nothing
     , _dsaScheduledActionName = pScheduledActionName_
@@ -90,7 +92,7 @@ instance ToQuery DeleteScheduledAction where
 
 -- | /See:/ 'deleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse =
-    DeleteScheduledActionResponse'
+    DeleteScheduledActionResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteScheduledActionResponse' smart constructor.

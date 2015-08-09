@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , garrsStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get application revision operation.
 --
@@ -55,12 +57,12 @@ import           Network.AWS.Response
 -- * 'garRevision'
 data GetApplicationRevision = GetApplicationRevision'
     { _garApplicationName :: !Text
-    , _garRevision        :: !RevisionLocation
+    , _garRevision :: !RevisionLocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationRevision' smart constructor.
 getApplicationRevision :: Text -> RevisionLocation -> GetApplicationRevision
-getApplicationRevision pApplicationName_ pRevision_ =
+getApplicationRevision pApplicationName_ pRevision_ = 
     GetApplicationRevision'
     { _garApplicationName = pApplicationName_
     , _garRevision = pRevision_
@@ -124,15 +126,15 @@ instance ToQuery GetApplicationRevision where
 --
 -- * 'garrsStatus'
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-    { _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
+    { _garrsRevisionInfo :: !(Maybe GenericRevisionInfo)
     , _garrsApplicationName :: !(Maybe Text)
-    , _garrsRevision        :: !(Maybe RevisionLocation)
-    , _garrsStatus          :: !Int
+    , _garrsRevision :: !(Maybe RevisionLocation)
+    , _garrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationRevisionResponse' smart constructor.
 getApplicationRevisionResponse :: Int -> GetApplicationRevisionResponse
-getApplicationRevisionResponse pStatus_ =
+getApplicationRevisionResponse pStatus_ = 
     GetApplicationRevisionResponse'
     { _garrsRevisionInfo = Nothing
     , _garrsApplicationName = Nothing

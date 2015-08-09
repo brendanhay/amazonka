@@ -1,5 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -81,10 +81,10 @@ module Network.AWS.Lambda.Types
     , fcDescription
     ) where
 
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lambda.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lambda.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | Version @2015-03-31@ of the Amazon Lambda SDK.
 data Lambda
@@ -93,7 +93,7 @@ instance AWSService Lambda where
     type Sg Lambda = V4
     service = const svc
       where
-        svc =
+        svc = 
             Service
             { _svcAbbrev = "Lambda"
             , _svcPrefix = "lambda"
@@ -104,7 +104,7 @@ instance AWSService Lambda where
             , _svcError = parseJSONError
             , _svcRetry = retry
             }
-        retry =
+        retry = 
             Exponential
             { _retryBase = 5.0e-2
             , _retryGrowth = 2
@@ -112,7 +112,7 @@ instance AWSService Lambda where
             , _retryCheck = check
             }
         check e
-          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          | has (hasCode "ThrottlingException" . hasStatus 400) e = 
               Just "throttling_exception"
           | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
           | has (hasStatus 503) e = Just "service_unavailable"
@@ -122,17 +122,17 @@ instance AWSService Lambda where
 
 -- | Lambda function access policy is limited to 20 KB.
 _PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_PolicyLengthExceededException =
+_PolicyLengthExceededException = 
     _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException"
 
 -- | Prism for UnsupportedMediaTypeException' errors.
 _UnsupportedMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedMediaTypeException =
+_UnsupportedMediaTypeException = 
     _ServiceError . hasStatus 415 . hasCode "UnsupportedMediaTypeException"
 
 -- | The request body could not be parsed as JSON.
 _InvalidRequestContentException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestContentException =
+_InvalidRequestContentException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException"
 
 -- | One of the parameters in the request is invalid. For example, if you
@@ -140,17 +140,17 @@ _InvalidRequestContentException =
 -- the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to
 -- assume you will get this exception.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValueException =
+_InvalidParameterValueException = 
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
 
 -- | Prism for RequestTooLargeException' errors.
 _RequestTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestTooLargeException =
+_RequestTooLargeException = 
     _ServiceError . hasStatus 413 . hasCode "RequestTooLargeException"
 
 -- | Prism for TooManyRequestsException' errors.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyRequestsException =
+_TooManyRequestsException = 
     _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
 
 -- | The AWS Lambda service encountered an internal error.
@@ -159,16 +159,16 @@ _ServiceException = _ServiceError . hasStatus 500 . hasCode "ServiceException"
 
 -- | Prism for CodeStorageExceededException' errors.
 _CodeStorageExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_CodeStorageExceededException =
+_CodeStorageExceededException = 
     _ServiceError . hasStatus 400 . hasCode "CodeStorageExceededException"
 
 -- | The resource already exists.
 _ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceConflictException =
+_ResourceConflictException = 
     _ServiceError . hasStatus 409 . hasCode "ResourceConflictException"
 
 -- | The resource (for example, a Lambda function or access policy statement)
 -- specified in the request does not exist.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
+_ResourceNotFoundException = 
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"

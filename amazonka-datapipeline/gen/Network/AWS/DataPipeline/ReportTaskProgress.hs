@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -48,10 +49,11 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     , rtprsCanceled
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReportTaskProgress.
 --
@@ -69,7 +71,7 @@ data ReportTaskProgress = ReportTaskProgress'
 
 -- | 'ReportTaskProgress' smart constructor.
 reportTaskProgress :: Text -> ReportTaskProgress
-reportTaskProgress pTaskId_ =
+reportTaskProgress pTaskId_ = 
     ReportTaskProgress'
     { _rtpFields = Nothing
     , _rtpTaskId = pTaskId_
@@ -126,13 +128,13 @@ instance ToQuery ReportTaskProgress where
 --
 -- * 'rtprsCanceled'
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-    { _rtprsStatus   :: !Int
+    { _rtprsStatus :: !Int
     , _rtprsCanceled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
 reportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse
-reportTaskProgressResponse pStatus_ pCanceled_ =
+reportTaskProgressResponse pStatus_ pCanceled_ = 
     ReportTaskProgressResponse'
     { _rtprsStatus = pStatus_
     , _rtprsCanceled = pCanceled_

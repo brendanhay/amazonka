@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.IAM.CreateAccessKey
     , cakrsAccessKey
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAccessKey' smart constructor.
 --
@@ -69,7 +71,7 @@ newtype CreateAccessKey = CreateAccessKey'
 
 -- | 'CreateAccessKey' smart constructor.
 createAccessKey :: CreateAccessKey
-createAccessKey =
+createAccessKey = 
     CreateAccessKey'
     { _cakUserName = Nothing
     }
@@ -111,13 +113,13 @@ instance ToQuery CreateAccessKey where
 --
 -- * 'cakrsAccessKey'
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-    { _cakrsStatus    :: !Int
+    { _cakrsStatus :: !Int
     , _cakrsAccessKey :: !AccessKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
 createAccessKeyResponse :: Int -> AccessKey -> CreateAccessKeyResponse
-createAccessKeyResponse pStatus_ pAccessKey_ =
+createAccessKeyResponse pStatus_ pAccessKey_ = 
     CreateAccessKeyResponse'
     { _cakrsStatus = pStatus_
     , _cakrsAccessKey = pAccessKey_

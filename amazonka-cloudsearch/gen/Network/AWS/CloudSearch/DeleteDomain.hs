@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.CloudSearch.DeleteDomain
     , ddrsStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DeleteDomain@ operation. Specifies
 -- the name of the domain you want to delete.
@@ -58,7 +60,7 @@ newtype DeleteDomain = DeleteDomain'
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
-deleteDomain pDomainName_ =
+deleteDomain pDomainName_ = 
     DeleteDomain'
     { _dddDomainName = pDomainName_
     }
@@ -103,12 +105,12 @@ instance ToQuery DeleteDomain where
 -- * 'ddrsStatus'
 data DeleteDomainResponse = DeleteDomainResponse'
     { _ddrsDomainStatus :: !(Maybe DomainStatus)
-    , _ddrsStatus       :: !Int
+    , _ddrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: Int -> DeleteDomainResponse
-deleteDomainResponse pStatus_ =
+deleteDomainResponse pStatus_ = 
     DeleteDomainResponse'
     { _ddrsDomainStatus = Nothing
     , _ddrsStatus = pStatus_

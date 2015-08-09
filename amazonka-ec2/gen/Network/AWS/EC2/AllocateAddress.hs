@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.EC2.AllocateAddress
     , aarsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'allocateAddress' smart constructor.
 --
@@ -63,7 +65,7 @@ data AllocateAddress = AllocateAddress'
 
 -- | 'AllocateAddress' smart constructor.
 allocateAddress :: AllocateAddress
-allocateAddress =
+allocateAddress = 
     AllocateAddress'
     { _aaDomain = Nothing
     , _aaDryRun = Nothing
@@ -120,14 +122,14 @@ instance ToQuery AllocateAddress where
 -- * 'aarsStatus'
 data AllocateAddressResponse = AllocateAddressResponse'
     { _aarsAllocationId :: !(Maybe Text)
-    , _aarsDomain       :: !(Maybe DomainType)
-    , _aarsPublicIP     :: !(Maybe Text)
-    , _aarsStatus       :: !Int
+    , _aarsDomain :: !(Maybe DomainType)
+    , _aarsPublicIP :: !(Maybe Text)
+    , _aarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocateAddressResponse' smart constructor.
 allocateAddressResponse :: Int -> AllocateAddressResponse
-allocateAddressResponse pStatus_ =
+allocateAddressResponse pStatus_ = 
     AllocateAddressResponse'
     { _aarsAllocationId = Nothing
     , _aarsDomain = Nothing

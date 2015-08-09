@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.IAM.CreateGroup
     , cgrsGroup
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'cgGroupName'
 data CreateGroup = CreateGroup'
-    { _cgPath      :: !(Maybe Text)
+    { _cgPath :: !(Maybe Text)
     , _cgGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGroup' smart constructor.
 createGroup :: Text -> CreateGroup
-createGroup pGroupName_ =
+createGroup pGroupName_ = 
     CreateGroup'
     { _cgPath = Nothing
     , _cgGroupName = pGroupName_
@@ -113,12 +115,12 @@ instance ToQuery CreateGroup where
 -- * 'cgrsGroup'
 data CreateGroupResponse = CreateGroupResponse'
     { _cgrsStatus :: !Int
-    , _cgrsGroup  :: !Group
+    , _cgrsGroup :: !Group
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGroupResponse' smart constructor.
 createGroupResponse :: Int -> Group -> CreateGroupResponse
-createGroupResponse pStatus_ pGroup_ =
+createGroupResponse pStatus_ pGroup_ = 
     CreateGroupResponse'
     { _cgrsStatus = pStatus_
     , _cgrsGroup = pGroup_

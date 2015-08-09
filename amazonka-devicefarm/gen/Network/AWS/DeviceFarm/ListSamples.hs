@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.DeviceFarm.ListSamples
     , lsrsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list samples operation.
 --
@@ -54,12 +56,12 @@ import           Network.AWS.Response
 -- * 'lsArn'
 data ListSamples = ListSamples'
     { _lsNextToken :: !(Maybe Text)
-    , _lsArn       :: !Text
+    , _lsArn :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSamples' smart constructor.
 listSamples :: Text -> ListSamples
-listSamples pArn_ =
+listSamples pArn_ = 
     ListSamples'
     { _lsNextToken = Nothing
     , _lsArn = pArn_
@@ -119,13 +121,13 @@ instance ToQuery ListSamples where
 -- * 'lsrsStatus'
 data ListSamplesResponse = ListSamplesResponse'
     { _lsrsNextToken :: !(Maybe Text)
-    , _lsrsSamples   :: !(Maybe [Sample])
-    , _lsrsStatus    :: !Int
+    , _lsrsSamples :: !(Maybe [Sample])
+    , _lsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSamplesResponse' smart constructor.
 listSamplesResponse :: Int -> ListSamplesResponse
-listSamplesResponse pStatus_ =
+listSamplesResponse pStatus_ = 
     ListSamplesResponse'
     { _lsrsNextToken = Nothing
     , _lsrsSamples = Nothing

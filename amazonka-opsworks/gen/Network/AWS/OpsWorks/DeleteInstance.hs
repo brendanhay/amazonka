@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.OpsWorks.DeleteInstance
     , deleteInstanceResponse
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteInstance' smart constructor.
 --
@@ -60,14 +62,14 @@ import           Network.AWS.Response
 --
 -- * 'diInstanceId'
 data DeleteInstance = DeleteInstance'
-    { _diDeleteVolumes   :: !(Maybe Bool)
+    { _diDeleteVolumes :: !(Maybe Bool)
     , _diDeleteElasticIP :: !(Maybe Bool)
-    , _diInstanceId      :: !Text
+    , _diInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstance' smart constructor.
 deleteInstance :: Text -> DeleteInstance
-deleteInstance pInstanceId_ =
+deleteInstance pInstanceId_ = 
     DeleteInstance'
     { _diDeleteVolumes = Nothing
     , _diDeleteElasticIP = Nothing
@@ -116,7 +118,7 @@ instance ToQuery DeleteInstance where
 
 -- | /See:/ 'deleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse =
-    DeleteInstanceResponse'
+    DeleteInstanceResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstanceResponse' smart constructor.

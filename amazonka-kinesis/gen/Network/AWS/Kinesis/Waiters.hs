@@ -15,15 +15,15 @@
 --
 module Network.AWS.Kinesis.Waiters where
 
-import           Network.AWS.Kinesis.DescribeStream
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.Types
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a
 -- successful state is reached. An error is returned after 18 failed checks.
 streamExists :: Wait DescribeStream
-streamExists =
+streamExists = 
     Wait
     { _waitName = "StreamExists"
     , _waitAttempts = 18

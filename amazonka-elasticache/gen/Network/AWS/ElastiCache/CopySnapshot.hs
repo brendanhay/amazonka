@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -37,10 +38,11 @@ module Network.AWS.ElastiCache.CopySnapshot
     , csrsStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a /CopySnapshotMessage/ action.
 --
@@ -58,7 +60,7 @@ data CopySnapshot = CopySnapshot'
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
-copySnapshot pSourceSnapshotName_ pTargetSnapshotName_ =
+copySnapshot pSourceSnapshotName_ pTargetSnapshotName_ = 
     CopySnapshot'
     { _csSourceSnapshotName = pSourceSnapshotName_
     , _csTargetSnapshotName = pTargetSnapshotName_
@@ -105,12 +107,12 @@ instance ToQuery CopySnapshot where
 -- * 'csrsStatus'
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrsSnapshot :: !(Maybe Snapshot)
-    , _csrsStatus   :: !Int
+    , _csrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse
-copySnapshotResponse pStatus_ =
+copySnapshotResponse pStatus_ = 
     CopySnapshotResponse'
     { _csrsSnapshot = Nothing
     , _csrsStatus = pStatus_

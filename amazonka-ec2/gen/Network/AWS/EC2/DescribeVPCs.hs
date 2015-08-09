@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.EC2.DescribeVPCs
     , dvrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVPCs' smart constructor.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 -- * 'dvsDryRun'
 data DescribeVPCs = DescribeVPCs'
     { _dvsFilters :: !(Maybe [Filter])
-    , _dvsVPCIds  :: !(Maybe [Text])
-    , _dvsDryRun  :: !(Maybe Bool)
+    , _dvsVPCIds :: !(Maybe [Text])
+    , _dvsDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCs' smart constructor.
 describeVPCs :: DescribeVPCs
-describeVPCs =
+describeVPCs = 
     DescribeVPCs'
     { _dvsFilters = Nothing
     , _dvsVPCIds = Nothing
@@ -147,13 +149,13 @@ instance ToQuery DescribeVPCs where
 --
 -- * 'dvrsStatus'
 data DescribeVPCsResponse = DescribeVPCsResponse'
-    { _dvrsVPCs   :: !(Maybe [VPC])
+    { _dvrsVPCs :: !(Maybe [VPC])
     , _dvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: Int -> DescribeVPCsResponse
-describeVPCsResponse pStatus_ =
+describeVPCsResponse pStatus_ = 
     DescribeVPCsResponse'
     { _dvrsVPCs = Nothing
     , _dvrsStatus = pStatus_

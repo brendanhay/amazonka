@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -53,10 +54,11 @@ module Network.AWS.Config.GetResourceConfigHistory
     , grchrsStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the GetResourceConfigHistory action.
 --
@@ -79,17 +81,17 @@ import           Network.AWS.Response
 -- * 'grchResourceId'
 data GetResourceConfigHistory = GetResourceConfigHistory'
     { _grchChronologicalOrder :: !(Maybe ChronologicalOrder)
-    , _grchNextToken          :: !(Maybe Text)
-    , _grchLimit              :: !(Maybe Nat)
-    , _grchLaterTime          :: !(Maybe POSIX)
-    , _grchEarlierTime        :: !(Maybe POSIX)
-    , _grchResourceType       :: !ResourceType
-    , _grchResourceId         :: !Text
+    , _grchNextToken :: !(Maybe Text)
+    , _grchLimit :: !(Maybe Nat)
+    , _grchLaterTime :: !(Maybe POSIX)
+    , _grchEarlierTime :: !(Maybe POSIX)
+    , _grchResourceType :: !ResourceType
+    , _grchResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetResourceConfigHistory' smart constructor.
 getResourceConfigHistory :: ResourceType -> Text -> GetResourceConfigHistory
-getResourceConfigHistory pResourceType_ pResourceId_ =
+getResourceConfigHistory pResourceType_ pResourceId_ = 
     GetResourceConfigHistory'
     { _grchChronologicalOrder = Nothing
     , _grchNextToken = Nothing
@@ -184,14 +186,14 @@ instance ToQuery GetResourceConfigHistory where
 --
 -- * 'grchrsStatus'
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
-    { _grchrsNextToken          :: !(Maybe Text)
+    { _grchrsNextToken :: !(Maybe Text)
     , _grchrsConfigurationItems :: !(Maybe [ConfigurationItem])
-    , _grchrsStatus             :: !Int
+    , _grchrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
 getResourceConfigHistoryResponse :: Int -> GetResourceConfigHistoryResponse
-getResourceConfigHistoryResponse pStatus_ =
+getResourceConfigHistoryResponse pStatus_ = 
     GetResourceConfigHistoryResponse'
     { _grchrsNextToken = Nothing
     , _grchrsConfigurationItems = Nothing

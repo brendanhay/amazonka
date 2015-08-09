@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.OpsWorks.GrantAccess
     , garsStatus
     ) where
 
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'grantAccess' smart constructor.
 --
@@ -53,12 +55,12 @@ import           Network.AWS.Response
 -- * 'gaInstanceId'
 data GrantAccess = GrantAccess'
     { _gaValidForInMinutes :: !(Maybe Nat)
-    , _gaInstanceId        :: !Text
+    , _gaInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantAccess' smart constructor.
 grantAccess :: Text -> GrantAccess
-grantAccess pInstanceId_ =
+grantAccess pInstanceId_ = 
     GrantAccess'
     { _gaValidForInMinutes = Nothing
     , _gaInstanceId = pInstanceId_
@@ -118,12 +120,12 @@ instance ToQuery GrantAccess where
 -- * 'garsStatus'
 data GrantAccessResponse = GrantAccessResponse'
     { _garsTemporaryCredential :: !(Maybe TemporaryCredential)
-    , _garsStatus              :: !Int
+    , _garsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantAccessResponse' smart constructor.
 grantAccessResponse :: Int -> GrantAccessResponse
-grantAccessResponse pStatus_ =
+grantAccessResponse pStatus_ = 
     GrantAccessResponse'
     { _garsTemporaryCredential = Nothing
     , _garsStatus = pStatus_

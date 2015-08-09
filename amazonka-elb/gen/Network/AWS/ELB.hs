@@ -101,89 +101,89 @@ module Network.AWS.ELB
     -- * Operations
     -- $operations
 
-    -- ** DescribeLoadBalancerPolicyTypes
+    -- ** DescribeLoadBalancerPolicyTypes 
     , module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
 
-    -- ** DescribeTags
+    -- ** DescribeTags 
     , module Network.AWS.ELB.DescribeTags
 
     -- ** DescribeLoadBalancers (Paginated)
     , module Network.AWS.ELB.DescribeLoadBalancers
     -- $pager
 
-    -- ** ApplySecurityGroupsToLoadBalancer
+    -- ** ApplySecurityGroupsToLoadBalancer 
     , module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
 
-    -- ** RemoveTags
+    -- ** RemoveTags 
     , module Network.AWS.ELB.RemoveTags
 
-    -- ** CreateLBCookieStickinessPolicy
+    -- ** CreateLBCookieStickinessPolicy 
     , module Network.AWS.ELB.CreateLBCookieStickinessPolicy
 
-    -- ** DeleteLoadBalancer
+    -- ** DeleteLoadBalancer 
     , module Network.AWS.ELB.DeleteLoadBalancer
 
-    -- ** CreateLoadBalancerPolicy
+    -- ** CreateLoadBalancerPolicy 
     , module Network.AWS.ELB.CreateLoadBalancerPolicy
 
-    -- ** DeregisterInstancesFromLoadBalancer
+    -- ** DeregisterInstancesFromLoadBalancer 
     , module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
 
-    -- ** DescribeLoadBalancerPolicies
+    -- ** DescribeLoadBalancerPolicies 
     , module Network.AWS.ELB.DescribeLoadBalancerPolicies
 
-    -- ** DisableAvailabilityZonesForLoadBalancer
+    -- ** DisableAvailabilityZonesForLoadBalancer 
     , module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 
-    -- ** SetLoadBalancerPoliciesForBackendServer
+    -- ** SetLoadBalancerPoliciesForBackendServer 
     , module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
 
-    -- ** EnableAvailabilityZonesForLoadBalancer
+    -- ** EnableAvailabilityZonesForLoadBalancer 
     , module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
 
-    -- ** SetLoadBalancerListenerSSLCertificate
+    -- ** SetLoadBalancerListenerSSLCertificate 
     , module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 
-    -- ** ConfigureHealthCheck
+    -- ** ConfigureHealthCheck 
     , module Network.AWS.ELB.ConfigureHealthCheck
 
-    -- ** AttachLoadBalancerToSubnets
+    -- ** AttachLoadBalancerToSubnets 
     , module Network.AWS.ELB.AttachLoadBalancerToSubnets
 
-    -- ** ModifyLoadBalancerAttributes
+    -- ** ModifyLoadBalancerAttributes 
     , module Network.AWS.ELB.ModifyLoadBalancerAttributes
 
-    -- ** CreateAppCookieStickinessPolicy
+    -- ** CreateAppCookieStickinessPolicy 
     , module Network.AWS.ELB.CreateAppCookieStickinessPolicy
 
-    -- ** AddTags
+    -- ** AddTags 
     , module Network.AWS.ELB.AddTags
 
-    -- ** DescribeLoadBalancerAttributes
+    -- ** DescribeLoadBalancerAttributes 
     , module Network.AWS.ELB.DescribeLoadBalancerAttributes
 
-    -- ** DescribeInstanceHealth
+    -- ** DescribeInstanceHealth 
     , module Network.AWS.ELB.DescribeInstanceHealth
 
-    -- ** DetachLoadBalancerFromSubnets
+    -- ** DetachLoadBalancerFromSubnets 
     , module Network.AWS.ELB.DetachLoadBalancerFromSubnets
 
-    -- ** RegisterInstancesWithLoadBalancer
+    -- ** RegisterInstancesWithLoadBalancer 
     , module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 
-    -- ** DeleteLoadBalancerPolicy
+    -- ** DeleteLoadBalancerPolicy 
     , module Network.AWS.ELB.DeleteLoadBalancerPolicy
 
-    -- ** CreateLoadBalancerListeners
+    -- ** CreateLoadBalancerListeners 
     , module Network.AWS.ELB.CreateLoadBalancerListeners
 
-    -- ** DeleteLoadBalancerListeners
+    -- ** DeleteLoadBalancerListeners 
     , module Network.AWS.ELB.DeleteLoadBalancerListeners
 
-    -- ** CreateLoadBalancer
+    -- ** CreateLoadBalancer 
     , module Network.AWS.ELB.CreateLoadBalancer
 
-    -- ** SetLoadBalancerPoliciesOfListener
+    -- ** SetLoadBalancerPoliciesOfListener 
     , module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 
     -- * Types
@@ -368,36 +368,36 @@ module Network.AWS.ELB
     , tkoKey
     ) where
 
-import           Network.AWS.ELB.AddTags
-import           Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-import           Network.AWS.ELB.AttachLoadBalancerToSubnets
-import           Network.AWS.ELB.ConfigureHealthCheck
-import           Network.AWS.ELB.CreateAppCookieStickinessPolicy
-import           Network.AWS.ELB.CreateLBCookieStickinessPolicy
-import           Network.AWS.ELB.CreateLoadBalancer
-import           Network.AWS.ELB.CreateLoadBalancerListeners
-import           Network.AWS.ELB.CreateLoadBalancerPolicy
-import           Network.AWS.ELB.DeleteLoadBalancer
-import           Network.AWS.ELB.DeleteLoadBalancerListeners
-import           Network.AWS.ELB.DeleteLoadBalancerPolicy
-import           Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-import           Network.AWS.ELB.DescribeInstanceHealth
-import           Network.AWS.ELB.DescribeLoadBalancerAttributes
-import           Network.AWS.ELB.DescribeLoadBalancerPolicies
-import           Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-import           Network.AWS.ELB.DescribeLoadBalancers
-import           Network.AWS.ELB.DescribeTags
-import           Network.AWS.ELB.DetachLoadBalancerFromSubnets
-import           Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-import           Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-import           Network.AWS.ELB.ModifyLoadBalancerAttributes
-import           Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-import           Network.AWS.ELB.RemoveTags
-import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Waiters
+import Network.AWS.ELB.AddTags
+import Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+import Network.AWS.ELB.AttachLoadBalancerToSubnets
+import Network.AWS.ELB.ConfigureHealthCheck
+import Network.AWS.ELB.CreateAppCookieStickinessPolicy
+import Network.AWS.ELB.CreateLBCookieStickinessPolicy
+import Network.AWS.ELB.CreateLoadBalancer
+import Network.AWS.ELB.CreateLoadBalancerListeners
+import Network.AWS.ELB.CreateLoadBalancerPolicy
+import Network.AWS.ELB.DeleteLoadBalancer
+import Network.AWS.ELB.DeleteLoadBalancerListeners
+import Network.AWS.ELB.DeleteLoadBalancerPolicy
+import Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+import Network.AWS.ELB.DescribeInstanceHealth
+import Network.AWS.ELB.DescribeLoadBalancerAttributes
+import Network.AWS.ELB.DescribeLoadBalancerPolicies
+import Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+import Network.AWS.ELB.DescribeLoadBalancers
+import Network.AWS.ELB.DescribeTags
+import Network.AWS.ELB.DetachLoadBalancerFromSubnets
+import Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+import Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+import Network.AWS.ELB.ModifyLoadBalancerAttributes
+import Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+import Network.AWS.ELB.RemoveTags
+import Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+import Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+import Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

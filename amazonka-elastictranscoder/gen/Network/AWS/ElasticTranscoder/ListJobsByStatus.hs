@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,11 +42,12 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     , ljbsrsStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @ListJobsByStatusRequest@ structure.
 --
@@ -61,12 +63,12 @@ import           Network.AWS.Response
 data ListJobsByStatus = ListJobsByStatus'
     { _ljbsAscending :: !(Maybe Text)
     , _ljbsPageToken :: !(Maybe Text)
-    , _ljbsStatus    :: !Text
+    , _ljbsStatus :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByStatus' smart constructor.
 listJobsByStatus :: Text -> ListJobsByStatus
-listJobsByStatus pStatus_ =
+listJobsByStatus pStatus_ = 
     ListJobsByStatus'
     { _ljbsAscending = Nothing
     , _ljbsPageToken = Nothing
@@ -137,13 +139,13 @@ instance ToQuery ListJobsByStatus where
 -- * 'ljbsrsStatus'
 data ListJobsByStatusResponse = ListJobsByStatusResponse'
     { _ljbsrsNextPageToken :: !(Maybe Text)
-    , _ljbsrsJobs          :: !(Maybe [Job'])
-    , _ljbsrsStatus        :: !Int
+    , _ljbsrsJobs :: !(Maybe [Job'])
+    , _ljbsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByStatusResponse' smart constructor.
 listJobsByStatusResponse :: Int -> ListJobsByStatusResponse
-listJobsByStatusResponse pStatus_ =
+listJobsByStatusResponse pStatus_ = 
     ListJobsByStatusResponse'
     { _ljbsrsNextPageToken = Nothing
     , _ljbsrsJobs = Nothing

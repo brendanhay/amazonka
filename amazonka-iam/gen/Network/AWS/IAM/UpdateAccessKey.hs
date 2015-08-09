@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -47,10 +48,11 @@ module Network.AWS.IAM.UpdateAccessKey
     , updateAccessKeyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAccessKey' smart constructor.
 --
@@ -62,14 +64,14 @@ import           Network.AWS.Response
 --
 -- * 'uakStatus'
 data UpdateAccessKey = UpdateAccessKey'
-    { _uakUserName    :: !(Maybe Text)
+    { _uakUserName :: !(Maybe Text)
     , _uakAccessKeyId :: !Text
-    , _uakStatus      :: !StatusType
+    , _uakStatus :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccessKey' smart constructor.
 updateAccessKey :: Text -> StatusType -> UpdateAccessKey
-updateAccessKey pAccessKeyId_ pStatus_ =
+updateAccessKey pAccessKeyId_ pStatus_ = 
     UpdateAccessKey'
     { _uakUserName = Nothing
     , _uakAccessKeyId = pAccessKeyId_
@@ -113,7 +115,7 @@ instance ToQuery UpdateAccessKey where
 
 -- | /See:/ 'updateAccessKeyResponse' smart constructor.
 data UpdateAccessKeyResponse =
-    UpdateAccessKeyResponse'
+    UpdateAccessKeyResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccessKeyResponse' smart constructor.

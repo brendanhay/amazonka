@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.CloudFormation.CreateStack
     , csrsStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for CreateStack action.
 --
@@ -84,23 +86,23 @@ import           Network.AWS.Response
 --
 -- * 'csStackName'
 data CreateStack = CreateStack'
-    { _csDisableRollback  :: !(Maybe Bool)
+    { _csDisableRollback :: !(Maybe Bool)
     , _csNotificationARNs :: !(Maybe [Text])
-    , _csStackPolicyBody  :: !(Maybe Text)
-    , _csParameters       :: !(Maybe [Parameter])
-    , _csStackPolicyURL   :: !(Maybe Text)
-    , _csTemplateBody     :: !(Maybe Text)
-    , _csTemplateURL      :: !(Maybe Text)
-    , _csCapabilities     :: !(Maybe [Capability])
-    , _csOnFailure        :: !(Maybe OnFailure)
-    , _csTags             :: !(Maybe [Tag])
+    , _csStackPolicyBody :: !(Maybe Text)
+    , _csParameters :: !(Maybe [Parameter])
+    , _csStackPolicyURL :: !(Maybe Text)
+    , _csTemplateBody :: !(Maybe Text)
+    , _csTemplateURL :: !(Maybe Text)
+    , _csCapabilities :: !(Maybe [Capability])
+    , _csOnFailure :: !(Maybe OnFailure)
+    , _csTags :: !(Maybe [Tag])
     , _csTimeoutInMinutes :: !(Maybe Nat)
-    , _csStackName        :: !Text
+    , _csStackName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> CreateStack
-createStack pStackName_ =
+createStack pStackName_ = 
     CreateStack'
     { _csDisableRollback = Nothing
     , _csNotificationARNs = Nothing
@@ -271,12 +273,12 @@ instance ToQuery CreateStack where
 -- * 'csrsStatus'
 data CreateStackResponse = CreateStackResponse'
     { _csrsStackId :: !(Maybe Text)
-    , _csrsStatus  :: !Int
+    , _csrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse
-createStackResponse pStatus_ =
+createStackResponse pStatus_ = 
     CreateStackResponse'
     { _csrsStackId = Nothing
     , _csrsStatus = pStatus_

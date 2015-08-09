@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.AutoScaling.EnterStandby
     , esrsStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enterStandby' smart constructor.
 --
@@ -57,14 +59,14 @@ import           Network.AWS.Response
 --
 -- * 'esShouldDecrementDesiredCapacity'
 data EnterStandby = EnterStandby'
-    { _esInstanceIds                    :: !(Maybe [Text])
-    , _esAutoScalingGroupName           :: !Text
+    { _esInstanceIds :: !(Maybe [Text])
+    , _esAutoScalingGroupName :: !Text
     , _esShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnterStandby' smart constructor.
 enterStandby :: Text -> Bool -> EnterStandby
-enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
+enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ = 
     EnterStandby'
     { _esInstanceIds = Nothing
     , _esAutoScalingGroupName = pAutoScalingGroupName_
@@ -125,12 +127,12 @@ instance ToQuery EnterStandby where
 -- * 'esrsStatus'
 data EnterStandbyResponse = EnterStandbyResponse'
     { _esrsActivities :: !(Maybe [Activity])
-    , _esrsStatus     :: !Int
+    , _esrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnterStandbyResponse' smart constructor.
 enterStandbyResponse :: Int -> EnterStandbyResponse
-enterStandbyResponse pStatus_ =
+enterStandbyResponse pStatus_ = 
     EnterStandbyResponse'
     { _esrsActivities = Nothing
     , _esrsStatus = pStatus_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     , setInstanceHealthResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setInstanceHealth' smart constructor.
 --
@@ -55,13 +57,13 @@ import           Network.AWS.Response
 -- * 'sihHealthStatus'
 data SetInstanceHealth = SetInstanceHealth'
     { _sihShouldRespectGracePeriod :: !(Maybe Bool)
-    , _sihInstanceId               :: !Text
-    , _sihHealthStatus             :: !Text
+    , _sihInstanceId :: !Text
+    , _sihHealthStatus :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetInstanceHealth' smart constructor.
 setInstanceHealth :: Text -> Text -> SetInstanceHealth
-setInstanceHealth pInstanceId_ pHealthStatus_ =
+setInstanceHealth pInstanceId_ pHealthStatus_ = 
     SetInstanceHealth'
     { _sihShouldRespectGracePeriod = Nothing
     , _sihInstanceId = pInstanceId_
@@ -113,7 +115,7 @@ instance ToQuery SetInstanceHealth where
 
 -- | /See:/ 'setInstanceHealthResponse' smart constructor.
 data SetInstanceHealthResponse =
-    SetInstanceHealthResponse'
+    SetInstanceHealthResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetInstanceHealthResponse' smart constructor.

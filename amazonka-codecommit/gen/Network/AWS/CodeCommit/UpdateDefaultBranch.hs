@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -38,10 +39,11 @@ module Network.AWS.CodeCommit.UpdateDefaultBranch
     , updateDefaultBranchResponse
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an update default branch operation.
 --
@@ -53,13 +55,13 @@ import           Network.AWS.Response
 --
 -- * 'udbDefaultBranchName'
 data UpdateDefaultBranch = UpdateDefaultBranch'
-    { _udbRepositoryName    :: !Text
+    { _udbRepositoryName :: !Text
     , _udbDefaultBranchName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDefaultBranch' smart constructor.
 updateDefaultBranch :: Text -> Text -> UpdateDefaultBranch
-updateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
+updateDefaultBranch pRepositoryName_ pDefaultBranchName_ = 
     UpdateDefaultBranch'
     { _udbRepositoryName = pRepositoryName_
     , _udbDefaultBranchName = pDefaultBranchName_
@@ -104,7 +106,7 @@ instance ToQuery UpdateDefaultBranch where
 
 -- | /See:/ 'updateDefaultBranchResponse' smart constructor.
 data UpdateDefaultBranchResponse =
-    UpdateDefaultBranchResponse'
+    UpdateDefaultBranchResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDefaultBranchResponse' smart constructor.

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     , resetNetworkInterfaceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
 --
@@ -51,14 +53,14 @@ import           Network.AWS.Response
 --
 -- * 'rniaNetworkInterfaceId'
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
-    { _rniaSourceDestCheck    :: !(Maybe Text)
-    , _rniaDryRun             :: !(Maybe Bool)
+    { _rniaSourceDestCheck :: !(Maybe Text)
+    , _rniaDryRun :: !(Maybe Bool)
     , _rniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetNetworkInterfaceAttribute' smart constructor.
 resetNetworkInterfaceAttribute :: Text -> ResetNetworkInterfaceAttribute
-resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
+resetNetworkInterfaceAttribute pNetworkInterfaceId_ = 
     ResetNetworkInterfaceAttribute'
     { _rniaSourceDestCheck = Nothing
     , _rniaDryRun = Nothing
@@ -108,10 +110,10 @@ instance ToQuery ResetNetworkInterfaceAttribute where
 
 -- | /See:/ 'resetNetworkInterfaceAttributeResponse' smart constructor.
 data ResetNetworkInterfaceAttributeResponse =
-    ResetNetworkInterfaceAttributeResponse'
+    ResetNetworkInterfaceAttributeResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetNetworkInterfaceAttributeResponse' smart constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
-resetNetworkInterfaceAttributeResponse =
+resetNetworkInterfaceAttributeResponse = 
     ResetNetworkInterfaceAttributeResponse'

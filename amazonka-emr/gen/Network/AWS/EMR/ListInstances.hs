@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,11 +45,12 @@ module Network.AWS.EMR.ListInstances
     , lirsStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which instances to list.
 --
@@ -65,14 +67,14 @@ import           Network.AWS.Response
 -- * 'liClusterId'
 data ListInstances = ListInstances'
     { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
-    , _liMarker             :: !(Maybe Text)
-    , _liInstanceGroupId    :: !(Maybe Text)
-    , _liClusterId          :: !Text
+    , _liMarker :: !(Maybe Text)
+    , _liInstanceGroupId :: !(Maybe Text)
+    , _liClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstances' smart constructor.
 listInstances :: Text -> ListInstances
-listInstances pClusterId_ =
+listInstances pClusterId_ = 
     ListInstances'
     { _liInstanceGroupTypes = Nothing
     , _liMarker = Nothing
@@ -150,13 +152,13 @@ instance ToQuery ListInstances where
 -- * 'lirsStatus'
 data ListInstancesResponse = ListInstancesResponse'
     { _lirsInstances :: !(Maybe [Instance])
-    , _lirsMarker    :: !(Maybe Text)
-    , _lirsStatus    :: !Int
+    , _lirsMarker :: !(Maybe Text)
+    , _lirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstancesResponse' smart constructor.
 listInstancesResponse :: Int -> ListInstancesResponse
-listInstancesResponse pStatus_ =
+listInstancesResponse pStatus_ = 
     ListInstancesResponse'
     { _lirsInstances = Nothing
     , _lirsMarker = Nothing

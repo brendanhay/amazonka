@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     , putMetricFilterResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putMetricFilter' smart constructor.
 --
@@ -58,15 +60,15 @@ import           Network.AWS.Response
 --
 -- * 'pmfMetricTransformations'
 data PutMetricFilter = PutMetricFilter'
-    { _pmfLogGroupName          :: !Text
-    , _pmfFilterName            :: !Text
-    , _pmfFilterPattern         :: !Text
+    { _pmfLogGroupName :: !Text
+    , _pmfFilterName :: !Text
+    , _pmfFilterPattern :: !Text
     , _pmfMetricTransformations :: !(List1 MetricTransformation)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricFilter' smart constructor.
 putMetricFilter :: Text -> Text -> Text -> NonEmpty MetricTransformation -> PutMetricFilter
-putMetricFilter pLogGroupName_ pFilterName_ pFilterPattern_ pMetricTransformations_ =
+putMetricFilter pLogGroupName_ pFilterName_ pFilterPattern_ pMetricTransformations_ = 
     PutMetricFilter'
     { _pmfLogGroupName = pLogGroupName_
     , _pmfFilterName = pFilterName_
@@ -123,7 +125,7 @@ instance ToQuery PutMetricFilter where
 
 -- | /See:/ 'putMetricFilterResponse' smart constructor.
 data PutMetricFilterResponse =
-    PutMetricFilterResponse'
+    PutMetricFilterResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricFilterResponse' smart constructor.

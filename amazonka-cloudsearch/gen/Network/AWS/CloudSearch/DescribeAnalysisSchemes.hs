@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     , dasrsAnalysisSchemes
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeAnalysisSchemes@ operation.
 -- Specifies the name of the domain you want to describe. To limit the
@@ -66,14 +68,14 @@ import           Network.AWS.Response
 --
 -- * 'dassDomainName'
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
-    { _dassDeployed            :: !(Maybe Bool)
+    { _dassDeployed :: !(Maybe Bool)
     , _dassAnalysisSchemeNames :: !(Maybe [Text])
-    , _dassDomainName          :: !Text
+    , _dassDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
 describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
-describeAnalysisSchemes pDomainName_ =
+describeAnalysisSchemes pDomainName_ = 
     DescribeAnalysisSchemes'
     { _dassDeployed = Nothing
     , _dassAnalysisSchemeNames = Nothing
@@ -135,13 +137,13 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- * 'dasrsAnalysisSchemes'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-    { _dasrsStatus          :: !Int
+    { _dasrsStatus :: !Int
     , _dasrsAnalysisSchemes :: ![AnalysisSchemeStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
-describeAnalysisSchemesResponse pStatus_ =
+describeAnalysisSchemesResponse pStatus_ = 
     DescribeAnalysisSchemesResponse'
     { _dasrsStatus = pStatus_
     , _dasrsAnalysisSchemes = mempty

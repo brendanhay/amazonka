@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -75,10 +76,11 @@ module Network.AWS.Glacier.DescribeJob
     , gjdInventorySizeInBytes
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving a job description.
 --
@@ -94,12 +96,12 @@ import           Network.AWS.Response
 data DescribeJob = DescribeJob'
     { _djAccountId :: !Text
     , _djVaultName :: !Text
-    , _djJobId     :: !Text
+    , _djJobId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeJob' smart constructor.
 describeJob :: Text -> Text -> Text -> DescribeJob
-describeJob pAccountId_ pVaultName_ pJobId_ =
+describeJob pAccountId_ pVaultName_ pJobId_ = 
     DescribeJob'
     { _djAccountId = pAccountId_
     , _djVaultName = pVaultName_

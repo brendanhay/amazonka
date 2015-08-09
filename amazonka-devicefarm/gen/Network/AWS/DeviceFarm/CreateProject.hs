@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -36,10 +37,11 @@ module Network.AWS.DeviceFarm.CreateProject
     , cprsStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the create project operation.
 --
@@ -54,7 +56,7 @@ newtype CreateProject = CreateProject'
 
 -- | 'CreateProject' smart constructor.
 createProject :: Text -> CreateProject
-createProject pName_ =
+createProject pName_ = 
     CreateProject'
     { _cpName = pName_
     }
@@ -103,12 +105,12 @@ instance ToQuery CreateProject where
 -- * 'cprsStatus'
 data CreateProjectResponse = CreateProjectResponse'
     { _cprsProject :: !(Maybe Project)
-    , _cprsStatus  :: !Int
+    , _cprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateProjectResponse' smart constructor.
 createProjectResponse :: Int -> CreateProjectResponse
-createProjectResponse pStatus_ =
+createProjectResponse pStatus_ = 
     CreateProjectResponse'
     { _cprsProject = Nothing
     , _cprsStatus = pStatus_

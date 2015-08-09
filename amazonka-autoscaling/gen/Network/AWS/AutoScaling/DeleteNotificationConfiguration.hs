@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -34,10 +35,11 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     , deleteNotificationConfigurationResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteNotificationConfiguration' smart constructor.
 --
@@ -48,12 +50,12 @@ import           Network.AWS.Response
 -- * 'dncTopicARN'
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
     { _dncAutoScalingGroupName :: !Text
-    , _dncTopicARN             :: !Text
+    , _dncTopicARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNotificationConfiguration' smart constructor.
 deleteNotificationConfiguration :: Text -> Text -> DeleteNotificationConfiguration
-deleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
+deleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ = 
     DeleteNotificationConfiguration'
     { _dncAutoScalingGroupName = pAutoScalingGroupName_
     , _dncTopicARN = pTopicARN_
@@ -97,10 +99,10 @@ instance ToQuery DeleteNotificationConfiguration
 
 -- | /See:/ 'deleteNotificationConfigurationResponse' smart constructor.
 data DeleteNotificationConfigurationResponse =
-    DeleteNotificationConfigurationResponse'
+    DeleteNotificationConfigurationResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNotificationConfigurationResponse' smart constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
-deleteNotificationConfigurationResponse =
+deleteNotificationConfigurationResponse = 
     DeleteNotificationConfigurationResponse'

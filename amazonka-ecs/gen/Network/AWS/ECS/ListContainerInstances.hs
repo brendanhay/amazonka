@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,11 +40,12 @@ module Network.AWS.ECS.ListContainerInstances
     , lcirsStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listContainerInstances' smart constructor.
 --
@@ -55,14 +57,14 @@ import           Network.AWS.Response
 --
 -- * 'lciMaxResults'
 data ListContainerInstances = ListContainerInstances'
-    { _lciCluster    :: !(Maybe Text)
-    , _lciNextToken  :: !(Maybe Text)
+    { _lciCluster :: !(Maybe Text)
+    , _lciNextToken :: !(Maybe Text)
     , _lciMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListContainerInstances' smart constructor.
 listContainerInstances :: ListContainerInstances
-listContainerInstances =
+listContainerInstances = 
     ListContainerInstances'
     { _lciCluster = Nothing
     , _lciNextToken = Nothing
@@ -149,13 +151,13 @@ instance ToQuery ListContainerInstances where
 -- * 'lcirsStatus'
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
     { _lcirsContainerInstanceARNs :: !(Maybe [Text])
-    , _lcirsNextToken             :: !(Maybe Text)
-    , _lcirsStatus                :: !Int
+    , _lcirsNextToken :: !(Maybe Text)
+    , _lcirsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
 listContainerInstancesResponse :: Int -> ListContainerInstancesResponse
-listContainerInstancesResponse pStatus_ =
+listContainerInstancesResponse pStatus_ = 
     ListContainerInstancesResponse'
     { _lcirsContainerInstanceARNs = Nothing
     , _lcirsNextToken = Nothing

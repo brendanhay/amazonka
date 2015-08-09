@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.EC2.DeleteCustomerGateway
     , deleteCustomerGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCustomerGateway' smart constructor.
 --
@@ -48,13 +50,13 @@ import           Network.AWS.Response
 --
 -- * 'dcgcCustomerGatewayId'
 data DeleteCustomerGateway = DeleteCustomerGateway'
-    { _dcgcDryRun            :: !(Maybe Bool)
+    { _dcgcDryRun :: !(Maybe Bool)
     , _dcgcCustomerGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomerGateway' smart constructor.
 deleteCustomerGateway :: Text -> DeleteCustomerGateway
-deleteCustomerGateway pCustomerGatewayId_ =
+deleteCustomerGateway pCustomerGatewayId_ = 
     DeleteCustomerGateway'
     { _dcgcDryRun = Nothing
     , _dcgcCustomerGatewayId = pCustomerGatewayId_
@@ -94,7 +96,7 @@ instance ToQuery DeleteCustomerGateway where
 
 -- | /See:/ 'deleteCustomerGatewayResponse' smart constructor.
 data DeleteCustomerGatewayResponse =
-    DeleteCustomerGatewayResponse'
+    DeleteCustomerGatewayResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomerGatewayResponse' smart constructor.

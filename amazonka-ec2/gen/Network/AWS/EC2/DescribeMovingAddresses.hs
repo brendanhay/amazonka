@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -44,10 +45,11 @@ module Network.AWS.EC2.DescribeMovingAddresses
     , dmarsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMovingAddresses' smart constructor.
 --
@@ -63,16 +65,16 @@ import           Network.AWS.Response
 --
 -- * 'dmaMaxResults'
 data DescribeMovingAddresses = DescribeMovingAddresses'
-    { _dmaPublicIPs  :: !(Maybe [Text])
-    , _dmaFilters    :: !(Maybe [Filter])
-    , _dmaNextToken  :: !(Maybe Text)
-    , _dmaDryRun     :: !(Maybe Bool)
+    { _dmaPublicIPs :: !(Maybe [Text])
+    , _dmaFilters :: !(Maybe [Filter])
+    , _dmaNextToken :: !(Maybe Text)
+    , _dmaDryRun :: !(Maybe Bool)
     , _dmaMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMovingAddresses' smart constructor.
 describeMovingAddresses :: DescribeMovingAddresses
-describeMovingAddresses =
+describeMovingAddresses = 
     DescribeMovingAddresses'
     { _dmaPublicIPs = Nothing
     , _dmaFilters = Nothing
@@ -156,13 +158,13 @@ instance ToQuery DescribeMovingAddresses where
 -- * 'dmarsStatus'
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
-    , _dmarsNextToken             :: !(Maybe Text)
-    , _dmarsStatus                :: !Int
+    , _dmarsNextToken :: !(Maybe Text)
+    , _dmarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
 describeMovingAddressesResponse :: Int -> DescribeMovingAddressesResponse
-describeMovingAddressesResponse pStatus_ =
+describeMovingAddressesResponse pStatus_ = 
     DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses = Nothing
     , _dmarsNextToken = Nothing

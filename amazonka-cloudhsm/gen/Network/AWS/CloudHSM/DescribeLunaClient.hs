@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     , drsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLunaClient' smart constructor.
 --
@@ -54,13 +56,13 @@ import           Network.AWS.Response
 --
 -- * 'dlcCertificateFingerprint'
 data DescribeLunaClient = DescribeLunaClient'
-    { _dlcClientARN              :: !(Maybe Text)
+    { _dlcClientARN :: !(Maybe Text)
     , _dlcCertificateFingerprint :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLunaClient' smart constructor.
 describeLunaClient :: DescribeLunaClient
-describeLunaClient =
+describeLunaClient = 
     DescribeLunaClient'
     { _dlcClientARN = Nothing
     , _dlcCertificateFingerprint = Nothing
@@ -129,17 +131,17 @@ instance ToQuery DescribeLunaClient where
 --
 -- * 'drsStatus'
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
-    { _drsClientARN              :: !(Maybe Text)
+    { _drsClientARN :: !(Maybe Text)
     , _drsCertificateFingerprint :: !(Maybe Text)
-    , _drsLastModifiedTimestamp  :: !(Maybe Text)
-    , _drsCertificate            :: !(Maybe Text)
-    , _drsLabel                  :: !(Maybe Text)
-    , _drsStatus                 :: !Int
+    , _drsLastModifiedTimestamp :: !(Maybe Text)
+    , _drsCertificate :: !(Maybe Text)
+    , _drsLabel :: !(Maybe Text)
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLunaClientResponse' smart constructor.
 describeLunaClientResponse :: Int -> DescribeLunaClientResponse
-describeLunaClientResponse pStatus_ =
+describeLunaClientResponse pStatus_ = 
     DescribeLunaClientResponse'
     { _drsClientARN = Nothing
     , _drsCertificateFingerprint = Nothing

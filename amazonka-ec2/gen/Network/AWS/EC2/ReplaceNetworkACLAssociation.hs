@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -42,10 +43,11 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     , rnaarsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'replaceNetworkACLAssociation' smart constructor.
 --
@@ -57,14 +59,14 @@ import           Network.AWS.Response
 --
 -- * 'rnaaNetworkACLId'
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
-    { _rnaaDryRun        :: !(Maybe Bool)
+    { _rnaaDryRun :: !(Maybe Bool)
     , _rnaaAssociationId :: !Text
-    , _rnaaNetworkACLId  :: !Text
+    , _rnaaNetworkACLId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLAssociation' smart constructor.
 replaceNetworkACLAssociation :: Text -> Text -> ReplaceNetworkACLAssociation
-replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
+replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ = 
     ReplaceNetworkACLAssociation'
     { _rnaaDryRun = Nothing
     , _rnaaAssociationId = pAssociationId_
@@ -124,12 +126,12 @@ instance ToQuery ReplaceNetworkACLAssociation where
 -- * 'rnaarsStatus'
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId :: !(Maybe Text)
-    , _rnaarsStatus           :: !Int
+    , _rnaarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
 replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse
-replaceNetworkACLAssociationResponse pStatus_ =
+replaceNetworkACLAssociationResponse pStatus_ = 
     ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId = Nothing
     , _rnaarsStatus = pStatus_

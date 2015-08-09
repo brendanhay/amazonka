@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -45,10 +46,11 @@ module Network.AWS.EC2.ImportVolume
     , ivrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importVolume' smart constructor.
 --
@@ -64,16 +66,16 @@ import           Network.AWS.Response
 --
 -- * 'ivVolume'
 data ImportVolume = ImportVolume'
-    { _ivDryRun           :: !(Maybe Bool)
-    , _ivDescription      :: !(Maybe Text)
+    { _ivDryRun :: !(Maybe Bool)
+    , _ivDescription :: !(Maybe Text)
     , _ivAvailabilityZone :: !Text
-    , _ivImage            :: !DiskImageDetail
-    , _ivVolume           :: !VolumeDetail
+    , _ivImage :: !DiskImageDetail
+    , _ivVolume :: !VolumeDetail
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolume' smart constructor.
 importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
-importVolume pAvailabilityZone_ pImage_ pVolume_ =
+importVolume pAvailabilityZone_ pImage_ pVolume_ = 
     ImportVolume'
     { _ivDryRun = Nothing
     , _ivDescription = Nothing
@@ -140,12 +142,12 @@ instance ToQuery ImportVolume where
 -- * 'ivrsStatus'
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrsConversionTask :: !(Maybe ConversionTask)
-    , _ivrsStatus         :: !Int
+    , _ivrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolumeResponse' smart constructor.
 importVolumeResponse :: Int -> ImportVolumeResponse
-importVolumeResponse pStatus_ =
+importVolumeResponse pStatus_ = 
     ImportVolumeResponse'
     { _ivrsConversionTask = Nothing
     , _ivrsStatus = pStatus_

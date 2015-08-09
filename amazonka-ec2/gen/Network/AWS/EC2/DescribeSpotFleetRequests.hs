@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -40,10 +41,11 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     , dsfrrsSpotFleetRequestConfigs
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetRequests.
 --
@@ -60,14 +62,14 @@ import           Network.AWS.Response
 -- * 'dsfrMaxResults'
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
     { _dsfrSpotFleetRequestIds :: !(Maybe [Text])
-    , _dsfrNextToken           :: !(Maybe Text)
-    , _dsfrDryRun              :: !(Maybe Bool)
-    , _dsfrMaxResults          :: !(Maybe Int)
+    , _dsfrNextToken :: !(Maybe Text)
+    , _dsfrDryRun :: !(Maybe Bool)
+    , _dsfrMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequests' smart constructor.
 describeSpotFleetRequests :: DescribeSpotFleetRequests
-describeSpotFleetRequests =
+describeSpotFleetRequests = 
     DescribeSpotFleetRequests'
     { _dsfrSpotFleetRequestIds = Nothing
     , _dsfrNextToken = Nothing
@@ -140,14 +142,14 @@ instance ToQuery DescribeSpotFleetRequests where
 --
 -- * 'dsfrrsSpotFleetRequestConfigs'
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
-    { _dsfrrsNextToken               :: !(Maybe Text)
-    , _dsfrrsStatus                  :: !Int
+    { _dsfrrsNextToken :: !(Maybe Text)
+    , _dsfrrsStatus :: !Int
     , _dsfrrsSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
 describeSpotFleetRequestsResponse :: Int -> DescribeSpotFleetRequestsResponse
-describeSpotFleetRequestsResponse pStatus_ =
+describeSpotFleetRequestsResponse pStatus_ = 
     DescribeSpotFleetRequestsResponse'
     { _dsfrrsNextToken = Nothing
     , _dsfrrsStatus = pStatus_

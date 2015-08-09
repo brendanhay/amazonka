@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -46,10 +47,11 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , dsgrsStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSecurityGroups' smart constructor.
 --
@@ -64,14 +66,14 @@ import           Network.AWS.Response
 -- * 'dsgsDryRun'
 data DescribeSecurityGroups = DescribeSecurityGroups'
     { _dsgsGroupNames :: !(Maybe [Text])
-    , _dsgsFilters    :: !(Maybe [Filter])
-    , _dsgsGroupIds   :: !(Maybe [Text])
-    , _dsgsDryRun     :: !(Maybe Bool)
+    , _dsgsFilters :: !(Maybe [Filter])
+    , _dsgsGroupIds :: !(Maybe [Text])
+    , _dsgsDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSecurityGroups' smart constructor.
 describeSecurityGroups :: DescribeSecurityGroups
-describeSecurityGroups =
+describeSecurityGroups = 
     DescribeSecurityGroups'
     { _dsgsGroupNames = Nothing
     , _dsgsFilters = Nothing
@@ -186,12 +188,12 @@ instance ToQuery DescribeSecurityGroups where
 -- * 'dsgrsStatus'
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
-    , _dsgrsStatus         :: !Int
+    , _dsgrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
 describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse
-describeSecurityGroupsResponse pStatus_ =
+describeSecurityGroupsResponse pStatus_ = 
     DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups = Nothing
     , _dsgrsStatus = pStatus_

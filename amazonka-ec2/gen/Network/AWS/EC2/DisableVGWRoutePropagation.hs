@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,10 +36,11 @@ module Network.AWS.EC2.DisableVGWRoutePropagation
     , disableVGWRoutePropagationResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableVGWRoutePropagation' smart constructor.
 --
@@ -49,12 +51,12 @@ import           Network.AWS.Response
 -- * 'dvrpGatewayId'
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
     { _dvrpRouteTableId :: !Text
-    , _dvrpGatewayId    :: !Text
+    , _dvrpGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVGWRoutePropagation' smart constructor.
 disableVGWRoutePropagation :: Text -> Text -> DisableVGWRoutePropagation
-disableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
+disableVGWRoutePropagation pRouteTableId_ pGatewayId_ = 
     DisableVGWRoutePropagation'
     { _dvrpRouteTableId = pRouteTableId_
     , _dvrpGatewayId = pGatewayId_
@@ -93,7 +95,7 @@ instance ToQuery DisableVGWRoutePropagation where
 
 -- | /See:/ 'disableVGWRoutePropagationResponse' smart constructor.
 data DisableVGWRoutePropagationResponse =
-    DisableVGWRoutePropagationResponse'
+    DisableVGWRoutePropagationResponse' 
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVGWRoutePropagationResponse' smart constructor.

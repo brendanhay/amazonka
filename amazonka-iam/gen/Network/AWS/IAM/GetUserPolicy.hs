@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -49,10 +50,11 @@ module Network.AWS.IAM.GetUserPolicy
     , guprsPolicyDocument
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getUserPolicy' smart constructor.
 --
@@ -62,13 +64,13 @@ import           Network.AWS.Response
 --
 -- * 'gupPolicyName'
 data GetUserPolicy = GetUserPolicy'
-    { _gupUserName   :: !Text
+    { _gupUserName :: !Text
     , _gupPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserPolicy' smart constructor.
 getUserPolicy :: Text -> Text -> GetUserPolicy
-getUserPolicy pUserName_ pPolicyName_ =
+getUserPolicy pUserName_ pPolicyName_ = 
     GetUserPolicy'
     { _gupUserName = pUserName_
     , _gupPolicyName = pPolicyName_
@@ -122,15 +124,15 @@ instance ToQuery GetUserPolicy where
 --
 -- * 'guprsPolicyDocument'
 data GetUserPolicyResponse = GetUserPolicyResponse'
-    { _guprsStatus         :: !Int
-    , _guprsUserName       :: !Text
-    , _guprsPolicyName     :: !Text
+    { _guprsStatus :: !Int
+    , _guprsUserName :: !Text
+    , _guprsPolicyName :: !Text
     , _guprsPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserPolicyResponse' smart constructor.
 getUserPolicyResponse :: Int -> Text -> Text -> Text -> GetUserPolicyResponse
-getUserPolicyResponse pStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
+getUserPolicyResponse pStatus_ pUserName_ pPolicyName_ pPolicyDocument_ = 
     GetUserPolicyResponse'
     { _guprsStatus = pStatus_
     , _guprsUserName = pUserName_

@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -41,10 +42,11 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     , avdmApplicationVersion
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,14 +60,14 @@ import           Network.AWS.Response
 --
 -- * 'uavVersionLabel'
 data UpdateApplicationVersion = UpdateApplicationVersion'
-    { _uavDescription     :: !(Maybe Text)
+    { _uavDescription :: !(Maybe Text)
     , _uavApplicationName :: !Text
-    , _uavVersionLabel    :: !Text
+    , _uavVersionLabel :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplicationVersion' smart constructor.
 updateApplicationVersion :: Text -> Text -> UpdateApplicationVersion
-updateApplicationVersion pApplicationName_ pVersionLabel_ =
+updateApplicationVersion pApplicationName_ pVersionLabel_ = 
     UpdateApplicationVersion'
     { _uavDescription = Nothing
     , _uavApplicationName = pApplicationName_

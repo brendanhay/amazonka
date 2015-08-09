@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -39,10 +40,11 @@ module Network.AWS.EMR.AddTags
     , atrsStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to attach.
 --
@@ -55,12 +57,12 @@ import           Network.AWS.Response
 -- * 'atTags'
 data AddTags = AddTags'
     { _atResourceId :: !Text
-    , _atTags       :: ![Tag]
+    , _atTags :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
-addTags pResourceId_ =
+addTags pResourceId_ = 
     AddTags'
     { _atResourceId = pResourceId_
     , _atTags = mempty
@@ -119,7 +121,7 @@ newtype AddTagsResponse = AddTagsResponse'
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatus_ =
+addTagsResponse pStatus_ = 
     AddTagsResponse'
     { _atrsStatus = pStatus_
     }
